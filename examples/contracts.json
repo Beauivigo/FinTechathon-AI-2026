@@ -1,0 +1,849 @@
+[
+  {
+    "name": "transfer.create",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "params": {
+        "account_id": "account_1",
+        "payee_id": "payee_1",
+        "amount_minor": 1250
+      },
+      "idempotency_key": "operation_1"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "transaction_id": "tx_1",
+        "amount_minor": 1250
+      }
+    },
+    "display_text": "【模拟】转账已完成。"
+  },
+  {
+    "name": "transfer.schedule",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_2",
+      "trace_id": "trace_2",
+      "action": "transfer.schedule",
+      "params": {
+        "account_id": "account_1",
+        "payee_id": "payee_1",
+        "amount_minor": 1250,
+        "execute_at": "2026-10-12T09:00:00+08:00"
+      },
+      "idempotency_key": "operation_2"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_2",
+      "trace_id": "trace_2",
+      "action": "transfer.schedule",
+      "status": "scheduled",
+      "source": "sandbox",
+      "data": {
+        "schedule_id": "schedule_1",
+        "execute_at": "2026-10-12T09:00:00+08:00"
+      }
+    },
+    "display_text": "【模拟】已安排，尚未执行。"
+  },
+  {
+    "name": "transfer.split",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_3",
+      "trace_id": "trace_3",
+      "action": "transfer.split",
+      "params": {
+        "account_id": "account_1",
+        "payee_ids": [
+          "payee_1",
+          "payee_2"
+        ],
+        "amount_minor": 101
+      },
+      "idempotency_key": "operation_3"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_3",
+      "trace_id": "trace_3",
+      "action": "transfer.split",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "collection_id": "collection_1",
+        "shares": [
+          {
+            "payee_id": "payee_1",
+            "amount_minor": 51
+          },
+          {
+            "payee_id": "payee_2",
+            "amount_minor": 50
+          }
+        ]
+      }
+    },
+    "display_text": "【模拟】AA 收款单已创建，尚不代表已收款。"
+  },
+  {
+    "name": "bill.analyze",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_4",
+      "trace_id": "trace_4",
+      "action": "bill.analyze",
+      "params": {
+        "account_id": "account_1",
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-31"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_4",
+      "trace_id": "trace_4",
+      "action": "bill.analyze",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "total_expense_minor": 1250,
+        "categories": [
+          {
+            "category": "餐饮",
+            "amount_minor": 1250
+          }
+        ],
+        "anomalies": [
+          {
+            "transaction_id": "tx_1",
+            "reason": "与另一笔消费金额及时间相近，请核实"
+          }
+        ],
+        "report": "本期示例支出12.50元，异常标记仅供核实。"
+      }
+    },
+    "display_text": "【模拟】账单分析已完成。"
+  },
+  {
+    "name": "wealth.compare",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_5",
+      "trace_id": "trace_5",
+      "action": "wealth.compare",
+      "params": {
+        "product_ids": [
+          "product_1"
+        ]
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_5",
+      "trace_id": "trace_5",
+      "action": "wealth.compare",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "products": [
+          {
+            "product_id": "product_1",
+            "name": "模拟产品一",
+            "risk_level": "R2",
+            "minimum_amount_minor": 10000,
+            "lock_days": 30,
+            "fee_description": "模拟申购费为零",
+            "redemption_rule": "满30天后可申请赎回"
+          }
+        ]
+      }
+    },
+    "display_text": "【模拟】产品对比已完成。"
+  },
+  {
+    "name": "wealth.assess",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_6",
+      "trace_id": "trace_6",
+      "action": "wealth.assess",
+      "params": {
+        "questionnaire_version": "demo_v1",
+        "answers": {
+          "q1": "choice_2",
+          "q2": "choice_3"
+        }
+      },
+      "idempotency_key": "operation_6"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_6",
+      "trace_id": "trace_6",
+      "action": "wealth.assess",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "risk_profile_id": "profile_1",
+        "risk_level": "R2"
+      }
+    },
+    "display_text": "【模拟】风险评估已保存。"
+  },
+  {
+    "name": "wealth.purchase",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_7",
+      "trace_id": "trace_7",
+      "action": "wealth.purchase",
+      "params": {
+        "account_id": "account_1",
+        "product_id": "product_1",
+        "risk_profile_id": "profile_1",
+        "amount_minor": 10000
+      },
+      "idempotency_key": "operation_7"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_7",
+      "trace_id": "trace_7",
+      "action": "wealth.purchase",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "order_id": "purchase_1",
+        "amount_minor": 10000
+      }
+    },
+    "display_text": "【模拟】申购订单已提交，份额确认以订单状态为准。"
+  },
+  {
+    "name": "wealth.redeem",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_8",
+      "trace_id": "trace_8",
+      "action": "wealth.redeem",
+      "params": {
+        "account_id": "account_1",
+        "holding_id": "holding_1",
+        "units": "12.5000"
+      },
+      "idempotency_key": "operation_8"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_8",
+      "trace_id": "trace_8",
+      "action": "wealth.redeem",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "order_id": "redeem_1",
+        "units": "12.5"
+      }
+    },
+    "display_text": "【模拟】赎回订单已提交，到账以订单状态为准。"
+  },
+  {
+    "name": "card.apply",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_9",
+      "trace_id": "trace_9",
+      "action": "card.apply",
+      "params": {
+        "account_id": "account_1"
+      },
+      "idempotency_key": "operation_9"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_9",
+      "trace_id": "trace_9",
+      "action": "card.apply",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "application_id": "application_1"
+      }
+    },
+    "display_text": "【模拟】虚拟卡申请已提交，尚不代表已获批。"
+  },
+  {
+    "name": "card.set_limit",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_10",
+      "trace_id": "trace_10",
+      "action": "card.set_limit",
+      "params": {
+        "card_id": "card_1",
+        "limit_minor": 100000
+      },
+      "idempotency_key": "operation_10"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_10",
+      "trace_id": "trace_10",
+      "action": "card.set_limit",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "card_id": "card_1",
+        "limit_minor": 100000
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "card.freeze",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_11",
+      "trace_id": "trace_11",
+      "action": "card.freeze",
+      "params": {
+        "card_id": "card_1"
+      },
+      "idempotency_key": "operation_11"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_11",
+      "trace_id": "trace_11",
+      "action": "card.freeze",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "card_id": "card_1",
+        "card_state": "frozen"
+      }
+    },
+    "display_text": "【模拟】卡片已冻结。"
+  },
+  {
+    "name": "card.unfreeze",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_12",
+      "trace_id": "trace_12",
+      "action": "card.unfreeze",
+      "params": {
+        "card_id": "card_1"
+      },
+      "idempotency_key": "operation_12"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_12",
+      "trace_id": "trace_12",
+      "action": "card.unfreeze",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "card_id": "card_1",
+        "card_state": "active"
+      }
+    },
+    "display_text": "【模拟】卡片已解冻。"
+  },
+  {
+    "name": "card.report_loss",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_13",
+      "trace_id": "trace_13",
+      "action": "card.report_loss",
+      "params": {
+        "card_id": "card_1"
+      },
+      "idempotency_key": "operation_13"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_13",
+      "trace_id": "trace_13",
+      "action": "card.report_loss",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "card_id": "card_1",
+        "card_state": "lost"
+      }
+    },
+    "display_text": "【模拟】卡片已挂失。"
+  },
+  {
+    "name": "subscription.list",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_14",
+      "trace_id": "trace_14",
+      "action": "subscription.list",
+      "params": {
+        "account_id": "account_1"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_14",
+      "trace_id": "trace_14",
+      "action": "subscription.list",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "subscriptions": [
+          {
+            "subscription_id": "subscription_1",
+            "merchant_name": "模拟视频会员",
+            "amount_minor": 2500,
+            "interval": "monthly",
+            "next_charge_date": "2026-11-01",
+            "subscription_state": "active"
+          }
+        ]
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "subscription.cancel",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_15",
+      "trace_id": "trace_15",
+      "action": "subscription.cancel",
+      "params": {
+        "subscription_id": "subscription_1"
+      },
+      "idempotency_key": "operation_15"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_15",
+      "trace_id": "trace_15",
+      "action": "subscription.cancel",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "subscription_id": "subscription_1",
+        "subscription_state": "cancelled"
+      }
+    },
+    "display_text": "【模拟】订阅已取消。"
+  },
+  {
+    "name": "subscription.remind",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_16",
+      "trace_id": "trace_16",
+      "action": "subscription.remind",
+      "params": {
+        "subscription_id": "subscription_1",
+        "remind_at": "2026-10-12T09:00:00+08:00"
+      },
+      "idempotency_key": "operation_16"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_16",
+      "trace_id": "trace_16",
+      "action": "subscription.remind",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "reminder_id": "reminder_1"
+      }
+    },
+    "display_text": "【模拟】提醒已登记，尚未发送。"
+  },
+  {
+    "name": "scenario.plan",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_17",
+      "trace_id": "trace_17",
+      "action": "scenario.plan",
+      "params": {
+        "goal": "为10月14日生日预留1000元，提前两天买鲜花和蛋糕"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_17",
+      "trace_id": "trace_17",
+      "action": "scenario.plan",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "summary": "预留预算后，分别安排鲜花和蛋糕下单。",
+        "steps": [
+          {
+            "step_id": "reserve",
+            "action": "budget.reserve",
+            "depends_on": [],
+            "description": "预留预算"
+          },
+          {
+            "step_id": "flowers",
+            "action": "merchant.order",
+            "depends_on": [
+              "reserve"
+            ],
+            "description": "安排鲜花"
+          },
+          {
+            "step_id": "cake",
+            "action": "merchant.order",
+            "depends_on": [
+              "reserve"
+            ],
+            "description": "安排蛋糕"
+          }
+        ]
+      }
+    },
+    "display_text": "【模拟】计划已生成，尚未执行其中的业务操作。"
+  },
+  {
+    "name": "budget.reserve",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_18",
+      "trace_id": "trace_18",
+      "action": "budget.reserve",
+      "params": {
+        "account_id": "account_1",
+        "amount_minor": 100000,
+        "purpose": "生日预算"
+      },
+      "idempotency_key": "operation_18"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_18",
+      "trace_id": "trace_18",
+      "action": "budget.reserve",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "reservation_id": "reservation_1",
+        "amount_minor": 100000
+      }
+    },
+    "display_text": "【模拟】预算已预留。"
+  },
+  {
+    "name": "budget.release",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_19",
+      "trace_id": "trace_19",
+      "action": "budget.release",
+      "params": {
+        "reservation_id": "reservation_1"
+      },
+      "idempotency_key": "operation_19"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_19",
+      "trace_id": "trace_19",
+      "action": "budget.release",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "reservation_id": "reservation_1"
+      }
+    },
+    "display_text": "【模拟】预算预留已释放。"
+  },
+  {
+    "name": "merchant.order",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_20",
+      "trace_id": "trace_20",
+      "action": "merchant.order",
+      "params": {
+        "account_id": "account_1",
+        "reservation_id": "reservation_1",
+        "item_id": "flowers_1",
+        "amount_minor": 20000,
+        "deliver_on": "2026-10-14",
+        "delivery_address_id": "address_1"
+      },
+      "idempotency_key": "operation_20"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_20",
+      "trace_id": "trace_20",
+      "action": "merchant.order",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "order_id": "merchant_order_1",
+        "amount_minor": 20000
+      }
+    },
+    "display_text": "【模拟】商户订单已提交，配送状态以订单为准。"
+  },
+  {
+    "name": "account.balance",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
+      "action": "account.balance",
+      "params": {
+        "account_id": "account_1"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
+      "action": "account.balance",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "account_id": "account_1",
+        "balance_minor": 200000,
+        "available_minor": 100000,
+        "reserved_minor": 100000,
+        "currency": "CNY"
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "payee.resolve",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
+      "action": "payee.resolve",
+      "params": {
+        "query": "小王",
+        "match_type": "name"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
+      "action": "payee.resolve",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "candidates": [
+          {
+            "payee_id": "payee_1",
+            "display_name": "小王",
+            "masked_account": "****1234"
+          }
+        ]
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "transaction.list",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
+      "action": "transaction.list",
+      "params": {
+        "account_id": "account_1",
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-31",
+        "limit": 20
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
+      "action": "transaction.list",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "transactions": [
+          {
+            "account_id": "account_1",
+            "transaction_id": "tx_1",
+            "amount_minor": 1250,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "餐饮",
+            "occurred_at": "2026-10-12T09:00:00+08:00",
+            "merchant_name": "模拟餐厅"
+          }
+        ],
+        "next_cursor": null
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "transfer.confirm",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "params": {
+        "account_id": "account_1",
+        "payee_id": "payee_1",
+        "amount_minor": 1250
+      },
+      "idempotency_key": "operation_1"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "status": "awaiting_confirmation",
+      "source": "gateway",
+      "data": {},
+      "next_action": {
+        "challenge_id": "challenge_confirm",
+        "kind": "confirm",
+        "operation_digest": "1c78cbbafb4ed4cf2f849c581f5a4cee2a771df94f0b42aaaaa879949aa2ef6f",
+        "expires_at": "2026-10-12T09:00:00+08:00"
+      }
+    },
+    "display_text": "待用户确认。"
+  },
+  {
+    "name": "transfer.verify",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "params": {
+        "account_id": "account_1",
+        "payee_id": "payee_1",
+        "amount_minor": 1250
+      },
+      "idempotency_key": "operation_1"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "status": "awaiting_verification",
+      "source": "gateway",
+      "data": {},
+      "next_action": {
+        "challenge_id": "challenge_verify",
+        "kind": "verify",
+        "operation_digest": "1c78cbbafb4ed4cf2f849c581f5a4cee2a771df94f0b42aaaaa879949aa2ef6f",
+        "expires_at": "2026-10-12T09:00:00+08:00",
+        "methods": [
+          "demo_otp"
+        ]
+      }
+    },
+    "display_text": "待强验证。"
+  },
+  {
+    "name": "transfer.unknown",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "params": {
+        "account_id": "account_1",
+        "payee_id": "payee_1",
+        "amount_minor": 1250
+      },
+      "idempotency_key": "operation_1"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_1",
+      "trace_id": "trace_1",
+      "action": "transfer.create",
+      "status": "unknown",
+      "source": "sandbox",
+      "data": {},
+      "error": {
+        "code": "RESULT_UNKNOWN",
+        "message": "请查询原操作"
+      }
+    },
+    "display_text": "【模拟】结果待核实，请查询原操作状态，暂勿重新提交。"
+  },
+  {
+    "name": "operation.get",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "req_query",
+      "trace_id": "trace_query",
+      "action": "operation.get",
+      "params": {
+        "original_action": "transfer.create",
+        "original_idempotency_key": "operation_1"
+      }
+    },
+    "result": {
+      "schema_version": "1.0",
+      "request_id": "req_query",
+      "trace_id": "trace_query",
+      "action": "operation.get",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "operation_request": {
+          "schema_version": "1.0",
+          "request_id": "req_1",
+          "trace_id": "trace_1",
+          "action": "transfer.create",
+          "params": {
+            "account_id": "account_1",
+            "payee_id": "payee_1",
+            "amount_minor": 1250
+          },
+          "idempotency_key": "operation_1"
+        },
+        "operation_result": {
+          "schema_version": "1.0",
+          "request_id": "req_1",
+          "trace_id": "trace_1",
+          "action": "transfer.create",
+          "status": "unknown",
+          "source": "sandbox",
+          "data": {},
+          "error": {
+            "code": "RESULT_UNKNOWN",
+            "message": "请查询原操作"
+          }
+        }
+      }
+    },
+    "display_text": "【模拟】原操作查询：结果待核实，请查询原操作状态，暂勿重新提交。"
+  }
+]
