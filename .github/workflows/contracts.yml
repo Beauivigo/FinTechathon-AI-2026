@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install first-round page dependency
+        run: python -m pip install -r requirements-app.txt
       - name: Validate contracts and shared JSON examples
         run: python -m unittest discover -s tests -v
       - name: Run integration example
