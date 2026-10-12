@@ -1,0 +1,263 @@
+{
+  "context": {
+    "schema_version": "1.1",
+    "source": "sandbox",
+    "accounts": [
+      {
+        "account_id": "account_1",
+        "display_name": "模拟日常账户"
+      }
+    ],
+    "products": [
+      {
+        "product_id": "product_1",
+        "name": "模拟产品一",
+        "risk_level": "R2",
+        "minimum_amount_minor": 10000,
+        "lock_days": 30,
+        "fee_description": "模拟申购费为零",
+        "redemption_rule": "满30天后可申请赎回"
+      }
+    ],
+    "holdings": [
+      {
+        "holding_id": "holding_1",
+        "account_id": "account_1",
+        "product_id": "product_1",
+        "units": "12.5"
+      }
+    ],
+    "cards": [
+      {
+        "card_id": "card_1",
+        "account_id": "account_1",
+        "card_state": "active",
+        "limit_minor": 100000
+      }
+    ],
+    "items": [
+      {
+        "item_id": "flowers_1",
+        "name": "模拟鲜花",
+        "price_minor": 20000
+      }
+    ],
+    "addresses": [
+      {
+        "delivery_address_id": "address_1",
+        "label": "模拟地址（完整配送信息由服务端保存）"
+      }
+    ],
+    "questionnaires": [
+      {
+        "questionnaire_version": "demo_v1",
+        "questions": [
+          {
+            "question_id": "q1",
+            "text": "可承受的波动？",
+            "choices": [
+              {
+                "choice_id": "choice_1",
+                "text": "较低"
+              },
+              {
+                "choice_id": "choice_2",
+                "text": "适中"
+              }
+            ]
+          },
+          {
+            "question_id": "q2",
+            "text": "计划持有多久？",
+            "choices": [
+              {
+                "choice_id": "choice_1",
+                "text": "一个月内"
+              },
+              {
+                "choice_id": "choice_3",
+                "text": "一年以上"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "funds": [
+    {
+      "command": {
+        "schema_version": "1.1",
+        "posting_key": "posting_debit",
+        "trace_id": "trace_funds",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "debit",
+        "amount_minor": 100,
+        "kind": "wealth"
+      },
+      "receipt": {
+        "posting_key": "posting_debit",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "debit",
+        "amount_minor": 100,
+        "entry_id": "entry_debit"
+      }
+    },
+    {
+      "command": {
+        "schema_version": "1.1",
+        "posting_key": "posting_credit",
+        "trace_id": "trace_funds",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "credit",
+        "amount_minor": 100,
+        "kind": "wealth"
+      },
+      "receipt": {
+        "posting_key": "posting_credit",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "credit",
+        "amount_minor": 100,
+        "entry_id": "entry_credit"
+      }
+    },
+    {
+      "command": {
+        "schema_version": "1.1",
+        "posting_key": "posting_reserve",
+        "trace_id": "trace_funds",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "reserve",
+        "amount_minor": 100,
+        "kind": "wealth",
+        "reservation_id": "reservation_1"
+      },
+      "receipt": {
+        "posting_key": "posting_reserve",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "reserve",
+        "amount_minor": 100,
+        "entry_id": "entry_reserve"
+      }
+    },
+    {
+      "command": {
+        "schema_version": "1.1",
+        "posting_key": "posting_consume_reserved",
+        "trace_id": "trace_funds",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "consume_reserved",
+        "amount_minor": 100,
+        "kind": "wealth",
+        "reservation_id": "reservation_1"
+      },
+      "receipt": {
+        "posting_key": "posting_consume_reserved",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "consume_reserved",
+        "amount_minor": 100,
+        "entry_id": "entry_consume_reserved"
+      }
+    },
+    {
+      "command": {
+        "schema_version": "1.1",
+        "posting_key": "posting_release_reserved",
+        "trace_id": "trace_funds",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "release_reserved",
+        "amount_minor": 100,
+        "kind": "wealth",
+        "reservation_id": "reservation_1"
+      },
+      "receipt": {
+        "posting_key": "posting_release_reserved",
+        "account_id": "account_1",
+        "reference_id": "order_1",
+        "effect": "release_reserved",
+        "amount_minor": 100,
+        "entry_id": "entry_release_reserved"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "task_transfer.create",
+      "state": "scheduled",
+      "spec": {
+        "schema_version": "1.1",
+        "task_key": "task_key_transfer.create",
+        "trace_id": "trace_1",
+        "run_at": "2026-10-12T09:00:00+08:00",
+        "kind": "execute_request",
+        "origin_action": "transfer.schedule",
+        "origin_idempotency_key": "origin_transfer.create",
+        "payload": {
+          "schema_version": "1.1",
+          "request_id": "req_1",
+          "trace_id": "trace_1",
+          "action": "transfer.create",
+          "params": {
+            "account_id": "account_1",
+            "payee_id": "payee_1",
+            "amount_minor": 1250
+          },
+          "idempotency_key": "operation_1"
+        }
+      }
+    },
+    {
+      "task_id": "task_merchant.order",
+      "state": "scheduled",
+      "spec": {
+        "schema_version": "1.1",
+        "task_key": "task_key_merchant.order",
+        "trace_id": "trace_22",
+        "run_at": "2026-10-12T09:00:00+08:00",
+        "kind": "execute_request",
+        "origin_action": "budget.reserve",
+        "origin_idempotency_key": "origin_merchant.order",
+        "payload": {
+          "schema_version": "1.1",
+          "request_id": "req_22",
+          "trace_id": "trace_22",
+          "action": "merchant.order",
+          "params": {
+            "account_id": "account_1",
+            "reservation_id": "reservation_1",
+            "item_id": "flowers_1",
+            "amount_minor": 20000,
+            "deliver_on": "2026-10-14",
+            "delivery_address_id": "address_1"
+          },
+          "idempotency_key": "operation_22"
+        }
+      }
+    },
+    {
+      "task_id": "task_reminder",
+      "state": "scheduled",
+      "spec": {
+        "schema_version": "1.1",
+        "task_key": "task_key_reminder",
+        "trace_id": "trace_reminder",
+        "run_at": "2026-10-12T09:00:00+08:00",
+        "kind": "notify_subscription",
+        "origin_action": "subscription.remind",
+        "origin_idempotency_key": "origin_reminder",
+        "payload": {
+          "subscription_id": "subscription_1"
+        }
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   {
     "name": "transfer.create",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -14,7 +14,7 @@
       "idempotency_key": "operation_1"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -30,7 +30,7 @@
   {
     "name": "transfer.schedule",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_2",
       "trace_id": "trace_2",
       "action": "transfer.schedule",
@@ -43,7 +43,7 @@
       "idempotency_key": "operation_2"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_2",
       "trace_id": "trace_2",
       "action": "transfer.schedule",
@@ -59,7 +59,7 @@
   {
     "name": "transfer.split",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_3",
       "trace_id": "trace_3",
       "action": "transfer.split",
@@ -74,7 +74,7 @@
       "idempotency_key": "operation_3"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_3",
       "trace_id": "trace_3",
       "action": "transfer.split",
@@ -99,7 +99,7 @@
   {
     "name": "bill.analyze",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_4",
       "trace_id": "trace_4",
       "action": "bill.analyze",
@@ -110,7 +110,7 @@
       }
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_4",
       "trace_id": "trace_4",
       "action": "bill.analyze",
@@ -138,7 +138,7 @@
   {
     "name": "wealth.compare",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_5",
       "trace_id": "trace_5",
       "action": "wealth.compare",
@@ -149,7 +149,7 @@
       }
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_5",
       "trace_id": "trace_5",
       "action": "wealth.compare",
@@ -174,7 +174,7 @@
   {
     "name": "wealth.assess",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_6",
       "trace_id": "trace_6",
       "action": "wealth.assess",
@@ -188,7 +188,7 @@
       "idempotency_key": "operation_6"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_6",
       "trace_id": "trace_6",
       "action": "wealth.assess",
@@ -204,7 +204,7 @@
   {
     "name": "wealth.purchase",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_7",
       "trace_id": "trace_7",
       "action": "wealth.purchase",
@@ -217,7 +217,7 @@
       "idempotency_key": "operation_7"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_7",
       "trace_id": "trace_7",
       "action": "wealth.purchase",
@@ -233,7 +233,7 @@
   {
     "name": "wealth.redeem",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_8",
       "trace_id": "trace_8",
       "action": "wealth.redeem",
@@ -245,7 +245,7 @@
       "idempotency_key": "operation_8"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_8",
       "trace_id": "trace_8",
       "action": "wealth.redeem",
@@ -261,7 +261,7 @@
   {
     "name": "card.apply",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_9",
       "trace_id": "trace_9",
       "action": "card.apply",
@@ -271,7 +271,7 @@
       "idempotency_key": "operation_9"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_9",
       "trace_id": "trace_9",
       "action": "card.apply",
@@ -286,7 +286,7 @@
   {
     "name": "card.set_limit",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_10",
       "trace_id": "trace_10",
       "action": "card.set_limit",
@@ -297,7 +297,7 @@
       "idempotency_key": "operation_10"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_10",
       "trace_id": "trace_10",
       "action": "card.set_limit",
@@ -313,7 +313,7 @@
   {
     "name": "card.freeze",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_11",
       "trace_id": "trace_11",
       "action": "card.freeze",
@@ -323,7 +323,7 @@
       "idempotency_key": "operation_11"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_11",
       "trace_id": "trace_11",
       "action": "card.freeze",
@@ -339,7 +339,7 @@
   {
     "name": "card.unfreeze",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_12",
       "trace_id": "trace_12",
       "action": "card.unfreeze",
@@ -349,7 +349,7 @@
       "idempotency_key": "operation_12"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_12",
       "trace_id": "trace_12",
       "action": "card.unfreeze",
@@ -365,7 +365,7 @@
   {
     "name": "card.report_loss",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_13",
       "trace_id": "trace_13",
       "action": "card.report_loss",
@@ -375,7 +375,7 @@
       "idempotency_key": "operation_13"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_13",
       "trace_id": "trace_13",
       "action": "card.report_loss",
@@ -389,20 +389,46 @@
     "display_text": "【模拟】卡片已挂失。"
   },
   {
-    "name": "subscription.list",
+    "name": "card.release_loss",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_14",
       "trace_id": "trace_14",
+      "action": "card.release_loss",
+      "params": {
+        "card_id": "card_1"
+      },
+      "idempotency_key": "operation_14"
+    },
+    "result": {
+      "schema_version": "1.1",
+      "request_id": "req_14",
+      "trace_id": "trace_14",
+      "action": "card.release_loss",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "card_id": "card_1",
+        "card_state": "frozen"
+      }
+    },
+    "display_text": "【模拟】挂失已解除，卡片仍冻结；恢复使用需另行解冻。"
+  },
+  {
+    "name": "subscription.list",
+    "request": {
+      "schema_version": "1.1",
+      "request_id": "req_15",
+      "trace_id": "trace_15",
       "action": "subscription.list",
       "params": {
         "account_id": "account_1"
       }
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_14",
-      "trace_id": "trace_14",
+      "schema_version": "1.1",
+      "request_id": "req_15",
+      "trace_id": "trace_15",
       "action": "subscription.list",
       "status": "succeeded",
       "source": "sandbox",
@@ -414,7 +440,8 @@
             "amount_minor": 2500,
             "interval": "monthly",
             "next_charge_date": "2026-11-01",
-            "subscription_state": "active"
+            "subscription_state": "candidate",
+            "evidence": "同一商户连续三个月扣费25元，需用户核实。"
           }
         ]
       }
@@ -422,21 +449,48 @@
     "display_text": "【模拟】操作已完成。"
   },
   {
+    "name": "subscription.review",
+    "request": {
+      "schema_version": "1.1",
+      "request_id": "req_16",
+      "trace_id": "trace_16",
+      "action": "subscription.review",
+      "params": {
+        "subscription_id": "subscription_1",
+        "decision": "accept"
+      },
+      "idempotency_key": "operation_16"
+    },
+    "result": {
+      "schema_version": "1.1",
+      "request_id": "req_16",
+      "trace_id": "trace_16",
+      "action": "subscription.review",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "subscription_id": "subscription_1",
+        "subscription_state": "active"
+      }
+    },
+    "display_text": "【模拟】已核实为订阅记录，未新签代扣授权。"
+  },
+  {
     "name": "subscription.cancel",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_15",
-      "trace_id": "trace_15",
+      "schema_version": "1.1",
+      "request_id": "req_17",
+      "trace_id": "trace_17",
       "action": "subscription.cancel",
       "params": {
         "subscription_id": "subscription_1"
       },
-      "idempotency_key": "operation_15"
+      "idempotency_key": "operation_17"
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_15",
-      "trace_id": "trace_15",
+      "schema_version": "1.1",
+      "request_id": "req_17",
+      "trace_id": "trace_17",
       "action": "subscription.cancel",
       "status": "succeeded",
       "source": "sandbox",
@@ -450,20 +504,20 @@
   {
     "name": "subscription.remind",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_16",
-      "trace_id": "trace_16",
+      "schema_version": "1.1",
+      "request_id": "req_18",
+      "trace_id": "trace_18",
       "action": "subscription.remind",
       "params": {
         "subscription_id": "subscription_1",
         "remind_at": "2026-10-12T09:00:00+08:00"
       },
-      "idempotency_key": "operation_16"
+      "idempotency_key": "operation_18"
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_16",
-      "trace_id": "trace_16",
+      "schema_version": "1.1",
+      "request_id": "req_18",
+      "trace_id": "trace_18",
       "action": "subscription.remind",
       "status": "succeeded",
       "source": "sandbox",
@@ -476,18 +530,18 @@
   {
     "name": "scenario.plan",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_17",
-      "trace_id": "trace_17",
+      "schema_version": "1.1",
+      "request_id": "req_19",
+      "trace_id": "trace_19",
       "action": "scenario.plan",
       "params": {
         "goal": "为10月14日生日预留1000元，提前两天买鲜花和蛋糕"
       }
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_17",
-      "trace_id": "trace_17",
+      "schema_version": "1.1",
+      "request_id": "req_19",
+      "trace_id": "trace_19",
       "action": "scenario.plan",
       "status": "succeeded",
       "source": "sandbox",
@@ -524,21 +578,21 @@
   {
     "name": "budget.reserve",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_18",
-      "trace_id": "trace_18",
+      "schema_version": "1.1",
+      "request_id": "req_20",
+      "trace_id": "trace_20",
       "action": "budget.reserve",
       "params": {
         "account_id": "account_1",
         "amount_minor": 100000,
         "purpose": "生日预算"
       },
-      "idempotency_key": "operation_18"
+      "idempotency_key": "operation_20"
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_18",
-      "trace_id": "trace_18",
+      "schema_version": "1.1",
+      "request_id": "req_20",
+      "trace_id": "trace_20",
       "action": "budget.reserve",
       "status": "succeeded",
       "source": "sandbox",
@@ -552,19 +606,19 @@
   {
     "name": "budget.release",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_19",
-      "trace_id": "trace_19",
+      "schema_version": "1.1",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
       "action": "budget.release",
       "params": {
         "reservation_id": "reservation_1"
       },
-      "idempotency_key": "operation_19"
+      "idempotency_key": "operation_21"
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_19",
-      "trace_id": "trace_19",
+      "schema_version": "1.1",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
       "action": "budget.release",
       "status": "succeeded",
       "source": "sandbox",
@@ -577,9 +631,9 @@
   {
     "name": "merchant.order",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_20",
-      "trace_id": "trace_20",
+      "schema_version": "1.1",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
       "action": "merchant.order",
       "params": {
         "account_id": "account_1",
@@ -589,12 +643,12 @@
         "deliver_on": "2026-10-14",
         "delivery_address_id": "address_1"
       },
-      "idempotency_key": "operation_20"
+      "idempotency_key": "operation_22"
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_20",
-      "trace_id": "trace_20",
+      "schema_version": "1.1",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
       "action": "merchant.order",
       "status": "succeeded",
       "source": "sandbox",
@@ -608,18 +662,18 @@
   {
     "name": "account.balance",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_21",
-      "trace_id": "trace_21",
+      "schema_version": "1.1",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
       "action": "account.balance",
       "params": {
         "account_id": "account_1"
       }
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_21",
-      "trace_id": "trace_21",
+      "schema_version": "1.1",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
       "action": "account.balance",
       "status": "succeeded",
       "source": "sandbox",
@@ -636,9 +690,9 @@
   {
     "name": "payee.resolve",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_22",
-      "trace_id": "trace_22",
+      "schema_version": "1.1",
+      "request_id": "req_24",
+      "trace_id": "trace_24",
       "action": "payee.resolve",
       "params": {
         "query": "小王",
@@ -646,9 +700,9 @@
       }
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_22",
-      "trace_id": "trace_22",
+      "schema_version": "1.1",
+      "request_id": "req_24",
+      "trace_id": "trace_24",
       "action": "payee.resolve",
       "status": "succeeded",
       "source": "sandbox",
@@ -667,9 +721,9 @@
   {
     "name": "transaction.list",
     "request": {
-      "schema_version": "1.0",
-      "request_id": "req_23",
-      "trace_id": "trace_23",
+      "schema_version": "1.1",
+      "request_id": "req_25",
+      "trace_id": "trace_25",
       "action": "transaction.list",
       "params": {
         "account_id": "account_1",
@@ -679,9 +733,9 @@
       }
     },
     "result": {
-      "schema_version": "1.0",
-      "request_id": "req_23",
-      "trace_id": "trace_23",
+      "schema_version": "1.1",
+      "request_id": "req_25",
+      "trace_id": "trace_25",
       "action": "transaction.list",
       "status": "succeeded",
       "source": "sandbox",
@@ -706,7 +760,7 @@
   {
     "name": "transfer.confirm",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -718,7 +772,7 @@
       "idempotency_key": "operation_1"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -728,7 +782,7 @@
       "next_action": {
         "challenge_id": "challenge_confirm",
         "kind": "confirm",
-        "operation_digest": "1c78cbbafb4ed4cf2f849c581f5a4cee2a771df94f0b42aaaaa879949aa2ef6f",
+        "operation_digest": "98956be69043a77c7e7e3092bca44799ba6d944f09a550730ff205818fa6661e",
         "expires_at": "2026-10-12T09:00:00+08:00"
       }
     },
@@ -737,7 +791,7 @@
   {
     "name": "transfer.verify",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -749,7 +803,7 @@
       "idempotency_key": "operation_1"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -759,7 +813,7 @@
       "next_action": {
         "challenge_id": "challenge_verify",
         "kind": "verify",
-        "operation_digest": "1c78cbbafb4ed4cf2f849c581f5a4cee2a771df94f0b42aaaaa879949aa2ef6f",
+        "operation_digest": "98956be69043a77c7e7e3092bca44799ba6d944f09a550730ff205818fa6661e",
         "expires_at": "2026-10-12T09:00:00+08:00",
         "methods": [
           "demo_otp"
@@ -771,7 +825,7 @@
   {
     "name": "transfer.unknown",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -783,7 +837,7 @@
       "idempotency_key": "operation_1"
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_1",
       "trace_id": "trace_1",
       "action": "transfer.create",
@@ -800,7 +854,7 @@
   {
     "name": "operation.get",
     "request": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_query",
       "trace_id": "trace_query",
       "action": "operation.get",
@@ -810,7 +864,7 @@
       }
     },
     "result": {
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "request_id": "req_query",
       "trace_id": "trace_query",
       "action": "operation.get",
@@ -818,7 +872,7 @@
       "source": "sandbox",
       "data": {
         "operation_request": {
-          "schema_version": "1.0",
+          "schema_version": "1.1",
           "request_id": "req_1",
           "trace_id": "trace_1",
           "action": "transfer.create",
@@ -830,7 +884,7 @@
           "idempotency_key": "operation_1"
         },
         "operation_result": {
-          "schema_version": "1.0",
+          "schema_version": "1.1",
           "request_id": "req_1",
           "trace_id": "trace_1",
           "action": "transfer.create",

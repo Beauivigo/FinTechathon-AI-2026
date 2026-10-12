@@ -117,6 +117,9 @@ def result_text(request, result):
     if result["status"] == "unknown":
         return prefix + "结果待核实，请查询原操作状态，暂勿重新提交。"
     if result["status"] == "succeeded":
+        if request["action"] == "subscription.review":
+            return prefix + ("已核实为订阅记录，未新签代扣授权。" if request["params"]["decision"] == "accept"
+                             else "候选记录已排除，未取消任何代扣。")
         if request["action"] == "operation.get":
             original = result["data"]
             text = result_text(original["operation_request"], original["operation_result"])
@@ -134,6 +137,7 @@ def result_text(request, result):
             "subscription.remind": "提醒已登记，尚未发送。",
             "card.freeze": "卡片已冻结。", "card.unfreeze": "卡片已解冻。",
             "card.report_loss": "卡片已挂失。",
+            "card.release_loss": "挂失已解除，卡片仍冻结；恢复使用需另行解冻。",
         }
         return prefix + specific.get(request["action"], "操作已完成。")
     return prefix + STATUSES[result["status"]] + "。"

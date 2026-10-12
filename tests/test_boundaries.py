@@ -6,7 +6,7 @@ import json
 import unittest
 
 from examples.module_examples import build_examples
-from shared import (ContractError, adapt_request, adapt_result, loads_request, loads_result,
+from shared import (SCHEMA_VERSION, ContractError, adapt_request, adapt_result, loads_request, loads_result,
                     operation_digest, required_gate, validate_authorization, validate_result,
                     validate_transition, yuan_to_minor, result_text)
 from shared.adapters import strict_json_loads
@@ -116,7 +116,7 @@ class BoundaryTests(unittest.TestCase):
     def test_authorization_is_separate_from_business_params(self):
         _, result = self.case("transfer.verify")
         challenge = result["next_action"]
-        payload = {"schema_version": "1.0", "challenge_id": challenge["challenge_id"],
+        payload = {"schema_version": SCHEMA_VERSION, "challenge_id": challenge["challenge_id"],
                    "operation_digest": challenge["operation_digest"], "decision": "approve", "proof_token": "demo_token"}
         validate_authorization(payload)
         for change in ({"confirmed": True}, {"decision": "reject"}, {"schema_version": "99"}):

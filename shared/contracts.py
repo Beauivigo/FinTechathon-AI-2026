@@ -6,7 +6,7 @@ import json
 import math
 import re
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 MAX_SAFE_INTEGER = 2**53 - 1
 MAX_JSON_BYTES = 262_144
 
@@ -14,7 +14,8 @@ MAX_JSON_BYTES = 262_144
 ENUMS = {
     "risk": {"R1", "R2", "R3", "R4", "R5"},
     "card_state": {"active", "frozen", "lost"},
-    "subscription_state": {"candidate", "active", "cancelled"},
+    "subscription_state": {"candidate", "active", "cancelled", "dismissed"},
+    "review_decision": {"accept", "reject"},
     "interval": {"weekly", "monthly", "yearly"},
     "currency": {"CNY"}, "direction": {"credit", "debit"},
     "transaction_kind": {"income", "consumption", "transfer", "refund", "wealth", "subscription"},
@@ -31,7 +32,7 @@ RECORDS = {
                  "fee_description": "string", "redemption_rule": "string"}, {}),
     "subscription": ({"subscription_id": "id", "merchant_name": "string", "amount_minor": "money",
                       "interval": "enum:interval", "next_charge_date": "date",
-                      "subscription_state": "enum:subscription_state"}, {}),
+                      "subscription_state": "enum:subscription_state", "evidence": "string"}, {}),
     "payee": ({"payee_id": "id", "display_name": "string", "masked_account": "string"},
               {"bank_name": "string"}),
     "transaction": ({"transaction_id": "id", "account_id": "id", "amount_minor": "money",
@@ -89,11 +90,16 @@ ACTIONS = {
         {"card_id": "string"}, {"card_id": "string", "card_state": "enum:card_state"}, write=True),
     "card.report_loss": action("卡片管理", "E", "red",
         {"card_id": "string"}, {"card_id": "string", "card_state": "enum:card_state"}, write=True),
+    "card.release_loss": action("卡片管理", "E", "red",
+        {"card_id": "id"}, {"card_id": "id", "card_state": "enum:card_state"}, write=True),
     # 题目把订阅查询也列入黄色，保持题目口径。
     "subscription.list": action("订阅/代扣管理", "E", "yellow",
         {"account_id": "string"}, {"subscriptions": "list:subscription"}),
     "subscription.cancel": action("订阅/代扣管理", "E", "yellow",
         {"subscription_id": "string"}, {"subscription_id": "string", "subscription_state": "enum:subscription_state"}, write=True),
+    "subscription.review": action("订阅/代扣管理", "E", "yellow",
+        {"subscription_id": "id", "decision": "enum:review_decision"},
+        {"subscription_id": "id", "subscription_state": "enum:subscription_state"}, write=True),
     "subscription.remind": action("订阅/代扣管理", "E", "yellow",
         {"subscription_id": "string", "remind_at": "datetime"}, {"reminder_id": "string"}, write=True),
     # plan 仅生成计划；真正资金预留、消费仍逐步经过权限网关。
@@ -337,11 +343,15 @@ def validate_business_result(request, data):
     elif name == "wealth.compare":
         unique(data["products"], "product_id")
         ensure({row["product_id"] for row in data["products"]} == set(p["product_ids"]), "产品列表与请求不符")
-    elif name in ("card.freeze", "card.unfreeze", "card.report_loss"):
-        target = {"card.freeze": "frozen", "card.unfreeze": "active", "card.report_loss": "lost"}[name]
+    elif name in ("card.freeze", "card.unfreeze", "card.report_loss", "card.release_loss"):
+        target = {"card.freeze": "frozen", "card.unfreeze": "active", "card.report_loss": "lost",
+                  "card.release_loss": "frozen"}[name]
         ensure(data["card_state"] == target, "卡片结果状态与动作不符")
     elif name == "subscription.cancel":
         ensure(data["subscription_state"] == "cancelled", "取消订阅结果必须为 cancelled")
+    elif name == "subscription.review":
+        target = "active" if p["decision"] == "accept" else "dismissed"
+        ensure(data["subscription_state"] == target, "候选核实结果与 decision 不符")
     elif name == "subscription.list":
         unique(data["subscriptions"], "subscription_id")
     elif name == "payee.resolve":
@@ -376,6 +386,8 @@ def validate_transition(request, previous, current):
     """校验同一请求的状态更新；持久化、并发和执行授权由网关负责。"""
     validate_result(request, previous)
     validate_result(request, current)
+    if previous["source"] != "gateway":
+        ensure(current["source"] == previous["source"], "已确定的业务来源不能切换或退回网关")
     if previous == current:
         return current
     transitions = {
