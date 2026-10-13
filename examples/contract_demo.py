@@ -12,7 +12,7 @@ def main():
     }, request_id="request_demo_1", trace_id="trace_demo_1", idempotency_key="operation_demo_1")
     gate = required_gate(request, transfer_used_minor=90_000)
     digest = operation_digest(request, principal_id="demo_user_1")
-    # 固定演示凭据不是有效授权；真实 challenge 由 B 的服务端生成并存储。
+    # 固定演示凭据不是有效授权；真实 challenge 由服务端生成并存储。
     pending = adapt_result(request, {"status": "NEED_AUTH", "next_action": {
         "challenge_id": "demo_challenge_1", "kind": "verify", "operation_digest": digest,
         "expires_at": "2026-10-10T20:00:00+08:00", "methods": ["demo_otp"],

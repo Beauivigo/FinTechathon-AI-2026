@@ -149,7 +149,7 @@ def validate_subscription_change(request, previous, current):
 
 
 class BankServices(Protocol):
-    """B 实现此内部约定；principal_id 来自登录会话，transaction 来自网关。
+    """由 A 实现此内部约定；principal_id 来自登录会话，transaction 来自网关。
 
     每个方法均必须检查身份和资源归属，失败抛 ServiceError。
     transaction 内所有记账、订单、幂等结果和审计必须原子提交。

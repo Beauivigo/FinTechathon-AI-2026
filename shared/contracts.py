@@ -374,7 +374,7 @@ def validate_business_result(request, data):
 
 
 def validate_authorization(payload):
-    """确认提交的数据格式；凭证有效性、归属、过期和防重放仍由 B 检查。"""
+    """确认提交的数据格式；凭证有效性、归属、过期和防重放仍由执行网关检查。"""
     fields(payload, {"schema_version": "string", "challenge_id": "id", "operation_digest": "digest",
                      "decision": "enum:decision"}, {"proof_token": "string"})
     ensure(payload["schema_version"] == SCHEMA_VERSION, "不支持的 schema_version")
