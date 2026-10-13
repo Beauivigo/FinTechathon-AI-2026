@@ -1,0 +1,146 @@
+{
+  "checked_at": "2026-10-13T12:59:49.868971+08:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": []
+}
+
+COMMAND: D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Scripts\python.exe -B -X utf8 -c "import streamlit; from streamlit.testing.v1 import AppTest; print('Streamlit', streamlit.__version__); print('AppTest import OK')"
+Streamlit 1.65.0
+AppTest import OK
+
+EXIT: 0
+
+COMMAND: D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Scripts\python.exe -B -X utf8 -m unittest discover -s tests -v
+test_ambiguous_payee_must_be_chosen_from_trusted_candidates (test_agent.FirstRoundTests.test_ambiguous_payee_must_be_chosen_from_trusted_candidates) ... ok
+test_approve_repeat_or_requery_does_not_create_second_receipt (test_agent.FirstRoundTests.test_approve_repeat_or_requery_does_not_create_second_receipt) ... ok
+test_demo_gateway_preserves_idempotency_content (test_agent.FirstRoundTests.test_demo_gateway_preserves_idempotency_content) ... ok
+test_expired_authorization_finishes_without_a_receipt (test_agent.FirstRoundTests.test_expired_authorization_finishes_without_a_receipt) ... ok
+test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof (test_agent.FirstRoundTests.test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof) ... ok
+test_initial_write_timeout_preserves_unknown_request (test_agent.FirstRoundTests.test_initial_write_timeout_preserves_unknown_request) ... ok
+test_invalid_amount_or_unsupported_input_has_no_business_side_effect (test_agent.FirstRoundTests.test_invalid_amount_or_unsupported_input_has_no_business_side_effect) ... ok
+test_invalid_new_input_clears_old_candidates_and_amount (test_agent.FirstRoundTests.test_invalid_new_input_clears_old_candidates_and_amount) ... ok
+test_large_transfer_does_not_accept_plain_confirmation (test_agent.FirstRoundTests.test_large_transfer_does_not_accept_plain_confirmation) ... ok
+test_missing_amount_is_asked_without_transfer (test_agent.FirstRoundTests.test_missing_amount_is_asked_without_transfer) ... ok
+test_new_invalid_input_cannot_display_previous_success_as_current (test_agent.FirstRoundTests.test_new_invalid_input_cannot_display_previous_success_as_current) ... ok
+test_new_operation_has_new_ids (test_agent.FirstRoundTests.test_new_operation_has_new_ids) ... ok
+test_pending_input_cannot_mutate_current_request (test_agent.FirstRoundTests.test_pending_input_cannot_mutate_current_request) ... ok
+test_rejection_cannot_generate_success (test_agent.FirstRoundTests.test_rejection_cannot_generate_success) ... ok
+test_spaces_do_not_join_separate_numbers_into_a_new_amount (test_agent.FirstRoundTests.test_spaces_do_not_join_separate_numbers_into_a_new_amount) ... ok
+test_valid_request_and_pending_result_use_shared_contract (test_agent.FirstRoundTests.test_valid_request_and_pending_result_use_shared_contract) ... ok
+test_write_response_failure_preserves_operation_and_prevents_new_key (test_agent.FirstRoundTests.test_write_response_failure_preserves_operation_and_prevents_new_key) ... ok
+test_wrong_upstream_correlation_is_rejected (test_agent.FirstRoundTests.test_wrong_upstream_correlation_is_rejected) ... ok
+test_confirmation_and_rerun_only_create_one_sample_receipt (test_app.PageTests.test_confirmation_and_rerun_only_create_one_sample_receipt) ... 2026-10-13 12:59:53.147 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_optional_bank_name_and_invalid_candidate_input_do_not_break_page (test_app.PageTests.test_optional_bank_name_and_invalid_candidate_input_do_not_break_page) ... 2026-10-13 12:59:53.472 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_page_starts_and_missing_amount_then_payee_selection_works (test_app.PageTests.test_page_starts_and_missing_amount_then_payee_selection_works) ... 2026-10-13 12:59:53.624 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_rejection_and_simulated_verification_are_separate_paths (test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths) ... 2026-10-13 12:59:53.756 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_write_result_disables_new_submission (test_app.PageTests.test_unknown_write_result_disables_new_submission) ... 2026-10-13 12:59:53.907 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_aa_members_total_and_fair_split (test_boundaries.BoundaryTests.test_aa_members_total_and_fair_split) ... ok
+test_alias_adapter_does_not_mutate_input (test_boundaries.BoundaryTests.test_alias_adapter_does_not_mutate_input) ... ok
+test_authorization_is_separate_from_business_params (test_boundaries.BoundaryTests.test_authorization_is_separate_from_business_params) ... ok
+test_balance_must_reconcile (test_boundaries.BoundaryTests.test_balance_must_reconcile) ... ok
+test_bill_total_and_nested_fields (test_boundaries.BoundaryTests.test_bill_total_and_nested_fields) ... ok
+test_cyclic_and_oversized_inputs_are_rejected (test_boundaries.BoundaryTests.test_cyclic_and_oversized_inputs_are_rejected) ... ok
+test_gate_output_cannot_be_confused_with_business_status (test_boundaries.BoundaryTests.test_gate_output_cannot_be_confused_with_business_status) ... ok
+test_hash_canonicalizes_time_and_units (test_boundaries.BoundaryTests.test_hash_canonicalizes_time_and_units) ... ok
+test_id_and_timestamp_formats_are_stable (test_boundaries.BoundaryTests.test_id_and_timestamp_formats_are_stable) ... ok
+test_invalid_public_inputs_raise_contract_error (test_boundaries.BoundaryTests.test_invalid_public_inputs_raise_contract_error) ... ok
+test_json_roundtrip_preserves_correlation (test_boundaries.BoundaryTests.test_json_roundtrip_preserves_correlation) ... ok
+test_ledger_date_account_and_page_size (test_boundaries.BoundaryTests.test_ledger_date_account_and_page_size) ... ok
+test_lookup_success_still_displays_unknown_original_result (test_boundaries.BoundaryTests.test_lookup_success_still_displays_unknown_original_result) ... ok
+test_money_does_not_depend_on_decimal_context (test_boundaries.BoundaryTests.test_money_does_not_depend_on_decimal_context) ... ok
+test_original_operation_lookup_cannot_swap_operation (test_boundaries.BoundaryTests.test_original_operation_lookup_cannot_swap_operation) ... ok
+test_pending_requires_valid_challenge (test_boundaries.BoundaryTests.test_pending_requires_valid_challenge) ... ok
+test_products_must_match_and_risk_enum_is_fixed (test_boundaries.BoundaryTests.test_products_must_match_and_risk_enum_is_fixed) ... ok
+test_status_map_and_upstream_metadata (test_boundaries.BoundaryTests.test_status_map_and_upstream_metadata) ... ok
+test_strict_json_rejects_duplicate_keys_and_constants (test_boundaries.BoundaryTests.test_strict_json_rejects_duplicate_keys_and_constants) ... ok
+test_success_cannot_be_rewritten_and_unknown_can_resolve (test_boundaries.BoundaryTests.test_success_cannot_be_rewritten_and_unknown_can_resolve) ... ok
+test_wrong_card_or_subscription_target_is_rejected (test_boundaries.BoundaryTests.test_wrong_card_or_subscription_target_is_rejected) ... ok
+test_alias_and_exact_money (test_contracts.ContractTests.test_alias_and_exact_money) ... ok
+test_all_actions_have_a_working_contract (test_contracts.ContractTests.test_all_actions_have_a_working_contract) ... ok
+test_ambiguous_or_conflicting_fields_fail (test_contracts.ContractTests.test_ambiguous_or_conflicting_fields_fail) ... ok
+test_dates_and_unknown_actions (test_contracts.ContractTests.test_dates_and_unknown_actions) ... ok
+test_money_and_write_key_validation (test_contracts.ContractTests.test_money_and_write_key_validation) ... ok
+test_operation_binding (test_contracts.ContractTests.test_operation_binding) ... ok
+test_pending_cannot_carry_success_data (test_contracts.ContractTests.test_pending_cannot_carry_success_data) ... ok
+test_plan_dependencies (test_contracts.ContractTests.test_plan_dependencies) ... ok
+test_schedule_never_means_transfer_completed (test_contracts.ContractTests.test_schedule_never_means_transfer_completed) ... ok
+test_success_needs_matching_receipt (test_contracts.ContractTests.test_success_needs_matching_receipt) ... ok
+test_threshold_includes_current_transfer (test_contracts.ContractTests.test_threshold_includes_current_transfer) ... ok
+test_timeout_is_unknown_not_failed (test_contracts.ContractTests.test_timeout_is_unknown_not_failed) ... ok
+test_business_source_cannot_change_or_hop_through_gateway (test_services.ServiceContractTests.test_business_source_cannot_change_or_hop_through_gateway) ... ok
+test_funds_receipt_cannot_swap_amount_account_or_operation (test_services.ServiceContractTests.test_funds_receipt_cannot_swap_amount_account_or_operation) ... ok
+test_funds_reservation_and_precision_boundaries (test_services.ServiceContractTests.test_funds_reservation_and_precision_boundaries) ... ok
+test_internal_calls_are_not_model_actions (test_services.ServiceContractTests.test_internal_calls_are_not_model_actions) ... ok
+test_internal_fixture_matches_generator (test_services.ServiceContractTests.test_internal_fixture_matches_generator) ... ok
+test_lost_card_requires_release_then_unfreeze (test_services.ServiceContractTests.test_lost_card_requires_release_then_unfreeze) ... ok
+test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires (test_services.ServiceContractTests.test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires) ... ok
+test_resource_snapshot_rejects_dangling_or_duplicate_ids (test_services.ServiceContractTests.test_resource_snapshot_rejects_dangling_or_duplicate_ids) ... ok
+test_service_errors_have_known_codes (test_services.ServiceContractTests.test_service_errors_have_known_codes) ... ok
+test_shared_version_rejects_old_requests_and_authorization (test_services.ServiceContractTests.test_shared_version_rejects_old_requests_and_authorization) ... ok
+test_subscription_evidence_is_required_and_cannot_be_empty (test_services.ServiceContractTests.test_subscription_evidence_is_required_and_cannot_be_empty) ... ok
+test_subscription_review_is_not_payment_authorization_or_cancellation (test_services.ServiceContractTests.test_subscription_review_is_not_payment_authorization_or_cancellation) ... ok
+test_task_claim_cancel_and_unknown_are_distinct (test_services.ServiceContractTests.test_task_claim_cancel_and_unknown_are_distinct) ... ok
+test_tasks_cannot_run_unapproved_action_or_reuse_registration_key (test_services.ServiceContractTests.test_tasks_cannot_run_unapproved_action_or_reuse_registration_key) ... ok
+
+----------------------------------------------------------------------
+Ran 70 tests in 1.114s
+
+OK
+
+EXIT: 0
+
+COMMAND: D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Scripts\python.exe -B -X utf8 -m examples.contract_demo
+{
+  "request": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "params": {
+      "account_id": "demo_account_1",
+      "payee_id": "demo_payee_1",
+      "amount_minor": 12050
+    },
+    "idempotency_key": "operation_demo_1"
+  },
+  "gate": {
+    "risk_level": "red",
+    "required_action": "verify",
+    "reason": "含本次的当日累计转账>1000元"
+  },
+  "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+  "result": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "status": "awaiting_verification",
+    "source": "gateway",
+    "data": {},
+    "next_action": {
+      "challenge_id": "demo_challenge_1",
+      "kind": "verify",
+      "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+      "expires_at": "2026-10-10T20:00:00+08:00",
+      "methods": [
+        "demo_otp"
+      ]
+    }
+  },
+  "display_text": "待强验证。"
+}
+
+EXIT: 0
+
+COMMAND: D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Scripts\python.exe -B -X utf8 -m pip check
+No broken requirements found.
+
+EXIT: 0
+
+PAGE STARTUP: {"address": "127.0.0.1", "http_status": 200, "health_body": "ok", "process_stopped_after_check": true}

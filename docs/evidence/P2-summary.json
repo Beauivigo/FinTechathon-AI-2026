@@ -1,0 +1,155 @@
+{
+  "checked_at": "2026-10-13T13:36:55.958128+08:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "base_commit": "d86ca3116457d5e8d304edd27552fec8bc76dbf7",
+  "scope": "P2 local working tree; internal transfers only in temporary databases; no push",
+  "commands": [
+    {
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "init"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "init"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "show"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "demo_before": {
+    "storage_version": 1,
+    "accounts": [
+      [
+        "demo_account_a",
+        200000,
+        200000,
+        200000,
+        0
+      ],
+      [
+        "demo_account_li",
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_1",
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_2",
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transfers": 0,
+    "ledger_entries": 0
+  },
+  "tests": {
+    "run": 112,
+    "funds_tests": 22,
+    "page_tests": 5,
+    "skipped": 0,
+    "result": "OK"
+  },
+  "demo_after": {
+    "storage_version": 2,
+    "accounts": [
+      [
+        "demo_account_a",
+        200000,
+        200000,
+        200000,
+        0
+      ],
+      [
+        "demo_account_li",
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_1",
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_2",
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transfers": 0,
+    "ledger_entries": 0
+  },
+  "python_310_syntax": "passed; not a Python 3.10 runtime test",
+  "sha256": {
+    "bank/__init__.py": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+    "bank/gateway.py": "af951ce0e84953dcf2e6f90874671fa1c123d4301e576d24a0639d18a567b0e0",
+    "bank/seed.py": "ec6163c74d586cc4356df9ee09e72ad6398c2a6c700b458bedadca923ecff548",
+    "bank/services.py": "44089e08d4b9b48ed7f1fce27fd2cc80065db40fd1b4b542fc59eb615235443c",
+    "bank/store.py": "f770cf117d15259210ac6e65a958184efb5528929627b9037455f18c4bc15a34",
+    "bank/transfer.py": "ac0af9ffff62cadf4faa4372bbc67953acde73e332b7f1456a06f009e9ecf56d",
+    "tests/test_bank.py": "28b0d4c279ae69abb50bb14e8b56442cb41f23e3db1745bd02b738125bf68a63",
+    "tests/test_funds.py": "76ee2b479f70e35e2b6c7840b06fa6108b9146e64ff7045408014a7320f41f07",
+    "examples/funds_demo.py": "11502ed7aef2af2cb4200cad82051f97e882b983a575f48beb2842b62412ce61"
+  }
+}

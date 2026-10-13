@@ -1,0 +1,68 @@
+{
+  "checked_at": "2026-10-13T13:18:04.214612+08:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "base_commit": "d86ca3116457d5e8d304edd27552fec8bc76dbf7",
+  "scope": "P1 local working tree; no GitHub push",
+  "commands": [
+    {
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "init"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "init"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "bank.seed",
+        "show"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "python_310_syntax": "passed; not a Python 3.10 runtime test",
+  "sha256": {
+    "bank/__init__.py": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+    "bank/gateway.py": "d2d6d0859bd99d25e40a6509e0b0ab71292c59f6b7892240ca1f465fe4f1feab",
+    "bank/seed.py": "33afcc447d05c6b1751a249462f92017e48f4f80f947d5f3749ec5db34f4c20b",
+    "bank/services.py": "e9db7dd7a3557bfb033706dc3071b00f4ac118bb0f41d5a75e0bcc904ee606f1",
+    "bank/store.py": "ba61dde94c86531cb4d4c36f86f91c1f17dc5fb11764872a1c5acd26bf5a7127",
+    "tests/test_bank.py": "28b0d4c279ae69abb50bb14e8b56442cb41f23e3db1745bd02b738125bf68a63"
+  }
+}

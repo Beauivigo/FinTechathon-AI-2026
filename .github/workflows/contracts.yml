@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install first-round page dependency
+      - name: Install page dependency
         run: python -m pip install -r requirements-app.txt
       - name: Require page test dependency
         run: python -c "from streamlit.testing.v1 import AppTest"
@@ -24,3 +24,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Run integration example
         run: python -X utf8 -m examples.contract_demo
+      - name: Run persistent gateway and funds examples
+        run: |
+          python -X utf8 -m examples.gateway_demo
+          python -X utf8 -m examples.funds_demo

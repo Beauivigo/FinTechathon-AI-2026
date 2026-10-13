@@ -4,7 +4,7 @@ from copy import deepcopy
 from uuid import uuid4
 
 from shared import (SCHEMA_VERSION, ServiceError, adapt_request, adapt_result, result_text, validate_context,
-                    validate_result, validate_transition)
+                    validate_result, validate_transition, operation_digest)
 from .intent import parse_transfer
 
 
@@ -16,31 +16,93 @@ class Conversation:
         self.draft, self.request, self.result = None, None, None
         self.payee = None
         self.trace_id = None
+        self.backend_result = None
+        self.needs_reconciliation = False
+        self.operations = []
+        self.refresh_operations()
+
+    def refresh_operations(self):
+        if hasattr(self.gateway, 'list_operations'):
+            self.operations = self.gateway.list_operations(principal_id=self.principal_id)
+        return self.operations
 
     @property
     def pending(self):
-        return bool(self.result and self.result["status"] in {"awaiting_confirmation", "awaiting_verification"})
+        return not self.needs_reconciliation and bool(self.result and self.result["status"] in {"awaiting_confirmation", "awaiting_verification"})
 
     @property
     def blocked(self):
-        return self.pending or bool(self.result and self.result["status"] in {"running", "unknown"})
+        return (self.needs_reconciliation or self.pending
+            or bool(self.result and self.result['status'] in {'running', 'unknown'})
+            or any(op['status'] in {'awaiting_confirmation', 'awaiting_verification', 'running', 'unknown'} for op in self.operations))
 
     def _send_write(self, function, payload):
         """发送后的异常可能已经产生业务结果，保留原请求并阻止换键重试。"""
         try:
             result = function(deepcopy(payload), principal_id=self.principal_id)
-            if self.result:
-                return validate_transition(self.request, self.result, result)
-            return validate_result(self.request, result)
+            if self.backend_result:
+                validate_transition(self.request, self.backend_result, result)
+            else:
+                validate_result(self.request, result)
+            self.backend_result = deepcopy(result)
+            self.needs_reconciliation = False
+            return result
         except Exception as exc:
-            # ServiceError 的明确拒绝可以报失败；超时、坏回执和其他异常均需核实。
-            code = exc.code if isinstance(exc, ServiceError) else "RESULT_UNKNOWN"
-            if code == "UPSTREAM_ERROR":
-                code = "RESULT_UNKNOWN"
-            status = "unknown" if code == "RESULT_UNKNOWN" else "failed"
-            source = self.result["source"] if self.result else "gateway"
-            return adapt_result(self.request, {"status": status, "error": {
-                "code": code, "message": "请核实原操作结果。" if status == "unknown" else "操作未执行。"}}, source=source)
+            # 授权失败也可能只代表本次凭证无效，不能据异常推断业务已结束。
+            return self._uncertain()
+
+    def _uncertain(self):
+        self.needs_reconciliation = True
+        source = self.backend_result['source'] if self.backend_result else 'gateway'
+        return adapt_result(self.request, {'status': 'unknown', 'error': {
+            'code': 'RESULT_UNKNOWN', 'message': '回执待核实，请查询原操作；不要重新发起。'}}, source=source)
+
+    def recover(self, *, action=None, idempotency_key=None):
+        """查询权威业务状态；客户端观察到 unknown 不写回后端，也不用于状态迁移。"""
+        if action is None and self.request:
+            action, idempotency_key = self.request['action'], self.request['idempotency_key']
+        if not action or not idempotency_key:
+            raise ValueError('请选择需要恢复的原操作。')
+        same = bool(self.request and (action, idempotency_key) == (self.request['action'], self.request['idempotency_key']))
+        if self.request and (self.pending or self.needs_reconciliation or self.result['status'] in {'running', 'unknown'}) and not same:
+            raise ValueError('先处理或核实当前操作，再切换其他操作。')
+        query = adapt_request('operation.get', dict(original_action=action, original_idempotency_key=idempotency_key),
+            request_id='query_'+uuid4().hex, trace_id='recovery_'+uuid4().hex)
+        try:
+            reply = validate_result(query, self.gateway.execute(query, principal_id=self.principal_id))
+            if reply['status'] != 'succeeded':
+                raise ServiceError('RESULT_UNKNOWN', '尚未找到可靠结果。')
+            original, result = reply['data']['operation_request'], reply['data']['operation_result']
+            if (original['action'], original['idempotency_key']) != (action, idempotency_key):
+                raise ValueError('原操作键不匹配。')
+            if same:
+                if operation_digest(original, principal_id=self.principal_id) != operation_digest(self.request, principal_id=self.principal_id):
+                    raise ValueError('原操作内容不匹配。')
+                if self.backend_result:
+                    previous = deepcopy(self.backend_result)
+                    previous.update(request_id=original['request_id'], trace_id=original['trace_id'])
+                    validate_transition(original, previous, result)
+            validate_result(original, result)
+        except Exception:
+            if self.request:
+                self.result = self._uncertain()
+            else:
+                self.needs_reconciliation = True
+            return self._say('未能核实原操作，不能据此认定未扣款。请保留操作编号并继续查询。')
+        self.request, self.result = deepcopy(original), deepcopy(result)
+        self.backend_result = deepcopy(result)
+        self.needs_reconciliation = False
+        self.trace_id = original['trace_id']
+        self.draft, self.candidates = None, []
+        # 仅展示可信快照里的姓名；缺失时显示已保存的 ID，不猜测新收款对象。
+        self.payee = dict(display_name=original['params'].get('payee_id', '原操作'), masked_account='请核对原操作记录')
+        if hasattr(self.gateway, 'operation_payee'):
+            try:
+                self.payee = self.gateway.operation_payee(original, principal_id=self.principal_id) or self.payee
+            except Exception:
+                pass  # 保留原 ID；展示查询故障不能改写已核实的业务事实。
+        self.refresh_operations()
+        return self._say(result_text(self.request, self.result))
 
     def _say(self, text):
         self.messages.append({"role": "assistant", "content": text})
@@ -52,6 +114,8 @@ class Conversation:
             return self._say("当前操作尚未结束，请先处理或核实原操作；不要重复提交。")
         # 新输入不能沿用上一笔的成功状态，避免错误输入旁仍显示“当前操作成功”。
         self.request = self.result = None
+        self.backend_result = None
+        self.needs_reconciliation = False
         self.payee = None
         self.candidates = []
         try:
@@ -105,8 +169,18 @@ class Conversation:
         if approve and challenge["kind"] == "verify":
             if not simulate_verification or not getattr(self.gateway, "demo_mode", False):
                 raise ValueError("此操作需要验证；普通确认不能代替强验证。")
-            payload["proof_token"] = self.gateway.issue_demo_proof(challenge["challenge_id"], principal_id=self.principal_id)
+            try:
+                payload["proof_token"] = self.gateway.issue_demo_proof(challenge["challenge_id"], principal_id=self.principal_id)
+            except Exception:
+                self.result = self._uncertain()
+                self._say('模拟验证未完成，请查询原操作状态。')
+                return self.result
         result = self._send_write(self.gateway.authorize, payload)
         self.result = result
+        try:
+            self.refresh_operations()
+        except ServiceError:
+            # 已验证的交易回执不因历史索引读取失败而改写。
+            self._say('暂未刷新操作列表，请稍后查询。')
         self._say(result_text(self.request, result))
         return result

@@ -1,0 +1,157 @@
+{
+  "stage": "P3",
+  "at_utc": "2026-10-13T05:59:19.068858+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "branch": "main",
+  "scope": "local uncommitted workspace; no push; no remote CI; no Python 3.10 runtime test",
+  "checks": [
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.gateway_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "default_database": {
+    "before": {
+      "storage_version": 2,
+      "balances": [
+        [
+          "demo_account_a",
+          200000,
+          200000,
+          0
+        ],
+        [
+          "demo_account_li",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_1",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_2",
+          0,
+          0,
+          0
+        ]
+      ],
+      "counts": {
+        "operations": 0,
+        "transfers": 0,
+        "ledger_entries": 0,
+        "challenges": 0,
+        "audit_events": 0
+      }
+    },
+    "after": {
+      "storage_version": 3,
+      "balances": [
+        [
+          "demo_account_a",
+          200000,
+          200000,
+          0
+        ],
+        [
+          "demo_account_li",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_1",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_2",
+          0,
+          0,
+          0
+        ]
+      ],
+      "counts": {
+        "operations": 0,
+        "transfers": 0,
+        "ledger_entries": 0,
+        "challenges": 0,
+        "audit_events": 0
+      }
+    }
+  },
+  "python_310_syntax": "passed",
+  "sha256": {
+    "bank\\__init__.py": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+    "bank\\gateway.py": "4d8a6c7303a812e3770401a97bc24c871aba8af4a013d8acf5a03f9723077985",
+    "bank\\seed.py": "ec6163c74d586cc4356df9ee09e72ad6398c2a6c700b458bedadca923ecff548",
+    "bank\\services.py": "e9821678d9f033a9c794a231e0571ca3e51dde3eec8f0c87525724a48fa666b9",
+    "bank\\store.py": "94b570ff6ac3727ea94ab48dc4aba439dd2386f547a71827c52f5c88a98bfd30",
+    "bank\\transfer.py": "ac0af9ffff62cadf4faa4372bbc67953acde73e332b7f1456a06f009e9ecf56d",
+    "examples\\gateway_demo.py": "b3cfb3c56d2e677a5791def932fca99714f15da44af0697524df6c54c59b7d90",
+    "tests\\test_bank.py": "f93720992692c3eb82564401466e6e3c6029dccb590df44552314558dd430283",
+    "tests\\test_funds.py": "789536d2f916dc92add6a8d794a52a7bfe7e9a988fd3dec212f9143694b64b62",
+    "tests\\test_gateway.py": "46461f0ba6cb7fd6c6b338118177b11972b5e8e00612213749b9954b471fb828"
+  },
+  "final_recheck_exit": 0
+}

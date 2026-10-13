@@ -220,3 +220,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 本地模拟银行运行数据（含 SQLite 日志和附属文件）
+/runtime/

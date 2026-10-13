@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-13T12:59:49.868971+08:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "args": [
+        "-c",
+        "import streamlit; from streamlit.testing.v1 import AppTest; print('Streamlit', streamlit.__version__); print('AppTest import OK')"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "args": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "page_startup": {
+    "address": "127.0.0.1",
+    "http_status": 200,
+    "health_body": "ok",
+    "process_stopped_after_check": true
+  },
+  "code_baseline_commit": "d86ca3116457d5e8d304edd27552fec8bc76dbf7",
+  "branch": "main",
+  "tests": {
+    "run": 70,
+    "passed": 70,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "page_tests": 5
+  },
+  "initial_sandbox_attempt": "Interrupted after sandbox temporary-directory PermissionError and incomplete page test; not counted as passing."
+}

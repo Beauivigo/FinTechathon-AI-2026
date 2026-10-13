@@ -1,0 +1,186 @@
+{
+  "stage": "P6",
+  "at_utc": "2026-10-13T06:18:42.400170+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "tests": 162,
+  "skipped": 0,
+  "page_tests": 10,
+  "checks": [
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.gateway_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "startup": {
+    "health": 200,
+    "page": 200,
+    "stopped": true
+  },
+  "default_database": {
+    "before": {
+      "storage_version": 3,
+      "balances": [
+        [
+          "demo_account_a",
+          200000,
+          200000,
+          0
+        ],
+        [
+          "demo_account_li",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_1",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_2",
+          0,
+          0,
+          0
+        ]
+      ],
+      "counts": {
+        "operations": 0,
+        "transfers": 0,
+        "ledger_entries": 0,
+        "challenges": 0,
+        "audit_events": 0
+      }
+    },
+    "after": {
+      "storage_version": 3,
+      "balances": [
+        [
+          "demo_account_a",
+          200000,
+          200000,
+          0
+        ],
+        [
+          "demo_account_li",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_1",
+          0,
+          0,
+          0
+        ],
+        [
+          "demo_account_wang_2",
+          0,
+          0,
+          0
+        ]
+      ],
+      "counts": {
+        "operations": 0,
+        "transfers": 0,
+        "ledger_entries": 0,
+        "challenges": 0,
+        "audit_events": 0
+      }
+    }
+  },
+  "submission_scan": "passed",
+  "python310_syntax": "passed; runtime pending CI",
+  "sha256": {
+    "bank\\__init__.py": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+    "bank\\gateway.py": "f8d4ac79eec2d958c31e5f7a538caaeb7b9b94dd5e50940b9485175d293319d1",
+    "bank\\seed.py": "ec6163c74d586cc4356df9ee09e72ad6398c2a6c700b458bedadca923ecff548",
+    "bank\\services.py": "e9821678d9f033a9c794a231e0571ca3e51dde3eec8f0c87525724a48fa666b9",
+    "bank\\store.py": "94b570ff6ac3727ea94ab48dc4aba439dd2386f547a71827c52f5c88a98bfd30",
+    "bank\\transfer.py": "ac0af9ffff62cadf4faa4372bbc67953acde73e332b7f1456a06f009e9ecf56d",
+    "examples\\funds_demo.py": "11502ed7aef2af2cb4200cad82051f97e882b983a575f48beb2842b62412ce61",
+    "examples\\gateway_demo.py": "b3cfb3c56d2e677a5791def932fca99714f15da44af0697524df6c54c59b7d90",
+    "tests\\test_bank.py": "f93720992692c3eb82564401466e6e3c6029dccb590df44552314558dd430283",
+    "tests\\test_funds.py": "789536d2f916dc92add6a8d794a52a7bfe7e9a988fd3dec212f9143694b64b62",
+    "tests\\test_gateway.py": "46461f0ba6cb7fd6c6b338118177b11972b5e8e00612213749b9954b471fb828",
+    "tests\\test_recovery.py": "fc8a9d052ebcbc5dd606175b9b22384ccd3e20cbacff0d1ed7f9cade1e8d95c9",
+    "agent\\__init__.py": "b3d6fcfaa8758553c002d1f8c4ed685ed9aeac774e5c9a9bcb8c0a38f7e12c26",
+    "agent\\controller.py": "3ec56394f1cdab2cb29572abb01505a367b3c83bbec693eb9e5a93574495fb04",
+    "agent\\demo_gateway.py": "3707e34fa001948ff994e2299382bafa43bc825ea70826788ae28fc0ca64ecf8",
+    "agent\\intent.py": "f3013001160984584c77e3cd1d2af64d3ecf4097a9a2a612d00bce4d5064daed",
+    "app\\__init__.py": "e2676a295cae3a4036c8a558b72d01fb7eb4e5bafeaed6d63fda439417f65152",
+    "app\\main.py": "9b3aa5230c119536fc8d8af8a74abd2a660167b3e22e67f652d49ccf9e1be6bf",
+    "examples\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "examples\\contract_demo.py": "3d0a3c2e2ce89fb2bbdb3e00e91c9832dc5dc48d8af1ca219f8ee3b077746daa",
+    "examples\\module_examples.py": "d05af9fec960bb8d682600fce6a4080ac7e62e88d4628b161240d6f8870a35bb",
+    "examples\\service_examples.py": "4e70289dbfbcfe93cd513f85e22174081aecdaafbc9ae52fa1fb756eba5410e4",
+    "shared\\__init__.py": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612",
+    "shared\\adapters.py": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba",
+    "shared\\contracts.py": "04c26b07b1ff19599eae212b5f68b16ddf103a526d16ed00fdaba0273d00e75f",
+    "shared\\policy.py": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+    "shared\\services.py": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846",
+    "tests\\test_agent.py": "25a4291d29544373042c3d31fb36fa21b0c212435349f6a5a02a21fecca725ff",
+    "tests\\test_app.py": "c5447ed518b3479723b9b63e7fdfb288916261c5091c5709ab2cfc2120c82303",
+    "tests\\test_boundaries.py": "cdb265d05e34636c314ea24685d10de2e817a4a445cf44cf6bcf06ee552d5028",
+    "tests\\test_contracts.py": "22168b8a9e837453d8a0a674ff6a215b5ef78dde55a4d4c0240773bcba2a7d4f",
+    "tests\\test_services.py": "30004f5ccc95aaa1b5265b9eb847cf45b76a6dd804c701e6a88b6ca9dd9c378c"
+  },
+  "scope": "P0-P6 / round 2.1 only; B-E independent acceptance pending; remote push follows local acceptance"
+}

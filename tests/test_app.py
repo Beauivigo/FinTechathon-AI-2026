@@ -1,7 +1,9 @@
 """安装 requirements-app.txt 后执行的真实 Streamlit 页面验收。"""
 
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 try:
     from streamlit.testing.v1 import AppTest
@@ -12,8 +14,24 @@ except ImportError:
 @unittest.skipIf(AppTest is None, "页面验收需先安装 requirements-app.txt")
 class PageTests(unittest.TestCase):
     def setUp(self):
+        self.temp = TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root_patch = patch('bank.seed.PROJECT_ROOT', Path(self.temp.name))
+        self.root_patch.start()
+        self.addCleanup(self.root_patch.stop)
         path = Path(__file__).resolve().parents[1] / "app/main.py"
+        self.page_path = path
         self.app = AppTest.from_file(str(path), default_timeout=10).run()
+
+    def receipts(self):
+        chat = self.app.session_state['conversation']
+        with chat.gateway.store.connection() as c:
+            return c.execute('SELECT COUNT(*) FROM transfers').fetchone()[0]
+
+    def balance(self):
+        chat = self.app.session_state['conversation']
+        with chat.gateway.store.connection() as c:
+            return c.execute("SELECT balance_minor FROM accounts WHERE account_id='demo_account_a'").fetchone()[0]
 
     def button(self, label):
         return next(button for button in self.app.button if button.label == label)
@@ -31,17 +49,18 @@ class PageTests(unittest.TestCase):
         chat = self.app.session_state["conversation"]
         self.assertEqual(chat.request["params"]["payee_id"], "demo_payee_wang_2")
         self.assertEqual(chat.result["status"], "awaiting_confirmation")
-        self.assertEqual(chat.gateway.receipt_count, 0)
+        self.assertEqual(self.receipts(), 0)
         self.assertEqual(len(self.app.exception), 0)
 
-    def test_confirmation_and_rerun_only_create_one_sample_receipt(self):
+    def test_confirmation_and_rerun_only_create_one_persisted_transfer(self):
         self.app.chat_input[0].set_value("给李明转200元").run()
         self.assertTrue(self.app.chat_input[0].disabled)
-        self.button("确认此笔示例转账").click().run()
+        self.button("确认此笔模拟转账").click().run()
         self.app.run()
         chat = self.app.session_state["conversation"]
         self.assertEqual(chat.result["status"], "succeeded")
-        self.assertEqual(chat.gateway.receipt_count, 1)
+        self.assertEqual(self.receipts(), 1)
+        self.assertEqual(self.balance(), 180000)
         self.assertFalse(self.app.chat_input[0].disabled)
         self.assertIn("【模拟】", self.app.success[0].value)
         self.assertEqual(len(self.app.exception), 0)
@@ -55,12 +74,13 @@ class PageTests(unittest.TestCase):
         self.button("模拟验证并继续").click().run()
         chat = self.app.session_state["conversation"]
         self.assertEqual(chat.result["status"], "succeeded")
-        self.assertEqual(chat.gateway.receipt_count, 1)
+        self.assertEqual(self.receipts(), 1)
         self.assertEqual(len(self.app.exception), 0)
 
     def test_optional_bank_name_and_invalid_candidate_input_do_not_break_page(self):
         chat = self.app.session_state["conversation"]
-        chat.gateway.payees = [{k: v for k, v in row.items() if k != "bank_name"} for row in chat.gateway.payees]
+        with chat.gateway.store.connection(write=True) as c:
+            c.execute('UPDATE payees SET bank_name=NULL')
         self.app.chat_input[0].set_value("给小王转200元").run()
         self.assertEqual(len(self.app.exception), 0)
         self.button("小王 · 银行未提供 · ****1234")
@@ -81,12 +101,81 @@ class PageTests(unittest.TestCase):
             raise TimeoutError("reply lost")
 
         chat.gateway.authorize = lost_reply
-        self.button("确认此笔示例转账").click().run()
+        self.button("确认此笔模拟转账").click().run()
         chat = self.app.session_state["conversation"]
         self.assertEqual(chat.result["status"], "unknown")
-        self.assertEqual(chat.gateway.receipt_count, 1)
+        self.assertEqual(self.receipts(), 1)
         self.assertTrue(self.app.chat_input[0].disabled)
         self.assertEqual(len(self.app.success), 0)
+        self.assertEqual(len(self.app.exception), 0)
+
+    def test_unknown_is_queryable_and_reset_cannot_bypass_it(self):
+        self.app.chat_input[0].set_value('给李明转200元').run()
+        chat = self.app.session_state['conversation']
+        authorize = chat.gateway.authorize
+        def lost(payload, **kw):
+            authorize(payload, **kw)
+            raise TimeoutError('lost')
+        chat.gateway.authorize = lost
+        self.button('确认此笔模拟转账').click().run()
+        self.assertTrue(self.button('新建对话').disabled)
+        self.assertTrue(self.button('确认重置模拟银行').disabled)
+        self.button('查询原操作结果').click().run()
+        self.assertEqual(chat.result['status'], 'succeeded')
+        self.assertEqual(self.receipts(), 1)
+        self.assertFalse(self.app.chat_input[0].disabled)
+        self.assertEqual(len(self.app.exception), 0)
+
+    def test_fresh_page_recovers_pending_and_success_without_automatic_authorization(self):
+        self.app.chat_input[0].set_value('给李明转200元').run()
+        original = self.app.session_state['conversation'].request
+        self.app = AppTest.from_file(str(self.page_path), default_timeout=10).run()
+        self.assertTrue(self.app.chat_input[0].disabled)
+        self.assertEqual(self.receipts(), 0)
+        self.button('恢复选中操作').click().run()
+        self.assertEqual(self.app.session_state['conversation'].request, original)
+        self.assertEqual(self.app.session_state['conversation'].payee['display_name'], '李明')
+        self.button('确认此笔模拟转账').click().run()
+        self.app = AppTest.from_file(str(self.page_path), default_timeout=10).run()
+        self.button('恢复选中操作').click().run()
+        self.assertEqual(self.app.session_state['conversation'].result['status'], 'succeeded')
+        self.assertEqual(self.balance(), 180000)
+        self.assertEqual(self.receipts(), 1)
+        self.assertEqual(len(self.app.exception), 0)
+
+    def test_new_chat_preserves_bank_and_explicit_reset_restores_seed(self):
+        self.app.chat_input[0].set_value('给李明转200元').run()
+        self.button('确认此笔模拟转账').click().run()
+        self.button('新建对话').click().run()
+        self.assertEqual(self.balance(), 180000)
+        self.assertEqual(self.receipts(), 1)
+        self.assertIsNone(self.app.session_state['conversation'].request)
+        self.assertTrue(self.button('确认重置模拟银行').disabled)
+        self.app.checkbox[0].check().run()
+        self.button('确认重置模拟银行').click().run()
+        self.assertEqual(self.balance(), 200000)
+        self.assertEqual(self.receipts(), 0)
+        self.assertEqual(len(self.app.exception), 0)
+
+    def test_cumulative_threshold_page_uses_ledger(self):
+        self.app.chat_input[0].set_value('给李明转800元').run()
+        self.button('确认此笔模拟转账').click().run()
+        self.app.chat_input[0].set_value('给李明转200.01元').run()
+        self.assertEqual(self.app.session_state['conversation'].result['status'], 'awaiting_verification')
+        self.assertFalse(any(button.label=='确认此笔模拟转账' for button in self.app.button))
+        self.button('模拟验证并继续').click().run()
+        self.assertEqual(self.balance(), 99999)
+        self.assertEqual(self.receipts(), 2)
+        self.assertEqual(len(self.app.exception), 0)
+
+    def test_insufficient_funds_page_never_reports_success(self):
+        self.app.chat_input[0].set_value('给李明转2001元').run()
+        self.button('模拟验证并继续').click().run()
+        result = self.app.session_state['conversation'].result
+        self.assertEqual(result['error']['code'], 'INSUFFICIENT_FUNDS')
+        self.assertEqual(len(self.app.success), 0)
+        self.assertEqual(self.balance(), 200000)
+        self.assertEqual(self.receipts(), 0)
         self.assertEqual(len(self.app.exception), 0)
 
 
