@@ -49,6 +49,7 @@ class ContractError(ValueError):
 
 # required / optional 是输入字段，output 是成功时必须提供的结果字段。
 # money = 人民币整数分；string = 非空字符串；object/list = JSON 对象/数组。
+# owner 为业务协调联系人；全部编码由 A 负责，复核分工见 docs/五人分工与实施计划.md。
 def action(scene, owner, risk, required, output, optional=None, write=False):
     return dict(scene=scene, owner=owner, risk=risk, required=required,
                 optional=optional or {}, output=output, write=write)

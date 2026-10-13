@@ -1,4 +1,4 @@
-name: Shared contracts
+name: Project checks
 
 on: [push, pull_request]
 
@@ -16,7 +16,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Validate contracts and shared JSON examples
+      - name: Install first-round page dependency
+        run: python -m pip install -r requirements-app.txt
+      - name: Require page test dependency
+        run: python -c "from streamlit.testing.v1 import AppTest"
+      - name: Validate contracts, examples and page interactions
         run: python -m unittest discover -s tests -v
       - name: Run integration example
         run: python -X utf8 -m examples.contract_demo
