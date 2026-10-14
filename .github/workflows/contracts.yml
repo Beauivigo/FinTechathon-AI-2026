@@ -28,3 +28,4 @@ jobs:
         run: |
           python -X utf8 -m examples.gateway_demo
           python -X utf8 -m examples.funds_demo
+          python -X utf8 -m examples.billing_demo

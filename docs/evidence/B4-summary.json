@@ -1,0 +1,72 @@
+{
+  "started_at_utc": "2026-10-14T05:13:03.952021+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.gateway_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "base_commit": "2f29801eba1ec1807423820dd645a640895cb8b8",
+  "tests": 198,
+  "page_tests": 19,
+  "skipped": 0,
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "billing/__init__.py": "05fa1581a4afa7f361867574ed107607f247fa5d088c95d176f0395d79b332a1",
+    "bank/services.py": "c582fde8a7ad05ea0a2eb2b202a49e5e51c4939863c5bc441e66cb7dc92151ba",
+    "app/main.py": "15e5949a44f0afb7013137a0f15eb7b8475eb235ac7ece14c2ca13c5fab29425",
+    "examples/billing_demo.py": "c627eb44a6f714a64d616e4150f89166a54de5ccc5ac453298518d2c0fb84596",
+    "tests/test_billing_fixture.py": "cf6ca246220e8aade31749adb8f88df3d57cfaf4533675ea86359e40d89f3d40",
+    "tests/test_billing.py": "52f045c8da814cb2258bde50839bb2130fad9ae13959c00aeb2e3635d770493a",
+    "tests/test_billing_gateway.py": "bb2eb33b7ac45d3a9d133a97a4e7581dee7eac21953eba10dc516686b947c037",
+    "tests/test_billing_page.py": "0e1de068f2480de1026cc9fb3697057a7a0a78e72c7f4dda1b40add8e3f387f8"
+  },
+  "finished_at_utc": "2026-10-14T05:13:17.273826+00:00",
+  "scope": "B0-B4 local technical acceptance; actual Python 3.12, 3.10 syntax only; C1 blockers unresolved; no commit/push or remote CI",
+  "runtime_unchanged": true
+}

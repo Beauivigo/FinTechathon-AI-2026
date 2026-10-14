@@ -1,0 +1,314 @@
+{
+  "fixture_version": 1,
+  "simulated": true,
+  "provenance": "B0 独立工程样例；非 C1 数据，非成员独立手算；不导入日常银行",
+  "currency": "CNY",
+  "amount_unit": "integer_fen",
+  "date_basis": "Asia/Shanghai; timestamps are deliberately constructed, not inferred from C1",
+  "accounts": [
+    {
+      "account_id": "b0_account_a",
+      "principal_id": "b0_user_a",
+      "opening_balance_minor": 100000,
+      "closing_balance_minor": 115500
+    },
+    {
+      "account_id": "b0_account_b",
+      "principal_id": "b0_user_b",
+      "opening_balance_minor": 100000,
+      "closing_balance_minor": 70000
+    },
+    {
+      "account_id": "b0_account_empty",
+      "principal_id": "b0_user_a",
+      "opening_balance_minor": 50000,
+      "closing_balance_minor": 50000
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "b0_tx_01",
+      "account_id": "b0_account_a",
+      "amount_minor": 10000,
+      "direction": "debit",
+      "kind": "consumption",
+      "category": "餐饮",
+      "occurred_at": "2026-08-01T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_02",
+      "account_id": "b0_account_a",
+      "amount_minor": 2000,
+      "direction": "debit",
+      "kind": "subscription",
+      "category": "影音会员",
+      "occurred_at": "2026-08-02T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_03",
+      "account_id": "b0_account_a",
+      "amount_minor": 20000,
+      "direction": "debit",
+      "kind": "transfer",
+      "category": "转账",
+      "occurred_at": "2026-08-03T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_04",
+      "account_id": "b0_account_a",
+      "amount_minor": 3000,
+      "direction": "credit",
+      "kind": "refund",
+      "category": "退款",
+      "occurred_at": "2026-08-04T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_05",
+      "account_id": "b0_account_a",
+      "amount_minor": 50000,
+      "direction": "credit",
+      "kind": "income",
+      "category": "收入",
+      "occurred_at": "2026-08-05T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_06",
+      "account_id": "b0_account_a",
+      "amount_minor": 5000,
+      "direction": "debit",
+      "kind": "wealth",
+      "category": "理财",
+      "occurred_at": "2026-08-06T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_07",
+      "account_id": "b0_account_a",
+      "amount_minor": 700,
+      "direction": "debit",
+      "kind": "consumption",
+      "category": "餐饮",
+      "occurred_at": "2026-08-31T15:59:59.999999Z"
+    },
+    {
+      "transaction_id": "b0_tx_08",
+      "account_id": "b0_account_a",
+      "amount_minor": 900,
+      "direction": "debit",
+      "kind": "subscription",
+      "category": "影音会员",
+      "occurred_at": "2026-08-31T16:00:00Z"
+    },
+    {
+      "transaction_id": "b0_tx_09",
+      "account_id": "b0_account_a",
+      "amount_minor": 1000,
+      "direction": "credit",
+      "kind": "wealth",
+      "category": "理财",
+      "occurred_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_10",
+      "account_id": "b0_account_a",
+      "amount_minor": 100,
+      "direction": "credit",
+      "kind": "refund",
+      "category": "退款",
+      "occurred_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_11",
+      "account_id": "b0_account_b",
+      "amount_minor": 20000,
+      "direction": "credit",
+      "kind": "transfer",
+      "category": "转账",
+      "occurred_at": "2026-08-03T12:00:00+08:00"
+    },
+    {
+      "transaction_id": "b0_tx_12",
+      "account_id": "b0_account_b",
+      "amount_minor": 50000,
+      "direction": "debit",
+      "kind": "consumption",
+      "category": "日用百货",
+      "occurred_at": "2026-08-10T12:00:00+08:00"
+    }
+  ],
+  "paired_transfer_ids": [
+    "b0_tx_03",
+    "b0_tx_11"
+  ],
+  "cases": [
+    {
+      "case_id": "basic_four",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_a",
+        "start_date": "2026-08-01",
+        "end_date": "2026-08-04"
+      },
+      "included_transaction_ids": [
+        "b0_tx_01",
+        "b0_tx_02"
+      ],
+      "total_expense_minor": 12000,
+      "categories": [
+        {
+          "category": "餐饮",
+          "amount_minor": 10000
+        },
+        {
+          "category": "影音会员",
+          "amount_minor": 2000
+        }
+      ],
+      "refund_transaction_ids": [
+        "b0_tx_04"
+      ],
+      "refund_minor": 3000
+    },
+    {
+      "case_id": "august",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_a",
+        "start_date": "2026-08-01",
+        "end_date": "2026-08-31"
+      },
+      "included_transaction_ids": [
+        "b0_tx_01",
+        "b0_tx_02",
+        "b0_tx_07"
+      ],
+      "total_expense_minor": 12700,
+      "categories": [
+        {
+          "category": "餐饮",
+          "amount_minor": 10700
+        },
+        {
+          "category": "影音会员",
+          "amount_minor": 2000
+        }
+      ],
+      "refund_transaction_ids": [
+        "b0_tx_04"
+      ],
+      "refund_minor": 3000
+    },
+    {
+      "case_id": "september",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_a",
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30"
+      },
+      "included_transaction_ids": [
+        "b0_tx_08"
+      ],
+      "total_expense_minor": 900,
+      "categories": [
+        {
+          "category": "影音会员",
+          "amount_minor": 900
+        }
+      ],
+      "refund_transaction_ids": [
+        "b0_tx_10"
+      ],
+      "refund_minor": 100
+    },
+    {
+      "case_id": "year",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_a",
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31"
+      },
+      "included_transaction_ids": [
+        "b0_tx_01",
+        "b0_tx_02",
+        "b0_tx_07",
+        "b0_tx_08"
+      ],
+      "total_expense_minor": 13600,
+      "categories": [
+        {
+          "category": "餐饮",
+          "amount_minor": 10700
+        },
+        {
+          "category": "影音会员",
+          "amount_minor": 2900
+        }
+      ],
+      "refund_transaction_ids": [
+        "b0_tx_04",
+        "b0_tx_10"
+      ],
+      "refund_minor": 3100
+    },
+    {
+      "case_id": "empty_period",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_a",
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-31"
+      },
+      "included_transaction_ids": [],
+      "total_expense_minor": 0,
+      "categories": [],
+      "refund_transaction_ids": [],
+      "refund_minor": 0
+    },
+    {
+      "case_id": "empty_account",
+      "principal_id": "b0_user_a",
+      "params": {
+        "account_id": "b0_account_empty",
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31"
+      },
+      "included_transaction_ids": [],
+      "total_expense_minor": 0,
+      "categories": [],
+      "refund_transaction_ids": [],
+      "refund_minor": 0
+    },
+    {
+      "case_id": "other_owner",
+      "principal_id": "b0_user_b",
+      "params": {
+        "account_id": "b0_account_b",
+        "start_date": "2026-08-01",
+        "end_date": "2026-08-31"
+      },
+      "included_transaction_ids": [
+        "b0_tx_12"
+      ],
+      "total_expense_minor": 50000,
+      "categories": [
+        {
+          "category": "日用百货",
+          "amount_minor": 50000
+        }
+      ],
+      "refund_transaction_ids": [],
+      "refund_minor": 0
+    }
+  ],
+  "forbidden_case": {
+    "principal_id": "b0_user_a",
+    "params": {
+      "account_id": "b0_account_b",
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-31"
+    },
+    "expected_code": "FORBIDDEN"
+  },
+  "anomaly_detection": "not_implemented; no thresholds or expected anomaly conclusions supplied"
+}

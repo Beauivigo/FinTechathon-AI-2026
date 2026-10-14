@@ -2,7 +2,8 @@
 
 from pathlib import Path
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
+from calendar import monthrange
 from uuid import uuid4
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -195,3 +196,52 @@ try:
         st.caption('暂无流水。待确认、拒绝或失败不会产生转账流水。')
 except (ContractError, ServiceError):
     st.warning('流水暂不可用，请稍后查询。')
+
+st.divider()
+st.subheader('账单分析')
+st.caption('查询本地模拟账本，不改变余额。修改查询条件或执行其他操作后，请重新查询。')
+try:
+    accounts = conversation.gateway.get_context(principal_id=conversation.principal_id)['accounts']
+except (ContractError, ServiceError):
+    accounts = []
+    st.warning('账单账户暂不可用，请稍后重试。')
+
+if accounts:
+    names = {row['account_id']: row['display_name'] for row in accounts}
+    account = st.selectbox('账单账户', list(names), format_func=lambda key: f'{names[key]} · {key}', key='bill_account')
+    mode = st.radio('统计期间', ['月份', '年份', '日期范围'], horizontal=True, key='bill_mode')
+    current = datetime.now(timezone(timedelta(hours=8))).date()
+    if mode in {'月份', '年份'}:
+        year = st.number_input('账单年份', min_value=1, max_value=9999, value=current.year, step=1, key='bill_year')
+        if mode == '月份':
+            month = st.selectbox('账单月份', list(range(1, 13)), index=current.month-1, key='bill_month')
+            start, end = date(year, month, 1), date(year, month, monthrange(year, month)[1])
+        else:
+            start, end = date(year, 1, 1), date(year, 12, 31)
+    else:
+        start = st.date_input('开始日期（上海）', value=current.replace(day=1), min_value=date.min, max_value=date.max, key='bill_start')
+        end = st.date_input('结束日期（上海）', value=current, min_value=date.min, max_value=date.max, key='bill_end')
+    valid_range = start is not None and end is not None and start <= end
+    if not valid_range:
+        st.warning('请选择完整日期，且开始日期不能晚于结束日期。')
+    # 不缓存成功报告：失败、条件变化、转账或重置重跑后不会把旧报告当成本次结果。
+    if st.button('查询账单', key='bill_query', disabled=not valid_range):
+        try:
+            bill = query('bill.analyze', dict(account_id=account, start_date=start.isoformat(), end_date=end.isoformat()))
+        except (ContractError, ServiceError, TimeoutError):
+            st.error('账单查询未完成，请稍后重试；本次没有可展示的报告。')
+        else:
+            st.caption(f'账户：{names[account]} · 上海日期：{start.isoformat()} 至 {end.isoformat()}（含两端）')
+            st.metric('消费/订阅毛支出', money(bill['total_expense_minor']))
+            st.write(bill['report'])
+            st.info('自动异常检测尚未启用，空列表不代表没有异常。')
+            if bill['categories']:
+                st.dataframe([{'分类': row['category'], '金额（元）': money(row['amount_minor']),
+                               '金额（分）': row['amount_minor']} for row in bill['categories']], hide_index=True)
+                st.bar_chart([{'分类': row['category'], '金额（分）': row['amount_minor']}
+                              for row in bill['categories']], x='分类', y='金额（分）')
+                st.caption('图表单位为人民币分，与表格使用同一份接口金额；100 分 = 1 元。')
+            else:
+                st.info('该期间没有计入毛支出的消费或订阅出账；退款情况见报告。')
+else:
+    st.caption('暂无可用于账单查询的账户。')

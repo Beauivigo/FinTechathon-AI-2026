@@ -1,0 +1,44 @@
+{
+  "started_at_utc": "2026-10-14T04:59:37.424934+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "tests": 180,
+  "page_tests": 10,
+  "skipped": 0,
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "billing/__init__.py": "05fa1581a4afa7f361867574ed107607f247fa5d088c95d176f0395d79b332a1",
+    "tests/test_billing.py": "52f045c8da814cb2258bde50839bb2130fad9ae13959c00aeb2e3635d770493a"
+  },
+  "finished_at_utc": "2026-10-14T04:59:46.159195+00:00",
+  "scope": "B1 core only; B2-B4 pending; Python 3.10 syntax only, actual run on 3.12; no commit/push",
+  "runtime_unchanged": true
+}

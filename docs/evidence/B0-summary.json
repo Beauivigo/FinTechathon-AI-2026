@@ -1,0 +1,49 @@
+{
+  "at_utc": "2026-10-14T04:52:01.519850+00:00",
+  "base_commit": "2f29801eba1ec1807423820dd645a640895cb8b8",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "baseline_exit": 0,
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "runtime_sha256_after_baseline": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "finished_at_utc": "2026-10-14T04:54:03.546453+00:00",
+  "baseline_tests": 162,
+  "final_tests": 166,
+  "fixture_checks": 4,
+  "page_tests": 10,
+  "skipped": 0,
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "runtime_unchanged": true,
+  "sha256": {
+    "tests/fixtures/billing_b0.json": "b8a5ee6cfac375d3b073f99f797ee2c0f984e2b22ada18ce17f80dd5a0919724",
+    "tests/test_billing_fixture.py": "cf6ca246220e8aade31749adb8f88df3d57cfaf4533675ea86359e40d89f3d40"
+  },
+  "scope": "B0 only; isolated JSON fixture; no production code/schema/data import changes; B1-B4 not implemented; Python 3.10 AST only; no commit or push"
+}

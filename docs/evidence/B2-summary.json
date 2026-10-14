@@ -1,0 +1,52 @@
+{
+  "started_at_utc": "2026-10-14T05:05:58.254362+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "tests": 189,
+  "page_tests": 10,
+  "skipped": 0,
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "bank/services.py": "c582fde8a7ad05ea0a2eb2b202a49e5e51c4939863c5bc441e66cb7dc92151ba",
+    "tests/test_billing_gateway.py": "bb2eb33b7ac45d3a9d133a97a4e7581dee7eac21953eba10dc516686b947c037",
+    "examples/billing_demo.py": "c627eb44a6f714a64d616e4150f89166a54de5ccc5ac453298518d2c0fb84596"
+  },
+  "finished_at_utc": "2026-10-14T05:06:08.381889+00:00",
+  "scope": "B2 gateway only; B3-B4 pending; actual Python 3.12, 3.10 syntax only; no commit/push",
+  "runtime_unchanged": true
+}

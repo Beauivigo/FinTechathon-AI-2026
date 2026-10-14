@@ -1,0 +1,44 @@
+{
+  "started_at_utc": "2026-10-14T05:08:58.939895+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "tests": 196,
+  "page_tests": 17,
+  "skipped": 0,
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "app/main.py": "15e5949a44f0afb7013137a0f15eb7b8475eb235ac7ece14c2ca13c5fab29425",
+    "tests/test_billing_page.py": "978da4c2299ee24df29385875e4355a85eef2856140afa3c1297e27de478f59f"
+  },
+  "finished_at_utc": "2026-10-14T05:09:10.747540+00:00",
+  "scope": "B3 page; B4 pending; actual Python 3.12, 3.10 syntax only; no commit/push",
+  "runtime_unchanged": true
+}

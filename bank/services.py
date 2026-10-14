@@ -2,10 +2,11 @@
 
 from uuid import uuid4
 from datetime import date, datetime, time, timedelta, timezone
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 from copy import deepcopy
 import json
 
+from billing import analyze
 from shared import ServiceError, SCHEMA_VERSION, validate_context, operation_digest
 from shared.adapters import loads_request, loads_result, strict_json_loads
 from shared.contracts import ContractError, MAX_SAFE_INTEGER, check_value, validate_request
@@ -185,6 +186,16 @@ class SandboxServices:
                 return {"candidates": [{k: row[k] for k in row.keys() if row[k] is not None} for row in rows]}
             if action == "transaction.list":
                 return self._transactions(connection, params, principal_id)
+            if action == "bill.analyze":
+                owned_account(connection, params["account_id"], principal_id)
+                # 同一只读事务内遍历完整账户流水，不经会写游标的分页入口。
+                # 日期筛选与金额汇总统一交给账单核心；不截取前 100 条。
+                with closing(connection.execute("""SELECT transaction_id,account_id,amount_minor,
+                    direction,kind,category,occurred_at,merchant_name FROM ledger_entries
+                    WHERE account_id=? ORDER BY occurred_at,transaction_id""",
+                    (params["account_id"],))) as rows:
+                    return analyze(params, ({k: row[k] for k in row.keys() if row[k] is not None}
+                                            for row in rows))
             if action == "operation.get":
                 row = connection.execute("""SELECT * FROM operations
                     WHERE principal_id=? AND action=? AND idempotency_key=?""",
