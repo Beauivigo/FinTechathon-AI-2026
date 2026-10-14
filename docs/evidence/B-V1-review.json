@@ -1,0 +1,176 @@
+{
+  "reviewed_at_utc": "2026-10-14T12:14:51.117594+00:00",
+  "execution_kind": "A reproduction of original B script against current repository working tree; each scenario uses a temporary database",
+  "repository_head": "3f83ce71b7835ff6ae11ab811b6db02b7a064638",
+  "working_tree_note": "Existing uncommitted material_check V1.2 compatibility changes retained; bank/shared code unchanged for this review.",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "script_path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\B实测脚本_b_acceptance.py",
+  "import_paths": {
+    "gateway": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\bank\\gateway.py",
+    "seed": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\bank\\seed.py",
+    "shared": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\shared\\__init__.py"
+  },
+  "source_sha256": {
+    "B实测脚本_b_acceptance.py": "4d5c88bebfec3d02328965bdc6726d345c4d759d2f13567fbd9956630499228c",
+    "B实测证据_b_evidence.json": "52b983a12bb6bd93257a70a0774480a4302be693186fbfdff3d79aac2f6539c4",
+    "副本资金规则与功能复核（B项目）V1.0.xlsx": "6f02fa7e83512de420f5728e24f7144e86a0373d213b0f130568cf4766aa1142"
+  },
+  "source_unchanged": true,
+  "runtime_database_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "runtime_database_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "runtime_database_unchanged": true,
+  "submitted_cases": 16,
+  "submitted_passed": 16,
+  "reproduced_cases": 16,
+  "reproduced_passed": 16,
+  "cases": [
+    {
+      "id": "B-T01",
+      "title": "正常小额转账（200元，普通确认）",
+      "ok": true
+    },
+    {
+      "id": "B-T02",
+      "title": "大额强验证（单笔1001元，含本次日累计>1000）",
+      "ok": true
+    },
+    {
+      "id": "B-T03",
+      "title": "日累计边界：恰好1000元（含本次=1000，应普通确认）",
+      "ok": true
+    },
+    {
+      "id": "B-T04",
+      "title": "日累计边界：1000.01元（含本次>1000，应强验证）",
+      "ok": true
+    },
+    {
+      "id": "B-T05",
+      "title": "余额不足拒绝（转2001元，余额2000）",
+      "ok": true
+    },
+    {
+      "id": "B-T06",
+      "title": "同名收款人不明（两位“小王”）",
+      "ok": true
+    },
+    {
+      "id": "B-T07",
+      "title": "重复点击/重复提交（幂等）",
+      "ok": true
+    },
+    {
+      "id": "B-T08",
+      "title": "同一幂等键篡改金额（200→300）",
+      "ok": true
+    },
+    {
+      "id": "B-T09",
+      "title": "用户在确认页拒绝",
+      "ok": true
+    },
+    {
+      "id": "B-T10",
+      "title": "授权超时（挑战有效期10分钟）",
+      "ok": true
+    },
+    {
+      "id": "B-T11",
+      "title": "连续5次错误模拟验证→锁定本次操作",
+      "ok": true
+    },
+    {
+      "id": "B-T12",
+      "title": "错用户越权（李明尝试确认 A 的转账）",
+      "ok": true
+    },
+    {
+      "id": "B-T13",
+      "title": "刷新/重启后待决操作恢复（未确认不丢、不自动执行）",
+      "ok": true
+    },
+    {
+      "id": "B-T14",
+      "title": "上海时区跨日：日累计按上海日期归零",
+      "ok": true
+    },
+    {
+      "id": "B-T15",
+      "title": "收款人不属于当前用户（越权映射拒绝）",
+      "ok": true
+    },
+    {
+      "id": "B-T16",
+      "title": "确认等待期间累计跨门槛→旧确认升级为强验证",
+      "ok": true
+    }
+  ],
+  "raw_output_directory": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\local_reports\\material_checks\\B-review-20261014T121450Z",
+  "scope_limit": "16 scripted gateway scenarios only; not full UI, scheduler, AA, budget or all security acceptance. Injected 2026-10-15 test time is not execution date.",
+  "supplementary_repository_tests": {
+    "run_by": "A, not B independent acceptance",
+    "tests_run": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_names": [
+      "test_gateway.GatewayTests.test_wrong_digest_cannot_change_pending_or_completed_operation",
+      "test_gateway.GatewayTests.test_expiry_exact_boundary_fails_without_silent_renewal",
+      "test_gateway.GatewayTests.test_day_is_shanghai_execution_day_and_verification_never_downgrades",
+      "test_gateway.GatewayTests.test_daily_total_spans_all_owned_accounts",
+      "test_gateway.GatewayTests.test_pending_survives_restart_and_never_moves_money",
+      "test_gateway.GatewayTests.test_plain_confirmation_cannot_satisfy_verification",
+      "test_gateway.GatewayTests.test_lost_commit_reply_preserves_success_for_operation_query",
+      "test_funds.FundsTests.test_fake_read_foreign_and_expired_transactions_cannot_post",
+      "test_funds.FundsTests.test_credit_first_arbitrary_credit_and_unfinished_debit_roll_back"
+    ]
+  },
+  "c_latest_source": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\C\\副本账单数据与手算（C项目）V1.2.xlsx",
+    "sha256": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba"
+  },
+  "review_findings": [
+    {
+      "id": "B-001",
+      "status": "partially_resolved",
+      "detail": "Demo account/permission review, transfer hand calculations and 16 gateway scenario evidence received and reproducible. C mapping, B3 examples and remaining independent acceptance are pending."
+    },
+    {
+      "id": "C1-001",
+      "status": "still_blocked",
+      "detail": "B workbook explicitly leaves C ACC/CH/principal/PAYEE mapping and date placeholder unapproved. Historical posting additionally requires opening/closing balances and credit-account scope."
+    },
+    {
+      "id": "B-G-MAPPING",
+      "location": "安全验收G映射!A15",
+      "detail": "G01-G15 already exist in docs/内部服务与开工验收.md section 7; reuse existing IDs rather than waiting for C to invent definitions."
+    },
+    {
+      "id": "B-POLICY",
+      "location": "暂定规则与待确认!A3:D5; 权限规则表!A20",
+      "detail": "1000 CNY threshold including current amount is established contract. The 10-minute challenge, five-failure lock scope and cross-account daily aggregation still need an explicit B review conclusion."
+    },
+    {
+      "id": "B-COVERAGE",
+      "detail": "B-T08 does not directly test wrong authorization digest; B-T10 does not test exact expiry; B-T14 does not test verification remaining required across midnight; B-T03/04/14 do not test a second payment account. Corresponding repository tests passed here, run by A."
+    },
+    {
+      "id": "B-PERMISSIONS",
+      "detail": "Complete rows for card.apply, scenario.plan, operation.get and transfer.schedule; AA is a collection request, not received funds."
+    },
+    {
+      "id": "B3",
+      "status": "pending_material",
+      "detail": "B3 reserve/consume/release, AA remainder allocation and execution/delivery hand calculations remain blank. Agreed examples precede implementation; do not fabricate missing business choices."
+    },
+    {
+      "id": "B4",
+      "status": "pending_independent_evidence",
+      "detail": "Actual page recovery and write-after-timeout demonstration still need B evidence; automated reproduction does not constitute full G01-G15 acceptance."
+    },
+    {
+      "id": "B6",
+      "detail": "Pin repo commit, environment, command and date; original source states reconstructed code subset. A owns coding, D/E supply business rules. Driver has no failure exit status; explicit result validation was used for this reproduction."
+    }
+  ]
+}

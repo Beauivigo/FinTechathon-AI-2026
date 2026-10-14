@@ -1,0 +1,160 @@
+{
+  "source_sha256": "6f02fa7e83512de420f5728e24f7144e86a0373d213b0f130568cf4766aa1142",
+  "revised_sha256": "b5468bb22d63da1422ac984a6cd159913d000342db4bc1b356bc3d72bc55c08c",
+  "changed_cells": 23,
+  "changed_parts": [
+    "xl/worksheets/sheet1.xml",
+    "xl/worksheets/sheet3.xml",
+    "xl/worksheets/sheet6.xml",
+    "xl/worksheets/sheet7.xml",
+    "xl/worksheets/sheet8.xml"
+  ],
+  "all_other_cells_and_styles_preserved": true,
+  "formulas_and_cached_values_preserved": true,
+  "all_other_package_parts_preserved": true,
+  "changes": [
+    {
+      "sheet": "交付信息与依据",
+      "cell": "A15",
+      "after": "本表区分既定契约、代码事实和成员复核。1000 元分级阈值已由题目及接口确定；有效期、锁定次数等参数仍待 B 明确复核意见，不将代码实现或 A 复跑视作 B 已确认。",
+      "before": "说明：本表只记录 B 复核到的代码事实与独立实测证据；“暂定”指代码已按该口径实现、但属团队暂定参数，需 B 正式签字确认，不伪装成已签字。"
+    },
+    {
+      "sheet": "权限规则表",
+      "cell": "D10",
+      "after": "创建 AA 收款单（参与人≥2）；不代表已收到款",
+      "before": "AA 转账（收款≥2 人）"
+    },
+    {
+      "sheet": "权限规则表",
+      "cell": "A20",
+      "after": "1000 元阈值及含本次的分级为既定契约；10 分钟有效期、5 次失败锁定已实现，仍待 B 复核。不能将既定阈值列为待重新选择的参数。",
+      "before": "1000 元阈值、10 分钟有效期、5 次失败锁定均为团队暂定参数（代码已按此实现），需 B 正式确认；见「暂定规则与待确认」。"
+    },
+    {
+      "sheet": "暂定规则与待确认",
+      "cell": "C3",
+      "after": "既定契约；边界已实测",
+      "before": "团队暂定，待 B 签字"
+    },
+    {
+      "sheet": "暂定规则与待确认",
+      "cell": "D3",
+      "after": "沿用题目及接口的 1000 元分界，不重定阈值；B-T03/T04 已验证边界。",
+      "before": "B 确认 1000 元是否为最终阈值（B-T03/T04 已验证边界实现）"
+    },
+    {
+      "sheet": "暂定规则与待确认",
+      "cell": "C4",
+      "after": "已实现，待 B 复核",
+      "before": "团队暂定，待 B 签字"
+    },
+    {
+      "sheet": "暂定规则与待确认",
+      "cell": "C5",
+      "after": "已实现，待 B 复核",
+      "before": "团队暂定，待 B 签字"
+    },
+    {
+      "sheet": "暂定规则与待确认",
+      "cell": "A12",
+      "after": "代码已实现不等于 B 已完成规则复核。1000 元分界沿用既定契约；其余待确认事项须有明确复核意见，不预填已批准。",
+      "before": "原则：代码已实现 ≠ B 已批准。上述暂定参数在 B 正式确认前，表中只描述“代码实现口径”，不写成 B 已签字。"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "A15",
+      "after": "G01—G15 已定义于 docs/内部服务与开工验收.md 第 7 节。沿用原编号，由 C 汇总实际结果、证据和缺陷；本表按安全主题列证据，后续补充对应编号及覆盖范围，不重新制定编号。",
+      "before": "关于 G01—G15：《五人分工与实施计划》第三轮以 G01—G15 做整体安全验收，但其正式编号定义属第三轮整体用例（由 C 统筹），本仓库 docs/ 未提供 G01—G15 逐条文本。B 不编造编号，按 B4 列明的七大安全主题逐项给证据，正式 G 编号待 C 第三轮整体用例发布后回填。"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "C6",
+      "after": "代码校验 operation_digest；B-T08 只验证同键改金额冲突，错误摘要授权的独立实测待补。",
+      "before": "shared/contracts + gateway.authorize 校验 operation_digest；B-T08 同键改内容冲突"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "E6",
+      "after": "代码核对；摘要实测待补",
+      "before": "代码核对+实测"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "F6",
+      "after": "部分覆盖",
+      "before": "通过"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "C7",
+      "after": "B-T10 验证到期后 1 秒拒绝；B-T14 验证普通确认跨日累计。精确到期与 verify 跨日不降级的独立实测待补。",
+      "before": "B-T10 t0+10分01秒 → AUTH_EXPIRED 无扣款；B-T14 验证跨日口径"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "E7",
+      "after": "超时及跨日已测；其余待补",
+      "before": "B 独立实测通过"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "F7",
+      "after": "部分覆盖",
+      "before": "通过"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "C9",
+      "after": "代码校验内部事务令牌及 debit/credit 配对；B-T02/T05 仅核对授权后结果，不能代替未授权零记账和伪造上下文测试。",
+      "before": "bank/services.post_funds 校验事务令牌与配对；P2 文档明确内部上下文不验证确认、不得直接接公开 execute；B-T02/T05 未授权不记账"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "E9",
+      "after": "代码核对；绕过确认实测待补",
+      "before": "代码核对+实测"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "F9",
+      "after": "部分覆盖",
+      "before": "通过"
+    },
+    {
+      "sheet": "安全验收G映射",
+      "cell": "A16",
+      "after": "写后超时和页面恢复仍待 A 演示、B 留证；第 6/7/9 行需补对应独立实测。已有仓库自动测试可作技术依据，不能替代 B 实际执行，也不能将网关层测试视为页面或完整 G 验收。",
+      "before": "阻塞项（2 项）均不属网关缺陷：①写后超时/外层提交失败的故障注入在仓库自动化测试中已覆盖，B 侧按分工“ A 演示、B 留证”，留待第三轮整体演练；②页面级“未决阻断新转账/不可切历史绕过”为 agent 页面行为，本次只在网关层取 list_operations 证据，未在真实页面点击。"
+    },
+    {
+      "sheet": "需求覆盖表",
+      "cell": "F5",
+      "after": "上海日期与阈值已测；跨付款账户累计需补独立实测。",
+      "before": "按上海时区，不用 SQLite date()"
+    },
+    {
+      "sheet": "需求覆盖表",
+      "cell": "E18",
+      "after": "业务模块待实现",
+      "before": "由 D/E 交付"
+    },
+    {
+      "sheet": "需求覆盖表",
+      "cell": "F18",
+      "after": "A 编码，D/E 提供业务规则；B 核资金口径。",
+      "before": "B 仅核资金口径，不编规则"
+    },
+    {
+      "sheet": "需求覆盖表",
+      "cell": "A19",
+      "after": "状态口径：已实现须区分代码核对和实测范围；已实现（模拟）使用 demo_otp；未实现/待第三轮不计完成。A 负责全部编码，D/E 提供相应业务规则和验收材料。",
+      "before": "状态口径：已实现=代码具备且 B 已实测/核对；已实现(模拟)=能力具备但强验证为 demo_otp 模拟；未实现/待第三轮=代码明确拒绝或尚未开放，不计入完成；由 D/E 交付=不属 B 规则范围。"
+    }
+  ],
+  "method": "Text authored and checked using artifact-tool; transplanted only authored cell strings into original package to retain printer settings, calculation chain, font charset and metadata omitted by full export.",
+  "output_path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\副本资金规则与功能复核（B项目）V1.0.xlsx",
+  "backup_path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\local_reports\\material_checks\\B-text-fix-20261014\\original.xlsx",
+  "status": "Original workbook replaced and fingerprint verified after user closed it.",
+  "business_decisions": "No mapping approved; no policy changed; no independent test results fabricated."
+}

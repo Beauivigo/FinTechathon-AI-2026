@@ -1,0 +1,167 @@
+[
+  {
+    "id": "B-T01",
+    "title": "正常小额转账（200元，普通确认）",
+    "ok": true,
+    "lines": [
+      "转账前余额：A 2000.00，李明 0.00",
+      "提交后状态：awaiting_confirmation（网关要求确认）",
+      "确认后状态：succeeded，交易号 transfer_a1dee24780c04d6790801251e681598b",
+      "转账后余额：A 1800.00，李明 200.00",
+      "记账笔数：transfers=1，ledger_entries=2，fund_postings=2（双边各一借一贷）"
+    ]
+  },
+  {
+    "id": "B-T02",
+    "title": "大额强验证（单笔1001元，含本次日累计>1000）",
+    "ok": true,
+    "lines": [
+      "提交后状态：awaiting_verification，验证方式 ['demo_otp']",
+      "签发模拟OTP并验证后：succeeded",
+      "转账后 A 余额 999.00（2000-1001）"
+    ]
+  },
+  {
+    "id": "B-T03",
+    "title": "日累计边界：恰好1000元（含本次=1000，应普通确认）",
+    "ok": true,
+    "lines": [
+      "提交后状态：awaiting_confirmation（100000 分 ≤ 100000 分阈值，走 confirm）",
+      "确认后：succeeded；A 余额 1000.00"
+    ]
+  },
+  {
+    "id": "B-T04",
+    "title": "日累计边界：1000.01元（含本次>1000，应强验证）",
+    "ok": true,
+    "lines": [
+      "提交后状态：awaiting_verification（100001 分 > 100000 分阈值，走 verify）",
+      "OTP 验证后：succeeded；A 余额 999.99"
+    ]
+  },
+  {
+    "id": "B-T05",
+    "title": "余额不足拒绝（转2001元，余额2000）",
+    "ok": true,
+    "lines": [
+      "提交后状态：awaiting_verification（先过强验证，授权时才查余额）",
+      "验证后：failed / INSUFFICIENT_FUNDS",
+      "文案：可用余额不足，本次转账未执行。",
+      "余额未变：A 2000.00，李明 0.00；无扣款"
+    ]
+  },
+  {
+    "id": "B-T06",
+    "title": "同名收款人不明（两位“小王”）",
+    "ok": true,
+    "lines": [
+      "按姓名“小王”查询返回 2 个候选：",
+      "  demo_payee_wang_1：小王 尾号****1234（模拟银行甲）",
+      "  demo_payee_wang_2：小王 尾号****5678（模拟银行乙）",
+      "系统只返回候选，不擅自选定、不发起转账（须用户追问消歧）"
+    ]
+  },
+  {
+    "id": "B-T07",
+    "title": "重复点击/重复提交（幂等）",
+    "ok": true,
+    "lines": [
+      "首次完成后 A 余额 1800.00；再次提交同一请求",
+      "第二次返回：succeeded（重放原结果，不二次记账）",
+      "重复后 A 余额 1800.00，transfers 表仍为 1 笔"
+    ]
+  },
+  {
+    "id": "B-T08",
+    "title": "同一幂等键篡改金额（200→300）",
+    "ok": true,
+    "lines": [
+      "第一笔200元进入待确认；用同一 idempotency_key 提交300元",
+      "结果：failed / IDEMPOTENCY_CONFLICT（拒绝，提示核实原操作）",
+      "A 余额仍为 2000.00，未发生转账"
+    ]
+  },
+  {
+    "id": "B-T09",
+    "title": "用户在确认页拒绝",
+    "ok": true,
+    "lines": [
+      "提交后 awaiting_confirmation；选择拒绝",
+      "结果：cancelled；A 2000.00、李明 0.00，无扣款"
+    ]
+  },
+  {
+    "id": "B-T10",
+    "title": "授权超时（挑战有效期10分钟）",
+    "ok": true,
+    "lines": [
+      "挑战签发时间 t0；expires_at=2026-10-15T06:10:00.000000Z",
+      "时钟推进到 t0+10分01秒后确认",
+      "结果：failed / AUTH_EXPIRED；原键不续期，需重新发起",
+      "A 2000.00、李明 0.00，无扣款"
+    ]
+  },
+  {
+    "id": "B-T11",
+    "title": "连续5次错误模拟验证→锁定本次操作",
+    "ok": true,
+    "lines": [
+      "前4次：raises/AUTH_INVALID；raises/AUTH_INVALID；raises/AUTH_INVALID；raises/AUTH_INVALID（业务仍待验证，可继续）",
+      "第5次：blocked / SAFETY_LOCKED",
+      "文案：模拟验证连续五次失败，本次操作已锁定，未执行转账。",
+      "挑战状态=blocked，failed_attempts=5；A 余额 2000.00，锁定仅本次操作"
+    ]
+  },
+  {
+    "id": "B-T12",
+    "title": "错用户越权（李明尝试确认 A 的转账）",
+    "ok": true,
+    "lines": [
+      "A 创建待确认挑战；李明用自己的身份提交授权 → raises/AUTH_INVALID",
+      "凭据无效/不属于该用户；A 的挑战保持 pending、失败次数 0",
+      "李明名下拒绝审计 1 条；不能代他人确认、不消耗他人失败次数"
+    ]
+  },
+  {
+    "id": "B-T13",
+    "title": "刷新/重启后待决操作恢复（未确认不丢、不自动执行）",
+    "ok": true,
+    "lines": [
+      "提交后待确认；list_operations 索引：transfer.create / awaiting_confirmation",
+      "模拟重启（同库新建网关）后再次读取，待决操作仍在",
+      "operation.get 原操作状态：awaiting_confirmation",
+      "重启后确认仍可完成：succeeded；A 余额 1800.00"
+    ]
+  },
+  {
+    "id": "B-T14",
+    "title": "上海时区跨日：日累计按上海日期归零",
+    "ok": true,
+    "lines": [
+      "上海 23:59 转 900 元（当日累计900，确认）成功",
+      "时钟推进到上海次日 00:01，再转 200 元",
+      "新一日累计重新计算，第二笔状态 awaiting_confirmation（未因前一天900元而强验证）",
+      "两笔成功，A 余额 900.00（2000-1100）"
+    ]
+  },
+  {
+    "id": "B-T15",
+    "title": "收款人不属于当前用户（越权映射拒绝）",
+    "ok": true,
+    "lines": [
+      "李明名下无“李明”收款人映射，发起转账",
+      "结果：failed/FORBIDDEN（收款人不属于当前用户）；无扣款"
+    ]
+  },
+  {
+    "id": "B-T16",
+    "title": "确认等待期间累计跨门槛→旧确认升级为强验证",
+    "ok": true,
+    "lines": [
+      "A、B 两笔各800元均待确认（此时各自累计800，普通确认）",
+      "先确认 B 成功（当日累计=800）；再确认 A",
+      "授权时复查累计 800+800=1600>1000，旧确认失效，A 升级为：awaiting_verification",
+      "对新挑战完成模拟验证后：succeeded；A 余额 400.00（2000-1600）"
+    ]
+  }
+]

@@ -29,7 +29,7 @@ def table_rows(parsed, name):
             rows.setdefault(row, {})[column_index_from_string(col)] = cell
     result = []
     for row, cells in sorted(rows.items()):
-        if len(cells) == 1 and str(next(iter(cells.values()))['value']).startswith(('说明：', '支付渠道不等于账户：')):
+        if len(cells) == 1 and str(next(iter(cells.values()))['value']).startswith(('说明：', '支付渠道不等于账户：', '映射状态（')):
             continue
         fields = {name: cells.get(col, dict(cell=f'{get_column_letter(col)}{row}', value=None, data_type='n'))
                   for name, col in sheet['headers'].items()}

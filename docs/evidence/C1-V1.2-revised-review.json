@@ -1,0 +1,244 @@
+{
+  "reviewed_at": "2026-10-14T08:53:13.174378+00:00",
+  "source": "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.2.xlsx",
+  "source_sha256": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba",
+  "source_bytes": 41783,
+  "source_unchanged": true,
+  "totals": {
+    "gross_minor": 347050,
+    "refund_minor": 34400,
+    "inflow_minor": 3107400,
+    "outflow_minor": 947050,
+    "count": 15
+  },
+  "hand_comparisons": [
+    {
+      "sheet": "手算答案",
+      "cell": "F5",
+      "label": "2026-08 日用百货",
+      "source": "literal",
+      "expected_minor": 32850,
+      "observed_minor": 32850,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D5",
+      "label": "2026-08 纳入流水",
+      "expected_ids": [
+        "LX-002"
+      ],
+      "observed_ids": [
+        "LX-002"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F6",
+      "label": "2026-08 餐饮",
+      "source": "literal",
+      "expected_minor": 8640,
+      "observed_minor": 8640,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D6",
+      "label": "2026-08 纳入流水",
+      "expected_ids": [
+        "LX-007"
+      ],
+      "observed_ids": [
+        "LX-007"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F7",
+      "label": "2026-08 交通",
+      "source": "literal",
+      "expected_minor": 5000,
+      "observed_minor": 5000,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D7",
+      "label": "2026-08 纳入流水",
+      "expected_ids": [
+        "LX-008"
+      ],
+      "observed_ids": [
+        "LX-008"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F8",
+      "label": "2026-08 影音会员",
+      "source": "literal",
+      "expected_minor": 2500,
+      "observed_minor": 2500,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D8",
+      "label": "2026-08 纳入流水",
+      "expected_ids": [
+        "LX-006"
+      ],
+      "observed_ids": [
+        "LX-006"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F9",
+      "label": "2026-08 小计（毛支出） —",
+      "source": "literal",
+      "expected_minor": 48990,
+      "observed_minor": 48990,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D9",
+      "label": "2026-08 小计（毛支出） 纳入流水",
+      "expected_ids": [
+        "LX-002",
+        "LX-006",
+        "LX-007",
+        "LX-008"
+      ],
+      "observed_ids": [
+        "LX-002",
+        "LX-006",
+        "LX-007",
+        "LX-008"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F10",
+      "label": "2026-09 住房",
+      "source": "literal",
+      "expected_minor": 250000,
+      "observed_minor": 250000,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D10",
+      "label": "2026-09 纳入流水",
+      "expected_ids": [
+        "LX-010"
+      ],
+      "observed_ids": [
+        "LX-010"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F11",
+      "label": "2026-09 日用百货",
+      "source": "literal",
+      "expected_minor": 41260,
+      "observed_minor": 41260,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D11",
+      "label": "2026-09 纳入流水",
+      "expected_ids": [
+        "LX-014"
+      ],
+      "observed_ids": [
+        "LX-014"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F12",
+      "label": "2026-09 云服务",
+      "source": "literal",
+      "expected_minor": 6800,
+      "observed_minor": 6800,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D12",
+      "label": "2026-09 纳入流水",
+      "expected_ids": [
+        "LX-013"
+      ],
+      "observed_ids": [
+        "LX-013"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F13",
+      "label": "2026-09 小计（毛支出） —",
+      "source": "literal",
+      "expected_minor": 298060,
+      "observed_minor": 298060,
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "D13",
+      "label": "2026-09 小计（毛支出） 纳入流水",
+      "expected_ids": [
+        "LX-010",
+        "LX-013",
+        "LX-014"
+      ],
+      "observed_ids": [
+        "LX-010",
+        "LX-013",
+        "LX-014"
+      ],
+      "status": "match"
+    },
+    {
+      "sheet": "手算答案",
+      "cell": "F14",
+      "label": "合计（毛支出） —",
+      "source": "literal",
+      "expected_minor": 347050,
+      "observed_minor": 347050,
+      "status": "match"
+    }
+  ],
+  "excel_errors": [],
+  "missing_formula_caches": 0,
+  "resolved": [
+    "字段说明 H5 文本示例",
+    "手算答案 F5:F14 非负金额及算式",
+    "小账本 D5/D13 对象统一为小王甲",
+    "小账本账户名称统一",
+    "异常样例 A06 年费按扣费期说明"
+  ],
+  "remaining": [
+    "正式账户/用户/渠道/收款人映射仍待 B",
+    "小账本 K6/K17 退款关联方及 L6/L17 原支付",
+    "按账户月份分类预期",
+    "月末具体边界流水及用例查询范围",
+    "独立实际结果/证据",
+    "分类规则 F8 仍写年费分摊待统一，与修订说明未一致",
+    "B/D/E 资料仍待补",
+    "A-001 新模板/表区兼容未修复，账户资料 A10 新说明需识别"
+  ],
+  "scope": "read-only manual review; reused reliable hand comparison and raw-ledger totals only; no source modification or import"
+}

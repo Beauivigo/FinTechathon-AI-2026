@@ -9,7 +9,7 @@ import re
 from .reconcile import reconcile_material
 from .checks import table_rows
 
-VERSION = 'material-report/1'
+VERSION = 'material-report/2'
 
 
 def key(parts):

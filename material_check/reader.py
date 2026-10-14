@@ -25,6 +25,9 @@ HEADERS = {
 MAX_FILE_BYTES = 20 * 1024 * 1024
 MAX_EXPANDED_BYTES = 100 * 1024 * 1024
 MAX_CELLS = 500_000
+NARRATIVE_HEADERS = ('案例编号', '业务/规则编号', '前置数据', '输入与操作步骤',
+                     '预期金额/状态/文案', '实际结果与证据', '版本/结论')
+OPTIONAL_HEADERS = {'验收用例': tuple('场景' if h == '业务/规则编号' else h for h in NARRATIVE_HEADERS)}
 
 
 class ReadError(ValueError):
@@ -91,17 +94,26 @@ def _extract(book, cached, content):
                 cells.extend(cell_record(c, cached[sheet.title][c.coordinate]) for c in populated)
         entry = dict(rows=sheet.max_row, columns=sheet.max_column, cells=cells, header_row=None, headers={})
         result['sheets'][sheet.title] = entry
-        required = HEADERS.get(sheet.title)
+        required = HEADERS.get(sheet.title, OPTIONAL_HEADERS.get(sheet.title))
         if required is None:
             continue
-        scores = {r: len({c.value.strip() for c in row if isinstance(c.value, str)} & set(required))
-                  for r, row in by_row.items()}
+        variants = [required, NARRATIVE_HEADERS] if sheet.title == '测试表' else [required]
+        choices = [(len({c.value.strip() for c in row if isinstance(c.value, str)} & set(schema)), r, schema)
+                   for schema in variants for r, row in by_row.items()]
+        scores = {}
+        for score, r, schema in choices:
+            scores[r] = max(scores.get(r, 0), score)
         best = max(scores.values(), default=0)
         candidates = [r for r, score in scores.items() if score == best and score >= 2]
         if len(candidates) != 1:
             issue('HEADER_UNRESOLVED', sheet.title, '', '未找到唯一表头，请检查缺失或重复表头。')
             continue
         header_row = candidates[0]
+        schemas = [schema for score, r, schema in choices if r == header_row and score == best]
+        if len(schemas) != 1:
+            issue('HEADER_UNRESOLVED', sheet.title, str(header_row), '表头同时匹配多种模板，不能猜测列含义。')
+            continue
+        required = schemas[0]
         names = [c.value.strip() for c in by_row[header_row] if isinstance(c.value, str)]
         duplicates = [name for name, count in Counter(names).items() if count > 1]
         headers = {c.value.strip(): c.column for c in by_row[header_row] if isinstance(c.value, str)}

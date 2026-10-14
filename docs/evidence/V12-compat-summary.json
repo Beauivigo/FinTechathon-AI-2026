@@ -1,0 +1,250 @@
+{
+  "started_at": "2026-10-14T09:12:47.132427+00:00",
+  "hash_before": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.2.xlsx": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "actual": {
+    "v11": {
+      "counts": {
+        "issue_levels": {
+          "error": 13,
+          "needs_decision": 10
+        },
+        "comparisons": {
+          "match": 21,
+          "sign_mismatch": 10
+        },
+        "not_executed": 10,
+        "checked_rows": 15
+      },
+      "totals": {
+        "gross_minor": 347050,
+        "refund_minor": 34400,
+        "inflow_minor": 3107400,
+        "outflow_minor": 947050,
+        "count": 15
+      },
+      "issues": [
+        {
+          "code": "EXCEL_ERROR",
+          "sheet": "字段说明",
+          "cell": "H5",
+          "message": "单元格或保存缓存含 Excel 错误值。"
+        },
+        {
+          "code": "MAPPING_NOT_APPROVED",
+          "sheet": "账户资料",
+          "cell": "",
+          "message": "结构检查不批准账户、用户、渠道与 demo 编号映射。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L5",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PARTY_MISSING",
+          "sheet": "小账本",
+          "cell": "K6",
+          "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。"
+        },
+        {
+          "code": "ORIGINAL_PENDING",
+          "sheet": "小账本",
+          "cell": "L6",
+          "message": "原关联资料未齐。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L7",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L13",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L14",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PARTY_MISSING",
+          "sheet": "小账本",
+          "cell": "K17",
+          "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。"
+        },
+        {
+          "code": "ORIGINAL_PENDING",
+          "sheet": "小账本",
+          "cell": "L17",
+          "message": "原关联资料未齐。"
+        },
+        {
+          "code": "DATE_PRECISION_PENDING",
+          "sheet": "字段说明",
+          "cell": "",
+          "message": "只保留来源日期；午夜是否可作程序归属占位仍需确认。"
+        },
+        {
+          "code": "KNOWN_PARTY_CONFLICT",
+          "sheet": "小账本",
+          "cell": "D5",
+          "message": "此已复核版本的摘要写小李，关联方写小王甲。"
+        },
+        {
+          "code": "KNOWN_PARTY_CONFLICT",
+          "sheet": "小账本",
+          "cell": "D13",
+          "message": "此已复核版本的摘要写小李，关联方写小王甲。"
+        }
+      ],
+      "unperformed": [],
+      "report_path": "local_reports\\material_checks\\compat-20261014T091301\\v11\\report.md"
+    },
+    "v12": {
+      "counts": {
+        "issue_levels": {
+          "needs_decision": 9,
+          "error": 2
+        },
+        "comparisons": {
+          "match": 43
+        },
+        "not_executed": 28,
+        "checked_rows": 15
+      },
+      "totals": {
+        "gross_minor": 347050,
+        "refund_minor": 34400,
+        "inflow_minor": 3107400,
+        "outflow_minor": 947050,
+        "count": 15
+      },
+      "issues": [
+        {
+          "code": "MAPPING_NOT_APPROVED",
+          "sheet": "账户资料",
+          "cell": "",
+          "message": "结构检查不批准账户、用户、渠道与 demo 编号映射。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L5",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PARTY_MISSING",
+          "sheet": "小账本",
+          "cell": "K6",
+          "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。"
+        },
+        {
+          "code": "ORIGINAL_PENDING",
+          "sheet": "小账本",
+          "cell": "L6",
+          "message": "原关联资料未齐。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L7",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L13",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PAIRING_PENDING",
+          "sheet": "小账本",
+          "cell": "L14",
+          "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。"
+        },
+        {
+          "code": "PARTY_MISSING",
+          "sheet": "小账本",
+          "cell": "K17",
+          "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。"
+        },
+        {
+          "code": "ORIGINAL_PENDING",
+          "sheet": "小账本",
+          "cell": "L17",
+          "message": "原关联资料未齐。"
+        },
+        {
+          "code": "DATE_PRECISION_PENDING",
+          "sheet": "字段说明",
+          "cell": "",
+          "message": "只保留来源日期；午夜是否可作程序归属占位仍需确认。"
+        },
+        {
+          "code": "VERSION_REVIEW_REQUIRED",
+          "sheet": "",
+          "cell": "",
+          "message": "输入不是已复核的 V1.1 指纹，不套用旧行号语义结论。"
+        }
+      ],
+      "unperformed": [],
+      "report_path": "local_reports\\material_checks\\compat-20261014T091301\\v12\\report.md",
+      "changes": {
+        "continued": 10,
+        "appeared": 0,
+        "disappeared": 10,
+        "unassessed_previous": 3,
+        "unassessed_current": 1
+      }
+    }
+  },
+  "tests": 261,
+  "page_tests": 19,
+  "skipped": 0,
+  "hash_after": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.2.xlsx": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "finished_at": "2026-10-14T09:13:02.085870+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "remote_ci": "not run",
+  "python310": "syntax only"
+}
