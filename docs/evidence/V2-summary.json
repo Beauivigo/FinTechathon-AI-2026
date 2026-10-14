@@ -1,0 +1,190 @@
+{
+  "started_at_utc": "2026-10-14T05:46:29.517888+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256_before": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "material_result": {
+    "source_sha256": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "issues": [
+      {
+        "code": "EXCEL_ERROR",
+        "level": "error",
+        "sheet": "字段说明",
+        "cell": "H5",
+        "record_id": null,
+        "message": "单元格或保存缓存含 Excel 错误值。",
+        "impact": "不能作为有效计算依据",
+        "blocker": "C1-002"
+      },
+      {
+        "code": "MAPPING_NOT_APPROVED",
+        "level": "needs_decision",
+        "sheet": "账户资料",
+        "cell": "",
+        "record_id": null,
+        "message": "结构检查不批准账户、用户、渠道与 demo 编号映射。",
+        "impact": "正式转换仍需 C1-001 的明确决议",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PAIRING_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L5",
+        "record_id": "LX-003",
+        "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。",
+        "impact": "需明确配对依据",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PARTY_MISSING",
+        "level": "error",
+        "sheet": "小账本",
+        "cell": "K6",
+        "record_id": "LX-004",
+        "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。",
+        "impact": "阻止该条作为有效标准流水",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "ORIGINAL_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L6",
+        "record_id": "LX-004",
+        "message": "原关联资料未齐。",
+        "impact": "阻止原交易核验，不阻止本期退款单列",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PAIRING_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L7",
+        "record_id": "LX-005",
+        "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。",
+        "impact": "需明确配对依据",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PAIRING_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L13",
+        "record_id": "LX-011",
+        "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。",
+        "impact": "需明确配对依据",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PAIRING_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L14",
+        "record_id": "LX-012",
+        "message": "保留源关联编号，不按 TR/INV 编号形似自动配对。",
+        "impact": "需明确配对依据",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "PARTY_MISSING",
+        "level": "error",
+        "sheet": "小账本",
+        "cell": "K17",
+        "record_id": "LX-015",
+        "message": "源字典要求此类型填写关联方；若未知需明确缺失处理。",
+        "impact": "阻止该条作为有效标准流水",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "ORIGINAL_PENDING",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "L17",
+        "record_id": "LX-015",
+        "message": "原关联资料未齐。",
+        "impact": "阻止原交易核验，不阻止本期退款单列",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "DATE_PRECISION_PENDING",
+        "level": "needs_decision",
+        "sheet": "字段说明",
+        "cell": "",
+        "record_id": null,
+        "message": "只保留来源日期；午夜是否可作程序归属占位仍需确认。",
+        "impact": "本步不产生 occurred_at",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "KNOWN_PARTY_CONFLICT",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "D5",
+        "record_id": "LX-003",
+        "message": "此已复核版本的摘要写小李，关联方写小王甲。",
+        "impact": "按 C1-001 确认对象，不自动纠正",
+        "blocker": "C1-001"
+      },
+      {
+        "code": "KNOWN_PARTY_CONFLICT",
+        "level": "needs_decision",
+        "sheet": "小账本",
+        "cell": "D13",
+        "record_id": "LX-011",
+        "message": "此已复核版本的摘要写小李，关联方写小王甲。",
+        "impact": "按 C1-001 确认对象，不自动纠正",
+        "blocker": "C1-001"
+      }
+    ],
+    "skipped_checks": [],
+    "checked_ledger_rows": 15,
+    "counts": {
+      "error": 3,
+      "needs_decision": 10
+    },
+    "import_ready": false,
+    "scope": "V2 fields/references only; no business approval, totals, export or import"
+  },
+  "tests": 226,
+  "page_tests": 19,
+  "skipped": 0,
+  "source_sha256_after": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "material_check/checks.py": "c62d68904169686ec1b384012a3d9bc05bd7998842704ce0cf1c4cc54b754d6f",
+    "tests/test_material_checks.py": "5d83074afed5b8b85647fbc1dcefed0610b60b0110a6d1eb6655cd68b11eae8e"
+  },
+  "finished_at_utc": "2026-10-14T05:46:45.198776+00:00",
+  "scope": "V2 only; no V3 totals, business approval, workbook/pet changes, import, commit or push; Python 3.10 syntax only",
+  "source_unchanged": true,
+  "runtime_unchanged": true
+}

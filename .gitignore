@@ -223,3 +223,6 @@ __marimo__/
 
 # 本地模拟银行运行数据（含 SQLite 日志和附属文件）
 /runtime/
+
+# 本地离线资料报告（包含源资料内容）
+/local_reports/material_checks/

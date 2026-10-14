@@ -1,0 +1,77 @@
+{
+  "stage": "V4",
+  "time": "2026-10-14T06:00:57.413978+00:00",
+  "calls": [
+    {
+      "args": [
+        "--output-dir",
+        "local_reports\\material_checks\\V4-20261014T060053\\first"
+      ],
+      "exit_code": 1,
+      "stdout": "检查完成：local_reports\\material_checks\\V4-20261014T060053\\first\\report.md；材料尚未批准导入。\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--output-dir",
+        "local_reports\\material_checks\\V4-20261014T060053\\second",
+        "--previous",
+        "local_reports\\material_checks\\V4-20261014T060053\\first\\report.json"
+      ],
+      "exit_code": 1,
+      "stdout": "检查完成：local_reports\\material_checks\\V4-20261014T060053\\second\\report.md；材料尚未批准导入。\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--output-dir",
+        "local_reports\\material_checks\\V4-20261014T060053\\first"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "检查未完成，不产生有效新结论：输出目录已存在，请换一个新目录；不会复用或覆盖旧报告\n"
+    }
+  ],
+  "hash_before": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "hash_after": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "counts": {
+    "issue_levels": {
+      "error": 13,
+      "needs_decision": 10
+    },
+    "comparisons": {
+      "match": 21,
+      "sign_mismatch": 10
+    },
+    "not_executed": 10,
+    "checked_rows": 15
+  },
+  "totals": {
+    "gross_minor": 347050,
+    "refund_minor": 34400,
+    "inflow_minor": 3107400,
+    "outflow_minor": 947050,
+    "count": 15
+  },
+  "changes": {
+    "continued": 23,
+    "appeared": 0,
+    "disappeared": 0,
+    "unassessed_previous": 0,
+    "unassessed_current": 0
+  },
+  "tests_exit_code": 0,
+  "report_path": "local_reports\\material_checks\\V4-20261014T060053\\second\\report.md",
+  "tests_run": 51,
+  "tests_skipped": 0,
+  "new_v4_tests": 11,
+  "full_suite_rerun": false,
+  "last_full_suite_stage": "V3",
+  "python310_syntax_only": true
+}

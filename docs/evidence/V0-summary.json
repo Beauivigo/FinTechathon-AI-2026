@@ -1,0 +1,70 @@
+{
+  "started_at_utc": "2026-10-14T05:31:34.753098+00:00",
+  "base_commit": "1bbe9e938087c04b9de90ebfa1cfae967bcc7152",
+  "branch": "main",
+  "initial_status": "",
+  "source_sha256_before": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "inspection_python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "openpyxl_version": "3.1.5",
+  "test_python": "Python 3.12.14",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.gateway_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "tests": 198,
+  "page_tests": 19,
+  "skipped": 0,
+  "finished_at_utc": "2026-10-14T05:31:46.946707+00:00",
+  "source_sha256_after": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "scope": "V0 only; no business code changes, no workbook save/import, no pet project access, no V1-V5 implementation, no commit/push",
+  "source_unchanged": true,
+  "runtime_unchanged": true,
+  "input_inventory_sha256": "5ba794f0156ab4c09f6eebd96978d713855c2cb09926d622ae48a6d3f4ab4ea1"
+}

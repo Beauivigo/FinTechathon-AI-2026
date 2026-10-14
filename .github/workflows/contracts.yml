@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install page dependency
-        run: python -m pip install -r requirements-app.txt
+        run: python -m pip install -r requirements-app.txt -r requirements-materials.txt
       - name: Require page test dependency
         run: python -c "from streamlit.testing.v1 import AppTest"
       - name: Validate contracts, examples and page interactions

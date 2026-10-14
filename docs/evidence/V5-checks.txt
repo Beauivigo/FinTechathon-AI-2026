@@ -1,0 +1,403 @@
+COMMAND: -m unittest discover -s tests -v
+test_ambiguous_payee_must_be_chosen_from_trusted_candidates (test_agent.FirstRoundTests.test_ambiguous_payee_must_be_chosen_from_trusted_candidates) ... ok
+test_approve_repeat_or_requery_does_not_create_second_receipt (test_agent.FirstRoundTests.test_approve_repeat_or_requery_does_not_create_second_receipt) ... ok
+test_demo_gateway_preserves_idempotency_content (test_agent.FirstRoundTests.test_demo_gateway_preserves_idempotency_content) ... ok
+test_expired_authorization_finishes_without_a_receipt (test_agent.FirstRoundTests.test_expired_authorization_finishes_without_a_receipt) ... ok
+test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof (test_agent.FirstRoundTests.test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof) ... ok
+test_initial_write_timeout_preserves_unknown_request (test_agent.FirstRoundTests.test_initial_write_timeout_preserves_unknown_request) ... ok
+test_invalid_amount_or_unsupported_input_has_no_business_side_effect (test_agent.FirstRoundTests.test_invalid_amount_or_unsupported_input_has_no_business_side_effect) ... ok
+test_invalid_new_input_clears_old_candidates_and_amount (test_agent.FirstRoundTests.test_invalid_new_input_clears_old_candidates_and_amount) ... ok
+test_large_transfer_does_not_accept_plain_confirmation (test_agent.FirstRoundTests.test_large_transfer_does_not_accept_plain_confirmation) ... ok
+test_missing_amount_is_asked_without_transfer (test_agent.FirstRoundTests.test_missing_amount_is_asked_without_transfer) ... ok
+test_new_invalid_input_cannot_display_previous_success_as_current (test_agent.FirstRoundTests.test_new_invalid_input_cannot_display_previous_success_as_current) ... ok
+test_new_operation_has_new_ids (test_agent.FirstRoundTests.test_new_operation_has_new_ids) ... ok
+test_pending_input_cannot_mutate_current_request (test_agent.FirstRoundTests.test_pending_input_cannot_mutate_current_request) ... ok
+test_rejection_cannot_generate_success (test_agent.FirstRoundTests.test_rejection_cannot_generate_success) ... ok
+test_spaces_do_not_join_separate_numbers_into_a_new_amount (test_agent.FirstRoundTests.test_spaces_do_not_join_separate_numbers_into_a_new_amount) ... ok
+test_valid_request_and_pending_result_use_shared_contract (test_agent.FirstRoundTests.test_valid_request_and_pending_result_use_shared_contract) ... ok
+test_write_response_failure_preserves_operation_and_prevents_new_key (test_agent.FirstRoundTests.test_write_response_failure_preserves_operation_and_prevents_new_key) ... ok
+test_wrong_upstream_correlation_is_rejected (test_agent.FirstRoundTests.test_wrong_upstream_correlation_is_rejected) ... ok
+test_confirmation_and_rerun_only_create_one_persisted_transfer (test_app.PageTests.test_confirmation_and_rerun_only_create_one_persisted_transfer) ... 2026-10-14 14:06:50.573 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cumulative_threshold_page_uses_ledger (test_app.PageTests.test_cumulative_threshold_page_uses_ledger) ... 2026-10-14 14:06:51.299 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_page_recovers_pending_and_success_without_automatic_authorization (test_app.PageTests.test_fresh_page_recovers_pending_and_success_without_automatic_authorization) ... 2026-10-14 14:06:51.555 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-14 14:06:51.692 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-14 14:06:51.838 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_insufficient_funds_page_never_reports_success (test_app.PageTests.test_insufficient_funds_page_never_reports_success) ... 2026-10-14 14:06:51.952 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_new_chat_preserves_bank_and_explicit_reset_restores_seed (test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed) ... 2026-10-14 14:06:52.139 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_optional_bank_name_and_invalid_candidate_input_do_not_break_page (test_app.PageTests.test_optional_bank_name_and_invalid_candidate_input_do_not_break_page) ... 2026-10-14 14:06:52.384 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_page_starts_and_missing_amount_then_payee_selection_works (test_app.PageTests.test_page_starts_and_missing_amount_then_payee_selection_works) ... 2026-10-14 14:06:52.599 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_rejection_and_simulated_verification_are_separate_paths (test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths) ... 2026-10-14 14:06:52.809 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_is_queryable_and_reset_cannot_bypass_it (test_app.PageTests.test_unknown_is_queryable_and_reset_cannot_bypass_it) ... 2026-10-14 14:06:53.069 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_write_result_disables_new_submission (test_app.PageTests.test_unknown_write_result_disables_new_submission) ... 2026-10-14 14:06:53.277 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_concurrent_initialization_imports_seed_only_once (test_bank.BankTests.test_concurrent_initialization_imports_seed_only_once) ... ok
+test_corrupt_operation_cannot_be_presented_as_success (test_bank.BankTests.test_corrupt_operation_cannot_be_presented_as_success) ... ok
+test_cursor_rejects_changed_filters_account_owner_and_unknown_token (test_bank.BankTests.test_cursor_rejects_changed_filters_account_owner_and_unknown_token) ... ok
+test_default_page_limit_is_100_and_remaining_rows_are_retrievable (test_bank.BankTests.test_default_page_limit_is_100_and_remaining_rows_are_retrievable) ... ok
+test_empty_store_and_queries_do_not_auto_seed (test_bank.BankTests.test_empty_store_and_queries_do_not_auto_seed) ... ok
+test_failed_seed_import_rolls_back_and_can_be_retried (test_bank.BankTests.test_failed_seed_import_rolls_back_and_can_be_retried) ... ok
+test_foreign_or_newer_database_is_not_overwritten (test_bank.BankTests.test_foreign_or_newer_database_is_not_overwritten) ... ok
+test_initialization_is_idempotent_and_separate_process_reads_saved_state (test_bank.BankTests.test_initialization_is_idempotent_and_separate_process_reads_saved_state) ... ok
+test_invalid_requests_raise_safe_errors_and_pending_does_not_debit (test_bank.BankTests.test_invalid_requests_raise_safe_errors_and_pending_does_not_debit) ... ok
+test_linked_reset_path_is_rejected_without_touching_target (test_bank.BankTests.test_linked_reset_path_is_rejected_without_touching_target) ... ok
+test_missing_database_query_does_not_create_file (test_bank.BankTests.test_missing_database_query_does_not_create_file) ... ok
+test_operation_query_keeps_nested_status_and_hides_other_owners (test_bank.BankTests.test_operation_query_keeps_nested_status_and_hides_other_owners) ... ok
+test_payees_are_scoped_and_ambiguous_names_are_not_guessed (test_bank.BankTests.test_payees_are_scoped_and_ambiguous_names_are_not_guessed) ... ok
+test_reset_failure_rolls_back_and_leaves_old_data (test_bank.BankTests.test_reset_failure_rolls_back_and_leaves_old_data) ... ok
+test_reset_requires_confirmation_and_only_targets_fixed_demo_database (test_bank.BankTests.test_reset_requires_confirmation_and_only_targets_fixed_demo_database) ... ok
+test_schema_rejects_bad_balances_foreign_keys_and_duplicate_operation_keys (test_bank.BankTests.test_schema_rejects_bad_balances_foreign_keys_and_duplicate_operation_keys) ... ok
+test_seed_balances_and_resource_snapshots_match_contract (test_bank.BankTests.test_seed_balances_and_resource_snapshots_match_contract) ... ok
+test_shanghai_date_boundary_preserves_microseconds_and_supported_date_extremes (test_bank.BankTests.test_shanghai_date_boundary_preserves_microseconds_and_supported_date_extremes) ... ok
+test_stable_paging_excludes_new_backdated_rows_and_survives_restart (test_bank.BankTests.test_stable_paging_excludes_new_backdated_rows_and_survives_restart) ... ok
+test_unknown_or_other_identity_cannot_read_private_resources (test_bank.BankTests.test_unknown_or_other_identity_cannot_read_private_resources) ... ok
+test_all_hand_answers_and_public_result_contract (test_billing.BillingTests.test_all_hand_answers_and_public_result_contract) ... ok
+test_bad_records_fail_without_guessing (test_billing.BillingTests.test_bad_records_fail_without_guessing) ... ok
+test_category_capacity_no_truncation (test_billing.BillingTests.test_category_capacity_no_truncation) ... ok
+test_direction_matters (test_billing.BillingTests.test_direction_matters) ... ok
+test_duplicate_transaction_fails (test_billing.BillingTests.test_duplicate_transaction_fails) ... ok
+test_invalid_request (test_billing.BillingTests.test_invalid_request) ... ok
+test_maximum_amount_report_is_exact (test_billing.BillingTests.test_maximum_amount_report_is_exact) ... ok
+test_more_than_one_hundred_rows (test_billing.BillingTests.test_more_than_one_hundred_rows) ... ok
+test_output_byte_capacity_no_truncation (test_billing.BillingTests.test_output_byte_capacity_no_truncation) ... ok
+test_readonly_order_independent_and_repeatable (test_billing.BillingTests.test_readonly_order_independent_and_repeatable) ... ok
+test_refund_overflow (test_billing.BillingTests.test_refund_overflow) ... ok
+test_shanghai_same_day_closed_boundaries (test_billing.BillingTests.test_shanghai_same_day_closed_boundaries) ... ok
+test_total_overflow_across_categories (test_billing.BillingTests.test_total_overflow_across_categories) ... ok
+test_year_fee_not_amortized_and_category_not_inferred (test_billing.BillingTests.test_year_fee_not_amortized_and_category_not_inferred) ... ok
+test_explicit_hand_answers_match_listed_rows_and_date_boundaries (test_billing_fixture.BillingFixtureTests.test_explicit_hand_answers_match_listed_rows_and_date_boundaries) ... ok
+test_forbidden_case_really_targets_another_owner (test_billing_fixture.BillingFixtureTests.test_forbidden_case_really_targets_another_owner) ... ok
+test_opening_plus_history_matches_closing_and_transfer_is_paired (test_billing_fixture.BillingFixtureTests.test_opening_plus_history_matches_closing_and_transfer_is_paired) ... ok
+test_rows_obey_existing_contract_and_cover_all_kinds (test_billing_fixture.BillingFixtureTests.test_rows_obey_existing_contract_and_cover_all_kinds) ... ok
+test_aggregate_overflow_is_limit_exceeded (test_billing_gateway.BillingGatewayTests.test_aggregate_overflow_is_limit_exceeded) ... ok
+test_bad_backend_receipt_is_not_success (test_billing_gateway.BillingGatewayTests.test_bad_backend_receipt_is_not_success) ... ok
+test_bad_ledger_and_database_failure_are_failed (test_billing_gateway.BillingGatewayTests.test_bad_ledger_and_database_failure_are_failed) ... ok
+test_concurrent_committed_insert_appears_only_next_query (test_billing_gateway.BillingGatewayTests.test_concurrent_committed_insert_appears_only_next_query) ... ok
+test_fixture_answers_through_gateway (test_billing_gateway.BillingGatewayTests.test_fixture_answers_through_gateway) ... ok
+test_forbidden_and_unknown_identities_no_data_leak (test_billing_gateway.BillingGatewayTests.test_forbidden_and_unknown_identities_no_data_leak) ... ok
+test_invalid_dates_rejected_before_read (test_billing_gateway.BillingGatewayTests.test_invalid_dates_rejected_before_read) ... ok
+test_more_than_one_hundred_and_query_list_date_parity (test_billing_gateway.BillingGatewayTests.test_more_than_one_hundred_and_query_list_date_parity) ... ok
+test_pending_authorization_and_entire_database_unchanged (test_billing_gateway.BillingGatewayTests.test_pending_authorization_and_entire_database_unchanged) ... ok
+test_account_selection_uses_owned_resources (test_billing_page.BillingPageTests.test_account_selection_uses_owned_resources) ... 2026-10-14 14:06:54.886 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_amount_table_chart_and_refund_agree (test_billing_page.BillingPageTests.test_amount_table_chart_and_refund_agree) ... 2026-10-14 14:06:55.082 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bad_result_cannot_display_as_success (test_billing_page.BillingPageTests.test_bad_result_cannot_display_as_success) ... 2026-10-14 14:06:55.494 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_failed_query_clears_previous_report (test_billing_page.BillingPageTests.test_failed_query_clears_previous_report) ... 2026-10-14 14:06:55.717 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_invalid_range_does_not_execute (test_billing_page.BillingPageTests.test_invalid_range_does_not_execute) ... 2026-10-14 14:06:55.903 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_leap_month_request_and_refresh_clear_report (test_billing_page.BillingPageTests.test_leap_month_request_and_refresh_clear_report) ... 2026-10-14 14:06:56.080 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_query_preserves_pending_transfer (test_billing_page.BillingPageTests.test_query_preserves_pending_transfer) ... 2026-10-14 14:06:56.270 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_transfer_stays_unknown_until_recovered (test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered) ... 2026-10-14 14:06:56.515 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_year_and_custom_dates_and_empty_month (test_billing_page.BillingPageTests.test_year_and_custom_dates_and_empty_month) ... 2026-10-14 14:06:56.782 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_aa_members_total_and_fair_split (test_boundaries.BoundaryTests.test_aa_members_total_and_fair_split) ... ok
+test_alias_adapter_does_not_mutate_input (test_boundaries.BoundaryTests.test_alias_adapter_does_not_mutate_input) ... ok
+test_authorization_is_separate_from_business_params (test_boundaries.BoundaryTests.test_authorization_is_separate_from_business_params) ... ok
+test_balance_must_reconcile (test_boundaries.BoundaryTests.test_balance_must_reconcile) ... ok
+test_bill_total_and_nested_fields (test_boundaries.BoundaryTests.test_bill_total_and_nested_fields) ... ok
+test_cyclic_and_oversized_inputs_are_rejected (test_boundaries.BoundaryTests.test_cyclic_and_oversized_inputs_are_rejected) ... ok
+test_gate_output_cannot_be_confused_with_business_status (test_boundaries.BoundaryTests.test_gate_output_cannot_be_confused_with_business_status) ... ok
+test_hash_canonicalizes_time_and_units (test_boundaries.BoundaryTests.test_hash_canonicalizes_time_and_units) ... ok
+test_id_and_timestamp_formats_are_stable (test_boundaries.BoundaryTests.test_id_and_timestamp_formats_are_stable) ... ok
+test_invalid_public_inputs_raise_contract_error (test_boundaries.BoundaryTests.test_invalid_public_inputs_raise_contract_error) ... ok
+test_json_roundtrip_preserves_correlation (test_boundaries.BoundaryTests.test_json_roundtrip_preserves_correlation) ... ok
+test_ledger_date_account_and_page_size (test_boundaries.BoundaryTests.test_ledger_date_account_and_page_size) ... ok
+test_lookup_success_still_displays_unknown_original_result (test_boundaries.BoundaryTests.test_lookup_success_still_displays_unknown_original_result) ... ok
+test_money_does_not_depend_on_decimal_context (test_boundaries.BoundaryTests.test_money_does_not_depend_on_decimal_context) ... ok
+test_original_operation_lookup_cannot_swap_operation (test_boundaries.BoundaryTests.test_original_operation_lookup_cannot_swap_operation) ... ok
+test_pending_requires_valid_challenge (test_boundaries.BoundaryTests.test_pending_requires_valid_challenge) ... ok
+test_products_must_match_and_risk_enum_is_fixed (test_boundaries.BoundaryTests.test_products_must_match_and_risk_enum_is_fixed) ... ok
+test_status_map_and_upstream_metadata (test_boundaries.BoundaryTests.test_status_map_and_upstream_metadata) ... ok
+test_strict_json_rejects_duplicate_keys_and_constants (test_boundaries.BoundaryTests.test_strict_json_rejects_duplicate_keys_and_constants) ... ok
+test_success_cannot_be_rewritten_and_unknown_can_resolve (test_boundaries.BoundaryTests.test_success_cannot_be_rewritten_and_unknown_can_resolve) ... ok
+test_wrong_card_or_subscription_target_is_rejected (test_boundaries.BoundaryTests.test_wrong_card_or_subscription_target_is_rejected) ... ok
+test_alias_and_exact_money (test_contracts.ContractTests.test_alias_and_exact_money) ... ok
+test_all_actions_have_a_working_contract (test_contracts.ContractTests.test_all_actions_have_a_working_contract) ... ok
+test_ambiguous_or_conflicting_fields_fail (test_contracts.ContractTests.test_ambiguous_or_conflicting_fields_fail) ... ok
+test_dates_and_unknown_actions (test_contracts.ContractTests.test_dates_and_unknown_actions) ... ok
+test_money_and_write_key_validation (test_contracts.ContractTests.test_money_and_write_key_validation) ... ok
+test_operation_binding (test_contracts.ContractTests.test_operation_binding) ... ok
+test_pending_cannot_carry_success_data (test_contracts.ContractTests.test_pending_cannot_carry_success_data) ... ok
+test_plan_dependencies (test_contracts.ContractTests.test_plan_dependencies) ... ok
+test_schedule_never_means_transfer_completed (test_contracts.ContractTests.test_schedule_never_means_transfer_completed) ... ok
+test_success_needs_matching_receipt (test_contracts.ContractTests.test_success_needs_matching_receipt) ... ok
+test_threshold_includes_current_transfer (test_contracts.ContractTests.test_threshold_includes_current_transfer) ... ok
+test_timeout_is_unknown_not_failed (test_contracts.ContractTests.test_timeout_is_unknown_not_failed) ... ok
+test_budget_actions_unavailable_and_public_gateway_requires_authorization (test_funds.FundsTests.test_budget_actions_unavailable_and_public_gateway_requires_authorization) ... ok
+test_concurrent_same_key_is_one_transfer (test_funds.FundsTests.test_concurrent_same_key_is_one_transfer) ... ok
+test_credit_first_arbitrary_credit_and_unfinished_debit_roll_back (test_funds.FundsTests.test_credit_first_arbitrary_credit_and_unfinished_debit_roll_back) ... ok
+test_credit_overflow_and_daily_safe_integer_limit_roll_back (test_funds.FundsTests.test_credit_overflow_and_daily_safe_integer_limit_roll_back) ... ok
+test_failed_or_incomplete_p1_migration_preserves_old_version_and_data (test_funds.FundsTests.test_failed_or_incomplete_p1_migration_preserves_old_version_and_data) ... ok
+test_fake_read_foreign_and_expired_transactions_cannot_post (test_funds.FundsTests.test_fake_read_foreign_and_expired_transactions_cannot_post) ... ok
+test_fault_after_each_leg_rolls_back_all_records (test_funds.FundsTests.test_fault_after_each_leg_rolls_back_all_records) ... ok
+test_fault_before_result_and_during_result_or_audit_save_rolls_back (test_funds.FundsTests.test_fault_before_result_and_during_result_or_audit_save_rolls_back) ... ok
+test_insufficient_and_concurrent_balance_never_overdraw (test_funds.FundsTests.test_insufficient_and_concurrent_balance_never_overdraw) ... ok
+test_malformed_receipt_context_and_float_amount_do_not_commit (test_funds.FundsTests.test_malformed_receipt_context_and_float_amount_do_not_commit) ... ok
+test_no_success_is_visible_before_outer_commit (test_funds.FundsTests.test_no_success_is_visible_before_outer_commit) ... ok
+test_outer_commit_failure_rolls_back_all_transfer_records (test_funds.FundsTests.test_outer_commit_failure_rolls_back_all_transfer_records) ... ok
+test_p1_schema_migration_preserves_existing_data_and_is_repeatable (test_funds.FundsTests.test_p1_schema_migration_preserves_existing_data_and_is_repeatable) ... ok
+test_pending_record_is_updated_but_unknown_or_terminal_failure_is_not_reexecuted (test_funds.FundsTests.test_pending_record_is_updated_but_unknown_or_terminal_failure_is_not_reexecuted) ... ok
+test_posting_error_caught_by_caller_cannot_leave_extra_debit (test_funds.FundsTests.test_posting_error_caught_by_caller_cannot_leave_extra_debit) ... ok
+test_posting_replay_checks_all_fields_and_does_not_change_balance (test_funds.FundsTests.test_posting_replay_checks_all_fields_and_does_not_change_balance) ... ok
+test_reserved_funds_cannot_be_spent_by_normal_debit (test_funds.FundsTests.test_reserved_funds_cannot_be_spent_by_normal_debit) ... ok
+test_reset_clears_postings_with_financial_records (test_funds.FundsTests.test_reset_clears_postings_with_financial_records) ... ok
+test_same_key_changed_amount_payee_or_memo_conflicts (test_funds.FundsTests.test_same_key_changed_amount_payee_or_memo_conflicts) ... ok
+test_same_operation_retries_and_restart_do_not_post_twice (test_funds.FundsTests.test_same_operation_retries_and_restart_do_not_post_twice) ... ok
+test_transfer_commits_both_sides_receipts_result_and_audit (test_funds.FundsTests.test_transfer_commits_both_sides_receipts_result_and_audit) ... ok
+test_wrong_owner_untrusted_payee_and_self_transfer_are_rejected (test_funds.FundsTests.test_wrong_owner_untrusted_payee_and_self_transfer_are_rejected) ... ok
+test_balance_is_rechecked_and_failure_is_audited (test_gateway.GatewayTests.test_balance_is_rechecked_and_failure_is_audited) ... ok
+test_challenge_consumption_failure_rolls_back_funds (test_gateway.GatewayTests.test_challenge_consumption_failure_rolls_back_funds) ... ok
+test_concurrent_balance_competition_never_overdraws (test_gateway.GatewayTests.test_concurrent_balance_competition_never_overdraws) ... ok
+test_concurrent_confirmations_escalate_second_without_debit (test_gateway.GatewayTests.test_concurrent_confirmations_escalate_second_without_debit) ... ok
+test_concurrent_execute_creates_one_challenge (test_gateway.GatewayTests.test_concurrent_execute_creates_one_challenge) ... ok
+test_concurrent_retries_of_same_authorization_only_pay_once (test_gateway.GatewayTests.test_concurrent_retries_of_same_authorization_only_pay_once) ... ok
+test_confirm_commits_pair_and_consumes_challenge_once (test_gateway.GatewayTests.test_confirm_commits_pair_and_consumes_challenge_once) ... ok
+test_credit_failure_rolls_back_debit_and_success_audit (test_gateway.GatewayTests.test_credit_failure_rolls_back_debit_and_success_audit) ... ok
+test_daily_total_spans_all_owned_accounts (test_gateway.GatewayTests.test_daily_total_spans_all_owned_accounts) ... ok
+test_day_is_shanghai_execution_day_and_verification_never_downgrades (test_gateway.GatewayTests.test_day_is_shanghai_execution_day_and_verification_never_downgrades) ... ok
+test_existing_unknown_operation_is_never_executed_again (test_gateway.GatewayTests.test_existing_unknown_operation_is_never_executed_again) ... ok
+test_expiry_exact_boundary_fails_without_silent_renewal (test_gateway.GatewayTests.test_expiry_exact_boundary_fails_without_silent_renewal) ... ok
+test_five_invalid_attempts_lock_persistently_despite_proof_reissue (test_gateway.GatewayTests.test_five_invalid_attempts_lock_persistently_despite_proof_reissue) ... ok
+test_foreign_account_and_payee_fail_before_challenge (test_gateway.GatewayTests.test_foreign_account_and_payee_fail_before_challenge) ... ok
+test_invalid_module_result_rolls_back_both_postings (test_gateway.GatewayTests.test_invalid_module_result_rolls_back_both_postings) ... ok
+test_lost_commit_reply_preserves_success_for_operation_query (test_gateway.GatewayTests.test_lost_commit_reply_preserves_success_for_operation_query) ... ok
+test_lost_pending_reply_recovers_same_challenge (test_gateway.GatewayTests.test_lost_pending_reply_recovers_same_challenge) ... ok
+test_other_user_cannot_authorize_issue_proof_or_lock_owner (test_gateway.GatewayTests.test_other_user_cannot_authorize_issue_proof_or_lock_owner) ... ok
+test_outer_rollback_restores_pending_and_unused_challenge (test_gateway.GatewayTests.test_outer_rollback_restores_pending_and_unused_challenge) ... ok
+test_payee_mapping_change_requires_new_confirmation (test_gateway.GatewayTests.test_payee_mapping_change_requires_new_confirmation) ... ok
+test_pending_survives_restart_and_never_moves_money (test_gateway.GatewayTests.test_pending_survives_restart_and_never_moves_money) ... ok
+test_pending_without_legacy_payee_binding_fails_closed (test_gateway.GatewayTests.test_pending_without_legacy_payee_binding_fails_closed) ... ok
+test_plain_confirmation_cannot_satisfy_verification (test_gateway.GatewayTests.test_plain_confirmation_cannot_satisfy_verification) ... ok
+test_proof_cannot_be_issued_after_expiry (test_gateway.GatewayTests.test_proof_cannot_be_issued_after_expiry) ... ok
+test_proof_is_bound_to_challenge_and_reissue_invalidates_old_token (test_gateway.GatewayTests.test_proof_is_bound_to_challenge_and_reissue_invalidates_old_token) ... ok
+test_proof_is_hashed_not_logged_and_survives_restart (test_gateway.GatewayTests.test_proof_is_hashed_not_logged_and_survives_restart) ... ok
+test_reject_is_terminal_and_never_pays (test_gateway.GatewayTests.test_reject_is_terminal_and_never_pays) ... ok
+test_replay_reassociates_response_without_changing_original (test_gateway.GatewayTests.test_replay_reassociates_response_without_changing_original) ... ok
+test_same_key_different_amount_rejected_even_after_success (test_gateway.GatewayTests.test_same_key_different_amount_rejected_even_after_success) ... ok
+test_threshold_includes_current_amount_and_equality_is_confirm (test_gateway.GatewayTests.test_threshold_includes_current_amount_and_equality_is_confirm) ... ok
+test_v2_migration_adds_binding_without_changing_balance (test_gateway.GatewayTests.test_v2_migration_adds_binding_without_changing_balance) ... ok
+test_wrong_digest_cannot_change_pending_or_completed_operation (test_gateway.GatewayTests.test_wrong_digest_cannot_change_pending_or_completed_operation) ... ok
+test_account_explanation_not_treated_as_identifier (test_material_checks.MaterialChecksTests.test_account_explanation_not_treated_as_identifier) ... ok
+test_amount_precision_range_and_types (test_material_checks.MaterialChecksTests.test_amount_precision_range_and_types) ... ok
+test_bad_account_and_missing_reference_table (test_material_checks.MaterialChecksTests.test_bad_account_and_missing_reference_table) ... ok
+test_channel_cycle_and_duplicate_account (test_material_checks.MaterialChecksTests.test_channel_cycle_and_duplicate_account) ... ok
+test_clean_fields_not_equated_with_import_approval (test_material_checks.MaterialChecksTests.test_clean_fields_not_equated_with_import_approval) ... ok
+test_date_month_and_unconfirmed_time (test_material_checks.MaterialChecksTests.test_date_month_and_unconfirmed_time) ... ok
+test_duplicate_and_invalid_ids (test_material_checks.MaterialChecksTests.test_duplicate_and_invalid_ids) ... ok
+test_formula_errors_and_missing_cache (test_material_checks.MaterialChecksTests.test_formula_errors_and_missing_cache) ... ok
+test_known_conflict_only_applies_to_reviewed_version (test_material_checks.MaterialChecksTests.test_known_conflict_only_applies_to_reviewed_version) ... ok
+test_payee_name_ambiguity_requires_decision (test_material_checks.MaterialChecksTests.test_payee_name_ambiguity_requires_decision) ... ok
+test_payee_references_missing_ledger (test_material_checks.MaterialChecksTests.test_payee_references_missing_ledger) ... ok
+test_refund_original_missing_is_pending_not_invented (test_material_checks.MaterialChecksTests.test_refund_original_missing_is_pending_not_invented) ... ok
+test_sign_direction_kind_and_category (test_material_checks.MaterialChecksTests.test_sign_direction_kind_and_category) ... ok
+test_structure_failure_records_skipped_not_empty_success (test_material_checks.MaterialChecksTests.test_structure_failure_records_skipped_not_empty_success) ... ok
+test_bad_and_oversized_inputs_fail (test_material_reader.ReaderTests.test_bad_and_oversized_inputs_fail) ... ok
+test_blank_notes_and_partial_rows_not_lost (test_material_reader.ReaderTests.test_blank_notes_and_partial_rows_not_lost) ... ok
+test_changed_file_result_keeps_original_snapshot (test_material_reader.ReaderTests.test_changed_file_result_keeps_original_snapshot) ... ok
+test_duplicate_header_not_last_wins (test_material_reader.ReaderTests.test_duplicate_header_not_last_wins) ... ok
+test_empty_ledger_with_header (test_material_reader.ReaderTests.test_empty_ledger_with_header) ... ok
+test_extra_sheet_preserved_without_blocking (test_material_reader.ReaderTests.test_extra_sheet_preserved_without_blocking) ... ok
+test_formula_and_error_cache_from_same_bytes (test_material_reader.ReaderTests.test_formula_and_error_cache_from_same_bytes) ... ok
+test_missing_column_blocks_ledger_mapping_not_raw_cells (test_material_reader.ReaderTests.test_missing_column_blocks_ledger_mapping_not_raw_cells) ... ok
+test_missing_input_has_clear_error (test_material_reader.ReaderTests.test_missing_input_has_clear_error) ... ok
+test_missing_sheet_preserves_others (test_material_reader.ReaderTests.test_missing_sheet_preserves_others) ... ok
+test_readonly_file_and_stable_result (test_material_reader.ReaderTests.test_readonly_file_and_stable_result) ... ok
+test_reordered_columns_and_added_rows (test_material_reader.ReaderTests.test_reordered_columns_and_added_rows) ... ok
+test_repeated_header_is_ambiguous (test_material_reader.ReaderTests.test_repeated_header_is_ambiguous) ... ok
+test_source_values_types_and_positions_preserved (test_material_reader.ReaderTests.test_source_values_types_and_positions_preserved) ... ok
+test_bad_amount_blocks_full_total_and_marks_subtotal (test_material_reconcile.ReconcileTests.test_bad_amount_blocks_full_total_and_marks_subtotal) ... ok
+test_case_scope_is_not_marked_executed (test_material_reconcile.ReconcileTests.test_case_scope_is_not_marked_executed) ... ok
+test_duplicates_not_silently_deduplicated (test_material_reconcile.ReconcileTests.test_duplicates_not_silently_deduplicated) ... ok
+test_gross_refund_and_cashflow_separate (test_material_reconcile.ReconcileTests.test_gross_refund_and_cashflow_separate) ... ok
+test_hand_ids_and_different_section (test_material_reconcile.ReconcileTests.test_hand_ids_and_different_section) ... ok
+test_missing_hand_category_is_unperformed (test_material_reconcile.ReconcileTests.test_missing_hand_category_is_unperformed) ... ok
+test_missing_ledger_is_not_zero_success (test_material_reconcile.ReconcileTests.test_missing_ledger_is_not_zero_success) ... ok
+test_month_recomputed_from_date_not_cache (test_material_reconcile.ReconcileTests.test_month_recomputed_from_date_not_cache) ... ok
+test_no_input_mutation_or_formal_transaction_preview (test_material_reconcile.ReconcileTests.test_no_input_mutation_or_formal_transaction_preview) ... ok
+test_overflow_never_returns_unsafe_totals (test_material_reconcile.ReconcileTests.test_overflow_never_returns_unsafe_totals) ... ok
+test_source_formula_not_treated_as_confirmed_cash (test_material_reconcile.ReconcileTests.test_source_formula_not_treated_as_confirmed_cash) ... ok
+test_summary_mismatch_does_not_change_computed_total (test_material_reconcile.ReconcileTests.test_summary_mismatch_does_not_change_computed_total) ... ok
+test_changed_source_and_version_specific_issue_never_claim_fixed (test_material_report.ReportTests.test_changed_source_and_version_specific_issue_never_claim_fixed) ... ok
+test_changed_transaction_type_is_not_reported_as_fixed_party (test_material_report.ReportTests.test_changed_transaction_type_is_not_reported_as_fixed_party) ... ok
+test_cli_readonly_reports_repeat_comparison_and_no_overwrite (test_material_report.ReportTests.test_cli_readonly_reports_repeat_comparison_and_no_overwrite) ... ok
+test_cli_source_change_during_reconciliation_is_reported (test_material_report.ReportTests.test_cli_source_change_during_reconciliation_is_reported) ... ok
+test_cli_wrong_previous_json_shape_fails_without_report (test_material_report.ReportTests.test_cli_wrong_previous_json_shape_fails_without_report) ... ok
+test_fixed_value_disappears_but_missing_table_does_not (test_material_report.ReportTests.test_fixed_value_disappears_but_missing_table_does_not) ... ok
+test_incompatible_or_failed_report_rejected (test_material_report.ReportTests.test_incompatible_or_failed_report_rejected) ... ok
+test_markdown_does_not_render_source_html (test_material_report.ReportTests.test_markdown_does_not_render_source_html) ... ok
+test_new_error_and_deleted_record_are_not_confused (test_material_report.ReportTests.test_new_error_and_deleted_record_are_not_confused) ... ok
+test_read_and_write_failure_leave_no_valid_new_report (test_material_report.ReportTests.test_read_and_write_failure_leave_no_valid_new_report) ... ok
+test_row_move_does_not_change_ledger_problem_id (test_material_report.ReportTests.test_row_move_does_not_change_ledger_problem_id) ... ok
+test_runtime_output_rejected (test_material_report.ReportTests.test_runtime_output_rejected) ... ok
+test_same_input_same_ids_and_markdown_facts (test_material_report.ReportTests.test_same_input_same_ids_and_markdown_facts) ... ok
+test_backend_unknown_stays_blocked_after_query (test_recovery.RecoveryTests.test_backend_unknown_stays_blocked_after_query) ... ok
+test_cannot_switch_away_from_unresolved_current_operation (test_recovery.RecoveryTests.test_cannot_switch_away_from_unresolved_current_operation) ... ok
+test_expired_proof_issuance_is_recovered_as_failed (test_recovery.RecoveryTests.test_expired_proof_issuance_is_recovered_as_failed) ... ok
+test_invalid_proof_is_not_misreported_as_terminal_failure (test_recovery.RecoveryTests.test_invalid_proof_is_not_misreported_as_terminal_failure) ... ok
+test_lost_authorize_reply_recovers_success_and_no_second_debit (test_recovery.RecoveryTests.test_lost_authorize_reply_recovers_success_and_no_second_debit) ... ok
+test_lost_execute_reply_recovers_pending_without_illegal_unknown_transition (test_recovery.RecoveryTests.test_lost_execute_reply_recovers_pending_without_illegal_unknown_transition) ... ok
+test_new_request_id_retry_recovers_original_before_authorization (test_recovery.RecoveryTests.test_new_request_id_retry_recovers_original_before_authorization) ... ok
+test_not_found_keeps_unknown_and_original_key (test_recovery.RecoveryTests.test_not_found_keeps_unknown_and_original_key) ... ok
+test_query_outage_never_clears_original_request (test_recovery.RecoveryTests.test_query_outage_never_clears_original_request) ... ok
+test_recovery_index_is_scoped_and_keeps_old_pending (test_recovery.RecoveryTests.test_recovery_index_is_scoped_and_keeps_old_pending) ... ok
+test_recovery_rejects_mismatched_content_under_same_key (test_recovery.RecoveryTests.test_recovery_rejects_mismatched_content_under_same_key) ... ok
+test_restart_lists_pending_and_blocks_new_transfer_until_recovered (test_recovery.RecoveryTests.test_restart_lists_pending_and_blocks_new_transfer_until_recovered) ... ok
+test_restart_restores_completed_operation_from_original_request (test_recovery.RecoveryTests.test_restart_restores_completed_operation_from_original_request) ... ok
+test_business_source_cannot_change_or_hop_through_gateway (test_services.ServiceContractTests.test_business_source_cannot_change_or_hop_through_gateway) ... ok
+test_funds_receipt_cannot_swap_amount_account_or_operation (test_services.ServiceContractTests.test_funds_receipt_cannot_swap_amount_account_or_operation) ... ok
+test_funds_reservation_and_precision_boundaries (test_services.ServiceContractTests.test_funds_reservation_and_precision_boundaries) ... ok
+test_internal_calls_are_not_model_actions (test_services.ServiceContractTests.test_internal_calls_are_not_model_actions) ... ok
+test_internal_fixture_matches_generator (test_services.ServiceContractTests.test_internal_fixture_matches_generator) ... ok
+test_lost_card_requires_release_then_unfreeze (test_services.ServiceContractTests.test_lost_card_requires_release_then_unfreeze) ... ok
+test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires (test_services.ServiceContractTests.test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires) ... ok
+test_resource_snapshot_rejects_dangling_or_duplicate_ids (test_services.ServiceContractTests.test_resource_snapshot_rejects_dangling_or_duplicate_ids) ... ok
+test_service_errors_have_known_codes (test_services.ServiceContractTests.test_service_errors_have_known_codes) ... ok
+test_shared_version_rejects_old_requests_and_authorization (test_services.ServiceContractTests.test_shared_version_rejects_old_requests_and_authorization) ... ok
+test_subscription_evidence_is_required_and_cannot_be_empty (test_services.ServiceContractTests.test_subscription_evidence_is_required_and_cannot_be_empty) ... ok
+test_subscription_review_is_not_payment_authorization_or_cancellation (test_services.ServiceContractTests.test_subscription_review_is_not_payment_authorization_or_cancellation) ... ok
+test_task_claim_cancel_and_unknown_are_distinct (test_services.ServiceContractTests.test_task_claim_cancel_and_unknown_are_distinct) ... ok
+test_tasks_cannot_run_unapproved_action_or_reuse_registration_key (test_services.ServiceContractTests.test_tasks_cannot_run_unapproved_action_or_reuse_registration_key) ... ok
+
+----------------------------------------------------------------------
+Ran 251 tests in 12.711s
+
+OK
+
+
+COMMAND: -m examples.contract_demo
+{
+  "request": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "params": {
+      "account_id": "demo_account_1",
+      "payee_id": "demo_payee_1",
+      "amount_minor": 12050
+    },
+    "idempotency_key": "operation_demo_1"
+  },
+  "gate": {
+    "risk_level": "red",
+    "required_action": "verify",
+    "reason": "含本次的当日累计转账>1000元"
+  },
+  "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+  "result": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "status": "awaiting_verification",
+    "source": "gateway",
+    "data": {},
+    "next_action": {
+      "challenge_id": "demo_challenge_1",
+      "kind": "verify",
+      "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+      "expires_at": "2026-10-10T20:00:00+08:00",
+      "methods": [
+        "demo_otp"
+      ]
+    }
+  },
+  "display_text": "待强验证。"
+}
+
+
+COMMAND: -m examples.gateway_demo
+{
+  "description": "临时库：200 元确认 + 900 元模拟强验证；不输出凭证明文",
+  "operations": [
+    {
+      "amount_minor": 20000,
+      "before": "awaiting_confirmation",
+      "after": "succeeded",
+      "replay_same": true
+    },
+    {
+      "amount_minor": 90000,
+      "before": "awaiting_verification",
+      "after": "succeeded",
+      "replay_same": true
+    }
+  ],
+  "balances_minor": {
+    "demo_account_a": 90000,
+    "demo_account_li": 110000,
+    "demo_account_wang_1": 0,
+    "demo_account_wang_2": 0
+  },
+  "counts": {
+    "transfers": 2,
+    "ledger_entries": 4,
+    "fund_postings": 4
+  }
+}
+
+
+COMMAND: -m examples.funds_demo
+{
+  "description": "仅临时库内部验收；尚未接用户授权，不修改日常演示库",
+  "amount_minor": 20000,
+  "balances_minor": {
+    "demo_account_a": 180000,
+    "demo_account_li": 20000,
+    "demo_account_wang_1": 0,
+    "demo_account_wang_2": 0
+  },
+  "persisted_counts": {
+    "transfers": 1,
+    "ledger_entries": 2,
+    "fund_postings": 2,
+    "operations": 1,
+    "audit_events": 1
+  },
+  "retry_same_transaction": true
+}
+
+
+COMMAND: -m examples.billing_demo
+隔离虚构历史；毛支出 120.00 元，退款另列 30.00 元；越权拒绝、数据库未变。
+{
+  "schema_version": "1.1",
+  "request_id": "billing_demo",
+  "trace_id": "billing_demo",
+  "action": "bill.analyze",
+  "status": "succeeded",
+  "source": "sandbox",
+  "data": {
+    "total_expense_minor": 12000,
+    "categories": [
+      {
+        "category": "影音会员",
+        "amount_minor": 2000
+      },
+      {
+        "category": "餐饮",
+        "amount_minor": 10000
+      }
+    ],
+    "anomalies": [],
+    "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 120.00 元。本期退款入账 30.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+  }
+}
+
+
+COMMAND: -m pip check
+No broken requirements found.

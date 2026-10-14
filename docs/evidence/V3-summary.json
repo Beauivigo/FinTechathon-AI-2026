@@ -1,0 +1,506 @@
+{
+  "started_at_utc": "2026-10-14T05:51:41.322865+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256_before": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "actual_file": {
+    "source_sha256": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "arithmetic_complete": true,
+    "material_ready": false,
+    "totals": {
+      "gross_minor": 347050,
+      "refund_minor": 34400,
+      "inflow_minor": 3107400,
+      "outflow_minor": 947050,
+      "count": 15
+    },
+    "valid_row_subtotals": {
+      "2026-08": {
+        "gross_minor": 48990,
+        "refund_minor": 29900,
+        "inflow_minor": 1229900,
+        "outflow_minor": 648990,
+        "count": 8,
+        "categories": {
+          "日用百货": 32850,
+          "影音会员": 2500,
+          "餐饮": 8640,
+          "交通": 5000
+        },
+        "expense_ids": [
+          "LX-002",
+          "LX-006",
+          "LX-007",
+          "LX-008"
+        ],
+        "refund_ids": [
+          "LX-004"
+        ]
+      },
+      "2026-09": {
+        "gross_minor": 298060,
+        "refund_minor": 4500,
+        "inflow_minor": 1877500,
+        "outflow_minor": 298060,
+        "count": 7,
+        "categories": {
+          "住房": 250000,
+          "云服务": 6800,
+          "日用百货": 41260
+        },
+        "expense_ids": [
+          "LX-010",
+          "LX-013",
+          "LX-014"
+        ],
+        "refund_ids": [
+          "LX-015"
+        ]
+      }
+    },
+    "excluded_rows": [],
+    "comparisons": [
+      {
+        "sheet": "统计结果",
+        "cell": "B5",
+        "label": "2026-08 毛支出（消费+订阅）",
+        "source": "formula_cache",
+        "expected_minor": 48990,
+        "observed_minor": 48990,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "E5",
+        "label": "2026-08 退款金额",
+        "source": "formula_cache",
+        "expected_minor": 29900,
+        "observed_minor": 29900,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "C5",
+        "label": "2026-08 资金流出合计",
+        "source": "formula_cache",
+        "expected_minor": 648990,
+        "observed_minor": 648990,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "D5",
+        "label": "2026-08 总收入",
+        "source": "formula_cache",
+        "expected_minor": 1229900,
+        "observed_minor": 1229900,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "B6",
+        "label": "2026-09 毛支出（消费+订阅）",
+        "source": "formula_cache",
+        "expected_minor": 298060,
+        "observed_minor": 298060,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "E6",
+        "label": "2026-09 退款金额",
+        "source": "formula_cache",
+        "expected_minor": 4500,
+        "observed_minor": 4500,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "C6",
+        "label": "2026-09 资金流出合计",
+        "source": "formula_cache",
+        "expected_minor": 298060,
+        "observed_minor": 298060,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "D6",
+        "label": "2026-09 总收入",
+        "source": "formula_cache",
+        "expected_minor": 1877500,
+        "observed_minor": 1877500,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "B7",
+        "label": "合计 毛支出（消费+订阅）",
+        "source": "formula_cache",
+        "expected_minor": 347050,
+        "observed_minor": 347050,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "E7",
+        "label": "合计 退款金额",
+        "source": "formula_cache",
+        "expected_minor": 34400,
+        "observed_minor": 34400,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "C7",
+        "label": "合计 资金流出合计",
+        "source": "formula_cache",
+        "expected_minor": 947050,
+        "observed_minor": 947050,
+        "status": "match"
+      },
+      {
+        "sheet": "统计结果",
+        "cell": "D7",
+        "label": "合计 总收入",
+        "source": "formula_cache",
+        "expected_minor": 3107400,
+        "observed_minor": 3107400,
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F5",
+        "label": "2026-08 日用百货",
+        "source": "literal",
+        "expected_minor": 32850,
+        "observed_minor": -32850,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D5",
+        "label": "2026-08 纳入流水",
+        "expected_ids": [
+          "LX-002"
+        ],
+        "observed_ids": [
+          "LX-002"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F6",
+        "label": "2026-08 餐饮",
+        "source": "literal",
+        "expected_minor": 8640,
+        "observed_minor": -8640,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D6",
+        "label": "2026-08 纳入流水",
+        "expected_ids": [
+          "LX-007"
+        ],
+        "observed_ids": [
+          "LX-007"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F7",
+        "label": "2026-08 交通",
+        "source": "literal",
+        "expected_minor": 5000,
+        "observed_minor": -5000,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D7",
+        "label": "2026-08 纳入流水",
+        "expected_ids": [
+          "LX-008"
+        ],
+        "observed_ids": [
+          "LX-008"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F8",
+        "label": "2026-08 影音会员",
+        "source": "literal",
+        "expected_minor": 2500,
+        "observed_minor": -2500,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D8",
+        "label": "2026-08 纳入流水",
+        "expected_ids": [
+          "LX-006"
+        ],
+        "observed_ids": [
+          "LX-006"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F9",
+        "label": "2026-08 小计（毛支出） —",
+        "source": "literal",
+        "expected_minor": 48990,
+        "observed_minor": -48990,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D9",
+        "label": "2026-08 小计（毛支出） 纳入流水",
+        "expected_ids": [
+          "LX-002",
+          "LX-006",
+          "LX-007",
+          "LX-008"
+        ],
+        "observed_ids": [
+          "LX-002",
+          "LX-006",
+          "LX-007",
+          "LX-008"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F10",
+        "label": "2026-09 住房",
+        "source": "literal",
+        "expected_minor": 250000,
+        "observed_minor": -250000,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D10",
+        "label": "2026-09 纳入流水",
+        "expected_ids": [
+          "LX-010"
+        ],
+        "observed_ids": [
+          "LX-010"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F11",
+        "label": "2026-09 日用百货",
+        "source": "literal",
+        "expected_minor": 41260,
+        "observed_minor": -41260,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D11",
+        "label": "2026-09 纳入流水",
+        "expected_ids": [
+          "LX-014"
+        ],
+        "observed_ids": [
+          "LX-014"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F12",
+        "label": "2026-09 云服务",
+        "source": "literal",
+        "expected_minor": 6800,
+        "observed_minor": -6800,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D12",
+        "label": "2026-09 纳入流水",
+        "expected_ids": [
+          "LX-013"
+        ],
+        "observed_ids": [
+          "LX-013"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F13",
+        "label": "2026-09 小计（毛支出） —",
+        "source": "literal",
+        "expected_minor": 298060,
+        "observed_minor": -298060,
+        "status": "sign_mismatch"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "D13",
+        "label": "2026-09 小计（毛支出） 纳入流水",
+        "expected_ids": [
+          "LX-010",
+          "LX-013",
+          "LX-014"
+        ],
+        "observed_ids": [
+          "LX-010",
+          "LX-013",
+          "LX-014"
+        ],
+        "status": "match"
+      },
+      {
+        "sheet": "手算答案",
+        "cell": "F14",
+        "label": "合计（毛支出） —",
+        "source": "literal",
+        "expected_minor": 347050,
+        "observed_minor": -347050,
+        "status": "sign_mismatch"
+      }
+    ],
+    "unperformed_comparisons": [],
+    "test_scope_checks": [
+      {
+        "case_id": "TC-001",
+        "cell": "C3",
+        "source_account": "ACC-003",
+        "status": "not_executed",
+        "reason": "账户/日期及自然语言预期需确认后执行，不能把本次整体复算当作本用例通过。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-002",
+        "cell": "C4",
+        "source_account": "CH-002",
+        "status": "not_executed",
+        "reason": "支付渠道不能直接作为正式 account_id；绑定关系尚待批准。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-003",
+        "cell": "C5",
+        "source_account": "ACC-001",
+        "status": "not_executed",
+        "reason": "账户/日期及自然语言预期需确认后执行，不能把本次整体复算当作本用例通过。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-004",
+        "cell": "C6",
+        "source_account": "ACC-001",
+        "status": "not_executed",
+        "reason": "账户/日期及自然语言预期需确认后执行，不能把本次整体复算当作本用例通过。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-005",
+        "cell": "C7",
+        "source_account": "全账户",
+        "status": "not_executed",
+        "reason": "全账户是资料整体复核范围，不是单账户 bill.analyze 请求。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-006",
+        "cell": "C8",
+        "source_account": "全账户",
+        "status": "not_executed",
+        "reason": "全账户是资料整体复核范围，不是单账户 bill.analyze 请求。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-007",
+        "cell": "C9",
+        "source_account": "CH-001",
+        "status": "not_executed",
+        "reason": "支付渠道不能直接作为正式 account_id；绑定关系尚待批准。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-008",
+        "cell": "C10",
+        "source_account": "—",
+        "status": "not_executed",
+        "reason": "账户/日期及自然语言预期需确认后执行，不能把本次整体复算当作本用例通过。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-009",
+        "cell": "C11",
+        "source_account": "全账户",
+        "status": "not_executed",
+        "reason": "全账户是资料整体复核范围，不是单账户 bill.analyze 请求。",
+        "blocker": "C1-002"
+      },
+      {
+        "case_id": "TC-010",
+        "cell": "C12",
+        "source_account": "全账户",
+        "status": "not_executed",
+        "reason": "全账户是资料整体复核范围，不是单账户 bill.analyze 请求。",
+        "blocker": "C1-002"
+      }
+    ],
+    "preview_count": 15
+  },
+  "tests": 238,
+  "page_tests": 19,
+  "skipped": 0,
+  "source_sha256_after": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "material_check/reconcile.py": "3bff1c51c3317e88edc5cfbb2aeecfa59cd2b15b6a3c7afd7acc399fafccb228",
+    "tests/test_material_reconcile.py": "e0e69915d91666f749ee9380fee47dba471e463ff3b09fe44092422924a63028"
+  },
+  "finished_at_utc": "2026-10-14T05:51:56.140432+00:00",
+  "scope": "V3 offline reconciliation only; no business approval, source/pet edits, import, V4 CLI, commit or push; Python 3.10 syntax only",
+  "source_unchanged": true,
+  "runtime_unchanged": true
+}

@@ -1,0 +1,64 @@
+{
+  "started_at_utc": "2026-10-14T05:36:49.583279+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256_before": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_before": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "actual_file": {
+    "source_sha256": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "sheets": 10,
+    "ledger_rows": 15,
+    "notes": 3,
+    "structural_issues": [],
+    "source_changed": false,
+    "formula_cells": 52,
+    "cached_errors": [
+      {
+        "sheet": "字段说明",
+        "cell": "H5",
+        "value": "#NAME?"
+      }
+    ]
+  },
+  "tests": 212,
+  "page_tests": 19,
+  "skipped": 0,
+  "source_sha256_after": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "runtime_sha256_after": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb",
+  "sha256": {
+    "material_check/reader.py": "768500eaac0dac9c30de46b11ddc4c42051ed990374bb803a0dc95017de45319",
+    "material_check/__init__.py": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+    "tests/test_material_reader.py": "4d361fbdbbf51a6052ea7a513c88e22cd6f17b03c13858032aeb32af16863c29"
+  },
+  "finished_at_utc": "2026-10-14T05:37:03.296461+00:00",
+  "scope": "V1 parser only; no V2-V5, no import, no workbook/pet edits, no commit/push; Python 3.10 syntax only",
+  "source_unchanged": true,
+  "runtime_unchanged": true
+}

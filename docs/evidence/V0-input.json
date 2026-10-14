@@ -1,0 +1,570 @@
+{
+  "source_path": "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx",
+  "source_sha256": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+  "source_bytes": 55047,
+  "read_at_utc": "2026-10-14T05:31:34.753098+00:00",
+  "sheets": [
+    {
+      "name": "小账本",
+      "rows": 21,
+      "columns": 13,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "流水号"
+            },
+            {
+              "cell": "B2",
+              "value": "日期"
+            },
+            {
+              "cell": "C2",
+              "value": "月份"
+            },
+            {
+              "cell": "D2",
+              "value": "摘要"
+            },
+            {
+              "cell": "E2",
+              "value": "交易类型"
+            },
+            {
+              "cell": "F2",
+              "value": "消费分类"
+            },
+            {
+              "cell": "G2",
+              "value": "方向"
+            },
+            {
+              "cell": "H2",
+              "value": "金额（元）"
+            },
+            {
+              "cell": "I2",
+              "value": "账户"
+            },
+            {
+              "cell": "J2",
+              "value": "账户编号"
+            },
+            {
+              "cell": "K2",
+              "value": "收款人/关联方"
+            },
+            {
+              "cell": "L2",
+              "value": "原交易关联编号"
+            },
+            {
+              "cell": "M2",
+              "value": "备注"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "分类规则",
+      "rows": 17,
+      "columns": 6,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "交易类型"
+            },
+            {
+              "cell": "B2",
+              "value": "适用消费分类"
+            },
+            {
+              "cell": "C2",
+              "value": "判定规则"
+            },
+            {
+              "cell": "D2",
+              "value": "方向"
+            },
+            {
+              "cell": "E2",
+              "value": "典型示例"
+            },
+            {
+              "cell": "F2",
+              "value": "边界与例外"
+            }
+          ]
+        },
+        {
+          "row": 11,
+          "fields": [
+            {
+              "cell": "A11",
+              "value": "消费分类"
+            },
+            {
+              "cell": "B11",
+              "value": "适用交易类型"
+            },
+            {
+              "cell": "C11",
+              "value": "说明"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "账户资料",
+      "rows": 9,
+      "columns": 8,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "账户编号"
+            },
+            {
+              "cell": "B2",
+              "value": "账户名称"
+            },
+            {
+              "cell": "C2",
+              "value": "账户类型"
+            },
+            {
+              "cell": "D2",
+              "value": "归属用户"
+            },
+            {
+              "cell": "E2",
+              "value": "开户行/渠道"
+            },
+            {
+              "cell": "F2",
+              "value": "尾号"
+            },
+            {
+              "cell": "G2",
+              "value": "绑定关系"
+            },
+            {
+              "cell": "H2",
+              "value": "用途说明"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "收款人资料",
+      "rows": 5,
+      "columns": 6,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "收款人编号"
+            },
+            {
+              "cell": "B2",
+              "value": "收款人姓名"
+            },
+            {
+              "cell": "C2",
+              "value": "账户尾号"
+            },
+            {
+              "cell": "D2",
+              "value": "区分信息"
+            },
+            {
+              "cell": "E2",
+              "value": "关联流水"
+            },
+            {
+              "cell": "F2",
+              "value": "状态"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "字段说明",
+      "rows": 18,
+      "columns": 8,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "字段名"
+            },
+            {
+              "cell": "B2",
+              "value": "含义"
+            },
+            {
+              "cell": "C2",
+              "value": "单位/格式"
+            },
+            {
+              "cell": "D2",
+              "value": "正负号"
+            },
+            {
+              "cell": "E2",
+              "value": "必填"
+            },
+            {
+              "cell": "F2",
+              "value": "编号关联"
+            },
+            {
+              "cell": "G2",
+              "value": "示例"
+            },
+            {
+              "cell": "H2",
+              "value": "备注"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "统计结果",
+      "rows": 29,
+      "columns": 6,
+      "headers": [
+        {
+          "row": 4,
+          "fields": [
+            {
+              "cell": "A4",
+              "value": "月份"
+            },
+            {
+              "cell": "B4",
+              "value": "毛支出（消费+订阅）"
+            },
+            {
+              "cell": "C4",
+              "value": "资金流出合计"
+            },
+            {
+              "cell": "D4",
+              "value": "总收入"
+            },
+            {
+              "cell": "E4",
+              "value": "退款金额"
+            },
+            {
+              "cell": "F4",
+              "value": "流水笔数"
+            }
+          ]
+        },
+        {
+          "row": 10,
+          "fields": [
+            {
+              "cell": "A10",
+              "value": "交易类型"
+            },
+            {
+              "cell": "B10",
+              "value": "2026-08"
+            },
+            {
+              "cell": "C10",
+              "value": "2026-09"
+            },
+            {
+              "cell": "D10",
+              "value": "合计"
+            },
+            {
+              "cell": "E10",
+              "value": "口径说明"
+            }
+          ]
+        },
+        {
+          "row": 19,
+          "fields": [
+            {
+              "cell": "A19",
+              "value": "交易类型"
+            },
+            {
+              "cell": "B19",
+              "value": "全期金额"
+            },
+            {
+              "cell": "C19",
+              "value": "说明"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "手算答案",
+      "rows": 37,
+      "columns": 6,
+      "headers": [
+        {
+          "row": 4,
+          "fields": [
+            {
+              "cell": "A4",
+              "value": "月份"
+            },
+            {
+              "cell": "B4",
+              "value": "交易类型"
+            },
+            {
+              "cell": "C4",
+              "value": "消费分类"
+            },
+            {
+              "cell": "D4",
+              "value": "纳入流水"
+            },
+            {
+              "cell": "E4",
+              "value": "计算式"
+            },
+            {
+              "cell": "F4",
+              "value": "金额（元）"
+            }
+          ]
+        },
+        {
+          "row": 17,
+          "fields": [
+            {
+              "cell": "A17",
+              "value": "月份"
+            },
+            {
+              "cell": "B17",
+              "value": "纳入流水"
+            },
+            {
+              "cell": "C17",
+              "value": "计算式"
+            },
+            {
+              "cell": "D17",
+              "value": "金额（元）"
+            }
+          ]
+        },
+        {
+          "row": 23,
+          "fields": [
+            {
+              "cell": "A23",
+              "value": "账户编号"
+            },
+            {
+              "cell": "B23",
+              "value": "账户"
+            },
+            {
+              "cell": "C23",
+              "value": "月份"
+            },
+            {
+              "cell": "D23",
+              "value": "纳入流水"
+            },
+            {
+              "cell": "E23",
+              "value": "计算式"
+            },
+            {
+              "cell": "F23",
+              "value": "净额（元）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "异常样例",
+      "rows": 10,
+      "columns": 7,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "异常编号"
+            },
+            {
+              "cell": "B2",
+              "value": "关联流水"
+            },
+            {
+              "cell": "C2",
+              "value": "异常类型"
+            },
+            {
+              "cell": "D2",
+              "value": "异常描述"
+            },
+            {
+              "cell": "E2",
+              "value": "判断方式"
+            },
+            {
+              "cell": "F2",
+              "value": "检测规则（阈值/范围/所需数据/预期结果）"
+            },
+            {
+              "cell": "G2",
+              "value": "理由与核查建议"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "测试表",
+      "rows": 14,
+      "columns": 10,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "用例编号"
+            },
+            {
+              "cell": "B2",
+              "value": "用例名称"
+            },
+            {
+              "cell": "C2",
+              "value": "账户"
+            },
+            {
+              "cell": "D2",
+              "value": "查询日期"
+            },
+            {
+              "cell": "E2",
+              "value": "初始数据"
+            },
+            {
+              "cell": "F2",
+              "value": "预期结果"
+            },
+            {
+              "cell": "G2",
+              "value": "实际结果"
+            },
+            {
+              "cell": "H2",
+              "value": "状态"
+            },
+            {
+              "cell": "I2",
+              "value": "证据"
+            },
+            {
+              "cell": "J2",
+              "value": "版本"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "协作材料清单",
+      "rows": 8,
+      "columns": 6,
+      "headers": [
+        {
+          "row": 2,
+          "fields": [
+            {
+              "cell": "A2",
+              "value": "成员"
+            },
+            {
+              "cell": "B2",
+              "value": "材料项"
+            },
+            {
+              "cell": "C2",
+              "value": "状态"
+            },
+            {
+              "cell": "D2",
+              "value": "版本"
+            },
+            {
+              "cell": "E2",
+              "value": "负责人"
+            },
+            {
+              "cell": "F2",
+              "value": "备注"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "formula_count": 52,
+  "empty_formula_cache": [],
+  "cached_errors": [
+    {
+      "sheet": "字段说明",
+      "cell": "H5",
+      "value": "#NAME?"
+    }
+  ],
+  "ledger_rows": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "ledger_count": 15,
+  "matches_previous_review": true,
+  "notes": "Read-only baseline inventory, not V1 parser or V2/V3 validation; formulas are saved caches, not recalculated. Header rows describe this exact version only."
+}

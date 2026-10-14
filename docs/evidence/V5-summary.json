@@ -1,0 +1,130 @@
+{
+  "stage": "V5",
+  "started_at": "2026-10-14T06:06:49.762163+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "hash_before": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.contract_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.gateway_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.funds_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "examples.billing_demo"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "material_check",
+        "--input",
+        "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx",
+        "--output-dir",
+        "local_reports\\material_checks\\V5-20261014T060704\\first"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    {
+      "command": [
+        "-m",
+        "material_check",
+        "--input",
+        "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx",
+        "--output-dir",
+        "local_reports\\material_checks\\V5-20261014T060704\\second",
+        "--previous",
+        "local_reports\\material_checks\\V5-20261014T060704\\first\\report.json"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1
+    }
+  ],
+  "tests": 251,
+  "page_tests": 19,
+  "skipped_lines": [],
+  "actual_counts": {
+    "issue_levels": {
+      "error": 13,
+      "needs_decision": 10
+    },
+    "comparisons": {
+      "match": 21,
+      "sign_mismatch": 10
+    },
+    "not_executed": 10,
+    "checked_rows": 15
+  },
+  "totals": {
+    "gross_minor": 347050,
+    "refund_minor": 34400,
+    "inflow_minor": 3107400,
+    "outflow_minor": 947050,
+    "count": 15
+  },
+  "report_path": "local_reports\\material_checks\\V5-20261014T060704\\second\\report.md",
+  "same_source_continued": 23,
+  "hash_after": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\副本账单数据与手算（C项目）V1.1.xlsx": "f41c74ec6b7121770352d8b966bc634b3dbe3bc8958830d06704fd9eebbb0127",
+    "runtime\\sandbox.sqlite3": "ccd75fb08cf9e03385fef47e8df6062468e4f4be19d0a65d32f8f94b4b63ddfb"
+  },
+  "code_sha256": {
+    "material_check\\checks.py": "c62d68904169686ec1b384012a3d9bc05bd7998842704ce0cf1c4cc54b754d6f",
+    "material_check\\reader.py": "768500eaac0dac9c30de46b11ddc4c42051ed990374bb803a0dc95017de45319",
+    "material_check\\reconcile.py": "3bff1c51c3317e88edc5cfbb2aeecfa59cd2b15b6a3c7afd7acc399fafccb228",
+    "material_check\\report.py": "403b6eb1bc15fb239ac37a689fb59fb7d232b1f0f8ce09684ce77801a67ac2dc",
+    "material_check\\__init__.py": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+    "material_check\\__main__.py": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077",
+    "tests\\test_material_checks.py": "5d83074afed5b8b85647fbc1dcefed0610b60b0110a6d1eb6655cd68b11eae8e",
+    "tests\\test_material_reader.py": "4d361fbdbbf51a6052ea7a513c88e22cd6f17b03c13858032aeb32af16863c29",
+    "tests\\test_material_reconcile.py": "e0e69915d91666f749ee9380fee47dba471e463ff3b09fe44092422924a63028",
+    "tests\\test_material_report.py": "15867400344fafd33a04b0e44ee24270253969c5ff74889d1dd16b718e0c93a5"
+  },
+  "finished_at": "2026-10-14T06:07:05.274465+00:00",
+  "python310_validation": "syntax only; runtime tests used Python 3.12",
+  "pet_project": "not accessed or modified",
+  "remote_ci": "not run locally",
+  "material_tests": 53,
+  "skipped": 0
+}

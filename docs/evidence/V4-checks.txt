@@ -1,0 +1,56 @@
+test_bad_and_oversized_inputs_fail (tests.test_material_reader.ReaderTests.test_bad_and_oversized_inputs_fail) ... ok
+test_blank_notes_and_partial_rows_not_lost (tests.test_material_reader.ReaderTests.test_blank_notes_and_partial_rows_not_lost) ... ok
+test_changed_file_result_keeps_original_snapshot (tests.test_material_reader.ReaderTests.test_changed_file_result_keeps_original_snapshot) ... ok
+test_duplicate_header_not_last_wins (tests.test_material_reader.ReaderTests.test_duplicate_header_not_last_wins) ... ok
+test_empty_ledger_with_header (tests.test_material_reader.ReaderTests.test_empty_ledger_with_header) ... ok
+test_extra_sheet_preserved_without_blocking (tests.test_material_reader.ReaderTests.test_extra_sheet_preserved_without_blocking) ... ok
+test_formula_and_error_cache_from_same_bytes (tests.test_material_reader.ReaderTests.test_formula_and_error_cache_from_same_bytes) ... ok
+test_missing_column_blocks_ledger_mapping_not_raw_cells (tests.test_material_reader.ReaderTests.test_missing_column_blocks_ledger_mapping_not_raw_cells) ... ok
+test_missing_input_has_clear_error (tests.test_material_reader.ReaderTests.test_missing_input_has_clear_error) ... ok
+test_missing_sheet_preserves_others (tests.test_material_reader.ReaderTests.test_missing_sheet_preserves_others) ... ok
+test_readonly_file_and_stable_result (tests.test_material_reader.ReaderTests.test_readonly_file_and_stable_result) ... ok
+test_reordered_columns_and_added_rows (tests.test_material_reader.ReaderTests.test_reordered_columns_and_added_rows) ... ok
+test_repeated_header_is_ambiguous (tests.test_material_reader.ReaderTests.test_repeated_header_is_ambiguous) ... ok
+test_source_values_types_and_positions_preserved (tests.test_material_reader.ReaderTests.test_source_values_types_and_positions_preserved) ... ok
+test_account_explanation_not_treated_as_identifier (tests.test_material_checks.MaterialChecksTests.test_account_explanation_not_treated_as_identifier) ... ok
+test_amount_precision_range_and_types (tests.test_material_checks.MaterialChecksTests.test_amount_precision_range_and_types) ... ok
+test_bad_account_and_missing_reference_table (tests.test_material_checks.MaterialChecksTests.test_bad_account_and_missing_reference_table) ... ok
+test_channel_cycle_and_duplicate_account (tests.test_material_checks.MaterialChecksTests.test_channel_cycle_and_duplicate_account) ... ok
+test_clean_fields_not_equated_with_import_approval (tests.test_material_checks.MaterialChecksTests.test_clean_fields_not_equated_with_import_approval) ... ok
+test_date_month_and_unconfirmed_time (tests.test_material_checks.MaterialChecksTests.test_date_month_and_unconfirmed_time) ... ok
+test_duplicate_and_invalid_ids (tests.test_material_checks.MaterialChecksTests.test_duplicate_and_invalid_ids) ... ok
+test_formula_errors_and_missing_cache (tests.test_material_checks.MaterialChecksTests.test_formula_errors_and_missing_cache) ... ok
+test_known_conflict_only_applies_to_reviewed_version (tests.test_material_checks.MaterialChecksTests.test_known_conflict_only_applies_to_reviewed_version) ... ok
+test_payee_name_ambiguity_requires_decision (tests.test_material_checks.MaterialChecksTests.test_payee_name_ambiguity_requires_decision) ... ok
+test_payee_references_missing_ledger (tests.test_material_checks.MaterialChecksTests.test_payee_references_missing_ledger) ... ok
+test_refund_original_missing_is_pending_not_invented (tests.test_material_checks.MaterialChecksTests.test_refund_original_missing_is_pending_not_invented) ... ok
+test_sign_direction_kind_and_category (tests.test_material_checks.MaterialChecksTests.test_sign_direction_kind_and_category) ... ok
+test_structure_failure_records_skipped_not_empty_success (tests.test_material_checks.MaterialChecksTests.test_structure_failure_records_skipped_not_empty_success) ... ok
+test_bad_amount_blocks_full_total_and_marks_subtotal (tests.test_material_reconcile.ReconcileTests.test_bad_amount_blocks_full_total_and_marks_subtotal) ... ok
+test_case_scope_is_not_marked_executed (tests.test_material_reconcile.ReconcileTests.test_case_scope_is_not_marked_executed) ... ok
+test_duplicates_not_silently_deduplicated (tests.test_material_reconcile.ReconcileTests.test_duplicates_not_silently_deduplicated) ... ok
+test_gross_refund_and_cashflow_separate (tests.test_material_reconcile.ReconcileTests.test_gross_refund_and_cashflow_separate) ... ok
+test_hand_ids_and_different_section (tests.test_material_reconcile.ReconcileTests.test_hand_ids_and_different_section) ... ok
+test_missing_hand_category_is_unperformed (tests.test_material_reconcile.ReconcileTests.test_missing_hand_category_is_unperformed) ... ok
+test_missing_ledger_is_not_zero_success (tests.test_material_reconcile.ReconcileTests.test_missing_ledger_is_not_zero_success) ... ok
+test_month_recomputed_from_date_not_cache (tests.test_material_reconcile.ReconcileTests.test_month_recomputed_from_date_not_cache) ... ok
+test_no_input_mutation_or_formal_transaction_preview (tests.test_material_reconcile.ReconcileTests.test_no_input_mutation_or_formal_transaction_preview) ... ok
+test_overflow_never_returns_unsafe_totals (tests.test_material_reconcile.ReconcileTests.test_overflow_never_returns_unsafe_totals) ... ok
+test_source_formula_not_treated_as_confirmed_cash (tests.test_material_reconcile.ReconcileTests.test_source_formula_not_treated_as_confirmed_cash) ... ok
+test_summary_mismatch_does_not_change_computed_total (tests.test_material_reconcile.ReconcileTests.test_summary_mismatch_does_not_change_computed_total) ... ok
+test_changed_source_and_version_specific_issue_never_claim_fixed (tests.test_material_report.ReportTests.test_changed_source_and_version_specific_issue_never_claim_fixed) ... ok
+test_cli_readonly_reports_repeat_comparison_and_no_overwrite (tests.test_material_report.ReportTests.test_cli_readonly_reports_repeat_comparison_and_no_overwrite) ... ok
+test_cli_source_change_during_reconciliation_is_reported (tests.test_material_report.ReportTests.test_cli_source_change_during_reconciliation_is_reported) ... ok
+test_fixed_value_disappears_but_missing_table_does_not (tests.test_material_report.ReportTests.test_fixed_value_disappears_but_missing_table_does_not) ... ok
+test_incompatible_or_failed_report_rejected (tests.test_material_report.ReportTests.test_incompatible_or_failed_report_rejected) ... ok
+test_markdown_does_not_render_source_html (tests.test_material_report.ReportTests.test_markdown_does_not_render_source_html) ... ok
+test_new_error_and_deleted_record_are_not_confused (tests.test_material_report.ReportTests.test_new_error_and_deleted_record_are_not_confused) ... ok
+test_read_and_write_failure_leave_no_valid_new_report (tests.test_material_report.ReportTests.test_read_and_write_failure_leave_no_valid_new_report) ... ok
+test_row_move_does_not_change_ledger_problem_id (tests.test_material_report.ReportTests.test_row_move_does_not_change_ledger_problem_id) ... ok
+test_runtime_output_rejected (tests.test_material_report.ReportTests.test_runtime_output_rejected) ... ok
+test_same_input_same_ids_and_markdown_facts (tests.test_material_report.ReportTests.test_same_input_same_ids_and_markdown_facts) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 2.146s
+
+OK

@@ -6,7 +6,7 @@
 
 ## 从这里开始
 
-- [下一步：现有资料下的开发方案](docs/现有资料下的开发方案.md)：V0—V5，先完成 C 资料只读校验、独立复算和问题报告；方案已制定，尚未开工。
+- [资料工具开发方案](docs/现有资料下的开发方案.md)：V0—V5 已通过，251 项测试（含 19 项页面测试）；只读解析、校验、独立复算及报告命令行可用，下一步按 BLOCKERS 补材料，见[资料校验验收记录](docs/资料校验使用与验收.md)。
 
 - [账单基础开发方案](docs/账单基础开发方案.md)：B0—B4 本地技术验收通过；页面支持账单查询、分类表和图表。
 - [账单基础验收记录](docs/账单基础验收记录.md)：独立模拟样例、逐笔手算、198 项本地检查及未解除的 C1 阻塞。
@@ -52,9 +52,10 @@ py -3.12 -m venv .venv
 
 ## 检查项目
 
-安装页面依赖后运行：
+安装页面与资料检查依赖后运行：
 
 ```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-app.txt -r requirements-materials.txt
 .\.venv\Scripts\python.exe -B -X utf8 -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -B -X utf8 -m examples.contract_demo
 ```
