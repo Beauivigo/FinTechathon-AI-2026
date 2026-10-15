@@ -18,6 +18,7 @@ class Conversation:
         self.trace_id = None
         self.backend_result = None
         self.needs_reconciliation = False
+        self.external_blocked = False
         self.operations = []
         self.refresh_operations()
 
@@ -32,7 +33,7 @@ class Conversation:
 
     @property
     def blocked(self):
-        return (self.needs_reconciliation or self.pending
+        return (self.external_blocked or self.needs_reconciliation or self.pending
             or bool(self.result and self.result['status'] in {'running', 'unknown'})
             or any(op['status'] in {'awaiting_confirmation', 'awaiting_verification', 'running', 'unknown'} for op in self.operations))
 
@@ -184,3 +185,16 @@ class Conversation:
             self._say('暂未刷新操作列表，请稍后查询。')
         self._say(result_text(self.request, result))
         return result
+
+    def start_action(self, action, params):
+        """可信表单入口，共用原有发送、授权、结果核实与恢复流程。"""
+        self.refresh_operations()
+        if self.blocked:
+            raise ValueError('请先处理或核实当前待办。')
+        request = adapt_request(action, params, request_id='req_' + uuid4().hex,
+            trace_id='trace_' + uuid4().hex, idempotency_key='operation_' + uuid4().hex)
+        self.request = request
+        self.backend_result = None
+        self.result = self._send_write(self.gateway.execute, request)
+        self.refresh_operations()
+        return self.result

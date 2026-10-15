@@ -54,7 +54,20 @@ def initialize(store):
     """可信服务端可传独立测试库；首次导入，后续保留全部运行状态。"""
     store.initialize()
     with store.connection(write=True) as connection:
-        return _seed(connection)
+        created = _seed(connection)
+        _seed_cards(connection)
+        return created
+
+
+def _seed_cards(connection):
+    existing = connection.execute("SELECT value FROM metadata WHERE key='cards_seed_version'").fetchone()
+    if existing:
+        if existing[0] != '1':
+            raise ServiceError('INVALID_STATE', '模拟卡种子版本不兼容。')
+        return
+    connection.executemany('INSERT INTO cards(card_id,account_id,card_state,limit_minor) VALUES (?,?,?,?)',
+        [('sample_card_' + state, 'demo_account_a', state, 100000) for state in ('active', 'frozen', 'lost')])
+    connection.execute("INSERT INTO metadata VALUES ('cards_seed_version','1')")
 
 
 def reset_demo(*, confirm=False):
@@ -67,9 +80,10 @@ def reset_demo(*, confirm=False):
     store = Store(path)
     with store.connection(write=True) as connection:
         for table in ("page_cursors", "challenges", "audit_events", "fund_postings", "ledger_entries",
-                      "transfers", "operations", "payees", "accounts", "principals", "metadata"):
+                      "transfers", "collections", "operations", "cards", "payees", "accounts", "principals", "metadata"):
             connection.execute(f"DELETE FROM {table}")  # 固定内部表名，非用户输入。
         _seed(connection)
+        _seed_cards(connection)
 
 
 def main():

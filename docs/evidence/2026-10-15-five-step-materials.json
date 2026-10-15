@@ -1,0 +1,119 @@
+{
+  "source_sha256": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba",
+  "decision_sha256": "49b1b4d3ff4457d2e2066b079257e70aaabf1151a60ffa03f5e3aaa05831f1ff",
+  "material_checks": [
+    {
+      "account_id": "ACCT-C001",
+      "month": 8,
+      "expense_minor": 46490,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "交通",
+          "amount_minor": 5000
+        },
+        {
+          "category": "日用百货",
+          "amount_minor": 32850
+        },
+        {
+          "category": "餐饮",
+          "amount_minor": 8640
+        }
+      ],
+      "transactions": 5
+    },
+    {
+      "account_id": "ACCT-C001",
+      "month": 9,
+      "expense_minor": 0,
+      "refund_minor": 4500,
+      "categories": [],
+      "transactions": 3
+    },
+    {
+      "account_id": "ACCT-C002",
+      "month": 8,
+      "expense_minor": 2500,
+      "refund_minor": 29900,
+      "categories": [
+        {
+          "category": "影音会员",
+          "amount_minor": 2500
+        }
+      ],
+      "transactions": 3
+    },
+    {
+      "account_id": "ACCT-C002",
+      "month": 9,
+      "expense_minor": 256800,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "云服务",
+          "amount_minor": 6800
+        },
+        {
+          "category": "住房",
+          "amount_minor": 250000
+        }
+      ],
+      "transactions": 3
+    },
+    {
+      "account_id": "ACCT-C003",
+      "month": 8,
+      "expense_minor": 0,
+      "refund_minor": 0,
+      "categories": [],
+      "transactions": 0
+    },
+    {
+      "account_id": "ACCT-C003",
+      "month": 9,
+      "expense_minor": 41260,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "日用百货",
+          "amount_minor": 41260
+        }
+      ],
+      "transactions": 1
+    }
+  ],
+  "runtime": {
+    "storage_version": 5,
+    "sha256": "a65b50a8db977dee9923f1369aff2efd1d99a051af10039e0ef56ee350ed48f3",
+    "accounts": [
+      [
+        "demo_account_a",
+        200000,
+        200000
+      ],
+      [
+        "demo_account_li",
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_1",
+        0,
+        0
+      ],
+      [
+        "demo_account_wang_2",
+        0,
+        0
+      ]
+    ],
+    "counts": {
+      "operations": 0,
+      "transfers": 0,
+      "ledger_entries": 0,
+      "cards": 3
+    },
+    "note": "第四轮测试首次导入页面意外触发初始化；已修复测试隔离。运行库已增加卡片结构及3张工程模拟卡，未产生业务操作或资金变动。"
+  }
+}

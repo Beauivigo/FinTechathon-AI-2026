@@ -33,6 +33,10 @@ if "conversation" not in st.session_state:
         st.error('模拟银行暂时无法打开。请检查数据库，不要删除数据库来绕过核查。')
         st.stop()
 conversation = st.session_state.conversation
+other_flow = st.session_state.get('action_flow')
+conversation.external_blocked = bool(other_flow and other_flow.needs_reconciliation)
+if conversation.external_blocked:
+    st.warning('卡片或 AA 的结果尚待核实，请到对应页面查询原操作。')
 try:
     conversation.refresh_operations()
 except ServiceError:
@@ -92,6 +96,7 @@ with st.sidebar:
                 if any(op['status'] in {'awaiting_confirmation','awaiting_verification','running','unknown'} for op in current):
                     raise ValueError('请先处理或核实全部待办，再重置模拟银行。')
                 reset_demo(confirm=True)
+                st.session_state.pop('action_flow', None)
                 st.session_state.conversation = new_conversation()
                 st.rerun()
             except (ValueError, ServiceError):
@@ -103,10 +108,13 @@ st.write("告诉我收款人和金额。信息不完整时，我会先向你确�
 st.info("本地模拟银行：确认后会修改模拟余额并保存流水。使用离线中文解析和模拟强验证，不接真实银行或真实资金。")
 
 with st.expander('恢复待处理操作 / 查看历史', expanded=bool(conversation.operations) and not conversation.request):
-    if conversation.operations:
+    transfer_operations = [op for op in conversation.operations if op['action'] == 'transfer.create']
+    if any(op['action'] != 'transfer.create' for op in conversation.operations):
+        st.caption('卡片和 AA 操作请到侧栏对应页面恢复。')
+    if transfer_operations:
         labels = {'awaiting_confirmation':'待确认','awaiting_verification':'待模拟验证','succeeded':'已完成',
                   'cancelled':'已拒绝','failed':'未完成','blocked':'已锁定','unknown':'待核实','running':'执行中'}
-        selected = st.selectbox('选择原操作', conversation.operations,
+        selected = st.selectbox('选择原操作', transfer_operations,
             format_func=lambda row: f"{labels.get(row['status'], row['status'])} · {row['idempotency_key']}")
         if st.button('恢复选中操作'):
             perform(conversation.recover, action=selected['action'], idempotency_key=selected['idempotency_key'])

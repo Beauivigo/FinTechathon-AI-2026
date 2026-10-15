@@ -7,6 +7,7 @@ from copy import deepcopy
 import json
 
 from billing import analyze
+from wealth import products
 from shared import ServiceError, SCHEMA_VERSION, validate_context, operation_digest
 from shared.adapters import loads_request, loads_result, strict_json_loads
 from shared.contracts import ContractError, MAX_SAFE_INTEGER, check_value, validate_request
@@ -168,12 +169,18 @@ class SandboxServices:
                 "SELECT account_id,display_name FROM accounts WHERE principal_id=? ORDER BY account_id",
                 (principal_id,))]
             return validate_context(dict(schema_version=SCHEMA_VERSION, source="sandbox", accounts=accounts,
-                products=[], holdings=[], cards=[], items=[], addresses=[], questionnaires=[]))
+                products=products(), holdings=[], cards=[dict(row) for row in connection.execute(
+                    '''SELECT card_id,account_id,card_state,limit_minor FROM cards JOIN accounts USING(account_id)
+                       WHERE principal_id=? ORDER BY card_id''', (principal_id,))],
+                items=[], addresses=[], questionnaires=[]))
 
     def query(self, action, params, *, principal_id):
         # ponytail: 单机小规模查询用短事务保存游标；吞吐量扩大时再拆分读写事务。
         with self.store.connection(write=action == "transaction.list") as connection:
             require_principal(connection, principal_id)
+            if action == 'wealth.compare':
+                from wealth import compare
+                return compare(params)
             if action == "account.balance":
                 account = owned_account(connection, params["account_id"], principal_id)
                 return {name: account[name] for name in ("account_id", "balance_minor", "available_minor",

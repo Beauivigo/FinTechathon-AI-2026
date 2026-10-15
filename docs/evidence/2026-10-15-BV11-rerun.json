@@ -1,0 +1,29 @@
+{
+  "review_date": "2026-10-15",
+  "scope": "A rerun of original B T17-T20 in temporary copy; no source edits",
+  "exit_code": 0,
+  "passed": 4,
+  "total": 4,
+  "results": [
+    {
+      "id": "B-T17",
+      "ok": true
+    },
+    {
+      "id": "B-T18",
+      "ok": true
+    },
+    {
+      "id": "B-T19",
+      "ok": true
+    },
+    {
+      "id": "B-T20",
+      "ok": true
+    }
+  ],
+  "source_unchanged": true,
+  "source_sha256": "538241715e0c44430a99e9e5105587574a1810ebe0191bd42f3eb903b571cee5",
+  "runtime_python": "3.12.14",
+  "note": "Original script hardcodes evidence run_time=2026-10-14 and T19 text says 200000 instead of 400000 minor units; these do not change the checked assertions."
+}

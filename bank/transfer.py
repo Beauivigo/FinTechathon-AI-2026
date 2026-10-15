@@ -11,6 +11,17 @@ from .services import SandboxServices
 from .store import utc_timestamp
 
 
+def split_shares(request):
+    """B V1.1：按输入顺序给前 r 人多分 1 分；只计算，不付款。"""
+    validate_request(request)
+    if request['action'] != 'transfer.split':
+        raise ServiceError('INVALID_REQUEST', '需要 AA 收款单请求。')
+    p = request['params']
+    quotient, remainder = divmod(p['amount_minor'], len(p['payee_ids']))
+    return [dict(payee_id=payee, amount_minor=quotient + (i < remainder))
+            for i, payee in enumerate(p['payee_ids'])]
+
+
 def handle(params, *, context):
     if (type(context) is not dict or set(context) != {"principal_id", "request", "services", "transaction"}
             or type(context["services"]) is not SandboxServices):

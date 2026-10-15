@@ -1,0 +1,154 @@
+{
+  "review_date": "2026-10-15",
+  "scope": "Read-only in-memory verification against current billing core, not an implemented material adapter or database import",
+  "sources": [
+    {
+      "path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\资金规则与功能复核（B项目）V1.1.xlsx",
+      "sha256": "49b1b4d3ff4457d2e2066b079257e70aaabf1151a60ffa03f5e3aaa05831f1ff"
+    },
+    {
+      "path": "D:\\FinTechathon-AI-2026\\群组资料\\C\\副本账单数据与手算（C项目）V1.2.xlsx",
+      "sha256": "f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba"
+    }
+  ],
+  "mapping": {
+    "ACC-001": "ACCT-C001",
+    "ACC-002": "ACCT-C002",
+    "ACC-003": "ACCT-C003",
+    "CH-001": "ACCT-C001",
+    "CH-002": "ACCT-C002"
+  },
+  "rows": 15,
+  "account_month_results": [
+    {
+      "account_id": "ACCT-C001",
+      "month": "2026-08",
+      "gross_expense_minor": 46490,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "交通",
+          "amount_minor": 5000
+        },
+        {
+          "category": "日用百货",
+          "amount_minor": 32850
+        },
+        {
+          "category": "餐饮",
+          "amount_minor": 8640
+        }
+      ],
+      "matches_B": true
+    },
+    {
+      "account_id": "ACCT-C001",
+      "month": "2026-09",
+      "gross_expense_minor": 0,
+      "refund_minor": 4500,
+      "categories": [],
+      "matches_B": true
+    },
+    {
+      "account_id": "ACCT-C002",
+      "month": "2026-08",
+      "gross_expense_minor": 2500,
+      "refund_minor": 29900,
+      "categories": [
+        {
+          "category": "影音会员",
+          "amount_minor": 2500
+        }
+      ],
+      "matches_B": true
+    },
+    {
+      "account_id": "ACCT-C002",
+      "month": "2026-09",
+      "gross_expense_minor": 256800,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "云服务",
+          "amount_minor": 6800
+        },
+        {
+          "category": "住房",
+          "amount_minor": 250000
+        }
+      ],
+      "matches_B": true
+    },
+    {
+      "account_id": "ACCT-C003",
+      "month": "2026-08",
+      "gross_expense_minor": 0,
+      "refund_minor": 0,
+      "categories": [],
+      "matches_B": true
+    },
+    {
+      "account_id": "ACCT-C003",
+      "month": "2026-09",
+      "gross_expense_minor": 41260,
+      "refund_minor": 0,
+      "categories": [
+        {
+          "category": "日用百货",
+          "amount_minor": 41260
+        }
+      ],
+      "matches_B": true
+    }
+  ],
+  "B_formula_count": 49,
+  "B_missing_formula_cache": 49,
+  "B_excel_error_cells": [],
+  "budget_independent_expected": [
+    [
+      200000,
+      200000,
+      0
+    ],
+    [
+      200000,
+      170000,
+      30000
+    ],
+    [
+      172000,
+      170000,
+      2000
+    ],
+    [
+      172000,
+      172000,
+      0
+    ]
+  ],
+  "aa_independent_expected": {
+    "10000/3": [
+      3334,
+      3333,
+      3333
+    ],
+    "100/3": [
+      34,
+      33,
+      33
+    ],
+    "1001/3": [
+      334,
+      334,
+      333
+    ],
+    "10000/6": [
+      1667,
+      1667,
+      1667,
+      1667,
+      1666,
+      1666
+    ]
+  }
+}

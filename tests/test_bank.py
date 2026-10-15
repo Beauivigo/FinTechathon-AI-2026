@@ -93,7 +93,9 @@ class BankTests(unittest.TestCase):
     def test_seed_balances_and_resource_snapshots_match_contract(self):
         context = self.gateway.get_context(principal_id="demo_user_a")
         self.assertEqual(context["accounts"], [{"account_id": "demo_account_a", "display_name": "模拟日常账户"}])
-        self.assertTrue(all(context[key] == [] for key in ("products","holdings","cards","items","addresses","questionnaires")))
+        self.assertEqual({p['product_id'] for p in context['products']}, {'product_1','sample_product_2','sample_product_3'})
+        self.assertEqual(len(context['cards']), 3)
+        self.assertTrue(all(context[key] == [] for key in ("holdings","items","addresses","questionnaires")))
         self.assertEqual(self.balance()["data"], dict(account_id="demo_account_a", balance_minor=200000,
                          available_minor=200000, reserved_minor=0, currency="CNY"))
         for suffix in ("li", "wang_1", "wang_2"):

@@ -1,0 +1,72 @@
+{
+  "python": "3.12.14",
+  "rounds": [
+    {
+      "name": "C 只读账单",
+      "tests": 92,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "name": "产品对比",
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "name": "公共授权",
+      "tests": 65,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "name": "卡片四动作",
+      "tests": 71,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "name": "AA 收款单",
+      "tests": 78,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "name": "全库回归",
+      "tests": 286,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    }
+  ],
+  "examples": [
+    {
+      "name": "contract_demo",
+      "exit_code": 0
+    },
+    {
+      "name": "gateway_demo",
+      "exit_code": 0
+    },
+    {
+      "name": "funds_demo",
+      "exit_code": 0
+    },
+    {
+      "name": "billing_demo",
+      "exit_code": 0
+    }
+  ],
+  "passed": true
+}

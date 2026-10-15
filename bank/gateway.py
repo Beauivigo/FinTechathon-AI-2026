@@ -8,6 +8,7 @@ import hmac
 import json
 import secrets
 from uuid import uuid4
+from card import TARGETS, checked_card
 
 from shared import (ContractError, ServiceError, adapt_result, validate_request,
                     validate_authorization, operation_digest, required_gate, validate_transition)
@@ -15,13 +16,14 @@ from shared.adapters import loads_request, loads_result
 from shared.contracts import MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
-from .transfer import handle
+from .transfer import handle, split_shares
 
 PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 
 class BankGateway:
     demo_mode = True
+    write_actions = frozenset({'transfer.create', 'transfer.split', *TARGETS})
 
     def __init__(self, store, *, clock=None):
         self.store = store
@@ -73,8 +75,8 @@ class BankGateway:
         except ContractError as exc:
             raise ServiceError("INVALID_REQUEST", "请求格式不符合 v1.1。") from exc
         request = deepcopy(request)
-        if request['action'] == 'transfer.create':
-            return self._execute_transfer(request, principal_id)
+        if request['action'] in self.write_actions:
+            return self._execute_write(request, principal_id)
         try:
             data = self.services.query(request["action"], request["params"], principal_id=principal_id)
             return adapt_result(request, {"status": "succeeded", "data": data}, source="sandbox")
@@ -125,7 +127,7 @@ class BankGateway:
                 require_principal(c, principal)
                 c.execute('''INSERT INTO audit_events
                     (principal_id,trace_id,action,outcome,occurred_at,details_json) VALUES (?,?,?,?,?,?)''',
-                    (principal, 'auth_'+uuid4().hex, 'transfer.create', 'authorization_invalid',
+                    (principal, 'auth_'+uuid4().hex, 'authorization', 'authorization_invalid',
                      utc_timestamp(self.clock().isoformat()), json.dumps(dict(challenge_id=challenge_id, code='AUTH_INVALID'))))
         except (sqlite3.Error, ServiceError):
             pass  # 无可信身份或审计库不可用时仍拒绝授权，不修改任何业务记录。
@@ -185,6 +187,8 @@ class BankGateway:
 
     @staticmethod
     def _kind(c, request, principal, now):
+        if request['action'] != 'transfer.create':
+            return required_gate(request)['required_action']
         local = now.astimezone(timezone(timedelta(hours=8)))
         lower = utc_timestamp(datetime.combine(local.date(), time.min, local.tzinfo).isoformat())
         upper = utc_timestamp(datetime.combine(local.date(), time.max, local.tzinfo).isoformat())
@@ -206,25 +210,27 @@ class BankGateway:
         result = adapt_result(request, dict(status=status, next_action=next_action), source='gateway')
         self._save(c, request, result, principal, previous)
         c.execute('''INSERT INTO challenges
-            (challenge_id,principal_id,action,idempotency_key,digest,kind,expires_at,state,payee_account_id)
-            VALUES (?,?,?,?,?,?,?,'pending',?)''',
-            (challenge, *self._key(request, principal), digest, kind, expires, payee))
+            (challenge_id,principal_id,action,idempotency_key,digest,kind,expires_at,state,payee_account_id,resource_binding_json)
+            VALUES (?,?,?,?,?,?,?,'pending',?,?)''',
+            (challenge, *self._key(request, principal), digest, kind, expires,
+             payee if request['action'] == 'transfer.create' else None, json.dumps(payee)))
         self._audit(c, request, principal, 'challenge_created', now, challenge_id=challenge, kind=kind)
         return result
 
     @staticmethod
     def _error(request, code, *, status='failed'):
         messages = {'INSUFFICIENT_FUNDS': '可用余额不足，本次转账未执行。',
-            'AUTH_EXPIRED': '授权已过期，本次转账未执行；需要转账时请重新发起。',
-            'AUTH_INVALID': '授权或收款对象已失效，本次转账未执行，请重新核对。',
-            'SAFETY_LOCKED': '模拟验证连续五次失败，本次操作已锁定，未执行转账。',
+            'AUTH_EXPIRED': '授权已过期，本次操作未执行；仍有需要时请重新发起。',
+            'AUTH_INVALID': '授权或操作资源已失效，本次操作未执行，请重新核对。',
+            'SAFETY_LOCKED': '模拟验证连续五次失败，本次操作已锁定，未执行。',
             'IDEMPOTENCY_CONFLICT': '原操作编号对应的内容不同，请核实原操作，不要重复提交。',
-            'FORBIDDEN': '无权使用此账户或收款人，本次转账未执行。',
+            'FORBIDDEN': '无权使用此账户、卡片或联系人，本次操作未执行。',
+            'INVALID_STATE': '当前状态不允许此操作，请刷新后核对。',
             'RESULT_UNKNOWN': '结果待核实，请查询原操作，不要重复发起。'}
         return adapt_result(request, dict(status=status, error=dict(code=code,
             message=messages.get(code, '操作未完成，请查询原操作并检查模拟银行状态。'))), source='gateway')
 
-    def _execute_transfer(self, request, principal):
+    def _execute_write(self, request, principal):
         try:
             # ponytail: SQLite 串行写事务适合本地演示；多实例高吞吐时再更换存储。
             with self.store.connection(write=True) as c:
@@ -235,7 +241,7 @@ class BankGateway:
                 else:
                     now = self.clock()
                     try:
-                        payee = self._payee(c, request, principal)
+                        payee = self._binding(c, request, principal)
                         kind = self._kind(c, request, principal, now)
                     except ServiceError as exc:
                         result = self._error(request, exc.code)
@@ -307,9 +313,12 @@ class BankGateway:
 
     def _approve(self, c, row, request, previous, principal, payload, now):
         try:
-            payee = self._payee(c, request, principal)
-            if row['payee_account_id'] != payee:
-                raise ServiceError('AUTH_INVALID', '收款账户已变化，必须重新发起确认。')
+            payee = self._binding(c, request, principal)
+            # 老转账挑战继续使用原绑定字段；新业务不得把空绑定当作有效授权。
+            bound = row['payee_account_id'] if request['action'] == 'transfer.create' else row['resource_binding_json']
+            expected = payee if request['action'] == 'transfer.create' else json.dumps(payee)
+            if bound != expected:
+                raise ServiceError('AUTH_INVALID', '操作资源已变化，必须重新发起确认。')
             kind = self._kind(c, request, principal, now)
         except ServiceError as exc:
             return self._finish(c, row, request, previous, principal, now, 'used', exc.code), None
@@ -327,9 +336,7 @@ class BankGateway:
                 return previous, ServiceError('AUTH_INVALID', '模拟验证失败；连续五次失败锁定本次操作。')
         try:
             with self.store.savepoint(c):
-                with self.services.transfer_context(c, request, principal_id=principal, now=now) as context:
-                    raw = handle(context['request']['params'], context=context)
-                result = adapt_result(request, raw, source='sandbox')
+                result = self._commit_action(c, request, previous, principal, now)
                 if self._load(c, request, principal)[1] != result:
                     raise ServiceError('UPSTREAM_ERROR', '模块回执与已保存结果不一致。')
                 c.execute("UPDATE challenges SET state='used',proof_digest=NULL WHERE challenge_id=?", (row['challenge_id'],))
@@ -339,3 +346,46 @@ class BankGateway:
             code = exc.code if isinstance(exc, ServiceError) else 'UPSTREAM_ERROR'
             return self._finish(c, row, request, previous, principal, now, 'used', code), None
         return result, None
+
+    def _binding(self, c, request, principal):
+        if request['action'] == 'transfer.create':
+            return self._payee(c, request, principal)
+        if request['action'] in TARGETS:
+            row = checked_card(c, request['params']['card_id'], principal, request['action'])
+            return [row['card_id'], row['account_id'], row['card_state'], row['revision']]
+        if request['action'] == 'transfer.split':
+            p = request['params']
+            owned_account(c, p['account_id'], principal)
+            people = []
+            for payee in p['payee_ids']:
+                row = c.execute('SELECT account_id FROM payees WHERE principal_id=? AND payee_id=?',
+                                (principal, payee)).fetchone()
+                if row is None:
+                    raise ServiceError('FORBIDDEN', '参与人不属于当前用户的联系人。')
+                people.append([payee, row[0]])
+            return [p['account_id'], people]
+        raise ServiceError('INVALID_REQUEST', '该业务尚未实现。')
+
+    def _commit_action(self, c, request, previous, principal, now):
+        """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] == 'transfer.split':
+            shares = split_shares(request)
+            collection_id = 'collection_' + uuid4().hex
+            c.execute('INSERT INTO collections VALUES (?,?,?,?,?,?,?)',
+                (collection_id, principal, request['params']['account_id'], request['idempotency_key'],
+                 request['params']['amount_minor'], json.dumps(shares), utc_timestamp(now.isoformat())))
+            result = adapt_result(request, dict(status='succeeded',
+                data=dict(collection_id=collection_id, shares=shares)), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            return result
+        if request['action'] in TARGETS:
+            card_id, target = request['params']['card_id'], TARGETS[request['action']]
+            c.execute('UPDATE cards SET card_state=?,revision=revision+1 WHERE card_id=?', (target, card_id))
+            result = adapt_result(request, dict(status='succeeded', data=dict(card_id=card_id, card_state=target)), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            return result
+        if request['action'] != 'transfer.create':
+            raise ServiceError('INVALID_REQUEST', '该业务尚未实现。')
+        with self.services.transfer_context(c, request, principal_id=principal, now=now) as context:
+            raw = handle(context['request']['params'], context=context)
+        return adapt_result(request, raw, source='sandbox')

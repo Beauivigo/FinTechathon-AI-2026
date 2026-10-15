@@ -12,7 +12,20 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 3  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 6  # 数据库版本，与公开 JSON schema_version 分开。
+
+COLLECTIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS collections (
+    collection_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+    account_id TEXT NOT NULL REFERENCES accounts, idempotency_key TEXT NOT NULL,
+    amount_minor INTEGER NOT NULL CHECK(typeof(amount_minor)='integer' AND amount_minor BETWEEN 1 AND {MAX_SAFE_INTEGER}),
+    shares_json TEXT NOT NULL, occurred_at TEXT NOT NULL,
+    UNIQUE(principal_id,idempotency_key))"""
+
+CARDS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS cards (
+    card_id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts,
+    card_state TEXT NOT NULL CHECK(card_state IN ('active','frozen','lost')),
+    limit_minor INTEGER NOT NULL CHECK(typeof(limit_minor)='integer' AND limit_minor BETWEEN 0 AND {MAX_SAFE_INTEGER}),
+    revision INTEGER NOT NULL DEFAULT 0 CHECK(revision>=0))"""
 
 FUNDS_SCHEMA = """CREATE TABLE fund_postings (
     posting_key TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
@@ -69,7 +82,7 @@ SCHEMA = (
         kind TEXT NOT NULL CHECK(kind IN ('confirm','verify')), expires_at TEXT NOT NULL,
         state TEXT NOT NULL CHECK(state IN ('pending','used','expired','cancelled','blocked')),
         proof_digest TEXT, failed_attempts INTEGER NOT NULL DEFAULT 0 CHECK(failed_attempts>=0),
-        payee_account_id TEXT,
+        payee_account_id TEXT, resource_binding_json TEXT,
         FOREIGN KEY(principal_id,action,idempotency_key)
             REFERENCES operations(principal_id,action,idempotency_key))""",
     """CREATE TABLE audit_events (
@@ -82,6 +95,8 @@ SCHEMA = (
         end_date TEXT NOT NULL, upper_seq INTEGER NOT NULL,
         after_time TEXT NOT NULL, after_id TEXT NOT NULL)""",
     FUNDS_SCHEMA,
+    CARDS_SCHEMA,
+    COLLECTIONS_SCHEMA,
 )
 
 
@@ -134,6 +149,17 @@ class Store:
                 columns = {row['name'] for row in connection.execute('PRAGMA table_info(challenges)')}
                 if 'payee_account_id' not in columns:
                     connection.execute('ALTER TABLE challenges ADD COLUMN payee_account_id TEXT')
+                version = 3
+            if app_id == APPLICATION_ID and version == 3:
+                columns = {row['name'] for row in connection.execute('PRAGMA table_info(challenges)')}
+                if 'resource_binding_json' not in columns:
+                    connection.execute('ALTER TABLE challenges ADD COLUMN resource_binding_json TEXT')
+                version = 4
+            if app_id == APPLICATION_ID and version == 4:
+                connection.execute(CARDS_SCHEMA)
+                version = 5
+            if app_id == APPLICATION_ID and version == 5:
+                connection.execute(COLLECTIONS_SCHEMA)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)
