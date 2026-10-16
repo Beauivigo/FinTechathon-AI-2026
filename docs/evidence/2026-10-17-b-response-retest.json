@@ -1,0 +1,25 @@
+{
+  "executor": "A本次补测，非B历史15项",
+  "commit": "7a9c76895d7d889db4597e87aadca87b9514d1c1",
+  "command": ".venv/Scripts/python.exe -B -X utf8 docs/evidence/2026-10-17-b-response-retest.py",
+  "modules": [
+    "tests.test_scheduling",
+    "tests.test_recovery",
+    "tests.test_split"
+  ],
+  "run": 40,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "runtime_unchanged": true,
+  "materials": {
+    "B05同账户定时算例_修订.xlsx": "2430b9ac34a21857412870859ea4fb6db061782e54c4885cd191b703a1105f7e",
+    "B勘误答复原件.docx": "61b3c66f4c0e92e385e07c72874fa21a8fbcb8469093fff6f0b61d8500b8b29c"
+  },
+  "limits": [
+    "预算/merchant.order未实现，本次不认证预算unknown释放可用。",
+    "B历史15项仅收到文档声明，未取得其evidence3/4及对应脚本。",
+    "B-05同账户场景覆盖200000→120000待verify→60000；跨账户累计算例不可混写。"
+  ],
+  "passed": true
+}
