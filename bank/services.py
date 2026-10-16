@@ -1,4 +1,4 @@
-"""可信查询与内部资金服务；公开授权由网关执行，预算和调度仍未开放。"""
+"""可信查询、资金和定时任务服务；公开授权由网关执行，预算尚未开放。"""
 
 from uuid import uuid4
 from datetime import date, datetime, time, timedelta, timezone
@@ -37,6 +37,25 @@ class SandboxServices:
         self.store = store
         self.clock = clock or (lambda: datetime.now(timezone.utc))
         self._transfers = {}
+
+    def register_task(self, transaction, spec, *, principal_id):
+        from .scheduler import register
+        return register(self,transaction,spec,principal_id)
+
+    def get_task(self, task_id, *, principal_id):
+        from .scheduler import owned_task, task_from
+        with self.store.connection() as c:
+            return task_from(owned_task(c,task_id,principal_id))
+
+    def cancel_task(self, transaction, task_id, *, principal_id):
+        from .scheduler import owned_task, task_from, transition
+        self.store.require_write_transaction(transaction)
+        row = owned_task(transaction,task_id,principal_id)
+        if row['state']=='cancelled':
+            return task_from(row)
+        if row['state']!='scheduled':
+            raise ServiceError('INVALID_STATE','任务已领取或结束，请查询原执行结果。')
+        return transition(transaction,row,'cancelled',self.clock())
 
     @contextmanager
     def transfer_context(self, connection, request, *, principal_id, now=None):

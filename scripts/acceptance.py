@@ -34,9 +34,10 @@ def main():
     passed = result.wasSuccessful() and not result.skipped and unchanged
     files = subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=ROOT,text=True).splitlines()
     sources = {f:fingerprint(ROOT/f) for f in files if f.endswith('.py') and (ROOT/f).is_file()}
+    material_hashes = {str(p.relative_to(ROOT)):fingerprint(p) for p in (ROOT/'materials/reviewed/2026-10-16').iterdir() if p.is_file()}
     record = dict(executor='A自动补测，非成员历史记录',round=args.round,
         command=' '.join(sys.argv),base_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-        source_sha256=sources, python=sys.version,run=result.testsRun,failures=len(result.failures),
+        source_sha256=sources, material_sha256=material_hashes, python=sys.version,run=result.testsRun,failures=len(result.failures),
         errors=len(result.errors),skipped=len(result.skipped),runtime_unchanged=unchanged,passed=passed,
         scope='独立临时库、明确标记的模拟数据；测试名称及断言见脚本/日志。不代表真实银行、真实认证或未实现业务通过。')
     output.with_suffix('.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')

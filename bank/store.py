@@ -12,7 +12,14 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 7  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 8  # 数据库版本，与公开 JSON schema_version 分开。
+
+TASKS_SCHEMA = """CREATE TABLE IF NOT EXISTS tasks (
+    task_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+    task_key TEXT NOT NULL, spec_json TEXT NOT NULL,
+    state TEXT NOT NULL CHECK(state IN ('scheduled','running','dispatched','failed','unknown','cancelled')),
+    payee_account_id TEXT NOT NULL REFERENCES accounts, failure_reason TEXT,
+    UNIQUE(principal_id,task_key))"""
 
 SUBSCRIPTIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS subscriptions (
     subscription_id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts,
@@ -106,6 +113,7 @@ SCHEMA = (
     CARDS_SCHEMA,
     COLLECTIONS_SCHEMA,
     SUBSCRIPTIONS_SCHEMA,
+    TASKS_SCHEMA,
 )
 
 
@@ -172,6 +180,9 @@ class Store:
                 version = 6
             if app_id == APPLICATION_ID and version == 6:
                 connection.execute(SUBSCRIPTIONS_SCHEMA)
+                version = 7
+            if app_id == APPLICATION_ID and version == 7:
+                connection.execute(TASKS_SCHEMA)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)

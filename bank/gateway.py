@@ -24,7 +24,7 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 class BankGateway:
     demo_mode = True
-    write_actions = frozenset({'transfer.create', 'transfer.split', 'subscription.review', *CARD_ACTIONS})
+    write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review', *CARD_ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -60,14 +60,15 @@ class BankGateway:
         with self.store.connection() as c:
             require_principal(c, principal_id)
             saved = self._load(c, request, principal_id)
-            if saved is None or request['action'] != 'transfer.create':
+            if saved is None or request['action'] not in ('transfer.create','transfer.schedule'):
                 return None
-            binding = c.execute('''SELECT payee_account_id FROM challenges
+            binding = c.execute('''SELECT payee_account_id,resource_binding_json FROM challenges
                 WHERE principal_id=? AND action=? AND idempotency_key=? ORDER BY rowid DESC LIMIT 1''',
                 self._key(request, principal_id)).fetchone()
             row = c.execute('SELECT * FROM payees WHERE principal_id=? AND payee_id=?',
                 (principal_id, request['params']['payee_id'])).fetchone()
-            if not binding or not row or binding[0] != row['account_id']:
+            bound = (binding[0] if request['action']=='transfer.create' else json.loads(binding[1])) if binding else None
+            if not row or bound != row['account_id']:
                 return None
             return {k: row[k] for k in ('payee_id', 'display_name', 'masked_account', 'bank_name') if row[k] is not None}
 
@@ -204,7 +205,7 @@ class BankGateway:
 
     @staticmethod
     def _kind(c, request, principal, now):
-        if request['action'] != 'transfer.create':
+        if request['action'] not in ('transfer.create','transfer.schedule'):
             return required_gate(request)['required_action']
         local = now.astimezone(timezone(timedelta(hours=8)))
         lower = utc_timestamp(datetime.combine(local.date(), time.min, local.tzinfo).isoformat())
@@ -367,6 +368,10 @@ class BankGateway:
         return result, None
 
     def _binding(self, c, request, principal):
+        if request['action'] == 'transfer.schedule':
+            from .scheduler import check_time
+            check_time(request['params']['execute_at'],self.clock())
+            return self._payee(c,request,principal)
         if request['action'] == 'subscription.list':
             owned_account(c,request['params']['account_id'],principal)
             return [request['params']['account_id']]
@@ -374,6 +379,8 @@ class BankGateway:
             row, _ = checked_review(c,request,principal)
             return dict(row)
         if request['action'] == 'transfer.create':
+            from .scheduler import check_execution
+            check_execution(c,request,principal,self.clock())
             return self._payee(c, request, principal)
         if request['action'] in CARD_ACTIONS:
             row = checked_card(c, request['params']['card_id'], principal, request['action'])
@@ -396,6 +403,13 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] == 'transfer.schedule':
+            from .scheduler import spec_for
+            task = self.services.register_task(c,spec_for(request,principal),principal_id=principal)
+            result = adapt_result(request,dict(status='scheduled',data=dict(schedule_id=task['task_id'],
+                execute_at=request['params']['execute_at'])),source='sandbox')
+            self._save(c,request,result,principal,previous)
+            return result
         if request['action'] in ('subscription.list','subscription.review'):
             if request['action'] == 'subscription.list':
                 data = dict(subscriptions=[subscription_record(row) for row in c.execute(

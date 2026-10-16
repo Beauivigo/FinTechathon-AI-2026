@@ -3,7 +3,7 @@ import sys
 from uuid import uuid4
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import streamlit as st
-from app.workflow import current, render, perform
+from app.workflow import current, render, perform, demo_payees
 from shared import adapt_request, validate_result, ContractError, ServiceError
 from bank.transfer import split_shares
 
@@ -12,13 +12,7 @@ st.title('AA 收款')
 st.info('创建本地模拟收款单，不发送通知、不执行付款，也不会改变任何账户余额。')
 flow = current()
 try:
-    people = []
-    for name in ('李明', '小王'):
-        req = adapt_request('payee.resolve', dict(query=name, match_type='name'), request_id=uuid4().hex, trace_id=uuid4().hex)
-        result = validate_result(req, flow.gateway.execute(req, principal_id=flow.principal_id))
-        if result['status'] != 'succeeded':
-            raise ServiceError('UPSTREAM_ERROR', '联系人查询未完成。')
-        people.extend(result['data']['candidates'])
+    people = demo_payees(flow)
 except (ContractError, ServiceError):
     st.error('模拟联系人暂不可用。')
     render(flow)

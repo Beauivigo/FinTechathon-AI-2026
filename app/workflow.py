@@ -1,12 +1,25 @@
 """表单复用现有 Conversation 授权/恢复，不另建网关或自动确认。"""
 import streamlit as st
+from uuid import uuid4
 from agent.controller import Conversation
 from app import demo
-from shared import result_text, ServiceError, ContractError
+from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
 
 LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
-          'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅'}
+          'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
+          'transfer.schedule': '登记定时转账', 'transfer.create': '转账执行'}
+
+
+def demo_payees(flow):
+    people = []
+    for name in ('李明','小王'):
+        request = adapt_request('payee.resolve',dict(query=name,match_type='name'),request_id=uuid4().hex,trace_id=uuid4().hex)
+        result = validate_result(request,flow.gateway.execute(request,principal_id=flow.principal_id))
+        if result['status']!='succeeded':
+            raise ServiceError('UPSTREAM_ERROR','联系人查询未完成。')
+        people.extend(result['data']['candidates'])
+    return people
 
 
 def current():
@@ -52,6 +65,17 @@ def render(flow):
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
     p = request['params']
+    if request['action'] in ('transfer.schedule','transfer.create'):
+        st.write('付款账户：'+p['account_id'])
+        try:
+            payee = flow.gateway.operation_payee(request,principal_id=flow.principal_id)
+        except (ServiceError, ContractError):
+            payee = None
+        st.write('收款人：'+p['payee_id']+((' · '+payee['display_name']+' · '+payee['masked_account']) if payee else ''))
+        st.write(f"金额：{p['amount_minor']//100}.{p['amount_minor']%100:02d} 元")
+        if request['action']=='transfer.schedule':
+            st.write('约定时间：'+p['execute_at'])
+            st.caption('登记不扣款，到期另行确认；已派发不等于已付款。')
     if request['action'] == 'subscription.list':
         st.write('查询账户：' + p['account_id'])
         st.caption('确认后才读取本次模拟订阅列表。')

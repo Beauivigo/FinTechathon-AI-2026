@@ -36,7 +36,7 @@ conversation = st.session_state.conversation
 other_flow = st.session_state.get('action_flow')
 conversation.external_blocked = bool(other_flow and other_flow.needs_reconciliation)
 if conversation.external_blocked:
-    st.warning('卡片或 AA 的结果尚待核实，请到对应页面查询原操作。')
+    st.warning('其他业务的结果尚待核实，请到对应页面查询原操作。')
 try:
     conversation.refresh_operations()
 except ServiceError:
@@ -110,7 +110,7 @@ st.info("本地模拟银行：确认后会修改模拟余额并保存流水。�
 with st.expander('恢复待处理操作 / 查看历史', expanded=bool(conversation.operations) and not conversation.request):
     transfer_operations = [op for op in conversation.operations if op['action'] == 'transfer.create']
     if any(op['action'] != 'transfer.create' for op in conversation.operations):
-        st.caption('卡片和 AA 操作请到侧栏对应页面恢复。')
+        st.caption('卡片、AA、订阅和定时登记请到侧栏对应页面恢复。')
     if transfer_operations:
         labels = {'awaiting_confirmation':'待确认','awaiting_verification':'待模拟验证','succeeded':'已完成',
                   'cancelled':'已拒绝','failed':'未完成','blocked':'已锁定','unknown':'待核实','running':'执行中'}
