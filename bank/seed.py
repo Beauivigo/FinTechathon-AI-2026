@@ -62,12 +62,14 @@ def initialize(store):
 def _seed_cards(connection):
     existing = connection.execute("SELECT value FROM metadata WHERE key='cards_seed_version'").fetchone()
     if existing:
-        if existing[0] != '1':
+        if existing[0] not in ('1', '2'):
             raise ServiceError('INVALID_STATE', '模拟卡种子版本不兼容。')
         return
     connection.executemany('INSERT INTO cards(card_id,account_id,card_state,limit_minor) VALUES (?,?,?,?)',
-        [('sample_card_' + state, 'demo_account_a', state, 100000) for state in ('active', 'frozen', 'lost')])
-    connection.execute("INSERT INTO metadata VALUES ('cards_seed_version','1')")
+        [('CARD-E001', 'demo_account_a', 'active', 50000),
+         ('CARD-E002', 'demo_account_a', 'frozen', 20000),
+         ('CARD-E003', 'demo_account_a', 'lost', 30000)])
+    connection.execute("INSERT INTO metadata VALUES ('cards_seed_version','2')")
 
 
 def reset_demo(*, confirm=False):

@@ -1,4 +1,4 @@
-"""卡片规则沿用共享 v1.1；数据均为工程模拟卡，不代表 E 的正式交付。"""
+"""卡片规则沿用共享 v1.1；新库采用 E 模拟资料，旧库保留工程卡。"""
 from shared import ContractError, ServiceError
 from shared.services import validate_card_change
 

@@ -8,6 +8,7 @@ from shared import ServiceError
 
 st.set_page_config(page_title='C 资料账单', layout='wide')
 st.title('C 资料账单')
+st.caption('仓库内 C V1.3 / B V1.2 复核修订件；B 仅采用已确认的只读账户映射。')
 st.info('虚构历史资料，只读分析。此页使用独立模拟身份“用户 C”，不代表真实登录，不支持转账或余额查询。')
 st.caption('日期仅精确到天，程序按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；自动异常检测尚未启用。')
 try:

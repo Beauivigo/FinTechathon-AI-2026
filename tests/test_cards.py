@@ -19,7 +19,7 @@ class CardTests(unittest.TestCase):
         initialize(self.store)
         self.g = BankGateway(self.store)
 
-    def request(self, action, card='sample_card_active'):
+    def request(self, action, card='CARD-E001'):
         return adapt_request(action, dict(card_id=card), request_id='r', trace_id='t', idempotency_key=uuid4().hex)
 
     def start(self, request, principal='demo_user_a'):
@@ -33,7 +33,7 @@ class CardTests(unittest.TestCase):
             p['proof_token'] = self.g.issue_demo_proof(n['challenge_id'], principal_id='demo_user_a')
         return self.g.authorize(p, principal_id='demo_user_a')
 
-    def state(self, card='sample_card_active'):
+    def state(self, card='CARD-E001'):
         return next(c['card_state'] for c in self.g.get_context(principal_id='demo_user_a')['cards'] if c['card_id'] == card)
 
     def test_four_actions_and_lost_cannot_unfreeze(self):
@@ -53,6 +53,17 @@ class CardTests(unittest.TestCase):
             self.assertEqual(c.execute('SELECT COUNT(*) FROM ledger_entries').fetchone()[0], 0)
             self.assertEqual(c.execute("SELECT balance_minor FROM accounts WHERE account_id='demo_account_a'").fetchone()[0], 200000)
 
+    def test_e_material_original_paths(self):
+        for action, card, expected in [('card.unfreeze','CARD-E002','active'),
+            ('card.unfreeze','CARD-E003',None), ('card.release_loss','CARD-E003','frozen'),
+            ('card.report_loss','CARD-E001','lost'), ('card.report_loss','CARD-E003','lost')]:
+            pending = self.start(self.request(action, card))
+            if expected is None:
+                self.assertEqual(pending['error']['code'],'INVALID_STATE')
+            else:
+                self.assertEqual(self.finish(pending)['status'],'succeeded')
+                self.assertEqual(self.state(card),expected)
+
     def test_ownership_reject_missing_proof_and_conflict(self):
         req = self.request('card.freeze')
         self.assertEqual(self.start(req, 'demo_user_li')['error']['code'], 'FORBIDDEN')
@@ -60,7 +71,7 @@ class CardTests(unittest.TestCase):
         with self.assertRaises(ServiceError):
             self.finish(pending, proof=False)
         self.assertEqual(self.state(), 'active')
-        changed = req | dict(params=dict(card_id='sample_card_frozen'))
+        changed = req | dict(params=dict(card_id='CARD-E002'))
         self.assertEqual(self.start(changed)['error']['code'], 'IDEMPOTENCY_CONFLICT')
         self.assertEqual(self.finish(pending, decision='reject')['status'], 'cancelled')
         self.assertEqual(self.state(), 'active')

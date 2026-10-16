@@ -11,10 +11,11 @@ from .checks import check_material, KINDS
 from .reconcile import minor_value, source_day
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT.parent / '群组资料/C/副本账单数据与手算（C项目）V1.2.xlsx'
-DECISION = ROOT.parent / '群组资料/B/资金规则与功能复核（B项目）V1.1.xlsx'
-SOURCE_SHA = 'f7fb9f38451b56c94408cd99e121151bb18b55d4a940244f3821ac9b42919eba'
-DECISION_SHA = '49b1b4d3ff4457d2e2066b079257e70aaabf1151a60ffa03f5e3aaa05831f1ff'
+MATERIALS = ROOT / 'materials/reviewed/2026-10-16'
+SOURCE = MATERIALS / '账单数据与手算_C_V1.3_复核修订.xlsx'
+DECISION = MATERIALS / '资金规则与功能复核_B_V1.2_复核修订.xlsx'
+SOURCE_SHA = '496c6d27614add230f03b1440ebf155c9f813051ce04fdc493ef52269ec06d04'
+DECISION_SHA = '4bb55f65c0548be5102b0757aec278be90c2fa1aef6f8c172fc04f28043be99b'
 PRINCIPAL = 'PRIN-C01'
 MAPPING = {'ACC-001': 'ACCT-C001', 'CH-001': 'ACCT-C001',
            'ACC-002': 'ACCT-C002', 'CH-002': 'ACCT-C002', 'ACC-003': 'ACCT-C003'}

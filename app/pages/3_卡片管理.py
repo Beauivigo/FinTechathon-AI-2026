@@ -7,10 +7,11 @@ from card import TARGETS
 
 st.set_page_config(page_title='模拟卡片管理', layout='wide')
 st.title('卡片管理')
-st.info('工程模拟卡：尚未替换为 E 的正式资料。四种状态操作均需要模拟强验证。')
+st.info('E V1.0 模拟卡资料；已有演示库保留旧工程卡与历史操作。四种状态操作均需要模拟强验证。')
 flow = current()
 cards = flow.resources['cards']
-st.dataframe(cards, hide_index=True)
+names = {'CARD-E001': '模拟白金卡', 'CARD-E002': '模拟普通卡', 'CARD-E003': '模拟挂失卡'}
+st.dataframe([dict(c, 展示名称=names.get(c['card_id'], '旧工程模拟卡')) for c in cards], hide_index=True)
 if cards:
     selected = st.selectbox('选择卡片', cards, key='card_select',
         format_func=lambda c: f"{c['card_id']} · {c['card_state']}")
