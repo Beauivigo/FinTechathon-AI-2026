@@ -1,4 +1,4 @@
-"""可信查询、资金和定时任务服务；公开授权由网关执行，预算尚未开放。"""
+"""可信查询、转账资金和定时服务；预算预留/释放由网关调用budget模块。"""
 
 from uuid import uuid4
 from datetime import date, datetime, time, timedelta, timezone
@@ -132,7 +132,7 @@ class SandboxServices:
         command = deepcopy(command)
         validate_funds_command(command)
         if command["effect"] not in ("debit", "credit"):
-            raise ServiceError("INVALID_REQUEST", "预算资金动作尚未实现。")
+            raise ServiceError("INVALID_REQUEST", "转账资金上下文不允许预算动作。")
         expected = next((c for c in state.get("commands", {}).values()
                          if c["posting_key"] == command["posting_key"]), None)
         if expected is None:

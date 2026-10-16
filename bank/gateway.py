@@ -18,13 +18,14 @@ from shared.contracts import MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
 from .transfer import handle, split_shares
+from . import budget
 
 PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 
 class BankGateway:
     demo_mode = True
-    write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review', *CARD_ACTIONS})
+    write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review', *CARD_ACTIONS, *budget.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -37,6 +38,15 @@ class BankGateway:
             return self.services.get_context(principal_id=principal_id)
         except (sqlite3.Error, ContractError) as exc:
             raise ServiceError("UPSTREAM_ERROR", "模拟资源暂不可用，请检查数据。") from exc
+
+    def list_reservations(self, *, principal_id):
+        """可信页面的归属过滤索引，不新增公开模型动作或context字段。"""
+        with self.store.connection() as c:
+            require_principal(c, principal_id)
+            return [dict(row) for row in c.execute('''SELECT r.* FROM reservations r
+                JOIN accounts a ON a.account_id=r.account_id
+                WHERE r.principal_id=? AND a.principal_id=? ORDER BY r.rowid DESC''',
+                (principal_id, principal_id))]
 
     def list_operations(self, *, principal_id):
         """可信页面的恢复索引，不是模型动作；保留所有未决操作及最近 20 个终态。"""
@@ -237,7 +247,7 @@ class BankGateway:
 
     @staticmethod
     def _error(request, code, *, status='failed'):
-        messages = {'INSUFFICIENT_FUNDS': '可用余额不足，本次转账未执行。',
+        messages = {'INSUFFICIENT_FUNDS': '可用余额不足，本次操作未执行。',
             'AUTH_EXPIRED': '授权已过期，本次操作未执行；仍有需要时请重新发起。',
             'AUTH_INVALID': '授权或操作资源已失效，本次操作未执行，请重新核对。',
             'SAFETY_LOCKED': '模拟验证连续五次失败，本次操作已锁定，未执行。',
@@ -368,6 +378,8 @@ class BankGateway:
         return result, None
 
     def _binding(self, c, request, principal):
+        if request['action'] in budget.ACTIONS:
+            return budget.binding(c, request, principal)
         if request['action'] == 'transfer.schedule':
             from .scheduler import check_time
             check_time(request['params']['execute_at'],self.clock())
@@ -403,6 +415,12 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] in budget.ACTIONS:
+            data, details = budget.apply(self.store, c, request, principal)
+            result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            self._audit(c, request, principal, 'succeeded', now, **details)
+            return result
         if request['action'] == 'transfer.schedule':
             from .scheduler import spec_for
             task = self.services.register_task(c,spec_for(request,principal),principal_id=principal)

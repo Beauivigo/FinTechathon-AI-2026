@@ -99,7 +99,7 @@ def reset_demo(*, confirm=False):
     store = Store(path)
     with store.connection(write=True) as connection:
         for table in ("page_cursors", "challenges", "audit_events", "fund_postings", "ledger_entries",
-                      "transfers", "collections", "tasks", "operations", "cards", "subscriptions", "payees", "accounts", "principals", "metadata"):
+                      "transfers", "collections", "tasks", "reservations", "operations", "cards", "subscriptions", "payees", "accounts", "principals", "metadata"):
             connection.execute(f"DELETE FROM {table}")  # 固定内部表名，非用户输入。
         _seed(connection)
         _seed_cards(connection)

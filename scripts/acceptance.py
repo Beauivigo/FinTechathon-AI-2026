@@ -19,7 +19,7 @@ def fingerprint(path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('round', choices=['R1','R2','R3','R4','full'])
+    parser.add_argument('round', choices=['R1','R2','R3','R4','N1-core','N1','N1-full','full'])
     parser.add_argument('modules', nargs='*')
     args = parser.parse_args()
     output = ROOT/'docs/evidence'/('2026-10-17-'+args.round)

@@ -8,7 +8,8 @@ from shared import result_text, ServiceError, ContractError, adapt_request, vali
 LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
           'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
-          'transfer.schedule': '登记定时转账', 'transfer.create': '转账执行'}
+          'transfer.schedule': '登记定时转账', 'transfer.create': '转账执行',
+          'budget.reserve': '预留预算', 'budget.release': '释放预算'}
 
 
 def demo_payees(flow):
@@ -65,6 +66,17 @@ def render(flow):
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
     p = request['params']
+    if request['action'] == 'budget.reserve':
+        st.write('预留账户：' + p['account_id'])
+        st.write(f"预留金额：{p['amount_minor']} 分；用途：{p['purpose']}")
+        st.caption('确认后减少可用余额，账面余额不变；没有下单或付款。')
+    if request['action'] == 'budget.release':
+        st.write('预留编号：' + p['reservation_id'])
+        rows = flow.gateway.list_reservations(principal_id=flow.principal_id)
+        reservation = next((r for r in rows if r['reservation_id']==p['reservation_id']), None)
+        if reservation:
+            st.write(f"账户：{reservation['account_id']}；用途：{reservation['purpose']}；当前剩余预留：{reservation['remaining_reserved_minor']} 分")
+        st.caption('仅释放经服务端核实可释放的预留；存在订单关联时，本阶段阻止释放。')
     if request['action'] in ('transfer.schedule','transfer.create'):
         st.write('付款账户：'+p['account_id'])
         try:
@@ -97,6 +109,8 @@ def render(flow):
         st.write(f"总金额：{p['amount_minor'] // 100}.{p['amount_minor'] % 100:02d} 元")
         st.caption('只创建本地模拟收款单；不会发送通知，也不会执行参与人的付款。')
     st.write(result_text(request, result))
+    if result['status'] == 'succeeded' and request['action'] in ('budget.reserve','budget.release'):
+        st.caption('预留编号：' + result['data']['reservation_id'])
     if result['status'] == 'succeeded' and request['action'] == 'transfer.split':
         st.dataframe([{'参与人': s['payee_id'], '金额（分）': s['amount_minor']}
                       for s in result['data']['shares']], hide_index=True)

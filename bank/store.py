@@ -12,7 +12,17 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 8  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 9  # 数据库版本，与公开 JSON schema_version 分开。
+
+RESERVATIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS reservations (
+    reservation_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+    account_id TEXT NOT NULL REFERENCES accounts, reserve_key TEXT NOT NULL,
+    amount_minor INTEGER NOT NULL CHECK(typeof(amount_minor)='integer' AND amount_minor BETWEEN 1 AND {MAX_SAFE_INTEGER}),
+    remaining_reserved_minor INTEGER NOT NULL CHECK(typeof(remaining_reserved_minor)='integer'
+        AND remaining_reserved_minor BETWEEN 0 AND amount_minor),
+    purpose TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('active','partially_consumed','frozen','released','closed')),
+    UNIQUE(principal_id,reserve_key),
+    CHECK(state NOT IN ('released','closed') OR remaining_reserved_minor=0))"""
 
 TASKS_SCHEMA = """CREATE TABLE IF NOT EXISTS tasks (
     task_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
@@ -114,6 +124,7 @@ SCHEMA = (
     COLLECTIONS_SCHEMA,
     SUBSCRIPTIONS_SCHEMA,
     TASKS_SCHEMA,
+    RESERVATIONS_SCHEMA,
 )
 
 
@@ -183,6 +194,9 @@ class Store:
                 version = 7
             if app_id == APPLICATION_ID and version == 7:
                 connection.execute(TASKS_SCHEMA)
+                version = 8
+            if app_id == APPLICATION_ID and version == 8:
+                connection.execute(RESERVATIONS_SCHEMA)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)
