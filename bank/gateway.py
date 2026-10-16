@@ -9,6 +9,7 @@ import json
 import secrets
 from uuid import uuid4
 from card import TARGETS, ACTIONS as CARD_ACTIONS, checked_card, check_limit
+from subscription import record as subscription_record, checked_review
 
 from shared import (ContractError, ServiceError, adapt_result, validate_request,
                     validate_authorization, operation_digest, required_gate, validate_transition)
@@ -23,7 +24,8 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 class BankGateway:
     demo_mode = True
-    write_actions = frozenset({'transfer.create', 'transfer.split', *CARD_ACTIONS})
+    write_actions = frozenset({'transfer.create', 'transfer.split', 'subscription.review', *CARD_ACTIONS})
+    confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
         self.store = store
@@ -44,7 +46,7 @@ class BankGateway:
                 unresolved, recent = [], []
                 for row in c.execute('SELECT request_json FROM operations WHERE principal_id=? ORDER BY rowid DESC', (principal_id,)):
                     request, result = self._load(c, loads_request(row[0]), principal_id)
-                    item = dict(action=request['action'], idempotency_key=request['idempotency_key'], status=result['status'])
+                    item = dict(action=request['action'], idempotency_key=self._key(request,principal_id)[2], status=result['status'])
                     if result['status'] in (*PENDING, 'running', 'unknown'):
                         unresolved.append(item)
                     elif len(recent) < 20:
@@ -75,7 +77,7 @@ class BankGateway:
         except ContractError as exc:
             raise ServiceError("INVALID_REQUEST", "请求格式不符合 v1.1。") from exc
         request = deepcopy(request)
-        if request['action'] in self.write_actions:
+        if request['action'] in self.write_actions | self.confirmed_reads:
             return self._execute_write(request, principal_id)
         try:
             data = self.services.query(request["action"], request["params"], principal_id=principal_id)
@@ -97,6 +99,8 @@ class BankGateway:
         try:
             with self.store.connection(write=True) as c:
                 row, request, previous = self._challenge(c, payload['challenge_id'], principal_id)
+                if request['action'] in self.confirmed_reads:
+                    owned_account(c,request['params']['account_id'],principal_id)
                 now = self.clock()
                 if not hmac.compare_digest(row['digest'], payload['operation_digest']):
                     self._audit(c, request, principal_id, 'authorization_invalid', now, code='AUTH_INVALID')
@@ -134,7 +138,20 @@ class BankGateway:
 
     @staticmethod
     def _key(request, principal):
-        return principal, request['action'], request['idempotency_key']
+        # 黄色查询允许不提供写幂等键，以请求ID恢复本次确认；不修改公开请求。
+        return principal, request['action'], request.get('idempotency_key', request['request_id'])
+
+    def get_confirmed_read(self, key, *, principal_id):
+        """可信页面恢复黄色只读会话；不扩大operation.get的公开写操作范围。"""
+        with self.store.connection() as c:
+            require_principal(c,principal_id)
+            row = c.execute("SELECT request_json FROM operations WHERE principal_id=? AND action='subscription.list' AND idempotency_key=?",
+                            (principal_id,key)).fetchone()
+            if row is None:
+                raise ServiceError('NOT_FOUND','未找到本次查询。')
+            request, result = self._load(c,loads_request(row[0]),principal_id)
+            owned_account(c,request['params']['account_id'],principal_id)
+            return dict(operation_request=request,operation_result=result)
 
     def _load(self, c, request, principal):
         row = c.execute('SELECT * FROM operations WHERE principal_id=? AND action=? AND idempotency_key=?',
@@ -171,7 +188,7 @@ class BankGateway:
         c.execute('''INSERT INTO audit_events
             (principal_id,trace_id,action,outcome,occurred_at,details_json) VALUES (?,?,?,?,?,?)''',
             (principal, request['trace_id'], request['action'], outcome, utc_timestamp(now.isoformat()),
-             json.dumps(dict(idempotency_key=request['idempotency_key'], **details))))
+             json.dumps(dict(idempotency_key=request.get('idempotency_key',request['request_id']), **details))))
 
     @staticmethod
     def _payee(c, request, principal):
@@ -237,6 +254,8 @@ class BankGateway:
                 require_principal(c, principal)
                 saved = self._load(c, request, principal)
                 if saved:
+                    if request['action'] in self.confirmed_reads:
+                        owned_account(c,request['params']['account_id'],principal)
                     result = self._replay(request, saved[1])
                 else:
                     now = self.clock()
@@ -348,6 +367,12 @@ class BankGateway:
         return result, None
 
     def _binding(self, c, request, principal):
+        if request['action'] == 'subscription.list':
+            owned_account(c,request['params']['account_id'],principal)
+            return [request['params']['account_id']]
+        if request['action'] == 'subscription.review':
+            row, _ = checked_review(c,request,principal)
+            return dict(row)
         if request['action'] == 'transfer.create':
             return self._payee(c, request, principal)
         if request['action'] in CARD_ACTIONS:
@@ -371,6 +396,18 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] in ('subscription.list','subscription.review'):
+            if request['action'] == 'subscription.list':
+                data = dict(subscriptions=[subscription_record(row) for row in c.execute(
+                    'SELECT * FROM subscriptions WHERE account_id=? ORDER BY subscription_id',(request['params']['account_id'],))])
+            else:
+                row, target = checked_review(c,request,principal)
+                c.execute('UPDATE subscriptions SET subscription_state=?,revision=revision+1 WHERE subscription_id=?',
+                          (target,row['subscription_id']))
+                data = dict(subscription_id=row['subscription_id'],subscription_state=target)
+            result = adapt_result(request,dict(status='succeeded',data=data),source='sandbox')
+            self._save(c,request,result,principal,previous)
+            return result
         if request['action'] == 'card.set_limit':
             p = request['params']
             c.execute('UPDATE cards SET limit_minor=?,revision=revision+1 WHERE card_id=?',

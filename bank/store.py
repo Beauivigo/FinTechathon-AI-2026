@@ -12,7 +12,15 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 6  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 7  # 数据库版本，与公开 JSON schema_version 分开。
+
+SUBSCRIPTIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS subscriptions (
+    subscription_id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts,
+    merchant_name TEXT NOT NULL,
+    amount_minor INTEGER NOT NULL CHECK(typeof(amount_minor)='integer' AND amount_minor BETWEEN 1 AND {MAX_SAFE_INTEGER}),
+    interval TEXT NOT NULL CHECK(interval IN ('weekly','monthly','yearly')), next_charge_date TEXT NOT NULL,
+    subscription_state TEXT NOT NULL CHECK(subscription_state IN ('candidate','active','dismissed','cancelled')),
+    evidence TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 0 CHECK(revision>=0))"""
 
 COLLECTIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS collections (
     collection_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
@@ -97,6 +105,7 @@ SCHEMA = (
     FUNDS_SCHEMA,
     CARDS_SCHEMA,
     COLLECTIONS_SCHEMA,
+    SUBSCRIPTIONS_SCHEMA,
 )
 
 
@@ -160,6 +169,9 @@ class Store:
                 version = 5
             if app_id == APPLICATION_ID and version == 5:
                 connection.execute(COLLECTIONS_SCHEMA)
+                version = 6
+            if app_id == APPLICATION_ID and version == 6:
+                connection.execute(SUBSCRIPTIONS_SCHEMA)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)

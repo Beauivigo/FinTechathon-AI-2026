@@ -56,6 +56,7 @@ def initialize(store):
     with store.connection(write=True) as connection:
         created = _seed(connection)
         _seed_cards(connection)
+        _seed_subscriptions(connection)
         return created
 
 
@@ -72,6 +73,22 @@ def _seed_cards(connection):
     connection.execute("INSERT INTO metadata VALUES ('cards_seed_version','2')")
 
 
+def _seed_subscriptions(connection):
+    existing = connection.execute("SELECT value FROM metadata WHERE key='subscriptions_seed_version'").fetchone()
+    if existing:
+        if existing[0] != '1':
+            raise ServiceError('INVALID_STATE','订阅种子版本不兼容。')
+        return
+    connection.executemany('''INSERT INTO subscriptions
+        (subscription_id,account_id,merchant_name,amount_minor,interval,next_charge_date,subscription_state,evidence)
+        VALUES (?,?,?,?,?,?,?,?)''',[
+        ('SUB-E001','demo_account_a','模拟影音会员',2500,'monthly','2026-11-05','candidate',
+         'E V1.0 固定模拟样例：P-1/P-2/P-3，2026-08-05、09-05、10-05各2500分；非自动识别。'),
+        ('SUB-E003','demo_account_a','模拟健身年卡',120000,'yearly','2027-01-10','active',
+         'E V1.0 已知订阅（已核实），固定模拟样例。')])
+    connection.execute("INSERT INTO metadata VALUES ('subscriptions_seed_version','1')")
+
+
 def reset_demo(*, confirm=False):
     """仅清空固定演示库的业务表并重建种子；不接受任意路径、不删除文件。"""
     if confirm is not True:
@@ -82,10 +99,11 @@ def reset_demo(*, confirm=False):
     store = Store(path)
     with store.connection(write=True) as connection:
         for table in ("page_cursors", "challenges", "audit_events", "fund_postings", "ledger_entries",
-                      "transfers", "collections", "operations", "cards", "payees", "accounts", "principals", "metadata"):
+                      "transfers", "collections", "operations", "cards", "subscriptions", "payees", "accounts", "principals", "metadata"):
             connection.execute(f"DELETE FROM {table}")  # 固定内部表名，非用户输入。
         _seed(connection)
         _seed_cards(connection)
+        _seed_subscriptions(connection)
 
 
 def main():

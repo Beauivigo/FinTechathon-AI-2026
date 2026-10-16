@@ -67,13 +67,17 @@ class Conversation:
         same = bool(self.request and (action, idempotency_key) == (self.request['action'], self.request['idempotency_key']))
         if self.request and (self.pending or self.needs_reconciliation or self.result['status'] in {'running', 'unknown'}) and not same:
             raise ValueError('先处理或核实当前操作，再切换其他操作。')
-        query = adapt_request('operation.get', dict(original_action=action, original_idempotency_key=idempotency_key),
-            request_id='query_'+uuid4().hex, trace_id='recovery_'+uuid4().hex)
         try:
-            reply = validate_result(query, self.gateway.execute(query, principal_id=self.principal_id))
-            if reply['status'] != 'succeeded':
-                raise ServiceError('RESULT_UNKNOWN', '尚未找到可靠结果。')
-            original, result = reply['data']['operation_request'], reply['data']['operation_result']
+            if action == 'subscription.list':
+                data = self.gateway.get_confirmed_read(idempotency_key,principal_id=self.principal_id)
+            else:
+                query = adapt_request('operation.get', dict(original_action=action, original_idempotency_key=idempotency_key),
+                    request_id='query_'+uuid4().hex, trace_id='recovery_'+uuid4().hex)
+                reply = validate_result(query, self.gateway.execute(query, principal_id=self.principal_id))
+                if reply['status'] != 'succeeded':
+                    raise ServiceError('RESULT_UNKNOWN', '尚未找到可靠结果。')
+                data = reply['data']
+            original, result = data['operation_request'], data['operation_result']
             if (original['action'], original['idempotency_key']) != (action, idempotency_key):
                 raise ValueError('原操作键不匹配。')
             if same:

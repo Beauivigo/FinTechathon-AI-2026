@@ -5,7 +5,8 @@ from app import demo
 from shared import result_text, ServiceError, ContractError
 
 LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
-          'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单'}
+          'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
+          'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅'}
 
 
 def current():
@@ -36,14 +37,14 @@ def perform(function, *args, **kwargs):
 
 def render(flow):
     operations = [op for op in flow.operations if op['action'] in LABELS]
-    with st.expander('恢复卡片 / AA 操作', expanded=not flow.request and bool(operations)):
+    with st.expander('恢复业务操作', expanded=not flow.request and bool(operations)):
         if operations:
             selected = st.selectbox('选择原操作', operations, key='action_history', format_func=lambda op:
                 f"{LABELS[op['action']]} · {op['status']} · {op['idempotency_key']}")
             if st.button('恢复选中操作', key='action_recover'):
                 perform(flow.recover, action=selected['action'], idempotency_key=selected['idempotency_key'])
         else:
-            st.caption('暂无卡片或 AA 操作。')
+            st.caption('暂无可恢复的业务操作。')
     if flow.blocked and not flow.request:
         st.warning('请先恢复待办。转账待办请到转账页面处理。')
     if not flow.request or not flow.result:
@@ -51,6 +52,13 @@ def render(flow):
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
     p = request['params']
+    if request['action'] == 'subscription.list':
+        st.write('查询账户：' + p['account_id'])
+        st.caption('确认后才读取本次模拟订阅列表。')
+    if request['action'] == 'subscription.review':
+        st.write('订阅：' + p['subscription_id'])
+        st.write('本次选择：' + ('核实为订阅' if p['decision']=='accept' else '排除候选'))
+        st.caption('核实不新签代扣授权；排除不取消既有扣费。')
     if 'card_id' in p:
         st.write('卡片：' + p['card_id'])
         st.caption('解挂后保持冻结，需要另行验证解冻。卡片状态尚未关联账户转账限制。')
@@ -71,7 +79,7 @@ def render(flow):
         st.caption('收款单：' + result['data']['collection_id'])
     if flow.pending:
         verify = result['status'] == 'awaiting_verification'
-        if st.button('模拟验证并执行' if verify else '确认创建收款单', key='action_approve'):
+        if st.button('模拟验证并执行' if verify else '确认本次操作', key='action_approve'):
             perform(flow.decide, True, simulate_verification=verify)
         if st.button('拒绝此操作', key='action_reject'):
             perform(flow.decide, False)
