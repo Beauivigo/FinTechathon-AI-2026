@@ -8,7 +8,7 @@ import hmac
 import json
 import secrets
 from uuid import uuid4
-from card import TARGETS, checked_card
+from card import TARGETS, ACTIONS as CARD_ACTIONS, checked_card, check_limit
 
 from shared import (ContractError, ServiceError, adapt_result, validate_request,
                     validate_authorization, operation_digest, required_gate, validate_transition)
@@ -23,7 +23,7 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 class BankGateway:
     demo_mode = True
-    write_actions = frozenset({'transfer.create', 'transfer.split', *TARGETS})
+    write_actions = frozenset({'transfer.create', 'transfer.split', *CARD_ACTIONS})
 
     def __init__(self, store, *, clock=None):
         self.store = store
@@ -350,8 +350,11 @@ class BankGateway:
     def _binding(self, c, request, principal):
         if request['action'] == 'transfer.create':
             return self._payee(c, request, principal)
-        if request['action'] in TARGETS:
+        if request['action'] in CARD_ACTIONS:
             row = checked_card(c, request['params']['card_id'], principal, request['action'])
+            if request['action'] == 'card.set_limit':
+                check_limit(request['params']['limit_minor'])
+                return [row['card_id'], row['account_id'], row['card_state'], row['revision'], row['limit_minor']]
             return [row['card_id'], row['account_id'], row['card_state'], row['revision']]
         if request['action'] == 'transfer.split':
             p = request['params']
@@ -368,6 +371,13 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] == 'card.set_limit':
+            p = request['params']
+            c.execute('UPDATE cards SET limit_minor=?,revision=revision+1 WHERE card_id=?',
+                      (p['limit_minor'],p['card_id']))
+            result = adapt_result(request, dict(status='succeeded',data=dict(p)),source='sandbox')
+            self._save(c, request, result, principal, previous)
+            return result
         if request['action'] == 'transfer.split':
             shares = split_shares(request)
             collection_id = 'collection_' + uuid4().hex

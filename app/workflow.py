@@ -5,7 +5,7 @@ from app import demo
 from shared import result_text, ServiceError, ContractError
 
 LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
-          'card.release_loss': '解挂', 'transfer.split': 'AA 收款单'}
+          'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单'}
 
 
 def current():
@@ -54,6 +54,11 @@ def render(flow):
     if 'card_id' in p:
         st.write('卡片：' + p['card_id'])
         st.caption('解挂后保持冻结，需要另行验证解冻。卡片状态尚未关联账户转账限制。')
+        if request['action'] == 'card.set_limit':
+            card = next((c for c in flow.resources['cards'] if c['card_id']==p['card_id']), None)
+            if card:
+                st.write(f"当前保存的限额：{card['limit_minor']} 分；本次设置值：{p['limit_minor']} 分")
+            st.caption('限额保存不改变卡状态；支付限制联动待后续接入。')
     if 'payee_ids' in p:
         st.write('收款账户：' + p['account_id'])
         st.write('参与人顺序：' + ' → '.join(p['payee_ids']))

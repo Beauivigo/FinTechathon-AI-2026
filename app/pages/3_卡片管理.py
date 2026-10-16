@@ -15,9 +15,16 @@ st.dataframe([dict(c, 展示名称=names.get(c['card_id'], '旧工程模拟卡')
 if cards:
     selected = st.selectbox('选择卡片', cards, key='card_select',
         format_func=lambda c: f"{c['card_id']} · {c['card_state']}")
-    action = st.selectbox('卡片操作', list(TARGETS), format_func=lambda a: LABELS[a], key='card_action')
-    st.write(f"{selected['card_state']} → {TARGETS[action]}")
-    st.caption('解挂后仍冻结；解冻需另行验证。限额只作样例展示，本页不修改限额。')
+    action = st.selectbox('卡片操作', [*TARGETS, 'card.set_limit'], format_func=lambda a: LABELS[a], key='card_action')
+    params = dict(card_id=selected['card_id'])
+    if action == 'card.set_limit':
+        st.write(f"当前限额：{selected['limit_minor']} 分")
+        params['limit_minor'] = st.number_input('新限额（整数分，0—1000000）', min_value=0, max_value=1000000,
+            value=selected['limit_minor'],step=1,key='card_limit_'+selected['card_id'])
+        st.caption('任意卡状态均可设置，0允许保存。设置不改变状态、不扣款；支付限制联动待后续接入。')
+    else:
+        st.write(f"{selected['card_state']} → {TARGETS[action]}")
+        st.caption('解挂后仍冻结；解冻需另行验证。')
     if st.button('提交卡片操作', key='card_submit', disabled=flow.blocked):
-        perform(flow.start_action, action, dict(card_id=selected['card_id']))
+        perform(flow.start_action, action, params)
 render(flow)
