@@ -27,12 +27,12 @@ def main():
     before = fingerprint(runtime)
     loader = unittest.TestLoader()
     with TemporaryDirectory() as td, patch('bank.seed.PROJECT_ROOT', Path(td)):
-        suite = loader.loadTestsFromNames(args.modules) if args.modules else loader.discover(str(ROOT/'tests'),top_level_dir=str(ROOT))
+        suite = loader.loadTestsFromNames(args.modules) if args.modules else loader.discover(str(ROOT/'tests'))
         with output.with_suffix('.txt').open('w',encoding='utf-8') as log:
             result = unittest.TextTestRunner(stream=log,verbosity=2).run(suite)
     unchanged = fingerprint(runtime) == before
     passed = result.wasSuccessful() and not result.skipped and unchanged
-    files = subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=ROOT,text=True).splitlines()
+    files = subprocess.check_output(['git','ls-files','-z','--cached','--others','--exclude-standard'],cwd=ROOT,text=True,encoding='utf-8').split('\0')
     sources = {f:fingerprint(ROOT/f) for f in files if f.endswith('.py') and (ROOT/f).is_file()}
     material_hashes = {str(p.relative_to(ROOT)):fingerprint(p) for p in (ROOT/'materials/reviewed/2026-10-16').iterdir() if p.is_file()}
     record = dict(executor='A自动补测，非成员历史记录',round=args.round,

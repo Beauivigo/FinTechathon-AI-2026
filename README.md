@@ -60,11 +60,13 @@ py -3.12 -m venv .venv
 
 ## 检查项目
 
+最新本地验收（2026-10-17）：**326项测试通过，0失败、0错误、0跳过**，含实际Streamlit页面交互；日常演示库未改动。详见[四轮验收与证据](docs/2026-10-17开发验收.md)。以下旧日期的数量保留作历史记录，不代表当前版本。
+
 安装页面与资料检查依赖后运行：
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-app.txt -r requirements-materials.txt
-.\.venv\Scripts\python.exe -B -X utf8 -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -B -X utf8 scripts/acceptance.py full
 .\.venv\Scripts\python.exe -B -X utf8 -m examples.contract_demo
 ```
 
