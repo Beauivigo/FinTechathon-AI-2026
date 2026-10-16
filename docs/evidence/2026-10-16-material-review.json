@@ -1,0 +1,277 @@
+{
+  "B": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\资金规则与功能复核（B项目）V1.2.xlsx",
+    "sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+  },
+  "C": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\C\\账单数据与手算（C项目）V1.3.xlsx",
+    "sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3"
+  },
+  "B_rules": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\B预算与定时分支规则（B-001补充）.md",
+    "sha256": "81d19c88e46492764368177afd1ad530e5efdf0cbda5b6def047ee283c3c1bca"
+  },
+  "B_notes": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\B\\B角色待A推进事项清单.docx",
+    "sha256": "766d1e80c2d57352fbb0163c5a01c2d791270296e55a145e13b25b112a3dac38"
+  },
+  "E": {
+    "path": "D:\\FinTechathon-AI-2026\\群组资料\\E\\E部分交付材料_卡片订阅规则与交互文案(1).docx",
+    "sha256": "a5117ac3e903b472d63a5e9b501204b0fe3b4516653cf73c224ff28c93f6dd79"
+  },
+  "calculation": {
+    "monthly": {
+      "2026-08": {
+        "expense": 48990,
+        "refund": 29900,
+        "inflow": 1229900,
+        "outflow": 648990,
+        "count": 8
+      },
+      "2026-09": {
+        "expense": 298060,
+        "refund": 4500,
+        "inflow": 1877500,
+        "outflow": 298060,
+        "count": 7
+      }
+    },
+    "account_month": [
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "expense": 46490,
+        "refund": 0,
+        "categories": {
+          "日用百货": 32850,
+          "餐饮": 8640,
+          "交通": 5000
+        }
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-09",
+        "expense": 0,
+        "refund": 4500,
+        "categories": {}
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-08",
+        "expense": 2500,
+        "refund": 29900,
+        "categories": {
+          "影音会员": 2500
+        }
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-09",
+        "expense": 256800,
+        "refund": 0,
+        "categories": {
+          "住房": 250000,
+          "云服务": 6800
+        }
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-08",
+        "expense": 0,
+        "refund": 0,
+        "categories": {}
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-09",
+        "expense": 41260,
+        "refund": 0,
+        "categories": {
+          "日用百货": 41260
+        }
+      }
+    ],
+    "hand_checks": [
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "category": "日用百货",
+        "expected_minor": 32850
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "category": "餐饮",
+        "expected_minor": 8640
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "category": "交通",
+        "expected_minor": 5000
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "category": "毛支出小计",
+        "expected_minor": 46490
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-08",
+        "category": "退款（另列）",
+        "expected_minor": 0
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-09",
+        "category": "毛支出小计",
+        "expected_minor": 0
+      },
+      {
+        "account": "ACCT-C001",
+        "month": "2026-09",
+        "category": "退款（另列）",
+        "expected_minor": 4500
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-08",
+        "category": "影音会员",
+        "expected_minor": 2500
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-08",
+        "category": "毛支出小计",
+        "expected_minor": 2500
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-08",
+        "category": "退款（另列）",
+        "expected_minor": 29900
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-09",
+        "category": "住房",
+        "expected_minor": 250000
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-09",
+        "category": "云服务",
+        "expected_minor": 6800
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-09",
+        "category": "毛支出小计",
+        "expected_minor": 256800
+      },
+      {
+        "account": "ACCT-C002",
+        "month": "2026-09",
+        "category": "退款（另列）",
+        "expected_minor": 0
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-08",
+        "category": "毛支出小计",
+        "expected_minor": 0
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-08",
+        "category": "退款（另列）",
+        "expected_minor": 0
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-09",
+        "category": "日用百货",
+        "expected_minor": 41260
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-09",
+        "category": "毛支出小计",
+        "expected_minor": 41260
+      },
+      {
+        "account": "ACCT-C003",
+        "month": "2026-09",
+        "category": "退款（另列）",
+        "expected_minor": 0
+      }
+    ]
+  },
+  "formulas": {
+    "B": {
+      "count": 65,
+      "missing_cache": 0
+    },
+    "C": {
+      "count": 64,
+      "missing_cache": 64
+    }
+  },
+  "verification_date": "2026-10-17",
+  "batch_date": "2026-10-16",
+  "outputs": {
+    "B": {
+      "path": "materials\\reviewed\\2026-10-16\\资金规则与功能复核_B_V1.2_复核修订.xlsx",
+      "sha256": "4bb55f65c0548be5102b0757aec278be90c2fa1aef6f8c172fc04f28043be99b",
+      "sheets": 14,
+      "formulas": 67,
+      "formula_missing_cache": 0,
+      "formula_errors": 0,
+      "unexpected_cell_changes": 0,
+      "merges_tables_validations_charts_preserved": true,
+      "intended_cell_changes": 36
+    },
+    "C": {
+      "path": "materials\\reviewed\\2026-10-16\\账单数据与手算_C_V1.3_复核修订.xlsx",
+      "sha256": "496c6d27614add230f03b1440ebf155c9f813051ce04fdc493ef52269ec06d04",
+      "sheets": 14,
+      "formulas": 64,
+      "formula_missing_cache": 0,
+      "formula_errors": 0,
+      "unexpected_cell_changes": 0,
+      "merges_tables_validations_charts_preserved": true,
+      "intended_cell_changes": 108
+    }
+  },
+  "original_sources_unchanged": true,
+  "corrected_C_15_rows_load_and_billing_passed": true,
+  "D_scope": "未检查D资料；既有协作表D行、C理财用例及B给D事实表内容保持原值",
+  "text_changes": 37,
+  "markdown_local_links_valid": true,
+  "visual_review": "修改前预览及修改后的关键区域共9张预览，修正行高后复核",
+  "original_docx_layout": "原Word只读提取；交付Markdown修订件，没有声称Word分页版式通过",
+  "evidence_policy": "用户授权A直接补测可复现缺证据；本次112项现有测试及17项资料检查通过，不冒充历史原始记录",
+  "recalculation_driver_checks": {
+    "disposable_only": true,
+    "no_workbook_export": true,
+    "B": {
+      "C46_17000": [
+        199000,
+        1000
+      ],
+      "C45_changed_independently": [
+        199000,
+        1000
+      ]
+    },
+    "C": {
+      "H4_minus329_50": {
+        "aug_expense_minor": 49090,
+        "comparison": "差异"
+      }
+    },
+    "passed": true
+  },
+  "embedded_E_diagram": "已目视核对图1；箭头位置歧义记入E-06，文字修订件以正确Mermaid图代替"
+}

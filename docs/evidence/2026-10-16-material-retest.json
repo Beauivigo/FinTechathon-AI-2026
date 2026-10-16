@@ -1,0 +1,655 @@
+{
+  "date": "2026-10-16",
+  "executor": "A（本次代测，非B/C/E历史原始记录）",
+  "commit": "0058f589ab4d928c14dbb0311aa2105072aa6e5e",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256": {
+    "D:\\FinTechathon-AI-2026\\群组资料\\B\\资金规则与功能复核（B项目）V1.2.xlsx": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10",
+    "D:\\FinTechathon-AI-2026\\群组资料\\C\\账单数据与手算（C项目）V1.3.xlsx": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+    "D:\\FinTechathon-AI-2026\\群组资料\\E\\E部分交付材料_卡片订阅规则与交互文案(1).docx": "a5117ac3e903b472d63a5e9b501204b0fe3b4516653cf73c224ff28c93f6dd79"
+  },
+  "cases": [
+    {
+      "case": "C-ACCT-C001-08",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 46490,
+          "categories": [
+            {
+              "category": "交通",
+              "amount_minor": 5000
+            },
+            {
+              "category": "日用百货",
+              "amount_minor": 32850
+            },
+            {
+              "category": "餐饮",
+              "amount_minor": 8640
+            }
+          ],
+          "anomalies": [],
+          "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 464.90 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [
+          {
+            "transaction_id": "LX-001",
+            "account_id": "ACCT-C001",
+            "amount_minor": 1200000,
+            "direction": "credit",
+            "kind": "income",
+            "category": "—",
+            "occurred_at": "2026-08-02T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-002",
+            "account_id": "ACCT-C001",
+            "amount_minor": 32850,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "日用百货",
+            "occurred_at": "2026-08-05T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-003",
+            "account_id": "ACCT-C001",
+            "amount_minor": 100000,
+            "direction": "debit",
+            "kind": "transfer",
+            "category": "—",
+            "occurred_at": "2026-08-10T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-007",
+            "account_id": "ACCT-C001",
+            "amount_minor": 8640,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "餐饮",
+            "occurred_at": "2026-08-25T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-008",
+            "account_id": "ACCT-C001",
+            "amount_minor": 5000,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "交通",
+            "occurred_at": "2026-08-28T00:00:00+08:00"
+          }
+        ],
+        "provenance": {
+          "LX-001": {
+            "sheet": "小账本",
+            "row": 3,
+            "source_date": "2026-08-02",
+            "date_precision": "day",
+            "source_account": "ACC-001",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          },
+          "LX-002": {
+            "sheet": "小账本",
+            "row": 4,
+            "source_date": "2026-08-05",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          },
+          "LX-003": {
+            "sheet": "小账本",
+            "row": 5,
+            "source_date": "2026-08-10",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "小王甲",
+            "source_reference": "TR-001",
+            "payee_id": "PAYEE-C001"
+          },
+          "LX-007": {
+            "sheet": "小账本",
+            "row": 9,
+            "source_date": "2026-08-25",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          },
+          "LX-008": {
+            "sheet": "小账本",
+            "row": 10,
+            "source_date": "2026-08-28",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          }
+        },
+        "refund_minor": 0,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-ACCT-C001-09",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 0,
+          "categories": [],
+          "anomalies": [],
+          "report": "上海日期 2026-09-01 至 2026-09-30（含两端），消费/订阅毛支出 0.00 元。本期退款入账 45.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [
+          {
+            "transaction_id": "LX-009",
+            "account_id": "ACCT-C001",
+            "amount_minor": 1200000,
+            "direction": "credit",
+            "kind": "income",
+            "category": "—",
+            "occurred_at": "2026-09-01T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-011",
+            "account_id": "ACCT-C001",
+            "amount_minor": 150000,
+            "direction": "credit",
+            "kind": "transfer",
+            "category": "—",
+            "occurred_at": "2026-09-08T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-015",
+            "account_id": "ACCT-C001",
+            "amount_minor": 4500,
+            "direction": "credit",
+            "kind": "refund",
+            "category": "—",
+            "occurred_at": "2026-09-25T00:00:00+08:00"
+          }
+        ],
+        "provenance": {
+          "LX-009": {
+            "sheet": "小账本",
+            "row": 11,
+            "source_date": "2026-09-01",
+            "date_precision": "day",
+            "source_account": "ACC-001",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          },
+          "LX-011": {
+            "sheet": "小账本",
+            "row": 13,
+            "source_date": "2026-09-08",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "小王甲",
+            "source_reference": "TR-002",
+            "payee_id": "PAYEE-C001"
+          },
+          "LX-015": {
+            "sheet": "小账本",
+            "row": 17,
+            "source_date": "2026-09-25",
+            "date_precision": "day",
+            "source_account": "CH-001",
+            "source_party": "—",
+            "source_reference": "外部待补",
+            "payee_id": null
+          }
+        },
+        "refund_minor": 4500,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-ACCT-C002-08",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 2500,
+          "categories": [
+            {
+              "category": "影音会员",
+              "amount_minor": 2500
+            }
+          ],
+          "anomalies": [],
+          "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 25.00 元。本期退款入账 299.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [
+          {
+            "transaction_id": "LX-004",
+            "account_id": "ACCT-C002",
+            "amount_minor": 29900,
+            "direction": "credit",
+            "kind": "refund",
+            "category": "—",
+            "occurred_at": "2026-08-12T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-005",
+            "account_id": "ACCT-C002",
+            "amount_minor": 500000,
+            "direction": "debit",
+            "kind": "wealth",
+            "category": "—",
+            "occurred_at": "2026-08-15T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-006",
+            "account_id": "ACCT-C002",
+            "amount_minor": 2500,
+            "direction": "debit",
+            "kind": "subscription",
+            "category": "影音会员",
+            "occurred_at": "2026-08-20T00:00:00+08:00"
+          }
+        ],
+        "provenance": {
+          "LX-004": {
+            "sheet": "小账本",
+            "row": 6,
+            "source_date": "2026-08-12",
+            "date_precision": "day",
+            "source_account": "CH-002",
+            "source_party": "—",
+            "source_reference": "外部待补",
+            "payee_id": null
+          },
+          "LX-005": {
+            "sheet": "小账本",
+            "row": 7,
+            "source_date": "2026-08-15",
+            "date_precision": "day",
+            "source_account": "ACC-002",
+            "source_party": "—",
+            "source_reference": "INV-001",
+            "payee_id": null
+          },
+          "LX-006": {
+            "sheet": "小账本",
+            "row": 8,
+            "source_date": "2026-08-20",
+            "date_precision": "day",
+            "source_account": "CH-002",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          }
+        },
+        "refund_minor": 29900,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-ACCT-C002-09",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 256800,
+          "categories": [
+            {
+              "category": "云服务",
+              "amount_minor": 6800
+            },
+            {
+              "category": "住房",
+              "amount_minor": 250000
+            }
+          ],
+          "anomalies": [],
+          "report": "上海日期 2026-09-01 至 2026-09-30（含两端），消费/订阅毛支出 2568.00 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [
+          {
+            "transaction_id": "LX-010",
+            "account_id": "ACCT-C002",
+            "amount_minor": 250000,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "住房",
+            "occurred_at": "2026-09-03T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-012",
+            "account_id": "ACCT-C002",
+            "amount_minor": 523000,
+            "direction": "credit",
+            "kind": "wealth",
+            "category": "—",
+            "occurred_at": "2026-09-12T00:00:00+08:00"
+          },
+          {
+            "transaction_id": "LX-013",
+            "account_id": "ACCT-C002",
+            "amount_minor": 6800,
+            "direction": "debit",
+            "kind": "subscription",
+            "category": "云服务",
+            "occurred_at": "2026-09-15T00:00:00+08:00"
+          }
+        ],
+        "provenance": {
+          "LX-010": {
+            "sheet": "小账本",
+            "row": 12,
+            "source_date": "2026-09-03",
+            "date_precision": "day",
+            "source_account": "ACC-002",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          },
+          "LX-012": {
+            "sheet": "小账本",
+            "row": 14,
+            "source_date": "2026-09-12",
+            "date_precision": "day",
+            "source_account": "ACC-002",
+            "source_party": "—",
+            "source_reference": "INV-001-R",
+            "payee_id": null
+          },
+          "LX-013": {
+            "sheet": "小账本",
+            "row": 15,
+            "source_date": "2026-09-15",
+            "date_precision": "day",
+            "source_account": "CH-002",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          }
+        },
+        "refund_minor": 0,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-ACCT-C003-08",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 0,
+          "categories": [],
+          "anomalies": [],
+          "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 0.00 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [],
+        "provenance": {},
+        "refund_minor": 0,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-ACCT-C003-09",
+      "status": "passed",
+      "actual": {
+        "bill": {
+          "total_expense_minor": 41260,
+          "categories": [
+            {
+              "category": "日用百货",
+              "amount_minor": 41260
+            }
+          ],
+          "anomalies": [],
+          "report": "上海日期 2026-09-01 至 2026-09-30（含两端），消费/订阅毛支出 412.60 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+        },
+        "transactions": [
+          {
+            "transaction_id": "LX-014",
+            "account_id": "ACCT-C003",
+            "amount_minor": 41260,
+            "direction": "debit",
+            "kind": "consumption",
+            "category": "日用百货",
+            "occurred_at": "2026-09-20T00:00:00+08:00"
+          }
+        ],
+        "provenance": {
+          "LX-014": {
+            "sheet": "小账本",
+            "row": 16,
+            "source_date": "2026-09-20",
+            "date_precision": "day",
+            "source_account": "ACC-003",
+            "source_party": "—",
+            "source_reference": "—",
+            "payee_id": null
+          }
+        },
+        "refund_minor": 0,
+        "source_sha256": "40a0e31c10dce8a98cf607441f3fa39de24c432afdd662686a3e8260c4d77cf3",
+        "decision_sha256": "b3ca1c7427ab5b99a21a6173f85ab2f33671111f579d230f84b722aecfd55c10"
+      }
+    },
+    {
+      "case": "C-V1.3-真实资料页面",
+      "status": "passed",
+      "actual": {
+        "metric": "464.90",
+        "exceptions": 0
+      }
+    },
+    {
+      "case": "C-SIM-B0831",
+      "status": "passed",
+      "actual": {
+        "total_expense_minor": 46491,
+        "categories": [
+          {
+            "category": "交通",
+            "amount_minor": 5001
+          },
+          {
+            "category": "日用百货",
+            "amount_minor": 32850
+          },
+          {
+            "category": "餐饮",
+            "amount_minor": 8640
+          }
+        ],
+        "anomalies": [],
+        "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 464.91 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+      }
+    },
+    {
+      "case": "C-SIM-B0901",
+      "status": "passed",
+      "actual": {
+        "total_expense_minor": 1,
+        "categories": [
+          {
+            "category": "餐饮",
+            "amount_minor": 1
+          }
+        ],
+        "anomalies": [],
+        "report": "上海日期 2026-09-01 至 2026-09-30（含两端），消费/订阅毛支出 0.01 元。本期退款入账 45.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。自动异常检测尚未启用，空列表不代表没有异常。"
+      }
+    },
+    {
+      "case": "C-缺失金额（元）",
+      "status": "passed",
+      "actual": {
+        "error": "UPSTREAM_ERROR"
+      }
+    },
+    {
+      "case": "C-缺失日期",
+      "status": "passed",
+      "actual": {
+        "error": "UPSTREAM_ERROR"
+      }
+    },
+    {
+      "case": "E-C1",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C1",
+          "trace_id": "E-C1",
+          "action": "card.freeze",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "card_id": "CARD-E001",
+            "card_state": "frozen"
+          }
+        },
+        "card_state": "frozen",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    },
+    {
+      "case": "E-C2",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C2",
+          "trace_id": "E-C2",
+          "action": "card.unfreeze",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "card_id": "CARD-E002",
+            "card_state": "active"
+          }
+        },
+        "card_state": "active",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    },
+    {
+      "case": "E-C3",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C3",
+          "trace_id": "E-C3",
+          "action": "card.unfreeze",
+          "status": "failed",
+          "source": "gateway",
+          "data": {},
+          "error": {
+            "code": "INVALID_STATE",
+            "message": "当前状态不允许此操作，请刷新后核对。"
+          }
+        },
+        "card_state": "lost",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    },
+    {
+      "case": "E-C4",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C4",
+          "trace_id": "E-C4",
+          "action": "card.release_loss",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "card_id": "CARD-E003",
+            "card_state": "frozen"
+          }
+        },
+        "card_state": "frozen",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    },
+    {
+      "case": "E-C5",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C5",
+          "trace_id": "E-C5",
+          "action": "card.report_loss",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "card_id": "CARD-E001",
+            "card_state": "lost"
+          }
+        },
+        "card_state": "lost",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    },
+    {
+      "case": "E-C6",
+      "status": "passed",
+      "actual": {
+        "outcome": {
+          "schema_version": "1.1",
+          "request_id": "E-C6",
+          "trace_id": "E-C6",
+          "action": "card.report_loss",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "card_id": "CARD-E002",
+            "card_state": "lost"
+          }
+        },
+        "card_state": "lost",
+        "balance_minor": 200000,
+        "ledger_entries": 0
+      }
+    }
+  ],
+  "limits": [
+    "C V1.3仅在测试进程临时绑定；日常页面仍固定B V1.1/C V1.2。",
+    "E CARD-E数据仅写临时库，未替换日常演示种子。",
+    "未实现的预算/定时/商户/订阅及自动异常没有业务通过结论。",
+    "既有测试复跑覆盖其断言，不复原缺失的B/C历史脚本或截图。"
+  ],
+  "existing_tests": {
+    "modules": [
+      "tests.test_gateway",
+      "tests.test_recovery",
+      "tests.test_app",
+      "tests.test_split",
+      "tests.test_cards",
+      "tests.test_material_access",
+      "tests.test_billing",
+      "tests.test_material_checks",
+      "tests.test_material_v12"
+    ],
+    "run": 112,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "source_unchanged": true,
+  "runtime_unchanged": true
+}

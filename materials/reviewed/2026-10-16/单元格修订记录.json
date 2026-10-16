@@ -1,0 +1,1154 @@
+[
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "A8",
+    "before": "例6 跨账户 a/a2 各 600（T19）",
+    "after": "例6 跨账户各转600（付款两账户合计）",
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "B8",
+    "before": 200000,
+    "after": 400000,
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "C8",
+    "before": 0,
+    "after": "=B8-60000-60000",
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "E8",
+    "before": 0,
+    "after": "=D8+60000+60000",
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "F8",
+    "before": "=200000",
+    "after": "=C8+E8",
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "资金算例",
+    "cell": "G8",
+    "before": "a、a2 各 140000、李明 120000（四账户合计守恒，见实际测试记录）",
+    "after": "a/a2 初始各200000，转后各140000；李明120000；合计400000（T19独立模拟场景）",
+    "erratum": "B-01"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "E46",
+    "before": "=E44+C45",
+    "after": "=E44+C46",
+    "erratum": "B-02"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "F46",
+    "before": "=F44-C45",
+    "after": "=F44-C46",
+    "erratum": "B-02"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "A38",
+    "before": "四、预算中断 / 结果未知分支（V1.2 新增，B-001；对应 G05/G06/G12；单位：分）",
+    "after": "四、预算未知分支原稿：与同事务规则冲突，以下数值待B确认，不作为开发/验收依据",
+    "erratum": "B-03"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "A52",
+    "before": "规则要点：①写后 unknown 先 operation.get 核实，禁止当 failed 再扣一次（G05）；②已 succeeded 先 consume 落账，已核实 failed 才释放；③已实际下单不可靠改任务/预留回滚，转人工；④reserve/consume/release 与订单/账本/幂等同一事务，扣款后保存订单失败整体回滚无半笔（G06）；⑤consume/release 不得超该预留剩余，不得用其他预留或可用余额填补。",
+    "after": "核验提示：unknown 是调用方未获确定结果，不能据此断言未扣款；已提交订单/扣款应查询重放，禁止再次 consume。原稿 C2—C4 及对应金额分支须 B 区分已提交/未提交后重新确认（见勘误 B-03）。",
+    "erratum": "B-03"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "E65",
+    "before": "running",
+    "after": "dispatched",
+    "erratum": "B-04"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "E67",
+    "before": "待验证",
+    "after": "dispatched",
+    "erratum": "B-04"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "C67",
+    "before": 200000,
+    "after": "待B确认付款账户余额",
+    "erratum": "B-05"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "B68",
+    "before": "≤5分补执行，按09:03重验",
+    "after": "迟到3分钟派发，重验并成功授权后扣60000",
+    "erratum": "B-04"
+  },
+  {
+    "member": "B",
+    "sheet": "预算AA定时算例",
+    "cell": "A56",
+    "before": "迟到（now>run_at）一次性宽限 5 分钟：≤5 分钟自动补执行一次并按补执行时刻重验，不新建任务、不跳过授权；>5 分钟置 failed(lateness_expired)，不静默补单、不扣款，提示重发。",
+    "after": "now<run_at 等待；到点或迟到≤5分钟原子领取 scheduled→running 后派发并重验；迟到>5分钟领取后置 failed/lateness_expired，不执行付款。",
+    "erratum": "B-04"
+  },
+  {
+    "member": "B",
+    "sheet": "最终映射确认表",
+    "cell": "G11",
+    "before": "本期只读不绑定；转账执行沿用 demo_payee_wang_1",
+    "after": "本期只读，不绑定收款account_id；demo转账为独立示例，不替代PAYEE-C001",
+    "erratum": "B-06"
+  },
+  {
+    "member": "B",
+    "sheet": "最终映射确认表",
+    "cell": "G12",
+    "before": "本期只读不绑定；转账执行沿用 demo_payee_wang_2",
+    "after": "本期只读，不绑定收款account_id；demo转账为独立示例，不替代PAYEE-C002",
+    "erratum": "B-06"
+  },
+  {
+    "member": "B",
+    "sheet": "账户与收款人资料",
+    "cell": "A13",
+    "before": "同名消歧：demo 用“相同 display_name 小王 + 尾号/银行”返回多候选（B-T06）；C 的 PRIN-C001 映射按此口径在「最终映射确认表」定版。",
+    "after": "同名消歧：demo 用“相同 display_name 小王 + 尾号/银行”返回多候选（B-T06）；C 的 PRIN-C01 映射按此口径在「最终映射确认表」定版。",
+    "erratum": "B-06"
+  },
+  {
+    "member": "B",
+    "sheet": "交付信息与依据",
+    "cell": "A1",
+    "before": "B 项目交付信息与材料依据（V1.1，转账/公共资金规则、安全验收、需求跟踪）",
+    "after": "B 项目交付信息与材料依据（V1.2；2026-10-16复核修订，历史实测版本保留）",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "交付信息与依据",
+    "cell": "B3",
+    "before": "《资金规则与功能复核（B项目）V1.1》——在 V1.0 基础上按团队五项优先级补：最终映射定版、规则复核结论、预算/AA/定时算例、补充安全证据(T17-T20)、版本与复现信息",
+    "after": "V1.2：含最终映射、规则复核、预算/AA/定时算例；本修订件与原稿差异见同目录单元格修订记录.json及docs/成员资料勘误.md。",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "交付信息与依据",
+    "cell": "B12",
+    "before": "预算 reserve/consume_reserved/release、transfer.schedule、transfer.split、merchant.order 均未实现（第三轮）；本簿对其给“B 规则预期/编码前算例”，明确标注未实现，不当成已具备；真实短信/人脸/U 盾未接入",
+    "after": "AA收款单和卡片四动作已实现；预算、定时、商户、订阅业务尚未实现。预算未知分支有冲突待B确认；真实银行/短信/人脸/U盾未接入。",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "交付信息与依据",
+    "cell": "A14",
+    "before": "B 的预算/AA/定时算例是编码前规则预期（团队要求先给预期再开发），不是已实测；待 A 实现后由 B 按本簿数字回归。",
+    "after": "预算/定时为编码前预期，未知分支待B确认。AA由A在2026-10-16复跑7项现有测试通过；不冒称补回B历史15项记录。证据见docs/evidence/2026-10-16-material-retest.json。",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "需求覆盖表",
+    "cell": "E15",
+    "before": "已实现(契约/未开发)",
+    "after": "仅契约已定义，业务未实现",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "需求覆盖表",
+    "cell": "E16",
+    "before": "已实现(契约/未开发)",
+    "after": "仅契约已定义，业务未实现",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "权限规则表",
+    "cell": "F13",
+    "before": "已实现（第五步）；B-AA-01~10、B-PAGE-01~05 复核通过；amount<n 或均分不符→拒绝",
+    "after": "AA已实现；A本次7项测试通过，含分摊/幂等/并发/页面恢复/unknown恢复；不执行付款腿。B历史15项附件缺失不再作为阻塞。",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "A21",
+    "before": "G16（新增）",
+    "after": "B-AA补充项（原自编号G16）",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "E21",
+    "before": "通过",
+    "after": "A本次覆盖范围通过",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "D21",
+    "before": "B独立实测",
+    "after": "A复测（2026-10-16）",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "A22",
+    "before": "V1.2 更新：第五步 AA 已实现并经 B 独立复核（G16 通过）；G05 中 AA 写后 unknown 恢复已由 B-AA-09 留证，转账/预算/卡片整体写后超时演练仍待 A 故障注入入口。",
+    "after": "B自报15项的历史附件未找到；按用户约定由A复测替补，7项现有AA测试通过（含页面/并发/unknown）。其他未实现业务的G05分支不据此通过。",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "C11",
+    "before": "属 E 卡片；未实现",
+    "after": "卡片四动作已实现；支付限制未联动，E独立实测待补。",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "D11",
+    "before": "E交付(未实现)",
+    "after": "工程实现及E新资料；待独立验收",
+    "erratum": "B-07"
+  },
+  {
+    "member": "B",
+    "sheet": "需求覆盖表",
+    "cell": "F19",
+    "before": "AA 已 B 复核；预算含中断/未知分支算例已给（第四节）；商户待 E 素材",
+    "after": "AA由A复测通过；预算未知分支待B确认；商户仍需E素材及支付关联规则。",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "暂定规则与待确认",
+    "cell": "C8",
+    "before": "AA 已留证；转账/预算/卡片整体写后超时演练待 A 故障注入入口",
+    "after": "A已复测转账与AA未知恢复；预算等未实现业务另验",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "暂定规则与待确认",
+    "cell": "C9",
+    "before": "B 已实际点击留证（B-PAGE-03 刷新禁用、B-PAGE-04 新会话恢复、B-PAGE-05 跨页阻断）",
+    "after": "A本次真实页面测试通过（AA刷新/新会话恢复/跨页阻断）",
+    "erratum": "B-08"
+  },
+  {
+    "member": "B",
+    "sheet": "暂定规则与待确认",
+    "cell": "D9",
+    "before": "已完成页面留证；转账页未决阻断并入 G05 整体演练",
+    "after": "A测试日志已补，不再为历史附件退回B；后续新增功能由A验收留档。",
+    "erratum": "B-08"
+  },
+  {
+    "member": "C",
+    "sheet": "小账本",
+    "cell": "A1",
+    "before": "小账本（虚构流水，2026-08 ~ 2026-09，V1.2）",
+    "after": "小账本（虚构流水，2026-08 ~ 2026-09，V1.3（2026-10-16复核修订））",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "小账本",
+    "cell": "K5",
+    "before": "小王甲",
+    "after": "PAYEE-C001",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "小账本",
+    "cell": "K13",
+    "before": "小王甲",
+    "after": "PAYEE-C001",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "小账本",
+    "cell": "D5",
+    "before": "转账-借款给小王甲",
+    "after": "转账-借款给小王（尾号6688）",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "小账本",
+    "cell": "D13",
+    "before": "转账收款-小王甲还款",
+    "after": "转账收款-小王（尾号6688）还款",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "A3",
+    "before": "PAYEE-001",
+    "after": "PAYEE-C001",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "B3",
+    "before": "小王甲",
+    "after": "小王",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "F3",
+    "before": "已确认（C 侧拟定）",
+    "after": "B已定版；收款account_id未提供",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "A4",
+    "before": "PAYEE-002",
+    "after": "PAYEE-C002",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "B4",
+    "before": "小王乙",
+    "after": "小王",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "F4",
+    "before": "待与 B 确认资料",
+    "after": "B已定版；收款account_id未提供",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "收款人资料",
+    "cell": "A5",
+    "before": "说明：两位同名收款人以收款人编号+尾号+区分信息识别，不合并为同一收款人（C1 要求：覆盖同名收款人）。编号方案为 C 侧拟定，若 B 已有收款人编号体系，以 B 为准（复用项目现有\"小王\"）。",
+    "after": "说明：B已确认PAYEE-C001/C002，共同查询名均为“小王”，按编号/尾号消歧。原PAYEE-001/002与“小王甲/乙”仅为来源别名；无收款account_id时不得执行资料转账或替换为demo收款人。",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "字段说明",
+    "cell": "C10",
+    "before": "人民币元，两位小数（程序侧整数分=元×100）",
+    "after": "人民币元；程序金额=abs(元金额)×100，方向另列",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "字段说明",
+    "cell": "A16",
+    "before": "单位说明：金额一律为人民币元、带两位小数与正负号；A 侧转程序格式时按整数分（元×100）换算，本表不做分单位转换。",
+    "after": "源流水金额单位为元，正负号表示方向；程序金额取绝对值×100为整数分，方向另列。「统计结果」另附分单位复算。",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "字段说明",
+    "cell": "G13",
+    "before": "小王甲",
+    "after": "PAYEE-C001",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "字段说明",
+    "cell": "E13",
+    "before": "转账/退款必填",
+    "after": "转账必填；本批退款缺失可只读统计",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "分类规则",
+    "cell": "F3",
+    "before": "与退款区分：退款必须有原支付记录；与转账区分：收入有劳动或经营对价。",
+    "after": "退款与收入分开；本批退款缺原支付记录允许另列统计，不作关联追溯；收入有劳动或经营对价。",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "分类规则",
+    "cell": "F6",
+    "before": "与收入区分：退款冲抵原支出，不构成新收入；归属期可能跨原订单月。",
+    "after": "退款另列，不冲减本期毛支出；原支付缺失时保留待补标记，不推断原订单日期。",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "D3",
+    "before": "稳定 principal_id（C拟定）",
+    "after": "稳定 principal_id（B已确认）",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "E3",
+    "before": "目标 account_id（C拟定）",
+    "after": "目标 account_id（B已确认只读）",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "E11",
+    "before": "目标 PAYEE ID（C拟定）",
+    "after": "目标 PAYEE ID（B已定版）",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "H12",
+    "before": "C拟定待B批准",
+    "after": "B已定版，仅只读建档",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "I12",
+    "before": "待 B 确认",
+    "after": "依据B最终映射确认表；收款account_id待补",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "H13",
+    "before": "C拟定待B批准",
+    "after": "B已定版，仅只读建档",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "I13",
+    "before": "待 B 确认",
+    "after": "依据B最终映射确认表；收款account_id待补",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "B17",
+    "before": "元（带正负号，收入正、支出负）；程序整数分 = 元 × 100。",
+    "after": "元带正负号；程序金额=abs(元金额)×100，方向单列。",
+    "erratum": "C-02"
+  },
+  {
+    "member": "C",
+    "sheet": "映射确认表",
+    "cell": "B36",
+    "before": "本批只读账户映射（principal_id/account_id）已由 B V1.1 确认（2026-10-15），用于账单只读分析；PAYEE 映射、历史导入与真实资金记账仍待 B 签字；不覆盖 demo 种子。",
+    "after": "本批principal/account/PAYEE映射均按B定版用于只读；历史记账与资料收款人付款仍待期初数据、收款account_id等材料，不覆盖demo。",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "交付信息与依据",
+    "cell": "B7",
+    "before": "① 退款原支付编号（外部待补）② 本批只读账户映射已由 B V1.1（2026-10-15）确认；PAYEE 映射、历史导入与真实资金记账仍待签，不覆盖 demo ③ A04 依赖 D 产品收益率表 ④ 年费计入扣费期间已定（不摊销），E 订阅细节待补 ⑤ 自动异常判定/退款跨期冲减/年费摊销不实现（C1-003）",
+    "after": "退款原支付编号仍缺；账户/渠道/PAYEE只读映射已定，历史记账及实际收款账户另补。自动异常未启用；E V1.0已收到，识别边界与支付关联仍待补。A04的D依赖本轮不复核。",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "异常样例",
+    "cell": "G4",
+    "before": "按订单月统计时 7 月支出应冲减 299 元、8 月不记该笔收入；需统一\"按流水日 vs 按订单日\"口径。",
+    "after": "本期按退款入账日另列，不冲减7月或8月毛支出；原支付记录未提供，跨期关联仅为人工候选，不能作为已验证自动判断。",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "异常样例",
+    "cell": "E3",
+    "before": "自动检测",
+    "after": "自动检测建议（未启用）",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "异常样例",
+    "cell": "E4",
+    "before": "自动检测",
+    "after": "自动检测建议（未启用）",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "异常样例",
+    "cell": "E5",
+    "before": "自动检测",
+    "after": "自动检测建议（未启用）",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "D8",
+    "before": "查询 2026-08 账单并展示异常候选",
+    "after": "查询账单，核对自动异常未启用说明；人工候选见异常样例表",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "E8",
+    "before": "提示 A01/A02 候选（不判欺诈），账单金额不受影响",
+    "after": "当前anomalies为空并提示未启用；不代表无异常；A01/A02只作人工候选，金额不变",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G8",
+    "before": "V1.3/通过（口径说明）",
+    "after": "A核对通过；自动异常未实现",
+    "erratum": "C-03"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C12",
+    "before": "ACC-003 信用卡状态 active",
+    "after": "E模拟CARD-E001，绑定demo_account_a，初始active",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "D12",
+    "before": "冻结→交易→解冻",
+    "after": "模拟强验证冻结→模拟强验证解冻",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "E12",
+    "before": "冻结后受限交易拒绝；解冻恢复；状态流转符合 E1 规则",
+    "after": "active→frozen→active；当前仅验收状态，支付限制另待联动",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C13",
+    "before": "ACC-003 状态 lost（挂失）",
+    "after": "E模拟CARD-E003，绑定demo_account_a，初始lost",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C14",
+    "before": "ACC-003 单笔限额（E 提供）",
+    "after": "E模拟CARD-E001，单笔限额50000分；支付选卡规则待B/E确认",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C15",
+    "before": "LX-006 月付 25 元视频会员",
+    "after": "E独立模拟P-1/P-2/P-3：同账户同商户、连续月同日、每次2500分",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C16",
+    "before": "非周期性单笔扣费（如一次性购物）",
+    "after": "已存在的candidate候选SUB-E001（独立模拟场景）",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "D16",
+    "before": "对单笔消费做订阅识别",
+    "after": "subscription.review，decision=reject",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "E16",
+    "before": "排除（dismissed），保留排除依据 evidence",
+    "after": "candidate→dismissed；仅排除候选，不取消扣费。单笔消费未识别不等于dismissed。",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C17",
+    "before": "LX-013 云存储年费 68 元",
+    "after": "E已知active模拟订阅SUB-E003；不从单笔LX-013推断已核实订阅",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "D17",
+    "before": "核实订阅→确认取消",
+    "after": "对active订阅确认取消；扣费停止需待后续模拟扣费联动后另验",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "E18",
+    "before": "计划生成并预留预算；计划≠下单、预留≠扣款",
+    "after": "scenario.plan仅生成计划，不预留、不扣款；budget.reserve须另行确认，预留不等于下单",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "缺陷与回归",
+    "cell": "C5",
+    "before": "LX-013 云存储年费 68",
+    "after": "E已知active模拟订阅SUB-E003",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "缺陷与回归",
+    "cell": "C6",
+    "before": "ACC-003 状态 lost",
+    "after": "E模拟CARD-E003，card_state=lost",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "缺陷与回归",
+    "cell": "D6",
+    "before": "尝试解冻 ACC-003",
+    "after": "尝试解冻CARD-E003",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "C9",
+    "before": "PAYEE-001/PAYEE-002 两位\"小王\"",
+    "after": "B已定版PAYEE-C001/PAYEE-C002，共同查询名“小王”；来源别名见映射表",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "F9",
+    "before": "C 侧已按 编号+尾号+别名 建档，PAYEE-C001/PAYEE-C002 独立；转账选择需 B 端联调，本批未接入真实转账",
+    "after": "同名资料已定；实际转账还需收款account_id及A接入，不将资料PAYEE替换为demo。",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G9",
+    "before": "V1.3/待复核（依赖B）",
+    "after": "资料建档可用；写交易待账户材料/A接入",
+    "erratum": "C-01"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "F10",
+    "before": "导入侧已按字段必填口径核对（编号/日期/账户/金额/类型/方向齐全）；真实导入校验待 B 适配器",
+    "after": "A本次在C V1.3真实解析结果上分别移除金额/日期，两次均返回UPSTREAM_ERROR，未生成部分账单；见本次资料复测JSON。",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G10",
+    "before": "V1.3/待复核（依赖B）",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "A14",
+    "before": "说明（V1.3）：TC-001~006/009/010 已由 C 独立执行真实 billing.analyze 回填（证据 _c_tools/scenario_actuals.json、acceptance_evidence.json）；TC-007/008 依赖 B 端适配器标待复核。边界用 SIM-B0831/SIM-B0901 单列模拟，不改动原15条。",
+    "after": "按用户约定，A已在2026-10-16补测六组账单、月界、缺金额/日期及真实页面，结果见docs/evidence/2026-10-16-material-retest.json。C历史自报记录保留，不要求补回旧附件。TC-007实际付款仍待收款账户。",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "A63",
+    "before": "核对：毛支出 3,470.50、退款 344.00（另列）；6 组账户×月份经独立手算与真实 billing.analyze 双向一致，证据见 _c_tools/acceptance_evidence.json、scenario_actuals.json。",
+    "after": "A本次复算及真实billing查询一致：毛支出3470.50元，退款344.00元；六组账户/月及分类通过。证据见docs/evidence/2026-10-16-material-retest.json；C原自报记录不冒充历史原件。",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "A23",
+    "before": "实际结果（V1.3）：账单类 UC-201/202/203 已由 C 独立执行回填通过；其余场景依赖 B/D/E 材料，未执行，不写“应该通过”。",
+    "after": "A本次补齐账单与当前卡状态的实际结果；UC-203仅统计/人工候选口径核对，自动异常未实现。其余未实现功能仍未执行，不把契约测试当业务验收。",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G3",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G4",
+    "before": "V1.3/通过（修正：渠道不再当账户）",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G5",
+    "before": "V1.3/通过（修正：给明确边界流水，不复用不存在记录）",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G6",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G7",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G8",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G11",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "测试表",
+    "cell": "G12",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G6",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G7",
+    "before": "V1.3/通过",
+    "after": "A复测通过（2026-10-16）",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H42",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H43",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H44",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H45",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H46",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H47",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H48",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H49",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H50",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H51",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H52",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H53",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H54",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H55",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H56",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H57",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H58",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H59",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H60",
+    "before": "通过（报告文案）",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H61",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "手算答案",
+    "cell": "H62",
+    "before": "通过",
+    "after": "A复算/查询一致",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "缺陷与回归",
+    "cell": "F4",
+    "before": "通过：6组账户×月份独立手算与真实程序全部一致，合计15笔、毛支出3470.50、退款344.00（acceptance_evidence.json）",
+    "after": "A本次复算及六组真实查询通过，毛支出3470.50元/退款344.00元，证据见本次资料复测JSON；不再等待C旧附件。",
+    "erratum": "C-05"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "A1",
+    "before": "其他成员材料收集情况（V1.2）",
+    "after": "其他成员材料收集情况（2026-10-16复核更新）",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "D3",
+    "before": "V1.1",
+    "after": "V1.2",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "F3",
+    "before": "账户只读映射已确认；权限/测试记录与收款人编号待补；历史导入待签",
+    "after": "基础规则及只读映射已定；AA证据由A补测，预算未知分支待B确认。",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "D4",
+    "before": "V1.2",
+    "after": "V1.3复核修订",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "C4",
+    "before": "已完成",
+    "after": "最低资料及当前账单复测通过",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "F4",
+    "before": "按仓库细则对齐：C1—C4 落地",
+    "after": "15条/六类/两月及分类手算符合最低要求；A已补当前账单证据。未实现业务仍不算验收完成。",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "C6",
+    "before": "待补",
+    "after": "首包已收到，局部待补",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "D6",
+    "before": "—",
+    "after": "E-V1.0",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "协作材料清单",
+    "cell": "F6",
+    "before": "开发卡片/订阅前交付；UC-401~503 依赖 E 侧资料；订阅计费周期已按仓库口径定稿（年费计入扣费期间），E 侧细节资料仍待补",
+    "after": "卡片状态与当前功能由A补测；支付关联、识别容差基数/月末推算等规则边界待补，生日材料另交。",
+    "erratum": "C-06"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C3",
+    "before": "ACC-001 余额充足；收款人 PAYEE-001（小王甲）",
+    "after": "资料PAYEE-C001已建档；实际转账仍待付款/收款account_id及余额，不使用只读账户付款",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C4",
+    "before": "两位同名收款人 PAYEE-001/PAYEE-002 均存在",
+    "after": "同名PAYEE-C001/PAYEE-C002已定；真实查询/付款接入另验",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "C5",
+    "before": "ACC-001 余额不足（余额 < 5000）",
+    "after": "模拟余额不足场景须明确可付款account_id；ACCT-C001本批只读",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G12",
+    "before": "未执行（待E）",
+    "after": "A已测状态；支付联动另验",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G13",
+    "before": "未执行（待E）",
+    "after": "A复测通过（E-C3）",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G14",
+    "before": "未执行（待E）",
+    "after": "支付选卡待B/E确认；尚未实现",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G15",
+    "before": "未执行（待E）",
+    "after": "规则部分具备；订阅业务未实现",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G16",
+    "before": "未执行（待E）",
+    "after": "规则部分具备；订阅业务未实现",
+    "erratum": "C-04"
+  },
+  {
+    "member": "C",
+    "sheet": "验收用例",
+    "cell": "G17",
+    "before": "未执行（待E）",
+    "after": "规则部分具备；订阅业务未实现",
+    "erratum": "C-04"
+  },
+  {
+    "member": "B",
+    "sheet": "安全验收G映射",
+    "cell": "C21",
+    "before": "B-AA-01~10（网关/控制器）+ B-PAGE-01~05（页面）共15项独立实测通过，证据见 materials/B/B实测证据_b_evidence3、4",
+    "after": "B原稿自报15项，历史附件缺失；A本次复跑7项AA测试通过，见docs/evidence/2026-10-16-material-retest.json。",
+    "erratum": "B-08"
+  }
+]
