@@ -103,6 +103,10 @@ ACTIONS = {
         {"subscription_id": "id", "subscription_state": "enum:subscription_state"}, write=True),
     "subscription.remind": action("订阅/代扣管理", "E", "yellow",
         {"subscription_id": "string", "remind_at": "datetime"}, {"reminder_id": "string"}, write=True),
+    # 自动识别只创建候选，不扣费、不提醒；重复扫描按账户+商户去重。
+    "subscription.scan": action("订阅/代扣管理", "E", "yellow",
+        {"account_id": "string"},
+        {"created": "nonnegative", "subscriptions": "list:subscription"}, write=True),
     # plan 仅生成计划；真正资金预留、消费仍逐步经过权限网关。
     "scenario.plan": action("跨场景联动", "A", "green",
         {"goal": "string"}, {"steps": "list", "summary": "string"}),
@@ -355,6 +359,10 @@ def validate_business_result(request, data):
         ensure(data["subscription_state"] == target, "候选核实结果与 decision 不符")
     elif name == "subscription.list":
         unique(data["subscriptions"], "subscription_id")
+    elif name == "subscription.scan":
+        unique(data["subscriptions"], "subscription_id")
+        ensure(data["created"] == len(data["subscriptions"]),
+               "新建数量与实际候选数量不符")
     elif name == "payee.resolve":
         unique(data["candidates"], "payee_id")
     elif name == "account.balance":

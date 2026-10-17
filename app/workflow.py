@@ -8,6 +8,7 @@ from shared import result_text, ServiceError, ContractError, adapt_request, vali
 LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
           'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
+          'subscription.scan': '扫描识别订阅',
           'transfer.schedule': '登记定时转账', 'transfer.create': '转账执行',
           'budget.reserve': '预留预算', 'budget.release': '释放预算'}
 

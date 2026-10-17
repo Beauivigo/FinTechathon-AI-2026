@@ -9,7 +9,7 @@ import json
 import secrets
 from uuid import uuid4
 from card import TARGETS, ACTIONS as CARD_ACTIONS, checked_card, check_limit
-from subscription import record as subscription_record, checked_review
+from subscription import record as subscription_record, checked_review, scan as subscription_scan
 
 from shared import (ContractError, ServiceError, adapt_result, validate_request,
                     validate_authorization, operation_digest, required_gate, validate_transition)
@@ -25,7 +25,8 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 class BankGateway:
     demo_mode = True
-    write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review', *CARD_ACTIONS, *budget.ACTIONS})
+    write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review',
+                               'subscription.scan', *CARD_ACTIONS, *budget.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -387,6 +388,9 @@ class BankGateway:
         if request['action'] == 'subscription.list':
             owned_account(c,request['params']['account_id'],principal)
             return [request['params']['account_id']]
+        if request['action'] == 'subscription.scan':
+            owned_account(c,request['params']['account_id'],principal)
+            return [request['params']['account_id']]
         if request['action'] == 'subscription.review':
             row, _ = checked_review(c,request,principal)
             return dict(row)
@@ -427,6 +431,14 @@ class BankGateway:
             result = adapt_result(request,dict(status='scheduled',data=dict(schedule_id=task['task_id'],
                 execute_at=request['params']['execute_at'])),source='sandbox')
             self._save(c,request,result,principal,previous)
+            return result
+        if request['action'] == 'subscription.scan':
+            created = subscription_scan(c, request['params']['account_id'])
+            data = dict(created=len(created),
+                        subscriptions=[subscription_record(row) for row in created])
+            result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            self._audit(c, request, principal, 'succeeded', now, created=len(created))
             return result
         if request['action'] in ('subscription.list','subscription.review'):
             if request['action'] == 'subscription.list':

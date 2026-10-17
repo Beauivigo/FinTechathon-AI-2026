@@ -6,14 +6,19 @@ from app.workflow import current, render, perform
 
 st.set_page_config(page_title='模拟订阅管理',layout='wide')
 st.title('订阅核实与排除')
-st.info('E V1.0 固定模拟候选与已知订阅；尚未自动识别流水。核实不新签授权，排除不取消扣费。')
-st.caption('仅使用日期依据完整的 SUB-E001 和已知 SUB-E003；取消扣费与续费提醒尚未接入。')
+st.info('固定候选与已知订阅来自 E 资料；可按流水自动识别周期扣费，识别只生成候选，不扣费、不提醒。核实不新签授权，排除不取消扣费。')
+st.caption('自动识别依据 E-03：同商户≥2 期、周期偏差≤3 天、金额容差 5%；取消扣费与续费提醒尚未接入。')
 flow = current()
 accounts = flow.resources['accounts']
 if accounts:
     account = st.selectbox('订阅账户',accounts,key='subscription_account',format_func=lambda a:a['display_name'])
+    if st.button('扫描自动识别订阅',key='subscription_scan',disabled=flow.blocked):
+        perform(flow.start_action,'subscription.scan',dict(account_id=account['account_id']))
     if st.button('申请查看订阅',key='subscription_list',disabled=flow.blocked):
         perform(flow.start_action,'subscription.list',dict(account_id=account['account_id']))
+if (flow.request and flow.request['action']=='subscription.scan' and flow.result
+        and flow.result['status']=='succeeded'):
+    st.success(f"扫描完成，本次新建候选 {flow.result['data']['created']} 个。请重新申请查看订阅。")
 if (flow.request and flow.request['action']=='subscription.list' and flow.result
         and flow.result['status']=='succeeded' and not flow.needs_reconciliation):
     rows = flow.result['data']['subscriptions']

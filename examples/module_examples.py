@@ -47,6 +47,10 @@ def build_examples():
         "subscription.cancel": ({"subscription_id": "subscription_1"},
                                 {"subscription_id": "subscription_1", "subscription_state": "cancelled"}),
         "subscription.remind": ({"subscription_id": "subscription_1", "remind_at": time}, {"reminder_id": "reminder_1"}),
+        "subscription.scan": (account, {"created": 1, "subscriptions": [{
+            "subscription_id": "subscription_1", "merchant_name": "模拟视频会员", "amount_minor": 2500,
+            "interval": "monthly", "next_charge_date": "2026-11-01", "subscription_state": "candidate",
+            "evidence": "自动识别（E-03）：3 期，偏差 0 天，容差 ±3 天/5%"}]}),
         "scenario.plan": ({"goal": "为10月14日生日预留1000元，提前两天买鲜花和蛋糕"},
                           {"summary": "预留预算后，分别安排鲜花和蛋糕下单。", "steps": [
                               {"step_id": "reserve", "action": "budget.reserve", "depends_on": [], "description": "预留预算"},

@@ -47,7 +47,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(saved['operation_result']['data'],{})
         self.assertFalse('subscriptions' in self.g.get_context(principal_id='demo_user_a'))
         with self.assertRaises(ServiceError):self.g.services.query('subscription.list',req['params'],principal_id='demo_user_a')
-        self.g=BankGateway(self.store); result=self.finish(pending)
+        self.g=BankGateway(self.store,clock=lambda:self.now); result=self.finish(pending)
         self.assertEqual([s['subscription_id'] for s in result['data']['subscriptions']],['SUB-E001','SUB-E003'])
         self.assertEqual(self.execute(req),result)
         with self.assertRaises(ContractError):
