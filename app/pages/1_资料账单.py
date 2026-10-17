@@ -10,7 +10,7 @@ st.set_page_config(page_title='C 资料账单', layout='wide')
 st.title('C 资料账单')
 st.caption('仓库内 C V1.3 / B V1.2 复核修订件；B 仅采用已确认的只读账户映射。')
 st.info('虚构历史资料，只读分析。此页使用独立模拟身份“用户 C”，不代表真实登录，不支持转账或余额查询。')
-st.caption('日期仅精确到天，程序按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；自动异常检测尚未启用。')
+st.caption('日期仅精确到天，程序按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；已启用大额单笔提示（≥5000 元），其余异常规则未启用。')
 try:
     from material_check import approved
 except ImportError:
@@ -40,6 +40,11 @@ if st.button('查询资料账单', key='material_query', disabled=not valid):
             st.bar_chart([{'分类': r['category'], '金额（分）': r['amount_minor']} for r in bill['categories']], x='分类', y='金额（分）')
         else:
             st.info('该期间没有计入毛支出的消费或订阅出账。')
+        if bill['anomalies']:
+            st.warning('大额单笔提示（只提示核实，不判欺诈、不拦截、不改账）')
+            st.dataframe([{'流水编号': r['transaction_id'], '原因': r['reason']} for r in bill['anomalies']], hide_index=True)
+        else:
+            st.caption('本区间未发现大额单笔；其余异常规则未启用，空列表不代表没有异常。')
         if result['transactions']:
             st.dataframe([{'流水编号': t['transaction_id'], '记账日期': result['provenance'][t['transaction_id']]['source_date'],
                 '类型': t['kind'], '方向': t['direction'], '金额（分）': t['amount_minor'],

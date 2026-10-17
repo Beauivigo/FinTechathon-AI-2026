@@ -31,10 +31,47 @@ class BillingTests(unittest.TestCase):
                 refund = case["refund_minor"]
                 self.assertIn(f"本期退款入账 {refund // 100}.{refund % 100:02d} 元", data["report"])
                 self.assertEqual(data["anomalies"], [])
-                self.assertIn("自动异常检测尚未启用，空列表不代表没有异常", data["report"])
+                self.assertIn("已启用大额单笔提示", data["report"])
+                self.assertIn("空列表不代表没有异常", data["report"])
                 request = adapt_request("bill.analyze", case["params"], request_id="b1", trace_id="b1")
                 result = adapt_result(request, dict(status="succeeded", data=data), source="sandbox")
                 validate_result(request, result)
+
+    def test_large_single_rule_boundary_scope_and_determinism(self):
+        base = dict(self.rows[0], account_id="b0_account_a",
+                    occurred_at="2026-08-10T12:00:00+08:00", category="测试")
+        cases = [
+            (499_999, "consumption", "debit", "b0_account_a", False),
+            (500_000, "consumption", "debit", "b0_account_a", True),
+            (500_001, "wealth", "debit", "b0_account_a", True),
+            (600_000, "transfer", "debit", "b0_account_a", True),
+            (600_000, "subscription", "debit", "b0_account_a", True),
+            (600_000, "consumption", "credit", "b0_account_a", False),
+            (600_000, "refund", "credit", "b0_account_a", False),
+            (600_000, "income", "credit", "b0_account_a", False),
+            (600_000, "consumption", "debit", "b0_account_b", False),
+        ]
+        for index, (amount, kind, direction, account, expected) in enumerate(cases):
+            with self.subTest(amount=amount, kind=kind, direction=direction):
+                row = dict(base, transaction_id=f"large_{index}", amount_minor=amount,
+                           kind=kind, direction=direction, account_id=account)
+                anomalies = analyze(self.params, [row])["anomalies"]
+                self.assertEqual(bool(anomalies), expected)
+                if expected:
+                    self.assertEqual(anomalies[0]["transaction_id"], f"large_{index}")
+                    self.assertIn("5000.00 元", anomalies[0]["reason"])
+                    self.assertIn("分支A", anomalies[0]["reason"])
+        rows = [dict(base, transaction_id="z_large", amount_minor=600_000),
+                dict(base, transaction_id="a_large", amount_minor=700_000)]
+        first = analyze(self.params, rows)["anomalies"]
+        self.assertEqual([row["transaction_id"] for row in first], ["a_large", "z_large"])
+        self.assertEqual(first, analyze(self.params, reversed(rows))["anomalies"])
+
+    def test_large_single_respects_query_window(self):
+        row = dict(self.rows[0], transaction_id="outside", amount_minor=900_000,
+                   occurred_at="2026-09-10T12:00:00+08:00")
+        data = analyze(self.params, [row])
+        self.assertEqual(data["anomalies"], [])
 
     def test_readonly_order_independent_and_repeatable(self):
         before = deepcopy((self.params, self.rows))

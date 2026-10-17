@@ -68,7 +68,7 @@ class BillingGatewayTests(unittest.TestCase):
                 self.assertEqual(result['status'], 'succeeded')
                 self.assertEqual(result['data']['total_expense_minor'], case['total_expense_minor'])
                 self.assertEqual(result['data']['categories'], sorted(case['categories'], key=lambda r: r['category']))
-                self.assertIn('自动异常检测尚未启用', result['data']['report'])
+                self.assertIn('已启用大额单笔提示', result['data']['report'])
         self.assertEqual(before, self.dump())
 
     def test_forbidden_and_unknown_identities_no_data_leak(self):

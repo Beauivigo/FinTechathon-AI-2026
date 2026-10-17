@@ -5,6 +5,14 @@ from datetime import datetime, timedelta, timezone
 from shared.contracts import ACTIONS, MAX_SAFE_INTEGER, RECORDS, ContractError, fields
 from shared.services import ServiceError
 
+LARGE_SINGLE_MINOR = 500_000
+LARGE_SINGLE_KINDS = frozenset({"consumption", "subscription", "transfer", "wealth"})
+
+
+def _money(minor):
+    """整数分转两位小数字符串；不经过 float。"""
+    return f"{minor // 100}.{minor % 100:02d}"
+
 
 def analyze(params, transactions):
     """返回 bill.analyze 的 data；不读取数据库、不授权、不执行异常检测。
@@ -23,7 +31,7 @@ def analyze(params, transactions):
         raise ServiceError("INVALID_REQUEST", str(exc)) from exc
 
     total = refunds = 0
-    categories, seen = {}, set()
+    categories, seen, anomalies = {}, set(), []
     shanghai = timezone(timedelta(hours=8))
     try:
         for row in transactions:
@@ -37,6 +45,12 @@ def analyze(params, transactions):
                     or not params["start_date"] <= day <= params["end_date"]):
                 continue
             amount = row["amount_minor"]
+            if (row["direction"] == "debit" and row["kind"] in LARGE_SINGLE_KINDS
+                    and amount >= LARGE_SINGLE_MINOR):
+                anomalies.append(dict(
+                    transaction_id=row["transaction_id"],
+                    reason=(f"大额单笔 {_money(amount)} 元 ≥ {_money(LARGE_SINGLE_MINOR)} 元"
+                            "（C1-003-R03 分支A）")))
             if row["direction"] == "debit" and row["kind"] in {"consumption", "subscription"}:
                 total += amount
                 category = row["category"]
@@ -54,12 +68,14 @@ def analyze(params, transactions):
         f"消费/订阅毛支出 {total // 100}.{total % 100:02d} 元。"
         f"本期退款入账 {refunds // 100}.{refunds % 100:02d} 元，另列且不冲减毛支出；"
         "不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。"
-        "自动异常检测尚未启用，空列表不代表没有异常。"
+        "已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；"
+        "借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
     )
+    anomalies.sort(key=lambda item: item["transaction_id"])
     data = dict(total_expense_minor=total,
                 categories=[dict(category=name, amount_minor=categories[name])
                             for name in sorted(categories)],
-                anomalies=[], report=report)
+                anomalies=anomalies, report=report)
     try:
         fields(data, spec["output"])
     except ContractError as exc:
