@@ -1,0 +1,397 @@
+{
+  "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\03_C模拟新增流水.csv",
+  "rows": 25,
+  "r01": [
+    {
+      "link": "TR-SIM-01",
+      "debit": 100000,
+      "credit_in_window": 120000,
+      "delta": 20000,
+      "window": [
+        "2026-10-08",
+        "2027-01-06"
+      ],
+      "verdict": "HIT"
+    },
+    {
+      "link": "TR-SIM-02",
+      "debit": 80000,
+      "credit_in_window": 80000,
+      "delta": 0,
+      "window": [
+        "2026-10-08",
+        "2027-01-06"
+      ],
+      "verdict": "MISS"
+    },
+    {
+      "link": "TR-SIM-03",
+      "debit": 50000,
+      "credit_in_window": 50001,
+      "delta": 1,
+      "window": [
+        "2026-10-01",
+        "2026-12-30"
+      ],
+      "verdict": "HIT"
+    },
+    {
+      "link": "TR-SIM-04",
+      "debit": 50000,
+      "credit_in_window": 50000,
+      "delta": 0,
+      "window": [
+        "2026-10-01",
+        "2026-12-30"
+      ],
+      "verdict": "MISS"
+    },
+    {
+      "link": "TR-SIM-05",
+      "debit": 30000,
+      "credit_in_window": 0,
+      "delta": -30000,
+      "window": [
+        "2026-10-01",
+        "2026-12-30"
+      ],
+      "verdict": "UNJUDGEABLE"
+    }
+  ],
+  "r03": [
+    {
+      "id": "SIM-C-001",
+      "amount": 100000,
+      "window": [
+        "2026-10-08",
+        "2026-10-08"
+      ],
+      "days": 1,
+      "baseline_minor": 80000.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-003",
+      "amount": 80000,
+      "window": [
+        "2026-10-08",
+        "2026-10-08"
+      ],
+      "days": 1,
+      "baseline_minor": 100000.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-005",
+      "amount": 50000,
+      "window": [
+        "2026-10-01",
+        "2026-10-01"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-007",
+      "amount": 50000,
+      "window": [
+        "2026-10-01",
+        "2026-10-01"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-009",
+      "amount": 30000,
+      "window": [
+        "2026-10-01",
+        "2026-10-01"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-011",
+      "amount": 600000,
+      "window": [
+        "2026-10-06",
+        "2026-10-06"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": true,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-012",
+      "amount": 499999,
+      "window": [
+        "2026-10-06",
+        "2026-10-06"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-013",
+      "amount": 500000,
+      "window": [
+        "2026-10-06",
+        "2026-10-06"
+      ],
+      "days": 1,
+      "baseline_minor": 0.0,
+      "hit_a": true,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-014",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2800.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-015",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2800.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-016",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2800.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-017",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2800.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-018",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2800.0,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-019",
+      "amount": 10000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 1000.0,
+      "hit_a": false,
+      "hit_b": true
+    },
+    {
+      "id": "SIM-C-020",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2799.8,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-021",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2799.8,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-022",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2799.8,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-023",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2799.8,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-024",
+      "amount": 1000,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 2799.8,
+      "hit_a": false,
+      "hit_b": false
+    },
+    {
+      "id": "SIM-C-025",
+      "amount": 9999,
+      "window": [
+        "2026-10-01",
+        "2026-10-05"
+      ],
+      "days": 5,
+      "baseline_minor": 1000.0,
+      "hit_a": false,
+      "hit_b": false
+    }
+  ],
+  "checks": [
+    {
+      "case": "TR-SIM-01",
+      "expected": "HIT",
+      "actual": "HIT",
+      "ok": true
+    },
+    {
+      "case": "TR-SIM-02",
+      "expected": "MISS",
+      "actual": "MISS",
+      "ok": true
+    },
+    {
+      "case": "TR-SIM-03",
+      "expected": "HIT",
+      "actual": "HIT",
+      "ok": true
+    },
+    {
+      "case": "TR-SIM-04",
+      "expected": "MISS",
+      "actual": "MISS",
+      "ok": true
+    },
+    {
+      "case": "TR-SIM-05",
+      "expected": "UNJUDGEABLE",
+      "actual": "UNJUDGEABLE",
+      "ok": true
+    },
+    {
+      "case": "SIM-C-011",
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ],
+      "ok": true
+    },
+    {
+      "case": "SIM-C-012",
+      "expected": [
+        false,
+        false
+      ],
+      "actual": [
+        false,
+        false
+      ],
+      "ok": true
+    },
+    {
+      "case": "SIM-C-013",
+      "expected": [
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        false
+      ],
+      "ok": true
+    },
+    {
+      "case": "SIM-C-019",
+      "expected": [
+        false,
+        true
+      ],
+      "actual": [
+        false,
+        true
+      ],
+      "ok": true
+    },
+    {
+      "case": "SIM-C-025",
+      "expected": [
+        false,
+        false
+      ],
+      "actual": [
+        false,
+        false
+      ],
+      "ok": true
+    }
+  ],
+  "pass": 10,
+  "fail": 0
+}
