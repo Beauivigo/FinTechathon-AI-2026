@@ -221,15 +221,15 @@
       "spec": {
         "schema_version": "1.1",
         "task_key": "task_key_merchant.order",
-        "trace_id": "trace_23",
+        "trace_id": "trace_24",
         "run_at": "2026-10-12T09:00:00+08:00",
         "kind": "execute_request",
         "origin_action": "budget.reserve",
         "origin_idempotency_key": "origin_merchant.order",
         "payload": {
           "schema_version": "1.1",
-          "request_id": "req_23",
-          "trace_id": "trace_23",
+          "request_id": "req_24",
+          "trace_id": "trace_24",
           "action": "merchant.order",
           "params": {
             "account_id": "account_1",
@@ -240,7 +240,7 @@
             "delivery_address_id": "address_1",
             "card_id": "card_1"
           },
-          "idempotency_key": "operation_23"
+          "idempotency_key": "operation_24"
         }
       }
     },

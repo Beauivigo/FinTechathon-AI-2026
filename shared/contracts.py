@@ -107,6 +107,10 @@ ACTIONS = {
     "subscription.scan": action("订阅/代扣管理", "E", "yellow",
         {"account_id": "string"},
         {"created": "nonnegative", "subscriptions": "list:subscription"}, write=True),
+    # 每期续费独立强验证；不做后台自动扣款或长期免密授权。
+    "subscription.charge": action("订阅/代扣管理", "E", "red",
+        {"subscription_id": "string"},
+        {"subscription_id": "string", "charged_minor": "money", "next_charge_date": "date"}, write=True),
     # plan 仅生成计划；真正资金预留、消费仍逐步经过权限网关。
     "scenario.plan": action("跨场景联动", "A", "green",
         {"goal": "string"}, {"steps": "list", "summary": "string"}),
@@ -363,6 +367,8 @@ def validate_business_result(request, data):
         unique(data["subscriptions"], "subscription_id")
         ensure(data["created"] == len(data["subscriptions"]),
                "新建数量与实际候选数量不符")
+    elif name == "subscription.charge":
+        ensure(data["subscription_id"] == p["subscription_id"], "续费订阅与请求不符")
     elif name == "payee.resolve":
         unique(data["candidates"], "payee_id")
     elif name == "account.balance":

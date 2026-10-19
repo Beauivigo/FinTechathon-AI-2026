@@ -12,7 +12,17 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 11  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 12  # 数据库版本，与公开 JSON schema_version 分开。
+
+SUBSCRIPTION_CHARGE_SCHEMA = (
+    """CREATE TABLE IF NOT EXISTS subscription_charges (
+        charge_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+        subscription_id TEXT NOT NULL REFERENCES subscriptions, charge_date TEXT NOT NULL,
+        amount_minor INTEGER NOT NULL CHECK(amount_minor > 0),
+        entry_id TEXT NOT NULL REFERENCES ledger_entries(transaction_id),
+        operation_key TEXT NOT NULL, created_at TEXT NOT NULL,
+        UNIQUE(principal_id, operation_key), UNIQUE(subscription_id, charge_date))""",
+)
 
 WEALTH_SCHEMA = (
     """CREATE TABLE IF NOT EXISTS risk_profiles (
@@ -176,6 +186,7 @@ SCHEMA = (
     RESERVATIONS_SCHEMA,
     *WORKFLOWS_SCHEMA,
     *WEALTH_SCHEMA,
+    *SUBSCRIPTION_CHARGE_SCHEMA,
 )
 
 
@@ -255,6 +266,10 @@ class Store:
                 version = 10
             if app_id == APPLICATION_ID and version == 10:
                 for statement in WEALTH_SCHEMA:
+                    connection.execute(statement)
+                version = 11
+            if app_id == APPLICATION_ID and version == 11:
+                for statement in SUBSCRIPTION_CHARGE_SCHEMA:
                     connection.execute(statement)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:

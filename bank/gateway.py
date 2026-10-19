@@ -18,7 +18,7 @@ from shared.contracts import MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
 from .transfer import handle, split_shares
-from . import budget, wealth, merchant, member_workflows
+from . import budget, wealth, subscription_charge, merchant, member_workflows
 
 PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
@@ -27,7 +27,8 @@ class BankGateway:
     demo_mode = True
     write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review',
                                'subscription.scan', 'merchant.order', *member_workflows.ACTIONS,
-                               *CARD_ACTIONS, *budget.ACTIONS, *wealth.ACTIONS})
+                               *CARD_ACTIONS, *budget.ACTIONS, *wealth.ACTIONS,
+                               *subscription_charge.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -429,6 +430,8 @@ class BankGateway:
             return merchant.binding(c,request,principal,self.clock())
         if request['action'] in wealth.ACTIONS:
             return wealth.binding(c, request, principal, self.clock())
+        if request['action'] in subscription_charge.ACTIONS:
+            return subscription_charge.binding(c, request, principal, self.clock())
         if request['action'] in budget.ACTIONS:
             return budget.binding(c, request, principal)
         if request['action'] == 'transfer.schedule':
@@ -471,6 +474,12 @@ class BankGateway:
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
         if request['action'] in wealth.ACTIONS:
             data, details = wealth.apply(self.store, c, request, principal, now)
+            result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            self._audit(c, request, principal, 'succeeded', now, **details)
+            return result
+        if request['action'] in subscription_charge.ACTIONS:
+            data, details = subscription_charge.apply(self.store, c, request, principal, now)
             result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')
             self._save(c, request, result, principal, previous)
             self._audit(c, request, principal, 'succeeded', now, **details)

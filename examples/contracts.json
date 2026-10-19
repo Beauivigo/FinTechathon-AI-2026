@@ -564,11 +564,38 @@
     "display_text": "【模拟】操作已完成。"
   },
   {
-    "name": "scenario.plan",
+    "name": "subscription.charge",
     "request": {
       "schema_version": "1.1",
       "request_id": "req_20",
       "trace_id": "trace_20",
+      "action": "subscription.charge",
+      "params": {
+        "subscription_id": "subscription_1"
+      },
+      "idempotency_key": "operation_20"
+    },
+    "result": {
+      "schema_version": "1.1",
+      "request_id": "req_20",
+      "trace_id": "trace_20",
+      "action": "subscription.charge",
+      "status": "succeeded",
+      "source": "sandbox",
+      "data": {
+        "subscription_id": "subscription_1",
+        "charged_minor": 2500,
+        "next_charge_date": "2026-12-01"
+      }
+    },
+    "display_text": "【模拟】操作已完成。"
+  },
+  {
+    "name": "scenario.plan",
+    "request": {
+      "schema_version": "1.1",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
       "action": "scenario.plan",
       "params": {
         "goal": "为10月14日生日预留1000元，提前两天买鲜花和蛋糕"
@@ -576,8 +603,8 @@
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_20",
-      "trace_id": "trace_20",
+      "request_id": "req_21",
+      "trace_id": "trace_21",
       "action": "scenario.plan",
       "status": "succeeded",
       "source": "sandbox",
@@ -615,20 +642,20 @@
     "name": "budget.reserve",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_21",
-      "trace_id": "trace_21",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
       "action": "budget.reserve",
       "params": {
         "account_id": "account_1",
         "amount_minor": 100000,
         "purpose": "生日预算"
       },
-      "idempotency_key": "operation_21"
+      "idempotency_key": "operation_22"
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_21",
-      "trace_id": "trace_21",
+      "request_id": "req_22",
+      "trace_id": "trace_22",
       "action": "budget.reserve",
       "status": "succeeded",
       "source": "sandbox",
@@ -643,18 +670,18 @@
     "name": "budget.release",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_22",
-      "trace_id": "trace_22",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
       "action": "budget.release",
       "params": {
         "reservation_id": "reservation_1"
       },
-      "idempotency_key": "operation_22"
+      "idempotency_key": "operation_23"
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_22",
-      "trace_id": "trace_22",
+      "request_id": "req_23",
+      "trace_id": "trace_23",
       "action": "budget.release",
       "status": "succeeded",
       "source": "sandbox",
@@ -668,8 +695,8 @@
     "name": "merchant.order",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_23",
-      "trace_id": "trace_23",
+      "request_id": "req_24",
+      "trace_id": "trace_24",
       "action": "merchant.order",
       "params": {
         "account_id": "account_1",
@@ -680,12 +707,12 @@
         "delivery_address_id": "address_1",
         "card_id": "card_1"
       },
-      "idempotency_key": "operation_23"
+      "idempotency_key": "operation_24"
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_23",
-      "trace_id": "trace_23",
+      "request_id": "req_24",
+      "trace_id": "trace_24",
       "action": "merchant.order",
       "status": "succeeded",
       "source": "sandbox",
@@ -700,8 +727,8 @@
     "name": "account.balance",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_24",
-      "trace_id": "trace_24",
+      "request_id": "req_25",
+      "trace_id": "trace_25",
       "action": "account.balance",
       "params": {
         "account_id": "account_1"
@@ -709,8 +736,8 @@
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_24",
-      "trace_id": "trace_24",
+      "request_id": "req_25",
+      "trace_id": "trace_25",
       "action": "account.balance",
       "status": "succeeded",
       "source": "sandbox",
@@ -728,8 +755,8 @@
     "name": "payee.resolve",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_25",
-      "trace_id": "trace_25",
+      "request_id": "req_26",
+      "trace_id": "trace_26",
       "action": "payee.resolve",
       "params": {
         "query": "小王",
@@ -738,8 +765,8 @@
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_25",
-      "trace_id": "trace_25",
+      "request_id": "req_26",
+      "trace_id": "trace_26",
       "action": "payee.resolve",
       "status": "succeeded",
       "source": "sandbox",
@@ -759,8 +786,8 @@
     "name": "transaction.list",
     "request": {
       "schema_version": "1.1",
-      "request_id": "req_26",
-      "trace_id": "trace_26",
+      "request_id": "req_27",
+      "trace_id": "trace_27",
       "action": "transaction.list",
       "params": {
         "account_id": "account_1",
@@ -771,8 +798,8 @@
     },
     "result": {
       "schema_version": "1.1",
-      "request_id": "req_26",
-      "trace_id": "trace_26",
+      "request_id": "req_27",
+      "trace_id": "trace_27",
       "action": "transaction.list",
       "status": "succeeded",
       "source": "sandbox",
