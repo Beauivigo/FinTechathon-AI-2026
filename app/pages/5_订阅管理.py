@@ -37,6 +37,12 @@ if (flow.request and flow.request['action']=='subscription.list' and flow.result
         chosen=st.selectbox('管理有效订阅',active,key='subscription_active',format_func=lambda s:s['merchant_name'])
         if st.button('申请取消订阅',key='subscription_cancel',disabled=flow.blocked):
             perform(flow.start_action,'subscription.cancel',dict(subscription_id=chosen['subscription_id']))
+        if st.button('本期续费（到期后可用）',key='subscription_charge',disabled=flow.blocked):
+            perform(flow.start_action,'subscription.charge',dict(subscription_id=chosen['subscription_id']))
+if (flow.request and flow.request['action']=='subscription.charge' and flow.result
+        and flow.result['status']=='succeeded'):
+    data=flow.result['data']
+    st.success(f"已完成本期续费 {data['charged_minor']} 分，下次扣费日 {data['next_charge_date']}。")
         default=date.fromisoformat(chosen['next_charge_date'])-timedelta(days=3)
         day=st.date_input('提醒日期',value=default,key='reminder_date_'+chosen['subscription_id'])
         hour=st.time_input('提醒时间（北京时间）',value=time(9),key='reminder_time')
