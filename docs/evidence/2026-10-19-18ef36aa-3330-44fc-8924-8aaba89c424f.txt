@@ -1,0 +1,12 @@
+test_clear_and_new_intent_do_not_keep_fields (codex_routing_acceptance.RoutingAcceptanceTests.test_clear_and_new_intent_do_not_keep_fields) ... ok
+test_conflicting_values_cannot_reappear_after_followup (codex_routing_acceptance.RoutingAcceptanceTests.test_conflicting_values_cannot_reappear_after_followup) ... ok
+test_explicit_fields_and_no_default_account (codex_routing_acceptance.RoutingAcceptanceTests.test_explicit_fields_and_no_default_account) ... ok
+test_fixed_matrix (codex_routing_acceptance.RoutingAcceptanceTests.test_fixed_matrix) ... ok
+test_followup_and_input_immutability (codex_routing_acceptance.RoutingAcceptanceTests.test_followup_and_input_immutability) ... ok
+test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) ... ok
+test_module_has_no_business_or_io_dependencies (codex_routing_acceptance.RoutingAcceptanceTests.test_module_has_no_business_or_io_dependencies) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.006s
+
+OK

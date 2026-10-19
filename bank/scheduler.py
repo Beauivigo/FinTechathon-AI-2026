@@ -140,6 +140,8 @@ class Scheduler:
         """手动检查一次。重启/并发恢复始终先查原执行键，重发也不换键。"""
         results = []
         for task in self.list_tasks(principal_id=principal_id):
+            if task['spec']['payload'].get('action') != 'transfer.create':
+                continue
             if task['state'] not in ('scheduled','running','unknown'):
                 continue
             with self.store.connection(write=True) as c:

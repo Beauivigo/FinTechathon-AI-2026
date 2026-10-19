@@ -1,0 +1,28 @@
+{
+  "reviewer": "Codex",
+  "status": "accepted",
+  "run_id": "4474369d-7ce1-41a8-99e2-2c11a8096b57",
+  "commands": [
+    {
+      "command": "docs/evidence/2026-10-19-routing-review.py 4474369d-7ce1-41a8-99e2-2c11a8096b57",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "inspectedFileHashes": {
+    "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\4474369d-7ce1-41a8-99e2-2c11a8096b57\\worktree\\agent\\routing.py": "9c9cc24e5cbc509447722bbf260ae5892409c2e51deaf563493755e863d8b53e"
+  },
+  "acceptanceHashes": {
+    "tests\\test_routing_acceptance.py": "8b86ab4cef17fbd0d20aac2f7a91334118213adfe1c3948b6d0e54bd9047669d",
+    "docs\\evidence\\2026-10-19-routing-cases.json": "37485e635eb623d362e5e48d559cc06459343768f16ea6e6a0a34ba85f96bd99"
+  },
+  "inspected": [
+    "review-summary.json",
+    "diff.patch",
+    "result.json",
+    "actual source"
+  ],
+  "integrated": false
+}

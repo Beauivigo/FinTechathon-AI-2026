@@ -4,6 +4,7 @@ from uuid import uuid4
 from agent.controller import Conversation
 from app import demo
 from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
+from app.routing_panel import render_handoff
 
 LABELS = {'merchant.order':'模拟商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
@@ -35,6 +36,8 @@ def current():
             st.warning('转账结果尚待核实，请先到转账页面查询原操作。')
         flow.refresh_operations()
         flow.resources = flow.gateway.get_context(principal_id=flow.principal_id)
+        if st.session_state.get('routing_handoff'):
+            render_handoff(st.session_state.routing_handoff)
         return flow
     except Exception:
         st.error('模拟银行暂不可用，请检查原操作后再继续。')

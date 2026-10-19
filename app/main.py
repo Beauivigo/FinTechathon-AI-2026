@@ -15,6 +15,7 @@ from bank.gateway import BankGateway
 from bank.seed import initialize, demo_path, reset_demo
 from bank.store import Store
 from shared import ContractError, ServiceError, result_text, adapt_request, validate_result
+from app.routing_panel import render_router
 
 
 st.set_page_config(page_title="FinTechathon · 转账演示", page_icon="💬", layout="wide")
@@ -106,6 +107,26 @@ st.caption("A 第二轮 · 持久化模拟银行")
 st.title("把一笔转账说清楚")
 st.write("告诉我收款人和金额。信息不完整时，我会先向你确认。")
 st.info("本地模拟银行：确认后会修改模拟余额并保存流水。使用离线中文解析和模拟强验证，不接真实银行或真实资金。")
+
+# Routing is a draft-only UI. Navigation never submits or authorizes a bank request.
+selection = render_router(blocked=conversation.blocked)
+if selection and not conversation.blocked:
+    destinations = {
+        'card': 'pages/3_卡片管理.py', 'aa': 'pages/4_AA收款.py',
+        'subscription': 'pages/5_订阅管理.py', 'birthday': 'pages/8_生日与商户.py',
+        'scheduled_transfer': 'pages/6_定时转账.py', 'products': 'pages/2_产品对比.py',
+    }
+    st.session_state.routing_handoff = selection
+    if selection['intent'] == 'bill' and selection['fields'].get('account_id', '').startswith('ACCT-'):
+        st.switch_page('pages/1_资料账单.py')
+    elif selection['intent'] in destinations:
+        st.switch_page(destinations[selection['intent']])
+    elif selection['intent'] == 'bill':
+        st.info('运行账单请在本页下方“账单分析”中核对账户和期间，再点击查询。草稿不会替你选择账户。')
+    elif selection['intent'] == 'balance':
+        st.info('本页侧栏展示当前模拟账户余额；草稿中的账户并未因此获得查询权限，请核对账户标识。')
+    elif selection['intent'] == 'transfer':
+        st.info('请在下方转账聊天中核对并填写收款人和金额。进入流程不会自动付款，仍需原确认或强验证。')
 
 with st.expander('恢复待处理操作 / 查看历史', expanded=bool(conversation.operations) and not conversation.request):
     transfer_operations = [op for op in conversation.operations if op['action'] == 'transfer.create']

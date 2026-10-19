@@ -1,0 +1,16 @@
+test_blocked_revokes_confirmation_keeps_recovery (tests.test_merchant_schedule_panel.MerchantPanelTests.test_blocked_revokes_confirmation_keeps_recovery) ... ok
+test_cancel_requires_click_and_uses_current_target (tests.test_merchant_schedule_panel.MerchantPanelTests.test_cancel_requires_click_and_uses_current_target) ... ok
+test_changed_date_time_or_params_invalidates_confirmation (tests.test_merchant_schedule_panel.MerchantPanelTests.test_changed_date_time_or_params_invalidates_confirmation) ... ok
+test_empty_tasks_missing_params_and_empty_date_are_safe (tests.test_merchant_schedule_panel.MerchantPanelTests.test_empty_tasks_missing_params_and_empty_date_are_safe) ... ok
+test_no_reservation_still_check_cancel_restore_and_distinguish_status (tests.test_merchant_schedule_panel.MerchantPanelTests.test_no_reservation_still_check_cancel_restore_and_distinguish_status) ... ok
+test_two_step_confirmation_and_original_fields (tests.test_merchant_schedule_panel.MerchantPanelTests.test_two_step_confirmation_and_original_fields) ... ok
+test_cancel_scheduled_release_and_no_reservation_history (tests.test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history) ... ok
+test_changed_draft_and_cancel_pending_without_late_charge (tests.test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge) ... ok
+test_fully_spent_reservation_retains_order_recovery (tests.test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery) ... ok
+test_register_due_verify_release_complete_page_flow (tests.test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow) ... ok
+test_reply_loss_can_recover_original_pending_from_page (tests.test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.939s
+
+OK

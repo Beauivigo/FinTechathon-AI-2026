@@ -1,0 +1,22 @@
+test_followup_clear_and_rerun_have_no_bank_effect (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_followup_clear_and_rerun_have_no_bank_effect) ... ok
+test_navigation_to_subscription_keeps_business_unexecuted (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_navigation_to_subscription_keeps_business_unexecuted) ... ok
+test_negative_multi_intent_unsupported_do_not_navigate (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_negative_multi_intent_unsupported_do_not_navigate) ... ok
+test_other_destinations_are_real_pages_and_read_only (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_destinations_are_real_pages_and_read_only) ... ok
+test_other_page_unknown_blocks_route (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_page_unknown_blocks_route) ... ok
+test_pending_and_unknown_block_router_without_clearing_business (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_pending_and_unknown_block_router_without_clearing_business) ... ok
+test_transfer_route_does_not_create_request (tests.test_routing_page_acceptance.RoutingPageAcceptanceTests.test_transfer_route_does_not_create_request) ... ok
+test_confirmation_and_rerun_only_create_one_persisted_transfer (tests.test_app.PageTests.test_confirmation_and_rerun_only_create_one_persisted_transfer) ... ok
+test_cumulative_threshold_page_uses_ledger (tests.test_app.PageTests.test_cumulative_threshold_page_uses_ledger) ... ok
+test_fresh_page_recovers_pending_and_success_without_automatic_authorization (tests.test_app.PageTests.test_fresh_page_recovers_pending_and_success_without_automatic_authorization) ... ok
+test_insufficient_funds_page_never_reports_success (tests.test_app.PageTests.test_insufficient_funds_page_never_reports_success) ... ok
+test_new_chat_preserves_bank_and_explicit_reset_restores_seed (tests.test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed) ... ok
+test_optional_bank_name_and_invalid_candidate_input_do_not_break_page (tests.test_app.PageTests.test_optional_bank_name_and_invalid_candidate_input_do_not_break_page) ... ok
+test_page_starts_and_missing_amount_then_payee_selection_works (tests.test_app.PageTests.test_page_starts_and_missing_amount_then_payee_selection_works) ... ok
+test_rejection_and_simulated_verification_are_separate_paths (tests.test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths) ... ok
+test_unknown_is_queryable_and_reset_cannot_bypass_it (tests.test_app.PageTests.test_unknown_is_queryable_and_reset_cannot_bypass_it) ... ok
+test_unknown_write_result_disables_new_submission (tests.test_app.PageTests.test_unknown_write_result_disables_new_submission) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 5.917s
+
+OK

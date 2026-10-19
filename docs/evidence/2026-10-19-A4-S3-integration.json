@@ -1,0 +1,17 @@
+{
+  "run_id": "f96c872e-5199-4592-b9fa-0f71d61ac1be",
+  "reviewer": "Codex",
+  "reason": "User authorized completion of step three; integration after source/result/diff review and six independent real AppTest cases",
+  "files": {
+    "app/merchant_schedule_panel.py": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047"
+  },
+  "imports": [
+    "__future__",
+    "datetime",
+    "hashlib",
+    "json",
+    "collections.abc",
+    "typing",
+    "streamlit"
+  ]
+}

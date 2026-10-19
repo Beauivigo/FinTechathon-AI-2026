@@ -1,0 +1,21 @@
+{
+  "reviewer": "Codex",
+  "status": "rejected",
+  "commands": [
+    {
+      "command": "AppTest detached panel with fixed account_id/payee_query/amount_text fixture",
+      "passed": false,
+      "labels": [
+        "意图：转账",
+        "补充信息：demo_account_a",
+        "补充信息：李明",
+        "补充信息：200元"
+      ]
+    }
+  ],
+  "inspectedFileHashes": {
+    "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\1800762f-cb4d-43ee-9d72-11f9189a0229\\worktree\\app\\routing_panel.py": "3d41e2cfac17b31bce6660b77fb5aa21bf8c418918961cd95b85a4be8f02e63e"
+  },
+  "reason": "Actual routing field names render as generic 补充信息 instead of Chinese labels",
+  "integrated": false
+}

@@ -36,7 +36,8 @@ if accounts and payees:
 st.divider()
 if st.button('检查一次到期任务',key='schedule_run'):
     perform(scheduler.run_once,principal_id=flow.principal_id)
-tasks = scheduler.list_tasks(principal_id=flow.principal_id)
+tasks = [t for t in scheduler.list_tasks(principal_id=flow.principal_id)
+         if t['spec']['payload'].get('action') == 'transfer.create']
 if tasks:
     st.dataframe([dict(任务=t['task_id'],约定时间=t['spec']['run_at'],状态=t['state'],
         金额分=t['spec']['payload']['params']['amount_minor']) for t in tasks],hide_index=True)

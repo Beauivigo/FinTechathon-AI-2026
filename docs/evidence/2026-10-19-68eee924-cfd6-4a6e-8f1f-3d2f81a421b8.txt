@@ -1,0 +1,38 @@
+test_clear_and_new_intent_do_not_keep_fields (codex_routing_acceptance.RoutingAcceptanceTests.test_clear_and_new_intent_do_not_keep_fields) ... ok
+test_explicit_fields_and_no_default_account (codex_routing_acceptance.RoutingAcceptanceTests.test_explicit_fields_and_no_default_account) ... ok
+test_fixed_matrix (codex_routing_acceptance.RoutingAcceptanceTests.test_fixed_matrix) ... ok
+test_followup_and_input_immutability (codex_routing_acceptance.RoutingAcceptanceTests.test_followup_and_input_immutability) ... ok
+test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) ...
+  test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转0元') ... FAIL
+  test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转2 00元') ... FAIL
+  test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转200.123元') ... FAIL
+test_module_has_no_business_or_io_dependencies (codex_routing_acceptance.RoutingAcceptanceTests.test_module_has_no_business_or_io_dependencies) ... ok
+
+======================================================================
+FAIL: test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转0元')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_routing_acceptance.py", line 68, in test_invalid_or_ambiguous_values_never_ready
+    self.assertNotEqual(route(text)['status'], 'ready')
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转2 00元')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_routing_acceptance.py", line 68, in test_invalid_or_ambiguous_values_never_ready
+    self.assertNotEqual(route(text)['status'], 'ready')
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_invalid_or_ambiguous_values_never_ready (codex_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) (text='从账户 demo_account_a 给李明转200.123元')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_routing_acceptance.py", line 68, in test_invalid_or_ambiguous_values_never_ready
+    self.assertNotEqual(route(text)['status'], 'ready')
+AssertionError: 'ready' == 'ready'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.012s
+
+FAILED (failures=3)

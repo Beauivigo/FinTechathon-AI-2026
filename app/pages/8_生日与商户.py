@@ -7,6 +7,8 @@ import streamlit as st
 from app.workflow import current, render, perform
 from shared import adapt_request, ServiceError
 from bank.merchant import SHANGHAI
+from bank.merchant_scheduler import MerchantScheduler
+from app.merchant_schedule_panel import merchant_schedule_panel
 
 st.set_page_config(page_title='模拟生日与商户',layout='wide')
 st.title('生日计划与模拟采购')
@@ -37,18 +39,54 @@ if st.button('为所选商品申请预留',key='birthday_reserve',disabled=flow.
     perform(flow.start_action,'budget.reserve',dict(account_id=account['account_id'],amount_minor=total,purpose='模拟生日采购 '+birthday.isoformat()))
 rows=flow.gateway.list_reservations(principal_id=flow.principal_id)
 usable=[r for r in rows if r['account_id']==account['account_id'] and r['state'] in ('active','partially_consumed') and r['remaining_reserved_minor']>0]
+draft_params=None
 if usable:
     reservation=st.selectbox('使用已有预留',usable,key='merchant_reservation',format_func=lambda x:f"{x['purpose']} · 剩余{x['remaining_reserved_minor']/100:.2f}元")
     item=st.selectbox('本次下单商品',items,key='merchant_item',format_func=lambda x:f"{x['name']} · {x['price_minor']/100:.2f}元")
     deliver=st.date_input('计划配送日',value=max(birthday,today+timedelta(days=1)),min_value=today+timedelta(days=1),key='merchant_deliver')
     cards=[c['card_id'] for c in flow.resources['cards'] if c['account_id']==account['account_id']]
     card=st.selectbox('支付卡', ['自动选择']+cards,key='merchant_card')
+    draft_params=dict(account_id=account['account_id'],reservation_id=reservation['reservation_id'],item_id=item['item_id'],amount_minor=item['price_minor'],deliver_on=deliver.isoformat(),delivery_address_id=address['delivery_address_id'])
+    if card!='自动选择': draft_params['card_id']=card
     if st.button('申请本笔下单',key='merchant_order',disabled=flow.blocked):
-        params=dict(account_id=account['account_id'],reservation_id=reservation['reservation_id'],item_id=item['item_id'],amount_minor=item['price_minor'],deliver_on=deliver.isoformat(),delivery_address_id=address['delivery_address_id'])
-        if card!='自动选择': params['card_id']=card
-        perform(flow.start_action,'merchant.order',params)
+        perform(flow.start_action,'merchant.order',draft_params)
     if st.button('申请释放可核实剩余预算',key='merchant_release',disabled=flow.blocked):
         perform(flow.start_action,'budget.release',dict(reservation_id=reservation['reservation_id']))
+
+scheduler=MerchantScheduler(flow.gateway)
+tasks=scheduler.list_tasks(principal_id=flow.principal_id)
+for task in tasks:
+    query=adapt_request('operation.get',dict(original_action='merchant.order',
+        original_idempotency_key=task['spec']['payload']['idempotency_key']),request_id=uuid4().hex,trace_id=task['spec']['trace_id'])
+    reply=flow.gateway.execute(query,principal_id=flow.principal_id)
+    task['operation_status']=(reply['data']['operation_result']['status'] if reply['status']=='succeeded'
+        else '尚未受理' if task['state'] in ('scheduled','cancelled') and reply.get('error',{}).get('code')=='NOT_FOUND' else '待核实')
+# 仅是输入初始值，非最短提前或迟到业务规则。
+default_run=flow.gateway.clock().astimezone(SHANGHAI)+timedelta(minutes=5)
+st.session_state.setdefault('msp_run_date',default_run.date())
+st.session_state.setdefault('msp_run_time',default_run.time().replace(second=0,microsecond=0,tzinfo=None))
+events=merchant_schedule_panel(draft_params,tasks,flow.gateway.clock(),blocked=flow.blocked)
+for event in events:
+    if event['type']=='merchant_schedule_create':
+        if flow.blocked or event['params']!=draft_params:
+            st.warning('草稿或待办状态已变化，请重新核对。')
+            continue
+        perform(scheduler.register,event['params'],event['run_at'],event['idempotency_key'],principal_id=flow.principal_id,confirmed=True)
+    elif event['type']=='merchant_schedule_check':
+        perform(scheduler.run_once,principal_id=flow.principal_id)
+    elif event['type']=='merchant_schedule_cancel':
+        def cancel_selected():
+            task=scheduler.cancel(event['task_id'],principal_id=flow.principal_id,confirmed=True)
+            request=task['spec']['payload']
+            if flow.request and flow.request['idempotency_key']==request['idempotency_key']:
+                flow.recover(action='merchant.order',idempotency_key=request['idempotency_key'])
+        perform(cancel_selected)
+    elif event['type']=='merchant_schedule_restore':
+        task=next((t for t in tasks if t['task_id']==event['task_id']),None)
+        if task and task['state'] in ('running','unknown','dispatched'):
+            perform(flow.recover,action='merchant.order',idempotency_key=task['spec']['payload']['idempotency_key'])
+        else:
+            st.info('任务尚未受理或已在派发前取消，没有付款操作需要恢复。')
 orders=flow.gateway.list_orders(principal_id=flow.principal_id)
 if orders:
     st.subheader('已提交模拟订单')

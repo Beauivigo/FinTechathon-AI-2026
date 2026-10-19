@@ -18,7 +18,7 @@ def checked_reservation(c, reservation_id, principal):
     return row
 
 
-def binding(c, request, principal):
+def binding(c, request, principal, *, check_tasks=True):
     p = request['params']
     if request['action'] == 'budget.reserve':
         owned_account(c, p['account_id'], principal)
@@ -48,7 +48,14 @@ def binding(c, request, principal):
         raise ServiceError('INVALID_STATE','预留与消费对账不一致。')
     for task in c.execute('SELECT spec_json,state FROM tasks WHERE principal_id=?', (principal,)):
         spec = validate_task_spec(strict_json_loads(task[0]))
-        if spec['payload'].get('params', {}).get('reservation_id') == row['reservation_id'] and task['state']!='cancelled':
+        if check_tasks and spec['payload'].get('params', {}).get('reservation_id') == row['reservation_id'] and task['state']!='cancelled':
+            if task['state'] in ('running','unknown','dispatched') and spec['payload'].get('action')=='merchant.order':
+                from .merchant import operation
+                original, result = operation(c, principal, spec['payload']['idempotency_key'])
+                # unresolved 已验证订单/意向金额，未知或待授权金额仍计入 held。
+                # 仅允许显式释放可核实的其他金额；无可信操作记录仍然阻断。
+                if operation_digest(original,principal_id=principal)==operation_digest(spec['payload'],principal_id=principal):
+                    continue
             raise ServiceError('INVALID_STATE', '预留存在未核实的关联任务。')
     releasable = row['remaining_reserved_minor'] - held
     if releasable <= 0:

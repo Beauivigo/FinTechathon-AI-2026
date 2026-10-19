@@ -1,0 +1,177 @@
+[
+  {
+    "text": "查账户 demo_account_a 的2026-10账单",
+    "intent": "bill",
+    "status": "ready"
+  },
+  {
+    "text": "查账单",
+    "intent": "bill",
+    "status": "clarify"
+  },
+  {
+    "text": "查2026-10或2026-11账单",
+    "intent": "bill",
+    "status": "clarify"
+  },
+  {
+    "text": "不要查账单",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "从账户 demo_account_a 给李明转200元",
+    "intent": "transfer",
+    "status": "ready"
+  },
+  {
+    "text": "给李明转钱",
+    "intent": "transfer",
+    "status": "clarify"
+  },
+  {
+    "text": "给李明转200或300元",
+    "intent": "transfer",
+    "status": "clarify"
+  },
+  {
+    "text": "不要给李明转200元",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "冻结卡片 CARD-E001",
+    "intent": "card",
+    "status": "ready"
+  },
+  {
+    "text": "冻结卡片",
+    "intent": "card",
+    "status": "clarify"
+  },
+  {
+    "text": "冻结或解冻卡片 CARD-E001",
+    "intent": "card",
+    "status": "clarify"
+  },
+  {
+    "text": "不要冻结卡片",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "AA收款",
+    "intent": "aa",
+    "status": "clarify"
+  },
+  {
+    "text": "账户 demo_account_a AA收款200元",
+    "intent": "aa",
+    "status": "clarify"
+  },
+  {
+    "text": "AA收款200或300元",
+    "intent": "aa",
+    "status": "clarify"
+  },
+  {
+    "text": "不要AA收款",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "取消订阅 SUB-E001",
+    "intent": "subscription",
+    "status": "ready"
+  },
+  {
+    "text": "取消订阅",
+    "intent": "subscription",
+    "status": "clarify"
+  },
+  {
+    "text": "取消或提醒订阅 SUB-E001",
+    "intent": "subscription",
+    "status": "clarify"
+  },
+  {
+    "text": "不要取消订阅",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "生日2026-11-20",
+    "intent": "birthday",
+    "status": "ready"
+  },
+  {
+    "text": "帮我准备生日",
+    "intent": "birthday",
+    "status": "clarify"
+  },
+  {
+    "text": "生日11月20日",
+    "intent": "birthday",
+    "status": "clarify"
+  },
+  {
+    "text": "不要准备生日",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "查询余额",
+    "intent": "balance",
+    "status": "clarify"
+  },
+  {
+    "text": "查询账户 demo_account_a 余额",
+    "intent": "balance",
+    "status": "ready"
+  },
+  {
+    "text": "产品对比",
+    "intent": "products",
+    "status": "clarify"
+  },
+  {
+    "text": "购买理财产品",
+    "intent": null,
+    "status": "unsupported"
+  },
+  {
+    "text": "赎回理财",
+    "intent": null,
+    "status": "unsupported"
+  },
+  {
+    "text": "查账单然后冻结卡片",
+    "intent": null,
+    "status": "clarify"
+  },
+  {
+    "text": "取消草稿",
+    "intent": null,
+    "status": "cancelled"
+  },
+  {
+    "text": "",
+    "intent": null,
+    "status": "unsupported"
+  },
+  {
+    "text": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "intent": null,
+    "status": "unsupported"
+  },
+  {
+    "text": "生日2026-02-30",
+    "intent": "birthday",
+    "status": "clarify"
+  },
+  {
+    "text": "明天给李明转200元",
+    "intent": "scheduled_transfer",
+    "status": "clarify"
+  }
+]

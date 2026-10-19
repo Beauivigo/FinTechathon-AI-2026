@@ -1,0 +1,372 @@
+{
+  "generatedAt": "2026-10-19T04:32:43.466Z",
+  "groups": {
+    "synthetic": {
+      "runs": 3,
+      "accepted": 3,
+      "failed": 0,
+      "missingUsage": 1,
+      "knownDeepseekTokens": 3701
+    },
+    "real": {
+      "runs": 0,
+      "accepted": 0,
+      "failed": 0,
+      "missingUsage": 0,
+      "knownDeepseekTokens": null
+    },
+    "unclassified": {
+      "runs": 9,
+      "accepted": 1,
+      "failed": 2,
+      "missingUsage": 3,
+      "knownDeepseekTokens": 179997
+    }
+  },
+  "rows": [
+    {
+      "id": "1800762f-cb4d-43ee-9d72-11f9189a0229",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1478,
+          "complete": true
+        },
+        "output": {
+          "known": 13523,
+          "complete": true
+        },
+        "total": {
+          "known": 15001,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "18ef36aa-3330-44fc-8924-8aaba89c424f",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 5271,
+          "complete": true
+        },
+        "output": {
+          "known": 29670,
+          "complete": true
+        },
+        "total": {
+          "known": 34941,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "194ce68f-83ca-4724-88c9-eb1355eaaedf",
+      "sample": "synthetic",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": null,
+      "observedAttempts": null,
+      "repairs": null,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "4474369d-7ce1-41a8-99e2-2c11a8096b57",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 5162,
+          "complete": true
+        },
+        "output": {
+          "known": 43789,
+          "complete": true
+        },
+        "total": {
+          "known": 48951,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "5a3c8616-355a-47e3-bcb7-124af219263a",
+      "sample": "synthetic",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1623,
+          "complete": true
+        },
+        "output": {
+          "known": 183,
+          "complete": true
+        },
+        "total": {
+          "known": 1806,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "68eee924-cfd6-4a6e-8f1f-3d2f81a421b8",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 2517,
+          "complete": true
+        },
+        "output": {
+          "known": 68504,
+          "complete": true
+        },
+        "total": {
+          "known": 71021,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "73a335b0-c5b3-485e-bdaf-91c448087348",
+      "sample": "unclassified",
+      "executionStatus": "failed",
+      "status": "failed",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "7707f71b-049c-435e-8844-5f5b933101f5",
+      "sample": "unclassified",
+      "executionStatus": "failed",
+      "status": "failed",
+      "review": "missing",
+      "recordedModelAttempts": null,
+      "observedAttempts": null,
+      "repairs": null,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "d2259464-cdaa-49d5-aa53-2e0473cc50b5",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 2180,
+          "complete": true
+        },
+        "output": {
+          "known": 1873,
+          "complete": true
+        },
+        "total": {
+          "known": 4053,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "d835b709-d5b1-4b28-8365-88cd05825093",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1035,
+          "complete": true
+        },
+        "output": {
+          "known": 4995,
+          "complete": true
+        },
+        "total": {
+          "known": 6030,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "d90a86af-ae40-4461-80be-1754b791e1e7",
+      "sample": "unclassified",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": null,
+      "observedAttempts": null,
+      "repairs": null,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "fb4b0921-146a-4b7d-9e70-94ddf34a5e26",
+      "sample": "synthetic",
+      "executionStatus": "awaiting_codex_review",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1721,
+          "complete": true
+        },
+        "output": {
+          "known": 174,
+          "complete": true
+        },
+        "total": {
+          "known": 1895,
+          "complete": true
+        }
+      },
+      "testsPassed": true,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    }
+  ],
+  "codexQuotaSavingsPercent": null,
+  "conclusion": "insufficient_comparable_codex_measurements",
+  "limitations": [
+    "Known token totals may be partial; missing is not zero.",
+    "Synthetic and unclassified tasks are excluded from real-task evaluation.",
+    "DeepSeek tokens and elapsed time cannot establish Codex quota savings.",
+    "Review/rework minutes are optional Codex observations, never inferred from waiting time."
+  ]
+}
