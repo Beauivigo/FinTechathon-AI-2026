@@ -1,2 +1,2 @@
 # Preserve original evidence bytes and manifest hashes across platforms.
-materials/inbox/** -text
+materials/inbox/** -text whitespace=cr-at-eol
