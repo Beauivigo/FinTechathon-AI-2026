@@ -39,10 +39,6 @@ if (flow.request and flow.request['action']=='subscription.list' and flow.result
             perform(flow.start_action,'subscription.cancel',dict(subscription_id=chosen['subscription_id']))
         if st.button('本期续费（到期后可用）',key='subscription_charge',disabled=flow.blocked):
             perform(flow.start_action,'subscription.charge',dict(subscription_id=chosen['subscription_id']))
-if (flow.request and flow.request['action']=='subscription.charge' and flow.result
-        and flow.result['status']=='succeeded'):
-    data=flow.result['data']
-    st.success(f"已完成本期续费 {data['charged_minor']} 分，下次扣费日 {data['next_charge_date']}。")
         default=date.fromisoformat(chosen['next_charge_date'])-timedelta(days=3)
         day=st.date_input('提醒日期',value=default,key='reminder_date_'+chosen['subscription_id'])
         hour=st.time_input('提醒时间（北京时间）',value=time(9),key='reminder_time')
@@ -54,4 +50,8 @@ if st.button('检查到期本地提醒',key='subscription_check_reminders',disab
 if st.session_state.get('reminder_snapshot'):
     st.caption('上次手动检查的本地提醒快照；未向微信、短信或其他外部服务发送通知。')
     st.dataframe([{'订阅':r['merchant_name'],'提醒时间':r['remind_at'],'状态':r['state']} for r in st.session_state.reminder_snapshot],hide_index=True)
+if (flow.request and flow.request['action']=='subscription.charge' and flow.result
+        and flow.result['status']=='succeeded'):
+    data=flow.result['data']
+    st.success(f"已完成本期续费 {data['charged_minor']} 分，下次扣费日 {data['next_charge_date']}。")
 render(flow)
