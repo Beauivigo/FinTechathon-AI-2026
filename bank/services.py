@@ -188,8 +188,11 @@ class SandboxServices:
             accounts = [dict(row) for row in connection.execute(
                 "SELECT account_id,display_name FROM accounts WHERE principal_id=? ORDER BY account_id",
                 (principal_id,))]
+            holdings=[dict(row) for row in connection.execute(
+                """SELECT holding_id,account_id,product_id,units FROM holdings
+                   WHERE principal_id=? AND state='open' ORDER BY holding_id""", (principal_id,))]
             return validate_context(dict(schema_version=SCHEMA_VERSION, source="sandbox", accounts=accounts,
-                products=products(), holdings=[], cards=[dict(row) for row in connection.execute(
+                products=products(), holdings=holdings, cards=[dict(row) for row in connection.execute(
                     '''SELECT card_id,account_id,card_state,limit_minor FROM cards JOIN accounts USING(account_id)
                        WHERE principal_id=? ORDER BY card_id''', (principal_id,))],
                 items=[dict(i) for i in ITEMS], addresses=[dict(a) for a in ADDRESSES], questionnaires=[]))
