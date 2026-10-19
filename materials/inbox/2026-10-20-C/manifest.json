@@ -1,0 +1,19 @@
+﻿{
+    "member":  "C",
+    "received":  "2026-10-19",
+    "round":  "第四轮（2026-10-20 截止）",
+    "files":  [
+                  {
+                      "file":  "01_C-07定版.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\01_C-07定版.md",
+                      "sha256":  "16ec9ad1c659571ab59b0a636f35088e58838317884b03da5319af2609c94be0",
+                      "bytes":  7081
+                  },
+                  {
+                      "file":  "05_自查报告.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\05_自查报告.md",
+                      "sha256":  "20beb57339d914f72ebc0acf0544a936b19590676e74fdfb2da710c6d4e1860d",
+                      "bytes":  6718
+                  }
+              ]
+}

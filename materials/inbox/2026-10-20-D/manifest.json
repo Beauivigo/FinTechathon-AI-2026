@@ -1,0 +1,31 @@
+﻿{
+    "member":  "D",
+    "received":  "2026-10-19",
+    "round":  "第四轮（2026-10-20 截止）",
+    "files":  [
+                  {
+                      "file":  "D第一轮-理财规则包.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\D\\D第一轮-理财规则包.md",
+                      "sha256":  "2a2cc4363ebdfa02c4f517470c4a6e12148c097f5ea9ec7812e0f913159be0de",
+                      "bytes":  14602
+                  },
+                  {
+                      "file":  "D第二轮-完整演示与对账.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\D\\D第二轮-完整演示与对账.md",
+                      "sha256":  "a973a5dc0f7e8a6d851d842a7657675ac11ad54ec9536673d3c5bfcf2ca3ccc8",
+                      "bytes":  12264
+                  },
+                  {
+                      "file":  "D第三轮-演示脚本与讲稿.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\D\\D第三轮-演示脚本与讲稿.md",
+                      "sha256":  "67834058e01a772565eaad74bf426acc28d0c4e309744232bd424cd1cb80fb74",
+                      "bytes":  8985
+                  },
+                  {
+                      "file":  "D第三轮交付清单.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\D\\D第三轮交付清单.md",
+                      "sha256":  "f8b0595aa6c63e15d5d20a38576c008f631d374751998d0174b74172bbf029d4",
+                      "bytes":  6269
+                  }
+              ]
+}
