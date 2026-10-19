@@ -40,7 +40,7 @@ class RoutingPageAcceptanceTests(unittest.TestCase):
 
     def test_negative_multi_intent_unsupported_do_not_navigate(self):
         before = self.snapshot()
-        for text in ('不要取消订阅', '查账单然后冻结卡片', '购买理财产品'):
+        for text in ('不要取消订阅', '查账单然后冻结卡片'):
             result = self.identify(text)
             self.assertIsNone(result['intent'])
             buttons = [b for b in self.p.button if b.key == 'router_open']

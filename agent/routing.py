@@ -6,6 +6,8 @@ _ACC_RE = re.compile(r'(?<![A-Za-z0-9_])(?:demo_account_[A-Za-z0-9_]+(?:-[A-Za-z
 _CARD_RE = re.compile(r'(?<![A-Za-z0-9_])CARD-[A-Za-z0-9_]+(?:-[A-Za-z0-9_]+)*(?![A-Za-z0-9_-])')
 _SUB_RE = re.compile(r'(?<![A-Za-z0-9_])SUB-[A-Za-z0-9_]+(?:-[A-Za-z0-9_]+)*(?![A-Za-z0-9_-])')
 _PROD_RE = re.compile(r'(?<![A-Za-z0-9_])PROD-[A-Za-z0-9_]+(?:-[A-Za-z0-9_]+)*(?![A-Za-z0-9_-])')
+_WP_RE = re.compile(r'(?<![A-Za-z0-9_])WP-C[0-9]{2}(?![A-Za-z0-9_-])')
+_UNITS_RE = re.compile(r'([0-9]+(?:\.[0-9]{1,4})?)[ ]*份')
 _AMOUNT_TOKEN_RE = re.compile(r'(?<![A-Za-z0-9_])[0-9][0-9.,，、/~+＋−\s-]*元')
 _AMOUNT_VALUE_RE = re.compile(r'[0-9]+(?:[.][0-9]{1,2})?')
 _NEG_BEFORE_RE = re.compile(r'(?:负|[-−－])[ ]*$')
@@ -24,8 +26,8 @@ _CARD_OPS = ('冻结', '解冻', '挂失', '解挂', '申请', '限额')
 _SUB_OPS = ('查看', '取消', '提醒', '核实', '排除', '识别')
 _SCHED = ('明天', '后天', '定时', '预约')
 _EXECUTION_RE = re.compile(r'发卡|批准|审批|核准|审核通过|发货|配送完成|已配送|交付完成|制卡完成|开卡')
-_LABELS = {'account_id': '账户', 'period': '账期', 'payee_query': '收款人', 'amount_text': '金额', 'execute_at': '完整带时区的执行时间', 'card_operation': '卡片操作', 'card_id': '卡片', 'subscription_operation': '订阅操作', 'subscription_id': '订阅', 'birthday': '生日(YYYY-MM-DD)', 'participants': '参与人', 'product_ids': '至少两个产品编号'}
-_REQ = {'bill': ('account_id', 'period'), 'balance': ('account_id',), 'transfer': ('account_id', 'payee_query', 'amount_text'), 'scheduled_transfer': ('account_id', 'payee_query', 'amount_text', 'execute_at'), 'card': ('card_operation', 'card_id'), 'aa': ('account_id', 'amount_text', 'participants'), 'subscription': ('subscription_operation', 'subscription_id'), 'birthday': ('birthday',), 'products': ('product_ids',)}
+_LABELS = {'account_id': '账户', 'period': '账期', 'payee_query': '收款人', 'amount_text': '金额', 'execute_at': '完整带时区的执行时间', 'card_operation': '卡片操作', 'card_id': '卡片', 'subscription_operation': '订阅操作', 'subscription_id': '订阅', 'birthday': '生日(YYYY-MM-DD)', 'participants': '参与人', 'product_ids': '至少两个产品编号', 'product_id': '理财产品或编号（WP-C01—C06）', 'units_text': '赎回份额（份）'}
+_REQ = {'bill': ('account_id', 'period'), 'balance': ('account_id',), 'transfer': ('account_id', 'payee_query', 'amount_text'), 'scheduled_transfer': ('account_id', 'payee_query', 'amount_text', 'execute_at'), 'card': ('card_operation', 'card_id'), 'aa': ('account_id', 'amount_text', 'participants'), 'subscription': ('subscription_operation', 'subscription_id'), 'birthday': ('birthday',), 'products': ('product_ids',), 'wealth_assess': ('questionnaire_version',), 'wealth_purchase': ('account_id', 'product_id', 'amount_text'), 'wealth_redeem': ('account_id', 'units_text'), 'wealth_holdings': ('account_id',)}
 def _res(intent, status, fields, missing, message):
     return {'status': status, 'intent': intent, 'fields': fields, 'missing': list(missing), 'message': message}
 
@@ -129,7 +131,7 @@ def _cancelled(s):
     return '别' in s
 
 def _unsupported(s):
-    return bool(re.search(r'发行|实物(?:交割|交付|配送|购买)', s) or (re.search(r'买|申购|认购|赎回|卖|定投', s) and re.search(r'理财|基金|股票|证券|投资|黄金|保险', s)))
+    return bool(re.search(r'发行|实物(?:交割|交付|配送|购买)|股票|证券|黄金|保险', s))
 
 def _execution_unsupported(s):
     return bool(_EXECUTION_RE.search(s))
@@ -145,7 +147,13 @@ def _intents(s):
     if re.search(r'(?i)(?<![A-Za-z0-9_-])aa(?![A-Za-z0-9_-])', s): out.add('aa')
     if '订阅' in s: out.add('subscription')
     if '生日' in s: out.add('birthday')
-    if '产品' in s or '对比' in s: out.add('products')
+    wealth = re.search(r'理财|基金|申购|赎回|持仓|风险|问卷', s)
+    if wealth:
+        if '赎回' in s: out.add('wealth_redeem')
+        elif re.search(r'申购|买入|买.*(?:理财|基金)', s): out.add('wealth_purchase')
+        elif re.search(r'持仓|我的理财', s): out.add('wealth_holdings')
+        else: out.add('wealth_assess')
+    if ('产品' in s or '对比' in s) and not wealth: out.add('products')
     return out
 
 def _put(f, key, vals, amb):
@@ -180,8 +188,20 @@ def _extract(s, intent):
     elif intent == 'birthday':
         d, x = _dates(s); amb = _put(f, 'birthday', d, amb or x)
     elif intent == 'products':
-        ids = _uniq(_PROD_RE.findall(s))
+        ids = _uniq(_PROD_RE.findall(s) + _WP_RE.findall(s))
         if ids: f['product_ids'] = ','.join(ids)
+    elif intent == 'wealth_assess':
+        f['questionnaire_version'] = 'wpq_v1'
+        amb = _put(f, 'account_id', _uniq(_ACC_RE.findall(s)), amb)
+    elif intent == 'wealth_purchase':
+        amb = _put(f, 'account_id', _uniq(_ACC_RE.findall(s)), amb)
+        amb = _put(f, 'product_id', _uniq(_WP_RE.findall(s)), amb)
+        a, x = _amounts(s); amb = _put(f, 'amount_text', a, amb or x)
+    elif intent == 'wealth_redeem':
+        amb = _put(f, 'account_id', _uniq(_ACC_RE.findall(s)), amb)
+        amb = _put(f, 'units_text', _uniq(_UNITS_RE.findall(s)), amb)
+    elif intent == 'wealth_holdings':
+        amb = _put(f, 'account_id', _uniq(_ACC_RE.findall(s)), amb)
     elif intent == 'aa':
         amb = _put(f, 'account_id', _uniq(_ACC_RE.findall(s)), amb)
         a, x = _amounts(s); amb = _put(f, 'amount_text', a, amb or x)

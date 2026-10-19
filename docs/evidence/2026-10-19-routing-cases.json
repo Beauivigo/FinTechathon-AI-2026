@@ -136,13 +136,13 @@
   },
   {
     "text": "购买理财产品",
-    "intent": null,
-    "status": "unsupported"
+    "intent": "wealth_purchase",
+    "status": "clarify"
   },
   {
     "text": "赎回理财",
-    "intent": null,
-    "status": "unsupported"
+    "intent": "wealth_redeem",
+    "status": "clarify"
   },
   {
     "text": "查账单然后冻结卡片",
