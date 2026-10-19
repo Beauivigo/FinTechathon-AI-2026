@@ -2,6 +2,8 @@
 
 所有资金与持仓写入都在网关的同一串行事务/保存点内完成；本模块不自行提交，
 也不接受模型直接调用。金额用整数分，费用与份额用 Decimal 四舍五入。
+风险、起购、余额、锁定与份额校验同时放在 binding 中，确保在确认/强验证前
+就能拦截；apply 内再校验一次，防止确认期间状态变化。
 """
 
 from datetime import date, timedelta, timezone
@@ -63,27 +65,56 @@ def _holding(c, holding_id, principal):
 
 
 def _account(c, account_id, principal):
-    row = owned_account(c, account_id, principal)
-    if row is None:
-        raise ServiceError("FORBIDDEN", "账户不存在或不属于当前用户。")
-    return row
+    return owned_account(c, account_id, principal)
 
 
-def binding(c, request, principal):
-    """校验归属并返回稳定绑定；确认与执行前都会重跑。"""
-    p = request["params"]
-    if request["action"] == "wealth.assess":
-        return [principal]
+def _purchase_state(c, p, principal):
+    """产品/风险/起购/余额校验，返回产品、档案与账户。"""
+    product = catalog.product(p["product_id"])
+    if product is None:
+        raise ServiceError("NOT_FOUND", "产品不存在。")
+    profile = _profile(c, p["risk_profile_id"], principal)
+    if RISK_RANK[profile["risk_level"]] < RISK_RANK[product["risk_level"]]:
+        raise ServiceError("RISK_BLOCKED", "风险等级不匹配，不能申购该产品。")
+    if p["amount_minor"] < product["minimum_amount_minor"]:
+        raise ServiceError("LIMIT_EXCEEDED", "低于产品起购金额。")
     account = _account(c, p["account_id"], principal)
-    if request["action"] == "wealth.purchase":
-        profile = _profile(c, p["risk_profile_id"], principal)
-        product = catalog.product(p["product_id"])
-        if product is None:
-            raise ServiceError("NOT_FOUND", "产品不存在。")
-        return [p["account_id"], p["product_id"], profile["profile_id"], profile["risk_level"]]
+    if account["available_minor"] < p["amount_minor"]:
+        raise ServiceError("INSUFFICIENT_FUNDS", "可用余额不足。")
+    return product, profile, account
+
+
+def _redeem_state(c, p, principal, today):
+    """持仓/锁定/份额校验，返回持仓、产品与赎回份额。"""
     holding = _holding(c, p["holding_id"], principal)
     if holding["account_id"] != p["account_id"]:
         raise ServiceError("FORBIDDEN", "持仓不属于该账户。")
+    if holding["state"] != "open":
+        raise ServiceError("INVALID_STATE", "持仓已结清，不能赎回。")
+    product = catalog.product(holding["product_id"])
+    if product is None:
+        raise ServiceError("NOT_FOUND", "产品不存在。")
+    confirmed_on = date.fromisoformat(holding["confirmed_on"])
+    if confirmed_on + timedelta(days=holding["lock_days"]) > today:
+        raise ServiceError("INVALID_STATE", "锁定期内不可赎回。")
+    held = Decimal(holding["units"])
+    units = Decimal(p["units"])
+    if units <= 0 or units > held:
+        raise ServiceError("INVALID_STATE", "可赎回份额不足。")
+    return holding, product, units
+
+
+def binding(c, request, principal, now):
+    """校验归属并返回稳定绑定；请求前、确认时都会重跑。"""
+    p = request["params"]
+    if request["action"] == "wealth.assess":
+        return [principal]
+    _account(c, p["account_id"], principal)
+    if request["action"] == "wealth.purchase":
+        product, profile, _ = _purchase_state(c, p, principal)
+        return [p["account_id"], p["product_id"], profile["profile_id"], profile["risk_level"]]
+    holding = _holding(c, p["holding_id"], principal)
+    _redeem_state(c, p, principal, _today(now))
     return [p["account_id"], p["holding_id"], holding["units"]]
 
 
@@ -102,18 +133,8 @@ def _assess(c, request, principal, now):
 
 def _purchase(c, request, principal, now):
     p = request["params"]
-    product = catalog.product(p["product_id"])
-    if product is None:
-        raise ServiceError("NOT_FOUND", "产品不存在。")
-    profile = _profile(c, p["risk_profile_id"], principal)
-    if RISK_RANK[profile["risk_level"]] < RISK_RANK[product["risk_level"]]:
-        raise ServiceError("RISK_BLOCKED", "风险等级不匹配，不能申购该产品。")
+    product, profile, account = _purchase_state(c, p, principal)
     amount = p["amount_minor"]
-    if amount < product["minimum_amount_minor"]:
-        raise ServiceError("LIMIT_EXCEEDED", "低于产品起购金额。")
-    account = _account(c, p["account_id"], principal)
-    if account["available_minor"] < amount:
-        raise ServiceError("INSUFFICIENT_FUNDS", "可用余额不足。")
     fee = _fee(amount, product["purchase_fee_bps"])
     net = amount - fee
     units = _units(net, product["net_value_minor"])
@@ -146,26 +167,11 @@ def _purchase(c, request, principal, now):
 
 def _redeem(c, request, principal, now):
     p = request["params"]
-    holding = _holding(c, p["holding_id"], principal)
-    if holding["account_id"] != p["account_id"]:
-        raise ServiceError("FORBIDDEN", "持仓不属于该账户。")
-    if holding["state"] != "open":
-        raise ServiceError("INVALID_STATE", "持仓已结清，不能赎回。")
-    product = catalog.product(holding["product_id"])
-    if product is None:
-        raise ServiceError("NOT_FOUND", "产品不存在。")
-    today = _today(now)
-    confirmed_on = date.fromisoformat(holding["confirmed_on"])
-    if confirmed_on + timedelta(days=holding["lock_days"]) > today:
-        raise ServiceError("INVALID_STATE", "锁定期内不可赎回。")
-    held = Decimal(holding["units"])
-    units = Decimal(p["units"])
-    if units <= 0 or units > held:
-        raise ServiceError("INVALID_STATE", "可赎回份额不足。")
+    holding, product, units = _redeem_state(c, p, principal, _today(now))
     gross = _money(units * Decimal(product["net_value_minor"]))
     fee = _fee(gross, product["redeem_fee_bps"])
     net = gross - fee
-    remaining = held - units
+    remaining = Decimal(holding["units"]) - units
     order_id = "order_" + uuid4().hex
     entry_id = "wealth_" + uuid4().hex
     occurred_at = utc_timestamp(now.isoformat())
@@ -190,7 +196,7 @@ def _redeem(c, request, principal, now):
 def apply(store, c, request, principal, now):
     """调用者必须已完成授权；回执与审计由网关在同一保存点写入。"""
     store.require_write_transaction(c)
-    binding(c, request, principal)
+    binding(c, request, principal, now)
     if request["action"] == "wealth.assess":
         return _assess(c, request, principal, now)
     if request["action"] == "wealth.purchase":

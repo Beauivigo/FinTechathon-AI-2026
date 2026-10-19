@@ -428,7 +428,7 @@ class BankGateway:
         if request['action']=='merchant.order':
             return merchant.binding(c,request,principal,self.clock())
         if request['action'] in wealth.ACTIONS:
-            return wealth.binding(c, request, principal)
+            return wealth.binding(c, request, principal, self.clock())
         if request['action'] in budget.ACTIONS:
             return budget.binding(c, request, principal)
         if request['action'] == 'transfer.schedule':
