@@ -1,37 +1,85 @@
 ﻿{
     "member":  "C",
     "received":  "2026-10-19",
-    "round":  "第四轮（2026-10-20 截止）",
+    "round":  "第四轮（C4-1.1 完整包）",
     "files":  [
                   {
-                      "file":  "01_C-07定版.md",
-                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\01_C-07定版.md",
-                      "sha256":  "16ec9ad1c659571ab59b0a636f35088e58838317884b03da5319af2609c94be0",
-                      "bytes":  7081
-                  },
-                  {
-                      "file":  "05_自查报告.md",
-                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\05_自查报告.md",
-                      "sha256":  "20beb57339d914f72ebc0acf0544a936b19590676e74fdfb2da710c6d4e1860d",
-                      "bytes":  6718
-                  },
-                  {
-                      "file":  "00_交付索引(1).md",
-                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\00_交付索引(1).md",
+                      "file":  "00_交付索引.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\00_交付索引.md",
                       "sha256":  "1012c66ce09ed4b63c8382bff48dc5250313e5e4a3e2ed168c8a65bac75167d0",
                       "bytes":  4456
                   },
                   {
-                      "file":  "06_勘误遵循核对(2).md",
-                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\06_勘误遵循核对(2).md",
+                      "file":  "01_C-07定版.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\01_C-07定版.md",
+                      "sha256":  "1d605c450baba8c91723ee3d16b8e0bf7b4a8e55a3296b0b09e248619448b2d2",
+                      "bytes":  7382
+                  },
+                  {
+                      "file":  "02_跨模块用例12条.json",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\02_跨模块用例12条.json",
+                      "sha256":  "cfa0cbcf7a45a3b9ef36ebd251c446b13744042c17a5c9d8e42bca0270e9586e",
+                      "bytes":  27392
+                  },
+                  {
+                      "file":  "02_跨模块用例12条.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\02_跨模块用例12条.md",
+                      "sha256":  "3438a0d5009138abedf1dd74b327094fd7f5d3695a561d2ddcf42a7395c9d482",
+                      "bytes":  5406
+                  },
+                  {
+                      "file":  "03_入口输入24句.json",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\03_入口输入24句.json",
+                      "sha256":  "709eb424e415f4684bc9132d77e2550b8b550e6359343afea8155e801bbe67e9",
+                      "bytes":  12307
+                  },
+                  {
+                      "file":  "03_入口输入24句.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\03_入口输入24句.md",
+                      "sha256":  "aeb9785a4aa38c13ee256d42f7f38004a89ebd55d28b1a46a0f21787491bcfff",
+                      "bytes":  5471
+                  },
+                  {
+                      "file":  "04_R01-R03B范围与引用.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\04_R01-R03B范围与引用.md",
+                      "sha256":  "6d3564b6b59dfbea885b3911c514acd71b8d380809f1c06a235eb124ea72ae1b",
+                      "bytes":  6926
+                  },
+                  {
+                      "file":  "05_自查报告.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\05_自查报告.md",
+                      "sha256":  "9cb067c34742fa8d7531d1868f69f83bcb2cd51c14e58dcf0432a3d3c51ea14e",
+                      "bytes":  7379
+                  },
+                  {
+                      "file":  "06_勘误遵循核对.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\06_勘误遵循核对.md",
                       "sha256":  "31061275813a1e0fb445efad524cdec41c37ef7059f018677052fcc1feb3c7fc",
                       "bytes":  6187
                   },
                   {
                       "file":  "C-16_补交说明.md",
-                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\C-16_补交说明.md",
-                      "sha256":  "5d0e4365ef79caa88d6a6d3bfba461920c7a2372dbddd9ce76e55a87deed8186",
-                      "bytes":  3870
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\C-16_补交说明.md",
+                      "sha256":  "33de410eb1e862d516fc16dfaa9fe56b3e60f8144563d61d59ef12ab657902ac",
+                      "bytes":  3923
+                  },
+                  {
+                      "file":  "check_c4.py",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\check_c4.py",
+                      "sha256":  "f1002813506b292c5292a38a6d90fb2f8f994d7dca00e76e70fb4907584bfdd2",
+                      "bytes":  13145
+                  },
+                  {
+                      "file":  "README.md",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\README.md",
+                      "sha256":  "55b870c1e3106f37a34b4f0d9d57a9f3c248f919314ea17495fa5b6bbd392b70",
+                      "bytes":  4638
+                  },
+                  {
+                      "file":  "selfcheck.json",
+                      "source":  "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第四轮_C4-1.1\\selfcheck.json",
+                      "sha256":  "a4ec5294743c51bc69d7c4f067385f690214dc2e008869e9ab880e6d2755d698",
+                      "bytes":  1683
                   }
               ]
 }

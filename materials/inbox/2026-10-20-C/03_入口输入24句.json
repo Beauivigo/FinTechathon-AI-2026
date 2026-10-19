@@ -1,0 +1,206 @@
+{
+  "package": "C 第四轮入口输入 24 句",
+  "member": "C",
+  "round": "2026-10-20 第四轮",
+  "version": "C4-1.1",
+  "date": "2026-10-19",
+  "baseline": "main@22473aa",
+  "executed_by": "C",
+  "command": "py -X utf8 materials/inbox/2026-10-20-C/check_c4.py",
+  "environment": "Python 3.14.2 / Windows / 仓库 main@22473aa",
+  "scope_note": "route(text) 是纯函数，只生成展示草稿；不调用网关、不写库、不授权。actual 为 2026-10-19 本地实跑结果，check_c4.py 每次自查重跑并比对。",
+  "cases": [
+    {
+      "id": "C4-ENT-BILL-01",
+      "category": "账单",
+      "type": "正常",
+      "text": "查一下账户 demo_account_a 在 2026-09 的账单",
+      "expected": {"status": "ready", "intent": "bill", "fields": {"account_id": "demo_account_a", "period": "2026-09"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "bill", "fields": {"account_id": "demo_account_a", "period": "2026-09"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-BILL-02",
+      "category": "账单",
+      "type": "缺字段",
+      "text": "查一下账户 demo_account_a 的账单",
+      "expected": {"status": "clarify", "intent": "bill", "fields": {"account_id": "demo_account_a"}, "missing": ["period"], "message_contains": "缺少：账期"},
+      "actual": {"status": "clarify", "intent": "bill", "fields": {"account_id": "demo_account_a"}, "missing": ["period"], "message": "缺少：账期。"}
+    },
+    {
+      "id": "C4-ENT-BILL-03",
+      "category": "账单",
+      "type": "歧义",
+      "text": "查账户 demo_account_a 和 demo_account_b 的账单",
+      "expected": {"status": "clarify", "intent": "bill", "fields": {}, "missing": ["account_id", "period"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "bill", "fields": {}, "missing": ["account_id", "period"], "message": "存在多个可选值，请明确一个。缺少：账户、账期。"}
+    },
+    {
+      "id": "C4-ENT-BILL-04",
+      "category": "账单",
+      "type": "取消/否定",
+      "text": "不要查账单了",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    },
+    {
+      "id": "C4-ENT-TRF-01",
+      "category": "转账",
+      "type": "正常",
+      "text": "从账户 demo_account_a 给李明转200元",
+      "expected": {"status": "ready", "intent": "transfer", "fields": {"account_id": "demo_account_a", "payee_query": "李明", "amount_text": "200元"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "transfer", "fields": {"account_id": "demo_account_a", "payee_query": "李明", "amount_text": "200元"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-TRF-02",
+      "category": "转账",
+      "type": "缺字段",
+      "text": "给李明转200元",
+      "expected": {"status": "clarify", "intent": "transfer", "fields": {"payee_query": "李明", "amount_text": "200元"}, "missing": ["account_id"], "message_contains": "缺少：账户"},
+      "actual": {"status": "clarify", "intent": "transfer", "fields": {"payee_query": "李明", "amount_text": "200元"}, "missing": ["account_id"], "message": "缺少：账户。"}
+    },
+    {
+      "id": "C4-ENT-TRF-03",
+      "category": "转账",
+      "type": "歧义",
+      "text": "从账户 demo_account_a 给李明转200或300元",
+      "expected": {"status": "clarify", "intent": "transfer", "fields": {}, "missing": ["account_id", "payee_query", "amount_text"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "transfer", "fields": {}, "missing": ["account_id", "payee_query", "amount_text"], "message": "存在多个可选值，请明确一个。缺少：账户、收款人、金额。"}
+    },
+    {
+      "id": "C4-ENT-TRF-04",
+      "category": "转账",
+      "type": "取消/否定",
+      "text": "不要给李明转账了",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    },
+    {
+      "id": "C4-ENT-CARD-01",
+      "category": "卡片",
+      "type": "正常",
+      "text": "申请卡片 账户 demo_account_a",
+      "expected": {"status": "ready", "intent": "card", "fields": {"card_operation": "申请", "account_id": "demo_account_a"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "card", "fields": {"card_operation": "申请", "account_id": "demo_account_a"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-CARD-02",
+      "category": "卡片",
+      "type": "缺字段",
+      "text": "申请卡片",
+      "expected": {"status": "clarify", "intent": "card", "fields": {"card_operation": "申请"}, "missing": ["account_id"], "message_contains": "缺少：账户"},
+      "actual": {"status": "clarify", "intent": "card", "fields": {"card_operation": "申请"}, "missing": ["account_id"], "message": "缺少：账户。"}
+    },
+    {
+      "id": "C4-ENT-CARD-03",
+      "category": "卡片",
+      "type": "歧义",
+      "text": "冻结卡片 CARD-E001 或 CARD-E002",
+      "expected": {"status": "clarify", "intent": "card", "fields": {}, "missing": ["card_operation", "card_id"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "card", "fields": {}, "missing": ["card_operation", "card_id"], "message": "存在多个可选值，请明确一个。缺少：卡片操作、卡片。"}
+    },
+    {
+      "id": "C4-ENT-CARD-04",
+      "category": "卡片",
+      "type": "取消/否定",
+      "text": "不要冻结卡片了",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    },
+    {
+      "id": "C4-ENT-AA-01",
+      "category": "AA",
+      "type": "正常",
+      "text": "AA 收款 从账户 demo_account_a 收300元 参与者 张三、李四",
+      "expected": {"status": "ready", "intent": "aa", "fields": {"account_id": "demo_account_a", "amount_text": "300元", "participants": "张三、李四"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "aa", "fields": {"account_id": "demo_account_a", "amount_text": "300元", "participants": "张三、李四"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-AA-02",
+      "category": "AA",
+      "type": "缺字段",
+      "text": "AA 收款 300元",
+      "expected": {"status": "clarify", "intent": "aa", "fields": {"amount_text": "300元"}, "missing": ["account_id", "participants"], "message_contains": "缺少：账户、参与人"},
+      "actual": {"status": "clarify", "intent": "aa", "fields": {"amount_text": "300元"}, "missing": ["account_id", "participants"], "message": "缺少：账户、参与人。"}
+    },
+    {
+      "id": "C4-ENT-AA-03",
+      "category": "AA",
+      "type": "歧义",
+      "text": "AA 收款 从账户 demo_account_a 和 demo_account_b 收300元 参与者 张三、李四",
+      "expected": {"status": "clarify", "intent": "aa", "fields": {}, "missing": ["account_id", "amount_text", "participants"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "aa", "fields": {}, "missing": ["account_id", "amount_text", "participants"], "message": "存在多个可选值，请明确一个。缺少：账户、金额、参与人。"}
+    },
+    {
+      "id": "C4-ENT-AA-04",
+      "category": "AA",
+      "type": "取消/否定",
+      "text": "不要 AA 收款了",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    },
+    {
+      "id": "C4-ENT-SUB-01",
+      "category": "订阅",
+      "type": "正常",
+      "text": "取消订阅 SUB-E001",
+      "expected": {"status": "ready", "intent": "subscription", "fields": {"subscription_operation": "取消", "subscription_id": "SUB-E001"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "subscription", "fields": {"subscription_operation": "取消", "subscription_id": "SUB-E001"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-SUB-02",
+      "category": "订阅",
+      "type": "缺字段",
+      "text": "取消订阅",
+      "expected": {"status": "clarify", "intent": "subscription", "fields": {"subscription_operation": "取消"}, "missing": ["subscription_id"], "message_contains": "缺少：订阅"},
+      "actual": {"status": "clarify", "intent": "subscription", "fields": {"subscription_operation": "取消"}, "missing": ["subscription_id"], "message": "缺少：订阅。"}
+    },
+    {
+      "id": "C4-ENT-SUB-03",
+      "category": "订阅",
+      "type": "歧义",
+      "text": "取消订阅 SUB-E001 或 SUB-E002",
+      "expected": {"status": "clarify", "intent": "subscription", "fields": {}, "missing": ["subscription_operation", "subscription_id"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "subscription", "fields": {}, "missing": ["subscription_operation", "subscription_id"], "message": "存在多个可选值，请明确一个。缺少：订阅操作、订阅。"}
+    },
+    {
+      "id": "C4-ENT-SUB-04",
+      "category": "订阅",
+      "type": "取消/否定",
+      "text": "不要取消订阅 SUB-E001",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    },
+    {
+      "id": "C4-ENT-BIR-01",
+      "category": "生日",
+      "type": "正常",
+      "text": "帮我准备生日 2026-11-20",
+      "expected": {"status": "ready", "intent": "birthday", "fields": {"birthday": "2026-11-20"}, "missing": [], "message_contains": "路由草稿完整"},
+      "actual": {"status": "ready", "intent": "birthday", "fields": {"birthday": "2026-11-20"}, "missing": [], "message": "路由草稿完整（不代表已授权或资源有效）。"}
+    },
+    {
+      "id": "C4-ENT-BIR-02",
+      "category": "生日",
+      "type": "缺字段",
+      "text": "帮我准备生日",
+      "expected": {"status": "clarify", "intent": "birthday", "fields": {}, "missing": ["birthday"], "message_contains": "缺少：生日"},
+      "actual": {"status": "clarify", "intent": "birthday", "fields": {}, "missing": ["birthday"], "message": "缺少：生日(YYYY-MM-DD)。"}
+    },
+    {
+      "id": "C4-ENT-BIR-03",
+      "category": "生日",
+      "type": "歧义",
+      "text": "生日 2026-11-20 或 2026-12-20",
+      "expected": {"status": "clarify", "intent": "birthday", "fields": {}, "missing": ["birthday"], "message_contains": "多个可选值"},
+      "actual": {"status": "clarify", "intent": "birthday", "fields": {}, "missing": ["birthday"], "message": "存在多个可选值，请明确一个。缺少：生日(YYYY-MM-DD)。"}
+    },
+    {
+      "id": "C4-ENT-BIR-04",
+      "category": "生日",
+      "type": "取消/否定",
+      "text": "不要准备生日了",
+      "expected": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message_contains": "已取消"},
+      "actual": {"status": "cancelled", "intent": null, "fields": {}, "missing": [], "message": "已取消当前路由草稿。"}
+    }
+  ]
+}

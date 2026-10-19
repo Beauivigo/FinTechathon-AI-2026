@@ -1,0 +1,465 @@
+{
+  "package": "C 第四轮跨模块用例（12 条）",
+  "member": "C",
+  "round": "2026-10-20 第四轮",
+  "version": "C4-1.1",
+  "date": "2026-10-19",
+  "baseline": "main@22473aa",
+  "scope_note": "只覆盖已实现或已由 A 验收的模拟功能；R01/R03-B 运行规则按 C-07 定版不启用。金额单位均为人民币整数分（CNY minor）。",
+  "groups": ["商户/预算/账单", "申请/订阅取消/提醒", "定时/恢复/入口"],
+  "cases": [
+    {
+      "id": "C4-MB-01",
+      "group": "商户/预算/账单",
+      "title": "预留 35700 → 鲜花 19900 → 释放剩余 15800，结清且不重复扣款",
+      "preconditions": [
+        "demo_account_a 初始 balance_minor=200000、available_minor=200000、reserved_minor=0（bank/seed.py）",
+        "该账户唯一 active 卡 CARD-E001，单笔限额 50000 分，覆盖本笔（bank/seed.py）",
+        "商品 ITEM-BD-FLOWER-01 价格 19900 分；地址 ADDR-BD-01；deliver_on 晚于上海当天",
+        "预算预留 35700 分，purpose=生日；确认/强验证走现有网关流程"
+      ],
+      "steps": [
+        "budget.reserve(account_id=demo_account_a, amount_minor=35700, purpose=生日) 确认后执行",
+        "merchant.order(account_id=demo_account_a, reservation_id=<上一步>, item_id=ITEM-BD-FLOWER-01, amount_minor=19900, deliver_on=<明天>, delivery_address_id=ADDR-BD-01) 强验证后执行",
+        "budget.release(reservation_id=<上一步>) 确认后执行"
+      ],
+      "expected": {
+        "funds": {
+          "after_reserve": {"balance_minor": 200000, "available_minor": 164300, "reserved_minor": 35700},
+          "after_order": {"balance_minor": 180100, "available_minor": 164300, "reserved_minor": 15800},
+          "after_release": {"balance_minor": 180100, "available_minor": 180100, "reserved_minor": 0}
+        },
+        "states": {
+          "reservation_after_reserve": "active",
+          "reservation_after_order": "partially_consumed",
+          "reservation_after_release": "closed",
+          "order": "succeeded"
+        },
+        "ledger": [{"kind": "consumption", "direction": "debit", "amount_minor": 19900, "count": 1}],
+        "errors": [],
+        "invariants": [
+          "每一步 balance_minor = available_minor + reserved_minor",
+          "budget.release 不新增账本流水",
+          "同一预算只被本笔订单消费一次"
+        ]
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_atomic_partial_consume_then_release", "test_confirm_reserve_release_exact_contract_audit_and_no_ledger"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言余额、预留、账本、审计与 release 不产生流水。",
+        "limitation": "C 未在本机重跑资金测试（无 Streamlit，且临时目录受 Windows 沙箱 ACL 限制）；引用 A 的执行记录，不冒充 C 自测。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/A4第三步验收.md", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["docs/接口约定与接入指南.md", "bank/budget.py", "bank/merchant.py"]
+    },
+    {
+      "id": "C4-MB-02",
+      "group": "商户/预算/账单",
+      "title": "预留 35700 被鲜花 19900 + 蛋糕 15800 全额用完，不释放直接 closed",
+      "preconditions": [
+        "demo_account_a 初始 balance_minor=200000、available_minor=200000、reserved_minor=0",
+        "active 卡 CARD-E001 单笔限额 50000 分，覆盖两笔",
+        "预算预留 35700 分；鲜花 19900 分、蛋糕 15800 分，配送日期均晚于上海当天"
+      ],
+      "steps": [
+        "budget.reserve(account_id=demo_account_a, amount_minor=35700, purpose=生日)",
+        "merchant.order(item_id=ITEM-BD-FLOWER-01, amount_minor=19900, reservation_id=<上一步>)",
+        "merchant.order(item_id=ITEM-BD-CAKE-01, amount_minor=15800, reservation_id=<上一步>)",
+        "不调用 budget.release"
+      ],
+      "expected": {
+        "funds": {
+          "after_first_order": {"balance_minor": 180100, "available_minor": 164300, "reserved_minor": 15800},
+          "after_second_order": {"balance_minor": 164300, "available_minor": 164300, "reserved_minor": 0}
+        },
+        "states": {
+          "reservation_after_first_order": "partially_consumed",
+          "reservation_after_second_order": "closed",
+          "orders": "succeeded"
+        },
+        "ledger": [
+          {"kind": "consumption", "direction": "debit", "amount_minor": 19900, "count": 1},
+          {"kind": "consumption", "direction": "debit", "amount_minor": 15800, "count": 1}
+        ],
+        "errors": [],
+        "invariants": [
+          "两笔消费合计 35700 分，等于预留金额",
+          "第二笔后 remaining_reserved_minor=0，状态 closed，无需 release"
+        ]
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_full_consume_closes_no_release", "test_consumption_reconciles_with_bill_and_reset_handles_new_tables"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言全额消费后 closed、无 release 流水、账单毛支出为 35700 分。",
+        "limitation": "C 未重跑资金测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/merchant.py", "bank/budget.py"]
+    },
+    {
+      "id": "C4-MB-03",
+      "group": "商户/预算/账单",
+      "title": "可用余额 200000 预留 300000，确认后失败且不产生预留/流水",
+      "preconditions": [
+        "demo_account_a 初始 balance_minor=200000、available_minor=200000、reserved_minor=0",
+        "预留金额 300000 分，大于可用余额"
+      ],
+      "steps": [
+        "budget.reserve(account_id=demo_account_a, amount_minor=300000, purpose=生日)",
+        "按现有黄色流程确认；执行阶段复查可用余额"
+      ],
+      "expected": {
+        "status": "failed",
+        "error_code": "INSUFFICIENT_FUNDS",
+        "funds": {"balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0},
+        "states": {"reservation_created": false, "ledger_count": 0},
+        "audit": "记录一次失败决策，不写资金流水",
+        "repeat_same_key": "重放同一失败结果，不产生预留"
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言确认后复查余额、失败不产生预留与流水。",
+        "limitation": "C 未重跑资金测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/budget.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-BILL-01",
+      "group": "商户/预算/账单",
+      "title": "账单毛支出 622400、退款另列，R03-A 仅命中 6000.00 元大额单笔",
+      "preconditions": [
+        "账户 demo_account_a；查询区间 2026-09-01 至 2026-09-30（含两端，上海日期）",
+        "六条明确标记的模拟流水：消费 19900（鲜花）、订阅 2500、转账 50000（debit）、退款 3000（credit）、工资 100000（credit）、消费 600000（大额消费，debit）",
+        "R03-A 已启用：单笔 debit 且 kind∈{consumption,subscription,transfer,wealth} 且金额 ≥500000 分提示；其它规则未启用"
+      ],
+      "steps": [
+        "以 params(account_id=demo_account_a, start_date=2026-09-01, end_date=2026-09-30) 调用 bill.analyze",
+        "核对 total_expense_minor、categories、anomalies、report 四项输出",
+        "确认转账 50000 与收入 100000 不计入毛支出，退款 3000 只在 report 另列，anomalies 只含 600000 分的 TX-LARGE-01"
+      ],
+      "input": {
+        "params": {"account_id": "demo_account_a", "start_date": "2026-09-01", "end_date": "2026-09-30"},
+        "rows": [
+          {"transaction_id": "TX-CONS-01", "account_id": "demo_account_a", "amount_minor": 19900, "direction": "debit", "kind": "consumption", "category": "鲜花", "occurred_at": "2026-09-15T10:00:00+08:00", "merchant_name": "模拟生日鲜花束"},
+          {"transaction_id": "TX-SUB-01", "account_id": "demo_account_a", "amount_minor": 2500, "direction": "debit", "kind": "subscription", "category": "订阅", "occurred_at": "2026-09-15T10:00:00+08:00", "merchant_name": "视频会员"},
+          {"transaction_id": "TX-TRF-01", "account_id": "demo_account_a", "amount_minor": 50000, "direction": "debit", "kind": "transfer", "category": "转账", "occurred_at": "2026-09-15T10:00:00+08:00"},
+          {"transaction_id": "TX-REF-01", "account_id": "demo_account_a", "amount_minor": 3000, "direction": "credit", "kind": "refund", "category": "退款", "occurred_at": "2026-09-15T10:00:00+08:00"},
+          {"transaction_id": "TX-INC-01", "account_id": "demo_account_a", "amount_minor": 100000, "direction": "credit", "kind": "income", "category": "工资", "occurred_at": "2026-09-15T10:00:00+08:00"},
+          {"transaction_id": "TX-LARGE-01", "account_id": "demo_account_a", "amount_minor": 600000, "direction": "debit", "kind": "consumption", "category": "大额消费", "occurred_at": "2026-09-15T10:00:00+08:00", "merchant_name": "大额商户"}
+        ]
+      },
+      "expected": {
+        "total_expense_minor": 622400,
+        "categories": [
+          {"category": "大额消费", "amount_minor": 600000},
+          {"category": "订阅", "amount_minor": 2500},
+          {"category": "鲜花", "amount_minor": 19900}
+        ],
+        "anomalies": [
+          {"transaction_id": "TX-LARGE-01", "reason": "大额单笔 6000.00 元 ≥ 5000.00 元（C1-003-R03 分支A）"}
+        ],
+        "report": "上海日期 2026-09-01 至 2026-09-30（含两端），消费/订阅毛支出 6224.00 元。本期退款入账 30.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。",
+        "invariants": [
+          "分类金额之和 = total_expense_minor = 622400",
+          "转账 50000、收入 100000 不计入毛支出；退款 3000 只出现在 report，不冲减",
+          "anomalies 只含 TX-LARGE-01；50000 分转账未达 500000 分阈值"
+        ]
+      },
+      "actual": {
+        "status": "已执行（C，本地）",
+        "executed_by": "C",
+        "command": "py -X utf8 materials/inbox/2026-10-20-C/check_c4.py",
+        "environment": "Python 3.14.2 / Windows / 仓库 main@22473aa",
+        "summary": "C 用 billing.analyze 对上述六条模拟流水实跑，输出与 expected 完全一致；check_c4.py 每次自查重跑并比对。",
+        "limitation": "该执行只证明只读账单聚合与 R03-A；不代表 R01/R03-B 已启用。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/接口约定与接入指南.md"],
+      "rule_refs": ["billing/__init__.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-APP-01",
+      "group": "申请/订阅取消/提醒",
+      "title": "无卡账户首次申请受理，同键重放，换键因 pending 拒绝",
+      "preconditions": [
+        "demo_account_li 无 active 卡、无 pending 申请（bank/seed.py）",
+        "card.apply 为黄色操作，确认后执行"
+      ],
+      "steps": [
+        "card.apply(account_id=demo_account_li) 使用幂等键 K1",
+        "同一 K1 重放",
+        "使用新键 K2 再次申请"
+      ],
+      "expected": {
+        "first": {"status": "succeeded", "data_keys": ["application_id"], "application_id_pattern": "^application_[0-9a-f]{32}$", "application_state": "pending"},
+        "replay": {"status": "succeeded", "application_id": "与首次相同"},
+        "new_key": {"status": "failed", "error_code": "INVALID_STATE"},
+        "cards": {"created": 0, "count": 0},
+        "funds": {"balance_minor": 0, "available_minor": 0, "reserved_minor": 0}
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_apply_receipt_no_card_and_new_key_pending_rejected", "test_two_apply_confirmations_only_one_pending"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言只产生一条 pending 申请、同键重放、换键 INVALID_STATE、不发卡。",
+        "limitation": "C 未重跑卡片测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/member_workflows.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-APP-02",
+      "group": "申请/订阅取消/提醒",
+      "title": "已有 active 卡账户申请被拒，不新增申请、不改卡状态",
+      "preconditions": [
+        "demo_account_a 已有 active 卡 CARD-E001（bank/seed.py）",
+        "card.apply 为黄色操作，确认后执行"
+      ],
+      "steps": ["card.apply(account_id=demo_account_a) 使用幂等键 K1"],
+      "expected": {
+        "status": "failed",
+        "error_code": "INVALID_STATE",
+        "applications": {"created": 0, "pending": 0},
+        "cards": {"CARD-E001": "active", "count": 3},
+        "funds": {"balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0}
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_apply_active_card_foreign_account_and_rejected_new_application"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言有 active 卡时拒绝申请且不留申请记录。",
+        "limitation": "C 未重跑卡片测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/member_workflows.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-SUB-01",
+      "group": "申请/订阅取消/提醒",
+      "title": "取消 active 订阅：状态 cancelled、未发送提醒作废、已发送历史保留",
+      "preconditions": [
+        "SUB-E001 先经 subscription.review accept 变为 active；next_charge_date=2026-11-05，金额 2500 分，monthly（bank/seed.py）",
+        "存在一条 scheduled 提醒（2026-11-04T09:00:00+08:00）和一条历史 sent 提醒（2026-10-30T09:00:00+08:00）"
+      ],
+      "steps": [
+        "subscription.cancel(subscription_id=SUB-E001) 使用幂等键 K1",
+        "同一 K1 重放",
+        "使用新键 K2 再次取消"
+      ],
+      "expected": {
+        "first": {"status": "succeeded", "subscription_state": "cancelled"},
+        "reminders": {"scheduled_before": 1, "scheduled_after": 0, "scheduled_state": "cancelled", "sent_state": "sent"},
+        "replay": {"status": "succeeded", "subscription_state": "cancelled"},
+        "new_key": {"status": "failed", "error_code": "INVALID_STATE"},
+        "funds": {"balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0}
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_cancel_stops_scheduled_reminder_and_clock_advance_no_effects", "test_cancel_retains_sent_history"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言取消只改 active→cancelled、作废未发送提醒、保留 sent 历史、不扣款。",
+        "limitation": "C 未重跑订阅测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/member_workflows.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-SUB-02",
+      "group": "申请/订阅取消/提醒",
+      "title": "提醒登记时间边界：扣费日零点前、同键同时刻复用、不同时刻不覆盖",
+      "preconditions": [
+        "SUB-E001 已 active；next_charge_date=2026-11-05；服务端当前时间 2026-10-19T10:00:00+08:00",
+        "提醒必须不早于当前时间且严格早于扣费日 2026-11-05T00:00:00+08:00"
+      ],
+      "steps": [
+        "subscription.remind(remind_at=2026-11-04T09:00:00+08:00) 使用 K1",
+        "同一时间使用 K2 重放",
+        "使用不同时间 2026-11-03T09:00:00+08:00 使用 K3",
+        "使用扣费日零点 2026-11-05T00:00:00+08:00 使用 K4",
+        "使用过去时间 2026-10-18T09:00:00+08:00 使用 K5",
+        "在 2026-11-04T10:00:00+08:00 手动 run_reminders，再重复一次"
+      ],
+      "expected": {
+        "first": {"status": "succeeded", "reminder_state": "scheduled", "reminder_id_pattern": "^reminder_[0-9a-f]{32}$", "reminder_count": 1},
+        "same_time": {"status": "succeeded", "reminder_id": "与首次相同", "reminder_count": 1},
+        "different_time": {"status": "failed", "error_code": "INVALID_STATE", "reminder_count": 1},
+        "due_boundary": {"status": "failed", "error_code": "INVALID_REQUEST"},
+        "past": {"status": "failed", "error_code": "INVALID_REQUEST"},
+        "dispatch": {"first_check": "sent", "second_check": "sent", "reminder_count": 1},
+        "funds": {"balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0}
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_reminder_duplicate_keys_and_time_boundaries", "test_reminder_actual_dispatch_restart_and_no_duplicate"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言时间边界、同键复用一个 reminder_id、不同时间不覆盖、手动检查只触发一次。",
+        "limitation": "C 未重跑订阅测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/member_workflows.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-SCH-01",
+      "group": "定时/恢复/入口",
+      "title": "定时转账登记返回 scheduled，不扣款、不产生流水",
+      "preconditions": [
+        "demo_account_a 初始 200000/200000/0；收款人 demo_payee_li 属于当前用户",
+        "示例服务端时间 2026-10-19T21:00:00+08:00；execute_at=2026-10-19T23:00:00+08:00（在 1 分钟至 30 天窗口内）",
+        "金额 20000 分；登记只创建任务，不代表已转账"
+      ],
+      "steps": [
+        "transfer.schedule(account_id=demo_account_a, payee_id=demo_payee_li, amount_minor=20000, execute_at=2026-10-19T23:00:00+08:00) 确认后执行",
+        "检查账户、任务和账本",
+        "边界对照：execute_at=now+30 秒",
+        "边界对照：execute_at=now+31 天"
+      ],
+      "expected": {
+        "status": "scheduled",
+        "data": {"schedule_id_pattern": "^schedule_[0-9a-f]{64}$", "execute_at": "2026-10-19T23:00:00+08:00"},
+        "funds": {"balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0},
+        "states": {"task": "scheduled", "ledger_count": 0, "transfer_operation": "不存在"},
+        "boundaries": [
+          {"execute_at": "now+30s", "status": "failed", "error_code": "INVALID_REQUEST"},
+          {"execute_at": "now+31d", "status": "failed", "error_code": "INVALID_REQUEST"}
+        ]
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_registration_bounds_and_no_money_replay", "test_registration_reject_expire_ownership_and_conflict"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言 registration 只返回 scheduled、不扣款、1 分钟/30 天边界拒绝、同键重放。",
+        "limitation": "C 未重跑调度测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/scheduler.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-SCH-02",
+      "group": "定时/恢复/入口",
+      "title": "到期手动检查只执行一次，重复检查与重启不重复扣款",
+      "preconditions": [
+        "C4-SCH-01 的任务已到期：now=execute_at+1 分钟；金额 20000 分",
+        "demo_account_a 余额 200000；收款人账户映射未变化；任务状态 scheduled"
+      ],
+      "steps": [
+        "run_once(principal_id=demo_user_a) 第一次",
+        "run_once 第二次",
+        "模拟重启后 run_once 第三次",
+        "边界对照：now=execute_at+6 分钟且从未执行",
+        "边界对照：到期前收款人账户映射变化",
+        "边界对照：到期时可用余额小于 20000"
+      ],
+      "expected": {
+        "first": {"task": "dispatched", "transfer": "succeeded", "amount_minor": 20000},
+        "funds_after_first": {"balance_minor": 180000, "available_minor": 180000, "reserved_minor": 0},
+        "ledger": {"debit_count": 1, "credit_count": 1, "amount_minor": 20000},
+        "second_and_restart": {"task": "dispatched", "balance_minor": 180000, "new_debit_count": 0},
+        "boundaries": [
+          {"case": "late_6min", "status": "failed", "reason": "lateness_expired", "balance_minor": 200000},
+          {"case": "payee_changed", "status": "failed", "reason": "resource_changed", "balance_minor": 200000},
+          {"case": "insufficient_funds", "status": "failed", "reason": "insufficient_funds", "balance_minor": 10000}
+        ]
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_due_uses_current_day_cumulative_and_balance", "test_claim_crash_restart_and_lost_dispatch_reply", "test_lost_before_submission_reuses_key_and_cannot_cancel_in_flight"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 在 426 项全量中执行，断言到期执行一次、重复/重启复用执行键、迟到/资源变化/余额不足失败且不扣款。",
+        "limitation": "C 未重跑调度测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/2026-10-19可开工任务验收.md"],
+      "rule_refs": ["bank/scheduler.py", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-REC-01",
+      "group": "定时/恢复/入口",
+      "title": "转账回执丢失显示 unknown，查原操作恢复成功且不二次扣款",
+      "preconditions": [
+        "一笔 20000 分转账已提交并成功，但客户端未收到回执；账户余额已扣至 180000",
+        "原请求幂等键 K 保留；客户端展示 unknown/RESULT_UNKNOWN",
+        "operation.get 只能查询原写操作，不重新执行"
+      ],
+      "steps": [
+        "客户端显示 unknown，阻止新转账并要求先恢复",
+        "operation.get(original_action=transfer.create, original_idempotency_key=K)",
+        "模拟查询暂时失败",
+        "查询恢复后再次 operation.get"
+      ],
+      "expected": {
+        "before_query": {"client_status": "unknown", "error_code": "RESULT_UNKNOWN", "new_transfer": "blocked"},
+        "query_failure": {"client_status": "unknown", "original_key": "K", "not_reported_as_failed": true},
+        "query_success": {"status": "succeeded", "amount_minor": 20000},
+        "funds": {"balance_minor": 180000, "available_minor": 180000, "reserved_minor": 0, "second_debit": 0},
+        "recovery": {"restores_original_result": true, "new_key_allowed_only_after_recovery": true}
+      },
+      "actual": {
+        "status": "已执行（A，引用）",
+        "executed_by": "A",
+        "tests": ["test_lost_authorize_reply_recovers_success_and_no_second_debit", "test_not_found_keeps_unknown_and_original_key", "test_backend_unknown_stays_blocked_after_query"],
+        "evidence_log": "docs/evidence/2026-10-19-A4-S3-full.txt",
+        "summary": "A 的 P4 恢复测试在 426 项全量中执行，断言 unknown 不被改写成失败、查原操作恢复成功、不二次扣款。",
+        "limitation": "C 未重跑恢复测试；引用 A 执行记录。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-A4-S3-full.txt", "docs/P4异常恢复验收.md"],
+      "rule_refs": ["docs/P4异常恢复验收.md", "docs/接口约定与接入指南.md"]
+    },
+    {
+      "id": "C4-ENTRY-01",
+      "group": "定时/恢复/入口",
+      "title": "需求入口只生成路由草稿：完整输入 ready，缺字段追问，不写账",
+      "preconditions": [
+        "纯函数 route(text) 只返回 status/intent/fields/missing/message，不调用网关、不写库",
+        "demo_account_a 余额 200000；首页需求入口可用",
+        "示例输入不包含授权或强验证"
+      ],
+      "steps": [
+        "输入“从账户 demo_account_a 给李明转200元”，点击识别",
+        "输入“给李明转钱”，点击识别",
+        "核对草稿后点击进入转账表单（不提交）"
+      ],
+      "input": {
+        "ready_text": "从账户 demo_account_a 给李明转200元",
+        "missing_text": "给李明转钱"
+      },
+      "expected": {
+        "ready": {
+          "status": "ready",
+          "intent": "transfer",
+          "fields": {"account_id": "demo_account_a", "payee_query": "李明", "amount_text": "200元"},
+          "missing": []
+        },
+        "missing": {
+          "status": "clarify",
+          "intent": "transfer",
+          "fields": {"payee_query": "李明"},
+          "missing": ["account_id", "amount_text"]
+        },
+        "side_effects": {"gateway_calls": 0, "balance_minor": 200000, "available_minor": 200000, "reserved_minor": 0},
+        "navigation": "只导航到表单，不执行、不授权、不改变余额"
+      },
+      "actual": {
+        "status": "已执行（C，本地）",
+        "executed_by": "C",
+        "command": "py -X utf8 materials/inbox/2026-10-20-C/check_c4.py",
+        "environment": "Python 3.14.2 / 仓库 main@22473aa",
+        "summary": "C 直接调用 agent.routing.route 实跑两条输入，结果与 expected 完全一致；check_c4.py 每次自查重跑并比对。",
+        "limitation": "route 是纯函数，不能证明页面点击链路；页面导航部分引用 A 的 R1/R2 证据。"
+      },
+      "evidence": ["docs/evidence/2026-10-19-R1.json", "docs/evidence/2026-10-19-R2.json", "docs/A4前两步验收.md"],
+      "rule_refs": ["agent/routing.py", "docs/A4前两步验收.md"]
+    }
+  ]
+}

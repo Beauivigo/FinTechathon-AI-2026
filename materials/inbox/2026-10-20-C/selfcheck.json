@@ -1,0 +1,53 @@
+{
+  "package": "C 第四轮交付包（2026-10-20）",
+  "generated_at": "2026-10-19T23:10:37.906180+08:00",
+  "baseline": "main@22473aa",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "checks": {
+    "cases_total": 12,
+    "case_groups": {
+      "商户/预算/账单": 4,
+      "申请/订阅取消/提醒": 4,
+      "定时/恢复/入口": 4
+    },
+    "case_ids_unique": true,
+    "decisions_present": true,
+    "errata_checks": {
+      "errata_file": true,
+      "c12_no_static_cell": true,
+      "c13_exact_threshold": true,
+      "c14_window": true,
+      "c15_simulated": true
+    },
+    "bill_match": true,
+    "bill_error": null,
+    "entries_total": 24,
+    "entry_categories": {
+      "账单": 4,
+      "转账": 4,
+      "卡片": 4,
+      "AA": 4,
+      "订阅": 4,
+      "生日": 4
+    },
+    "entry_types": {
+      "正常": 6,
+      "缺字段": 6,
+      "歧义": 6,
+      "取消/否定": 6
+    },
+    "entry_failures": [],
+    "entry_case_match": true,
+    "evidence_paths_missing": []
+  },
+  "failure_count": 0,
+  "failures": [],
+  "result": "PASS",
+  "limits": [
+    "12 条用例中只有 C4-BILL-01 与 C4-ENTRY-01 由本机纯函数实跑；其余 10 条引用 A 的 426 项全量证据。",
+    "本机未安装 Streamlit，页面测试未重跑；页面部分引用 A 的 R1/R2 与 A4 证据。",
+    "Windows 沙箱 ACL 使临时目录清理失败，数据库类测试未在本机重跑；不冒充 C 自测通过。",
+    "route() 结果只代表展示草稿，不代表已授权、资源有效或业务执行。"
+  ]
+}
