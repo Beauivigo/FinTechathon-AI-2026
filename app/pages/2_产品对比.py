@@ -8,7 +8,7 @@ from shared import ServiceError, ContractError, adapt_request, validate_result
 
 st.set_page_config(page_title='模拟产品对比',layout='wide')
 st.title('产品对比')
-st.info('以下为 D 第一轮定版的 6 个虚构产品（WP-C01—C06），字段与共享接口一致。仅对比展示，不推荐产品；风险评估已可用，申购/赎回待接入。')
+st.info('以下为 D 第一轮定版的 6 个虚构产品（WP-C01—C06），字段与共享接口一致。仅做对比展示，不推荐产品；评估、申购、持仓与赎回请到“理财”页。')
 try:
     gw = gateway()
     catalog = gw.get_context(principal_id=PRINCIPAL)['products']
