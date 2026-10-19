@@ -12,7 +12,32 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 10  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 11  # 数据库版本，与公开 JSON schema_version 分开。
+
+WEALTH_SCHEMA = (
+    """CREATE TABLE IF NOT EXISTS risk_profiles (
+        profile_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+        questionnaire_version TEXT NOT NULL, answers_json TEXT NOT NULL,
+        total_score INTEGER NOT NULL CHECK(total_score BETWEEN 0 AND 100),
+        risk_level TEXT NOT NULL CHECK(risk_level IN ('R1','R2','R3','R4','R5')),
+        created_at TEXT NOT NULL)""",
+    """CREATE TABLE IF NOT EXISTS holdings (
+        holding_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+        account_id TEXT NOT NULL REFERENCES accounts, product_id TEXT NOT NULL,
+        units TEXT NOT NULL, confirmed_on TEXT NOT NULL,
+        lock_days INTEGER NOT NULL CHECK(lock_days >= 0),
+        state TEXT NOT NULL CHECK(state IN ('open','closed')))""",
+    """CREATE INDEX IF NOT EXISTS holdings_account ON holdings(account_id, state)""",
+    """CREATE TABLE IF NOT EXISTS wealth_orders (
+        order_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+        account_id TEXT NOT NULL REFERENCES accounts, product_id TEXT NOT NULL,
+        order_type TEXT NOT NULL CHECK(order_type IN ('purchase','redeem')),
+        amount_minor INTEGER NOT NULL CHECK(amount_minor >= 0),
+        fee_minor INTEGER NOT NULL CHECK(fee_minor >= 0),
+        units TEXT NOT NULL, holding_id TEXT, status TEXT NOT NULL,
+        operation_key TEXT NOT NULL, occurred_at TEXT NOT NULL,
+        UNIQUE(principal_id, operation_key))""",
+)
 
 WORKFLOWS_SCHEMA = (
     """CREATE TABLE IF NOT EXISTS merchant_intents (
@@ -150,6 +175,7 @@ SCHEMA = (
     TASKS_SCHEMA,
     RESERVATIONS_SCHEMA,
     *WORKFLOWS_SCHEMA,
+    *WEALTH_SCHEMA,
 )
 
 
@@ -225,6 +251,10 @@ class Store:
                 version = 9
             if app_id == APPLICATION_ID and version == 9:
                 for statement in WORKFLOWS_SCHEMA:
+                    connection.execute(statement)
+                version = 10
+            if app_id == APPLICATION_ID and version == 10:
+                for statement in WEALTH_SCHEMA:
                     connection.execute(statement)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:

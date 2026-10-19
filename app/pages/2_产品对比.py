@@ -8,7 +8,7 @@ from shared import ServiceError, ContractError, adapt_request, validate_result
 
 st.set_page_config(page_title='模拟产品对比',layout='wide')
 st.title('产品对比')
-st.info('以下是工程模拟样例，不是 D 已确认的正式产品。仅对比展示，不推荐产品，不执行评估、申购、赎回或扣款。')
+st.info('以下为 D 第一轮定版的 6 个虚构产品（WP-C01—C06），字段与共享接口一致。仅对比展示，不推荐产品；风险评估已可用，申购/赎回待接入。')
 try:
     gw = gateway()
     catalog = gw.get_context(principal_id=PRINCIPAL)['products']

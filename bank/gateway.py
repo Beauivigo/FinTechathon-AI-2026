@@ -18,7 +18,7 @@ from shared.contracts import MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
 from .transfer import handle, split_shares
-from . import budget, merchant, member_workflows
+from . import budget, wealth, merchant, member_workflows
 
 PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
@@ -26,7 +26,8 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 class BankGateway:
     demo_mode = True
     write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review',
-                               'subscription.scan', 'merchant.order', *member_workflows.ACTIONS, *CARD_ACTIONS, *budget.ACTIONS})
+                               'subscription.scan', 'merchant.order', *member_workflows.ACTIONS,
+                               *CARD_ACTIONS, *budget.ACTIONS, *wealth.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -303,7 +304,10 @@ class BankGateway:
                         self._save(c, request, result, principal)
                         self._audit(c, request, principal, 'failed', now, code=exc.code)
                     else:
-                        result = self._pending(c, request, principal, kind, payee, now)
+                        if kind == 'execute':
+                            result = self._commit_green(c, request, principal, now)
+                        else:
+                            result = self._pending(c, request, principal, kind, payee, now)
                         if request['action']=='merchant.order':
                             c.execute('INSERT INTO merchant_intents VALUES (?,?,?,?)',(principal,request['idempotency_key'],request['params']['reservation_id'],request['params']['amount_minor']))
             return result  # 外层事务提交后才返回。
@@ -311,6 +315,20 @@ class BankGateway:
             return self._error(request, exc.code)
         except (sqlite3.Error, ContractError):
             return self._error(request, 'RESULT_UNKNOWN', status='unknown')
+
+    def _commit_green(self, c, request, principal, now):
+        """绿色写操作无需确认/强验证，直接在同一事务内提交（目前仅 wealth.assess）。"""
+        try:
+            with self.store.savepoint(c):
+                result = self._commit_action(c, request, None, principal, now)
+                if self._load(c, request, principal)[1] != result:
+                    raise ServiceError('UPSTREAM_ERROR', '模块回执与已保存结果不一致。')
+        except (ServiceError, sqlite3.Error, ContractError) as exc:
+            code = exc.code if isinstance(exc, ServiceError) else 'UPSTREAM_ERROR'
+            result = self._error(request, code)
+            self._save(c, request, result, principal)
+            self._audit(c, request, principal, 'failed', now, code=code)
+        return result
 
     def _challenge(self, c, challenge_id, principal):
         require_principal(c, principal)
@@ -409,6 +427,8 @@ class BankGateway:
             return member_workflows.binding(c,request,principal,self.clock())
         if request['action']=='merchant.order':
             return merchant.binding(c,request,principal,self.clock())
+        if request['action'] in wealth.ACTIONS:
+            return wealth.binding(c, request, principal)
         if request['action'] in budget.ACTIONS:
             return budget.binding(c, request, principal)
         if request['action'] == 'transfer.schedule':
@@ -449,6 +469,12 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] in wealth.ACTIONS:
+            data, details = wealth.apply(self.store, c, request, principal, now)
+            result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')
+            self._save(c, request, result, principal, previous)
+            self._audit(c, request, principal, 'succeeded', now, **details)
+            return result
         if request['action'] in member_workflows.ACTIONS:
             data=member_workflows.apply(self.store,c,request,principal,now)
             result=adapt_result(request,dict(status='succeeded',data=data),source='sandbox')

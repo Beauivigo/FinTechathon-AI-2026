@@ -98,7 +98,7 @@ def reset_demo(*, confirm=False):
         raise ServiceError("INVALID_STATE", "请先初始化演示数据库。")
     store = Store(path)
     with store.connection(write=True) as connection:
-        for table in ("merchant_orders", "merchant_intents", "card_applications", "subscription_reminders", "page_cursors", "challenges", "audit_events", "fund_postings", "ledger_entries",
+        for table in ("wealth_orders", "holdings", "risk_profiles", "merchant_orders", "merchant_intents", "card_applications", "subscription_reminders", "page_cursors", "challenges", "audit_events", "fund_postings", "ledger_entries",
                       "transfers", "collections", "tasks", "reservations", "operations", "cards", "subscriptions", "payees", "accounts", "principals", "metadata"):
             connection.execute(f"DELETE FROM {table}")  # 固定内部表名，非用户输入。
         _seed(connection)
