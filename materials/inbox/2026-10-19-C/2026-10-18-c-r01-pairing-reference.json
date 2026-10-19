@@ -1,0 +1,212 @@
+{
+  "package": "C1-003-R01 借贷配对「编号闭合」参考实现（非生产代码，R01 未启用）",
+  "executor": "C",
+  "date": "2026-10-18",
+  "rule_version": "C-07 定版（2026-10-18）",
+  "window": "放款日（含）起 90 自然日",
+  "cases": [
+    {
+      "id": "SIM-01",
+      "title": "TR-SIM-01 借100000/还120000，Δ+20000 命中",
+      "actual": [
+        {
+          "loan": "TR-SIM-01-O",
+          "verdict": "HIT",
+          "delta_minor": 20000,
+          "closed": [
+            "TR-SIM-01-I"
+          ],
+          "out_of_window": []
+        }
+      ],
+      "expect": [
+        [
+          "HIT",
+          20000
+        ]
+      ],
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-02",
+      "title": "TR-SIM-02 借80000/还80000，不命中",
+      "actual": [
+        {
+          "loan": "TR-SIM-02-O",
+          "verdict": "MISS",
+          "delta_minor": 0,
+          "closed": [
+            "TR-SIM-02-I"
+          ],
+          "out_of_window": []
+        }
+      ],
+      "expect": [
+        [
+          "MISS",
+          0
+        ]
+      ],
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-03",
+      "title": "TR-SIM-03 借50000/还50001，Δ+1 命中（窗口 10-01→12-30）",
+      "actual": [
+        {
+          "loan": "TR-SIM-03-O",
+          "verdict": "HIT",
+          "delta_minor": 1,
+          "closed": [
+            "TR-SIM-03-I"
+          ],
+          "out_of_window": []
+        }
+      ],
+      "expect": [
+        [
+          "HIT",
+          1
+        ]
+      ],
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-04",
+      "title": "TR-SIM-04 借50000/还50000，不命中",
+      "actual": [
+        {
+          "loan": "TR-SIM-04-O",
+          "verdict": "MISS",
+          "delta_minor": 0,
+          "closed": [
+            "TR-SIM-04-I"
+          ],
+          "out_of_window": []
+        }
+      ],
+      "expect": [
+        [
+          "MISS",
+          0
+        ]
+      ],
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-05",
+      "title": "TR-SIM-05 借30000，窗口内无归还→无法判定",
+      "actual": [
+        {
+          "loan": "TR-SIM-05-O",
+          "verdict": "UNJUDGEABLE",
+          "delta_minor": null,
+          "closed": [],
+          "out_of_window": []
+        }
+      ],
+      "expect": [
+        [
+          "UNJUDGEABLE",
+          null
+        ]
+      ],
+      "verdict": "符合"
+    },
+    {
+      "id": "REAL-LX-003-011-NOW",
+      "title": "真实 LX-003/LX-011：ref 不同（TR-001/TR-002）且无指向字段→不自动配对、不宣称 Δ+500 命中",
+      "actual": {
+        "rule_results": [
+          {
+            "loan": "LX-003",
+            "amount": 100000,
+            "closed": [],
+            "out_of_window": [],
+            "verdict": "UNJUDGEABLE",
+            "delta": null
+          }
+        ],
+        "manual_candidates": [
+          "LX-003(08-10 借100000, 小王甲)",
+          "LX-011(09-08 入账150000, 小王甲)"
+        ],
+        "manual_note": "仅列入人工核查候选，不得由系统自动报异常"
+      },
+      "expect": "两笔均不闭合；无 HIT；候选人工核查",
+      "verdict": "符合"
+    },
+    {
+      "id": "REAL-LX-003-011-PATCHED",
+      "title": "补充显式指向字段后：窗口 08-10→11-08 含 09-08，Δ=+50000 分（+500.00 元）命中",
+      "actual": [
+        {
+          "loan": "LX-003",
+          "amount": 100000,
+          "closed": [
+            "LX-011"
+          ],
+          "out_of_window": [],
+          "verdict": "HIT",
+          "delta": 50000
+        }
+      ],
+      "expect": "HIT, delta=+50000",
+      "verdict": "符合"
+    },
+    {
+      "id": "CTRL-NO-INFER",
+      "title": "对照：同收款人同金额同月但无任何闭合编号 → 仍 UNJUDGEABLE，禁止推断",
+      "actual": [
+        {
+          "loan": "T1",
+          "amount": 50000,
+          "closed": [],
+          "out_of_window": [],
+          "verdict": "UNJUDGEABLE",
+          "delta": null
+        }
+      ],
+      "expect": "UNJUDGEABLE",
+      "verdict": "符合"
+    },
+    {
+      "id": "CTRL-OUT-OF-WINDOW",
+      "title": "对照：闭合但还款日 11-02 超过 90 天窗口（08-01→10-30）→ 无法判定",
+      "actual": [
+        {
+          "loan": "L1",
+          "amount": 30000,
+          "closed": [],
+          "out_of_window": [
+            "L2"
+          ],
+          "verdict": "UNJUDGEABLE",
+          "delta": null
+        }
+      ],
+      "expect": "UNJUDGEABLE 且 out_of_window=[L2]",
+      "verdict": "符合"
+    },
+    {
+      "id": "CTRL-NEG-DELTA",
+      "title": "对照：少归还 1000 分（Δ=−1000）同样命中",
+      "actual": [
+        {
+          "loan": "U1",
+          "amount": 60000,
+          "closed": [
+            "U2"
+          ],
+          "out_of_window": [],
+          "verdict": "HIT",
+          "delta": -1000
+        }
+      ],
+      "expect": "HIT, delta=-1000",
+      "verdict": "符合"
+    }
+  ],
+  "pass_count": 10,
+  "fail_count": 0
+}

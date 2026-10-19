@@ -2,12 +2,13 @@ from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 import streamlit as st
+from datetime import date,datetime,time,timedelta,timezone
 from app.workflow import current, render, perform
 
 st.set_page_config(page_title='模拟订阅管理',layout='wide')
 st.title('订阅核实与排除')
 st.info('固定候选与已知订阅来自 E 资料；可按流水自动识别周期扣费，识别只生成候选，不扣费、不提醒。核实不新签授权，排除不取消扣费。')
-st.caption('自动识别依据 E-03：同商户≥2 期、周期偏差≤3 天、金额容差 5%；取消扣费与续费提醒尚未接入。')
+st.caption('自动识别依据 E-03：同商户≥2 期、周期偏差≤3 天、金额容差 5%；可取消有效订阅并登记本地续费提醒；不新增自动扣费授权。')
 flow = current()
 accounts = flow.resources['accounts']
 if accounts:
@@ -31,4 +32,20 @@ if (flow.request and flow.request['action']=='subscription.list' and flow.result
         decision = st.selectbox('处理方式',['accept','reject'],key='subscription_decision',format_func=lambda d:'核实' if d=='accept' else '排除')
         if st.button('提交候选处理',key='subscription_review',disabled=flow.blocked):
             perform(flow.start_action,'subscription.review',dict(subscription_id=selected['subscription_id'],decision=decision))
+    active=[s for s in rows if s['subscription_state']=='active']
+    if active:
+        chosen=st.selectbox('管理有效订阅',active,key='subscription_active',format_func=lambda s:s['merchant_name'])
+        if st.button('申请取消订阅',key='subscription_cancel',disabled=flow.blocked):
+            perform(flow.start_action,'subscription.cancel',dict(subscription_id=chosen['subscription_id']))
+        default=date.fromisoformat(chosen['next_charge_date'])-timedelta(days=3)
+        day=st.date_input('提醒日期',value=default,key='reminder_date_'+chosen['subscription_id'])
+        hour=st.time_input('提醒时间（北京时间）',value=time(9),key='reminder_time')
+        if st.button('申请登记提醒',key='subscription_remind',disabled=flow.blocked):
+            perform(flow.start_action,'subscription.remind',dict(subscription_id=chosen['subscription_id'],remind_at=datetime.combine(day,hour,timezone(timedelta(hours=8))).isoformat()))
+if st.button('检查到期本地提醒',key='subscription_check_reminders',disabled=flow.blocked):
+    st.session_state.reminder_snapshot=flow.gateway.run_reminders(principal_id=flow.principal_id)
+    st.rerun()
+if st.session_state.get('reminder_snapshot'):
+    st.caption('上次手动检查的本地提醒快照；未向微信、短信或其他外部服务发送通知。')
+    st.dataframe([{'订阅':r['merchant_name'],'提醒时间':r['remind_at'],'状态':r['state']} for r in st.session_state.reminder_snapshot],hide_index=True)
 render(flow)

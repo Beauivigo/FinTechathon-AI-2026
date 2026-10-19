@@ -1,0 +1,121 @@
+{
+  "package": "C1-003-R03 分支B 参考实现（非生产代码，分支B 未启用）",
+  "executor": "C",
+  "date": "2026-10-18",
+  "rule_version": "C-07 定版（2026-10-18）：T−1 基准 + 样本闸门≥3 + 100 元下限",
+  "cases": [
+    {
+      "id": "REAL-LX005-B-NEW",
+      "title": "LX-005（08-15，500000）按 C-07 定版 T−1 口径：B 基准为空，不产生结论",
+      "expect": "NO_CONCLUSION（A 命中、B 不产生结论；不得把 B 写成无异常）",
+      "actual": {
+        "verdict": "NO_CONCLUSION",
+        "reason": "基准样本仅 0 笔（<3），不产生结论",
+        "sample": 0,
+        "numerator": 0,
+        "denominator": 14
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "REAL-LX005-B-OLD-C08",
+      "title": "C-08 旧算法复现（反面）：用 08-20 未来流水+全月 31 天+无下限，得阈值约 806 分 → 误判命中",
+      "expect": "该口径违反 T−1（使用未来数据），已被 C-07 定版废弃；仅作对照，不产生结论",
+      "actual": {
+        "old_numerator": 2500,
+        "old_denominator": 31,
+        "old_daily_avg": 80.65,
+        "old_threshold_approx": 806,
+        "would_have_hit": true,
+        "future_data_used": "LX-006 2026-08-20 > T=2026-08-15",
+        "verdict": ""
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-C-019",
+      "title": "SIM-C-019 候选 10000 分（日均 1000 分，阈值 10000）命中（闭区间）",
+      "expect": "HIT, threshold=10000",
+      "actual": {
+        "verdict": "HIT",
+        "sample": 10,
+        "numerator": 10000,
+        "denominator": 10,
+        "daily_avg_floor": 1000,
+        "threshold_minor": 10000
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-C-025",
+      "title": "SIM-C-025 候选 9999 分，低于阈值 10000 不命中",
+      "expect": "MISS",
+      "actual": {
+        "verdict": "MISS",
+        "sample": 10,
+        "numerator": 10000,
+        "denominator": 10,
+        "daily_avg_floor": 1000,
+        "threshold_minor": 10000
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-GATE-LT3",
+      "title": "基准样本仅 2 笔：候选 999999 也只能 NO_CONCLUSION（不是 MISS）",
+      "expect": "NO_CONCLUSION",
+      "actual": {
+        "verdict": "NO_CONCLUSION",
+        "reason": "基准样本仅 2 笔（<3），不产生结论",
+        "sample": 2,
+        "numerator": 2000,
+        "denominator": 9
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-FLOOR-9999",
+      "title": "基准日均 30 分（300/10），10×=300，阈值由下限抬到 10000；9999 不命中",
+      "expect": "MISS, threshold=10000",
+      "actual": {
+        "verdict": "MISS",
+        "sample": 3,
+        "numerator": 300,
+        "denominator": 10,
+        "daily_avg_floor": 30,
+        "threshold_minor": 10000
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-FLOOR-10000",
+      "title": "同上基准，候选 10000 分命中（闭区间）",
+      "expect": "HIT",
+      "actual": {
+        "verdict": "HIT",
+        "sample": 3,
+        "numerator": 300,
+        "denominator": 10,
+        "daily_avg_floor": 30,
+        "threshold_minor": 10000
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "SIM-SCOPE-MIX",
+      "title": "基准口径：订阅计入；工资/退款/R01 放款腿剔除；分子 4000、阈值 10000、999999 命中",
+      "expect": "HIT, numerator=4000, threshold=10000",
+      "actual": {
+        "verdict": "HIT",
+        "sample": 3,
+        "numerator": 4000,
+        "denominator": 10,
+        "daily_avg_floor": 400,
+        "threshold_minor": 10000
+      },
+      "verdict": "符合"
+    }
+  ],
+  "pass_count": 8,
+  "fail_count": 0
+}

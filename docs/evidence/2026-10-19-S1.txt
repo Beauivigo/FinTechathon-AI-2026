@@ -1,0 +1,49 @@
+test_atomic_partial_consume_then_release (tests.test_merchant.MerchantTests.test_atomic_partial_consume_then_release) ... ok
+test_audit_failure_rolls_back_order_ledger_funds_then_safe_release (tests.test_merchant.MerchantTests.test_audit_failure_rolls_back_order_ledger_funds_then_safe_release) ... ok
+test_cancelled_merchant_task_releases_and_late_request_is_rejected (tests.test_merchant.MerchantTests.test_cancelled_merchant_task_releases_and_late_request_is_rejected) ... ok
+test_card_selection_and_revalidation (tests.test_merchant.MerchantTests.test_card_selection_and_revalidation) ... ok
+test_committed_reply_loss_restart_replay (tests.test_merchant.MerchantTests.test_committed_reply_loss_restart_replay) ... ok
+test_consumption_reconciles_with_bill_and_reset_handles_new_tables (tests.test_merchant.MerchantTests.test_consumption_reconciles_with_bill_and_reset_handles_new_tables) ... ok
+test_expired_order_and_cross_user_authorization (tests.test_merchant.MerchantTests.test_expired_order_and_cross_user_authorization) ... ok
+test_full_consume_closes_no_release (tests.test_merchant.MerchantTests.test_full_consume_closes_no_release) ... ok
+test_input_price_date_account_and_amount_guards (tests.test_merchant.MerchantTests.test_input_price_date_account_and_amount_guards) ... ok
+test_pending_order_amount_is_retained_and_remaining_can_release (tests.test_merchant.MerchantTests.test_pending_order_amount_is_retained_and_remaining_can_release) ... ok
+test_rejected_order_can_release_and_late_approval_does_not_commit (tests.test_merchant.MerchantTests.test_rejected_order_can_release_and_late_approval_does_not_commit) ... ok
+test_release_confirmation_rechecks_late_order (tests.test_merchant.MerchantTests.test_release_confirmation_rechecks_late_order) ... ok
+test_selection_rejects_missing_inactive_limit_foreign (tests.test_merchant.MerchantTests.test_selection_rejects_missing_inactive_limit_foreign) ... ok
+test_two_pending_orders_cannot_over_allocate (tests.test_merchant.MerchantTests.test_two_pending_orders_cannot_over_allocate) ... ok
+test_unresolved_known_amount_and_missing_evidence (tests.test_merchant.MerchantTests.test_unresolved_known_amount_and_missing_evidence) ... ok
+test_v9_migration_preserves_pending_and_existing_reservation (tests.test_merchant.MerchantTests.test_v9_migration_preserves_pending_and_existing_reservation) ... ok
+test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve (tests.test_budget.BudgetTests.test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve) ... ok
+test_committed_reply_lost_recover_restart_without_second_release (tests.test_budget.BudgetTests.test_committed_reply_lost_recover_restart_without_second_release) ... ok
+test_concurrent_reserves_and_releases_do_not_overuse (tests.test_budget.BudgetTests.test_concurrent_reserves_and_releases_do_not_overuse) ... ok
+test_confirm_reserve_release_exact_contract_audit_and_no_ledger (tests.test_budget.BudgetTests.test_confirm_reserve_release_exact_contract_audit_and_no_ledger) ... ok
+test_duplicate_authorization_replays_once (tests.test_budget.BudgetTests.test_duplicate_authorization_replays_once) ... ok
+test_explicit_reset_with_budget_and_failed_reset_are_atomic (tests.test_budget.BudgetTests.test_explicit_reset_with_budget_and_failed_reset_are_atomic) ... ok
+test_merchant_unknown_after_release_confirmation_blocks_mutation (tests.test_budget.BudgetTests.test_merchant_unknown_after_release_confirmation_blocks_mutation) ... ok
+test_ownership_forged_authorization_and_invalid_amounts (tests.test_budget.BudgetTests.test_ownership_forged_authorization_and_invalid_amounts) ... ok
+test_page_confirmation_refresh_recovery_and_release (tests.test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release) ... ok
+test_page_rejection_and_lost_response_blocks_new_actions (tests.test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions) ... ok
+test_reject_expiry_and_late_approval_cannot_mutate (tests.test_budget.BudgetTests.test_reject_expiry_and_late_approval_cannot_mutate) ... ok
+test_replay_conflict_and_two_independent_reservations (tests.test_budget.BudgetTests.test_replay_conflict_and_two_independent_reservations) ... ok
+test_reserve_and_release_rollback_if_receipt_or_audit_fails (tests.test_budget.BudgetTests.test_reserve_and_release_rollback_if_receipt_or_audit_fails) ... ok
+test_scheduled_merchant_association_blocks_release (tests.test_budget.BudgetTests.test_scheduled_merchant_association_blocks_release) ... ok
+test_unknown_source_or_frozen_budget_never_released (tests.test_budget.BudgetTests.test_unknown_source_or_frozen_budget_never_released) ... ok
+test_v8_migration_preserves_pending_and_old_balance (tests.test_budget.BudgetTests.test_v8_migration_preserves_pending_and_old_balance) ... ok
+test_alias_and_exact_money (tests.test_contracts.ContractTests.test_alias_and_exact_money) ... ok
+test_all_actions_have_a_working_contract (tests.test_contracts.ContractTests.test_all_actions_have_a_working_contract) ... ok
+test_ambiguous_or_conflicting_fields_fail (tests.test_contracts.ContractTests.test_ambiguous_or_conflicting_fields_fail) ... ok
+test_dates_and_unknown_actions (tests.test_contracts.ContractTests.test_dates_and_unknown_actions) ... ok
+test_money_and_write_key_validation (tests.test_contracts.ContractTests.test_money_and_write_key_validation) ... ok
+test_operation_binding (tests.test_contracts.ContractTests.test_operation_binding) ... ok
+test_pending_cannot_carry_success_data (tests.test_contracts.ContractTests.test_pending_cannot_carry_success_data) ... ok
+test_plan_dependencies (tests.test_contracts.ContractTests.test_plan_dependencies) ... ok
+test_schedule_never_means_transfer_completed (tests.test_contracts.ContractTests.test_schedule_never_means_transfer_completed) ... ok
+test_success_needs_matching_receipt (tests.test_contracts.ContractTests.test_success_needs_matching_receipt) ... ok
+test_threshold_includes_current_transfer (tests.test_contracts.ContractTests.test_threshold_includes_current_transfer) ... ok
+test_timeout_is_unknown_not_failed (tests.test_contracts.ContractTests.test_timeout_is_unknown_not_failed) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 4.536s
+
+OK

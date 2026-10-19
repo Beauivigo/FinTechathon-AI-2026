@@ -237,7 +237,8 @@
             "item_id": "flowers_1",
             "amount_minor": 20000,
             "deliver_on": "2026-10-14",
-            "delivery_address_id": "address_1"
+            "delivery_address_id": "address_1",
+            "card_id": "card_1"
           },
           "idempotency_key": "operation_23"
         }

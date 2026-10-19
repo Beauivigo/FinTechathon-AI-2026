@@ -1,0 +1,13 @@
+test_crosses_leap_day (delegated_calendar_tests.BirthdayCalendarDatesTests.test_crosses_leap_day) ... ok
+test_crosses_month_boundary (delegated_calendar_tests.BirthdayCalendarDatesTests.test_crosses_month_boundary) ... ok
+test_crosses_year_boundary (delegated_calendar_tests.BirthdayCalendarDatesTests.test_crosses_year_boundary) ... ok
+test_leap_day_birthday (delegated_calendar_tests.BirthdayCalendarDatesTests.test_leap_day_birthday) ... ok
+test_order_on_today_is_rejected (delegated_calendar_tests.BirthdayCalendarDatesTests.test_order_on_today_is_rejected) ... ok
+test_regular_birthday_with_default_dates (delegated_calendar_tests.BirthdayCalendarDatesTests.test_regular_birthday_with_default_dates) ... ok
+test_remind_on_before_today_is_rejected (delegated_calendar_tests.BirthdayCalendarDatesTests.test_remind_on_before_today_is_rejected) ... ok
+test_remind_on_today_is_allowed (delegated_calendar_tests.BirthdayCalendarDatesTests.test_remind_on_today_is_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

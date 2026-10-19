@@ -1,0 +1,33 @@
+{
+  "executor": "A/Codex",
+  "date": "2026-10-19",
+  "checks": {
+    "B-original-and-archive-hashes": true,
+    "C-original-and-archive-hashes": true,
+    "E-original-and-archive-hashes": true,
+    "runtime-unchanged-entire-review": true,
+    "git-diff-check": true,
+    "tracked-changes-docs-only": true,
+    "new-files-no-trailing-whitespace": true
+  },
+  "runtime_before": {
+    "runtime\\sandbox.sqlite3": "a65b50a8db977dee9923f1369aff2efd1d99a051af10039e0ef56ee350ed48f3"
+  },
+  "runtime_after": {
+    "runtime\\sandbox.sqlite3": "a65b50a8db977dee9923f1369aff2efd1d99a051af10039e0ef56ee350ed48f3"
+  },
+  "doc_links": {
+    "checked": 9,
+    "exit_code": 0,
+    "checker": "previously reviewed isolated DeepSeek pilot check_doc_links.py; not merged"
+  },
+  "targeted_tests": {
+    "command": "./.venv/Scripts/python.exe -B -X utf8 -m unittest tests.test_budget tests.test_subscription_scan -v",
+    "ran": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "note": "Observed tool execution; summarized here, not a raw terminal log."
+  }
+}

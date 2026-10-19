@@ -1,0 +1,66 @@
+{
+  "member": "C",
+  "received": "2026-10-19",
+  "files": [
+    {
+      "file": "2026-10-18-c-jac-group1-n1.json",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-jac-group1-n1.json",
+      "sha256": "4a051661c9477e15775ef69ed1d08a256a88426e9e6df5fe1f08b63d266d0564",
+      "bytes": 13911
+    },
+    {
+      "file": "2026-10-18-c-jac-group1-n1.py",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-jac-group1-n1.py",
+      "sha256": "d2410ef6a32644f554cba9780d96b3e29251f5c026cb1c11a31ab766f4ed88bf",
+      "bytes": 16255
+    },
+    {
+      "file": "2026-10-18-c-jac-group2-e03.json",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-jac-group2-e03.json",
+      "sha256": "e66feacf50abcb9befa8b619a00d155249972d6010f46deed3e7ed1de1cc813f",
+      "bytes": 9962
+    },
+    {
+      "file": "2026-10-18-c-jac-group2-e03.py",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-jac-group2-e03.py",
+      "sha256": "e96a5ea2ff49e308fce095a9bc537b8133241ac46428b2fe7de64a030194388e",
+      "bytes": 16639
+    },
+    {
+      "file": "2026-10-18-c-r01-pairing-reference.json",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r01-pairing-reference.json",
+      "sha256": "be4b8435ba58c5638465ffb04cf1e5cecfcefcb9af2bc2172da4c671ed5cc213",
+      "bytes": 5239
+    },
+    {
+      "file": "2026-10-18-c-r01-pairing-reference.py",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r01-pairing-reference.py",
+      "sha256": "0faf6b8207e354b1173f624c23047f7c485290ebc7c484d004dffecb3d888514",
+      "bytes": 9727
+    },
+    {
+      "file": "2026-10-18-c-r03a-regression.json",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r03a-regression.json",
+      "sha256": "09ebf7ddd2344a32ab368bcf630d7e415da3390b01289e313db7953aaba941a3",
+      "bytes": 11287
+    },
+    {
+      "file": "2026-10-18-c-r03a-regression.py",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r03a-regression.py",
+      "sha256": "81b8f65ac506560b56fdd881ca1e81fddc984469e42c88edd621a25e8aca2e92",
+      "bytes": 9942
+    },
+    {
+      "file": "2026-10-18-c-r03b-reference.json",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r03b-reference.json",
+      "sha256": "2cb16613ae6d651f82a6078ee0ba5131c41ea6b7bce49ee21709510a6032ffc8",
+      "bytes": 3876
+    },
+    {
+      "file": "2026-10-18-c-r03b-reference.py",
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\2026-10-18-c-r03b-reference.py",
+      "sha256": "59127e42273527be86f0dccbeff5966243b1aa2d038e0eafc291736132617706",
+      "bytes": 8347
+    }
+  ]
+}

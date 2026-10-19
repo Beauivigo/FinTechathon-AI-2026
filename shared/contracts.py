@@ -118,7 +118,7 @@ ACTIONS = {
     "merchant.order": action("跨场景联动", "B", "red",
         {"account_id": "string", "reservation_id": "string", "item_id": "string", "amount_minor": "money",
          "deliver_on": "date", "delivery_address_id": "id"},
-        {"order_id": "string", "amount_minor": "money"}, write=True),
+        {"order_id": "string", "amount_minor": "money"}, {"card_id": "id"}, write=True),
     "account.balance": action("公共查询", "B", "green", {"account_id": "id"},
         {"account_id": "id", "balance_minor": "nonnegative", "available_minor": "nonnegative",
          "reserved_minor": "nonnegative", "currency": "enum:currency"}),

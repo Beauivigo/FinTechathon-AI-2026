@@ -182,6 +182,7 @@ class SandboxServices:
             return receipt  # 仅为外层事务内回执，此处没有 commit。
 
     def get_context(self, *, principal_id):
+        from .merchant import ITEMS, ADDRESSES
         with self.store.connection() as connection:
             require_principal(connection, principal_id)
             accounts = [dict(row) for row in connection.execute(
@@ -191,12 +192,18 @@ class SandboxServices:
                 products=products(), holdings=[], cards=[dict(row) for row in connection.execute(
                     '''SELECT card_id,account_id,card_state,limit_minor FROM cards JOIN accounts USING(account_id)
                        WHERE principal_id=? ORDER BY card_id''', (principal_id,))],
-                items=[], addresses=[], questionnaires=[]))
+                items=[dict(i) for i in ITEMS], addresses=[dict(a) for a in ADDRESSES], questionnaires=[]))
 
     def query(self, action, params, *, principal_id):
         # ponytail: 单机小规模查询用短事务保存游标；吞吐量扩大时再拆分读写事务。
         with self.store.connection(write=action == "transaction.list") as connection:
             require_principal(connection, principal_id)
+            if action == 'scenario.plan':
+                from scenario import plan
+                try:
+                    return plan(params['goal'],self.clock().astimezone(timezone(timedelta(hours=8))).date())
+                except ValueError as exc:
+                    raise ServiceError('INVALID_REQUEST',str(exc)) from exc
             if action == 'wealth.compare':
                 from wealth import compare
                 return compare(params)

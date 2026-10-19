@@ -60,7 +60,7 @@ def build_examples():
                            {"reservation_id": "reservation_1", "amount_minor": 100000}),
         "budget.release": ({"reservation_id": "reservation_1"}, {"reservation_id": "reservation_1"}),
         "merchant.order": (account | {"reservation_id": "reservation_1", "item_id": "flowers_1", "amount_minor": 20000,
-                                      "deliver_on": "2026-10-14", "delivery_address_id": "address_1"},
+                                      "deliver_on": "2026-10-14", "delivery_address_id": "address_1", "card_id": "card_1"},
                            {"order_id": "merchant_order_1", "amount_minor": 20000}),
         "account.balance": (account, account | {"balance_minor": 200000, "available_minor": 100000,
                                                 "reserved_minor": 100000, "currency": "CNY"}),

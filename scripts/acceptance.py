@@ -1,5 +1,6 @@
 """逐轮验收并保存本次证据；始终隔离日常演示库。"""
 import argparse
+from datetime import date
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -19,10 +20,11 @@ def fingerprint(path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('round', choices=['R1','R2','R3','R4','N1-core','N1','N1-full','full'])
+    parser.add_argument('round', choices=['R1','R2','R3','R4','N1-core','N1','N1-full','S1','S2','S3','full'])
     parser.add_argument('modules', nargs='*')
+    parser.add_argument('--date', type=date.fromisoformat, default=date(2026,10,17))
     args = parser.parse_args()
-    output = ROOT/'docs/evidence'/('2026-10-17-'+args.round)
+    output = ROOT/'docs/evidence'/(args.date.isoformat()+'-'+args.round)
     runtime = ROOT/'runtime/sandbox.sqlite3'
     before = fingerprint(runtime)
     loader = unittest.TestLoader()

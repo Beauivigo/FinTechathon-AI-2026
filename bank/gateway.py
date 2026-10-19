@@ -18,7 +18,7 @@ from shared.contracts import MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
 from .transfer import handle, split_shares
-from . import budget
+from . import budget, merchant, member_workflows
 
 PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
@@ -26,7 +26,7 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 class BankGateway:
     demo_mode = True
     write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review',
-                               'subscription.scan', *CARD_ACTIONS, *budget.ACTIONS})
+                               'subscription.scan', 'merchant.order', *member_workflows.ACTIONS, *CARD_ACTIONS, *budget.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
     def __init__(self, store, *, clock=None):
@@ -39,6 +39,30 @@ class BankGateway:
             return self.services.get_context(principal_id=principal_id)
         except (sqlite3.Error, ContractError) as exc:
             raise ServiceError("UPSTREAM_ERROR", "模拟资源暂不可用，请检查数据。") from exc
+
+    def run_reminders(self, *, principal_id):
+        return member_workflows.run_reminders(self.store,principal_id,self.clock())
+
+    def release_quote(self, request, *, principal_id):
+        with self.store.connection() as c:
+            require_principal(c,principal_id)
+            return budget.binding(c,request,principal_id)['release_amount_minor']
+
+    def list_orders(self, *, principal_id):
+        with self.store.connection() as c:
+            require_principal(c,principal_id)
+            return [dict(r) for r in c.execute('SELECT * FROM merchant_orders WHERE principal_id=? ORDER BY rowid DESC',(principal_id,))]
+
+    def selected_order_card(self, request, *, principal_id):
+        with self.store.connection() as c:
+            saved=self._load(c,request,principal_id)
+            if saved is None: return None
+            original,result=saved
+            if result['status'] in PENDING:
+                row=c.execute('SELECT resource_binding_json FROM challenges WHERE challenge_id=? AND principal_id=?',(result['next_action']['challenge_id'],principal_id)).fetchone()
+                return json.loads(row[0])[0]
+            order=c.execute('SELECT card_id FROM merchant_orders WHERE principal_id=? AND operation_key=?',(principal_id,original['idempotency_key'])).fetchone()
+            return order[0] if order else None
 
     def list_reservations(self, *, principal_id):
         """可信页面的归属过滤索引，不新增公开模型动作或context字段。"""
@@ -280,6 +304,8 @@ class BankGateway:
                         self._audit(c, request, principal, 'failed', now, code=exc.code)
                     else:
                         result = self._pending(c, request, principal, kind, payee, now)
+                        if request['action']=='merchant.order':
+                            c.execute('INSERT INTO merchant_intents VALUES (?,?,?,?)',(principal,request['idempotency_key'],request['params']['reservation_id'],request['params']['amount_minor']))
             return result  # 外层事务提交后才返回。
         except ServiceError as exc:
             return self._error(request, exc.code)
@@ -352,7 +378,7 @@ class BankGateway:
                 raise ServiceError('AUTH_INVALID', '操作资源已变化，必须重新发起确认。')
             kind = self._kind(c, request, principal, now)
         except ServiceError as exc:
-            return self._finish(c, row, request, previous, principal, now, 'used', exc.code), None
+            return self._finish(c, row, request, previous, principal, now, 'used', 'AUTH_INVALID' if request['action']=='merchant.order' and exc.code in ('INVALID_STATE','FORBIDDEN','LIMIT_EXCEEDED','NOT_FOUND') else exc.code), None
         if row['kind'] == 'confirm' and kind == 'verify':
             c.execute("UPDATE challenges SET state='cancelled',proof_digest=NULL WHERE challenge_id=?", (row['challenge_id'],))
             return self._pending(c, request, principal, 'verify', payee, now, previous), None
@@ -379,6 +405,10 @@ class BankGateway:
         return result, None
 
     def _binding(self, c, request, principal):
+        if request['action'] in member_workflows.ACTIONS:
+            return member_workflows.binding(c,request,principal,self.clock())
+        if request['action']=='merchant.order':
+            return merchant.binding(c,request,principal,self.clock())
         if request['action'] in budget.ACTIONS:
             return budget.binding(c, request, principal)
         if request['action'] == 'transfer.schedule':
@@ -419,6 +449,18 @@ class BankGateway:
 
     def _commit_action(self, c, request, previous, principal, now):
         """仅在同一写事务完成授权后调用；失败由外层保存点整体回滚。"""
+        if request['action'] in member_workflows.ACTIONS:
+            data=member_workflows.apply(self.store,c,request,principal,now)
+            result=adapt_result(request,dict(status='succeeded',data=data),source='sandbox')
+            self._save(c,request,result,principal,previous)
+            self._audit(c,request,principal,'succeeded',now,**data)
+            return result
+        if request['action']=='merchant.order':
+            data,details=merchant.apply(self.store,c,request,principal,now)
+            result=adapt_result(request,dict(status='succeeded',data=data),source='sandbox')
+            self._save(c,request,result,principal,previous)
+            self._audit(c,request,principal,'succeeded',now,**details)
+            return result
         if request['action'] in budget.ACTIONS:
             data, details = budget.apply(self.store, c, request, principal)
             result = adapt_result(request, dict(status='succeeded', data=data), source='sandbox')

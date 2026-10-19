@@ -1,0 +1,42 @@
+test_birthday_plan_reserve_order_restart_release (tests.test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release) ... ok
+test_card_application_page_only_receives (tests.test_delivery_pages.DeliveryPageTests.test_card_application_page_only_receives) ... ok
+test_merchant_lost_reply_blocks_page_until_recovery (tests.test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery) ... ok
+test_subscription_reminder_and_cancel_from_page (tests.test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page) ... ok
+test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve (tests.test_budget.BudgetTests.test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve) ... ok
+test_committed_reply_lost_recover_restart_without_second_release (tests.test_budget.BudgetTests.test_committed_reply_lost_recover_restart_without_second_release) ... ok
+test_concurrent_reserves_and_releases_do_not_overuse (tests.test_budget.BudgetTests.test_concurrent_reserves_and_releases_do_not_overuse) ... ok
+test_confirm_reserve_release_exact_contract_audit_and_no_ledger (tests.test_budget.BudgetTests.test_confirm_reserve_release_exact_contract_audit_and_no_ledger) ... ok
+test_duplicate_authorization_replays_once (tests.test_budget.BudgetTests.test_duplicate_authorization_replays_once) ... ok
+test_explicit_reset_with_budget_and_failed_reset_are_atomic (tests.test_budget.BudgetTests.test_explicit_reset_with_budget_and_failed_reset_are_atomic) ... ok
+test_merchant_unknown_after_release_confirmation_blocks_mutation (tests.test_budget.BudgetTests.test_merchant_unknown_after_release_confirmation_blocks_mutation) ... ok
+test_ownership_forged_authorization_and_invalid_amounts (tests.test_budget.BudgetTests.test_ownership_forged_authorization_and_invalid_amounts) ... ok
+test_page_confirmation_refresh_recovery_and_release (tests.test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release) ... ok
+test_page_rejection_and_lost_response_blocks_new_actions (tests.test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions) ... ok
+test_reject_expiry_and_late_approval_cannot_mutate (tests.test_budget.BudgetTests.test_reject_expiry_and_late_approval_cannot_mutate) ... ok
+test_replay_conflict_and_two_independent_reservations (tests.test_budget.BudgetTests.test_replay_conflict_and_two_independent_reservations) ... ok
+test_reserve_and_release_rollback_if_receipt_or_audit_fails (tests.test_budget.BudgetTests.test_reserve_and_release_rollback_if_receipt_or_audit_fails) ... ok
+test_scheduled_merchant_association_blocks_release (tests.test_budget.BudgetTests.test_scheduled_merchant_association_blocks_release) ... ok
+test_unknown_source_or_frozen_budget_never_released (tests.test_budget.BudgetTests.test_unknown_source_or_frozen_budget_never_released) ... ok
+test_v8_migration_preserves_pending_and_old_balance (tests.test_budget.BudgetTests.test_v8_migration_preserves_pending_and_old_balance) ... ok
+test_accept_replay_conflict_and_illegal_state (tests.test_subscriptions.SubscriptionTests.test_accept_replay_conflict_and_illegal_state) ... ok
+test_audit_failure_rollback_and_lost_reply_recovery (tests.test_subscriptions.SubscriptionTests.test_audit_failure_rollback_and_lost_reply_recovery) ... ok
+test_changed_record_reject_and_ownership (tests.test_subscriptions.SubscriptionTests.test_changed_record_reject_and_ownership) ... ok
+test_concurrent_review_only_one_change (tests.test_subscriptions.SubscriptionTests.test_concurrent_review_only_one_change) ... ok
+test_dismiss_is_not_cancel_and_no_money (tests.test_subscriptions.SubscriptionTests.test_dismiss_is_not_cancel_and_no_money) ... ok
+test_page_confirm_refresh_review_and_recover (tests.test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover) ... ok
+test_read_reject_expiry_ownership_and_content_conflict (tests.test_subscriptions.SubscriptionTests.test_read_reject_expiry_ownership_and_content_conflict) ... ok
+test_read_replay_does_not_expose_changed_owner (tests.test_subscriptions.SubscriptionTests.test_read_replay_does_not_expose_changed_owner) ... ok
+test_read_requires_confirmation_without_write_key_and_recovers (tests.test_subscriptions.SubscriptionTests.test_read_requires_confirmation_without_write_key_and_recovers) ... ok
+test_v6_migration_preserves_card_pending (tests.test_subscriptions.SubscriptionTests.test_v6_migration_preserves_card_pending) ... ok
+test_audit_failure_rolls_back_card (tests.test_cards.CardTests.test_audit_failure_rolls_back_card) ... ok
+test_concurrent_state_change_invalidates_old_confirmation (tests.test_cards.CardTests.test_concurrent_state_change_invalidates_old_confirmation) ... ok
+test_e_material_original_paths (tests.test_cards.CardTests.test_e_material_original_paths) ... ok
+test_existing_v3_database_migrates_preserving_state (tests.test_cards.CardTests.test_existing_v3_database_migrates_preserving_state) ... ok
+test_four_actions_and_lost_cannot_unfreeze (tests.test_cards.CardTests.test_four_actions_and_lost_cannot_unfreeze) ... ok
+test_ownership_reject_missing_proof_and_conflict (tests.test_cards.CardTests.test_ownership_reject_missing_proof_and_conflict) ... ok
+test_page_and_refresh_recovery_and_transfer_page (tests.test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 5.909s
+
+OK

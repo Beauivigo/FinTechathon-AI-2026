@@ -21,10 +21,17 @@ if cards:
         st.write(f"当前限额：{selected['limit_minor']} 分")
         params['limit_minor'] = st.number_input('新限额（整数分，0—1000000）', min_value=0, max_value=1000000,
             value=selected['limit_minor'],step=1,key='card_limit_'+selected['card_id'])
-        st.caption('任意卡状态均可设置，0允许保存。设置不改变状态、不扣款；支付限制联动待后续接入。')
+        st.caption('任意卡状态均可设置，0允许保存。设置不改变状态、不扣款；商户下单执行时会复验单笔限额。')
     else:
         st.write(f"{selected['card_state']} → {TARGETS[action]}")
         st.caption('解挂后仍冻结；解冻需另行验证。')
     if st.button('提交卡片操作', key='card_submit', disabled=flow.blocked):
         perform(flow.start_action, action, params)
+st.subheader('申请受理')
+accounts=flow.resources['accounts']
+if accounts:
+    account=st.selectbox('申请账户',accounts,key='card_apply_account',format_func=lambda x:x['display_name'])
+    st.caption('已有正常卡或待审核申请时拒绝重复申请；申请受理不代表发卡。')
+    if st.button('申请卡片',key='card_apply',disabled=flow.blocked):
+        perform(flow.start_action,'card.apply',dict(account_id=account['account_id']))
 render(flow)

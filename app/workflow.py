@@ -5,7 +5,7 @@ from agent.controller import Conversation
 from app import demo
 from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
 
-LABELS = {'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
+LABELS = {'merchant.order':'模拟商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
           'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
           'subscription.scan': '扫描识别订阅',
@@ -67,6 +67,22 @@ def render(flow):
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
     p = request['params']
+    if request['action']=='merchant.order':
+        st.write(f"本笔金额：{p['amount_minor']/100:.2f}元；计划配送日：{p['deliver_on']}")
+        st.write('商品：'+p['item_id']+'；模拟地址：'+p['delivery_address_id'])
+        try:
+            selected=flow.gateway.selected_order_card(request,principal_id=flow.principal_id)
+        except (ServiceError,ContractError):
+            selected=None
+            st.warning('暂时无法核实支付卡，请先查询原操作。')
+        if selected: st.write('本次绑定支付卡：'+selected)
+        st.caption('强验证后才消费已有预留。未知结果先查询原操作，不换键重复支付。')
+    if request['action']=='card.apply':
+        st.caption('仅提交申请并取得受理编号，进入待审核；不会自动发卡。')
+    if request['action'] in ('subscription.cancel','subscription.remind'):
+        st.write('订阅：'+p['subscription_id'])
+        if 'remind_at' in p: st.write('提醒时间：'+p['remind_at'])
+        else: st.caption('取消后不再派发未发送的本地提醒，已发送历史保留；不撤销已完成支付。')
     if request['action'] == 'budget.reserve':
         st.write('预留账户：' + p['account_id'])
         st.write(f"预留金额：{p['amount_minor']} 分；用途：{p['purpose']}")
@@ -77,7 +93,13 @@ def render(flow):
         reservation = next((r for r in rows if r['reservation_id']==p['reservation_id']), None)
         if reservation:
             st.write(f"账户：{reservation['account_id']}；用途：{reservation['purpose']}；当前剩余预留：{reservation['remaining_reserved_minor']} 分")
-        st.caption('仅释放经服务端核实可释放的预留；存在订单关联时，本阶段阻止释放。')
+        if flow.pending:
+            try:
+                amount=flow.gateway.release_quote(request,principal_id=flow.principal_id)
+                st.write(f'当前可释放金额：{amount/100:.2f}元；确认时仍会复验。')
+            except (ServiceError,ContractError):
+                st.warning('预留状态已变化，请查询原操作后重新核对。')
+        st.caption('待核实订单占用金额继续保留；只释放可核实的剩余金额。')
     if request['action'] in ('transfer.schedule','transfer.create'):
         st.write('付款账户：'+p['account_id'])
         try:
@@ -96,20 +118,26 @@ def render(flow):
         st.write('订阅：' + p['subscription_id'])
         st.write('本次选择：' + ('核实为订阅' if p['decision']=='accept' else '排除候选'))
         st.caption('核实不新签代扣授权；排除不取消既有扣费。')
-    if 'card_id' in p:
+    if 'card_id' in p and request['action'].startswith('card.'):
         st.write('卡片：' + p['card_id'])
         st.caption('解挂后保持冻结，需要另行验证解冻。卡片状态尚未关联账户转账限制。')
         if request['action'] == 'card.set_limit':
             card = next((c for c in flow.resources['cards'] if c['card_id']==p['card_id']), None)
             if card:
                 st.write(f"当前保存的限额：{card['limit_minor']} 分；本次设置值：{p['limit_minor']} 分")
-            st.caption('限额保存不改变卡状态；支付限制联动待后续接入。')
+            st.caption('限额保存不改变卡状态；商户下单校验单笔限额；普通转账仍按自身规则处理。')
     if 'payee_ids' in p:
         st.write('收款账户：' + p['account_id'])
         st.write('参与人顺序：' + ' → '.join(p['payee_ids']))
         st.write(f"总金额：{p['amount_minor'] // 100}.{p['amount_minor'] % 100:02d} 元")
         st.caption('只创建本地模拟收款单；不会发送通知，也不会执行参与人的付款。')
     st.write(result_text(request, result))
+    if result['status']=='succeeded' and request['action']=='card.apply':
+        st.success('申请已受理，正在审核；受理不代表已发卡。编号：'+result['data']['application_id'])
+    if result['status']=='succeeded' and request['action']=='merchant.order':
+        st.success('模拟订单已提交。编号：'+result['data']['order_id'])
+    if result['status']=='succeeded' and request['action']=='subscription.remind':
+        st.caption('本地提醒已登记；请在订阅页面手动检查到期提醒，程序关闭时不会主动通知。')
     if result['status'] == 'succeeded' and request['action'] in ('budget.reserve','budget.release'):
         st.caption('预留编号：' + result['data']['reservation_id'])
     if result['status'] == 'succeeded' and request['action'] == 'transfer.split':

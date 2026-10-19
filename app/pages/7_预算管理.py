@@ -7,7 +7,7 @@ from shared import ServiceError
 
 st.set_page_config(page_title='模拟预算管理', layout='wide')
 st.title('预算预留与释放')
-st.info('模拟预算：预留不付款，释放不产生退款流水。商户消费与生日执行尚未接入。')
+st.info('模拟预算：预留不付款，释放不产生退款流水。可到生日与商户页面逐笔采购；未知订单对应金额继续保留。')
 flow = current()
 accounts = flow.resources['accounts']
 if accounts:
@@ -24,7 +24,7 @@ except ServiceError:
     st.stop()
 if rows:
     st.dataframe([{k:r[k] for k in ('reservation_id','account_id','purpose','amount_minor','remaining_reserved_minor','state')} for r in rows], hide_index=True)
-    active = [r for r in rows if r['state']=='active']
+    active = [r for r in rows if r['state'] in ('active','partially_consumed')]
     if active:
         selected = st.selectbox('选择要释放的预留', active, key='budget_release_selection',
                                 format_func=lambda r:f"{r['purpose']} · {r['remaining_reserved_minor']} 分 · {r['reservation_id']}")

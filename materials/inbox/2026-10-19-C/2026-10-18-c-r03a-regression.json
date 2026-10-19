@@ -1,0 +1,323 @@
+{
+  "package": "R03-A 大额单笔分支A 上线后回归",
+  "executor": "C",
+  "date": "2026-10-18",
+  "baseline": "main 工作树（billing/__init__.py LARGE_SINGLE_MINOR=500000）",
+  "rule": "debit 且 amount_minor>=500000 且 kind∈{consumption,subscription,transfer,wealth}，阈值闭区间；按自然月/账户隔离",
+  "python": "3.13.13",
+  "cases": [
+    {
+      "id": "REG-REAL-ACCT-C001-2026-08",
+      "title": "真实窗口 ACCT-C001 2026-08（R03-A）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 46490,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+    },
+    {
+      "id": "REG-REAL-ACCT-C001-2026-09",
+      "title": "真实窗口 ACCT-C001 2026-09（R03-A）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+    },
+    {
+      "id": "REG-REAL-ACCT-C002-2026-08",
+      "title": "真实窗口 ACCT-C002 2026-08（R03-A）",
+      "expect": [
+        "LX-005"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "LX-005"
+        ],
+        "total_expense_minor": 2500,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "唯一命中：LX-005 5000.00 元理财申购 debit（reference INV-001）"
+    },
+    {
+      "id": "REG-REAL-ACCT-C002-2026-09",
+      "title": "真实窗口 ACCT-C002 2026-09（R03-A）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 256800,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+    },
+    {
+      "id": "REG-REAL-ACCT-C003-2026-08",
+      "title": "真实窗口 ACCT-C003 2026-08（R03-A）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+    },
+    {
+      "id": "REG-REAL-ACCT-C003-2026-09",
+      "title": "真实窗口 ACCT-C003 2026-09（R03-A）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 41260,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+    },
+    {
+      "id": "REG-REAL-LX005-DETAIL",
+      "title": "LX-005 命中明细可追流水（金额/kind/参考编号）",
+      "expect": "命中流水即 LX-005：500000 分=5000.00 元、debit、wealth、reference_id=INV-001",
+      "actual": {
+        "anomaly": {
+          "transaction_id": "LX-005",
+          "reason": "大额单笔 5000.00 元 ≥ 5000.00 元（C1-003-R03 分支A）"
+        },
+        "source_row": {
+          "transaction_id": "LX-005",
+          "account_id": "ACCT-C002",
+          "occurred_at": "2026-08-15T00:00:00+08:00",
+          "amount_minor": 500000,
+          "amount_yuan": 5000.0,
+          "direction": "debit",
+          "kind": "wealth",
+          "category": "基金申购",
+          "reference_id": "INV-001（V1.3 原始凭证）"
+        }
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "REG-BOUND-499999",
+      "title": "consumption debit 499999 分（阈值 500000 闭区间）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 499999,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-BOUND-500000",
+      "title": "consumption debit 500000 分（阈值 500000 闭区间）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "B-500000"
+        ],
+        "total_expense_minor": 500000,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-BOUND-500001",
+      "title": "consumption debit 500001 分（阈值 500000 闭区间）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "B-500001"
+        ],
+        "total_expense_minor": 500001,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-KIND-consumption",
+      "title": "debit 500000 且 kind=consumption（R03-A 四类）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "K-consumption"
+        ],
+        "total_expense_minor": 500000,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-KIND-subscription",
+      "title": "debit 500000 且 kind=subscription（R03-A 四类）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "K-subscription"
+        ],
+        "total_expense_minor": 500000,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-KIND-transfer",
+      "title": "debit 500000 且 kind=transfer（R03-A 四类）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "K-transfer"
+        ],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-KIND-wealth",
+      "title": "debit 500000 且 kind=wealth（R03-A 四类）",
+      "expect": [
+        "命中"
+      ],
+      "actual": {
+        "anomaly_ids": [
+          "K-wealth"
+        ],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-CREDIT-income",
+      "title": "credit 500000 kind=income 不命中（含 LX-012 情形）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-CREDIT-refund",
+      "title": "credit 500000 kind=refund 不命中（含 LX-012 情形）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-CREDIT-wealth",
+      "title": "credit 500000 kind=wealth 不命中（含 LX-012 情形）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-CREDIT-consumption",
+      "title": "credit 500000 kind=consumption 不命中（含 LX-012 情形）",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-ISO",
+      "title": "大额分别在其他账户、其他月份：本窗口零命中",
+      "expect": [],
+      "actual": {
+        "anomaly_ids": [],
+        "total_expense_minor": 0,
+        "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合",
+      "note": ""
+    },
+    {
+      "id": "REG-ORDER",
+      "title": "多笔命中按 transaction_id 排序；逆序输入结果一致",
+      "expect": [
+        "M-001",
+        "M-002",
+        "M-003"
+      ],
+      "actual": {
+        "forward": [
+          "M-001",
+          "M-002",
+          "M-003"
+        ],
+        "reverse_input": [
+          "M-001",
+          "M-002",
+          "M-003"
+        ]
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "REG-EMPTY-REPORT",
+      "title": "anomalies 为空时报告必须声明“空列表不代表没有异常”",
+      "expect": "report 含“空列表不代表没有异常”",
+      "actual": {
+        "anomaly_ids": [],
+        "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 1.00 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+      },
+      "verdict": "符合"
+    },
+    {
+      "id": "REG-EXPENSE-SCOPE",
+      "title": "毛支出仅消费/订阅，wealth/transfer 不计入但 R03-A 照常命中",
+      "expect": "total_expense_minor=15000（10000+5000），命中 S-2",
+      "actual": {
+        "total_expense_minor": 15000,
+        "anomaly_ids": [
+          "S-2"
+        ]
+      },
+      "verdict": "符合"
+    }
+  ],
+  "pass_count": 22,
+  "fail_count": 0
+}

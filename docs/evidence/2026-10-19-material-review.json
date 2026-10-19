@@ -1,0 +1,3123 @@
+{
+  "executor": "A/Codex independent rerun",
+  "date": "2026-10-19",
+  "head": "56b8ea765850aea3ce3b24ea863cbc36a7e09048",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "scope": "B/C/E materials only; D excluded; reference cases are not production feature acceptance",
+  "checks": [
+    {
+      "id": "member-json:JAC-1-01",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "succeeded",
+        "final_data": {
+          "reservation_id": "reservation_4f22ff99573841a79e46de85cc249c67",
+          "amount_minor": 30000
+        },
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        },
+        "reservation": {
+          "state": "active",
+          "amount_minor": 30000,
+          "remaining_reserved_minor": 30000
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-02",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_pending": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-03",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "first_data": {
+          "reservation_id": "reservation_b768e5cf7fc5497bb13e89a2d3121344",
+          "amount_minor": 30000
+        },
+        "replay_status": "succeeded",
+        "replay_data": {
+          "reservation_id": "reservation_b768e5cf7fc5497bb13e89a2d3121344",
+          "amount_minor": 30000
+        },
+        "same_data": true,
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-04",
+      "passed": true,
+      "actual": {
+        "balance_reserved": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        },
+        "release_status": "succeeded",
+        "release_data": {
+          "reservation_id": "reservation_c6fc8dd3e3ac4673acf78c80253946c2"
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservation": {
+          "state": "released",
+          "amount_minor": 30000,
+          "remaining_reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-05",
+      "passed": true,
+      "actual": {
+        "second_release_status": "failed",
+        "error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-06",
+      "passed": true,
+      "actual": {
+        "release_status": "succeeded",
+        "replay_status": "succeeded",
+        "query_status": "succeeded",
+        "queried_result_status": "succeeded",
+        "queried_data": {
+          "reservation_id": "reservation_04da2b8db71343cfb97b8059e8aed770"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-07",
+      "passed": true,
+      "actual": {
+        "final_status": "cancelled",
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservations_count": 0
+      }
+    },
+    {
+      "id": "member-json:JAC-1-08",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "AUTH_EXPIRED",
+          "message": "授权已过期，本次操作未执行；仍有需要时请重新发起。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-09",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-10",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "failed",
+        "error": {
+          "code": "INSUFFICIENT_FUNDS",
+          "message": "可用余额不足，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-11",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "second_status": "failed",
+        "second_error": {
+          "code": "INSUFFICIENT_FUNDS",
+          "message": "可用余额不足，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 80000,
+          "reserved_minor": 120000
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-12",
+      "passed": true,
+      "actual": {
+        "release_a_status": "succeeded",
+        "release_b_status": "failed",
+        "release_b_error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservation": {
+          "state": "released",
+          "amount_minor": 50000,
+          "remaining_reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-13",
+      "passed": true,
+      "actual": {
+        "zero": {
+          "raised": true,
+          "code": "INVALID_REQUEST",
+          "message": "amount_minor 类型/值错误，应为 money"
+        },
+        "negative": {
+          "raised": true,
+          "code": "INVALID_REQUEST",
+          "message": "amount_minor 类型/值错误，应为 money"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-14",
+      "passed": true,
+      "actual": {
+        "ledger_entries": 0,
+        "transfers": 0,
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-15",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-1-16",
+      "passed": true,
+      "actual": {
+        "recent_audit": [
+          {
+            "action": "budget.release",
+            "outcome": "authorization_consumed",
+            "details": "{\"idempotency_key\": \"key_6b1d66d60ab4459ea22358e2838abe39\", \"challenge_id\": \"challenge_a103369fee0d4fc39d8aafdcf68b4cd5\"}"
+          },
+          {
+            "action": "budget.release",
+            "outcome": "succeeded",
+            "details": "{\"idempotency_key\": \"key_6b1d66d60ab4459ea22358e2838abe39\", \"reservation_id\": \"reservation_ecaa481867584ad5a0bfa94cae2f44e3\", \"effect\": \"release_reserved\", \"amount_minor\": 30000, \"posting_key\": \"reservation_ecaa481867584ad5a0bfa94cae2f44e3_release_reserved\"}"
+          },
+          {
+            "action": "budget.release",
+            "outcome": "challenge_created",
+            "details": "{\"idempotency_key\": \"key_6b1d66d60ab4459ea22358e2838abe39\", \"challenge_id\": \"challenge_a103369fee0d4fc39d8aafdcf68b4cd5\", \"kind\": \"confirm\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "authorization_consumed",
+            "details": "{\"idempotency_key\": \"key_91b74ac192984a57ad8fa80084990214\", \"challenge_id\": \"challenge_66c4b2113de044f897de2dca438a5a3d\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "succeeded",
+            "details": "{\"idempotency_key\": \"key_91b74ac192984a57ad8fa80084990214\", \"reservation_id\": \"reservation_ecaa481867584ad5a0bfa94cae2f44e3\", \"effect\": \"reserve\", \"amount_minor\": 30000, \"posting_key\": \"reservation_ecaa481867584ad5a0bfa94cae2f44e3_reserve\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "challenge_created",
+            "details": "{\"idempotency_key\": \"key_91b74ac192984a57ad8fa80084990214\", \"challenge_id\": \"challenge_66c4b2113de044f897de2dca438a5a3d\", \"kind\": \"confirm\"}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "member-json:JAC-1-17",
+      "passed": true,
+      "actual": {
+        "merchant_order_probe_status": "failed",
+        "merchant_order_probe_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-01",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "succeeded",
+        "final_data": {
+          "reservation_id": "reservation_75cf4115cf84412f90ed402876c7d08e",
+          "amount_minor": 30000
+        },
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        },
+        "reservation": {
+          "state": "active",
+          "amount_minor": 30000,
+          "remaining_reserved_minor": 30000
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-02",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_pending": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-03",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "first_data": {
+          "reservation_id": "reservation_4ec8a11a50b64e01a47e60ff6ae2bf31",
+          "amount_minor": 30000
+        },
+        "replay_status": "succeeded",
+        "replay_data": {
+          "reservation_id": "reservation_4ec8a11a50b64e01a47e60ff6ae2bf31",
+          "amount_minor": 30000
+        },
+        "same_data": true,
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-04",
+      "passed": true,
+      "actual": {
+        "balance_reserved": {
+          "balance_minor": 200000,
+          "available_minor": 170000,
+          "reserved_minor": 30000
+        },
+        "release_status": "succeeded",
+        "release_data": {
+          "reservation_id": "reservation_dde4a2a14242418cb789810e9ed2fc5d"
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservation": {
+          "state": "released",
+          "amount_minor": 30000,
+          "remaining_reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-05",
+      "passed": true,
+      "actual": {
+        "second_release_status": "failed",
+        "error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-06",
+      "passed": true,
+      "actual": {
+        "release_status": "succeeded",
+        "replay_status": "succeeded",
+        "query_status": "succeeded",
+        "queried_result_status": "succeeded",
+        "queried_data": {
+          "reservation_id": "reservation_237d7f6840174835a3af8b81c8b3afa7"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-07",
+      "passed": true,
+      "actual": {
+        "final_status": "cancelled",
+        "balance_before": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "balance_after": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservations_count": 0
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-08",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "AUTH_EXPIRED",
+          "message": "授权已过期，本次操作未执行；仍有需要时请重新发起。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-09",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-10",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "failed",
+        "error": {
+          "code": "INSUFFICIENT_FUNDS",
+          "message": "可用余额不足，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-11",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "second_status": "failed",
+        "second_error": {
+          "code": "INSUFFICIENT_FUNDS",
+          "message": "可用余额不足，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 80000,
+          "reserved_minor": 120000
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-12",
+      "passed": true,
+      "actual": {
+        "release_a_status": "succeeded",
+        "release_b_status": "failed",
+        "release_b_error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        },
+        "reservation": {
+          "state": "released",
+          "amount_minor": 50000,
+          "remaining_reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-13",
+      "passed": true,
+      "actual": {
+        "zero": {
+          "raised": true,
+          "code": "INVALID_REQUEST",
+          "message": "amount_minor 类型/值错误，应为 money"
+        },
+        "negative": {
+          "raised": true,
+          "code": "INVALID_REQUEST",
+          "message": "amount_minor 类型/值错误，应为 money"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-14",
+      "passed": true,
+      "actual": {
+        "ledger_entries": 0,
+        "transfers": 0,
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-15",
+      "passed": true,
+      "actual": {
+        "final_status": "failed",
+        "error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        },
+        "balance": {
+          "balance_minor": 200000,
+          "available_minor": 200000,
+          "reserved_minor": 0
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-16",
+      "passed": true,
+      "actual": {
+        "recent_audit": [
+          {
+            "action": "budget.release",
+            "outcome": "authorization_consumed",
+            "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"challenge_id\": \"challenge_242698f358b14b77b31298f2e7413285\"}"
+          },
+          {
+            "action": "budget.release",
+            "outcome": "succeeded",
+            "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"reservation_id\": \"reservation_14bb5af834da47b2806bff92591897dd\", \"effect\": \"release_reserved\", \"amount_minor\": 30000, \"posting_key\": \"reservation_14bb5af834da47b2806bff92591897dd_release_reserved\"}"
+          },
+          {
+            "action": "budget.release",
+            "outcome": "challenge_created",
+            "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"challenge_id\": \"challenge_242698f358b14b77b31298f2e7413285\", \"kind\": \"confirm\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "authorization_consumed",
+            "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"challenge_id\": \"challenge_950d3bd5cf1c4ca58752d8b65ebcbcc8\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "succeeded",
+            "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"reservation_id\": \"reservation_14bb5af834da47b2806bff92591897dd\", \"effect\": \"reserve\", \"amount_minor\": 30000, \"posting_key\": \"reservation_14bb5af834da47b2806bff92591897dd_reserve\"}"
+          },
+          {
+            "action": "budget.reserve",
+            "outcome": "challenge_created",
+            "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"challenge_id\": \"challenge_950d3bd5cf1c4ca58752d8b65ebcbcc8\", \"kind\": \"confirm\"}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "A-rerun:JAC-1-17",
+      "passed": true,
+      "actual": {
+        "merchant_order_probe_status": "failed",
+        "merchant_order_probe_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-01",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "succeeded",
+        "created": 1,
+        "subscription": {
+          "subscription_id": "SUB-AUTO-153261b6791c",
+          "merchant_name": "JAC云会员",
+          "amount_minor": 2500,
+          "interval": "monthly",
+          "next_charge_date": "2026-11-05",
+          "subscription_state": "candidate",
+          "evidence": "自动识别（E-03）：3 期 2026-08-05—2026-10-05，金额 25.00—25.00 元，最大日期偏差 0 天，容差 ±3 天/5%"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-02",
+      "passed": true,
+      "actual": {
+        "final_status": "succeeded",
+        "seed_states": {
+          "SUB-E001": "candidate",
+          "SUB-E003": "active"
+        },
+        "total": 3,
+        "has_new_candidate": true
+      }
+    },
+    {
+      "id": "member-json:JAC-2-03",
+      "passed": true,
+      "actual": {
+        "first_scan_created": 1,
+        "second_scan_created": 0,
+        "fixed_sub_unchanged": true
+      }
+    },
+    {
+      "id": "member-json:JAC-2-04",
+      "passed": true,
+      "actual": {
+        "created": 0,
+        "count": 1
+      }
+    },
+    {
+      "id": "member-json:JAC-2-05",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "replay_status": "succeeded",
+        "same": true,
+        "count": 1
+      }
+    },
+    {
+      "id": "member-json:JAC-2-06",
+      "passed": true,
+      "actual": {
+        "accept_status": "succeeded",
+        "accept_data": {
+          "subscription_id": "SUB-AUTO-53b588ee7d8c",
+          "subscription_state": "active"
+        },
+        "second_review_status": "failed",
+        "second_review_error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-07",
+      "passed": true,
+      "actual": {
+        "reject_status": "succeeded",
+        "reject_data": {
+          "subscription_id": "SUB-AUTO-630dcec0836f",
+          "subscription_state": "dismissed"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-08",
+      "passed": true,
+      "actual": {
+        "final_status": "cancelled",
+        "count": 0
+      }
+    },
+    {
+      "id": "member-json:JAC-2-09",
+      "passed": true,
+      "actual": {
+        "owner_scan_status": "succeeded",
+        "owner_scan_created": 1,
+        "cross_user_list_status": "failed",
+        "cross_user_list_error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-10",
+      "passed": true,
+      "actual": {
+        "created": 1,
+        "before": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "after_ledger": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "after_scan": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "unchanged": true
+      }
+    },
+    {
+      "id": "member-json:JAC-2-11",
+      "passed": true,
+      "actual": {
+        "created": 2,
+        "created_merchants": [
+          "JAC偏差三天",
+          "JAC容差通过"
+        ],
+        "single_recognized": false,
+        "plus4_recognized": false,
+        "tol_fail_recognized": false
+      }
+    },
+    {
+      "id": "member-json:JAC-2-12",
+      "passed": true,
+      "actual": {
+        "created": 0
+      }
+    },
+    {
+      "id": "member-json:JAC-2-13",
+      "passed": true,
+      "actual": {
+        "gateway_status": "failed",
+        "error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-2-14",
+      "passed": true,
+      "actual": {
+        "gateway_status": "failed",
+        "error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "member-json:JAC-4-01",
+      "passed": true,
+      "actual": {
+        "merchant_order_status": "failed",
+        "merchant_order_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        },
+        "scenario_plan_status": "failed",
+        "scenario_plan_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-01",
+      "passed": true,
+      "actual": {
+        "pending_status": "awaiting_confirmation",
+        "final_status": "succeeded",
+        "created": 1,
+        "subscription": {
+          "subscription_id": "SUB-AUTO-9d83990dbbeb",
+          "merchant_name": "JAC云会员",
+          "amount_minor": 2500,
+          "interval": "monthly",
+          "next_charge_date": "2026-11-05",
+          "subscription_state": "candidate",
+          "evidence": "自动识别（E-03）：3 期 2026-08-05—2026-10-05，金额 25.00—25.00 元，最大日期偏差 0 天，容差 ±3 天/5%"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-02",
+      "passed": true,
+      "actual": {
+        "final_status": "succeeded",
+        "seed_states": {
+          "SUB-E001": "candidate",
+          "SUB-E003": "active"
+        },
+        "total": 3,
+        "has_new_candidate": true
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-03",
+      "passed": true,
+      "actual": {
+        "first_scan_created": 1,
+        "second_scan_created": 0,
+        "fixed_sub_unchanged": true
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-04",
+      "passed": true,
+      "actual": {
+        "created": 0,
+        "count": 1
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-05",
+      "passed": true,
+      "actual": {
+        "first_status": "succeeded",
+        "replay_status": "succeeded",
+        "same": true,
+        "count": 1
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-06",
+      "passed": true,
+      "actual": {
+        "accept_status": "succeeded",
+        "accept_data": {
+          "subscription_id": "SUB-AUTO-98b3d2da95b0",
+          "subscription_state": "active"
+        },
+        "second_review_status": "failed",
+        "second_review_error": {
+          "code": "INVALID_STATE",
+          "message": "当前状态不允许此操作，请刷新后核对。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-07",
+      "passed": true,
+      "actual": {
+        "reject_status": "succeeded",
+        "reject_data": {
+          "subscription_id": "SUB-AUTO-1e78cc8b6c3b",
+          "subscription_state": "dismissed"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-08",
+      "passed": true,
+      "actual": {
+        "final_status": "cancelled",
+        "count": 0
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-09",
+      "passed": true,
+      "actual": {
+        "owner_scan_status": "succeeded",
+        "owner_scan_created": 1,
+        "cross_user_list_status": "failed",
+        "cross_user_list_error": {
+          "code": "FORBIDDEN",
+          "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-10",
+      "passed": true,
+      "actual": {
+        "created": 1,
+        "before": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "after_ledger": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "after_scan": {
+          "demo_account_a": [
+            200000,
+            200000,
+            0
+          ],
+          "demo_account_li": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_1": [
+            0,
+            0,
+            0
+          ],
+          "demo_account_wang_2": [
+            0,
+            0,
+            0
+          ]
+        },
+        "unchanged": true
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-11",
+      "passed": true,
+      "actual": {
+        "created": 2,
+        "created_merchants": [
+          "JAC偏差三天",
+          "JAC容差通过"
+        ],
+        "single_recognized": false,
+        "plus4_recognized": false,
+        "tol_fail_recognized": false
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-12",
+      "passed": true,
+      "actual": {
+        "created": 0
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-13",
+      "passed": true,
+      "actual": {
+        "gateway_status": "failed",
+        "error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-2-14",
+      "passed": true,
+      "actual": {
+        "gateway_status": "failed",
+        "error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "A-rerun:JAC-4-01",
+      "passed": true,
+      "actual": {
+        "merchant_order_status": "failed",
+        "merchant_order_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        },
+        "scenario_plan_status": "failed",
+        "scenario_plan_error": {
+          "code": "INVALID_REQUEST",
+          "message": "查询或操作未完成。"
+        }
+      }
+    },
+    {
+      "id": "member-json:SIM-01",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-02",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-03",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-04",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-05",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REAL-LX-003-011-NOW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REAL-LX-003-011-PATCHED",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:CTRL-NO-INFER",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:CTRL-OUT-OF-WINDOW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:CTRL-NEG-DELTA",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-01",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-02",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-03",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-04",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-05",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REAL-LX-003-011-NOW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REAL-LX-003-011-PATCHED",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:CTRL-NO-INFER",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:CTRL-OUT-OF-WINDOW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:CTRL-NEG-DELTA",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C001-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C001-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C002-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C002-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C003-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-ACCT-C003-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-REAL-LX005-DETAIL",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-BOUND-499999",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-BOUND-500000",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-BOUND-500001",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-KIND-consumption",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-KIND-subscription",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-KIND-transfer",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-KIND-wealth",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-CREDIT-income",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-CREDIT-refund",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-CREDIT-wealth",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-CREDIT-consumption",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-ISO",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-ORDER",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-EMPTY-REPORT",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REG-EXPENSE-SCOPE",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C001-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C001-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C002-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C002-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C003-2026-08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-ACCT-C003-2026-09",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-REAL-LX005-DETAIL",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-BOUND-499999",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-BOUND-500000",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-BOUND-500001",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-KIND-consumption",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-KIND-subscription",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-KIND-transfer",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-KIND-wealth",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-CREDIT-income",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-CREDIT-refund",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-CREDIT-wealth",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-CREDIT-consumption",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-ISO",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-ORDER",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-EMPTY-REPORT",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REG-EXPENSE-SCOPE",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REAL-LX005-B-NEW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:REAL-LX005-B-OLD-C08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-C-019",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-C-025",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-GATE-LT3",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-FLOOR-9999",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-FLOOR-10000",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "member-json:SIM-SCOPE-MIX",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REAL-LX005-B-NEW",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:REAL-LX005-B-OLD-C08",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-C-019",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-C-025",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-GATE-LT3",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-FLOOR-9999",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-FLOOR-10000",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "A-rerun:SIM-SCOPE-MIX",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "diagnostic:C-R03B-premature-floor-reproduced",
+      "passed": true,
+      "actual": {
+        "original": "HIT",
+        "detail": {
+          "sample": 3,
+          "numerator": 3001,
+          "denominator": 3,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10000
+        },
+        "correct": "MISS",
+        "exact_threshold": "30010/3"
+      }
+    },
+    {
+      "id": "C-R03B-corrected-original-eight",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "id": "C-R03B-corrected:10000",
+      "passed": true,
+      "actual": {
+        "verdict": "MISS",
+        "detail": {
+          "sample": 3,
+          "numerator": 3001,
+          "denominator": 3,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10004
+        }
+      }
+    },
+    {
+      "id": "C-R03B-corrected:10003",
+      "passed": true,
+      "actual": {
+        "verdict": "MISS",
+        "detail": {
+          "sample": 3,
+          "numerator": 3001,
+          "denominator": 3,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10004
+        }
+      }
+    },
+    {
+      "id": "C-R03B-corrected:10004",
+      "passed": true,
+      "actual": {
+        "verdict": "HIT",
+        "detail": {
+          "sample": 3,
+          "numerator": 3001,
+          "denominator": 3,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10004
+        }
+      }
+    },
+    {
+      "id": "E-yearly:+3",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_5b5c46c9e89b47928c360844a2e665bf",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 1,
+          "subscriptions": [
+            {
+              "subscription_id": "SUB-AUTO-6897174204c0",
+              "merchant_name": "+3",
+              "amount_minor": 6800,
+              "interval": "yearly",
+              "next_charge_date": "2027-01-10",
+              "subscription_state": "candidate",
+              "evidence": "自动识别（E-03）：2 期 2025-01-10—2026-01-13，金额 68.00—68.00 元，最大日期偏差 3 天，容差 ±3 天/5%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E-yearly:+4",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_8bf93ededba54a5fb0052f943c5f6d85",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 0,
+          "subscriptions": []
+        }
+      }
+    },
+    {
+      "id": "E-yearly:-3",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_ab657c3048564603bdd7461034d98e4c",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 1,
+          "subscriptions": [
+            {
+              "subscription_id": "SUB-AUTO-6286ecf41ee3",
+              "merchant_name": "-3",
+              "amount_minor": 6800,
+              "interval": "yearly",
+              "next_charge_date": "2026-01-10",
+              "subscription_state": "candidate",
+              "evidence": "自动识别（E-03）：2 期 2025-01-10—2026-01-07，金额 68.00—68.00 元，最大日期偏差 3 天，容差 ±3 天/5%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E-yearly:-4",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_447e2fb7f84b49ea9cf3ba16f11c1c43",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 0,
+          "subscriptions": []
+        }
+      }
+    },
+    {
+      "id": "E-yearly:leap",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_ed48b0e6764b484d955231e5b38ce6f3",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 1,
+          "subscriptions": [
+            {
+              "subscription_id": "SUB-AUTO-20ed21ab4bfc",
+              "merchant_name": "leap",
+              "amount_minor": 6800,
+              "interval": "yearly",
+              "next_charge_date": "2026-02-28",
+              "subscription_state": "candidate",
+              "evidence": "自动识别（E-03）：2 期 2024-02-29—2025-02-28，金额 68.00—68.00 元，最大日期偏差 0 天，容差 ±3 天/5%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E-yearly:amount5pct",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_1d061ff8b0324ee6acb57a2d94cc6eb5",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 1,
+          "subscriptions": [
+            {
+              "subscription_id": "SUB-AUTO-df5523f43948",
+              "merchant_name": "amount5pct",
+              "amount_minor": 7140,
+              "interval": "yearly",
+              "next_charge_date": "2027-01-10",
+              "subscription_state": "candidate",
+              "evidence": "自动识别（E-03）：2 期 2025-01-10—2026-01-13，金额 68.00—71.40 元，最大日期偏差 3 天，容差 ±3 天/5%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E-yearly:amount-over",
+      "passed": true,
+      "actual": {
+        "schema_version": "1.1",
+        "request_id": "req_0f6f0740e2dd431495f82fe8f00e4bd9",
+        "trace_id": "t",
+        "action": "subscription.scan",
+        "status": "succeeded",
+        "source": "sandbox",
+        "data": {
+          "created": 0,
+          "subscriptions": []
+        }
+      }
+    },
+    {
+      "id": "B-handcalc:P1",
+      "passed": true,
+      "actual": {
+        "values": [
+          200000,
+          170000,
+          30000
+        ],
+        "consumed": 0,
+        "released": 0,
+        "remaining": 30000
+      }
+    },
+    {
+      "id": "B-handcalc:P3",
+      "passed": true,
+      "actual": {
+        "values": [
+          182000,
+          182000,
+          0
+        ],
+        "consumed": 18000,
+        "released": 12000,
+        "remaining": 0
+      }
+    },
+    {
+      "id": "B-handcalc:P4",
+      "passed": true,
+      "actual": {
+        "values": [
+          170000,
+          170000,
+          0
+        ],
+        "consumed": 30000,
+        "released": 0,
+        "remaining": 0
+      }
+    },
+    {
+      "id": "B-handcalc:P5-committed",
+      "passed": true,
+      "actual": {
+        "values": [
+          182000,
+          170000,
+          12000
+        ],
+        "consumed": 18000,
+        "released": 0,
+        "remaining": 12000
+      }
+    },
+    {
+      "id": "B-handcalc:P6",
+      "passed": true,
+      "actual": {
+        "values": [
+          200000,
+          200000,
+          0
+        ],
+        "consumed": 0,
+        "released": 30000,
+        "remaining": 0
+      }
+    },
+    {
+      "id": "B-handcalc:P7-committed-after-cake-release",
+      "passed": true,
+      "actual": {
+        "values": [
+          182000,
+          182000,
+          0
+        ],
+        "consumed": 18000,
+        "released": 12000,
+        "remaining": 0
+      }
+    },
+    {
+      "id": "B-handcalc:P7-uncommitted-after-cake-release",
+      "passed": true,
+      "actual": {
+        "values": [
+          200000,
+          182000,
+          18000
+        ],
+        "consumed": 0,
+        "released": 12000,
+        "remaining": 18000
+      }
+    },
+    {
+      "id": "runtime-unchanged",
+      "passed": true,
+      "actual": null
+    }
+  ],
+  "rerun_cases": {
+    "2026-10-18-c-jac-group1-n1": [
+      {
+        "id": "JAC-1-01",
+        "title": "预留申请经黄色确认后成功，资金同一事务扣减",
+        "precondition": "种子库 demo_account_a 余额/可用/预留=200000/200000/0",
+        "actual": {
+          "pending_status": "awaiting_confirmation",
+          "final_status": "succeeded",
+          "final_data": {
+            "reservation_id": "reservation_75cf4115cf84412f90ed402876c7d08e",
+            "amount_minor": 30000
+          },
+          "balance_before": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "balance_after": {
+            "balance_minor": 200000,
+            "available_minor": 170000,
+            "reserved_minor": 30000
+          },
+          "reservation": {
+            "state": "active",
+            "amount_minor": 30000,
+            "remaining_reserved_minor": 30000
+          }
+        },
+        "conclusion": "通过：succeeded；200000/170000/30000，预留 active 且剩余=金额"
+      },
+      {
+        "id": "JAC-1-02",
+        "title": "申请阶段仅生成待确认挑战，不扣减资金",
+        "precondition": "同上初始余额",
+        "actual": {
+          "pending_status": "awaiting_confirmation",
+          "balance_before": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "balance_pending": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：awaiting_confirmation 期间余额三值不变"
+      },
+      {
+        "id": "JAC-1-03",
+        "title": "同一幂等键重复提交重放原结果，不二次预留",
+        "precondition": "J1-01 同口径预留 30000 已成功",
+        "actual": {
+          "first_status": "succeeded",
+          "first_data": {
+            "reservation_id": "reservation_4ec8a11a50b64e01a47e60ff6ae2bf31",
+            "amount_minor": 30000
+          },
+          "replay_status": "succeeded",
+          "replay_data": {
+            "reservation_id": "reservation_4ec8a11a50b64e01a47e60ff6ae2bf31",
+            "amount_minor": 30000
+          },
+          "same_data": true,
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 170000,
+            "reserved_minor": 30000
+          }
+        },
+        "conclusion": "通过：重放返回原 reservation_id，余额只扣一次"
+      },
+      {
+        "id": "JAC-1-04",
+        "title": "零消费、无关联预留释放成功，可用余额恢复",
+        "precondition": "预留 30000 active，余额 200000/170000/30000",
+        "actual": {
+          "balance_reserved": {
+            "balance_minor": 200000,
+            "available_minor": 170000,
+            "reserved_minor": 30000
+          },
+          "release_status": "succeeded",
+          "release_data": {
+            "reservation_id": "reservation_dde4a2a14242418cb789810e9ed2fc5d"
+          },
+          "balance_after": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "reservation": {
+            "state": "released",
+            "amount_minor": 30000,
+            "remaining_reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：succeeded；公开 data 仅 reservation_id；200000/200000/0；终态 released"
+      },
+      {
+        "id": "JAC-1-05",
+        "title": "已 released 的预留再次申请释放被拒，资金不重复恢复",
+        "precondition": "预留已释放，余额 200000/200000/0",
+        "actual": {
+          "second_release_status": "failed",
+          "error": {
+            "code": "INVALID_STATE",
+            "message": "当前状态不允许此操作，请刷新后核对。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：failed/INVALID_STATE，余额保持 200000/200000/0"
+      },
+      {
+        "id": "JAC-1-06",
+        "title": "释放成功回执丢失后，同键重放/原操作查询取回真实结果，不重复释放",
+        "precondition": "预留 42000 已成功释放",
+        "actual": {
+          "release_status": "succeeded",
+          "replay_status": "succeeded",
+          "query_status": "succeeded",
+          "queried_result_status": "succeeded",
+          "queried_data": {
+            "reservation_id": "reservation_237d7f6840174835a3af8b81c8b3afa7"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：重放与 operation.get 均取回 succeeded/原 reservation_id，余额无二次变动"
+      },
+      {
+        "id": "JAC-1-07",
+        "title": "用户拒绝授权，预留取消且不落库",
+        "precondition": "初始余额",
+        "actual": {
+          "final_status": "cancelled",
+          "balance_before": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "balance_after": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "reservations_count": 0
+        },
+        "conclusion": "通过：cancelled；余额不变；reservations 无记录"
+      },
+      {
+        "id": "JAC-1-08",
+        "title": "挑战 10 分钟有效期后授权失败，预留不生效",
+        "precondition": "T 时刻申请，T+11 分钟才授权",
+        "actual": {
+          "final_status": "failed",
+          "error": {
+            "code": "AUTH_EXPIRED",
+            "message": "授权已过期，本次操作未执行；仍有需要时请重新发起。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：failed/AUTH_EXPIRED；余额不变"
+      },
+      {
+        "id": "JAC-1-09",
+        "title": "非账户归属用户发起预留被拒",
+        "precondition": "demo_user_li 对 demo_account_a（属 demo_user_a）操作",
+        "actual": {
+          "final_status": "failed",
+          "error": {
+            "code": "FORBIDDEN",
+            "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+          }
+        },
+        "conclusion": "通过：failed/FORBIDDEN"
+      },
+      {
+        "id": "JAC-1-10",
+        "title": "预留金额超过可用余额，确认时失败且不记账",
+        "precondition": "可用 200000 分，申请预留 200001 分",
+        "actual": {
+          "pending_status": "awaiting_confirmation",
+          "final_status": "failed",
+          "error": {
+            "code": "INSUFFICIENT_FUNDS",
+            "message": "可用余额不足，本次操作未执行。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：failed/INSUFFICIENT_FUNDS；余额不变"
+      },
+      {
+        "id": "JAC-1-11",
+        "title": "两个预留竞争余额：第二个因可用不足失败，不超用",
+        "precondition": "可用 200000；两笔各 120000（合计 240000）",
+        "actual": {
+          "first_status": "succeeded",
+          "second_status": "failed",
+          "second_error": {
+            "code": "INSUFFICIENT_FUNDS",
+            "message": "可用余额不足，本次操作未执行。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 80000,
+            "reserved_minor": 120000
+          }
+        },
+        "conclusion": "通过：一成功一失败/INSUFFICIENT_FUNDS；最终 200000/80000/120000，守恒"
+      },
+      {
+        "id": "JAC-1-12",
+        "title": "两个释放请求竞争同一预留：只允许一次成功",
+        "precondition": "预留 50000；释放 A、B 均已生成待确认",
+        "actual": {
+          "release_a_status": "succeeded",
+          "release_b_status": "failed",
+          "release_b_error": {
+            "code": "INVALID_STATE",
+            "message": "当前状态不允许此操作，请刷新后核对。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "reservation": {
+            "state": "released",
+            "amount_minor": 50000,
+            "remaining_reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：A succeeded，B failed/INVALID_STATE；余额仅恢复一次"
+      },
+      {
+        "id": "JAC-1-13",
+        "title": "金额 0/负数在请求边缘被拒（INVALID_REQUEST）",
+        "precondition": "v1.1 money 要求正整数分",
+        "actual": {
+          "zero": {
+            "raised": true,
+            "code": "INVALID_REQUEST",
+            "message": "amount_minor 类型/值错误，应为 money"
+          },
+          "negative": {
+            "raised": true,
+            "code": "INVALID_REQUEST",
+            "message": "amount_minor 类型/值错误，应为 money"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：两类非法金额均抛出 INVALID_REQUEST，未进入待确认"
+      },
+      {
+        "id": "JAC-1-14",
+        "title": "预留与释放不产生收支流水、不占用转账日累计",
+        "precondition": "一轮完整预留 30000 后释放",
+        "actual": {
+          "ledger_entries": 0,
+          "transfers": 0,
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：ledger_entries=0、transfers=0；余额恢复"
+      },
+      {
+        "id": "JAC-1-15",
+        "title": "释放不存在的预留编号被拒（FORBIDDEN）",
+        "precondition": "本用户无该预留",
+        "actual": {
+          "final_status": "failed",
+          "error": {
+            "code": "FORBIDDEN",
+            "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+          },
+          "balance": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          }
+        },
+        "conclusion": "通过：failed/FORBIDDEN；余额不变"
+      },
+      {
+        "id": "JAC-1-16",
+        "title": "预留/释放的资金子动作进入审计（独立 posting_key 与金额）",
+        "precondition": "一轮预留并释放",
+        "actual": {
+          "recent_audit": [
+            {
+              "action": "budget.release",
+              "outcome": "authorization_consumed",
+              "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"challenge_id\": \"challenge_242698f358b14b77b31298f2e7413285\"}"
+            },
+            {
+              "action": "budget.release",
+              "outcome": "succeeded",
+              "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"reservation_id\": \"reservation_14bb5af834da47b2806bff92591897dd\", \"effect\": \"release_reserved\", \"amount_minor\": 30000, \"posting_key\": \"reservation_14bb5af834da47b2806bff92591897dd_release_reserved\"}"
+            },
+            {
+              "action": "budget.release",
+              "outcome": "challenge_created",
+              "details": "{\"idempotency_key\": \"key_e7514dfb298e4914a9854d52a280accb\", \"challenge_id\": \"challenge_242698f358b14b77b31298f2e7413285\", \"kind\": \"confirm\"}"
+            },
+            {
+              "action": "budget.reserve",
+              "outcome": "authorization_consumed",
+              "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"challenge_id\": \"challenge_950d3bd5cf1c4ca58752d8b65ebcbcc8\"}"
+            },
+            {
+              "action": "budget.reserve",
+              "outcome": "succeeded",
+              "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"reservation_id\": \"reservation_14bb5af834da47b2806bff92591897dd\", \"effect\": \"reserve\", \"amount_minor\": 30000, \"posting_key\": \"reservation_14bb5af834da47b2806bff92591897dd_reserve\"}"
+            },
+            {
+              "action": "budget.reserve",
+              "outcome": "challenge_created",
+              "details": "{\"idempotency_key\": \"key_fd5b8da7c8c94359a183a1f057eafd69\", \"challenge_id\": \"challenge_950d3bd5cf1c4ca58752d8b65ebcbcc8\", \"kind\": \"confirm\"}"
+            }
+          ]
+        },
+        "conclusion": "通过：审计含 reserve/release_reserved 的 succeeded 记录"
+      },
+      {
+        "id": "JAC-1-17",
+        "title": "部分消费/商户关联后的释放（N4 范围）本轮无运行时，不执行、不判通过",
+        "precondition": "budget.binding 代码含商户/任务关联阻断；merchant.order 无运行时实现",
+        "actual": {
+          "merchant_order_probe_status": "failed",
+          "merchant_order_probe_error": {
+            "code": "INVALID_REQUEST",
+            "message": "查询或操作未完成。"
+          }
+        },
+        "conclusion": "本轮不执行：商户主链路由 A 第三轮交付；关联释放验收留 N4，当前不能宣称通过"
+      }
+    ],
+    "2026-10-18-c-jac-group2-e03": [
+      {
+        "id": "JAC-2-01",
+        "title": "已入账的 3 期月度扣费经黄色确认后扫描，创建 1 个候选",
+        "precondition": "同一账户同一商户 08-05/09-05/10-05 各 debit 2500 分 consumption",
+        "actual": {
+          "pending_status": "awaiting_confirmation",
+          "final_status": "succeeded",
+          "created": 1,
+          "subscription": {
+            "subscription_id": "SUB-AUTO-9d83990dbbeb",
+            "merchant_name": "JAC云会员",
+            "amount_minor": 2500,
+            "interval": "monthly",
+            "next_charge_date": "2026-11-05",
+            "subscription_state": "candidate",
+            "evidence": "自动识别（E-03）：3 期 2026-08-05—2026-10-05，金额 25.00—25.00 元，最大日期偏差 0 天，容差 ±3 天/5%"
+          }
+        },
+        "conclusion": "通过：created=1；monthly、next_charge_date=2026-11-05、candidate、evidence 含 3 期"
+      },
+      {
+        "id": "JAC-2-02",
+        "title": "subscription.list 经黄色确认返回全部订阅（含固定种子与新候选）",
+        "precondition": "种子 SUB-E001 candidate、SUB-E003 active；J2-01 新建候选",
+        "actual": {
+          "final_status": "succeeded",
+          "seed_states": {
+            "SUB-E001": "candidate",
+            "SUB-E003": "active"
+          },
+          "total": 3,
+          "has_new_candidate": true
+        },
+        "conclusion": "通过：list 为黄色确认动作；固定种子与新候选均可见"
+      },
+      {
+        "id": "JAC-2-03",
+        "title": "同账户同商户去重：固定候选 SUB-E001 不重建；重复扫描 created=0",
+        "precondition": "影音会员已有固定候选且补入 3 期流水；JAC网费 2 期",
+        "actual": {
+          "first_scan_created": 1,
+          "second_scan_created": 0,
+          "fixed_sub_unchanged": true
+        },
+        "conclusion": "通过：首次仅新建 JAC网费 1 个；再次扫描 0；影音会员仍为 SUB-E001 一条"
+      },
+      {
+        "id": "JAC-2-04",
+        "title": "已取消（cancelled）商户即使出现新周期扣费，扫描也不复活",
+        "precondition": "该商户存在 1 条 cancelled 订阅（终态由未实现的 cancel 产生，脚本显式构造）",
+        "actual": {
+          "created": 0,
+          "count": 1
+        },
+        "conclusion": "通过：created=0；cancelled 记录保持 1 条"
+      },
+      {
+        "id": "JAC-2-05",
+        "title": "同一幂等键重复扫描重放原结果，不二次建候选",
+        "precondition": "JAC幂等商 2 期",
+        "actual": {
+          "first_status": "succeeded",
+          "replay_status": "succeeded",
+          "same": true,
+          "count": 1
+        },
+        "conclusion": "通过：重放与首次完全一致；候选仅 1 条"
+      },
+      {
+        "id": "JAC-2-06",
+        "title": "候选核实 accept 后变 active；对 active 再 review 被拒",
+        "precondition": "扫描产生 1 个 candidate",
+        "actual": {
+          "accept_status": "succeeded",
+          "accept_data": {
+            "subscription_id": "SUB-AUTO-98b3d2da95b0",
+            "subscription_state": "active"
+          },
+          "second_review_status": "failed",
+          "second_review_error": {
+            "code": "INVALID_STATE",
+            "message": "当前状态不允许此操作，请刷新后核对。"
+          }
+        },
+        "conclusion": "通过：accept succeeded→active；再次 review failed/INVALID_STATE"
+      },
+      {
+        "id": "JAC-2-07",
+        "title": "候选排除 reject 后变 dismissed（不取消任何代扣）",
+        "precondition": "扫描产生 1 个 candidate",
+        "actual": {
+          "reject_status": "succeeded",
+          "reject_data": {
+            "subscription_id": "SUB-AUTO-1e78cc8b6c3b",
+            "subscription_state": "dismissed"
+          }
+        },
+        "conclusion": "通过：succeeded→dismissed"
+      },
+      {
+        "id": "JAC-2-08",
+        "title": "扫描确认被用户拒绝：整体回滚，不产生候选",
+        "precondition": "JAC拒绝商户 2 期",
+        "actual": {
+          "final_status": "cancelled",
+          "count": 0
+        },
+        "conclusion": "通过：cancelled；候选数 0"
+      },
+      {
+        "id": "JAC-2-09",
+        "title": "越权扫描/查看被拒：他人账户 FORBIDDEN",
+        "precondition": "流水在 demo_user_li 账户；分别用账户主人与他人身份调用",
+        "actual": {
+          "owner_scan_status": "succeeded",
+          "owner_scan_created": 1,
+          "cross_user_list_status": "failed",
+          "cross_user_list_error": {
+            "code": "FORBIDDEN",
+            "message": "无权使用此账户、卡片或联系人，本次操作未执行。"
+          }
+        },
+        "conclusion": "通过：主人可扫描（候选属 li）；demo_user_a 查 li 账户 failed/FORBIDDEN"
+      },
+      {
+        "id": "JAC-2-10",
+        "title": "扫描只建候选、不扣费：四个账户余额前后完全一致",
+        "precondition": "JAC只读商 2 期，扫描 created=1",
+        "actual": {
+          "created": 1,
+          "before": {
+            "demo_account_a": [
+              200000,
+              200000,
+              0
+            ],
+            "demo_account_li": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_1": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_2": [
+              0,
+              0,
+              0
+            ]
+          },
+          "after_ledger": {
+            "demo_account_a": [
+              200000,
+              200000,
+              0
+            ],
+            "demo_account_li": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_1": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_2": [
+              0,
+              0,
+              0
+            ]
+          },
+          "after_scan": {
+            "demo_account_a": [
+              200000,
+              200000,
+              0
+            ],
+            "demo_account_li": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_1": [
+              0,
+              0,
+              0
+            ],
+            "demo_account_wang_2": [
+              0,
+              0,
+              0
+            ]
+          },
+          "unchanged": true
+        },
+        "conclusion": "通过：扫描前后余额三值完全一致（注：直流入账属测试构造，与扫描无关）"
+      },
+      {
+        "id": "JAC-2-11",
+        "title": "识别边界：单期不识别、±3 天通过/±4 天不通过、5% 容差 340/341 分边界",
+        "precondition": "四组对照流水（6800×5%=340：7140 通过、7141 拒绝）",
+        "actual": {
+          "created": 2,
+          "created_merchants": [
+            "JAC偏差三天",
+            "JAC容差通过"
+          ],
+          "single_recognized": false,
+          "plus4_recognized": false,
+          "tol_fail_recognized": false
+        },
+        "conclusion": "通过：仅识别「JAC偏差三天」「JAC容差通过」；单期、±4 天、超容差均不识别"
+      },
+      {
+        "id": "JAC-2-12",
+        "title": "credit/refund 入账即使周期同额也不识别为订阅",
+        "precondition": "两期 credit refund 各 1000",
+        "actual": {
+          "created": 0
+        },
+        "conclusion": "通过：created=0"
+      },
+      {
+        "id": "JAC-2-13",
+        "title": "subscription.cancel 本轮无运行时——记录网关真实返回，不判通过",
+        "precondition": "E-03 验收文档明确：cancel 业务实现不在本轮；网关 write_actions 未含该动作",
+        "actual": {
+          "gateway_status": "failed",
+          "error": {
+            "code": "INVALID_REQUEST",
+            "message": "查询或操作未完成。"
+          }
+        },
+        "conclusion": "未实现：failed/INVALID_REQUEST（公开入口未开放该写操作）；取消与停止模拟扣费验收留待 E 规则落地后"
+      },
+      {
+        "id": "JAC-2-14",
+        "title": "subscription.remind 本轮无运行时——记录网关真实返回，不判通过",
+        "precondition": "E-03 验收文档明确：remind 业务实现不在本轮",
+        "actual": {
+          "gateway_status": "failed",
+          "error": {
+            "code": "INVALID_REQUEST",
+            "message": "查询或操作未完成。"
+          }
+        },
+        "conclusion": "未实现：failed/INVALID_REQUEST；扣费前提醒（T-3）验收留待后续轮次"
+      },
+      {
+        "id": "JAC-4-01",
+        "title": "组4（商户下单/生日计划）当前 HEAD 仅契约与样例，无运行时——待执行",
+        "precondition": "勘误 C-11 已定性 scenario.plan 为待执行；merchant.order 为 A 第三轮在制",
+        "actual": {
+          "merchant_order_status": "failed",
+          "merchant_order_error": {
+            "code": "INVALID_REQUEST",
+            "message": "查询或操作未完成。"
+          },
+          "scenario_plan_status": "failed",
+          "scenario_plan_error": {
+            "code": "INVALID_REQUEST",
+            "message": "查询或操作未完成。"
+          }
+        },
+        "conclusion": "待执行：两项均 failed/INVALID_REQUEST（该业务尚未实现）；A 商户主链路交付后另行组4验收"
+      }
+    ],
+    "2026-10-18-c-r01-pairing-reference": [
+      {
+        "id": "SIM-01",
+        "title": "TR-SIM-01 借100000/还120000，Δ+20000 命中",
+        "actual": [
+          {
+            "loan": "TR-SIM-01-O",
+            "verdict": "HIT",
+            "delta_minor": 20000,
+            "closed": [
+              "TR-SIM-01-I"
+            ],
+            "out_of_window": []
+          }
+        ],
+        "expect": [
+          [
+            "HIT",
+            20000
+          ]
+        ],
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-02",
+        "title": "TR-SIM-02 借80000/还80000，不命中",
+        "actual": [
+          {
+            "loan": "TR-SIM-02-O",
+            "verdict": "MISS",
+            "delta_minor": 0,
+            "closed": [
+              "TR-SIM-02-I"
+            ],
+            "out_of_window": []
+          }
+        ],
+        "expect": [
+          [
+            "MISS",
+            0
+          ]
+        ],
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-03",
+        "title": "TR-SIM-03 借50000/还50001，Δ+1 命中（窗口 10-01→12-30）",
+        "actual": [
+          {
+            "loan": "TR-SIM-03-O",
+            "verdict": "HIT",
+            "delta_minor": 1,
+            "closed": [
+              "TR-SIM-03-I"
+            ],
+            "out_of_window": []
+          }
+        ],
+        "expect": [
+          [
+            "HIT",
+            1
+          ]
+        ],
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-04",
+        "title": "TR-SIM-04 借50000/还50000，不命中",
+        "actual": [
+          {
+            "loan": "TR-SIM-04-O",
+            "verdict": "MISS",
+            "delta_minor": 0,
+            "closed": [
+              "TR-SIM-04-I"
+            ],
+            "out_of_window": []
+          }
+        ],
+        "expect": [
+          [
+            "MISS",
+            0
+          ]
+        ],
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-05",
+        "title": "TR-SIM-05 借30000，窗口内无归还→无法判定",
+        "actual": [
+          {
+            "loan": "TR-SIM-05-O",
+            "verdict": "UNJUDGEABLE",
+            "delta_minor": null,
+            "closed": [],
+            "out_of_window": []
+          }
+        ],
+        "expect": [
+          [
+            "UNJUDGEABLE",
+            null
+          ]
+        ],
+        "verdict": "符合"
+      },
+      {
+        "id": "REAL-LX-003-011-NOW",
+        "title": "真实 LX-003/LX-011：ref 不同（TR-001/TR-002）且无指向字段→不自动配对、不宣称 Δ+500 命中",
+        "actual": {
+          "rule_results": [
+            {
+              "loan": "LX-003",
+              "amount": 100000,
+              "closed": [],
+              "out_of_window": [],
+              "verdict": "UNJUDGEABLE",
+              "delta": null
+            }
+          ],
+          "manual_candidates": [
+            "LX-003(08-10 借100000, 小王甲)",
+            "LX-011(09-08 入账150000, 小王甲)"
+          ],
+          "manual_note": "仅列入人工核查候选，不得由系统自动报异常"
+        },
+        "expect": "两笔均不闭合；无 HIT；候选人工核查",
+        "verdict": "符合"
+      },
+      {
+        "id": "REAL-LX-003-011-PATCHED",
+        "title": "补充显式指向字段后：窗口 08-10→11-08 含 09-08，Δ=+50000 分（+500.00 元）命中",
+        "actual": [
+          {
+            "loan": "LX-003",
+            "amount": 100000,
+            "closed": [
+              "LX-011"
+            ],
+            "out_of_window": [],
+            "verdict": "HIT",
+            "delta": 50000
+          }
+        ],
+        "expect": "HIT, delta=+50000",
+        "verdict": "符合"
+      },
+      {
+        "id": "CTRL-NO-INFER",
+        "title": "对照：同收款人同金额同月但无任何闭合编号 → 仍 UNJUDGEABLE，禁止推断",
+        "actual": [
+          {
+            "loan": "T1",
+            "amount": 50000,
+            "closed": [],
+            "out_of_window": [],
+            "verdict": "UNJUDGEABLE",
+            "delta": null
+          }
+        ],
+        "expect": "UNJUDGEABLE",
+        "verdict": "符合"
+      },
+      {
+        "id": "CTRL-OUT-OF-WINDOW",
+        "title": "对照：闭合但还款日 11-02 超过 90 天窗口（08-01→10-30）→ 无法判定",
+        "actual": [
+          {
+            "loan": "L1",
+            "amount": 30000,
+            "closed": [],
+            "out_of_window": [
+              "L2"
+            ],
+            "verdict": "UNJUDGEABLE",
+            "delta": null
+          }
+        ],
+        "expect": "UNJUDGEABLE 且 out_of_window=[L2]",
+        "verdict": "符合"
+      },
+      {
+        "id": "CTRL-NEG-DELTA",
+        "title": "对照：少归还 1000 分（Δ=−1000）同样命中",
+        "actual": [
+          {
+            "loan": "U1",
+            "amount": 60000,
+            "closed": [
+              "U2"
+            ],
+            "out_of_window": [],
+            "verdict": "HIT",
+            "delta": -1000
+          }
+        ],
+        "expect": "HIT, delta=-1000",
+        "verdict": "符合"
+      }
+    ],
+    "2026-10-18-c-r03a-regression": [
+      {
+        "id": "REG-REAL-ACCT-C001-2026-08",
+        "title": "真实窗口 ACCT-C001 2026-08（R03-A）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 46490,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+      },
+      {
+        "id": "REG-REAL-ACCT-C001-2026-09",
+        "title": "真实窗口 ACCT-C001 2026-09（R03-A）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+      },
+      {
+        "id": "REG-REAL-ACCT-C002-2026-08",
+        "title": "真实窗口 ACCT-C002 2026-08（R03-A）",
+        "expect": [
+          "LX-005"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "LX-005"
+          ],
+          "total_expense_minor": 2500,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "唯一命中：LX-005 5000.00 元理财申购 debit（reference INV-001）"
+      },
+      {
+        "id": "REG-REAL-ACCT-C002-2026-09",
+        "title": "真实窗口 ACCT-C002 2026-09（R03-A）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 256800,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+      },
+      {
+        "id": "REG-REAL-ACCT-C003-2026-08",
+        "title": "真实窗口 ACCT-C003 2026-08（R03-A）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+      },
+      {
+        "id": "REG-REAL-ACCT-C003-2026-09",
+        "title": "真实窗口 ACCT-C003 2026-09（R03-A）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 41260,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": "窗口内无 ≥5000.00 元的 debit 四类 kind"
+      },
+      {
+        "id": "REG-REAL-LX005-DETAIL",
+        "title": "LX-005 命中明细可追流水（金额/kind/参考编号）",
+        "expect": "命中流水即 LX-005：500000 分=5000.00 元、debit、wealth、reference_id=INV-001",
+        "actual": {
+          "anomaly": {
+            "transaction_id": "LX-005",
+            "reason": "大额单笔 5000.00 元 ≥ 5000.00 元（C1-003-R03 分支A）"
+          },
+          "source_row": {
+            "transaction_id": "LX-005",
+            "account_id": "ACCT-C002",
+            "occurred_at": "2026-08-15T00:00:00+08:00",
+            "amount_minor": 500000,
+            "amount_yuan": 5000.0,
+            "direction": "debit",
+            "kind": "wealth",
+            "category": "基金申购",
+            "reference_id": "INV-001（V1.3 原始凭证）"
+          }
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "REG-BOUND-499999",
+        "title": "consumption debit 499999 分（阈值 500000 闭区间）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 499999,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-BOUND-500000",
+        "title": "consumption debit 500000 分（阈值 500000 闭区间）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "B-500000"
+          ],
+          "total_expense_minor": 500000,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-BOUND-500001",
+        "title": "consumption debit 500001 分（阈值 500000 闭区间）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "B-500001"
+          ],
+          "total_expense_minor": 500001,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-KIND-consumption",
+        "title": "debit 500000 且 kind=consumption（R03-A 四类）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "K-consumption"
+          ],
+          "total_expense_minor": 500000,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-KIND-subscription",
+        "title": "debit 500000 且 kind=subscription（R03-A 四类）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "K-subscription"
+          ],
+          "total_expense_minor": 500000,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-KIND-transfer",
+        "title": "debit 500000 且 kind=transfer（R03-A 四类）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "K-transfer"
+          ],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-KIND-wealth",
+        "title": "debit 500000 且 kind=wealth（R03-A 四类）",
+        "expect": [
+          "命中"
+        ],
+        "actual": {
+          "anomaly_ids": [
+            "K-wealth"
+          ],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-CREDIT-income",
+        "title": "credit 500000 kind=income 不命中（含 LX-012 情形）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-CREDIT-refund",
+        "title": "credit 500000 kind=refund 不命中（含 LX-012 情形）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-CREDIT-wealth",
+        "title": "credit 500000 kind=wealth 不命中（含 LX-012 情形）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-CREDIT-consumption",
+        "title": "credit 500000 kind=consumption 不命中（含 LX-012 情形）",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-ISO",
+        "title": "大额分别在其他账户、其他月份：本窗口零命中",
+        "expect": [],
+        "actual": {
+          "anomaly_ids": [],
+          "total_expense_minor": 0,
+          "report_tail": "支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合",
+        "note": ""
+      },
+      {
+        "id": "REG-ORDER",
+        "title": "多笔命中按 transaction_id 排序；逆序输入结果一致",
+        "expect": [
+          "M-001",
+          "M-002",
+          "M-003"
+        ],
+        "actual": {
+          "forward": [
+            "M-001",
+            "M-002",
+            "M-003"
+          ],
+          "reverse_input": [
+            "M-001",
+            "M-002",
+            "M-003"
+          ]
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "REG-EMPTY-REPORT",
+        "title": "anomalies 为空时报告必须声明“空列表不代表没有异常”",
+        "expect": "report 含“空列表不代表没有异常”",
+        "actual": {
+          "anomaly_ids": [],
+          "report": "上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 1.00 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。"
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "REG-EXPENSE-SCOPE",
+        "title": "毛支出仅消费/订阅，wealth/transfer 不计入但 R03-A 照常命中",
+        "expect": "total_expense_minor=15000（10000+5000），命中 S-2",
+        "actual": {
+          "total_expense_minor": 15000,
+          "anomaly_ids": [
+            "S-2"
+          ]
+        },
+        "verdict": "符合"
+      }
+    ],
+    "2026-10-18-c-r03b-reference": [
+      {
+        "id": "REAL-LX005-B-NEW",
+        "title": "LX-005（08-15，500000）按 C-07 定版 T−1 口径：B 基准为空，不产生结论",
+        "expect": "NO_CONCLUSION（A 命中、B 不产生结论；不得把 B 写成无异常）",
+        "actual": {
+          "verdict": "NO_CONCLUSION",
+          "reason": "基准样本仅 0 笔（<3），不产生结论",
+          "sample": 0,
+          "numerator": 0,
+          "denominator": 14
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "REAL-LX005-B-OLD-C08",
+        "title": "C-08 旧算法复现（反面）：用 08-20 未来流水+全月 31 天+无下限，得阈值约 806 分 → 误判命中",
+        "expect": "该口径违反 T−1（使用未来数据），已被 C-07 定版废弃；仅作对照，不产生结论",
+        "actual": {
+          "old_numerator": 2500,
+          "old_denominator": 31,
+          "old_daily_avg": 80.65,
+          "old_threshold_approx": 806,
+          "would_have_hit": true,
+          "future_data_used": "LX-006 2026-08-20 > T=2026-08-15",
+          "verdict": ""
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-C-019",
+        "title": "SIM-C-019 候选 10000 分（日均 1000 分，阈值 10000）命中（闭区间）",
+        "expect": "HIT, threshold=10000",
+        "actual": {
+          "verdict": "HIT",
+          "sample": 10,
+          "numerator": 10000,
+          "denominator": 10,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10000
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-C-025",
+        "title": "SIM-C-025 候选 9999 分，低于阈值 10000 不命中",
+        "expect": "MISS",
+        "actual": {
+          "verdict": "MISS",
+          "sample": 10,
+          "numerator": 10000,
+          "denominator": 10,
+          "daily_avg_floor": 1000,
+          "threshold_minor": 10000
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-GATE-LT3",
+        "title": "基准样本仅 2 笔：候选 999999 也只能 NO_CONCLUSION（不是 MISS）",
+        "expect": "NO_CONCLUSION",
+        "actual": {
+          "verdict": "NO_CONCLUSION",
+          "reason": "基准样本仅 2 笔（<3），不产生结论",
+          "sample": 2,
+          "numerator": 2000,
+          "denominator": 9
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-FLOOR-9999",
+        "title": "基准日均 30 分（300/10），10×=300，阈值由下限抬到 10000；9999 不命中",
+        "expect": "MISS, threshold=10000",
+        "actual": {
+          "verdict": "MISS",
+          "sample": 3,
+          "numerator": 300,
+          "denominator": 10,
+          "daily_avg_floor": 30,
+          "threshold_minor": 10000
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-FLOOR-10000",
+        "title": "同上基准，候选 10000 分命中（闭区间）",
+        "expect": "HIT",
+        "actual": {
+          "verdict": "HIT",
+          "sample": 3,
+          "numerator": 300,
+          "denominator": 10,
+          "daily_avg_floor": 30,
+          "threshold_minor": 10000
+        },
+        "verdict": "符合"
+      },
+      {
+        "id": "SIM-SCOPE-MIX",
+        "title": "基准口径：订阅计入；工资/退款/R01 放款腿剔除；分子 4000、阈值 10000、999999 命中",
+        "expect": "HIT, numerator=4000, threshold=10000",
+        "actual": {
+          "verdict": "HIT",
+          "sample": 3,
+          "numerator": 4000,
+          "denominator": 10,
+          "daily_avg_floor": 400,
+          "threshold_minor": 10000
+        },
+        "verdict": "符合"
+      }
+    ]
+  },
+  "runtime_before": {
+    "runtime\\sandbox.sqlite3": "a65b50a8db977dee9923f1369aff2efd1d99a051af10039e0ef56ee350ed48f3"
+  },
+  "passed": 164,
+  "failed": 0
+}

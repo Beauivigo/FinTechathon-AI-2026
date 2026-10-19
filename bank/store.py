@@ -12,7 +12,31 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 9  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 10  # 数据库版本，与公开 JSON schema_version 分开。
+
+WORKFLOWS_SCHEMA = (
+    """CREATE TABLE IF NOT EXISTS merchant_intents (
+        principal_id TEXT NOT NULL REFERENCES principals, operation_key TEXT NOT NULL,
+        reservation_id TEXT NOT NULL REFERENCES reservations, amount_minor INTEGER NOT NULL CHECK(amount_minor>0),
+        PRIMARY KEY(principal_id,operation_key))""",
+    """CREATE TABLE IF NOT EXISTS merchant_orders (
+        order_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
+        operation_key TEXT NOT NULL, reservation_id TEXT NOT NULL REFERENCES reservations,
+        account_id TEXT NOT NULL REFERENCES accounts, card_id TEXT NOT NULL REFERENCES cards,
+        item_id TEXT NOT NULL, amount_minor INTEGER NOT NULL CHECK(amount_minor>0),
+        deliver_on TEXT NOT NULL, delivery_address_id TEXT NOT NULL, entry_id TEXT NOT NULL REFERENCES ledger_entries(transaction_id),
+        UNIQUE(principal_id,operation_key))""",
+    """CREATE TABLE IF NOT EXISTS card_applications (
+        application_id TEXT PRIMARY KEY, account_id TEXT NOT NULL REFERENCES accounts,
+        principal_id TEXT NOT NULL REFERENCES principals, operation_key TEXT NOT NULL,
+        state TEXT NOT NULL CHECK(state IN ('pending','rejected','cancelled')), UNIQUE(principal_id,operation_key))""",
+    """CREATE UNIQUE INDEX IF NOT EXISTS one_pending_application ON card_applications(account_id) WHERE state='pending'""",
+    """CREATE TABLE IF NOT EXISTS subscription_reminders (
+        reminder_id TEXT PRIMARY KEY, subscription_id TEXT NOT NULL REFERENCES subscriptions,
+        principal_id TEXT NOT NULL REFERENCES principals, charge_date TEXT NOT NULL,
+        remind_at TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('scheduled','sent','cancelled')),
+        UNIQUE(subscription_id,charge_date))""",
+)
 
 RESERVATIONS_SCHEMA = f"""CREATE TABLE IF NOT EXISTS reservations (
     reservation_id TEXT PRIMARY KEY, principal_id TEXT NOT NULL REFERENCES principals,
@@ -125,6 +149,7 @@ SCHEMA = (
     SUBSCRIPTIONS_SCHEMA,
     TASKS_SCHEMA,
     RESERVATIONS_SCHEMA,
+    *WORKFLOWS_SCHEMA,
 )
 
 
@@ -197,6 +222,10 @@ class Store:
                 version = 8
             if app_id == APPLICATION_ID and version == 8:
                 connection.execute(RESERVATIONS_SCHEMA)
+                version = 9
+            if app_id == APPLICATION_ID and version == 9:
+                for statement in WORKFLOWS_SCHEMA:
+                    connection.execute(statement)
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)

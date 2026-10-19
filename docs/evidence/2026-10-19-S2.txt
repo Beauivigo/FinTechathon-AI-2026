@@ -1,0 +1,45 @@
+test_apply_active_card_foreign_account_and_rejected_new_application (tests.test_member_workflows.MemberWorkflowTests.test_apply_active_card_foreign_account_and_rejected_new_application) ... ok
+test_apply_receipt_no_card_and_new_key_pending_rejected (tests.test_member_workflows.MemberWorkflowTests.test_apply_receipt_no_card_and_new_key_pending_rejected) ... ok
+test_cancel_audit_failure_rolls_back_state_and_reminder (tests.test_member_workflows.MemberWorkflowTests.test_cancel_audit_failure_rolls_back_state_and_reminder) ... ok
+test_cancel_retains_sent_history (tests.test_member_workflows.MemberWorkflowTests.test_cancel_retains_sent_history) ... ok
+test_cancel_stops_scheduled_reminder_and_clock_advance_no_effects (tests.test_member_workflows.MemberWorkflowTests.test_cancel_stops_scheduled_reminder_and_clock_advance_no_effects) ... ok
+test_candidate_and_cross_user_cannot_cancel_or_remind (tests.test_member_workflows.MemberWorkflowTests.test_candidate_and_cross_user_cannot_cancel_or_remind) ... ok
+test_pending_reminder_cannot_commit_after_cancel (tests.test_member_workflows.MemberWorkflowTests.test_pending_reminder_cannot_commit_after_cancel) ... ok
+test_reminder_actual_dispatch_restart_and_no_duplicate (tests.test_member_workflows.MemberWorkflowTests.test_reminder_actual_dispatch_restart_and_no_duplicate) ... ok
+test_reminder_duplicate_keys_and_time_boundaries (tests.test_member_workflows.MemberWorkflowTests.test_reminder_duplicate_keys_and_time_boundaries) ... ok
+test_scenario_plan_is_read_only_and_rejects_ambiguous_goal (tests.test_member_workflows.MemberWorkflowTests.test_scenario_plan_is_read_only_and_rejects_ambiguous_goal) ... ok
+test_two_apply_confirmations_only_one_pending (tests.test_member_workflows.MemberWorkflowTests.test_two_apply_confirmations_only_one_pending) ... ok
+test_accept_replay_conflict_and_illegal_state (tests.test_subscriptions.SubscriptionTests.test_accept_replay_conflict_and_illegal_state) ... ok
+test_audit_failure_rollback_and_lost_reply_recovery (tests.test_subscriptions.SubscriptionTests.test_audit_failure_rollback_and_lost_reply_recovery) ... ok
+test_changed_record_reject_and_ownership (tests.test_subscriptions.SubscriptionTests.test_changed_record_reject_and_ownership) ... ok
+test_concurrent_review_only_one_change (tests.test_subscriptions.SubscriptionTests.test_concurrent_review_only_one_change) ... ok
+test_dismiss_is_not_cancel_and_no_money (tests.test_subscriptions.SubscriptionTests.test_dismiss_is_not_cancel_and_no_money) ... ok
+test_page_confirm_refresh_review_and_recover (tests.test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover) ... ok
+test_read_reject_expiry_ownership_and_content_conflict (tests.test_subscriptions.SubscriptionTests.test_read_reject_expiry_ownership_and_content_conflict) ... ok
+test_read_replay_does_not_expose_changed_owner (tests.test_subscriptions.SubscriptionTests.test_read_replay_does_not_expose_changed_owner) ... ok
+test_read_requires_confirmation_without_write_key_and_recovers (tests.test_subscriptions.SubscriptionTests.test_read_requires_confirmation_without_write_key_and_recovers) ... ok
+test_v6_migration_preserves_card_pending (tests.test_subscriptions.SubscriptionTests.test_v6_migration_preserves_card_pending) ... ok
+test_account_scope_and_ownership (tests.test_subscription_scan.SubscriptionScanTests.test_account_scope_and_ownership) ... ok
+test_amount_tolerance_boundary (tests.test_subscription_scan.SubscriptionScanTests.test_amount_tolerance_boundary) ... ok
+test_bad_account_and_reject_leave_no_candidate (tests.test_subscription_scan.SubscriptionScanTests.test_bad_account_and_reject_leave_no_candidate) ... ok
+test_credit_and_refund_rows_are_ignored (tests.test_subscription_scan.SubscriptionScanTests.test_credit_and_refund_rows_are_ignored) ... ok
+test_existing_subscription_and_rescan_do_not_duplicate (tests.test_subscription_scan.SubscriptionScanTests.test_existing_subscription_and_rescan_do_not_duplicate) ... ok
+test_month_end_anchor_keeps_day (tests.test_subscription_scan.SubscriptionScanTests.test_month_end_anchor_keeps_day) ... ok
+test_monthly_recognition_creates_candidate (tests.test_subscription_scan.SubscriptionScanTests.test_monthly_recognition_creates_candidate) ... ok
+test_period_deviation_three_days_passes_four_days_fails (tests.test_subscription_scan.SubscriptionScanTests.test_period_deviation_three_days_passes_four_days_fails) ... ok
+test_same_key_replays_without_second_scan (tests.test_subscription_scan.SubscriptionScanTests.test_same_key_replays_without_second_scan) ... ok
+test_scan_does_not_touch_balance (tests.test_subscription_scan.SubscriptionScanTests.test_scan_does_not_touch_balance) ... ok
+test_single_period_is_not_recognized (tests.test_subscription_scan.SubscriptionScanTests.test_single_period_is_not_recognized) ... ok
+test_yearly_and_leap_day (tests.test_subscription_scan.SubscriptionScanTests.test_yearly_and_leap_day) ... ok
+test_audit_failure_rolls_back_card (tests.test_cards.CardTests.test_audit_failure_rolls_back_card) ... ok
+test_concurrent_state_change_invalidates_old_confirmation (tests.test_cards.CardTests.test_concurrent_state_change_invalidates_old_confirmation) ... ok
+test_e_material_original_paths (tests.test_cards.CardTests.test_e_material_original_paths) ... ok
+test_existing_v3_database_migrates_preserving_state (tests.test_cards.CardTests.test_existing_v3_database_migrates_preserving_state) ... ok
+test_four_actions_and_lost_cannot_unfreeze (tests.test_cards.CardTests.test_four_actions_and_lost_cannot_unfreeze) ... ok
+test_ownership_reject_missing_proof_and_conflict (tests.test_cards.CardTests.test_ownership_reject_missing_proof_and_conflict) ... ok
+test_page_and_refresh_recovery_and_transfer_page (tests.test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 4.048s
+
+OK

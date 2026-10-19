@@ -71,7 +71,7 @@ with st.sidebar:
     st.divider()
     st.subheader("试一笔转账")
     for index, example in enumerate(("给李明转200元", "给小王转钱", "给小王转两百", "给李明转1200元")):
-        if st.button(example, key=f"example_{index}", disabled=conversation.blocked, use_container_width=True):
+        if st.button(example, key=f"example_{index}", disabled=conversation.blocked, width="stretch"):
             perform(conversation.submit, example)
     st.caption("小王有两个模拟账户，需要根据尾号选择。")
     st.divider()
@@ -83,7 +83,7 @@ with st.sidebar:
         st.caption('模拟余额保存在本地，刷新不会重置。')
     except (ContractError, ServiceError):
         st.warning('余额暂不可用。')
-    if st.button("新建对话", disabled=conversation.blocked, use_container_width=True):
+    if st.button("新建对话", disabled=conversation.blocked, width="stretch"):
         st.session_state.conversation = new_conversation()
         st.rerun()
     st.caption('新建对话只清空聊天草稿，不改变余额和流水。')
@@ -137,7 +137,7 @@ with chat:
         st.write("请选择收款账户")
         for candidate in conversation.candidates:
             label = f"{candidate['display_name']} · {candidate.get('bank_name', '银行未提供')} · {candidate['masked_account']}"
-            if st.button(label, key="payee_" + candidate["payee_id"], use_container_width=True):
+            if st.button(label, key="payee_" + candidate["payee_id"], width="stretch"):
                 perform(conversation.select_payee, candidate["payee_id"])
     prompt = st.chat_input("例如：给小王转200元", key="transfer_input", max_chars=200, disabled=conversation.blocked)
     if prompt:
@@ -161,11 +161,11 @@ with details:
             st.warning(text)
             if result["status"] == "awaiting_verification":
                 st.write("含本次的上海当日累计超过1000元，需要模拟强验证；已提出的验证要求不会跨日降级。")
-                if st.button("模拟验证并继续", type="primary", use_container_width=True):
+                if st.button("模拟验证并继续", type="primary", width="stretch"):
                     perform(conversation.decide, True, simulate_verification=True)
-            elif st.button("确认此笔模拟转账", type="primary", use_container_width=True):
+            elif st.button("确认此笔模拟转账", type="primary", width="stretch"):
                 perform(conversation.decide, True)
-            if st.button("拒绝此操作", use_container_width=True):
+            if st.button("拒绝此操作", width="stretch"):
                 perform(conversation.decide, False)
         else:
             st.info(text)

@@ -95,7 +95,9 @@ class BankTests(unittest.TestCase):
         self.assertEqual(context["accounts"], [{"account_id": "demo_account_a", "display_name": "模拟日常账户"}])
         self.assertEqual({p['product_id'] for p in context['products']}, {'product_1','sample_product_2','sample_product_3'})
         self.assertEqual(len(context['cards']), 3)
-        self.assertTrue(all(context[key] == [] for key in ("holdings","items","addresses","questionnaires")))
+        self.assertTrue(all(context[key] == [] for key in ("holdings","questionnaires")))
+        self.assertEqual([(i['item_id'],i['price_minor']) for i in context['items']], [('ITEM-BD-FLOWER-01',19900),('ITEM-BD-FLOWER-02',29900),('ITEM-BD-CAKE-01',15800),('ITEM-BD-CAKE-02',22800)])
+        self.assertEqual([a['delivery_address_id'] for a in context['addresses']], ['ADDR-BD-01','ADDR-BD-02'])
         self.assertEqual(self.balance()["data"], dict(account_id="demo_account_a", balance_minor=200000,
                          available_minor=200000, reserved_minor=0, currency="CNY"))
         for suffix in ("li", "wang_1", "wang_2"):

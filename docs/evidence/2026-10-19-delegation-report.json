@@ -1,0 +1,176 @@
+{
+  "generatedAt": "2026-10-19T03:44:22.589Z",
+  "groups": {
+    "synthetic": {
+      "runs": 3,
+      "accepted": 3,
+      "failed": 0,
+      "missingUsage": 1,
+      "knownDeepseekTokens": 3701
+    },
+    "real": {
+      "runs": 0,
+      "accepted": 0,
+      "failed": 0,
+      "missingUsage": 0,
+      "knownDeepseekTokens": null
+    },
+    "unclassified": {
+      "runs": 2,
+      "accepted": 1,
+      "failed": 0,
+      "missingUsage": 1,
+      "knownDeepseekTokens": 6030
+    }
+  },
+  "rows": [
+    {
+      "id": "194ce68f-83ca-4724-88c9-eb1355eaaedf",
+      "sample": "synthetic",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": null,
+      "observedAttempts": null,
+      "repairs": null,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "5a3c8616-355a-47e3-bcb7-124af219263a",
+      "sample": "synthetic",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1623,
+          "complete": true
+        },
+        "output": {
+          "known": 183,
+          "complete": true
+        },
+        "total": {
+          "known": 1806,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "d835b709-d5b1-4b28-8365-88cd05825093",
+      "sample": "unclassified",
+      "executionStatus": "awaiting_codex_review",
+      "status": "awaiting_codex_review",
+      "review": "missing",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1035,
+          "complete": true
+        },
+        "output": {
+          "known": 4995,
+          "complete": true
+        },
+        "total": {
+          "known": 6030,
+          "complete": true
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "d90a86af-ae40-4461-80be-1754b791e1e7",
+      "sample": "unclassified",
+      "executionStatus": "accepted_by_codex",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": null,
+      "observedAttempts": null,
+      "repairs": null,
+      "deepseek": {
+        "input": {
+          "known": null,
+          "complete": false
+        },
+        "output": {
+          "known": null,
+          "complete": false
+        },
+        "total": {
+          "known": null,
+          "complete": false
+        }
+      },
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    },
+    {
+      "id": "fb4b0921-146a-4b7d-9e70-94ddf34a5e26",
+      "sample": "synthetic",
+      "executionStatus": "awaiting_codex_review",
+      "status": "accepted_by_codex",
+      "review": "accepted",
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "deepseek": {
+        "input": {
+          "known": 1721,
+          "complete": true
+        },
+        "output": {
+          "known": 174,
+          "complete": true
+        },
+        "total": {
+          "known": 1895,
+          "complete": true
+        }
+      },
+      "testsPassed": true,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    }
+  ],
+  "codexQuotaSavingsPercent": null,
+  "conclusion": "insufficient_comparable_codex_measurements",
+  "limitations": [
+    "Known token totals may be partial; missing is not zero.",
+    "Synthetic and unclassified tasks are excluded from real-task evaluation.",
+    "DeepSeek tokens and elapsed time cannot establish Codex quota savings.",
+    "Review/rework minutes are optional Codex observations, never inferred from waiting time."
+  ]
+}
