@@ -14,6 +14,7 @@ from uuid import uuid4
 from wealth import catalog, questionnaire
 
 from shared import ServiceError
+from shared.contracts import MAX_SAFE_INTEGER
 from .services import owned_account
 from .store import utc_timestamp
 
@@ -42,6 +43,15 @@ def _format_units(value):
 
 def _fee(amount_minor, bps):
     return _money(Decimal(amount_minor) * Decimal(bps) / Decimal(10000))
+
+
+def _redemption_amounts(product, units):
+    gross = _money(units * Decimal(product['net_value_minor']))
+    fee = _fee(gross, product['redeem_fee_bps'])
+    net = gross-fee
+    if net <= 0 or gross > MAX_SAFE_INTEGER:
+        raise ServiceError('LIMIT_EXCEEDED','按分取整后的到账金额不足一分或超出金额范围。')
+    return gross,fee,net
 
 
 def _today(now):
@@ -101,6 +111,10 @@ def _redeem_state(c, p, principal, today):
     units = Decimal(p["units"])
     if units <= 0 or units > held:
         raise ServiceError("INVALID_STATE", "可赎回份额不足。")
+    _,_,net = _redemption_amounts(product,units)
+    account = _account(c,p['account_id'],principal)
+    if account['balance_minor']+net>MAX_SAFE_INTEGER or account['available_minor']+net>MAX_SAFE_INTEGER:
+        raise ServiceError('LIMIT_EXCEEDED','到账后余额超出整数金额范围。')
     return holding, product, units
 
 
@@ -168,9 +182,7 @@ def _purchase(c, request, principal, now):
 def _redeem(c, request, principal, now):
     p = request["params"]
     holding, product, units = _redeem_state(c, p, principal, _today(now))
-    gross = _money(units * Decimal(product["net_value_minor"]))
-    fee = _fee(gross, product["redeem_fee_bps"])
-    net = gross - fee
+    gross,fee,net = _redemption_amounts(product,units)
     remaining = Decimal(holding["units"]) - units
     order_id = "order_" + uuid4().hex
     entry_id = "wealth_" + uuid4().hex

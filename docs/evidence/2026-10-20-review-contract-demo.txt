@@ -1,0 +1,39 @@
+{
+  "request": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "params": {
+      "account_id": "demo_account_1",
+      "payee_id": "demo_payee_1",
+      "amount_minor": 12050
+    },
+    "idempotency_key": "operation_demo_1"
+  },
+  "gate": {
+    "risk_level": "red",
+    "required_action": "verify",
+    "reason": "含本次的当日累计转账>1000元"
+  },
+  "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+  "result": {
+    "schema_version": "1.1",
+    "request_id": "request_demo_1",
+    "trace_id": "trace_demo_1",
+    "action": "transfer.create",
+    "status": "awaiting_verification",
+    "source": "gateway",
+    "data": {},
+    "next_action": {
+      "challenge_id": "demo_challenge_1",
+      "kind": "verify",
+      "operation_digest": "9291f02967827eaccadc93ec334a6faac5e30948c864d4bd02349887b250cfd2",
+      "expires_at": "2026-10-10T20:00:00+08:00",
+      "methods": [
+        "demo_otp"
+      ]
+    }
+  },
+  "display_text": "待强验证。"
+}

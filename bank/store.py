@@ -12,7 +12,7 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 12  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 13  # 数据库版本，与公开 JSON schema_version 分开。
 
 SUBSCRIPTION_CHARGE_SCHEMA = (
     """CREATE TABLE IF NOT EXISTS subscription_charges (
@@ -46,7 +46,7 @@ WEALTH_SCHEMA = (
         fee_minor INTEGER NOT NULL CHECK(fee_minor >= 0),
         units TEXT NOT NULL, holding_id TEXT, status TEXT NOT NULL,
         operation_key TEXT NOT NULL, occurred_at TEXT NOT NULL,
-        UNIQUE(principal_id, operation_key))""",
+        UNIQUE(principal_id, order_type, operation_key))""",
 )
 
 WORKFLOWS_SCHEMA = (
@@ -271,6 +271,13 @@ class Store:
             if app_id == APPLICATION_ID and version == 11:
                 for statement in SUBSCRIPTION_CHARGE_SCHEMA:
                     connection.execute(statement)
+                version = 12
+            if app_id == APPLICATION_ID and version == 12:
+                # 原子复制旧订单，修正与网关(principal, action, key)不一致的唯一范围。
+                connection.execute(WEALTH_SCHEMA[-1].replace('wealth_orders (','wealth_orders_v13 (',1))
+                connection.execute('INSERT INTO wealth_orders_v13 SELECT * FROM wealth_orders')
+                connection.execute('DROP TABLE wealth_orders')
+                connection.execute('ALTER TABLE wealth_orders_v13 RENAME TO wealth_orders')
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)

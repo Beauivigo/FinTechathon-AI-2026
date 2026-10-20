@@ -1,0 +1,29 @@
+test_redemption_balance_limit_checked_before_challenge (tests.test_review_funds.RedemptionReviewTests.test_redemption_balance_limit_checked_before_challenge) ... FAIL
+test_zero_cent_redemption_rejected_before_challenge (tests.test_review_funds.RedemptionReviewTests.test_zero_cent_redemption_rejected_before_challenge) ... FAIL
+
+======================================================================
+FAIL: test_redemption_balance_limit_checked_before_challenge (tests.test_review_funds.RedemptionReviewTests.test_redemption_balance_limit_checked_before_challenge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 99, in test_redemption_balance_limit_checked_before_challenge
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'awaiting_verification' != 'failed'
+- awaiting_verification
++ failed
+
+
+======================================================================
+FAIL: test_zero_cent_redemption_rejected_before_challenge (tests.test_review_funds.RedemptionReviewTests.test_zero_cent_redemption_rejected_before_challenge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 91, in test_zero_cent_redemption_rejected_before_challenge
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'awaiting_verification' != 'failed'
+- awaiting_verification
++ failed
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.559s
+
+FAILED (failures=2)

@@ -12,6 +12,8 @@ LABELS = {'merchant.order':'模拟商户下单', 'card.apply':'卡片申请受�
           'subscription.scan': '扫描识别订阅',
           'transfer.schedule': '登记定时转账', 'transfer.create': '转账执行',
           'budget.reserve': '预留预算', 'budget.release': '释放预算'}
+LABELS.update({'wealth.assess':'风险评估','wealth.purchase':'理财申购',
+               'wealth.redeem':'理财赎回','subscription.charge':'本期订阅续费'})
 
 
 def demo_payees(flow):
@@ -70,6 +72,32 @@ def render(flow):
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
     p = request['params']
+    if request['action']=='wealth.purchase':
+        st.write('付款账户：'+p['account_id']+'；风险档案：'+p['risk_profile_id'])
+        st.write('申购产品：'+p['product_id'])
+        st.write(f"申购金额：{p['amount_minor']//100}.{p['amount_minor']%100:02d}元（含申购费）")
+        product=next((item for item in flow.resources['products'] if item['product_id']==p['product_id']),None)
+        if product:
+            st.write(product['name']+'；'+product['risk_level']+'；'+product['fee_description'])
+        st.caption('核对本笔申购内容后，需模拟强验证。')
+    if request['action']=='wealth.redeem':
+        st.write('到账账户：'+p['account_id']+'；持仓：'+p['holding_id'])
+        st.write('本笔赎回份额：'+p['units']+'份')
+        st.caption('模拟T+1：本演示在强验证成功后即时展示入账，以模拟次日到账，不代表真实即时到账。')
+    if request['action']=='wealth.assess':
+        st.write('风险问卷版本：'+p['questionnaire_version'])
+    if request['action']=='subscription.charge':
+        st.write('续费订阅：'+p['subscription_id'])
+        try:
+            details=flow.gateway.subscription_charge_details(request,principal_id=flow.principal_id)
+        except (ServiceError,ContractError):
+            details=None
+        if details:
+            st.write('扣费账户：'+details['account_id']+'；支付卡：'+details['card_id'])
+            st.write(f"本期金额：{details['amount_minor']//100}.{details['amount_minor']%100:02d}元；对应扣费日：{details['charge_date']}")
+        else:
+            st.warning('无法核实原账户与支付卡绑定，请查询原操作并重新核对。')
+        st.caption('本期续费需独立强验证；核实订阅不授予后续自动扣款权限。')
     if request['action']=='merchant.order':
         st.write(f"本笔金额：{p['amount_minor']/100:.2f}元；计划配送日：{p['deliver_on']}")
         st.write('商品：'+p['item_id']+'；模拟地址：'+p['delivery_address_id'])

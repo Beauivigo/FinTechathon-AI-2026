@@ -1,0 +1,17 @@
+test_same_key_is_independent_between_purchase_and_redeem (tests.test_review_funds.RedemptionReviewTests.test_same_key_is_independent_between_purchase_and_redeem) ... FAIL
+
+======================================================================
+FAIL: test_same_key_is_independent_between_purchase_and_redeem (tests.test_review_funds.RedemptionReviewTests.test_same_key_is_independent_between_purchase_and_redeem)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 114, in test_same_key_is_independent_between_purchase_and_redeem
+    self.assertEqual(self.verify(pending)['status'],'succeeded')
+AssertionError: 'failed' != 'succeeded'
+- failed
++ succeeded
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.092s
+
+FAILED (failures=1)

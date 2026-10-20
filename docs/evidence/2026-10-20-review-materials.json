@@ -1,0 +1,6 @@
+{
+  "executor": "Codex independent check",
+  "cases": 24,
+  "mismatches": [],
+  "scope": "C archived 24 route cases; no archive or selfcheck rewritten"
+}

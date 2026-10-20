@@ -1,0 +1,13 @@
+test_bare_negations_cancel_and_multi_intent_clarifies (review_candidate.RoutingReviewTests.test_bare_negations_cancel_and_multi_intent_clarifies) ... ok
+test_conjoined_or_ranged_amounts_never_ready (review_candidate.RoutingReviewTests.test_conjoined_or_ranged_amounts_never_ready) ... ok
+test_followup_conflicting_amount_does_not_leak_or_mutate (review_candidate.RoutingReviewTests.test_followup_conflicting_amount_does_not_leak_or_mutate) ... ok
+test_valid_decimal_amount_remains_supported (review_candidate.RoutingReviewTests.test_valid_decimal_amount_remains_supported) ... ok
+test_exact_conversion_rejects_extra_precision (review_candidate.WealthPageSafetyTests.test_exact_conversion_rejects_extra_precision) ... ok
+test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring (review_candidate.WealthPageSafetyTests.test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring) ... ok
+test_all_wealth_intents_are_labeled_and_handoff_enabled (review_candidate.WealthRoutingDisplayTests.test_all_wealth_intents_are_labeled_and_handoff_enabled) ... ok
+test_wealth_fields_have_readable_labels_and_no_invented_values (review_candidate.WealthRoutingDisplayTests.test_wealth_fields_have_readable_labels_and_no_invented_values) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK

@@ -1,0 +1,22 @@
+[
+  {
+    "member": "B",
+    "files": 1,
+    "errors": []
+  },
+  {
+    "member": "C",
+    "files": 13,
+    "errors": []
+  },
+  {
+    "member": "D",
+    "files": 4,
+    "errors": []
+  },
+  {
+    "member": "E",
+    "files": 1,
+    "errors": []
+  }
+]

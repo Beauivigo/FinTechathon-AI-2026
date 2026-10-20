@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-10-20T10:56:30.254Z",
+  "scope": "Only this project review run; final Codex repairs independently tested in primary checkout",
+  "rows": [
+    {
+      "id": "b2fc97f7-8679-420e-b4ec-91697cea691c",
+      "sample": "unclassified",
+      "executionStatus": "tests_failed",
+      "status": "rejected_by_codex",
+      "review": "rejected",
+      "stage": 1,
+      "stageCount": 1,
+      "planningCalls": 1,
+      "recordedModelAttempts": 3,
+      "observedAttempts": 3,
+      "repairs": 2,
+      "project_id": "df6e3b3865e4c9baa3ce632edff6f8dad4b5dcd06cbc3563d582193aa102dcad",
+      "deepseek": {
+        "input": {
+          "known": 59043,
+          "complete": true
+        },
+        "output": {
+          "known": 225927,
+          "complete": true
+        },
+        "total": {
+          "known": 293034,
+          "complete": true
+        },
+        "cache": {
+          "hit": 8064,
+          "miss": 59043,
+          "creation": 0,
+          "totalInput": 67107,
+          "weightedHitPercent": 12.01663015780768,
+          "coveredCalls": 4,
+          "expectedCalls": 4,
+          "complete": true,
+          "cost": null
+        }
+      },
+      "requests": [
+        {
+          "cache": {
+            "hit": 256,
+            "miss": 15356,
+            "creation": 0,
+            "totalInput": 15612,
+            "weightedHitPercent": 1.6397642838841917,
+            "coveredCalls": 1,
+            "expectedCalls": 1,
+            "complete": true,
+            "cost": null
+          },
+          "session_id": "session-856fdb3f-536b-41bd-9f84-a4400f3898f8",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": [
+            {
+              "request_number": 1,
+              "inputTokens": 15356,
+              "outputTokens": 58314,
+              "cacheReadTokens": 256,
+              "cacheWriteTokens": 0,
+              "totalTokens": 73926
+            }
+          ],
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null
+            }
+          ]
+        },
+        {
+          "cache": {
+            "hit": 3712,
+            "miss": 15672,
+            "creation": 0,
+            "totalInput": 19384,
+            "weightedHitPercent": 19.149814279818408,
+            "coveredCalls": 1,
+            "expectedCalls": 1,
+            "complete": true,
+            "cost": null
+          },
+          "session_id": "session-5d7da697-599e-44f0-a123-d6423edfe398",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": [
+            {
+              "request_number": 1,
+              "inputTokens": 15672,
+              "outputTokens": 44101,
+              "cacheReadTokens": 3712,
+              "cacheWriteTokens": 0,
+              "totalTokens": 63485
+            }
+          ],
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null
+            }
+          ]
+        },
+        {
+          "cache": {
+            "hit": 3840,
+            "miss": 15581,
+            "creation": 0,
+            "totalInput": 19421,
+            "weightedHitPercent": 19.772411307347717,
+            "coveredCalls": 1,
+            "expectedCalls": 1,
+            "complete": true,
+            "cost": null
+          },
+          "session_id": "session-d8992dfd-19f8-4aaf-bd2d-324939a614ff",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": [
+            {
+              "request_number": 1,
+              "inputTokens": 15581,
+              "outputTokens": 52355,
+              "cacheReadTokens": 3840,
+              "cacheWriteTokens": 0,
+              "totalTokens": 71776
+            }
+          ],
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null
+            }
+          ]
+        },
+        {
+          "cache": {
+            "hit": 256,
+            "miss": 12434,
+            "creation": 0,
+            "totalInput": 12690,
+            "weightedHitPercent": 2.0173364854215916,
+            "coveredCalls": 1,
+            "expectedCalls": 1,
+            "complete": true,
+            "cost": null
+          },
+          "session_id": "session-611cca41-d926-4fde-a660-6db26a9790ca",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": [
+            {
+              "request_number": 1,
+              "inputTokens": 12434,
+              "outputTokens": 71157,
+              "cacheReadTokens": 256,
+              "cacheWriteTokens": 0,
+              "totalTokens": 83847
+            }
+          ],
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null
+            }
+          ]
+        }
+      ],
+      "testsPassed": false,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    }
+  ]
+}

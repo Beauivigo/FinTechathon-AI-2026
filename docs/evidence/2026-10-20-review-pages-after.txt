@@ -1,0 +1,36 @@
+test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) ... ok
+test_charge_recovery_displays_original_bound_amount_and_card (tests.test_review_page_acceptance.ReviewPageTests.test_charge_recovery_displays_original_bound_amount_and_card) ... 2026-10-20 18:51:55.524 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:51:55.775 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_four_wealth_intents_open_real_page_without_writes (tests.test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes) ... 2026-10-20 18:51:55.871 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:51:56.073 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:51:56.253 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:51:56.432 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_session_can_recover_and_verify_wealth_purchase (tests.test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase) ... 2026-10-20 18:51:56.608 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:51:56.725 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_holdings_selection_updates_default_units (tests.test_review_page_acceptance.ReviewPageTests.test_holdings_selection_updates_default_units) ... 2026-10-20 18:51:57.244 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_questionnaire_has_real_option_text (tests.test_review_page_acceptance.ReviewPageTests.test_questionnaire_has_real_option_text) ... 2026-10-20 18:51:57.374 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bare_negations_cancel_and_multi_intent_clarifies (tests.test_review_routing_ui.RoutingReviewTests.test_bare_negations_cancel_and_multi_intent_clarifies) ... ok
+test_conjoined_or_ranged_amounts_never_ready (tests.test_review_routing_ui.RoutingReviewTests.test_conjoined_or_ranged_amounts_never_ready) ... ok
+test_followup_conflicting_amount_does_not_leak_or_mutate (tests.test_review_routing_ui.RoutingReviewTests.test_followup_conflicting_amount_does_not_leak_or_mutate) ... ok
+test_valid_decimal_amount_remains_supported (tests.test_review_routing_ui.RoutingReviewTests.test_valid_decimal_amount_remains_supported) ... ok
+test_exact_conversion_rejects_extra_precision (tests.test_review_routing_ui.WealthPageSafetyTests.test_exact_conversion_rejects_extra_precision) ... ok
+test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring (tests.test_review_routing_ui.WealthPageSafetyTests.test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring) ... ok
+test_all_wealth_intents_are_labeled_and_handoff_enabled (tests.test_review_routing_ui.WealthRoutingDisplayTests.test_all_wealth_intents_are_labeled_and_handoff_enabled) ... ok
+test_wealth_fields_have_readable_labels_and_no_invented_values (tests.test_review_routing_ui.WealthRoutingDisplayTests.test_wealth_fields_have_readable_labels_and_no_invented_values) ... ok
+test_clear_and_new_intent_do_not_keep_fields (tests.test_routing_acceptance.RoutingAcceptanceTests.test_clear_and_new_intent_do_not_keep_fields) ... ok
+test_conflicting_values_cannot_reappear_after_followup (tests.test_routing_acceptance.RoutingAcceptanceTests.test_conflicting_values_cannot_reappear_after_followup) ... ok
+test_explicit_fields_and_no_default_account (tests.test_routing_acceptance.RoutingAcceptanceTests.test_explicit_fields_and_no_default_account) ... ok
+test_fixed_matrix (tests.test_routing_acceptance.RoutingAcceptanceTests.test_fixed_matrix) ... ok
+test_followup_and_input_immutability (tests.test_routing_acceptance.RoutingAcceptanceTests.test_followup_and_input_immutability) ... ok
+test_invalid_or_ambiguous_values_never_ready (tests.test_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) ... ok
+test_module_has_no_business_or_io_dependencies (tests.test_routing_acceptance.RoutingAcceptanceTests.test_module_has_no_business_or_io_dependencies) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.972s
+
+OK

@@ -1,0 +1,70 @@
+test_account_rebinding_during_challenge_invalidates_old_authorization (tests.test_review_funds.RenewalReviewTests.test_account_rebinding_during_challenge_invalidates_old_authorization) ... FAIL
+test_cancel_before_authorization_stops_charge (tests.test_review_funds.RenewalReviewTests.test_cancel_before_authorization_stops_charge) ... ok
+test_card_change_during_challenge_cannot_silently_switch_card (tests.test_review_funds.RenewalReviewTests.test_card_change_during_challenge_cannot_silently_switch_card) ... FAIL
+test_charge_audit_failure_rolls_back_every_business_write (tests.test_review_funds.RenewalReviewTests.test_charge_audit_failure_rolls_back_every_business_write) ... ok
+test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) ... 
+  test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='frozen', limit=100000) ... FAIL
+  test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='lost', limit=100000) ... FAIL
+  test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='active', limit=1) ... FAIL
+test_same_period_concurrency_commits_exactly_once (tests.test_review_funds.RenewalReviewTests.test_same_period_concurrency_commits_exactly_once) ... ok
+
+======================================================================
+FAIL: test_account_rebinding_during_challenge_invalidates_old_authorization (tests.test_review_funds.RenewalReviewTests.test_account_rebinding_during_challenge_invalidates_old_authorization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 49, in test_account_rebinding_during_challenge_invalidates_old_authorization
+    self.assertEqual(result['status'],'failed');self.assertEqual(self.snapshot(),before)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'succeeded' != 'failed'
+- succeeded
++ failed
+
+
+======================================================================
+FAIL: test_card_change_during_challenge_cannot_silently_switch_card (tests.test_review_funds.RenewalReviewTests.test_card_change_during_challenge_cannot_silently_switch_card)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 39, in test_card_change_during_challenge_cannot_silently_switch_card
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'succeeded' != 'failed'
+- succeeded
++ failed
+
+
+======================================================================
+FAIL: test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='frozen', limit=100000)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 28, in test_frozen_lost_or_low_limit_card_blocks_charge_before_verification
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'awaiting_verification' != 'failed'
+- awaiting_verification
++ failed
+
+
+======================================================================
+FAIL: test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='lost', limit=100000)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 28, in test_frozen_lost_or_low_limit_card_blocks_charge_before_verification
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'awaiting_verification' != 'failed'
+- awaiting_verification
++ failed
+
+
+======================================================================
+FAIL: test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (tests.test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) (state='active', limit=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 28, in test_frozen_lost_or_low_limit_card_blocks_charge_before_verification
+    self.assertEqual(result['status'],'failed')
+AssertionError: 'awaiting_verification' != 'failed'
+- awaiting_verification
++ failed
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.467s
+
+FAILED (failures=5)

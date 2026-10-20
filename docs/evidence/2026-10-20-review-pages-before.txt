@@ -1,0 +1,85 @@
+test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) ... 
+  test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回-10份') ... FAIL
+  test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回0份') ... FAIL
+  test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回1.23456份') ... FAIL
+  test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 买理财 WP-C01 100元然后赎回10份') ... FAIL
+test_charge_recovery_displays_original_bound_amount_and_card (tests.test_review_page_acceptance.ReviewPageTests.test_charge_recovery_displays_original_bound_amount_and_card) ... 2026-10-20 18:48:36.142 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:48:36.867 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_four_wealth_intents_open_real_page_without_writes (tests.test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes) ... 2026-10-20 18:48:36.953 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ERROR
+test_fresh_session_can_recover_and_verify_wealth_purchase (tests.test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase) ... 2026-10-20 18:48:37.165 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-20 18:48:37.299 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_holdings_selection_updates_default_units (tests.test_review_page_acceptance.ReviewPageTests.test_holdings_selection_updates_default_units) ... 2026-10-20 18:48:38.971 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+FAIL
+test_questionnaire_has_real_option_text (tests.test_review_page_acceptance.ReviewPageTests.test_questionnaire_has_real_option_text) ... 2026-10-20 18:48:39.724 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+FAIL
+
+======================================================================
+ERROR: test_four_wealth_intents_open_real_page_without_writes (tests.test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 39, in test_four_wealth_intents_open_real_page_without_writes
+    p.button(key='router_open').click().run()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py", line 379, in __call__
+    raise KeyError(key)
+KeyError: 'router_open'
+
+======================================================================
+FAIL: test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回-10份')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 88, in test_bad_wealth_units_and_multi_actions_never_ready
+    with self.subTest(text=text):self.assertNotEqual(route(text)['status'],'ready')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回0份')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 88, in test_bad_wealth_units_and_multi_actions_never_ready
+    with self.subTest(text=text):self.assertNotEqual(route(text)['status'],'ready')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 赎回1.23456份')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 88, in test_bad_wealth_units_and_multi_actions_never_ready
+    with self.subTest(text=text):self.assertNotEqual(route(text)['status'],'ready')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_bad_wealth_units_and_multi_actions_never_ready (tests.test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) (text='账户 demo_account_a 买理财 WP-C01 100元然后赎回10份')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 88, in test_bad_wealth_units_and_multi_actions_never_ready
+    with self.subTest(text=text):self.assertNotEqual(route(text)['status'],'ready')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_holdings_selection_updates_default_units (tests.test_review_page_acceptance.ReviewPageTests.test_holdings_selection_updates_default_units)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 83, in test_holdings_selection_updates_default_units
+    self.assertEqual(Decimal(str(value)),Decimal(holdings[1]['units']))
+AssertionError: Decimal('2.5') != Decimal('7.5000')
+
+======================================================================
+FAIL: test_questionnaire_has_real_option_text (tests.test_review_page_acceptance.ReviewPageTests.test_questionnaire_has_real_option_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_page_acceptance.py", line 73, in test_questionnaire_has_real_option_text
+    self.assertIn('不到1年',options)
+AssertionError: '不到1年' not found in '模拟日常账户选项A（1分）选项B（2分）选项C（3分）选项D（4分）选项A（1分）选项B（2分）选项C（3分）选项D（4分）选项A（1分）选项B（2分）选项C（3分）选项D（4分）选项A（1分）选项B（2分）选项C（3分）选项D（4分）选项A（1分）选项B（2分）选项C（3分）选项D（4分）WP-C01·现金钱包（虚构）·R1·起购1元WP-C02·稳健短债（虚构）·R2·起购100元WP-C03·平衡混合（虚构）·R3·起购500元WP-C04·成长股票（虚构）·R4·起购1000元WP-C05·进取先锋（虚构）·R5·起购2000元WP-C06·目标日期2035（虚构）·R3·起购1000元'
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.688s
+
+FAILED (failures=6, errors=1)

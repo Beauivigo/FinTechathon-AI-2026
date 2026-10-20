@@ -1,0 +1,12 @@
+{
+  "run_id": "b2fc97f7-8679-420e-b4ec-91697cea691c",
+  "reviewer": "Codex",
+  "status": "reviewed partial contribution; overall candidate rejected; Codex final repairs required",
+  "reason": "Frozen test path resolved outside snapshot and all three stage runs failed before assertions. Eight independent worktree tests passed, but complete user acceptance still had missing boundaries and real questionnaire text.",
+  "original_hashes": {
+    "agent/routing.py": "ec98c23f6912fdc500e3ed4f639709deeecc334ccfa64d1e6271bd6594e55859",
+    "app/routing_panel.py": "82de072d644dcf760aa7a9ebb6f524f1c89276580aca437d0f8673bec7c618e1",
+    "app/pages/9_理财.py": "ef9ee06f194ddddc36330180fd6f14516fcaa8011ff6f2fd83378738aef4fe8d",
+    "tests/test_review_routing_ui.py": "62f5e1c2841bdd23f46bfc2f16af2e92e97645a517f0071b0eca7e00c5b329e7"
+  }
+}

@@ -75,6 +75,25 @@ class BankGateway:
                 WHERE r.principal_id=? AND a.principal_id=? ORDER BY r.rowid DESC''',
                 (principal_id, principal_id))]
 
+    def subscription_charge_details(self, request, *, principal_id):
+        """可信页面读取原授权绑定，金额/账户/卡不使用可变订阅快照替代。"""
+        if request['action']!='subscription.charge':
+            raise ServiceError('INVALID_REQUEST','不是订阅续费操作。')
+        with self.store.connection() as c:
+            require_principal(c,principal_id)
+            saved=self._load(c,request,principal_id)
+            if saved is None:
+                return None
+            row=c.execute('''SELECT resource_binding_json FROM challenges
+                WHERE principal_id=? AND action=? AND idempotency_key=? ORDER BY rowid DESC LIMIT 1''',
+                self._key(request,principal_id)).fetchone()
+            if row is None:
+                return None
+            bound=json.loads(row[0])
+            if not isinstance(bound,list) or len(bound)!=6 or bound[0]!=request['params']['subscription_id']:
+                return None  # 旧不完整绑定不得伪装成已核实的账户/卡。
+            return dict(account_id=bound[1],charge_date=bound[2],amount_minor=bound[3],card_id=bound[5][0])
+
     def list_operations(self, *, principal_id):
         """可信页面的恢复索引，不是模型动作；保留所有未决操作及最近 20 个终态。"""
         try:

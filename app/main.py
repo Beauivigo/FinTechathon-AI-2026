@@ -115,6 +115,8 @@ if selection and not conversation.blocked:
         'card': 'pages/3_卡片管理.py', 'aa': 'pages/4_AA收款.py',
         'subscription': 'pages/5_订阅管理.py', 'birthday': 'pages/8_生日与商户.py',
         'scheduled_transfer': 'pages/6_定时转账.py', 'products': 'pages/2_产品对比.py',
+        'wealth_assess': 'pages/9_理财.py', 'wealth_purchase': 'pages/9_理财.py',
+        'wealth_redeem': 'pages/9_理财.py', 'wealth_holdings': 'pages/9_理财.py',
     }
     st.session_state.routing_handoff = selection
     if selection['intent'] == 'bill' and selection['fields'].get('account_id', '').startswith('ACCT-'):
@@ -263,7 +265,10 @@ if accounts:
             st.caption(f'账户：{names[account]} · 上海日期：{start.isoformat()} 至 {end.isoformat()}（含两端）')
             st.metric('消费/订阅毛支出', money(bill['total_expense_minor']))
             st.write(bill['report'])
-            st.info('自动异常检测尚未启用，空列表不代表没有异常。')
+            st.info('当前已启用 R03-A 大额单笔提示；R01、R03-B 未启用，空列表不代表没有异常，提示供进一步核实。')
+            if bill['anomalies']:
+                st.dataframe([{'流水编号':item['transaction_id'],'核实提示':item['reason']}
+                              for item in bill['anomalies']],hide_index=True)
             if bill['categories']:
                 st.dataframe([{'分类': row['category'], '金额（元）': money(row['amount_minor']),
                                '金额（分）': row['amount_minor']} for row in bill['categories']], hide_index=True)

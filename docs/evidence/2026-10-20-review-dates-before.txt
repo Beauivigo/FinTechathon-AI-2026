@@ -1,0 +1,33 @@
+test_monthly_anchor_survives_short_month (tests.test_review_funds.RenewalReviewTests.test_monthly_anchor_survives_short_month) ... FAIL
+test_yearly_anchor_returns_to_leap_day (tests.test_review_funds.RenewalReviewTests.test_yearly_anchor_returns_to_leap_day) ... FAIL
+
+======================================================================
+FAIL: test_monthly_anchor_survives_short_month (tests.test_review_funds.RenewalReviewTests.test_monthly_anchor_survives_short_month)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 87, in test_monthly_anchor_survives_short_month
+    self.assertEqual(self.verify(self.g.execute(self.request(),principal_id='demo_user_a'))['data']['next_charge_date'],'2027-03-31')
+AssertionError: '2027-03-28' != '2027-03-31'
+- 2027-03-28
+?         ^^
++ 2027-03-31
+?         ^^
+
+
+======================================================================
+FAIL: test_yearly_anchor_returns_to_leap_day (tests.test_review_funds.RenewalReviewTests.test_yearly_anchor_returns_to_leap_day)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_review_funds.py", line 97, in test_yearly_anchor_returns_to_leap_day
+    self.assertEqual(result['data']['next_charge_date'],'2028-02-29')
+AssertionError: '2028-02-28' != '2028-02-29'
+- 2028-02-28
+?          ^
++ 2028-02-29
+?          ^
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.246s
+
+FAILED (failures=2)

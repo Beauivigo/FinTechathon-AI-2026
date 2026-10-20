@@ -6,10 +6,13 @@ import streamlit as st
 from agent.routing import route
 
 _DISCLAIMER = '这只是草稿，账户和业务状态仍需在表单核对；不会自动付款或执行取消。'
+# 理财四意图与字段标签需保持可读，草稿才能交给对应页面核对。
 _INTENTS = {
     'bill': '账单', 'balance': '余额', 'transfer': '转账',
     'scheduled_transfer': '预约转账', 'card': '银行卡', 'aa': 'AA 收款',
     'subscription': '订阅管理', 'birthday': '生日计划与采购', 'products': '产品对比',
+    'wealth_assess': '理财风险评估', 'wealth_purchase': '购买理财产品',
+    'wealth_redeem': '赎回理财', 'wealth_holdings': '查理财持仓',
 }
 _FIELDS = {
     'account_id': '账户',
@@ -22,8 +25,11 @@ _FIELDS = {
     'subscription_id': '订阅编号',
     'card_operation': '卡片操作',
     'subscription_operation': '订阅操作',
-    'product_ids': '产品编号',
+    'product_ids': '产品编号（至少两个）',
     'participants': 'AA参与人',
+    'product_id': '理财产品/编号',
+    'units_text': '赎回份额（份）',
+    'questionnaire_version': '风险问卷版本',
 }
 
 def _label(name):
