@@ -1,0 +1,15 @@
+{
+  "reviewer": "Codex",
+  "status": "rejected",
+  "checks": [
+    {
+      "command": "Reviewed broker status/events: implementation request_timeout, no result.json or code artifacts; user authorized Codex completion.",
+      "exitCode": 124,
+      "expectedExitCode": 0
+    }
+  ],
+  "files": [],
+  "artifactsUnavailable": true,
+  "time": "2026-10-21T10:11:17.317Z",
+  "source": "Codex final-review attestation; commands already executed by Codex"
+}

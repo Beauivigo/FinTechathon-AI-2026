@@ -1,0 +1,26 @@
+{
+  "authorization": "User explicitly approved synchronization of the 13 reviewed homepage files.",
+  "copied_files": 13,
+  "copy_hashes_matched_reviewed_source": true,
+  "post_sync_updates": [
+    "docs/UI首页改版.md",
+    "3 primary acceptance evidence files"
+  ],
+  "other_existing_ui_files_unchanged": 25,
+  "protected_business_files_unchanged": 37,
+  "daily_db_unchanged": true,
+  "git_head_unchanged": "21d9f785373749590d22ea3eab6ffa58cf4e2604",
+  "primary_full_tests": {
+    "run": 496,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "runtime_unchanged": true
+  },
+  "primary_components_passed": 8,
+  "preview_url": "http://127.0.0.1:8502/",
+  "preview_repo": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026",
+  "preview_uses_separate_data": true,
+  "committed_or_pushed": false
+}

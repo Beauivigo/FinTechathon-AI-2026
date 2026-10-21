@@ -1,0 +1,19 @@
+{
+  "mode": "full",
+  "scope": "all tests",
+  "run": 485,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "runtime_unchanged": true,
+  "passed": true,
+  "command": [
+    "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\run_checks.py",
+    "--repo",
+    "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\b097920d-e4a9-4a5d-98d4-dac7ad690721\\worktree",
+    "--output",
+    "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\final-full-local-loopback",
+    "--mode",
+    "full"
+  ]
+}

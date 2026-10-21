@@ -2,7 +2,7 @@
 import streamlit as st
 from uuid import uuid4
 from agent.controller import Conversation
-from app import demo
+from app import demo, ui
 from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
 from app.routing_panel import render_handoff
 
@@ -71,6 +71,7 @@ def render(flow):
         return
     request, result = flow.request, flow.result
     st.subheader('当前操作：' + LABELS.get(request['action'], request['action']))
+    ui.render_status('needs_reconciliation' if result['status'] == 'unknown' else result['status'])
     p = request['params']
     if request['action']=='wealth.purchase':
         st.write('付款账户：'+p['account_id']+'；风险档案：'+p['risk_profile_id'])

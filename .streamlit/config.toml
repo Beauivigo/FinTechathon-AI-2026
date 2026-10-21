@@ -1,0 +1,19 @@
+[client]
+showSidebarNavigation = false
+
+[theme]
+base = "light"
+primaryColor = "#A16207"
+backgroundColor = "#F8FAFC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#020617"
+borderColor = "#E2E8F0"
+baseRadius = "0.5rem"
+buttonRadius = "0.5rem"
+showWidgetBorder = true
+headingFontSizes = ["2rem", "1.5rem", "1.25rem", "1.125rem", "1rem", "0.875rem"]
+font = "IBM Plex Sans, Noto Sans SC, Source Han Sans SC, PingFang SC, Microsoft YaHei, sans-serif"
+
+[theme.sidebar]
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F5F9"

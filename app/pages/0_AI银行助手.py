@@ -1,0 +1,21 @@
+"""实际模型驱动的自然语言意图、任务计划和银行网关执行。"""
+from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+import streamlit as st
+from app import ui
+from app.model_settings import render_settings
+from app.model_bank_panel import render_model_bank
+from shared import ServiceError, ContractError
+
+st.set_page_config(page_title='AI银行助手',layout='wide')
+ui.render_sidebar_nav('assistant')
+with st.sidebar:
+    render_settings()
+ui.render_page_header('AI银行助手','理解需求、补充信息、规划步骤，再按银行权限完成模拟业务。')
+ui.render_app_nav('assistant')
+st.caption('连接模型后才进行语义理解。当前为本地模拟银行，不连接真实银行账户。')
+try:
+    render_model_bank()
+except (ServiceError,ContractError):
+    st.error('银行数据暂不可核实，请先查询原操作，勿重复提交。')

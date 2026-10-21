@@ -1,0 +1,67 @@
+{
+  "executor": "Codex独立真实模型与模拟网关验收",
+  "fixture_clock": "2026-10-21T11:00:00+08:00",
+  "cases": [
+    {
+      "name": "subscription",
+      "transcript": [
+        {
+          "input": "SUB-E003这个健身年卡不想续了，帮我取消订阅",
+          "phase": "proposal",
+          "intent": "subscription",
+          "fields": {
+            "subscription_operation": "取消",
+            "subscription_id": "SUB-E003"
+          },
+          "reply": "需求草稿已整理，尚未执行业务；银行端会核对实际对象及所需确认。",
+          "missing": [],
+          "tasks": [],
+          "model_metadata": {
+            "model": "deepseek-flash",
+            "credential_source": "desktop",
+            "usage": {
+              "prompt_tokens": 1947,
+              "completion_tokens": 52,
+              "total_tokens": 1999
+            }
+          },
+          "error": null
+        }
+      ],
+      "passed": true,
+      "bank_receipts": {
+        "t1": {
+          "schema_version": "1.1",
+          "request_id": "req_c099c62ae6684419be3ac7b84adb966f",
+          "trace_id": "trace_336cd376615947d18962434d9f319455",
+          "action": "subscription.cancel",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "subscription_id": "SUB-E003",
+            "subscription_state": "cancelled"
+          }
+        }
+      },
+      "final_account": {
+        "balance_minor": 200000,
+        "available_minor": 200000,
+        "reserved_minor": 0
+      }
+    }
+  ],
+  "budget": {
+    "used": 15,
+    "limit": 20
+  },
+  "daily_runtime_unchanged": true,
+  "source_sha256": {
+    "agent\\model_bank.py": "3de193ae23d6ddabb2f2a77ff4428f8c60449704b5ee44b12134fc9b9ddc990e",
+    "agent\\model_client.py": "5161d4fe01a6c23db09ce1e6586b60bbb399d71913c18b88a36cfe8a0d480835",
+    "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+    "agent\\model_dialogue.py": "a338c0abbe01087995edf54cc9946ac40e41fa20f7bc8b091265d2151f2f492e",
+    "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+  },
+  "passed": true,
+  "scope": "真实DeepSeek接口、桌宠凭证只读复用、独立临时模拟账本；不代表真实银行或真实身份认证。"
+}

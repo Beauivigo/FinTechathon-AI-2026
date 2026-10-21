@@ -1,0 +1,37 @@
+{
+  "time_utc": "2026-10-21T08:58:34.977741+00:00",
+  "authorization": "User explicitly approved synchronization of the 25 reviewed files to primary; no commit or push.",
+  "primary": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026",
+  "head_unchanged": "21d9f785373749590d22ea3eab6ffa58cf4e2604",
+  "reviewed_files_copied": 25,
+  "copy_hashes_matched": true,
+  "post_copy_documentation_updates": [
+    "docs/2026-10-21UI界面验收.md",
+    "docs/UI设计与演示.md"
+  ],
+  "reviewed_source_unchanged": true,
+  "protected_sources_unchanged": 37,
+  "daily_db_unchanged": true,
+  "daily_db_sha256": "075ccfb8cc1a68a8579a9bb93ab65dc0b238b306a5aab2509ac76b847fc83efe",
+  "primary_full_suite": {
+    "run": 485,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "runtime_unchanged": true
+  },
+  "primary_component_tests": {
+    "run": 12,
+    "passed": true
+  },
+  "diff_check_passed": true,
+  "preview": {
+    "repo": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026",
+    "url": "http://127.0.0.1:8502",
+    "data": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\demo-runtime",
+    "home_visible": true
+  },
+  "backup": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\primary-backup",
+  "committed_or_pushed": false
+}

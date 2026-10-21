@@ -1,0 +1,101 @@
+{
+  "executor": "Codex",
+  "latest_case_outcomes": {
+    "balance": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-first.json",
+      "source_sha256": null,
+      "calls_in_case": 1
+    },
+    "multiturn": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-final.json",
+      "source_sha256": {
+        "agent\\model_bank.py": "94aac062630de03dff739716219f6bd3584a1ad6fc2d1c585fde61d3cfda06f6",
+        "agent\\model_client.py": "9cacc7dac8a1513d09ced77271f584e8170981b09a70dc37dde8d920716ce6cd",
+        "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+        "agent\\model_dialogue.py": "9e5e4623d2b04fbede0f27b5f3c44333f3063cea07315df938b988b031ced8c7",
+        "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+      },
+      "calls_in_case": 3
+    },
+    "dag": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-first.json",
+      "source_sha256": null,
+      "calls_in_case": 1
+    },
+    "card": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-first.json",
+      "source_sha256": null,
+      "calls_in_case": 1
+    },
+    "subscription": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-subscription-final.json",
+      "source_sha256": {
+        "agent\\model_bank.py": "3de193ae23d6ddabb2f2a77ff4428f8c60449704b5ee44b12134fc9b9ddc990e",
+        "agent\\model_client.py": "5161d4fe01a6c23db09ce1e6586b60bbb399d71913c18b88a36cfe8a0d480835",
+        "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+        "agent\\model_dialogue.py": "a338c0abbe01087995edf54cc9946ac40e41fa20f7bc8b091265d2151f2f492e",
+        "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+      },
+      "calls_in_case": 1
+    },
+    "products": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-retest.json",
+      "source_sha256": {
+        "agent\\model_bank.py": "3de193ae23d6ddabb2f2a77ff4428f8c60449704b5ee44b12134fc9b9ddc990e",
+        "agent\\model_client.py": "5161d4fe01a6c23db09ce1e6586b60bbb399d71913c18b88a36cfe8a0d480835",
+        "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+        "agent\\model_dialogue.py": "bb1e00272f86da4e7577765feb1b0d81e956c7044bf6e127300e11cb99db7f24",
+        "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+      },
+      "calls_in_case": 1
+    },
+    "birthday": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-final.json",
+      "source_sha256": {
+        "agent\\model_bank.py": "94aac062630de03dff739716219f6bd3584a1ad6fc2d1c585fde61d3cfda06f6",
+        "agent\\model_client.py": "9cacc7dac8a1513d09ced77271f584e8170981b09a70dc37dde8d920716ce6cd",
+        "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+        "agent\\model_dialogue.py": "9e5e4623d2b04fbede0f27b5f3c44333f3063cea07315df938b988b031ced8c7",
+        "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+      },
+      "calls_in_case": 1
+    },
+    "assessment": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-first.json",
+      "source_sha256": null,
+      "calls_in_case": 1
+    },
+    "injection": {
+      "passed": true,
+      "evidence": "2026-10-21-model-live-final.json",
+      "source_sha256": {
+        "agent\\model_bank.py": "94aac062630de03dff739716219f6bd3584a1ad6fc2d1c585fde61d3cfda06f6",
+        "agent\\model_client.py": "9cacc7dac8a1513d09ced77271f584e8170981b09a70dc37dde8d920716ce6cd",
+        "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+        "agent\\model_dialogue.py": "9e5e4623d2b04fbede0f27b5f3c44333f3063cea07315df938b988b031ced8c7",
+        "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+      },
+      "calls_in_case": 1
+    }
+  },
+  "all_latest_outcomes_passed": true,
+  "same_version_full_live_matrix": false,
+  "final_source_live_cases": [
+    "multiturn",
+    "birthday",
+    "injection"
+  ],
+  "calls_including_connection_probe": {
+    "used": 20,
+    "limit": 20
+  },
+  "scope": "共9组场景，跨首次失败与修复复测的多版本记录；未声称最终同版本重跑全部9组。API真实、账本/验证均为模拟。"
+}

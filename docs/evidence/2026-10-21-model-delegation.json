@@ -1,0 +1,174 @@
+{
+  "run_id": "8cc7ffc3-4170-473a-87e5-7ce9a520513a",
+  "runs": [
+    {
+      "id": "8cc7ffc3-4170-473a-87e5-7ce9a520513a",
+      "sample": "unclassified",
+      "executionStatus": "failed",
+      "status": "rejected_by_codex",
+      "review": "rejected",
+      "stage": 1,
+      "stageCount": 1,
+      "planningCalls": 1,
+      "recordedModelAttempts": 1,
+      "observedAttempts": 1,
+      "repairs": 0,
+      "promptLayoutVersion": 2,
+      "project_id": "df6e3b3865e4c9baa3ce632edff6f8dad4b5dcd06cbc3563d582193aa102dcad",
+      "deepseek": {
+        "input": {
+          "known": 7595,
+          "complete": false
+        },
+        "output": {
+          "known": 94226,
+          "complete": false
+        },
+        "total": {
+          "known": 102589,
+          "complete": false
+        },
+        "cache": {
+          "hit": 768,
+          "miss": 7595,
+          "creation": 0,
+          "totalInput": 8363,
+          "weightedHitPercent": 9.183307425564989,
+          "coveredCalls": 1,
+          "expectedCalls": 2,
+          "complete": false,
+          "cost": null
+        }
+      },
+      "requests": [
+        {
+          "cache": {
+            "hit": null,
+            "miss": null,
+            "creation": null,
+            "totalInput": null,
+            "weightedHitPercent": null,
+            "coveredCalls": 0,
+            "expectedCalls": 1,
+            "complete": false,
+            "cost": null
+          },
+          "session_id": "session-8a7d3c16-20db-44ba-be65-23e6aa15d98d",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": null,
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null,
+              "input_sequence_fingerprint": "24d3959ae58e6cb7129cb3ae60941284f6ef769650ceebdc68e27d3064ffd77f",
+              "input_prefix_fingerprints": [
+                {
+                  "bytes": 256,
+                  "sha256": "df1f17468206789df90ba8d9bf56ba558b26609cf9cfed7d8fbc934d66a2b26b"
+                },
+                {
+                  "bytes": 1024,
+                  "sha256": "43b25913a62be64d152ca905be30db7a34a33bfa1d04674c997f30fc221902e4"
+                },
+                {
+                  "bytes": 4096,
+                  "sha256": "c379562689b2194f6f2f66d64169e826be7455674e343498f31c9165c10fa566"
+                },
+                {
+                  "bytes": 8192,
+                  "sha256": "e541994f9161d1b3957611c19f81d5e67594a3cc08ca9fd6ce5803da59f31097"
+                },
+                {
+                  "bytes": 16384,
+                  "sha256": "d38b5952b341ebc82c739bfa512024afe61fbdd257ca13eccc9c3ac8b525c2b4"
+                },
+                {
+                  "bytes": 32768,
+                  "sha256": "aae88646531788ffea4406fe5b00dcf8e57711903ffd6c3a0354c196f4b3c91a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cache": {
+            "hit": 768,
+            "miss": 7595,
+            "creation": 0,
+            "totalInput": 8363,
+            "weightedHitPercent": 9.183307425564989,
+            "coveredCalls": 1,
+            "expectedCalls": 1,
+            "complete": true,
+            "cost": null
+          },
+          "session_id": "session-c8fbbc02-d88e-49bb-91f8-bb9da71223fd",
+          "session_resumed": false,
+          "model": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "max"
+          },
+          "usage": [
+            {
+              "request_number": 1,
+              "inputTokens": 7595,
+              "outputTokens": 94226,
+              "cacheReadTokens": 768,
+              "cacheWriteTokens": 0,
+              "totalTokens": 102589
+            }
+          ],
+          "diagnostics": [
+            {
+              "request_number": 1,
+              "system_prompt_fingerprint": "31166ab2a273094dda62c6423877232b19373356c3272e2569bf22f980320e64",
+              "tool_schema_fingerprint": "35d3d6dcc61f5052d5bc3062b0c47a2daa201ec81ca444d5ea8c8e1d928dec42",
+              "request_fingerprint": "96dd6020ec3d83331d99cd66e1d3c2b7575c95625d6925fc84e41f6453c1f9ba",
+              "maxTokens": 256000,
+              "config_version": 1,
+              "internal_http_retries": null,
+              "input_sequence_fingerprint": "452e6c551b89b15fa4f200e4534e20e604db21f23b78a0e4e1d7c140a8acb36f",
+              "input_prefix_fingerprints": [
+                {
+                  "bytes": 256,
+                  "sha256": "df1f17468206789df90ba8d9bf56ba558b26609cf9cfed7d8fbc934d66a2b26b"
+                },
+                {
+                  "bytes": 1024,
+                  "sha256": "43b25913a62be64d152ca905be30db7a34a33bfa1d04674c997f30fc221902e4"
+                },
+                {
+                  "bytes": 4096,
+                  "sha256": "c379562689b2194f6f2f66d64169e826be7455674e343498f31c9165c10fa566"
+                },
+                {
+                  "bytes": 8192,
+                  "sha256": "e541994f9161d1b3957611c19f81d5e67594a3cc08ca9fd6ce5803da59f31097"
+                },
+                {
+                  "bytes": 16384,
+                  "sha256": "d38b5952b341ebc82c739bfa512024afe61fbdd257ca13eccc9c3ac8b525c2b4"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "testsPassed": null,
+      "reviewMinutes": null,
+      "reworkMinutes": null,
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "executor": "Codex独立真实模型与模拟网关验收",
+  "fixture_clock": "2026-10-21T11:00:00+08:00",
+  "cases": [
+    {
+      "name": "subscription",
+      "transcript": [
+        {
+          "input": "SUB-E003这个健身年卡不想续了，帮我取消订阅",
+          "phase": "clarify",
+          "intent": "subscription",
+          "fields": {
+            "subscription_operation": "取消",
+            "subscription_id": "SUB-E003"
+          },
+          "reply": "请确认要取消的订阅编号是否为 SUB-E003；我目前只看到你提到的这个编号，还没有服务端回执可核对。你确认后我会生成取消订阅草稿，实际取消由银行端执行。",
+          "missing": [],
+          "tasks": [],
+          "model_metadata": {
+            "model": "deepseek-flash",
+            "credential_source": "desktop",
+            "usage": {
+              "prompt_tokens": 1880,
+              "completion_tokens": 80,
+              "total_tokens": 1960
+            }
+          },
+          "error": null
+        }
+      ],
+      "passed": false,
+      "error": "AssertionError: 模型未生成完整提案"
+    },
+    {
+      "name": "products",
+      "transcript": [
+        {
+          "input": "比较WP-C01和WP-C02，暂时不要购买",
+          "phase": "proposal",
+          "intent": "products",
+          "fields": {
+            "product_ids": "WP-C01,WP-C02"
+          },
+          "reply": "需求草稿已整理，尚未执行业务；银行端会核对实际对象及所需确认。",
+          "missing": [],
+          "tasks": [],
+          "model_metadata": {
+            "model": "deepseek-flash",
+            "credential_source": "desktop",
+            "usage": {
+              "prompt_tokens": 1878,
+              "completion_tokens": 202,
+              "total_tokens": 2080
+            }
+          },
+          "error": null
+        }
+      ],
+      "passed": true,
+      "bank_receipts": {
+        "t1": {
+          "schema_version": "1.1",
+          "request_id": "req_47991e484657478cbfa9d81c19ed1678",
+          "trace_id": "trace_ee7bc95c05f347e1b89defcb41248a4b",
+          "action": "wealth.compare",
+          "status": "succeeded",
+          "source": "sandbox",
+          "data": {
+            "products": [
+              {
+                "product_id": "WP-C01",
+                "name": "现金钱包（虚构）",
+                "risk_level": "R1",
+                "minimum_amount_minor": 100,
+                "lock_days": 0,
+                "fee_description": "申购费0、赎回费0（虚构现金管理类，不承诺收益）",
+                "redemption_rule": "随时可申请赎回，T+1到账"
+              },
+              {
+                "product_id": "WP-C02",
+                "name": "稳健短债（虚构）",
+                "risk_level": "R2",
+                "minimum_amount_minor": 10000,
+                "lock_days": 7,
+                "fee_description": "申购费0.1%（四舍五入到分），赎回费0（虚构）",
+                "redemption_rule": "持有满7天后可申请赎回，T+1到账"
+              }
+            ]
+          }
+        }
+      },
+      "final_account": {
+        "balance_minor": 200000,
+        "available_minor": 200000,
+        "reserved_minor": 0
+      }
+    }
+  ],
+  "budget": {
+    "used": 14,
+    "limit": 20
+  },
+  "daily_runtime_unchanged": true,
+  "source_sha256": {
+    "agent\\model_bank.py": "3de193ae23d6ddabb2f2a77ff4428f8c60449704b5ee44b12134fc9b9ddc990e",
+    "agent\\model_client.py": "5161d4fe01a6c23db09ce1e6586b60bbb399d71913c18b88a36cfe8a0d480835",
+    "agent\\model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+    "agent\\model_dialogue.py": "bb1e00272f86da4e7577765feb1b0d81e956c7044bf6e127300e11cb99db7f24",
+    "agent\\model_runtime.py": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+  },
+  "passed": false,
+  "scope": "真实DeepSeek接口、桌宠凭证只读复用、独立临时模拟账本；不代表真实银行或真实身份认证。"
+}
