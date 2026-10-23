@@ -8,6 +8,8 @@ from card import TARGETS
 st.set_page_config(page_title='模拟卡片管理', layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('cards')
 ui.render_page_header('卡片管理')
 ui.render_app_nav('cards')

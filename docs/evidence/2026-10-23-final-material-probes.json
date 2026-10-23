@@ -1,0 +1,198 @@
+{
+  "executor": "A自动补测，非D原始测试",
+  "data": "虚构模拟数据，每组独立临时库",
+  "cases": [
+    {
+      "name": "config",
+      "passed": true,
+      "actual": [
+        {
+          "product_id": "WP-C01",
+          "values": [
+            100,
+            0,
+            100,
+            0,
+            0
+          ],
+          "risk_level": "R1"
+        },
+        {
+          "product_id": "WP-C02",
+          "values": [
+            10000,
+            7,
+            100,
+            10,
+            0
+          ],
+          "risk_level": "R2"
+        },
+        {
+          "product_id": "WP-C03",
+          "values": [
+            50000,
+            30,
+            125,
+            50,
+            25
+          ],
+          "risk_level": "R3"
+        },
+        {
+          "product_id": "WP-C04",
+          "values": [
+            100000,
+            90,
+            200,
+            100,
+            50
+          ],
+          "risk_level": "R4"
+        },
+        {
+          "product_id": "WP-C05",
+          "values": [
+            200000,
+            180,
+            50,
+            150,
+            75
+          ],
+          "risk_level": "R5"
+        },
+        {
+          "product_id": "WP-C06",
+          "values": [
+            100000,
+            60,
+            100,
+            80,
+            40
+          ],
+          "risk_level": "R3"
+        }
+      ]
+    },
+    {
+      "name": "score_and_limits",
+      "passed": true,
+      "actual": {
+        "score_boundaries": 5,
+        "invalid_answers": 2,
+        "risk_and_minimum_rejections": 2,
+        "minimum_purchase_units": "99.9000"
+      }
+    },
+    {
+      "name": "continuous_ledger",
+      "passed": true,
+      "actual": {
+        "opening_minor": 1000000,
+        "closing": [
+          770199,
+          770199,
+          0
+        ],
+        "fee_total_minor": 1051,
+        "orders": [
+          {
+            "order_type": "purchase",
+            "product_id": "WP-C02",
+            "amount_minor": 50000,
+            "fee_minor": 50,
+            "units": "499.5"
+          },
+          {
+            "order_type": "purchase",
+            "product_id": "WP-C03",
+            "amount_minor": 200000,
+            "fee_minor": 1000,
+            "units": "1592"
+          },
+          {
+            "order_type": "redeem",
+            "product_id": "WP-C02",
+            "amount_minor": 20000,
+            "fee_minor": 0,
+            "units": "200"
+          },
+          {
+            "order_type": "redeem",
+            "product_id": "WP-C03",
+            "amount_minor": 200,
+            "fee_minor": 1,
+            "units": "1.6"
+          }
+        ],
+        "ledger": [
+          {
+            "direction": "debit",
+            "amount_minor": 50000,
+            "kind": "wealth",
+            "occurred_at": "2026-10-19T04:00:00.000000Z"
+          },
+          {
+            "direction": "debit",
+            "amount_minor": 200000,
+            "kind": "wealth",
+            "occurred_at": "2026-10-19T04:00:00.000000Z"
+          },
+          {
+            "direction": "credit",
+            "amount_minor": 20000,
+            "kind": "wealth",
+            "occurred_at": "2026-10-26T04:00:00.000000Z"
+          },
+          {
+            "direction": "credit",
+            "amount_minor": 199,
+            "kind": "wealth",
+            "occurred_at": "2026-11-18T04:00:00.000000Z"
+          }
+        ],
+        "settlement": "模拟强验证后同事务即时展示入账；不是实际等待T+1的队列。"
+      }
+    },
+    {
+      "name": "short_month_and_clear",
+      "passed": true,
+      "actual": {
+        "confirmed_on": "2026-02-28",
+        "unlock_on": "2026-03-30",
+        "clear_then_redeem": "INVALID_STATE"
+      }
+    },
+    {
+      "name": "large_precision_and_replay",
+      "passed": true,
+      "actual": {
+        "fee_minor": 1000,
+        "holding_units": "9990.0100",
+        "order_count": 1,
+        "balance": [
+          999999,
+          999999,
+          0
+        ]
+      }
+    },
+    {
+      "name": "unknown_redeem",
+      "passed": true,
+      "actual": {
+        "observed": "RESULT_UNKNOWN",
+        "recovered": "succeeded",
+        "redeem_order_count": 1,
+        "balance": [
+          990100,
+          990100,
+          0
+        ]
+      }
+    }
+  ],
+  "runtime_unchanged": true,
+  "scope": "D既定规则与新建模拟算例；不实现真实T+1、收益或净值波动。",
+  "passed": true
+}

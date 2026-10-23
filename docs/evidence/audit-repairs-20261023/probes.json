@@ -1,0 +1,52 @@
+{
+  "cross_page_unknown": {
+    "passed": true,
+    "blocked_before_recovery": true,
+    "enabled_after_recovery": true,
+    "transfers": 1
+  },
+  "plan_persistence": {
+    "phase": "plan",
+    "task_count": 2,
+    "events": [
+      {
+        "action": "agent.plan",
+        "outcome": "requested",
+        "details_json": "{\"version\": 0, \"failures\": 0, \"phase\": \"idle\", \"intent\": null}"
+      },
+      {
+        "action": "agent.plan",
+        "outcome": "accepted",
+        "details_json": "{\"version\": 0, \"failures\": 0, \"phase\": \"plan\", \"intent\": null}"
+      }
+    ],
+    "table_names": [
+      "metadata",
+      "principals",
+      "accounts",
+      "payees",
+      "operations",
+      "transfers",
+      "ledger_entries",
+      "sqlite_sequence",
+      "challenges",
+      "audit_events",
+      "page_cursors",
+      "fund_postings",
+      "cards",
+      "collections",
+      "subscriptions",
+      "tasks",
+      "reservations",
+      "merchant_intents",
+      "merchant_orders",
+      "card_applications",
+      "subscription_reminders",
+      "risk_profiles",
+      "holdings",
+      "wealth_orders",
+      "subscription_charges"
+    ],
+    "note": "Accepted task IDs, normalized fields and dependency edges are kept only in DialogueSession/BankPlanRunner session memory; database events contain phase/version/failure/intent metadata."
+  }
+}

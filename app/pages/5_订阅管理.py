@@ -8,6 +8,8 @@ from app.workflow import current, render, perform
 st.set_page_config(page_title='模拟订阅管理',layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('subscriptions')
 ui.render_page_header('订阅核实与排除')
 ui.render_app_nav('subscriptions')

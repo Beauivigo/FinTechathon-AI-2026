@@ -1,0 +1,47 @@
+{
+  "package": "C 第五轮入口矩阵（理财四类意图）",
+  "member": "C",
+  "round": "第五轮（2026-10-20 分派）",
+  "version": "C5-1.0",
+  "date": "2026-10-20",
+  "baseline": "main@a505d20",
+  "scope_note": "route(text) 是纯展示草稿，不调用网关、不写库、不授权。四类意图各一条正常输入，另补两条缺字段澄清；预期均为唯一结果。",
+  "cases": [
+    {
+      "id": "C5-ENT-W01",
+      "intent": "wealth_assess",
+      "text": "帮我做风险测评",
+      "expected": {"status": "ready", "intent": "wealth_assess", "fields": {"questionnaire_version": "wpq_v1"}, "missing": []}
+    },
+    {
+      "id": "C5-ENT-W02",
+      "intent": "wealth_purchase",
+      "text": "从账户 demo_account_a 买理财 WP-C02 100元",
+      "expected": {"status": "ready", "intent": "wealth_purchase", "fields": {"account_id": "demo_account_a", "product_id": "WP-C02", "amount_text": "100元"}, "missing": []}
+    },
+    {
+      "id": "C5-ENT-W03",
+      "intent": "wealth_redeem",
+      "text": "从账户 demo_account_a 赎回理财 100份",
+      "expected": {"status": "ready", "intent": "wealth_redeem", "fields": {"account_id": "demo_account_a", "units_text": "100"}, "missing": []}
+    },
+    {
+      "id": "C5-ENT-W04",
+      "intent": "wealth_holdings",
+      "text": "查看账户 demo_account_a 的理财持仓",
+      "expected": {"status": "ready", "intent": "wealth_holdings", "fields": {"account_id": "demo_account_a"}, "missing": []}
+    },
+    {
+      "id": "C5-ENT-W05",
+      "intent": "wealth_purchase",
+      "text": "买理财 WP-C02 100元",
+      "expected": {"status": "clarify", "intent": "wealth_purchase", "fields": {"product_id": "WP-C02", "amount_text": "100元"}, "missing": ["account_id"]}
+    },
+    {
+      "id": "C5-ENT-W06",
+      "intent": "wealth_redeem",
+      "text": "赎回理财",
+      "expected": {"status": "clarify", "intent": "wealth_redeem", "fields": {}, "missing": ["account_id", "units_text"]}
+    }
+  ]
+}

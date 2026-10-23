@@ -1,0 +1,61 @@
+{
+  "member": "C",
+  "round": "第五轮（2026-10-20 分派）",
+  "version": "C5-1.0",
+  "date": "2026-10-20",
+  "baseline": "main@a505d20",
+  "files": [
+    {
+      "file": "00_交付索引.md",
+      "bytes": 1938,
+      "sha256": "9cc01ea5ef89da8ac6991f8ed1088301ddfd197d4a14cd02f4f4e7828e418f45"
+    },
+    {
+      "file": "01_组3执行记录.json",
+      "bytes": 22191,
+      "sha256": "a96ada1fbae55b1e6b49093295323296bc4ce594ea5393d693c8ba797c7c9094"
+    },
+    {
+      "file": "01_组3执行记录.md",
+      "bytes": 4820,
+      "sha256": "fb8ff8ef3a4c8cb6a9edeb3e375873f21bb8a5e70e1b89efb37e6043fd2bcaed"
+    },
+    {
+      "file": "02_G01-G15覆盖表.md",
+      "bytes": 4873,
+      "sha256": "420aafde765c02f9e86c4431bf8a1882501f91143f9699f18cf1659138d64459"
+    },
+    {
+      "file": "03_入口矩阵_理财四类.json",
+      "bytes": 2002,
+      "sha256": "f48ae4acfffa24a4e5237f5999a11b53ae67215e285673b7ac51de4dae60ab29"
+    },
+    {
+      "file": "03_入口矩阵_理财四类.md",
+      "bytes": 2847,
+      "sha256": "572d3892c666b4a7c5248ebc76f89d827fee9e4fc8f7ff02acb50e04373d1fd3"
+    },
+    {
+      "file": "04_自查报告.md",
+      "bytes": 3881,
+      "sha256": "30ab85f8f687e8916847ae71acfc075460f6e9e3a775f1b5751d329c7d848a1f"
+    },
+    {
+      "file": "05_勘误遵循核对.md",
+      "bytes": 2804,
+      "sha256": "0cbb06d5db64e5f6118d89c94dddea4fce70cac37be07d778505460ebcefc065"
+    },
+    {
+      "file": "check_c5.py",
+      "bytes": 20067,
+      "sha256": "5bb6e302c808266281884422fc96e8d6e7fb33ec3faedba19703723a3b539db5"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3701,
+      "sha256": "36b26348b2c2d9936bbcf8b4a33324a06e7befc4ede375dd79a6210cd48a8745"
+    }
+  ],
+  "source": "C 第五轮在仓库内生成；未修改共享契约/运行代码/日常库",
+  "note": "manifest.json 与 selfcheck.json 不列入自身哈希；selfcheck.json 由 check_c5.py 运行刷新。"
+}

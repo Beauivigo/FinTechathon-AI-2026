@@ -1,0 +1,56 @@
+{
+  "cross_page_unknown": {
+    "reproduced": true,
+    "original_ai_status": "unknown",
+    "original_ai_needs_reconciliation": true,
+    "manual_chat_enabled": true,
+    "transfers": 2,
+    "initial_balance_minor": 200000,
+    "final_balance_minor": 196000,
+    "impact": "After AI transfer commits but loses reply, manual page permits new-key repeat transfer before querying original. Second transfer still requires a new confirmation; no authorization bypass."
+  },
+  "plan_persistence": {
+    "phase": "plan",
+    "task_count": 2,
+    "events": [
+      {
+        "action": "agent.plan",
+        "outcome": "requested",
+        "details_json": "{\"version\": 0, \"failures\": 0, \"phase\": \"idle\", \"intent\": null}"
+      },
+      {
+        "action": "agent.plan",
+        "outcome": "accepted",
+        "details_json": "{\"version\": 0, \"failures\": 0, \"phase\": \"plan\", \"intent\": null}"
+      }
+    ],
+    "table_names": [
+      "metadata",
+      "principals",
+      "accounts",
+      "payees",
+      "operations",
+      "transfers",
+      "ledger_entries",
+      "sqlite_sequence",
+      "challenges",
+      "audit_events",
+      "page_cursors",
+      "fund_postings",
+      "cards",
+      "collections",
+      "subscriptions",
+      "tasks",
+      "reservations",
+      "merchant_intents",
+      "merchant_orders",
+      "card_applications",
+      "subscription_reminders",
+      "risk_profiles",
+      "holdings",
+      "wealth_orders",
+      "subscription_charges"
+    ],
+    "note": "Accepted task IDs, normalized fields and dependency edges are kept only in DialogueSession/BankPlanRunner session memory; database events contain phase/version/failure/intent metadata."
+  }
+}

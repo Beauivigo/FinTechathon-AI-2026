@@ -28,7 +28,7 @@ class FakeStreamlit(types.ModuleType):
     '''Record display calls and simulate one button click without session state.'''
 
     _DISPLAY_METHODS = {
-        'title', 'subheader', 'caption', 'write', 'markdown',
+        'title', 'header', 'subheader', 'caption', 'write', 'markdown',
         'info', 'warning', 'divider', 'table', 'metric',
     }
 
@@ -86,7 +86,8 @@ def _text(fake):
 
 
 def _buttons(fake):
-    return [call for call in fake.calls if call[0] == 'button']
+    return [call for call in fake.calls if call[0] == 'button'
+            and call[2].get('key', '').startswith('home_service_')]
 
 
 def _button_labels(fake):
@@ -326,7 +327,8 @@ class HomeViewContractTests(unittest.TestCase):
                 start = len(self.fake.calls)
                 self.assertEqual(hv.render_home(data), action_id)
                 calls = self.fake.calls[start:]
-                buttons = [call for call in calls if call[0] == 'button']
+                buttons = [call for call in calls if call[0] == 'button'
+                           and call[2].get('key', '').startswith('home_service_')]
                 self.assertEqual([call[1][0] for call in buttons], expected_labels)
                 keys = [call[2].get('key') for call in buttons]
                 self.assertTrue(all(isinstance(key, str) and key for key in keys))
@@ -351,6 +353,15 @@ class HomeViewContractTests(unittest.TestCase):
         self.assertEqual(data, self._base_data())
         self.assertEqual(len(_buttons(self.fake)), 4 * len(hv.SERVICE_ACTIONS))
         self.assertEqual(self.fake.session_state_accesses, 0)
+
+    def test_assistant_entry_returns_navigation_without_business_or_state(self):
+        self.fake.clicked_label = '打开 AI 银行助手'
+        self.assertEqual(self.hv.render_home(self._base_data()), 'assistant')
+        assistant = [call for call in self.fake.calls if call[0] == 'button'
+                     and call[2].get('key') == 'home_assistant']
+        self.assertEqual(len(assistant), 1)
+        self.assertEqual(self.fake.session_state_accesses, 0)
+        self.assertFalse({name for name, _, _ in self.fake.calls} & {'switch_page', 'rerun'})
 
     def test_import_and_render_surface_are_display_only(self):
         original_import = builtins.__import__

@@ -20,6 +20,7 @@ def spec_for(request, principal):
     p = request['params']
     payload = adapt_request('transfer.create', {k:p[k] for k in ('account_id','payee_id','amount_minor')},
         request_id='scheduled_req_'+key,trace_id=request['trace_id'],idempotency_key='scheduled_exec_'+key)
+    payload['schema_version']=request['schema_version']
     return validate_task_spec(dict(schema_version='1.1',task_key='scheduled_task_'+key,trace_id=request['trace_id'],
         run_at=p['execute_at'],kind='execute_request',origin_action='transfer.schedule',
         origin_idempotency_key=request['idempotency_key'],payload=payload))

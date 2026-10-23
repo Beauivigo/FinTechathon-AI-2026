@@ -12,7 +12,14 @@ from shared.contracts import MAX_SAFE_INTEGER, check_value
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "runtime" / "sandbox.sqlite3"
 APPLICATION_ID = 0x46494E31
-STORAGE_VERSION = 13  # 数据库版本，与公开 JSON schema_version 分开。
+STORAGE_VERSION = 15  # 数据库版本，与公开 JSON schema_version 分开。
+from .plan_store import PLAN_SCHEMA
+from .auth import AUTH_SCHEMA
+# Keep schema literals here to avoid importing worker execution code during migrations.
+WORKER_SCHEMA = (
+    "CREATE TABLE IF NOT EXISTS worker_lease(name TEXT PRIMARY KEY,owner TEXT NOT NULL,expires REAL NOT NULL,last_tick TEXT,error TEXT)",
+    "CREATE TABLE IF NOT EXISTS notifications(notification_key TEXT PRIMARY KEY,principal_id TEXT NOT NULL REFERENCES principals,message TEXT NOT NULL,created_at TEXT NOT NULL,is_read INTEGER NOT NULL DEFAULT 0)",
+)
 
 SUBSCRIPTION_CHARGE_SCHEMA = (
     """CREATE TABLE IF NOT EXISTS subscription_charges (
@@ -187,6 +194,9 @@ SCHEMA = (
     *WORKFLOWS_SCHEMA,
     *WEALTH_SCHEMA,
     *SUBSCRIPTION_CHARGE_SCHEMA,
+    *PLAN_SCHEMA,
+    *AUTH_SCHEMA,
+    *WORKER_SCHEMA,
 )
 
 
@@ -278,6 +288,21 @@ class Store:
                 connection.execute('INSERT INTO wealth_orders_v13 SELECT * FROM wealth_orders')
                 connection.execute('DROP TABLE wealth_orders')
                 connection.execute('ALTER TABLE wealth_orders_v13 RENAME TO wealth_orders')
+                version = 13
+            if app_id == APPLICATION_ID and version == 13:
+                for statement in PLAN_SCHEMA:
+                    connection.execute(statement)
+                for statement in AUTH_SCHEMA:
+                    connection.execute(statement)
+                for statement in WORKER_SCHEMA:
+                    connection.execute(statement)
+                version = 14
+            if app_id == APPLICATION_ID and version == 14:
+                for statement in (*PLAN_SCHEMA,*AUTH_SCHEMA,*WORKER_SCHEMA):
+                    connection.execute(statement)
+                columns={r['name'] for r in connection.execute('PRAGMA table_info(auth_users)')}
+                for name,kind in (('login_failures','INTEGER'),('login_locked_until','REAL')):
+                    if name not in columns:connection.execute(f'ALTER TABLE auth_users ADD COLUMN {name} {kind} NOT NULL DEFAULT 0')
                 connection.execute(f"PRAGMA user_version={STORAGE_VERSION}")
             elif tables or app_id or version:
                 self._check_identity(connection)

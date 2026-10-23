@@ -161,25 +161,26 @@ class Conversation:
             "payee_id": payee_id, "amount_yuan": self.draft["amount_yuan"]},
             request_id="req_" + uuid4().hex, trace_id=self.trace_id,
             idempotency_key="operation_" + uuid4().hex)
+        if not getattr(self.gateway,'demo_mode',True):self.request['schema_version']='1.2'
         self.result = self._send_write(self.gateway.execute, self.request)
         self.candidates, self.draft = [], None
         return self._say(result_text(self.request, self.result))
 
-    def decide(self, approve, *, simulate_verification=False):
+    def decide(self, approve, *, simulate_verification=False, totp_code=None):
         if not self.pending:
             return self.result
         challenge = self.result["next_action"]
-        payload = {"schema_version": SCHEMA_VERSION, "challenge_id": challenge["challenge_id"],
+        payload = {"schema_version": self.request["schema_version"], "challenge_id": challenge["challenge_id"],
                    "operation_digest": challenge["operation_digest"], "decision": "approve" if approve else "reject"}
         if approve and challenge["kind"] == "verify":
-            if not simulate_verification or not getattr(self.gateway, "demo_mode", False):
-                raise ValueError("此操作需要验证；普通确认不能代替强验证。")
-            try:
-                payload["proof_token"] = self.gateway.issue_demo_proof(challenge["challenge_id"], principal_id=self.principal_id)
-            except Exception:
-                self.result = self._uncertain()
-                self._say('模拟验证未完成，请查询原操作状态。')
-                return self.result
+            if not getattr(self.gateway,'demo_mode',False):
+                payload['proof_token']=self.gateway.issue_totp_proof(challenge['challenge_id'],totp_code,principal_id=self.principal_id)
+            else:
+                if not simulate_verification:raise ValueError('此操作需要验证；普通确认不能代替强验证。')
+                try:
+                    payload['proof_token']=self.gateway.issue_demo_proof(challenge['challenge_id'],principal_id=self.principal_id)
+                except Exception:
+                    self.result=self._uncertain();self._say('模拟验证未完成，请查询原操作状态。');return self.result
         result = self._send_write(self.gateway.authorize, payload)
         self.result = result
         try:
@@ -190,15 +191,36 @@ class Conversation:
         self._say(result_text(self.request, result))
         return result
 
-    def start_action(self, action, params):
+    def start_action(self, action, params, *, plan_trace_id=None, prepared_request=None):
         """可信表单入口，共用原有发送、授权、结果核实与恢复流程。"""
         self.refresh_operations()
         if self.blocked:
             raise ValueError('请先处理或核实当前待办。')
+        if plan_trace_id is not None:
+            from .model_safety import check_trace
+            check_trace(plan_trace_id)
         request = adapt_request(action, params, request_id='req_' + uuid4().hex,
-            trace_id='trace_' + uuid4().hex, idempotency_key='operation_' + uuid4().hex)
+            trace_id=plan_trace_id or 'trace_' + uuid4().hex, idempotency_key='operation_' + uuid4().hex)
+        if prepared_request is not None:
+            from shared import validate_request
+            validate_request(prepared_request)
+            if (prepared_request['action'] != action or prepared_request['params'] != params
+                    or prepared_request['trace_id'] != plan_trace_id):
+                raise ValueError('原计划请求与当前步骤不一致。')
+            request = deepcopy(prepared_request)
+        if not getattr(self.gateway,'demo_mode',True):request['schema_version']='1.2'
         self.request = request
         self.backend_result = None
         self.result = self._send_write(self.gateway.execute, request)
         self.refresh_operations()
         return self.result
+
+
+def reconcile_session_flows(state, current):
+    """Propagate unresolved client outcomes across all trusted page entry points."""
+    current.external_blocked = any(
+        other is not None and other is not current and (
+            other.needs_reconciliation or bool(other.result and other.result['status'] in {'unknown','running'})
+        ) for other in (state.get(key) for key in ('conversation','action_flow','model_bank_flow'))
+    )
+    return current.external_blocked

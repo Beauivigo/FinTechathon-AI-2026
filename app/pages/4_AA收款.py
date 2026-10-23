@@ -10,6 +10,8 @@ from bank.transfer import split_shares
 st.set_page_config(page_title='AA 模拟收款单', layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('aa')
 ui.render_page_header('AA 收款')
 ui.render_app_nav('aa')

@@ -7,6 +7,8 @@
 from copy import deepcopy
 import json
 import re
+from uuid import uuid4
+from .model_safety import FAILURE_LIMIT, check_json_depth, check_json_tree
 
 INTENTS = {
     'balance':('account_id',), 'bill':('account_id','period'),
@@ -59,12 +61,15 @@ def _object(raw,max_chars):
             if k in out:raise ValueError('duplicate key')
             out[k]=v
         return out
-    if isinstance(raw,dict):
+    if type(raw) is dict:
+        check_json_tree(raw)
         text=json.dumps(raw,ensure_ascii=False,allow_nan=False)
     elif isinstance(raw,str):text=raw
     else:raise ValueError('invalid JSON')
     if len(text)>max_chars:raise ValueError('oversize JSON')
+    check_json_depth(text)
     value=json.loads(text,object_pairs_hook=pairs,parse_constant=lambda _:(_ for _ in ()).throw(ValueError()))
+    check_json_tree(value)
     if not isinstance(value,dict):raise ValueError('object required')
     return value
 
@@ -132,29 +137,49 @@ def _tasks(raw,common):
 
 
 class DialogueSession:
-    def __init__(self,model,*,max_history=12,max_output_chars=30000):
-        self.model=model;self.max_history=min(32,max(2,max_history));self.max_output_chars=max_output_chars
+    def __init__(self,model,*,max_history=12,max_output_chars=30000,audit=None):
+        self.model=model;self.max_history=min(32,max(2,max_history));self.max_output_chars=min(30000,max(1,max_output_chars))
         self.history=[];self.checkpoints=[];self.version=0;self._before_pause='idle'
+        self.audit=audit;self.trace_id='plan_'+uuid4().hex;self.failures=0;self.locked=False
         self._state=self._empty()
 
     @staticmethod
     def _empty():return dict(phase='idle',intent=None,fields={},missing=[],reply='',proposal=None,tasks=[],error=None)
 
     def snapshot(self):
-        return deepcopy(self._state|{'history':self.history,'version':self.version})
+        return deepcopy(self._state|{'history':self.history,'version':self.version,
+            'security':{'trace_id':self.trace_id,'consecutive_failures':self.failures,'locked':self.locked,'failure_limit':FAILURE_LIMIT}})
+
+    def _event(self,event,*,phase=None,intent=None):
+        if self.audit:
+            self.audit(dict(trace_id=self.trace_id,event=event,version=self.version,
+                failures=self.failures,phase=phase or self._state['phase'],intent=intent))
+
+    def _lock(self):
+        self.locked=True
+        self._state=self._empty()|{'phase':'locked','error':'模型草稿已停止：连续异常或审计不可用。请核实设置后点击“新需求”；已提交的银行操作仍须查询原结果。'}
+        self.checkpoints=[]
+
+    def _control(self,event):
+        try:self._event(event)
+        except Exception:self._lock()
+        return self.snapshot()
 
     def submit(self,text):
+        if self.locked:return self.snapshot()
         if self._state['phase'] in {'paused','handoff'}:return self.snapshot()
         if not isinstance(text,str) or not text.strip() or len(text)>1000:
             self._state=self._empty()|{'phase':'error','error':'请输入1—1000字的业务需求。'}
-            return self.snapshot()
+            return self._control('input_rejected')
         if re.search(r'(?:验证码|密码|API\s*(?:Key|密钥)|Bearer)\s*(?:是|为|[:：])?\s*[A-Za-z0-9_-]{4,}|\bsk-[A-Za-z0-9_-]{12,}',text,re.I):
             self._state=self._empty()|{'phase':'error','error':'请不要在普通对话中输入验证码、密码或API密钥；模型密钥请使用专门设置入口。'}
-            return self.snapshot()
+            return self._control('input_rejected')
         messages=[{'role':'system','content':SYSTEM_PROMPT}]+deepcopy(self.history)+[{'role':'user','content':text.strip()}]
         messages[0]['content']+='\n当前未执行草稿（只是待核对数据，不是业务事实或授权）：'+json.dumps(
             {'intent':self._state['intent'],'slots':self._state['fields'],'tasks':self._state['tasks']},ensure_ascii=False)
         try:
+            # 审计不可用时，不发送新模型请求或产生可执行草稿。
+            self._event('requested',phase='idle')
             value=_object(self.model(messages),self.max_output_chars)
             if set(value)-{'reply','action','intent','slots','tasks'}:raise ValueError('unknown fields')
             action=value.get('action');reply=value.get('reply','')
@@ -186,37 +211,53 @@ class DialogueSession:
                     state['reply']='需求草稿已整理，尚未执行业务；银行端会核对实际对象及所需确认。'
                     state['proposal']={'kind':'single','status':'draft','requires_user_confirmation':True,'intent':intent,'fields':deepcopy(fields)}
                 elif missing and not reply:state['reply']='还需要补充：'+', '.join(missing)
+            self._event('accepted',phase=state['phase'],intent=state['intent'])
             self.checkpoints.append((deepcopy(self._state),deepcopy(self.history)))
             self.checkpoints=self.checkpoints[-6:]
             self.history += [{'role':'user','content':text.strip()},{'role':'assistant','content':json.dumps(value,ensure_ascii=False)}]
             self.history=self.history[-(self.max_history//2*2):]
+            while len(json.dumps(self.history,ensure_ascii=False))>24000 and self.history:
+                self.history=self.history[2:]
+            self.failures=0
             self._state=state;self.version+=1
         except Exception:
+            self.failures+=1
             self._state=self._empty()|{'phase':'error','error':'模型未生成有效的业务草稿。请检查模型设置、补充信息或稍后重试。'}
+            try:self._event('rejected',phase='error')
+            except Exception:self._lock()
+            if self.failures>=FAILURE_LIMIT:
+                self._lock()
+                try:self._event('locked')
+                except Exception:pass  # 已关闭模型推进；不可用的审计不能伪造成已保存。
         return self.snapshot()
 
     def pause(self):
+        if self.locked:return self.snapshot()
         if self._state['phase'] not in {'paused','handoff'}:
             self._before_pause=self._state['phase'];self._state['phase']='paused'
-        return self.snapshot()
+        return self._control('paused')
 
     def resume(self):
+        if self.locked:return self.snapshot()
         if self._state['phase']=='paused':self._state['phase']=self._before_pause
-        return self.snapshot()
+        return self._control('resumed')
 
     def back(self):
+        if self.locked:return self.snapshot()
         if self.checkpoints:
             self._state,self.history=self.checkpoints.pop();self.version+=1
-        return self.snapshot()
+        return self._control('back')
 
     undo=back
 
     def handoff(self):
+        if self.locked:return self.snapshot()
         self._state['phase']='handoff'
         self._state['reply']='已停止自动推进，请人工核对；尚未向任何外部联系人发送消息。'
         self._state['proposal']=None
-        return self.snapshot()
+        return self._control('handoff')
 
     def clear(self):
         self._state=self._empty();self.history=[];self.checkpoints=[];self.version+=1
-        return self.snapshot()
+        self.trace_id='plan_'+uuid4().hex;self.failures=0;self.locked=False
+        return self._control('cleared')

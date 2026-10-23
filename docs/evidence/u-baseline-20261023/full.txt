@@ -1,0 +1,724 @@
+test_ambiguous_payee_must_be_chosen_from_trusted_candidates (test_agent.FirstRoundTests.test_ambiguous_payee_must_be_chosen_from_trusted_candidates) ... ok
+test_approve_repeat_or_requery_does_not_create_second_receipt (test_agent.FirstRoundTests.test_approve_repeat_or_requery_does_not_create_second_receipt) ... ok
+test_demo_gateway_preserves_idempotency_content (test_agent.FirstRoundTests.test_demo_gateway_preserves_idempotency_content) ... ok
+test_expired_authorization_finishes_without_a_receipt (test_agent.FirstRoundTests.test_expired_authorization_finishes_without_a_receipt) ... ok
+test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof (test_agent.FirstRoundTests.test_gateway_rejects_wrong_identity_digest_and_missing_strong_proof) ... ok
+test_initial_write_timeout_preserves_unknown_request (test_agent.FirstRoundTests.test_initial_write_timeout_preserves_unknown_request) ... ok
+test_invalid_amount_or_unsupported_input_has_no_business_side_effect (test_agent.FirstRoundTests.test_invalid_amount_or_unsupported_input_has_no_business_side_effect) ... ok
+test_invalid_new_input_clears_old_candidates_and_amount (test_agent.FirstRoundTests.test_invalid_new_input_clears_old_candidates_and_amount) ... ok
+test_large_transfer_does_not_accept_plain_confirmation (test_agent.FirstRoundTests.test_large_transfer_does_not_accept_plain_confirmation) ... ok
+test_missing_amount_is_asked_without_transfer (test_agent.FirstRoundTests.test_missing_amount_is_asked_without_transfer) ... ok
+test_new_invalid_input_cannot_display_previous_success_as_current (test_agent.FirstRoundTests.test_new_invalid_input_cannot_display_previous_success_as_current) ... ok
+test_new_operation_has_new_ids (test_agent.FirstRoundTests.test_new_operation_has_new_ids) ... ok
+test_pending_input_cannot_mutate_current_request (test_agent.FirstRoundTests.test_pending_input_cannot_mutate_current_request) ... ok
+test_rejection_cannot_generate_success (test_agent.FirstRoundTests.test_rejection_cannot_generate_success) ... ok
+test_spaces_do_not_join_separate_numbers_into_a_new_amount (test_agent.FirstRoundTests.test_spaces_do_not_join_separate_numbers_into_a_new_amount) ... ok
+test_valid_request_and_pending_result_use_shared_contract (test_agent.FirstRoundTests.test_valid_request_and_pending_result_use_shared_contract) ... ok
+test_write_response_failure_preserves_operation_and_prevents_new_key (test_agent.FirstRoundTests.test_write_response_failure_preserves_operation_and_prevents_new_key) ... ok
+test_wrong_upstream_correlation_is_rejected (test_agent.FirstRoundTests.test_wrong_upstream_correlation_is_rejected) ... ok
+test_confirmation_and_rerun_only_create_one_persisted_transfer (test_app.PageTests.test_confirmation_and_rerun_only_create_one_persisted_transfer) ... 2026-10-23 20:57:11.115 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cumulative_threshold_page_uses_ledger (test_app.PageTests.test_cumulative_threshold_page_uses_ledger) ... 2026-10-23 20:57:12.008 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_page_recovers_pending_and_success_without_automatic_authorization (test_app.PageTests.test_fresh_page_recovers_pending_and_success_without_automatic_authorization) ... 2026-10-23 20:57:12.484 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:12.703 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:12.985 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_insufficient_funds_page_never_reports_success (test_app.PageTests.test_insufficient_funds_page_never_reports_success) ... 2026-10-23 20:57:13.180 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_new_chat_preserves_bank_and_explicit_reset_restores_seed (test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed) ... 2026-10-23 20:57:13.517 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_optional_bank_name_and_invalid_candidate_input_do_not_break_page (test_app.PageTests.test_optional_bank_name_and_invalid_candidate_input_do_not_break_page) ... 2026-10-23 20:57:14.015 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_page_starts_and_missing_amount_then_payee_selection_works (test_app.PageTests.test_page_starts_and_missing_amount_then_payee_selection_works) ... 2026-10-23 20:57:14.428 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_rejection_and_simulated_verification_are_separate_paths (test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths) ... 2026-10-23 20:57:14.770 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_is_queryable_and_reset_cannot_bypass_it (test_app.PageTests.test_unknown_is_queryable_and_reset_cannot_bypass_it) ... 2026-10-23 20:57:15.243 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_write_result_disables_new_submission (test_app.PageTests.test_unknown_write_result_disables_new_submission) ... 2026-10-23 20:57:15.613 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_all_entry_pairs_block_and_unlock_after_reconciliation (test_audit_repairs.AuditRepairTests.test_all_entry_pairs_block_and_unlock_after_reconciliation) ... ok
+test_completed_step_cannot_be_changed_removed_or_renumbered (test_audit_repairs.AuditRepairTests.test_completed_step_cannot_be_changed_removed_or_renumbered) ... ok
+test_revision_preserves_paid_step_and_original_operation (test_audit_repairs.AuditRepairTests.test_revision_preserves_paid_step_and_original_operation) ... ok
+test_concurrent_initialization_imports_seed_only_once (test_bank.BankTests.test_concurrent_initialization_imports_seed_only_once) ... ok
+test_corrupt_operation_cannot_be_presented_as_success (test_bank.BankTests.test_corrupt_operation_cannot_be_presented_as_success) ... ok
+test_cursor_rejects_changed_filters_account_owner_and_unknown_token (test_bank.BankTests.test_cursor_rejects_changed_filters_account_owner_and_unknown_token) ... ok
+test_default_page_limit_is_100_and_remaining_rows_are_retrievable (test_bank.BankTests.test_default_page_limit_is_100_and_remaining_rows_are_retrievable) ... ok
+test_empty_store_and_queries_do_not_auto_seed (test_bank.BankTests.test_empty_store_and_queries_do_not_auto_seed) ... ok
+test_failed_seed_import_rolls_back_and_can_be_retried (test_bank.BankTests.test_failed_seed_import_rolls_back_and_can_be_retried) ... ok
+test_foreign_or_newer_database_is_not_overwritten (test_bank.BankTests.test_foreign_or_newer_database_is_not_overwritten) ... ok
+test_initialization_is_idempotent_and_separate_process_reads_saved_state (test_bank.BankTests.test_initialization_is_idempotent_and_separate_process_reads_saved_state) ... ok
+test_invalid_requests_raise_safe_errors_and_pending_does_not_debit (test_bank.BankTests.test_invalid_requests_raise_safe_errors_and_pending_does_not_debit) ... ok
+test_linked_reset_path_is_rejected_without_touching_target (test_bank.BankTests.test_linked_reset_path_is_rejected_without_touching_target) ... ok
+test_missing_database_query_does_not_create_file (test_bank.BankTests.test_missing_database_query_does_not_create_file) ... ok
+test_operation_query_keeps_nested_status_and_hides_other_owners (test_bank.BankTests.test_operation_query_keeps_nested_status_and_hides_other_owners) ... ok
+test_payees_are_scoped_and_ambiguous_names_are_not_guessed (test_bank.BankTests.test_payees_are_scoped_and_ambiguous_names_are_not_guessed) ... ok
+test_reset_failure_rolls_back_and_leaves_old_data (test_bank.BankTests.test_reset_failure_rolls_back_and_leaves_old_data) ... ok
+test_reset_requires_confirmation_and_only_targets_fixed_demo_database (test_bank.BankTests.test_reset_requires_confirmation_and_only_targets_fixed_demo_database) ... ok
+test_schema_rejects_bad_balances_foreign_keys_and_duplicate_operation_keys (test_bank.BankTests.test_schema_rejects_bad_balances_foreign_keys_and_duplicate_operation_keys) ... ok
+test_seed_balances_and_resource_snapshots_match_contract (test_bank.BankTests.test_seed_balances_and_resource_snapshots_match_contract) ... ok
+test_shanghai_date_boundary_preserves_microseconds_and_supported_date_extremes (test_bank.BankTests.test_shanghai_date_boundary_preserves_microseconds_and_supported_date_extremes) ... ok
+test_stable_paging_excludes_new_backdated_rows_and_survives_restart (test_bank.BankTests.test_stable_paging_excludes_new_backdated_rows_and_survives_restart) ... ok
+test_unknown_or_other_identity_cannot_read_private_resources (test_bank.BankTests.test_unknown_or_other_identity_cannot_read_private_resources) ... ok
+test_all_hand_answers_and_public_result_contract (test_billing.BillingTests.test_all_hand_answers_and_public_result_contract) ... ok
+test_bad_records_fail_without_guessing (test_billing.BillingTests.test_bad_records_fail_without_guessing) ... ok
+test_category_capacity_no_truncation (test_billing.BillingTests.test_category_capacity_no_truncation) ... ok
+test_direction_matters (test_billing.BillingTests.test_direction_matters) ... ok
+test_duplicate_transaction_fails (test_billing.BillingTests.test_duplicate_transaction_fails) ... ok
+test_invalid_request (test_billing.BillingTests.test_invalid_request) ... ok
+test_large_single_respects_query_window (test_billing.BillingTests.test_large_single_respects_query_window) ... ok
+test_large_single_rule_boundary_scope_and_determinism (test_billing.BillingTests.test_large_single_rule_boundary_scope_and_determinism) ... ok
+test_maximum_amount_report_is_exact (test_billing.BillingTests.test_maximum_amount_report_is_exact) ... ok
+test_more_than_one_hundred_rows (test_billing.BillingTests.test_more_than_one_hundred_rows) ... ok
+test_output_byte_capacity_no_truncation (test_billing.BillingTests.test_output_byte_capacity_no_truncation) ... ok
+test_readonly_order_independent_and_repeatable (test_billing.BillingTests.test_readonly_order_independent_and_repeatable) ... ok
+test_refund_overflow (test_billing.BillingTests.test_refund_overflow) ... ok
+test_shanghai_same_day_closed_boundaries (test_billing.BillingTests.test_shanghai_same_day_closed_boundaries) ... ok
+test_total_overflow_across_categories (test_billing.BillingTests.test_total_overflow_across_categories) ... ok
+test_year_fee_not_amortized_and_category_not_inferred (test_billing.BillingTests.test_year_fee_not_amortized_and_category_not_inferred) ... ok
+test_explicit_hand_answers_match_listed_rows_and_date_boundaries (test_billing_fixture.BillingFixtureTests.test_explicit_hand_answers_match_listed_rows_and_date_boundaries) ... ok
+test_forbidden_case_really_targets_another_owner (test_billing_fixture.BillingFixtureTests.test_forbidden_case_really_targets_another_owner) ... ok
+test_opening_plus_history_matches_closing_and_transfer_is_paired (test_billing_fixture.BillingFixtureTests.test_opening_plus_history_matches_closing_and_transfer_is_paired) ... ok
+test_rows_obey_existing_contract_and_cover_all_kinds (test_billing_fixture.BillingFixtureTests.test_rows_obey_existing_contract_and_cover_all_kinds) ... ok
+test_aggregate_overflow_is_limit_exceeded (test_billing_gateway.BillingGatewayTests.test_aggregate_overflow_is_limit_exceeded) ... ok
+test_bad_backend_receipt_is_not_success (test_billing_gateway.BillingGatewayTests.test_bad_backend_receipt_is_not_success) ... ok
+test_bad_ledger_and_database_failure_are_failed (test_billing_gateway.BillingGatewayTests.test_bad_ledger_and_database_failure_are_failed) ... ok
+test_concurrent_committed_insert_appears_only_next_query (test_billing_gateway.BillingGatewayTests.test_concurrent_committed_insert_appears_only_next_query) ... ok
+test_fixture_answers_through_gateway (test_billing_gateway.BillingGatewayTests.test_fixture_answers_through_gateway) ... ok
+test_forbidden_and_unknown_identities_no_data_leak (test_billing_gateway.BillingGatewayTests.test_forbidden_and_unknown_identities_no_data_leak) ... ok
+test_invalid_dates_rejected_before_read (test_billing_gateway.BillingGatewayTests.test_invalid_dates_rejected_before_read) ... ok
+test_more_than_one_hundred_and_query_list_date_parity (test_billing_gateway.BillingGatewayTests.test_more_than_one_hundred_and_query_list_date_parity) ... ok
+test_pending_authorization_and_entire_database_unchanged (test_billing_gateway.BillingGatewayTests.test_pending_authorization_and_entire_database_unchanged) ... ok
+test_account_selection_uses_owned_resources (test_billing_page.BillingPageTests.test_account_selection_uses_owned_resources) ... 2026-10-23 20:57:17.520 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_amount_table_chart_and_refund_agree (test_billing_page.BillingPageTests.test_amount_table_chart_and_refund_agree) ... 2026-10-23 20:57:17.881 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bad_result_cannot_display_as_success (test_billing_page.BillingPageTests.test_bad_result_cannot_display_as_success) ... 2026-10-23 20:57:18.431 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_failed_query_clears_previous_report (test_billing_page.BillingPageTests.test_failed_query_clears_previous_report) ... 2026-10-23 20:57:18.778 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_invalid_range_does_not_execute (test_billing_page.BillingPageTests.test_invalid_range_does_not_execute) ... 2026-10-23 20:57:19.088 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_leap_month_request_and_refresh_clear_report (test_billing_page.BillingPageTests.test_leap_month_request_and_refresh_clear_report) ... 2026-10-23 20:57:19.387 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_query_preserves_pending_transfer (test_billing_page.BillingPageTests.test_query_preserves_pending_transfer) ... 2026-10-23 20:57:19.750 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_transfer_stays_unknown_until_recovered (test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered) ... 2026-10-23 20:57:20.191 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_year_and_custom_dates_and_empty_month (test_billing_page.BillingPageTests.test_year_and_custom_dates_and_empty_month) ... 2026-10-23 20:57:20.698 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_aa_members_total_and_fair_split (test_boundaries.BoundaryTests.test_aa_members_total_and_fair_split) ... ok
+test_alias_adapter_does_not_mutate_input (test_boundaries.BoundaryTests.test_alias_adapter_does_not_mutate_input) ... ok
+test_authorization_is_separate_from_business_params (test_boundaries.BoundaryTests.test_authorization_is_separate_from_business_params) ... ok
+test_balance_must_reconcile (test_boundaries.BoundaryTests.test_balance_must_reconcile) ... ok
+test_bill_total_and_nested_fields (test_boundaries.BoundaryTests.test_bill_total_and_nested_fields) ... ok
+test_cyclic_and_oversized_inputs_are_rejected (test_boundaries.BoundaryTests.test_cyclic_and_oversized_inputs_are_rejected) ... ok
+test_gate_output_cannot_be_confused_with_business_status (test_boundaries.BoundaryTests.test_gate_output_cannot_be_confused_with_business_status) ... ok
+test_hash_canonicalizes_time_and_units (test_boundaries.BoundaryTests.test_hash_canonicalizes_time_and_units) ... ok
+test_id_and_timestamp_formats_are_stable (test_boundaries.BoundaryTests.test_id_and_timestamp_formats_are_stable) ... ok
+test_invalid_public_inputs_raise_contract_error (test_boundaries.BoundaryTests.test_invalid_public_inputs_raise_contract_error) ... ok
+test_json_roundtrip_preserves_correlation (test_boundaries.BoundaryTests.test_json_roundtrip_preserves_correlation) ... ok
+test_ledger_date_account_and_page_size (test_boundaries.BoundaryTests.test_ledger_date_account_and_page_size) ... ok
+test_lookup_success_still_displays_unknown_original_result (test_boundaries.BoundaryTests.test_lookup_success_still_displays_unknown_original_result) ... ok
+test_money_does_not_depend_on_decimal_context (test_boundaries.BoundaryTests.test_money_does_not_depend_on_decimal_context) ... ok
+test_original_operation_lookup_cannot_swap_operation (test_boundaries.BoundaryTests.test_original_operation_lookup_cannot_swap_operation) ... ok
+test_pending_requires_valid_challenge (test_boundaries.BoundaryTests.test_pending_requires_valid_challenge) ... ok
+test_products_must_match_and_risk_enum_is_fixed (test_boundaries.BoundaryTests.test_products_must_match_and_risk_enum_is_fixed) ... ok
+test_status_map_and_upstream_metadata (test_boundaries.BoundaryTests.test_status_map_and_upstream_metadata) ... ok
+test_strict_json_rejects_duplicate_keys_and_constants (test_boundaries.BoundaryTests.test_strict_json_rejects_duplicate_keys_and_constants) ... ok
+test_success_cannot_be_rewritten_and_unknown_can_resolve (test_boundaries.BoundaryTests.test_success_cannot_be_rewritten_and_unknown_can_resolve) ... ok
+test_wrong_card_or_subscription_target_is_rejected (test_boundaries.BoundaryTests.test_wrong_card_or_subscription_target_is_rejected) ... ok
+test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve (test_budget.BudgetTests.test_balance_rechecked_after_confirmation_and_normal_transfer_respects_reserve) ... ok
+test_committed_reply_lost_recover_restart_without_second_release (test_budget.BudgetTests.test_committed_reply_lost_recover_restart_without_second_release) ... ok
+test_concurrent_reserves_and_releases_do_not_overuse (test_budget.BudgetTests.test_concurrent_reserves_and_releases_do_not_overuse) ... ok
+test_confirm_reserve_release_exact_contract_audit_and_no_ledger (test_budget.BudgetTests.test_confirm_reserve_release_exact_contract_audit_and_no_ledger) ... ok
+test_duplicate_authorization_replays_once (test_budget.BudgetTests.test_duplicate_authorization_replays_once) ... ok
+test_explicit_reset_with_budget_and_failed_reset_are_atomic (test_budget.BudgetTests.test_explicit_reset_with_budget_and_failed_reset_are_atomic) ... ok
+test_merchant_unknown_after_release_confirmation_blocks_mutation (test_budget.BudgetTests.test_merchant_unknown_after_release_confirmation_blocks_mutation) ... ok
+test_ownership_forged_authorization_and_invalid_amounts (test_budget.BudgetTests.test_ownership_forged_authorization_and_invalid_amounts) ... ok
+test_page_confirmation_refresh_recovery_and_release (test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release) ... 2026-10-23 20:57:22.024 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:22.257 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_page_rejection_and_lost_response_blocks_new_actions (test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions) ... 2026-10-23 20:57:22.664 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_reject_expiry_and_late_approval_cannot_mutate (test_budget.BudgetTests.test_reject_expiry_and_late_approval_cannot_mutate) ... ok
+test_replay_conflict_and_two_independent_reservations (test_budget.BudgetTests.test_replay_conflict_and_two_independent_reservations) ... ok
+test_reserve_and_release_rollback_if_receipt_or_audit_fails (test_budget.BudgetTests.test_reserve_and_release_rollback_if_receipt_or_audit_fails) ... ok
+test_scheduled_merchant_association_blocks_release (test_budget.BudgetTests.test_scheduled_merchant_association_blocks_release) ... ok
+test_unknown_source_or_frozen_budget_never_released (test_budget.BudgetTests.test_unknown_source_or_frozen_budget_never_released) ... ok
+test_v8_migration_preserves_pending_and_old_balance (test_budget.BudgetTests.test_v8_migration_preserves_pending_and_old_balance) ... ok
+test_audit_failure_rolls_back (test_card_limits.CardLimitTests.test_audit_failure_rolls_back) ... ok
+test_boundaries_all_states_no_money_and_replay (test_card_limits.CardLimitTests.test_boundaries_all_states_no_money_and_replay) ... ok
+test_changed_limit_state_and_owner_invalidate (test_card_limits.CardLimitTests.test_changed_limit_state_and_owner_invalidate) ... ok
+test_invalid_values_and_ownership (test_card_limits.CardLimitTests.test_invalid_values_and_ownership) ... ok
+test_page_refresh_recovery (test_card_limits.CardLimitTests.test_page_refresh_recovery) ... 2026-10-23 20:57:24.194 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:24.461 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_reject_missing_proof_expiry_conflict (test_card_limits.CardLimitTests.test_reject_missing_proof_expiry_conflict) ... ok
+test_audit_failure_rolls_back_card (test_cards.CardTests.test_audit_failure_rolls_back_card) ... ok
+test_concurrent_state_change_invalidates_old_confirmation (test_cards.CardTests.test_concurrent_state_change_invalidates_old_confirmation) ... ok
+test_e_material_original_paths (test_cards.CardTests.test_e_material_original_paths) ... ok
+test_existing_v3_database_migrates_preserving_state (test_cards.CardTests.test_existing_v3_database_migrates_preserving_state) ... ok
+test_four_actions_and_lost_cannot_unfreeze (test_cards.CardTests.test_four_actions_and_lost_cannot_unfreeze) ... ok
+test_ownership_reject_missing_proof_and_conflict (test_cards.CardTests.test_ownership_reject_missing_proof_and_conflict) ... ok
+test_page_and_refresh_recovery_and_transfer_page (test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page) ... 2026-10-23 20:57:25.468 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:25.595 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:25.800 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_birthday_pause_handoff_then_release_unused_budget (test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget) ... 2026-10-23 20:57:25.948 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit (test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit) ... 2026-10-23 20:57:26.647 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:26.920 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_followup_rejection_and_dependency_do_not_move_money (test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money) ... 2026-10-23 20:57:27.066 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment (test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment) ... 2026-10-23 20:57:27.535 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:27.826 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_page_five_model_failures_lock_and_manual_new_task_recovers (test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers) ... 2026-10-23 20:57:28.025 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger (test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger) ... 2026-10-23 20:57:28.513 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_alias_and_exact_money (test_contracts.ContractTests.test_alias_and_exact_money) ... ok
+test_all_actions_have_a_working_contract (test_contracts.ContractTests.test_all_actions_have_a_working_contract) ... ok
+test_ambiguous_or_conflicting_fields_fail (test_contracts.ContractTests.test_ambiguous_or_conflicting_fields_fail) ... ok
+test_dates_and_unknown_actions (test_contracts.ContractTests.test_dates_and_unknown_actions) ... ok
+test_money_and_write_key_validation (test_contracts.ContractTests.test_money_and_write_key_validation) ... ok
+test_operation_binding (test_contracts.ContractTests.test_operation_binding) ... ok
+test_pending_cannot_carry_success_data (test_contracts.ContractTests.test_pending_cannot_carry_success_data) ... ok
+test_plan_dependencies (test_contracts.ContractTests.test_plan_dependencies) ... ok
+test_schedule_never_means_transfer_completed (test_contracts.ContractTests.test_schedule_never_means_transfer_completed) ... ok
+test_success_needs_matching_receipt (test_contracts.ContractTests.test_success_needs_matching_receipt) ... ok
+test_threshold_includes_current_transfer (test_contracts.ContractTests.test_threshold_includes_current_transfer) ... ok
+test_timeout_is_unknown_not_failed (test_contracts.ContractTests.test_timeout_is_unknown_not_failed) ... ok
+test_birthday_plan_reserve_order_restart_release (test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release) ... 2026-10-23 20:57:31.438 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:31.949 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_card_application_page_only_receives (test_delivery_pages.DeliveryPageTests.test_card_application_page_only_receives) ... 2026-10-23 20:57:32.356 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_merchant_lost_reply_blocks_page_until_recovery (test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery) ... 2026-10-23 20:57:32.648 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_subscription_reminder_and_cancel_from_page (test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page) ... 2026-10-23 20:57:33.197 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_budget_actions_unavailable_and_public_gateway_requires_authorization (test_funds.FundsTests.test_budget_actions_unavailable_and_public_gateway_requires_authorization) ... ok
+test_concurrent_same_key_is_one_transfer (test_funds.FundsTests.test_concurrent_same_key_is_one_transfer) ... ok
+test_credit_first_arbitrary_credit_and_unfinished_debit_roll_back (test_funds.FundsTests.test_credit_first_arbitrary_credit_and_unfinished_debit_roll_back) ... ok
+test_credit_overflow_and_daily_safe_integer_limit_roll_back (test_funds.FundsTests.test_credit_overflow_and_daily_safe_integer_limit_roll_back) ... ok
+test_failed_or_incomplete_p1_migration_preserves_old_version_and_data (test_funds.FundsTests.test_failed_or_incomplete_p1_migration_preserves_old_version_and_data) ... ok
+test_fake_read_foreign_and_expired_transactions_cannot_post (test_funds.FundsTests.test_fake_read_foreign_and_expired_transactions_cannot_post) ... ok
+test_fault_after_each_leg_rolls_back_all_records (test_funds.FundsTests.test_fault_after_each_leg_rolls_back_all_records) ... ok
+test_fault_before_result_and_during_result_or_audit_save_rolls_back (test_funds.FundsTests.test_fault_before_result_and_during_result_or_audit_save_rolls_back) ... ok
+test_insufficient_and_concurrent_balance_never_overdraw (test_funds.FundsTests.test_insufficient_and_concurrent_balance_never_overdraw) ... ok
+test_malformed_receipt_context_and_float_amount_do_not_commit (test_funds.FundsTests.test_malformed_receipt_context_and_float_amount_do_not_commit) ... ok
+test_no_success_is_visible_before_outer_commit (test_funds.FundsTests.test_no_success_is_visible_before_outer_commit) ... ok
+test_outer_commit_failure_rolls_back_all_transfer_records (test_funds.FundsTests.test_outer_commit_failure_rolls_back_all_transfer_records) ... ok
+test_p1_schema_migration_preserves_existing_data_and_is_repeatable (test_funds.FundsTests.test_p1_schema_migration_preserves_existing_data_and_is_repeatable) ... ok
+test_pending_record_is_updated_but_unknown_or_terminal_failure_is_not_reexecuted (test_funds.FundsTests.test_pending_record_is_updated_but_unknown_or_terminal_failure_is_not_reexecuted) ... ok
+test_posting_error_caught_by_caller_cannot_leave_extra_debit (test_funds.FundsTests.test_posting_error_caught_by_caller_cannot_leave_extra_debit) ... ok
+test_posting_replay_checks_all_fields_and_does_not_change_balance (test_funds.FundsTests.test_posting_replay_checks_all_fields_and_does_not_change_balance) ... ok
+test_reserved_funds_cannot_be_spent_by_normal_debit (test_funds.FundsTests.test_reserved_funds_cannot_be_spent_by_normal_debit) ... ok
+test_reset_clears_postings_with_financial_records (test_funds.FundsTests.test_reset_clears_postings_with_financial_records) ... ok
+test_same_key_changed_amount_payee_or_memo_conflicts (test_funds.FundsTests.test_same_key_changed_amount_payee_or_memo_conflicts) ... ok
+test_same_operation_retries_and_restart_do_not_post_twice (test_funds.FundsTests.test_same_operation_retries_and_restart_do_not_post_twice) ... ok
+test_transfer_commits_both_sides_receipts_result_and_audit (test_funds.FundsTests.test_transfer_commits_both_sides_receipts_result_and_audit) ... ok
+test_wrong_owner_untrusted_payee_and_self_transfer_are_rejected (test_funds.FundsTests.test_wrong_owner_untrusted_payee_and_self_transfer_are_rejected) ... ok
+test_balance_is_rechecked_and_failure_is_audited (test_gateway.GatewayTests.test_balance_is_rechecked_and_failure_is_audited) ... ok
+test_challenge_consumption_failure_rolls_back_funds (test_gateway.GatewayTests.test_challenge_consumption_failure_rolls_back_funds) ... ok
+test_concurrent_balance_competition_never_overdraws (test_gateway.GatewayTests.test_concurrent_balance_competition_never_overdraws) ... ok
+test_concurrent_confirmations_escalate_second_without_debit (test_gateway.GatewayTests.test_concurrent_confirmations_escalate_second_without_debit) ... ok
+test_concurrent_execute_creates_one_challenge (test_gateway.GatewayTests.test_concurrent_execute_creates_one_challenge) ... ok
+test_concurrent_retries_of_same_authorization_only_pay_once (test_gateway.GatewayTests.test_concurrent_retries_of_same_authorization_only_pay_once) ... ok
+test_confirm_commits_pair_and_consumes_challenge_once (test_gateway.GatewayTests.test_confirm_commits_pair_and_consumes_challenge_once) ... ok
+test_credit_failure_rolls_back_debit_and_success_audit (test_gateway.GatewayTests.test_credit_failure_rolls_back_debit_and_success_audit) ... ok
+test_daily_total_spans_all_owned_accounts (test_gateway.GatewayTests.test_daily_total_spans_all_owned_accounts) ... ok
+test_day_is_shanghai_execution_day_and_verification_never_downgrades (test_gateway.GatewayTests.test_day_is_shanghai_execution_day_and_verification_never_downgrades) ... ok
+test_existing_unknown_operation_is_never_executed_again (test_gateway.GatewayTests.test_existing_unknown_operation_is_never_executed_again) ... ok
+test_expiry_exact_boundary_fails_without_silent_renewal (test_gateway.GatewayTests.test_expiry_exact_boundary_fails_without_silent_renewal) ... ok
+test_five_invalid_attempts_lock_persistently_despite_proof_reissue (test_gateway.GatewayTests.test_five_invalid_attempts_lock_persistently_despite_proof_reissue) ... ok
+test_foreign_account_and_payee_fail_before_challenge (test_gateway.GatewayTests.test_foreign_account_and_payee_fail_before_challenge) ... ok
+test_invalid_module_result_rolls_back_both_postings (test_gateway.GatewayTests.test_invalid_module_result_rolls_back_both_postings) ... ok
+test_lost_commit_reply_preserves_success_for_operation_query (test_gateway.GatewayTests.test_lost_commit_reply_preserves_success_for_operation_query) ... ok
+test_lost_pending_reply_recovers_same_challenge (test_gateway.GatewayTests.test_lost_pending_reply_recovers_same_challenge) ... ok
+test_other_user_cannot_authorize_issue_proof_or_lock_owner (test_gateway.GatewayTests.test_other_user_cannot_authorize_issue_proof_or_lock_owner) ... ok
+test_outer_rollback_restores_pending_and_unused_challenge (test_gateway.GatewayTests.test_outer_rollback_restores_pending_and_unused_challenge) ... ok
+test_payee_mapping_change_requires_new_confirmation (test_gateway.GatewayTests.test_payee_mapping_change_requires_new_confirmation) ... ok
+test_pending_survives_restart_and_never_moves_money (test_gateway.GatewayTests.test_pending_survives_restart_and_never_moves_money) ... ok
+test_pending_without_legacy_payee_binding_fails_closed (test_gateway.GatewayTests.test_pending_without_legacy_payee_binding_fails_closed) ... ok
+test_plain_confirmation_cannot_satisfy_verification (test_gateway.GatewayTests.test_plain_confirmation_cannot_satisfy_verification) ... ok
+test_proof_cannot_be_issued_after_expiry (test_gateway.GatewayTests.test_proof_cannot_be_issued_after_expiry) ... ok
+test_proof_is_bound_to_challenge_and_reissue_invalidates_old_token (test_gateway.GatewayTests.test_proof_is_bound_to_challenge_and_reissue_invalidates_old_token) ... ok
+test_proof_is_hashed_not_logged_and_survives_restart (test_gateway.GatewayTests.test_proof_is_hashed_not_logged_and_survives_restart) ... ok
+test_reject_is_terminal_and_never_pays (test_gateway.GatewayTests.test_reject_is_terminal_and_never_pays) ... ok
+test_replay_reassociates_response_without_changing_original (test_gateway.GatewayTests.test_replay_reassociates_response_without_changing_original) ... ok
+test_same_key_different_amount_rejected_even_after_success (test_gateway.GatewayTests.test_same_key_different_amount_rejected_even_after_success) ... ok
+test_threshold_includes_current_amount_and_equality_is_confirm (test_gateway.GatewayTests.test_threshold_includes_current_amount_and_equality_is_confirm) ... ok
+test_v2_migration_adds_binding_without_changing_balance (test_gateway.GatewayTests.test_v2_migration_adds_binding_without_changing_balance) ... ok
+test_wrong_digest_cannot_change_pending_or_completed_operation (test_gateway.GatewayTests.test_wrong_digest_cannot_change_pending_or_completed_operation) ... ok
+test_red_gate_replay_and_atomic_rollback (test_gateway_extension.ExtensionTests.test_red_gate_replay_and_atomic_rollback) ... ok
+test_resource_changed_and_expiry_fail_closed (test_gateway_extension.ExtensionTests.test_resource_changed_and_expiry_fail_closed) ... ok
+test_yellow_confirmation_survives_restart (test_gateway_extension.ExtensionTests.test_yellow_confirmation_survives_restart) ... ok
+test_real_login_binding_and_logout_page (test_h_pages.HPageTests.test_real_login_binding_and_logout_page) ... 2026-10-23 20:57:37.878 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_page_restores_full_plan_and_original_payment (test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment) ... 2026-10-23 20:57:38.886 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:39.204 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_every_other_home_service_navigates_and_returns_without_business_writes (test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes) ... 2026-10-23 20:57:39.340 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:39.665 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:39.924 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:40.187 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:40.444 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:40.697 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_home_shortcuts_change_views_without_creating_a_request (test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_home_shortcuts_change_views_without_creating_a_request) ... 2026-10-23 20:57:40.944 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_confirmation_and_unavailable_data_stay_explicit (test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_pending_confirmation_and_unavailable_data_stay_explicit) ... 2026-10-23 20:57:41.241 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_assistant_entry_returns_navigation_without_business_or_state (test_home_view.HomeViewContractTests.test_assistant_entry_returns_navigation_without_business_or_state) ... ok
+test_clicked_service_button_returns_only_its_action_id (test_home_view.HomeViewContractTests.test_clicked_service_button_returns_only_its_action_id) ... ok
+test_docs_wire_every_shortcut_to_a_concrete_destination (test_home_view.HomeViewContractTests.test_docs_wire_every_shortcut_to_a_concrete_destination) ... ok
+test_empty_collections_are_distinct_from_unavailable_ones (test_home_view.HomeViewContractTests.test_empty_collections_are_distinct_from_unavailable_ones) ... ok
+test_import_and_render_surface_are_display_only (test_home_view.HomeViewContractTests.test_import_and_render_surface_are_display_only) ... ok
+test_renders_supplied_records_and_service_entries (test_home_view.HomeViewContractTests.test_renders_supplied_records_and_service_entries) ... ok
+test_repeated_render_has_no_hidden_selection_or_data_mutation (test_home_view.HomeViewContractTests.test_repeated_render_has_no_hidden_selection_or_data_mutation) ... ok
+test_transaction_unknown_fields_are_explicit (test_home_view.HomeViewContractTests.test_transaction_unknown_fields_are_explicit) ... ok
+test_unknown_values_are_reported_without_fake_numbers_or_success (test_home_view.HomeViewContractTests.test_unknown_values_are_reported_without_fake_numbers_or_success) ... ok
+test_authorization_before_file_read (test_material_access.MaterialAccessTests.test_authorization_before_file_read) ... ok
+test_bad_row_never_produces_partial_bill (test_material_access.MaterialAccessTests.test_bad_row_never_produces_partial_bill) ... ok
+test_changed_decision_and_reversed_dates (test_material_access.MaterialAccessTests.test_changed_decision_and_reversed_dates) ... ok
+test_changed_or_missing_source_fails_closed (test_material_access.MaterialAccessTests.test_changed_or_missing_source_fails_closed) ... ok
+test_page_query_clears_stale_results_and_never_opens_bank (test_material_access.MaterialAccessTests.test_page_query_clears_stale_results_and_never_opens_bank) ... 2026-10-23 20:57:41.755 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_readonly_result_provenance_and_empty_account (test_material_access.MaterialAccessTests.test_readonly_result_provenance_and_empty_account) ... ok
+test_account_explanation_not_treated_as_identifier (test_material_checks.MaterialChecksTests.test_account_explanation_not_treated_as_identifier) ... ok
+test_amount_precision_range_and_types (test_material_checks.MaterialChecksTests.test_amount_precision_range_and_types) ... ok
+test_bad_account_and_missing_reference_table (test_material_checks.MaterialChecksTests.test_bad_account_and_missing_reference_table) ... ok
+test_channel_cycle_and_duplicate_account (test_material_checks.MaterialChecksTests.test_channel_cycle_and_duplicate_account) ... ok
+test_clean_fields_not_equated_with_import_approval (test_material_checks.MaterialChecksTests.test_clean_fields_not_equated_with_import_approval) ... ok
+test_date_month_and_unconfirmed_time (test_material_checks.MaterialChecksTests.test_date_month_and_unconfirmed_time) ... ok
+test_duplicate_and_invalid_ids (test_material_checks.MaterialChecksTests.test_duplicate_and_invalid_ids) ... ok
+test_formula_errors_and_missing_cache (test_material_checks.MaterialChecksTests.test_formula_errors_and_missing_cache) ... ok
+test_known_conflict_only_applies_to_reviewed_version (test_material_checks.MaterialChecksTests.test_known_conflict_only_applies_to_reviewed_version) ... ok
+test_payee_name_ambiguity_requires_decision (test_material_checks.MaterialChecksTests.test_payee_name_ambiguity_requires_decision) ... ok
+test_payee_references_missing_ledger (test_material_checks.MaterialChecksTests.test_payee_references_missing_ledger) ... ok
+test_refund_original_missing_is_pending_not_invented (test_material_checks.MaterialChecksTests.test_refund_original_missing_is_pending_not_invented) ... ok
+test_sign_direction_kind_and_category (test_material_checks.MaterialChecksTests.test_sign_direction_kind_and_category) ... ok
+test_structure_failure_records_skipped_not_empty_success (test_material_checks.MaterialChecksTests.test_structure_failure_records_skipped_not_empty_success) ... ok
+test_bad_and_oversized_inputs_fail (test_material_reader.ReaderTests.test_bad_and_oversized_inputs_fail) ... ok
+test_blank_notes_and_partial_rows_not_lost (test_material_reader.ReaderTests.test_blank_notes_and_partial_rows_not_lost) ... ok
+test_changed_file_result_keeps_original_snapshot (test_material_reader.ReaderTests.test_changed_file_result_keeps_original_snapshot) ... ok
+test_duplicate_header_not_last_wins (test_material_reader.ReaderTests.test_duplicate_header_not_last_wins) ... ok
+test_empty_ledger_with_header (test_material_reader.ReaderTests.test_empty_ledger_with_header) ... ok
+test_extra_sheet_preserved_without_blocking (test_material_reader.ReaderTests.test_extra_sheet_preserved_without_blocking) ... ok
+test_formula_and_error_cache_from_same_bytes (test_material_reader.ReaderTests.test_formula_and_error_cache_from_same_bytes) ... ok
+test_missing_column_blocks_ledger_mapping_not_raw_cells (test_material_reader.ReaderTests.test_missing_column_blocks_ledger_mapping_not_raw_cells) ... ok
+test_missing_input_has_clear_error (test_material_reader.ReaderTests.test_missing_input_has_clear_error) ... ok
+test_missing_sheet_preserves_others (test_material_reader.ReaderTests.test_missing_sheet_preserves_others) ... ok
+test_readonly_file_and_stable_result (test_material_reader.ReaderTests.test_readonly_file_and_stable_result) ... ok
+test_reordered_columns_and_added_rows (test_material_reader.ReaderTests.test_reordered_columns_and_added_rows) ... ok
+test_repeated_header_is_ambiguous (test_material_reader.ReaderTests.test_repeated_header_is_ambiguous) ... ok
+test_source_values_types_and_positions_preserved (test_material_reader.ReaderTests.test_source_values_types_and_positions_preserved) ... ok
+test_bad_amount_blocks_full_total_and_marks_subtotal (test_material_reconcile.ReconcileTests.test_bad_amount_blocks_full_total_and_marks_subtotal) ... ok
+test_case_scope_is_not_marked_executed (test_material_reconcile.ReconcileTests.test_case_scope_is_not_marked_executed) ... ok
+test_duplicates_not_silently_deduplicated (test_material_reconcile.ReconcileTests.test_duplicates_not_silently_deduplicated) ... ok
+test_gross_refund_and_cashflow_separate (test_material_reconcile.ReconcileTests.test_gross_refund_and_cashflow_separate) ... ok
+test_hand_ids_and_different_section (test_material_reconcile.ReconcileTests.test_hand_ids_and_different_section) ... ok
+test_missing_hand_category_is_unperformed (test_material_reconcile.ReconcileTests.test_missing_hand_category_is_unperformed) ... ok
+test_missing_ledger_is_not_zero_success (test_material_reconcile.ReconcileTests.test_missing_ledger_is_not_zero_success) ... ok
+test_month_recomputed_from_date_not_cache (test_material_reconcile.ReconcileTests.test_month_recomputed_from_date_not_cache) ... ok
+test_no_input_mutation_or_formal_transaction_preview (test_material_reconcile.ReconcileTests.test_no_input_mutation_or_formal_transaction_preview) ... ok
+test_overflow_never_returns_unsafe_totals (test_material_reconcile.ReconcileTests.test_overflow_never_returns_unsafe_totals) ... ok
+test_source_formula_not_treated_as_confirmed_cash (test_material_reconcile.ReconcileTests.test_source_formula_not_treated_as_confirmed_cash) ... ok
+test_summary_mismatch_does_not_change_computed_total (test_material_reconcile.ReconcileTests.test_summary_mismatch_does_not_change_computed_total) ... ok
+test_changed_source_and_version_specific_issue_never_claim_fixed (test_material_report.ReportTests.test_changed_source_and_version_specific_issue_never_claim_fixed) ... ok
+test_changed_transaction_type_is_not_reported_as_fixed_party (test_material_report.ReportTests.test_changed_transaction_type_is_not_reported_as_fixed_party) ... ok
+test_cli_readonly_reports_repeat_comparison_and_no_overwrite (test_material_report.ReportTests.test_cli_readonly_reports_repeat_comparison_and_no_overwrite) ... ok
+test_cli_source_change_during_reconciliation_is_reported (test_material_report.ReportTests.test_cli_source_change_during_reconciliation_is_reported) ... ok
+test_cli_wrong_previous_json_shape_fails_without_report (test_material_report.ReportTests.test_cli_wrong_previous_json_shape_fails_without_report) ... ok
+test_fixed_value_disappears_but_missing_table_does_not (test_material_report.ReportTests.test_fixed_value_disappears_but_missing_table_does_not) ... ok
+test_incompatible_or_failed_report_rejected (test_material_report.ReportTests.test_incompatible_or_failed_report_rejected) ... ok
+test_markdown_does_not_render_source_html (test_material_report.ReportTests.test_markdown_does_not_render_source_html) ... ok
+test_new_error_and_deleted_record_are_not_confused (test_material_report.ReportTests.test_new_error_and_deleted_record_are_not_confused) ... ok
+test_read_and_write_failure_leave_no_valid_new_report (test_material_report.ReportTests.test_read_and_write_failure_leave_no_valid_new_report) ... ok
+test_row_move_does_not_change_ledger_problem_id (test_material_report.ReportTests.test_row_move_does_not_change_ledger_problem_id) ... ok
+test_runtime_output_rejected (test_material_report.ReportTests.test_runtime_output_rejected) ... ok
+test_same_input_same_ids_and_markdown_facts (test_material_report.ReportTests.test_same_input_same_ids_and_markdown_facts) ... ok
+test_bad_fen_is_unavailable_not_rounded (test_material_v12.V12Tests.test_bad_fen_is_unavailable_not_rounded) ... ok
+test_column_reorder_and_inserted_rows (test_material_v12.V12Tests.test_column_reorder_and_inserted_rows) ... ok
+test_duplicate_narrative_headers_not_guessed (test_material_v12.V12Tests.test_duplicate_narrative_headers_not_guessed) ... ok
+test_mapping_note_is_retained_but_not_an_account (test_material_v12.V12Tests.test_mapping_note_is_retained_but_not_an_account) ... ok
+test_missing_or_duplicate_fen_headers_skip_that_region (test_material_v12.V12Tests.test_missing_or_duplicate_fen_headers_skip_that_region) ... ok
+test_narrative_and_optional_cases_preserve_evidence_not_auto_approve (test_material_v12.V12Tests.test_narrative_and_optional_cases_preserve_evidence_not_auto_approve) ... ok
+test_old_layout_remains_supported (test_material_v12.V12Tests.test_old_layout_remains_supported) ... ok
+test_previous_parser_report_requires_regeneration (test_material_v12.V12Tests.test_previous_parser_report_requires_regeneration) ... ok
+test_sections_preserve_fen_without_second_conversion (test_material_v12.V12Tests.test_sections_preserve_fen_without_second_conversion) ... ok
+test_wrong_fen_mismatch_does_not_change_total (test_material_v12.V12Tests.test_wrong_fen_mismatch_does_not_change_total) ... ok
+test_apply_active_card_foreign_account_and_rejected_new_application (test_member_workflows.MemberWorkflowTests.test_apply_active_card_foreign_account_and_rejected_new_application) ... ok
+test_apply_receipt_no_card_and_new_key_pending_rejected (test_member_workflows.MemberWorkflowTests.test_apply_receipt_no_card_and_new_key_pending_rejected) ... ok
+test_cancel_audit_failure_rolls_back_state_and_reminder (test_member_workflows.MemberWorkflowTests.test_cancel_audit_failure_rolls_back_state_and_reminder) ... ok
+test_cancel_retains_sent_history (test_member_workflows.MemberWorkflowTests.test_cancel_retains_sent_history) ... ok
+test_cancel_stops_scheduled_reminder_and_clock_advance_no_effects (test_member_workflows.MemberWorkflowTests.test_cancel_stops_scheduled_reminder_and_clock_advance_no_effects) ... ok
+test_candidate_and_cross_user_cannot_cancel_or_remind (test_member_workflows.MemberWorkflowTests.test_candidate_and_cross_user_cannot_cancel_or_remind) ... ok
+test_pending_reminder_cannot_commit_after_cancel (test_member_workflows.MemberWorkflowTests.test_pending_reminder_cannot_commit_after_cancel) ... ok
+test_reminder_actual_dispatch_restart_and_no_duplicate (test_member_workflows.MemberWorkflowTests.test_reminder_actual_dispatch_restart_and_no_duplicate) ... ok
+test_reminder_duplicate_keys_and_time_boundaries (test_member_workflows.MemberWorkflowTests.test_reminder_duplicate_keys_and_time_boundaries) ... ok
+test_scenario_plan_is_read_only_and_rejects_ambiguous_goal (test_member_workflows.MemberWorkflowTests.test_scenario_plan_is_read_only_and_rejects_ambiguous_goal) ... ok
+test_two_apply_confirmations_only_one_pending (test_member_workflows.MemberWorkflowTests.test_two_apply_confirmations_only_one_pending) ... ok
+test_atomic_partial_consume_then_release (test_merchant.MerchantTests.test_atomic_partial_consume_then_release) ... ok
+test_audit_failure_rolls_back_order_ledger_funds_then_safe_release (test_merchant.MerchantTests.test_audit_failure_rolls_back_order_ledger_funds_then_safe_release) ... ok
+test_cancelled_merchant_task_releases_and_late_request_is_rejected (test_merchant.MerchantTests.test_cancelled_merchant_task_releases_and_late_request_is_rejected) ... ok
+test_card_selection_and_revalidation (test_merchant.MerchantTests.test_card_selection_and_revalidation) ... ok
+test_committed_reply_loss_restart_replay (test_merchant.MerchantTests.test_committed_reply_loss_restart_replay) ... ok
+test_consumption_reconciles_with_bill_and_reset_handles_new_tables (test_merchant.MerchantTests.test_consumption_reconciles_with_bill_and_reset_handles_new_tables) ... ok
+test_expired_order_and_cross_user_authorization (test_merchant.MerchantTests.test_expired_order_and_cross_user_authorization) ... ok
+test_full_consume_closes_no_release (test_merchant.MerchantTests.test_full_consume_closes_no_release) ... ok
+test_input_price_date_account_and_amount_guards (test_merchant.MerchantTests.test_input_price_date_account_and_amount_guards) ... ok
+test_pending_order_amount_is_retained_and_remaining_can_release (test_merchant.MerchantTests.test_pending_order_amount_is_retained_and_remaining_can_release) ... ok
+test_rejected_order_can_release_and_late_approval_does_not_commit (test_merchant.MerchantTests.test_rejected_order_can_release_and_late_approval_does_not_commit) ... ok
+test_release_confirmation_rechecks_late_order (test_merchant.MerchantTests.test_release_confirmation_rechecks_late_order) ... ok
+test_selection_rejects_missing_inactive_limit_foreign (test_merchant.MerchantTests.test_selection_rejects_missing_inactive_limit_foreign) ... ok
+test_two_pending_orders_cannot_over_allocate (test_merchant.MerchantTests.test_two_pending_orders_cannot_over_allocate) ... ok
+test_unresolved_known_amount_and_missing_evidence (test_merchant.MerchantTests.test_unresolved_known_amount_and_missing_evidence) ... ok
+test_v9_migration_preserves_pending_and_existing_reservation (test_merchant.MerchantTests.test_v9_migration_preserves_pending_and_existing_reservation) ... ok
+test_cancel_scheduled_release_and_no_reservation_history (test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history) ... 2026-10-23 20:57:47.700 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_changed_draft_and_cancel_pending_without_late_charge (test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge) ... 2026-10-23 20:57:48.145 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fully_spent_reservation_retains_order_recovery (test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery) ... 2026-10-23 20:57:48.721 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_register_due_verify_release_complete_page_flow (test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow) ... 2026-10-23 20:57:49.191 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_reply_loss_can_recover_original_pending_from_page (test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page) ... 2026-10-23 20:57:49.852 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_blocked_revokes_confirmation_keeps_recovery (test_merchant_schedule_panel.MerchantPanelTests.test_blocked_revokes_confirmation_keeps_recovery) ... 2026-10-23 20:57:50.159 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:50.262 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:50.272 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cancel_requires_click_and_uses_current_target (test_merchant_schedule_panel.MerchantPanelTests.test_cancel_requires_click_and_uses_current_target) ... 2026-10-23 20:57:50.278 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_changed_date_time_or_params_invalidates_confirmation (test_merchant_schedule_panel.MerchantPanelTests.test_changed_date_time_or_params_invalidates_confirmation) ... 2026-10-23 20:57:50.420 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:50.523 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_empty_tasks_missing_params_and_empty_date_are_safe (test_merchant_schedule_panel.MerchantPanelTests.test_empty_tasks_missing_params_and_empty_date_are_safe) ... 2026-10-23 20:57:50.528 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:50.618 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_no_reservation_still_check_cancel_restore_and_distinguish_status (test_merchant_schedule_panel.MerchantPanelTests.test_no_reservation_still_check_cancel_restore_and_distinguish_status) ... 2026-10-23 20:57:50.702 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_two_step_confirmation_and_original_fields (test_merchant_schedule_panel.MerchantPanelTests.test_two_step_confirmation_and_original_fields) ... 2026-10-23 20:57:50.795 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cancel_pending_rejects_old_proof (test_merchant_scheduling.MerchantSchedulingTests.test_cancel_pending_rejects_old_proof) ... ok
+test_cancel_scheduled_blocks_late_execution_and_releases (test_merchant_scheduling.MerchantSchedulingTests.test_cancel_scheduled_blocks_late_execution_and_releases) ... ok
+test_card_change_before_due_and_after_challenge (test_merchant_scheduling.MerchantSchedulingTests.test_card_change_before_due_and_after_challenge) ... ok
+test_committed_cannot_cancel_restart_no_duplicate (test_merchant_scheduling.MerchantSchedulingTests.test_committed_cannot_cancel_restart_no_duplicate) ... ok
+test_concurrent_dispatch_and_cancel_approve_serialized (test_merchant_scheduling.MerchantSchedulingTests.test_concurrent_dispatch_and_cancel_approve_serialized) ... ok
+test_expired_authorization_never_charges_or_resurrects (test_merchant_scheduling.MerchantSchedulingTests.test_expired_authorization_never_charges_or_resurrects) ... ok
+test_late_check_does_not_inherit_transfer_five_minute_expiry (test_merchant_scheduling.MerchantSchedulingTests.test_late_check_does_not_inherit_transfer_five_minute_expiry) ... ok
+test_multiple_fixed_orders_share_reservation (test_merchant_scheduling.MerchantSchedulingTests.test_multiple_fixed_orders_share_reservation) ... ok
+test_not_due_then_new_authorization_and_partial_release (test_merchant_scheduling.MerchantSchedulingTests.test_not_due_then_new_authorization_and_partial_release) ... ok
+test_persisted_unknown_cannot_cancel_and_retains_occupied_amount (test_merchant_scheduling.MerchantSchedulingTests.test_persisted_unknown_cannot_cancel_and_retains_occupied_amount) ... ok
+test_registration_confirmation_replay_conflict_ownership (test_merchant_scheduling.MerchantSchedulingTests.test_registration_confirmation_replay_conflict_ownership) ... ok
+test_registration_time_delivery_and_long_advance (test_merchant_scheduling.MerchantSchedulingTests.test_registration_time_delivery_and_long_advance) ... ok
+test_transfer_runner_never_dispatches_merchant (test_merchant_scheduling.MerchantSchedulingTests.test_transfer_runner_never_dispatches_merchant) ... ok
+test_unknown_reply_blocks_cancel_release_recovers_same_key (test_merchant_scheduling.MerchantSchedulingTests.test_unknown_reply_blocks_cancel_release_recovers_same_key) ... ok
+test_ambiguous_payee_needs_trusted_choice (test_model_bank.ModelBankTests.test_ambiguous_payee_needs_trusted_choice) ... ok
+test_budget_to_order_uses_real_preceding_receipt_and_separate_gates (test_model_bank.ModelBankTests.test_budget_to_order_uses_real_preceding_receipt_and_separate_gates) ... ok
+test_dag_waits_for_preceding_bank_outcome_and_rejection_stops (test_model_bank.ModelBankTests.test_dag_waits_for_preceding_bank_outcome_and_rejection_stops) ... ok
+test_green_read_is_automatic_and_rerun_does_not_repeat (test_model_bank.ModelBankTests.test_green_read_is_automatic_and_rerun_does_not_repeat) ... ok
+test_lost_receipt_blocks_plan_until_original_operation_is_recovered (test_model_bank.ModelBankTests.test_lost_receipt_blocks_plan_until_original_operation_is_recovered) ... ok
+test_malformed_amount_or_questionnaire_is_not_invented (test_model_bank.ModelBankTests.test_malformed_amount_or_questionnaire_is_not_invented) ... ok
+test_model_completion_flags_and_bad_graphs_are_not_trusted (test_model_bank.ModelBankTests.test_model_completion_flags_and_bad_graphs_are_not_trusted) ... ok
+test_principal_or_proof_injection_and_foreign_account_are_rejected (test_model_bank.ModelBankTests.test_principal_or_proof_injection_and_foreign_account_are_rejected) ... ok
+test_red_transfer_cannot_be_approved_by_normal_confirmation (test_model_bank.ModelBankTests.test_red_transfer_cannot_be_approved_by_normal_confirmation) ... ok
+test_unrelated_or_model_forged_reservation_reference_is_not_used (test_model_bank.ModelBankTests.test_unrelated_or_model_forged_reservation_reference_is_not_used) ... ok
+test_yellow_write_keeps_confirmation_and_commits_once (test_model_bank.ModelBankTests.test_yellow_write_keeps_confirmation_and_commits_once) ... ok
+test_assessment_never_invents_answers (test_model_dialogue.DialogueTests.test_assessment_never_invents_answers) ... ok
+test_bad_graph_unknown_fields_and_fake_success_fail_closed (test_model_dialogue.DialogueTests.test_bad_graph_unknown_fields_and_fake_success_fail_closed) ... ok
+test_dag_sorted_and_model_completion_not_trusted (test_model_dialogue.DialogueTests.test_dag_sorted_and_model_completion_not_trusted) ... ok
+test_history_is_bounded_and_error_does_not_reuse_old_proposal (test_model_dialogue.DialogueTests.test_history_is_bounded_and_error_does_not_reuse_old_proposal) ... ok
+test_missing_followup_modification_and_context (test_model_dialogue.DialogueTests.test_missing_followup_modification_and_context) ... ok
+test_otp_or_secret_is_not_sent_to_model_or_saved_in_history (test_model_dialogue.DialogueTests.test_otp_or_secret_is_not_sent_to_model_or_saved_in_history) ... ok
+test_pause_resume_back_and_handoff_make_no_model_calls (test_model_dialogue.DialogueTests.test_pause_resume_back_and_handoff_make_no_model_calls) ... ok
+test_semantic_operation_alias_and_explicit_green_comparison (test_model_dialogue.DialogueTests.test_semantic_operation_alias_and_explicit_green_comparison) ... ok
+test_six_scenes_are_proposals_or_missing_information (test_model_dialogue.DialogueTests.test_six_scenes_are_proposals_or_missing_information) ... ok
+test_fresh_page_recovers_original_transfer_details_without_new_model_call (test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call) ... 2026-10-23 20:57:53.112 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:53.342 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_green_query_runs_without_extra_confirmation (test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation) ... 2026-10-23 20:57:53.518 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat (test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat) ... 2026-10-23 20:57:53.742 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pause_and_handoff_do_not_call_model_or_write_bank (test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank) ... 2026-10-23 20:57:54.085 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cloud_alias_and_doubao_endpoint_id_preserve_actual_model_metadata (test_model_providers.ProviderAcceptance.test_cloud_alias_and_doubao_endpoint_id_preserve_actual_model_metadata) ... ok
+test_environment_and_saved_keys_are_scoped_to_the_selected_provider (test_model_providers.ProviderAcceptance.test_environment_and_saved_keys_are_scoped_to_the_selected_provider) ... ok
+test_every_preset_builds_the_correct_request_without_extra_provider_fields (test_model_providers.ProviderAcceptance.test_every_preset_builds_the_correct_request_without_extra_provider_fields) ... ok
+test_explicit_server_configuration_and_mismatch (test_model_providers.ProviderAcceptance.test_explicit_server_configuration_and_mismatch) ... ok
+test_invalid_json_and_truncation_never_become_a_plan_for_any_provider (test_model_providers.ProviderAcceptance.test_invalid_json_and_truncation_never_become_a_plan_for_any_provider) ... ok
+test_new_official_hosts_still_reject_spoofs_wrong_paths_and_redirects (test_model_providers.ProviderAcceptance.test_new_official_hosts_still_reject_spoofs_wrong_paths_and_redirects) ... ok
+test_old_encrypted_profile_migrates_without_rewriting_and_switch_requires_new_key (test_model_providers.ProviderAcceptance.test_old_encrypted_profile_migrates_without_rewriting_and_switch_requires_new_key) ... ok
+test_provider_mismatch_or_desktop_source_never_sends (test_model_providers.ProviderAcceptance.test_provider_mismatch_or_desktop_source_never_sends) ... ok
+test_unsupported_preserved_thinking_models_stop_before_request (test_model_providers.ProviderAcceptance.test_unsupported_preserved_thinking_models_stop_before_request) ... ok
+test_audit_failure_after_model_does_not_publish_a_proposal (test_model_security.ModelSecurityTests.test_audit_failure_after_model_does_not_publish_a_proposal) ... ok
+test_credential_input_is_not_sent_and_audit_contains_only_closed_metadata (test_model_security.ModelSecurityTests.test_credential_input_is_not_sent_and_audit_contains_only_closed_metadata) ... ok
+test_decision_and_bank_operation_share_server_trace_without_prompt_or_proof (test_model_security.ModelSecurityTests.test_decision_and_bank_operation_share_server_trace_without_prompt_or_proof) ... ok
+test_five_bad_plans_lock_and_controls_cannot_revive_old_draft (test_model_security.ModelSecurityTests.test_five_bad_plans_lock_and_controls_cannot_revive_old_draft) ... ok
+test_generated_script_sql_and_arbitrary_tools_have_no_execution_capability (test_model_security.ModelSecurityTests.test_generated_script_sql_and_arbitrary_tools_have_no_execution_capability) ... ok
+test_green_query_is_audited_and_bounded_task_count_is_not_bypassed (test_model_security.ModelSecurityTests.test_green_query_is_audited_and_bounded_task_count_is_not_bypassed) ... ok
+test_merchant_and_subscription_prompt_injection_remain_data (test_model_security.ModelSecurityTests.test_merchant_and_subscription_prompt_injection_remain_data) ... ok
+test_resource_limits_reject_deep_wide_duplicate_and_oversize_output (test_model_security.ModelSecurityTests.test_resource_limits_reject_deep_wide_duplicate_and_oversize_output) ... ok
+test_step_audit_failure_blocks_dependents_without_reexecuting_committed_transfer (test_model_security.ModelSecurityTests.test_step_audit_failure_blocks_dependents_without_reexecuting_committed_transfer) ... ok
+test_unavailable_audit_stops_before_model_call_and_exposes_no_raw_error (test_model_security.ModelSecurityTests.test_unavailable_audit_stops_before_model_call_and_exposes_no_raw_error) ... ok
+test_valid_plan_resets_consecutive_failure_counter (test_model_security.ModelSecurityTests.test_valid_plan_resets_consecutive_failure_counter) ... ok
+test_provider_switch_model_id_and_matching_config_on_real_page (test_model_settings_acceptance.ModelSettingsAcceptance.test_provider_switch_model_id_and_matching_config_on_real_page) ... 2026-10-23 20:57:55.441 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_save_modify_and_clear_key_in_real_page (test_model_settings_acceptance.ModelSettingsAcceptance.test_save_modify_and_clear_key_in_real_page) ... 2026-10-23 20:57:55.635 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bad_key_does_not_replace_saved_profile (test_model_transport.ModelTransportTests.test_bad_key_does_not_replace_saved_profile) ... ok
+test_config_does_not_extract_desktop_key (test_model_transport.ModelTransportTests.test_config_does_not_extract_desktop_key) ... ok
+test_invalid_messages_do_not_send (test_model_transport.ModelTransportTests.test_invalid_messages_do_not_send) ... ok
+test_invalid_output_never_retries_or_returns_partial_result (test_model_transport.ModelTransportTests.test_invalid_output_never_retries_or_returns_partial_result) ... ok
+test_local_endpoint_never_inherits_official_provider_key (test_model_transport.ModelTransportTests.test_local_endpoint_never_inherits_official_provider_key) ... ok
+test_native_store_encrypts_switches_updates_and_clears (test_model_transport.ModelTransportTests.test_native_store_encrypts_switches_updates_and_clears) ... ok
+test_real_protocol_shape_and_no_secret_in_metadata_or_repr (test_model_transport.ModelTransportTests.test_real_protocol_shape_and_no_secret_in_metadata_or_repr) ... ok
+test_rejects_remote_redirect_targets_and_userinfo (test_model_transport.ModelTransportTests.test_rejects_remote_redirect_targets_and_userinfo) ... ok
+test_transport_errors_are_sanitized_and_no_automatic_retry (test_model_transport.ModelTransportTests.test_transport_errors_are_sanitized_and_no_automatic_retry) ... ok
+test_guide_preserves_unknown_result_and_the_original_recovery_gate (test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate) ... 2026-10-23 20:57:55.792 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guide_skip_close_and_reopen_preserve_pending_transfer (test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer) ... 2026-10-23 20:57:56.712 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guided_destination_navigates_without_executing_business (test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business) ... 2026-10-23 20:57:57.410 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:57.978 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:57:58.587 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_sidebar_view_shortcuts_and_ai_entry_only_navigate (test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate) ... 2026-10-23 20:57:59.121 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_transfer_exercise_edits_and_replays_without_any_bank_write (test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write) ... 2026-10-23 20:57:59.605 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_all_topics_complete_backtrack_replay_and_close (test_onboarding.GuideStateTests.test_all_topics_complete_backtrack_replay_and_close) ... ok
+test_crash_after_commit_before_checkpoint_queries_original (test_plan_persistence.PersistenceTests.test_crash_after_commit_before_checkpoint_queries_original) ... ok
+test_crash_before_dispatch_replays_only_saved_key (test_plan_persistence.PersistenceTests.test_crash_before_dispatch_replays_only_saved_key) ... ok
+test_journal_failure_stops_before_bank_call (test_plan_persistence.PersistenceTests.test_journal_failure_stops_before_bank_call) ... ok
+test_last_holdings_query_is_persisted_as_completed (test_plan_persistence.PersistenceTests.test_last_holdings_query_is_persisted_as_completed) ... ok
+test_other_user_and_stale_revision_are_rejected (test_plan_persistence.PersistenceTests.test_other_user_and_stale_revision_are_rejected) ... ok
+test_restart_after_payment_keeps_completed_step (test_plan_persistence.PersistenceTests.test_restart_after_payment_keeps_completed_step) ... ok
+test_scheduled_registration_does_not_complete_payment_dependency (test_plan_persistence.PersistenceTests.test_scheduled_registration_does_not_complete_payment_dependency) ... ok
+test_v13_migration_keeps_money_and_ledger (test_plan_persistence.PersistenceTests.test_v13_migration_keeps_money_and_ledger) ... ok
+test_concurrent_totp_is_consumed_once (test_real_auth.AuthTests.test_concurrent_totp_is_consumed_once) ... ok
+test_expired_totp_challenge_is_terminal_without_payment (test_real_auth.AuthTests.test_expired_totp_challenge_is_terminal_without_payment) ... ok
+test_password_and_bound_session_and_logout (test_real_auth.AuthTests.test_password_and_bound_session_and_logout) ... ok
+test_proof_is_bound_to_issuing_login_session (test_real_auth.AuthTests.test_proof_is_bound_to_issuing_login_session) ... ok
+test_recovery_revokes_sessions_and_is_single_use (test_real_auth.AuthTests.test_recovery_revokes_sessions_and_is_single_use) ... ok
+test_rfc_6238_vector (test_real_auth.AuthTests.test_rfc_6238_vector) ... ok
+test_totp_lock_cannot_be_reset_by_password_login (test_real_auth.AuthTests.test_totp_lock_cannot_be_reset_by_password_login) ... ok
+test_true_red_gate_and_single_use_code (test_real_auth.AuthTests.test_true_red_gate_and_single_use_code) ... ok
+test_unbound_or_foreign_session_cannot_use_gateway (test_real_auth.AuthTests.test_unbound_or_foreign_session_cannot_use_gateway) ... ok
+test_windows_dpapi_round_trip (test_real_auth.AuthTests.test_windows_dpapi_round_trip) ... ok
+test_wrong_expired_unicode_and_replay_codes (test_real_auth.AuthTests.test_wrong_expired_unicode_and_replay_codes) ... ok
+test_backend_unknown_stays_blocked_after_query (test_recovery.RecoveryTests.test_backend_unknown_stays_blocked_after_query) ... ok
+test_cannot_switch_away_from_unresolved_current_operation (test_recovery.RecoveryTests.test_cannot_switch_away_from_unresolved_current_operation) ... ok
+test_expired_proof_issuance_is_recovered_as_failed (test_recovery.RecoveryTests.test_expired_proof_issuance_is_recovered_as_failed) ... ok
+test_invalid_proof_is_not_misreported_as_terminal_failure (test_recovery.RecoveryTests.test_invalid_proof_is_not_misreported_as_terminal_failure) ... ok
+test_lost_authorize_reply_recovers_success_and_no_second_debit (test_recovery.RecoveryTests.test_lost_authorize_reply_recovers_success_and_no_second_debit) ... ok
+test_lost_execute_reply_recovers_pending_without_illegal_unknown_transition (test_recovery.RecoveryTests.test_lost_execute_reply_recovers_pending_without_illegal_unknown_transition) ... ok
+test_new_request_id_retry_recovers_original_before_authorization (test_recovery.RecoveryTests.test_new_request_id_retry_recovers_original_before_authorization) ... ok
+test_not_found_keeps_unknown_and_original_key (test_recovery.RecoveryTests.test_not_found_keeps_unknown_and_original_key) ... ok
+test_query_outage_never_clears_original_request (test_recovery.RecoveryTests.test_query_outage_never_clears_original_request) ... ok
+test_recovery_index_is_scoped_and_keeps_old_pending (test_recovery.RecoveryTests.test_recovery_index_is_scoped_and_keeps_old_pending) ... ok
+test_recovery_rejects_mismatched_content_under_same_key (test_recovery.RecoveryTests.test_recovery_rejects_mismatched_content_under_same_key) ... ok
+test_restart_lists_pending_and_blocks_new_transfer_until_recovered (test_recovery.RecoveryTests.test_restart_lists_pending_and_blocks_new_transfer_until_recovered) ... ok
+test_restart_restores_completed_operation_from_original_request (test_recovery.RecoveryTests.test_restart_restores_completed_operation_from_original_request) ... ok
+test_real_material_page_without_bank (test_release_materials.ReleaseMaterialsTests.test_real_material_page_without_bank) ... 2026-10-23 20:58:18.239 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_seed_limits_and_legacy_pending_recovery (test_release_materials.ReleaseMaterialsTests.test_seed_limits_and_legacy_pending_recovery) ... ok
+test_six_account_months_and_hand_calculations (test_release_materials.ReleaseMaterialsTests.test_six_account_months_and_hand_calculations) ... ok
+test_redemption_balance_limit_checked_before_challenge (test_review_funds.RedemptionReviewTests.test_redemption_balance_limit_checked_before_challenge) ... ok
+test_same_key_is_independent_between_purchase_and_redeem (test_review_funds.RedemptionReviewTests.test_same_key_is_independent_between_purchase_and_redeem) ... ok
+test_v12_order_migration_preserves_order_and_money (test_review_funds.RedemptionReviewTests.test_v12_order_migration_preserves_order_and_money) ... ok
+test_zero_cent_redemption_rejected_before_challenge (test_review_funds.RedemptionReviewTests.test_zero_cent_redemption_rejected_before_challenge) ... ok
+test_account_rebinding_during_challenge_invalidates_old_authorization (test_review_funds.RenewalReviewTests.test_account_rebinding_during_challenge_invalidates_old_authorization) ... ok
+test_cancel_before_authorization_stops_charge (test_review_funds.RenewalReviewTests.test_cancel_before_authorization_stops_charge) ... ok
+test_card_change_during_challenge_cannot_silently_switch_card (test_review_funds.RenewalReviewTests.test_card_change_during_challenge_cannot_silently_switch_card) ... ok
+test_charge_audit_failure_rolls_back_every_business_write (test_review_funds.RenewalReviewTests.test_charge_audit_failure_rolls_back_every_business_write) ... ok
+test_frozen_lost_or_low_limit_card_blocks_charge_before_verification (test_review_funds.RenewalReviewTests.test_frozen_lost_or_low_limit_card_blocks_charge_before_verification) ... ok
+test_monthly_anchor_survives_short_month (test_review_funds.RenewalReviewTests.test_monthly_anchor_survives_short_month) ... ok
+test_same_period_concurrency_commits_exactly_once (test_review_funds.RenewalReviewTests.test_same_period_concurrency_commits_exactly_once) ... ok
+test_yearly_anchor_returns_to_leap_day (test_review_funds.RenewalReviewTests.test_yearly_anchor_returns_to_leap_day) ... ok
+test_bad_wealth_units_and_multi_actions_never_ready (test_review_page_acceptance.ReviewPageTests.test_bad_wealth_units_and_multi_actions_never_ready) ... ok
+test_charge_recovery_displays_original_bound_amount_and_card (test_review_page_acceptance.ReviewPageTests.test_charge_recovery_displays_original_bound_amount_and_card) ... 2026-10-23 20:58:19.984 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:20.125 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_four_wealth_intents_open_real_page_without_writes (test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes) ... 2026-10-23 20:58:20.312 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:20.587 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:20.861 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:21.124 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_session_can_recover_and_verify_wealth_purchase (test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase) ... 2026-10-23 20:58:21.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:21.539 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_holdings_selection_updates_default_units (test_review_page_acceptance.ReviewPageTests.test_holdings_selection_updates_default_units) ... 2026-10-23 20:58:21.743 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_questionnaire_has_real_option_text (test_review_page_acceptance.ReviewPageTests.test_questionnaire_has_real_option_text) ... 2026-10-23 20:58:21.918 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bare_negations_cancel_and_multi_intent_clarifies (test_review_routing_ui.RoutingReviewTests.test_bare_negations_cancel_and_multi_intent_clarifies) ... ok
+test_conjoined_or_ranged_amounts_never_ready (test_review_routing_ui.RoutingReviewTests.test_conjoined_or_ranged_amounts_never_ready) ... ok
+test_followup_conflicting_amount_does_not_leak_or_mutate (test_review_routing_ui.RoutingReviewTests.test_followup_conflicting_amount_does_not_leak_or_mutate) ... ok
+test_valid_decimal_amount_remains_supported (test_review_routing_ui.RoutingReviewTests.test_valid_decimal_amount_remains_supported) ... ok
+test_exact_conversion_rejects_extra_precision (test_review_routing_ui.WealthPageSafetyTests.test_exact_conversion_rejects_extra_precision) ... ok
+test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring (test_review_routing_ui.WealthPageSafetyTests.test_page_keeps_blocked_gateway_buttons_and_safe_input_wiring) ... ok
+test_all_wealth_intents_are_labeled_and_handoff_enabled (test_review_routing_ui.WealthRoutingDisplayTests.test_all_wealth_intents_are_labeled_and_handoff_enabled) ... ok
+test_wealth_fields_have_readable_labels_and_no_invented_values (test_review_routing_ui.WealthRoutingDisplayTests.test_wealth_fields_have_readable_labels_and_no_invented_values) ... ok
+test_clear_and_new_intent_do_not_keep_fields (test_routing_acceptance.RoutingAcceptanceTests.test_clear_and_new_intent_do_not_keep_fields) ... ok
+test_conflicting_values_cannot_reappear_after_followup (test_routing_acceptance.RoutingAcceptanceTests.test_conflicting_values_cannot_reappear_after_followup) ... ok
+test_explicit_fields_and_no_default_account (test_routing_acceptance.RoutingAcceptanceTests.test_explicit_fields_and_no_default_account) ... ok
+test_fixed_matrix (test_routing_acceptance.RoutingAcceptanceTests.test_fixed_matrix) ... ok
+test_followup_and_input_immutability (test_routing_acceptance.RoutingAcceptanceTests.test_followup_and_input_immutability) ... ok
+test_invalid_or_ambiguous_values_never_ready (test_routing_acceptance.RoutingAcceptanceTests.test_invalid_or_ambiguous_values_never_ready) ... ok
+test_module_has_no_business_or_io_dependencies (test_routing_acceptance.RoutingAcceptanceTests.test_module_has_no_business_or_io_dependencies) ... ok
+test_followup_clear_and_rerun_have_no_bank_effect (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_followup_clear_and_rerun_have_no_bank_effect) ... 2026-10-23 20:58:22.050 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_navigation_to_subscription_keeps_business_unexecuted (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_navigation_to_subscription_keeps_business_unexecuted) ... 2026-10-23 20:58:22.424 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_negative_multi_intent_unsupported_do_not_navigate (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_negative_multi_intent_unsupported_do_not_navigate) ... 2026-10-23 20:58:22.762 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_other_destinations_are_real_pages_and_read_only (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_destinations_are_real_pages_and_read_only) ... 2026-10-23 20:58:23.030 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_other_page_unknown_blocks_route (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_page_unknown_blocks_route) ... 2026-10-23 20:58:24.270 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:24.435 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_and_unknown_block_router_without_clearing_business (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_pending_and_unknown_block_router_without_clearing_business) ... 2026-10-23 20:58:24.487 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_transfer_route_does_not_create_request (test_routing_page_acceptance.RoutingPageAcceptanceTests.test_transfer_route_does_not_create_request) ... 2026-10-23 20:58:24.788 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cancel_and_owner_and_no_direct_early_execution (test_scheduling.SchedulingTests.test_cancel_and_owner_and_no_direct_early_execution) ... ok
+test_claim_crash_restart_and_lost_dispatch_reply (test_scheduling.SchedulingTests.test_claim_crash_restart_and_lost_dispatch_reply) ... ok
+test_concurrent_dispatch_cancel_and_confirmation (test_scheduling.SchedulingTests.test_concurrent_dispatch_cancel_and_confirmation) ... ok
+test_confirmation_rechecks_time_and_payee (test_scheduling.SchedulingTests.test_confirmation_rechecks_time_and_payee) ... ok
+test_due_confirmation_can_escalate_and_expires_after_ten_minutes (test_scheduling.SchedulingTests.test_due_confirmation_can_escalate_and_expires_after_ten_minutes) ... ok
+test_due_insufficient_funds_and_changed_mapping_never_pay (test_scheduling.SchedulingTests.test_due_insufficient_funds_and_changed_mapping_never_pay) ... ok
+test_due_owner_changed_is_failed_without_execution (test_scheduling.SchedulingTests.test_due_owner_changed_is_failed_without_execution) ... ok
+test_due_uses_current_day_cumulative_and_balance (test_scheduling.SchedulingTests.test_due_uses_current_day_cumulative_and_balance) ... ok
+test_early_due_authorization_no_inherited_approval (test_scheduling.SchedulingTests.test_early_due_authorization_no_inherited_approval) ... ok
+test_failed_registration_audit_rolls_back_task (test_scheduling.SchedulingTests.test_failed_registration_audit_rolls_back_task) ... ok
+test_late_failure_cannot_hide_concurrently_created_execution (test_scheduling.SchedulingTests.test_late_failure_cannot_hide_concurrently_created_execution) ... ok
+test_lateness_exact_five_minutes_and_expired (test_scheduling.SchedulingTests.test_lateness_exact_five_minutes_and_expired) ... ok
+test_lost_before_submission_reuses_key_and_cannot_cancel_in_flight (test_scheduling.SchedulingTests.test_lost_before_submission_reuses_key_and_cannot_cancel_in_flight) ... ok
+test_page_registration_dispatch_payment_refresh (test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh) ... 2026-10-23 20:58:26.313 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:26.721 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_registration_bounds_and_no_money_replay (test_scheduling.SchedulingTests.test_registration_bounds_and_no_money_replay) ... ok
+test_registration_dynamic_gate_and_next_shanghai_day (test_scheduling.SchedulingTests.test_registration_dynamic_gate_and_next_shanghai_day) ... ok
+test_registration_reject_expire_ownership_and_conflict (test_scheduling.SchedulingTests.test_registration_reject_expire_ownership_and_conflict) ... ok
+test_task_service_validates_transaction_and_original_content (test_scheduling.SchedulingTests.test_task_service_validates_transaction_and_original_content) ... ok
+test_unknown_query_failure_never_blindly_resends (test_scheduling.SchedulingTests.test_unknown_query_failure_never_blindly_resends) ... ok
+test_v7_migration_preserves_pending_registration (test_scheduling.SchedulingTests.test_v7_migration_preserves_pending_registration) ... ok
+test_business_source_cannot_change_or_hop_through_gateway (test_services.ServiceContractTests.test_business_source_cannot_change_or_hop_through_gateway) ... ok
+test_funds_receipt_cannot_swap_amount_account_or_operation (test_services.ServiceContractTests.test_funds_receipt_cannot_swap_amount_account_or_operation) ... ok
+test_funds_reservation_and_precision_boundaries (test_services.ServiceContractTests.test_funds_reservation_and_precision_boundaries) ... ok
+test_internal_calls_are_not_model_actions (test_services.ServiceContractTests.test_internal_calls_are_not_model_actions) ... ok
+test_internal_fixture_matches_generator (test_services.ServiceContractTests.test_internal_fixture_matches_generator) ... ok
+test_lost_card_requires_release_then_unfreeze (test_services.ServiceContractTests.test_lost_card_requires_release_then_unfreeze) ... ok
+test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires (test_services.ServiceContractTests.test_resource_snapshot_accepts_empty_lists_but_not_invalid_questionnaires) ... ok
+test_resource_snapshot_rejects_dangling_or_duplicate_ids (test_services.ServiceContractTests.test_resource_snapshot_rejects_dangling_or_duplicate_ids) ... ok
+test_service_errors_have_known_codes (test_services.ServiceContractTests.test_service_errors_have_known_codes) ... ok
+test_shared_version_rejects_old_requests_and_authorization (test_services.ServiceContractTests.test_shared_version_rejects_old_requests_and_authorization) ... ok
+test_subscription_evidence_is_required_and_cannot_be_empty (test_services.ServiceContractTests.test_subscription_evidence_is_required_and_cannot_be_empty) ... ok
+test_subscription_review_is_not_payment_authorization_or_cancellation (test_services.ServiceContractTests.test_subscription_review_is_not_payment_authorization_or_cancellation) ... ok
+test_task_claim_cancel_and_unknown_are_distinct (test_services.ServiceContractTests.test_task_claim_cancel_and_unknown_are_distinct) ... ok
+test_tasks_cannot_run_unapproved_action_or_reuse_registration_key (test_services.ServiceContractTests.test_tasks_cannot_run_unapproved_action_or_reuse_registration_key) ... ok
+test_six_scenarios (test_six_scenarios.SixScenarioTests.test_six_scenarios) ... ok
+test_create_once_concurrently_and_restart (test_split.SplitTests.test_create_once_concurrently_and_restart) ... ok
+test_exact_order_remainders_large_amounts_and_validation (test_split.SplitTests.test_exact_order_remainders_large_amounts_and_validation) ... ok
+test_failed_receipt_rolls_back_collection (test_split.SplitTests.test_failed_receipt_rolls_back_collection) ... ok
+test_lost_reply_blocks_new_request_until_recovered (test_split.SplitTests.test_lost_reply_blocks_new_request_until_recovered) ... ok
+test_ownership_mapping_change_reject_and_expiry (test_split.SplitTests.test_ownership_mapping_change_reject_and_expiry) ... ok
+test_page_confirmation_and_fresh_session_recovery (test_split.SplitTests.test_page_confirmation_and_fresh_session_recovery) ... 2026-10-23 20:58:28.530 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:28.701 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unreconciled_other_page_blocks_new_writes (test_split.SplitTests.test_unreconciled_other_page_blocks_new_writes) ... 2026-10-23 20:58:28.909 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:28.909 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:29.011 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:29.011 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_charge_requires_verification_and_advances (test_subscription_charge.SubscriptionChargeTests.test_charge_requires_verification_and_advances) ... ok
+test_not_due_and_unknown_subscription (test_subscription_charge.SubscriptionChargeTests.test_not_due_and_unknown_subscription) ... ok
+test_account_scope_and_ownership (test_subscription_scan.SubscriptionScanTests.test_account_scope_and_ownership) ... ok
+test_amount_tolerance_boundary (test_subscription_scan.SubscriptionScanTests.test_amount_tolerance_boundary) ... ok
+test_bad_account_and_reject_leave_no_candidate (test_subscription_scan.SubscriptionScanTests.test_bad_account_and_reject_leave_no_candidate) ... ok
+test_credit_and_refund_rows_are_ignored (test_subscription_scan.SubscriptionScanTests.test_credit_and_refund_rows_are_ignored) ... ok
+test_existing_subscription_and_rescan_do_not_duplicate (test_subscription_scan.SubscriptionScanTests.test_existing_subscription_and_rescan_do_not_duplicate) ... ok
+test_month_end_anchor_keeps_day (test_subscription_scan.SubscriptionScanTests.test_month_end_anchor_keeps_day) ... ok
+test_monthly_recognition_creates_candidate (test_subscription_scan.SubscriptionScanTests.test_monthly_recognition_creates_candidate) ... ok
+test_period_deviation_three_days_passes_four_days_fails (test_subscription_scan.SubscriptionScanTests.test_period_deviation_three_days_passes_four_days_fails) ... ok
+test_same_key_replays_without_second_scan (test_subscription_scan.SubscriptionScanTests.test_same_key_replays_without_second_scan) ... ok
+test_scan_does_not_touch_balance (test_subscription_scan.SubscriptionScanTests.test_scan_does_not_touch_balance) ... ok
+test_single_period_is_not_recognized (test_subscription_scan.SubscriptionScanTests.test_single_period_is_not_recognized) ... ok
+test_yearly_and_leap_day (test_subscription_scan.SubscriptionScanTests.test_yearly_and_leap_day) ... ok
+test_accept_replay_conflict_and_illegal_state (test_subscriptions.SubscriptionTests.test_accept_replay_conflict_and_illegal_state) ... ok
+test_audit_failure_rollback_and_lost_reply_recovery (test_subscriptions.SubscriptionTests.test_audit_failure_rollback_and_lost_reply_recovery) ... ok
+test_changed_record_reject_and_ownership (test_subscriptions.SubscriptionTests.test_changed_record_reject_and_ownership) ... ok
+test_concurrent_review_only_one_change (test_subscriptions.SubscriptionTests.test_concurrent_review_only_one_change) ... ok
+test_dismiss_is_not_cancel_and_no_money (test_subscriptions.SubscriptionTests.test_dismiss_is_not_cancel_and_no_money) ... ok
+test_page_confirm_refresh_review_and_recover (test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover) ... 2026-10-23 20:58:30.790 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:31.010 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_read_reject_expiry_ownership_and_content_conflict (test_subscriptions.SubscriptionTests.test_read_reject_expiry_ownership_and_content_conflict) ... ok
+test_read_replay_does_not_expose_changed_owner (test_subscriptions.SubscriptionTests.test_read_replay_does_not_expose_changed_owner) ... ok
+test_read_requires_confirmation_without_write_key_and_recovers (test_subscriptions.SubscriptionTests.test_read_requires_confirmation_without_write_key_and_recovers) ... ok
+test_v6_migration_preserves_card_pending (test_subscriptions.SubscriptionTests.test_v6_migration_preserves_card_pending) ... ok
+test_constants_are_exact_local_and_accessible (test_ui_components.UiComponentTests.test_constants_are_exact_local_and_accessible) ... ok
+test_details_show_passed_values_and_missing_fields (test_ui_components.UiComponentTests.test_details_show_passed_values_and_missing_fields) ... ok
+test_docs_cover_design_tokens_wiring_and_boundaries (test_ui_components.UiComponentTests.test_docs_cover_design_tokens_wiring_and_boundaries) ... ok
+test_empty_state_returns_click_and_business_section_preserves_controls (test_ui_components.UiComponentTests.test_empty_state_returns_click_and_business_section_preserves_controls) ... ok
+test_import_boundary_and_no_forbidden_native_apis (test_ui_components.UiComponentTests.test_import_boundary_and_no_forbidden_native_apis) ... ok
+test_navigation_has_stable_keys_and_only_clicks_switch_pages (test_ui_components.UiComponentTests.test_navigation_has_stable_keys_and_only_clicks_switch_pages) ... ok
+test_navigation_ignores_unknown_keys_and_empty_requests (test_ui_components.UiComponentTests.test_navigation_ignores_unknown_keys_and_empty_requests) ... ok
+test_none_and_empty_inputs_are_safe (test_ui_components.UiComponentTests.test_none_and_empty_inputs_are_safe) ... ok
+test_overview_empty_and_none_values_are_neutral (test_ui_components.UiComponentTests.test_overview_empty_and_none_values_are_neutral) ... ok
+test_page_header_keeps_untrusted_text_out_of_html (test_ui_components.UiComponentTests.test_page_header_keeps_untrusted_text_out_of_html) ... ok
+test_scope_note_reports_true_boundary (test_ui_components.UiComponentTests.test_scope_note_reports_true_boundary) ... ok
+test_unknown_status_and_progress_never_claim_success (test_ui_components.UiComponentTests.test_unknown_status_and_progress_never_claim_success) ... ok
+test_every_page_loads_independently_without_business_writes (test_ui_demo_acceptance.UiDemoAcceptanceTests.test_every_page_loads_independently_without_business_writes) ... 2026-10-23 20:58:31.690 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:31.843 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:31.934 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.021 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.148 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.245 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.339 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.434 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.535 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.627 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-23 20:58:32.730 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_primary_navigation_round_trip_keeps_the_ledger (test_ui_demo_acceptance.UiDemoAcceptanceTests.test_primary_navigation_round_trip_keeps_the_ledger) ... 2026-10-23 20:58:32.833 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_transfer_status_requires_confirmation_and_rerun_never_repeats_payment (test_ui_demo_acceptance.UiDemoAcceptanceTests.test_transfer_status_requires_confirmation_and_rerun_never_repeats_payment) ... 2026-10-23 20:58:33.124 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_wealth_ui_preserves_the_strong_verification_gate (test_ui_demo_acceptance.UiDemoAcceptanceTests.test_wealth_ui_preserves_the_strong_verification_gate) ... 2026-10-23 20:58:33.487 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_invalid_ids_and_identity (test_wealth.WealthTests.test_invalid_ids_and_identity) ... ok
+test_page_table_and_selection_change (test_wealth.WealthTests.test_page_table_and_selection_change) ... 2026-10-23 20:58:33.792 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_selection_order_copy_and_no_write (test_wealth.WealthTests.test_selection_order_copy_and_no_write) ... ok
+test_boundaries_map_to_levels (test_wealth_assess.WealthAssessTests.test_boundaries_map_to_levels) ... ok
+test_green_write_executes_without_challenge (test_wealth_assess.WealthAssessTests.test_green_write_executes_without_challenge) ... ok
+test_missing_unknown_and_version_rejected (test_wealth_assess.WealthAssessTests.test_missing_unknown_and_version_rejected) ... ok
+test_same_key_replays_profile (test_wealth_assess.WealthAssessTests.test_same_key_replays_profile) ... ok
+test_confirmation_reject_leaves_no_side_effect (test_wealth_purchase.WealthPurchaseTests.test_confirmation_reject_leaves_no_side_effect) ... ok
+test_d_case_one_purchase (test_wealth_purchase.WealthPurchaseTests.test_d_case_one_purchase) ... ok
+test_fee_rounds_half_up_to_cent (test_wealth_purchase.WealthPurchaseTests.test_fee_rounds_half_up_to_cent) ... ok
+test_risk_minimum_and_balance_block_before_confirmation (test_wealth_purchase.WealthPurchaseTests.test_risk_minimum_and_balance_block_before_confirmation) ... ok
+test_same_key_replays_and_content_conflict (test_wealth_purchase.WealthPurchaseTests.test_same_key_replays_and_content_conflict) ... ok
+test_wrong_proof_keeps_money (test_wealth_purchase.WealthPurchaseTests.test_wrong_proof_keeps_money) ... ok
+test_lock_boundary_and_partial_redeem (test_wealth_redeem.WealthRedeemTests.test_lock_boundary_and_partial_redeem) ... ok
+test_redeem_fee_and_clear_position (test_wealth_redeem.WealthRedeemTests.test_redeem_fee_and_clear_position) ... ok
+test_same_key_replays (test_wealth_redeem.WealthRedeemTests.test_same_key_replays) ... ok
+test_units_above_holding_rejected_before_confirmation (test_wealth_redeem.WealthRedeemTests.test_units_above_holding_rejected_before_confirmation) ... ok
+test_background_time_gates_and_end_to_end_budget_orders_release (test_worker_birthday.WorkerBirthdayTests.test_background_time_gates_and_end_to_end_budget_orders_release) ... ok
+test_pause_survives_worker_restart (test_worker_birthday.WorkerBirthdayTests.test_pause_survives_worker_restart) ... ok
+test_two_workers_and_restart_keep_unique_pending_operation (test_worker_birthday.WorkerBirthdayTests.test_two_workers_and_restart_keep_unique_pending_operation) ... ok
+test_worker_cannot_mint_proof_or_approve_even_in_demo_mode (test_worker_birthday.WorkerBirthdayTests.test_worker_cannot_mint_proof_or_approve_even_in_demo_mode) ... ok
+
+----------------------------------------------------------------------
+Ran 592 tests in 84.828s
+
+OK

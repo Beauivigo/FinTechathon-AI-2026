@@ -1,0 +1,6 @@
+{
+  "audit_report_exists": true,
+  "missing_report_links": [],
+  "tested_source_changes_since_full_suite": [],
+  "scope": "Report and evidence final check; no business code changes in this audit."
+}

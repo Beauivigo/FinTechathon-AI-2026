@@ -20,7 +20,7 @@ def fingerprint(path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('round', choices=['R1','R2','R3','R4','N1-core','N1','N1-full','S1','S2','S3','full'])
+    parser.add_argument('round', choices=['R1','R2','R3','R4','N1-core','N1','N1-full','S1','S2','S3','F1','F2','F12','full'])
     parser.add_argument('modules', nargs='*')
     parser.add_argument('--date', type=date.fromisoformat, default=date(2026,10,17))
     args = parser.parse_args()

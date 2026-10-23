@@ -1,0 +1,128 @@
+{
+  "package": "C 第六轮最后交接：问题清单",
+  "member": "C",
+  "round": "第六轮（2026-10-21 最后材料；2026-10-22 提交）",
+  "version": "C6-1.0",
+  "date": "2026-10-21",
+  "submitted": "2026-10-22",
+  "code_version": "main@02fe746",
+  "c5_baseline": "main@a505d20",
+  "c5_package": "C5原包/",
+  "scope_note": "引用第五轮原包，只补问题清单；不新增业务规则、不改契约/代码、不重跑全量；不能复跑的写未执行，不填 PASS。",
+  "summary": {
+    "new_issues": 0,
+    "statement": "C5 组 3 与入口矩阵在 02fe746 复跑无新增问题；其余为已知待核实/未执行项，不是新缺陷。",
+    "c5_rerun": {"code_version": "main@02fe746", "group3": "12/12", "entry": "6/6", "result": "PASS"}
+  },
+  "cases": [
+    {
+      "id": "C6-P01",
+      "title": "C5 组 3 在 02fe746 复跑无回归",
+      "source": "C5《01_组3执行记录》",
+      "precondition": "C5原包完整；当前仓库 main@02fe746；临时 SQLite；固定时钟；不触碰 runtime/",
+      "input": "C5 check_c5.py 的 12 条组 3 用例（评估/风险/申购/锁定/部分/清仓/费用）",
+      "expected": "12/12 match；result=PASS；failure_count=0",
+      "actual": "12/12 match；result=PASS；failure_count=0（2026-10-22 以 C5原包复跑）",
+      "repro": "设置 C5_REPO_ROOT=<当前仓库>、C5_TMP=<可写目录>，复制 C5原包到临时目录，运行 py -X utf8 check_c5.py",
+      "version": "a505d20 → 02fe746",
+      "status": "无新增",
+      "evidence": "C5原包/01_组3执行记录.json、C5原包/selfcheck.json、本包 selfcheck.json 的 c5_rerun"
+    },
+    {
+      "id": "C6-P02",
+      "title": "C5 理财四类入口矩阵在 02fe746 复跑无回归",
+      "source": "C5《03_入口矩阵_理财四类》",
+      "precondition": "当前仓库 main@02fe746；route() 纯函数",
+      "input": "C5 的 6 条 route 输入（评估/申购/赎回/持仓 + 两条缺字段澄清）",
+      "expected": "6/6 status/intent/fields/missing 一致",
+      "actual": "6/6 一致（2026-10-22 复跑）",
+      "repro": "同 C6-P01 的 C5 check_c5.py；entry 计数应为 6 且全 match",
+      "version": "a505d20 → 02fe746",
+      "status": "无新增",
+      "evidence": "C5原包/selfcheck.json 的 entry、本包 selfcheck.json 的 c5_rerun"
+    },
+    {
+      "id": "C6-P03",
+      "title": "A-R07 赎回份额路由边界（负值/零/超精度/混合意图）",
+      "source": "A《2026-10-20项目复核与修正》A-R07；C 复核",
+      "precondition": "route() 纯函数；当前仓库 main@02fe746；不执行、不写库",
+      "input": [
+        "从账户 demo_account_a 赎回理财 -100份",
+        "从账户 demo_account_a 赎回理财 0份",
+        "从账户 demo_account_a 赎回理财 100.12345份",
+        "从账户 demo_account_a 赎回理财 100份 买理财 WP-C02 100元"
+      ],
+      "expected": "四项都不是 ready：负值/零/超精度不得成为有效份额；混合意图必须澄清",
+      "actual": "四项均为 clarify（前 3 项清空字段并追问，第 4 项“检测到多个意图”）；无 ready",
+      "repro": "py -X utf8 -c \"from agent.routing import route; print(route('<输入>'))\"",
+      "version": "02fe746（A-R07 修复后）",
+      "status": "已修复",
+      "evidence": "本包 selfcheck.json 的 c6_routes；A《2026-10-20项目复核与修正》A-R07"
+    },
+    {
+      "id": "C6-P04",
+      "title": "A-R08 理财输入十进制/精度与持仓切换",
+      "source": "A《2026-10-20项目复核与修正》A-R08",
+      "precondition": "理财页面输入、持仓切换；需要 Streamlit 页面",
+      "input": "float/隐式截断/超精度金额或份额；切换持仓后沿用旧份额",
+      "expected": "十进制文本、显式精度校验、切换持仓重置控件状态",
+      "actual": "A 记录已修复；C 本机未重跑 Streamlit 页面，无法独立复核",
+      "repro": "需 A 的页面测试入口；C 未执行",
+      "version": "02fe746",
+      "status": "待核实",
+      "evidence": "A《2026-10-20项目复核与修正》A-R08；C5 页面未重跑说明"
+    },
+    {
+      "id": "C6-P05",
+      "title": "A-R01/A-R02 理财四意图导航与统一恢复",
+      "source": "A《2026-10-20项目复核与修正》A-R01/A-R02",
+      "precondition": "首页理财入口、新会话恢复、原请求详情",
+      "input": "理财四意图进入表单；评估/申购/赎回待办在新会话恢复",
+      "expected": "可进入真实理财页面；新会话能恢复原请求，不写账",
+      "actual": "A 记录已修复；C 只复核路由 ready，未验证页面导航/新会话恢复",
+      "repro": "需 A 的页面/恢复测试入口；C 未执行",
+      "version": "02fe746",
+      "status": "待核实",
+      "evidence": "A《2026-10-20项目复核与修正》A-R01/A-R02；A 469 项全量"
+    },
+    {
+      "id": "C6-P06",
+      "title": "G13 提示注入与运行隔离未由 C 端到端执行",
+      "source": "C5《02_G01-G15覆盖表》",
+      "precondition": "需要受控注入入口与运行隔离环境",
+      "input": "用户文字/商户名/订阅依据中的提示注入；越权访问尝试",
+      "expected": "工具白名单/权限不变；运行隔离确实阻断越权访问",
+      "actual": "C 未执行；C5 覆盖表已标“未执行”，不是新缺陷",
+      "repro": "需 A 提供受控入口；C 未执行",
+      "version": "02fe746",
+      "status": "未执行",
+      "evidence": "C5原包/02_G01-G15覆盖表.md 的 G13 行"
+    },
+    {
+      "id": "C6-P07",
+      "title": "G12/G14/G15 仍为部分覆盖",
+      "source": "C5《02_G01-G15覆盖表》",
+      "precondition": "生日中断、审计阈值、六场景逐屏文案",
+      "input": "生日预留后中断；trace_id 审计与异常锁定；六场景结果文案",
+      "expected": "端到端证据齐全；未执行项不预填通过",
+      "actual": "C5 标“部分”（C5-OBS-02/04/05）；C 未补端到端",
+      "repro": "需 A 的页面/审计入口；C 未执行",
+      "version": "02fe746",
+      "status": "待核实",
+      "evidence": "C5原包/02_G01-G15覆盖表.md 的 G12/G14/G15 行"
+    },
+    {
+      "id": "C6-P08",
+      "title": "C5 中 10 条 A 证据与页面测试未由 C 独立复跑",
+      "source": "C5《04_自查报告》",
+      "precondition": "C5 12 条中 10 条引用 A 的 426/443/445 项证据；页面未重跑",
+      "input": "C5 的 A 引用用例与 Streamlit 页面",
+      "expected": "C 独立复跑并给出实际结果",
+      "actual": "C 未复跑；仅引用 A 的证据，已在 C5 标注，不是新缺陷",
+      "repro": "需 A 的测试/页面入口；C 未执行",
+      "version": "a505d20 → 02fe746",
+      "status": "未执行",
+      "evidence": "C5原包/04_自查报告.md、01_组3执行记录.json 的 limitation"
+    }
+  ]
+}

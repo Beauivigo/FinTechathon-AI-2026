@@ -1,0 +1,9 @@
+{
+  "reproduced": true,
+  "model": "deterministic offline response repeating same task IDs in an updated full plan",
+  "first_operation_key": "operation_d86aa2eade3f42fc8f7e0eca96a15881",
+  "second_operation_key": "operation_0d79fe51f11d492a896a95e4d6f68157",
+  "transfers": 2,
+  "final_balance_minor": 196000,
+  "impact": "Editing only the unexecuted second step replaces runner and loses completed first-step receipts; same first task can be paid again with a new key, after a new confirmation. No real model reliability claim."
+}

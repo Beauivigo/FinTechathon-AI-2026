@@ -8,6 +8,8 @@ from shared import ServiceError
 st.set_page_config(page_title='模拟预算管理', layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('budget')
 ui.render_page_header('预算预留与释放')
 ui.render_app_nav('budget')

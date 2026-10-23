@@ -1,7 +1,7 @@
 """表单复用现有 Conversation 授权/恢复，不另建网关或自动确认。"""
 import streamlit as st
 from uuid import uuid4
-from agent.controller import Conversation
+from agent.controller import Conversation, reconcile_session_flows
 from app import demo, ui
 from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
 from app.routing_panel import render_handoff
@@ -33,7 +33,7 @@ def current():
             st.session_state.action_flow = Conversation(demo.gateway(), principal_id=demo.PRINCIPAL)
         flow = st.session_state.action_flow
         other_flow = st.session_state.get('conversation')
-        flow.external_blocked = bool(other_flow and other_flow.needs_reconciliation)
+        reconcile_session_flows(st.session_state, flow)
         if flow.external_blocked:
             st.warning('转账结果尚待核实，请先到转账页面查询原操作。')
         flow.refresh_operations()
@@ -98,7 +98,7 @@ def render(flow):
             st.write(f"本期金额：{details['amount_minor']//100}.{details['amount_minor']%100:02d}元；对应扣费日：{details['charge_date']}")
         else:
             st.warning('无法核实原账户与支付卡绑定，请查询原操作并重新核对。')
-        st.caption('本期续费需独立强验证；核实订阅不授予后续自动扣款权限。')
+        st.caption('支付卡由系统自动选择并绑定，不支持手选；本期续费需独立强验证，核实订阅不授予后续自动扣款权限。')
     if request['action']=='merchant.order':
         st.write(f"本笔金额：{p['amount_minor']/100:.2f}元；计划配送日：{p['deliver_on']}")
         st.write('商品：'+p['item_id']+'；模拟地址：'+p['delivery_address_id'])
@@ -178,8 +178,10 @@ def render(flow):
         st.caption('收款单：' + result['data']['collection_id'])
     if flow.pending:
         verify = result['status'] == 'awaiting_verification'
-        if st.button('模拟验证并执行' if verify else '确认本次操作', key='action_approve'):
-            perform(flow.decide, True, simulate_verification=verify)
+        from app.auth_ui import transaction_code
+        code=transaction_code(flow,key='action_totp') if verify else None
+        if st.button(('模拟验证并执行' if flow.gateway.demo_mode else '验证并执行') if verify else '确认本次操作', key='action_approve'):
+            perform(flow.decide, True, simulate_verification=verify and flow.gateway.demo_mode,totp_code=code)
         if st.button('拒绝此操作', key='action_reject'):
             perform(flow.decide, False)
     if st.button('查询原操作结果', key='action_query'):

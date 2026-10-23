@@ -1,0 +1,36 @@
+{
+  "unrelated_tracked_changes": [],
+  "runtime_sha256": "075ccfb8cc1a68a8579a9bb93ab65dc0b238b306a5aab2509ac76b847fc83efe",
+  "reviewed_paths": [
+    "README.md",
+    "agent/model_client.py",
+    "agent/model_credentials.py",
+    "agent/model_providers.py",
+    "app/model_settings.py",
+    "docs/AI模型接入与验收.md",
+    "docs/BLOCKERS.md",
+    "scripts/verify_model_providers.py",
+    "tests/test_model_providers.py",
+    "tests/test_model_settings_acceptance.py"
+  ],
+  "result_sha256": {
+    "README.md": "82d33286f1dfe0b3bdbbb980dd9193b9e9ad26e1a1dc97f16d7910f534caf7bf",
+    "agent/model_client.py": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607",
+    "agent/model_credentials.py": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c",
+    "agent/model_providers.py": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32",
+    "app/model_settings.py": "767834712d0fca4997d856de3ca40a0ec7f03e8a92f64e4e6d7ddbf6eb7b0c07",
+    "docs/AI模型接入与验收.md": "6da1dc07c9efa7f5bbf670288377500f28ecb73a190eb65c17835b889b34ea84",
+    "docs/BLOCKERS.md": "1631bd4036047d18a3c902433e0fc44e59d5157ba097b18b415320db09f69639",
+    "scripts/verify_model_providers.py": "102f2fc502e0905a7ee6389e1ade872b56c68818871deb3e262b3c0386f6c405",
+    "tests/test_model_providers.py": "50f702df97eb0fbb560ea3248d519c24f5bb08bf87e5b1fc11cc0a3b98ef3479",
+    "tests/test_model_settings_acceptance.py": "38d989fdb270e6887e78deccea0b32a269f26b749005a4f0abcd55a1e1b319a8"
+  },
+  "acceptance_sources_match": true,
+  "diff_check_exit_code": 0,
+  "deepseek_compatibility_regression": {
+    "before_fix_exit_code": 1,
+    "after_fix_exit_code": 0,
+    "case": "preserve saved independent model priority and original desktop model default"
+  },
+  "all_checks_passed": true
+}

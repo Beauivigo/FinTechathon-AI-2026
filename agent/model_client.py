@@ -1,4 +1,4 @@
-"""受控模型传输；复用桌宠的 DeepSeek JSON 协议，不持久化明文凭证。"""
+"""受控的国内模型JSON传输；固定官方目标，不持久化明文凭证。"""
 from dataclasses import dataclass, field
 import json
 import os
@@ -9,6 +9,7 @@ from urllib.parse import urlsplit
 
 from shared.adapters import strict_json_loads
 from agent.model_credentials import CredentialStore, CredentialError
+from agent.model_providers import PROVIDERS, valid_model
 
 ROOT = Path(__file__).resolve().parents[1]
 DESKTOP_ROOT = Path('D:/Desktop Pet/gpt project')
@@ -25,12 +26,29 @@ def wire_model(name):
 
 
 def endpoint(base):
-    parts = urlsplit(base)
-    official = parts.scheme == 'https' and parts.hostname == 'api.deepseek.com' and parts.port in (None, 443)
-    local = parts.scheme == 'http' and parts.hostname in {'127.0.0.1', '::1'}
-    if not (official or local) or parts.username or parts.password or parts.query or parts.fragment or parts.path.rstrip('/') not in {'', '/v1'}:
-        raise ModelError('模型地址只能使用 DeepSeek 官方接口或本机回环地址。')
+    _, official = endpoint_provider(base)
     return base.rstrip('/') + '/chat/completions', official
+
+
+def endpoint_provider(base):
+    try:
+        if not isinstance(base, str) or any(c.isspace() for c in base):
+            raise ValueError()
+        parts = urlsplit(base)
+        port = parts.port
+        if parts.username is not None or parts.password is not None or '?' in base or '#' in base:
+            raise ValueError()
+        if parts.scheme == 'https' and port in (None, 443):
+            for name, provider in PROVIDERS.items():
+                allowed = urlsplit(provider.base_url)
+                paths = {'', '/v1'} if name == 'deepseek' else {allowed.path}
+                if parts.hostname == allowed.hostname and parts.path.rstrip('/') in paths:
+                    return name, True
+        if parts.scheme == 'http' and parts.hostname in {'127.0.0.1', '::1'} and port != 0 and parts.path.rstrip('/') in {'', '/v1'}:
+            return 'local', False
+    except (ValueError, TypeError):
+        pass
+    raise ModelError('模型地址只能使用已支持服务商的官方接口或本机回环地址。')
 
 
 def desktop_settings():
@@ -75,6 +93,7 @@ class ModelConfig:
     api_key: str = field(default='', repr=False)
     source: str = 'missing'
     timeout: int = 45
+    provider: str = ''
 
     def __repr__(self):
         return f'ModelConfig(model={self.model!r}, source={self.source!r})'
@@ -87,21 +106,44 @@ def load_config(secrets=None):
         profile = store.read()
     except CredentialError as exc:
         raise ModelError(str(exc)) from None
-    _, desktop_model = desktop_settings()
-    base = os.environ.get('BANK_MODEL_BASE_URL') or values.get('BANK_MODEL_BASE_URL') or OFFICIAL
-    _, official = endpoint(base)
-    key = os.environ.get('BANK_MODEL_API_KEY') or values.get('BANK_MODEL_API_KEY', '') or (os.environ.get('DEEPSEEK_API_KEY', '') if official else '')
+    def setting(name):
+        return os.environ.get(name) or values.get(name)
+    selected = setting('BANK_MODEL_PROVIDER')
+    base = setting('BANK_MODEL_BASE_URL')
+    generic_key = setting('BANK_MODEL_API_KEY')
+    if selected is not None and selected not in {*PROVIDERS, 'local'}:
+        raise ModelError('模型服务商无效。')
+    if base:
+        provider, official = endpoint_provider(base)
+        if selected and selected != provider:
+            raise ModelError('模型服务商与接口地址不匹配，未发送请求。')
+    else:
+        # 旧服务器配置中的通用密钥仍绑定DeepSeek，不随页面选择换发给别家。
+        provider = selected or ('deepseek' if generic_key else profile['provider'])
+        if provider == 'local':
+            raise ModelError('本地模型需要配置BANK_MODEL_BASE_URL回环地址。')
+        base, official = PROVIDERS[provider].base_url, True
+    key = generic_key or ''
+    if official and not key:
+        key = next((setting(name) for name in PROVIDERS[provider].key_envs if setting(name)), '')
+    matching_profile = official and profile['provider'] == provider
     try:
-        saved_key = store.key() if official and not key else ''
+        saved_key = store.key() if matching_profile and not key else ''
     except CredentialError as exc:
         raise ModelError(str(exc)) from None
     key = key or saved_key
-    model = os.environ.get('BANK_MODEL_NAME') or values.get('BANK_MODEL_NAME') or ((profile['model'] if profile['mode']=='independent' else desktop_model) if official else 'local-model')
-    if not isinstance(model, str) or not model.strip() or len(model) > 100 or any(c.isspace() for c in model):
+    desktop = provider == 'deepseek' and (os.environ.get('BANK_MODEL_USE_DESKTOP_PET') == '1' or values.get('BANK_MODEL_USE_DESKTOP_PET') is True or (matching_profile and profile['mode'] == 'desktop'))
+    if matching_profile and profile['mode'] == 'independent':
+        default_model = profile['model']
+    elif provider == 'deepseek':
+        _, default_model = desktop_settings()
+    else:
+        default_model = PROVIDERS[provider].models[0] if official else 'local-model'
+    model = setting('BANK_MODEL_NAME') or default_model
+    if not valid_model(model):
         raise ModelError('模型名称无效。')
-    use_desktop = os.environ.get('BANK_MODEL_USE_DESKTOP_PET') == '1' or values.get('BANK_MODEL_USE_DESKTOP_PET') is True or profile['mode'] == 'desktop'
-    source = 'configured' if key else ('desktop' if official and use_desktop else ('missing' if official else 'local'))
-    return ModelConfig(wire_model(model), base, key, source)
+    source = 'configured' if key else ('desktop' if desktop else ('missing' if official else 'local'))
+    return ModelConfig(wire_model(model) if provider == 'deepseek' else model, base, key, source, provider=provider)
 
 
 class _NoRedirect(request.HTTPRedirectHandler):
@@ -119,17 +161,34 @@ class ModelClient:
     def __call__(self, messages):
         self.last_metadata = {}
         url, official = endpoint(self.config.base_url)
+        provider, _ = endpoint_provider(self.config.base_url)
+        if self.config.provider and self.config.provider != provider:
+            raise ModelError('模型服务商与接口地址不匹配，未发送请求。')
+        if not valid_model(self.config.model):
+            raise ModelError('模型名称无效。')
         if not isinstance(messages, list) or not 1 <= len(messages) <= 40:
             raise ModelError('对话上下文过长，请开始新的任务。')
         if any(not isinstance(m, dict) or set(m) != {'role', 'content'} or m['role'] not in {'system', 'user', 'assistant'} or not isinstance(m['content'], str) for m in messages):
             raise ModelError('模型消息格式无效。')
-        key = self.config.api_key or (desktop_key() if official and self.config.source == 'desktop' else '')
-        if official and (not isinstance(key, str) or not 12 <= len(key) <= 512 or any(c.isspace() for c in key)):
+        if self.config.source == 'desktop' and provider != 'deepseek':
+            raise ModelError('桌宠凭证只支持DeepSeek。')
+        key = self.config.api_key or (desktop_key() if provider == 'deepseek' and self.config.source == 'desktop' else '')
+        if (official or key) and (not isinstance(key, str) or not key.isascii() or not 12 <= len(key) <= 512 or any(c.isspace() for c in key)):
             raise ModelError('请先配置模型密钥。')
         body = dict(model=self.config.model, messages=messages, stream=False,
             response_format={'type': 'json_object'}, max_tokens=4096)
-        if official:
+        model = self.config.model
+        if provider == 'kimi' and model.startswith(('kimi-k3', 'kimi-k2.7')):
+            raise ModelError('当前银行对话尚不支持需回传思考内容的Kimi模型，请使用kimi-k2.6。')
+        disable_thinking = provider in {'deepseek', 'doubao'}
+        if provider == 'glm':
+            disable_thinking = model.startswith(('glm-4.5', 'glm-4.6', 'glm-4.7', 'glm-5.1', 'glm-5.2')) or model in {'glm-5', 'glm-5-turbo'}
+        elif provider == 'kimi':
+            disable_thinking = model.startswith(('kimi-k2.5', 'kimi-k2.6'))
+        if disable_thinking:
             body['thinking'] = {'type': 'disabled'}
+        elif provider == 'qwen':
+            body['enable_thinking'] = False
         payload = json.dumps(body, ensure_ascii=False).encode('utf-8')
         if len(payload) > 65536:
             raise ModelError('对话上下文过长，请开始新的任务。')
@@ -154,14 +213,15 @@ class ModelClient:
             actual = value.get('model', '')
             if choice.get('finish_reason') != 'stop' or choice['message'].get('tool_calls'):
                 raise ValueError()
-            if not isinstance(text, str) or not text.strip() or (official and wire_model(actual) != wire_model(self.config.model)):
+            if not isinstance(text, str) or not text.strip() or (official and not valid_model(actual)) or (provider == 'deepseek' and wire_model(actual) != wire_model(self.config.model)):
                 raise ValueError()
-            strict_json_loads(text)
+            if not isinstance(strict_json_loads(text), dict):
+                raise ValueError()
         except (KeyError, IndexError, TypeError, ValueError, UnicodeError):
             raise ModelError('模型未返回完整有效的JSON计划，本次不执行。') from None
         usage = value.get('usage', {})
         if not isinstance(usage, dict):
             usage = {}
-        self.last_metadata = {'model': actual, 'credential_source': self.config.source,
+        self.last_metadata = {'model': actual, 'provider': provider, 'credential_source': self.config.source,
             'usage': {k:v for k,v in usage.items() if k in {'prompt_tokens','completion_tokens','total_tokens'} and type(v) is int and v >= 0}}
         return text

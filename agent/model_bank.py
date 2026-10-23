@@ -156,17 +156,81 @@ def compile_task(flow,intent,fields,*,selected_payee=None,results=None):
 
 class BankPlanRunner:
     """模型不接触实例；每步使用原Conversation的确认、强验证及恢复。"""
-    def __init__(self,flow,tasks):
+    def __init__(self,flow,tasks,*,trace_id=None,audit=None,journal=None):
         self.flow=flow
+        if trace_id is not None:
+            from .model_safety import check_trace
+            check_trace(trace_id)
+        self.trace_id=trace_id;self.audit=audit
         self.tasks=deepcopy(tasks)
         self.receipts={}
         self.paused=False
         self.waiting=None
         self.choices={}
         self.integrity_blocked=False
+        self.journal=journal
+        self.revision=0
+        self.automation=False
         for t in self.tasks:
             t['status']='pending'
         self._validate_graph()
+
+    def checkpoint(self,event='progress'):
+        if self.journal:
+            try:self.journal.save(self,event)
+            except Exception:
+                self.integrity_blocked=True;self.paused=True
+                raise NeedsInput('计划记录未能保存或已有新版本，请恢复原计划，不能继续执行。') from None
+
+    @classmethod
+    def restore(cls,flow,journal,plan_id,*,audit=None):
+        snapshot,revision=journal.load(plan_id,flow.principal_id)
+        runner=cls(flow,snapshot['tasks'],trace_id=plan_id,audit=audit,journal=journal)
+        runner.tasks=deepcopy(snapshot['tasks']);runner.receipts=deepcopy(snapshot['receipts'])
+        runner.waiting=snapshot['waiting'];runner.paused=snapshot['paused'];runner.choices=snapshot['choices'];runner.revision=revision
+        runner.automation=snapshot.get('automation',False)
+        # Query original before replaying exactly the same saved key. Never infer unpaid from NOT_FOUND.
+        if runner.waiting:
+            task=next(t for t in runner.tasks if t['id']==runner.waiting)
+            request=task['request']
+            flow.request=deepcopy(request);flow.result=None;flow.backend_result=None
+            flow.result=flow._uncertain()
+            if request['action'] in flow.gateway.write_actions or request['action']=='subscription.list':
+                flow.recover(action=request['action'],idempotency_key=request['idempotency_key'])
+            if flow.result is None or flow.needs_reconciliation:
+                flow.result=flow._send_write(flow.gateway.execute,request)
+            runner._sync()
+        return runner
+
+    def inherit_completed(self, previous):
+        """Only bank-verified completed steps may survive a plan revision."""
+        if previous.waiting or previous.integrity_blocked:
+            raise NeedsInput('原步骤尚待核实，不能修改计划。')
+        current = {t['id']: t for t in self.tasks}
+        for old in previous.tasks:
+            if old['status'] != 'completed':
+                continue
+            new = current.get(old['id'])
+            if not new or any(new.get(k) != old.get(k) for k in ('intent','fields','depends_on')):
+                raise NeedsInput('已完成步骤不能删除、改编号或修改内容；请保留原步骤并人工核对。')
+            if old['id'] not in previous.receipts:
+                raise NeedsInput('已完成步骤缺少可信回执，请查询原操作。')
+        for old in previous.tasks:
+            if old['status'] == 'completed':
+                current[old['id']].update(deepcopy(old))
+                self.receipts[old['id']] = deepcopy(previous.receipts[old['id']])
+        self.choices = deepcopy(previous.choices)
+        self.revision = previous.revision
+        self.automation = previous.automation
+
+    def _audit_result(self,task):
+        if not self.audit:return
+        try:
+            self.audit(dict(trace_id=self.trace_id,event='step_result',version=0,failures=0,
+                phase='plan',intent=task['intent']))
+        except Exception:
+            self.integrity_blocked=True;self.paused=True
+            raise NeedsInput('步骤审计未能保存，已停止计划；已提交操作请查询原结果。') from None
 
     def _validate_graph(self):
         if not 1<=len(self.tasks)<=20:raise NeedsInput('计划最多允许20步。')
@@ -190,12 +254,33 @@ class BankPlanRunner:
             raise NeedsInput('原操作编号发生变化，请先恢复原操作，不能继续推进计划。')
         self.integrity_blocked=False
         result=self.flow.result
+        if self.journal and result and result['status']=='scheduled':
+            import json
+            with self.flow.gateway.store.connection() as c:
+                row=c.execute('SELECT spec_json,state FROM tasks WHERE task_id=? AND principal_id=?',
+                    (result['data']['schedule_id'],self.flow.principal_id)).fetchone()
+                if row is None:raise NeedsInput('定时登记缺少可信任务，请核实。')
+                actual=json.loads(row['spec_json'])['payload']
+                saved=c.execute('SELECT 1 FROM operations WHERE principal_id=? AND action=? AND idempotency_key=?',
+                    (self.flow.principal_id,actual['action'],actual['idempotency_key'])).fetchone()
+            task['registration_result']=deepcopy(result)
+            if not saved:
+                if row['state'] in ('failed','cancelled'):
+                    task['status']='stopped';task['execution_state']=row['state'];self.paused=True;self.waiting=None
+                self.checkpoint();return
+            task['registration_request']=task['request'];task['request']=actual
+            task['operation_key']=actual['idempotency_key'];task['bank_action']=actual['action']
+            self.flow.recover(action=actual['action'],idempotency_key=actual['idempotency_key'])
+            self.checkpoint();self._sync();return
         if result and result['status'] in {'succeeded','scheduled'}:
+            self._audit_result(task)
             self.receipts[task['id']]=deepcopy(result)
             task['status']='completed';self.waiting=None
         elif result and result['status'] in {'failed','blocked','cancelled'}:
+            self._audit_result(task)
             self.receipts[task['id']]=deepcopy(result)
             task['status']='stopped';self.waiting=None;self.paused=True
+        self.checkpoint()
 
     def advance(self,*,allow_write=False):
         self._sync()
@@ -203,6 +288,9 @@ class BankPlanRunner:
         if self.flow.blocked:raise NeedsInput('请先处理或核实原操作。')
         for task in self.tasks:
             if task['status']=='completed':continue
+            if task.get('not_before'):
+                from datetime import datetime
+                if self.flow.gateway.clock()<datetime.fromisoformat(task['not_before']):return None
             if any(d not in self.receipts or self.receipts[d]['status'] not in {'succeeded','scheduled'} for d in task['depends_on']):return None
             ancestors=set(task['depends_on'])
             for _ in self.tasks:
@@ -211,12 +299,24 @@ class BankPlanRunner:
                 results={key:value for key,value in self.receipts.items() if key in ancestors})
             if action=='__holdings__':
                 result={'status':'succeeded','data':params,'source':'trusted_context'}
+                self._audit_result(task)
                 self.receipts[task['id']]=result;task['status']='completed'
+                self.checkpoint()
                 return result
             # Green pure queries execute automatically; other actions keep explicit preparation + original authorization.
             if action not in {'account.balance','bill.analyze','wealth.compare','scenario.plan'} and not allow_write:return None
             try:
-                result=self.flow.start_action(action,params)
+                if self.journal:
+                    request=task.get('request') or adapt_request(action,params,request_id='req_'+uuid4().hex,
+                        trace_id=self.trace_id,idempotency_key='operation_'+uuid4().hex)
+                    if not getattr(self.flow.gateway,'demo_mode',True):request['schema_version']='1.2'
+                    task['request']=request;task['operation_key']=request['idempotency_key'];task['bank_action']=action
+                    self.waiting=task['id'];task['status']='awaiting_bank'
+                    self.checkpoint('prepared')
+                    self.waiting=None
+                    result=self.flow.start_action(action,params,plan_trace_id=self.trace_id,prepared_request=request)
+                else:
+                    result=self.flow.start_action(action,params,plan_trace_id=self.trace_id)
             except (ContractError,ServiceError):
                 raise NeedsInput('请求未通过银行校验，请核对参数和原操作。') from None
             self.waiting=task['id'];task['status']='awaiting_bank';task['operation_key']=self.flow.request['idempotency_key'];task['bank_action']=action

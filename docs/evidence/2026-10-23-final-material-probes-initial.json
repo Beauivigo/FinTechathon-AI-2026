@@ -1,0 +1,106 @@
+{
+  "executor": "A自动补测，非D原始测试",
+  "data": "虚构模拟数据，每组独立临时库",
+  "cases": [
+    {
+      "name": "config",
+      "passed": true,
+      "actual": [
+        {
+          "product_id": "WP-C01",
+          "values": [
+            100,
+            0,
+            100,
+            0,
+            0
+          ],
+          "risk_level": "R1"
+        },
+        {
+          "product_id": "WP-C02",
+          "values": [
+            10000,
+            7,
+            100,
+            10,
+            0
+          ],
+          "risk_level": "R2"
+        },
+        {
+          "product_id": "WP-C03",
+          "values": [
+            50000,
+            30,
+            125,
+            50,
+            25
+          ],
+          "risk_level": "R3"
+        },
+        {
+          "product_id": "WP-C04",
+          "values": [
+            100000,
+            90,
+            200,
+            100,
+            50
+          ],
+          "risk_level": "R4"
+        },
+        {
+          "product_id": "WP-C05",
+          "values": [
+            200000,
+            180,
+            50,
+            150,
+            75
+          ],
+          "risk_level": "R5"
+        },
+        {
+          "product_id": "WP-C06",
+          "values": [
+            100000,
+            60,
+            100,
+            80,
+            40
+          ],
+          "risk_level": "R3"
+        }
+      ]
+    },
+    {
+      "name": "score_and_limits",
+      "passed": false,
+      "error": "unable to open database file"
+    },
+    {
+      "name": "continuous_ledger",
+      "passed": false,
+      "error": "unable to open database file"
+    },
+    {
+      "name": "short_month_and_clear",
+      "passed": false,
+      "error": "unable to open database file"
+    },
+    {
+      "name": "large_precision_and_replay",
+      "passed": false,
+      "error": "unable to open database file"
+    },
+    {
+      "name": "unknown_redeem",
+      "passed": false,
+      "error": "unable to open database file"
+    }
+  ],
+  "runtime_unchanged": true,
+  "scope": "D既定规则与新建模拟算例；不实现真实T+1、收益或净值波动。",
+  "passed": false
+}

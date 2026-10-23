@@ -9,6 +9,8 @@ from shared import ServiceError, ContractError, adapt_request, validate_result
 st.set_page_config(page_title='模拟产品对比',layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('products')
 ui.render_page_header('产品对比')
 ui.render_app_nav('products')

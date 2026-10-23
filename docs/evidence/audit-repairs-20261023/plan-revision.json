@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "transfers": 1,
+  "balance_minor": 198000,
+  "card_action": "card.report_loss",
+  "original_operation_preserved": true
+}

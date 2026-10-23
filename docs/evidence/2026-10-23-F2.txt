@@ -1,0 +1,15 @@
+test_birthday_pause_handoff_then_release_unused_budget (tests.test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget) ... ok
+test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit (tests.test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit) ... ok
+test_followup_rejection_and_dependency_do_not_move_money (tests.test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money) ... ok
+test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment (tests.test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment) ... ok
+test_page_five_model_failures_lock_and_manual_new_task_recovers (tests.test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers) ... ok
+test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger (tests.test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger) ... ok
+test_fresh_page_recovers_original_transfer_details_without_new_model_call (tests.test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call) ... ok
+test_green_query_runs_without_extra_confirmation (tests.test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation) ... ok
+test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat (tests.test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat) ... ok
+test_pause_and_handoff_do_not_call_model_or_write_bank (tests.test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 5.371s
+
+OK

@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-23T05:18:19.441Z",
+  "checks": [
+    {
+      "height": 844,
+      "rootScroll": 390,
+      "view": "home",
+      "width": 390
+    },
+    {
+      "height": 740,
+      "rootScroll": 320,
+      "view": "guide",
+      "width": 320
+    },
+    {
+      "boxShadow": "rgba(161, 98, 7, 0.5) 0px 0px 0px 3.2px",
+      "check": "keyboard",
+      "focusText": "换个任务",
+      "withinViewport": true
+    },
+    {
+      "height": 1024,
+      "rootScroll": 768,
+      "view": "home",
+      "width": 768
+    },
+    {
+      "height": 720,
+      "rootScroll": 1280,
+      "view": "home",
+      "width": 1280
+    }
+  ],
+  "guideInteraction": "Selected transfer, edited teaching payee, reviewed, completed learning, opened transfer view without sending a request."
+}

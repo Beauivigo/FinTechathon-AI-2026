@@ -10,6 +10,8 @@ from shared import ServiceError, ContractError
 st.set_page_config(page_title='模拟定时转账',layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('scheduled')
 ui.render_page_header('定时转账')
 ui.render_app_nav('scheduled')

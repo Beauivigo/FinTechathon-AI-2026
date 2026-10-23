@@ -158,8 +158,11 @@ class UiComponentTests(unittest.TestCase):
             'budget': 'app/pages/7_预算管理.py',
             'merchant': 'app/pages/8_生日与商户.py',
             'wealth': 'app/pages/9_理财.py',
+            'assistant': 'app/pages/0_AI银行助手.py',
+            'transfer': 'app/main.py',
+            'bills': 'app/main.py',
         })
-        self.assertEqual(self.ui.NAV_LABELS['home'], '首页与转账')
+        self.assertEqual(self.ui.NAV_LABELS['home'], '银行首页')
         self.assertEqual(self.ui.PRIMARY_NAV_KEYS, ('home', 'accounts', 'wealth'))
         self.assertEqual(set(self.ui.STATUS_META), {'draft', 'ready', 'pending', 'running', 'blocked', 'failed', 'done', 'unknown'})
         self.assertEqual(self.ui.STATUS_META['done'], {'label': '已完成', 'color': 'green'})
@@ -225,7 +228,7 @@ class UiComponentTests(unittest.TestCase):
         captions = self.found('caption')
         self.assertEqual(len(captions), 1)
         self.assertEqual(self.argument(captions[0], 0, 'body'), subtitle)
-        self.assertEqual(len(self.found('divider')), 1)
+        self.assertEqual(len(self.found('divider')), 0)
         self.assert_safe_native_calls()
         self.st.reset()
         self.ui.render_page_header('', '')
@@ -240,7 +243,7 @@ class UiComponentTests(unittest.TestCase):
         self.ui.render_app_nav('home')
         buttons = self.found('button')
         self.assertEqual(len(buttons), 3)
-        self.assertEqual([self.argument(call, 0, 'label') for call in buttons], ['首页与转账', '资料账单', '理财'])
+        self.assertEqual([self.argument(call, 0, 'label') for call in buttons], ['银行首页', '资料账单', '理财'])
         self.assertEqual([self.argument(call, 0, 'key') for call in buttons], ['app_nav_home', 'app_nav_accounts', 'app_nav_wealth'])
         self.assertIs(self.argument(buttons[0], 0, 'disabled'), True)
         self.assertEqual(self.argument(buttons[0], 0, 'type'), 'primary')

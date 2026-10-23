@@ -13,6 +13,8 @@ from app.merchant_schedule_panel import merchant_schedule_panel
 st.set_page_config(page_title='模拟生日与商户',layout='wide')
 from app import ui
 
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('merchant')
 ui.render_page_header('生日计划与模拟采购')
 ui.render_app_nav('merchant')
@@ -28,6 +30,24 @@ with st.container(border=True):
     selected_items=st.multiselect('计划采购商品',items,default=[items[0],items[2]],key='birthday_items',format_func=lambda x:f"{x['name']} · {x['price_minor']/100:.2f}元")
     birthday=st.date_input('生日日期',value=today+timedelta(days=32),min_value=today,key='birthday_date')
     address=st.selectbox('模拟配送地址',addresses,key='merchant_address',format_func=lambda x:x['label'])
+    with st.expander('保存完整生日计划并由后台准备到期待办'):
+        from datetime import datetime,time
+        from bank.birthday import create_plan
+        from shared.adapters import yuan_to_minor
+        local_now=flow.gateway.clock().astimezone(SHANGHAI)
+        budget_text=st.text_input('生日总预算（元）',value='1000.00',key='birthday_budget_text')
+        budget_day=st.date_input('预算处理日期（生日当月）',value=max(birthday.replace(day=1),today),key='birthday_budget_day')
+        budget_time=st.time_input('预算处理时刻',value=(local_now+timedelta(minutes=5)).time().replace(second=0,microsecond=0),key='birthday_budget_time')
+        purchase_time=st.time_input('提前两天的采购时刻',value=time(9,0),key='birthday_purchase_time')
+        st.caption('到期自动准备待办；预算仍需确认，每笔订单仍需验证，剩余预算释放也需确认。请在AI银行助手恢复该计划办理。')
+        if st.button('保存日期与商品并启用后台准备',key='birthday_save_workflow',disabled=flow.blocked or not selected_items):
+            try:
+                plan_id=create_plan(flow,birthday=birthday,budget_minor=yuan_to_minor(budget_text),account_id=account['account_id'],
+                    item_ids=[i['item_id'] for i in selected_items],address_id=address['delivery_address_id'],
+                    budget_at=datetime.combine(budget_day,budget_time,SHANGHAI),
+                    purchase_at=datetime.combine(birthday-timedelta(days=2),purchase_time,SHANGHAI))
+                st.success('完整计划已保存：'+plan_id+'；后台运行时将按期准备待办。')
+            except (ValueError,ServiceError):st.warning('计划未保存，请核对预算、商品与时间；预算需在当月且不能晚于提前两天的采购时间。')
     if st.button('生成生日计划',key='birthday_plan',disabled=flow.blocked or not selected_items):
         req=adapt_request('scenario.plan',dict(goal='生日 '+birthday.isoformat()),request_id=uuid4().hex,trace_id=uuid4().hex)
         result=flow.gateway.execute(req,principal_id=flow.principal_id)

@@ -1,0 +1,37 @@
+{
+  "executor": "A补充复算，非B缺失的第五轮原件",
+  "baseline": "02fe746 + 本轮仅续费安全披露修订",
+  "passed": true,
+  "six_scenarios": {
+    "opening_minor": 200000,
+    "closing": [
+      127600,
+      127600,
+      0
+    ],
+    "expense_minor": 22400,
+    "categories": [
+      {
+        "category": "订阅",
+        "amount_minor": 2500
+      },
+      {
+        "category": "鲜花",
+        "amount_minor": 19900
+      }
+    ],
+    "equation": "200000-20000-19900-50000+20000-2500=127600"
+  },
+  "insufficient_renewal": {
+    "status": "failed",
+    "code": "INSUFFICIENT_FUNDS",
+    "balance": [
+      1000,
+      1000,
+      0
+    ],
+    "charge_rows": 0,
+    "next_charge_date": "2026-10-19"
+  },
+  "scope": "独立模拟库；同期并发唯一、卡失效/绑定由2026-10-23全量对应测试另行覆盖。"
+}

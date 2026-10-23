@@ -9,6 +9,8 @@ from app.model_bank_panel import render_model_bank
 from shared import ServiceError, ContractError
 
 st.set_page_config(page_title='AI银行助手',layout='wide')
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('assistant')
 with st.sidebar:
     render_settings()

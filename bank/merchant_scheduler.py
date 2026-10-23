@@ -25,6 +25,7 @@ class MerchantScheduler(Scheduler):
         digest = sha256(json.dumps([principal_id, registration_key]).encode()).hexdigest()
         request = adapt_request('merchant.order', deepcopy(params), request_id='merchant_req_'+digest,
             trace_id='merchant_trace_'+digest, idempotency_key='merchant_exec_'+digest)
+        if not self.gateway.demo_mode:request['schema_version']='1.2'
         with self.store.connection(write=True) as c:
             reservation = budget.checked_reservation(c, params['reservation_id'], principal_id)
             spec = validate_task_spec(dict(schema_version='1.1', task_key='merchant_task_'+digest,

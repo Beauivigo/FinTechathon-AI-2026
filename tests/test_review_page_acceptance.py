@@ -66,6 +66,7 @@ class ReviewPageTests(unittest.TestCase):
         self.assertFalse(p.exception)
         content=' '.join(m.value for m in p.markdown)
         self.assertIn('25.00',content);self.assertIn('CARD-E001',content)
+        self.assertIn('支付卡由系统自动选择并绑定，不支持手选', ' '.join(m.value for m in p.caption))
 
     def test_questionnaire_has_real_option_text(self):
         p=self.page('pages/9_理财.py')

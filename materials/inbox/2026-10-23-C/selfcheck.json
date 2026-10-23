@@ -1,0 +1,78 @@
+{
+  "package": "C 第六轮最后交接（C6-1.0）",
+  "member": "C",
+  "round": "第六轮（2026-10-21 最后材料；2026-10-22 提交）",
+  "baseline": "main@02fe746",
+  "c5_baseline": "main@a505d20",
+  "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "c5_manifest": {
+    "files": 10,
+    "bad": []
+  },
+  "c5_rerun": {
+    "result": "PASS",
+    "failure_count": 0,
+    "group3": 12,
+    "entry": 6,
+    "group3_match": true,
+    "entry_match": true,
+    "error": null
+  },
+  "c6_manifest": {
+    "files": 20,
+    "bad": []
+  },
+  "c5_routes": [
+    {
+      "text": "从账户 demo_account_a 赎回理财 -100份",
+      "status": "clarify",
+      "intent": "wealth_redeem"
+    },
+    {
+      "text": "从账户 demo_account_a 赎回理财 0份",
+      "status": "clarify",
+      "intent": "wealth_redeem"
+    },
+    {
+      "text": "从账户 demo_account_a 赎回理财 100.12345份",
+      "status": "clarify",
+      "intent": "wealth_redeem"
+    },
+    {
+      "text": "从账户 demo_account_a 赎回理财 100份 买理财 WP-C02 100元",
+      "status": "clarify",
+      "intent": null
+    }
+  ],
+  "problem_list": {
+    "rows": 8,
+    "ids": [
+      "C6-P01",
+      "C6-P02",
+      "C6-P03",
+      "C6-P04",
+      "C6-P05",
+      "C6-P06",
+      "C6-P07",
+      "C6-P08"
+    ],
+    "statuses": {
+      "C6-P01": "无新增",
+      "C6-P02": "无新增",
+      "C6-P03": "已修复",
+      "C6-P04": "待核实",
+      "C6-P05": "待核实",
+      "C6-P06": "未执行",
+      "C6-P07": "待核实",
+      "C6-P08": "未执行"
+    }
+  },
+  "failure_count": 0,
+  "failures": [],
+  "result": "PASS",
+  "limits": [
+    "C6 只复跑 C5 组3/入口并做路由边界抽查；页面/恢复/审计未由 C 重跑。",
+    "A-R08、A-R01/A-R02、G12/G14/G15、G13 等仍按 C5 标注待核实/未执行，未填 PASS。",
+    "C5 原包按哈希校验；C6 不修改共享契约、代码或日常库。"
+  ]
+}

@@ -10,25 +10,31 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import streamlit as st
 
-from agent.controller import Conversation
+from agent.controller import Conversation, reconcile_session_flows
 from bank.gateway import BankGateway
 from bank.seed import initialize, demo_path, reset_demo
 from bank.store import Store
 from shared import ContractError, ServiceError, result_text, adapt_request, validate_result
 from app.routing_panel import render_router
-from app import ui, home_view
+from app import ui, home_view, onboarding
 
 
 st.set_page_config(page_title="FinTechathon · 银行助手", page_icon=":material/account_balance:", layout="wide")
-ui.render_sidebar_nav('home')
-with st.sidebar:
-    st.page_link('pages/0_AI银行助手.py', label='AI对话办理与模型设置', icon=':material/auto_awesome:')
+display_tab = st.session_state.get('home_next_tab') or st.session_state.get('home_workspace')
+display_key = {'转账汇款': 'transfer', '账单流水': 'bills'}.get(display_tab, 'home')
+display_query = st.query_params.get('view')
+if display_query in {'home', 'transfer', 'bills'}:
+    display_key = display_query
+from app.auth_ui import gate
+gate()
+ui.render_sidebar_nav(display_key)
 
 
 def new_conversation():
     store = Store(demo_path())
     initialize(store)  # 只在首次导入；再次打开保留业务记录。
-    return Conversation(BankGateway(store), principal_id='demo_user_a')
+    from app.demo import gateway
+    return Conversation(gateway(), principal_id='demo_user_a')
 
 
 if "conversation" not in st.session_state:
@@ -39,7 +45,7 @@ if "conversation" not in st.session_state:
         st.stop()
 conversation = st.session_state.conversation
 other_flow = st.session_state.get('action_flow')
-conversation.external_blocked = bool(other_flow and other_flow.needs_reconciliation)
+reconcile_session_flows(st.session_state, conversation)
 if conversation.external_blocked:
     st.warning('其他业务的结果尚待核实，请到对应页面查询原操作。')
 operations_available = True
@@ -113,6 +119,10 @@ with st.sidebar:
 
 # Tabs only select a view. All existing business guards and callbacks remain below.
 tab_labels = ('账户首页', '转账汇款', '账单流水', '操作记录')
+requested_view = st.query_params.pop('view', None)
+view_tabs = {'home': '账户首页', 'transfer': '转账汇款', 'bills': '账单流水', 'history': '操作记录'}
+if isinstance(requested_view, str) and requested_view in view_tabs:
+    st.session_state.home_next_tab = view_tabs[requested_view]
 next_tab = st.session_state.pop('home_next_tab', None)
 if next_tab in tab_labels:
     st.session_state.home_workspace = next_tab
@@ -169,8 +179,10 @@ with transfer_tab:
                     st.warning(text)
                     if result["status"] == "awaiting_verification":
                         st.write("含本次的上海当日累计超过1000元，需要模拟强验证；已提出的验证要求不会跨日降级。")
-                        if st.button("模拟验证并继续", type="primary", width="stretch"):
-                            perform(conversation.decide, True, simulate_verification=True)
+                        from app.auth_ui import transaction_code
+                        code=transaction_code(conversation,key='transfer_totp')
+                        if st.button("模拟验证并继续" if conversation.gateway.demo_mode else "验证并继续", type="primary", width="stretch"):
+                            perform(conversation.decide, True, simulate_verification=conversation.gateway.demo_mode,totp_code=code)
                     elif st.button("确认此笔模拟转账", type="primary", width="stretch"):
                         perform(conversation.decide, True)
                     if st.button("拒绝此操作", width="stretch"):
@@ -339,6 +351,9 @@ recent_transactions = None if recent_rows is None else tuple(
     for row in list(reversed(recent_rows))[:3]
 )
 with home_area:
+    st.title('个人银行首页')
+    st.caption('本地模拟银行，不连接真实银行或真实资金。')
+    guide_action = onboarding.render_guide()
     selected_service = home_view.render_home(home_view.HomeData(
         account=home_view.AccountSummary(
             name='模拟日常账户', balance_text=money(balance['available_minor']),
@@ -350,11 +365,16 @@ with home_area:
             for op in pending[:3]
         ) if operations_available else None,
         transactions=recent_transactions,
-    ))
+    ), show_header=False)
+    selected_service = guide_action or selected_service
+if selected_service == 'home':
+    st.session_state.home_next_tab = '账户首页'
+    st.rerun()
 if selected_service in {'transfer', 'bills'}:
     st.session_state.home_next_tab = '转账汇款' if selected_service == 'transfer' else '账单流水'
     st.rerun()
 service_pages = {
+    'assistant': 'pages/0_AI银行助手.py',
     'cards': 'pages/3_卡片管理.py', 'aa': 'pages/4_AA收款.py',
     'scheduled': 'pages/6_定时转账.py', 'budget': 'pages/7_预算管理.py',
     'wealth': 'pages/9_理财.py', 'products': 'pages/2_产品对比.py',

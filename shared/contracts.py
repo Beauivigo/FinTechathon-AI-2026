@@ -7,6 +7,7 @@ import math
 import re
 
 SCHEMA_VERSION = "1.1"
+SUPPORTED_VERSIONS = {"1.1", "1.2"}  # v1.2 adds real TOTP; v1.1 remains the demo/default wire format.
 MAX_SAFE_INTEGER = 2**53 - 1
 MAX_JSON_BYTES = 262_144
 
@@ -21,7 +22,7 @@ ENUMS = {
     "transaction_kind": {"income", "consumption", "transfer", "refund", "wealth", "subscription"},
     "match_type": {"name", "phone"},
     "challenge_kind": {"confirm", "verify"}, "decision": {"approve", "reject"},
-    "verification_method": {"sms_otp", "face", "u_key", "demo_otp"},
+    "verification_method": {"sms_otp", "face", "u_key", "demo_otp", "totp"},
 }
 RECORDS = {
     "share": ({"payee_id": "id", "amount_minor": "money"}, {}),
@@ -263,7 +264,7 @@ def fields(value, required, optional=None):
 def validate_request(request):
     fields(request, {"schema_version": "string", "request_id": "id", "trace_id": "id",
                      "action": "string", "params": "object"}, {"idempotency_key": "id"})
-    ensure(request["schema_version"] == SCHEMA_VERSION, "不支持的 schema_version")
+    ensure(request["schema_version"] in SUPPORTED_VERSIONS, "不支持的 schema_version")
     ensure(request["action"] in ACTIONS, "未知 action，禁止直接执行模型生成的工具名")
     spec = ACTIONS[request["action"]]
     fields(request["params"], spec["required"], spec["optional"])
@@ -304,6 +305,7 @@ def validate_result(request, result):
         kind = "confirm" if status == "awaiting_confirmation" else "verify"
         ensure(challenge["kind"] == kind, "next_action.kind 与状态不匹配")
         ensure(("methods" in challenge) == (kind == "verify"), "强验证必须指定 methods；确认不传 methods")
+        ensure(request['schema_version'] != '1.1' or 'totp' not in challenge.get('methods', []), 'TOTP需要v1.2')
     else:
         ensure("next_action" not in result, "只有待确认/验证状态可以带 next_action")
     if status == "succeeded":
@@ -392,7 +394,7 @@ def validate_authorization(payload):
     """确认提交的数据格式；凭证有效性、归属、过期和防重放仍由执行网关检查。"""
     fields(payload, {"schema_version": "string", "challenge_id": "id", "operation_digest": "digest",
                      "decision": "enum:decision"}, {"proof_token": "string"})
-    ensure(payload["schema_version"] == SCHEMA_VERSION, "不支持的 schema_version")
+    ensure(payload["schema_version"] in SUPPORTED_VERSIONS, "不支持的 schema_version")
     ensure(payload["decision"] != "reject" or "proof_token" not in payload, "拒绝操作时不要提交验证凭证")
     return payload
 

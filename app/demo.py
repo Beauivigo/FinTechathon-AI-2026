@@ -9,4 +9,5 @@ PRINCIPAL = 'demo_user_a'
 def gateway():
     store = Store(demo_path())
     initialize(store)
-    return BankGateway(store)
+    import streamlit as st
+    return BankGateway(store,session_token=st.session_state.get('auth_token'))

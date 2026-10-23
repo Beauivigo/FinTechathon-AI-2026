@@ -1,0 +1,146 @@
+{
+  "review_date": "2026-10-23",
+  "member": "C",
+  "executor": "A归档，成员原件未改",
+  "base_commit": "02fe7464c9b131a3b18722bd9df85a54227a0ee1",
+  "files": [
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\00_交付索引.md",
+      "file": "00_交付索引.md",
+      "bytes": 2405,
+      "sha256": "6f486b3b902058a60076c2e5b72f70775eecf6dc183ad749a73c9921b2dfd60d"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\01_第五轮原包索引.md",
+      "file": "01_第五轮原包索引.md",
+      "bytes": 2606,
+      "sha256": "79629fe4f65b55cf93cb37edf7012a0654c7c74d3cc0713a8e221258a3c26583"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\02_第六轮问题清单.json",
+      "file": "02_第六轮问题清单.json",
+      "bytes": 6922,
+      "sha256": "d7706bd06be0d9459fe05e61f8ed2f657f5877faca54f2813862b4f70edc8688"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\02_第六轮问题清单.md",
+      "file": "02_第六轮问题清单.md",
+      "bytes": 7070,
+      "sha256": "d858f8b72831d7b10ae6c0c6a712e5408d38f421ee4b80fbe6aa03a4ceeeda28"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\03_自查报告.md",
+      "file": "03_自查报告.md",
+      "bytes": 3623,
+      "sha256": "3de1deb8e6ed79d54598564b5e3975581559c9a4c52c3693af33f005a148d9b4"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\04_勘误遵循核对.md",
+      "file": "04_勘误遵循核对.md",
+      "bytes": 2080,
+      "sha256": "c4f8bb5a50bfd0edb93dbed72d1adc28c74ba5def30fa62ce18d6dd35eed6d69"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C6_交付说明.md",
+      "file": "C6_交付说明.md",
+      "bytes": 4372,
+      "sha256": "ef8e5d88cd6da49e61a51f6987ed5556fa1cfd0fdb0e9e300a0836b9719f273b"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\check_c6.py",
+      "file": "check_c6.py",
+      "bytes": 7935,
+      "sha256": "cf4c7628b23d15192cd0a5e974dfc35b5ac87738332635600a4c8715d478e9b0"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\manifest.json",
+      "file": "manifest.json",
+      "bytes": 3761,
+      "sha256": "b5fbed6264bd9b21e653af08c0da9d5ab5dfc54234ae9f8157887b2d997a6742"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\README.md",
+      "file": "README.md",
+      "bytes": 3295,
+      "sha256": "39e69cf1bdf716187d75e45ec5aa5649386eb942019f9e99bd695f93cb450952"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\selfcheck.json",
+      "file": "selfcheck.json",
+      "bytes": 2041,
+      "sha256": "d94dd914a9e3cb746a921d5fd9c5812bd17c35af5cd19fa47590958e48ab15db"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\00_交付索引.md",
+      "file": "C5原包/00_交付索引.md",
+      "bytes": 1938,
+      "sha256": "9cc01ea5ef89da8ac6991f8ed1088301ddfd197d4a14cd02f4f4e7828e418f45"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\01_组3执行记录.json",
+      "file": "C5原包/01_组3执行记录.json",
+      "bytes": 22191,
+      "sha256": "a96ada1fbae55b1e6b49093295323296bc4ce594ea5393d693c8ba797c7c9094"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\01_组3执行记录.md",
+      "file": "C5原包/01_组3执行记录.md",
+      "bytes": 4820,
+      "sha256": "fb8ff8ef3a4c8cb6a9edeb3e375873f21bb8a5e70e1b89efb37e6043fd2bcaed"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\02_G01-G15覆盖表.md",
+      "file": "C5原包/02_G01-G15覆盖表.md",
+      "bytes": 4873,
+      "sha256": "420aafde765c02f9e86c4431bf8a1882501f91143f9699f18cf1659138d64459"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\03_入口矩阵_理财四类.json",
+      "file": "C5原包/03_入口矩阵_理财四类.json",
+      "bytes": 2002,
+      "sha256": "f48ae4acfffa24a4e5237f5999a11b53ae67215e285673b7ac51de4dae60ab29"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\03_入口矩阵_理财四类.md",
+      "file": "C5原包/03_入口矩阵_理财四类.md",
+      "bytes": 2847,
+      "sha256": "572d3892c666b4a7c5248ebc76f89d827fee9e4fc8f7ff02acb50e04373d1fd3"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\04_自查报告.md",
+      "file": "C5原包/04_自查报告.md",
+      "bytes": 3881,
+      "sha256": "30ab85f8f687e8916847ae71acfc075460f6e9e3a775f1b5751d329c7d848a1f"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\05_勘误遵循核对.md",
+      "file": "C5原包/05_勘误遵循核对.md",
+      "bytes": 2804,
+      "sha256": "0cbb06d5db64e5f6118d89c94dddea4fce70cac37be07d778505460ebcefc065"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\check_c5.py",
+      "file": "C5原包/check_c5.py",
+      "bytes": 20067,
+      "sha256": "5bb6e302c808266281884422fc96e8d6e7fb33ec3faedba19703723a3b539db5"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\manifest.json",
+      "file": "C5原包/manifest.json",
+      "bytes": 1993,
+      "sha256": "c77025f80c686763e3861237540b1d4437e91824d17afd5b49ac6b3b1466d100"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\README.md",
+      "file": "C5原包/README.md",
+      "bytes": 3701,
+      "sha256": "36b26348b2c2d9936bbcf8b4a33324a06e7befc4ede375dd79a6210cd48a8745"
+    },
+    {
+      "source": "D:\\FinTechathon-AI-2026\\群组资料\\C\\群组资料_C_第六轮_C6-1.0\\群组资料_C_第六轮_C6-1.0\\C5原包\\selfcheck.json",
+      "file": "C5原包/selfcheck.json",
+      "bytes": 26292,
+      "sha256": "7050fce3f3406c8a663398eb1b4051d04588475f04eecd46129e48fc639bddad"
+    }
+  ]
+}

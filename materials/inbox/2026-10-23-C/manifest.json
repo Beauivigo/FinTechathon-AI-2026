@@ -1,0 +1,112 @@
+{
+  "member": "C",
+  "round": "第六轮（2026-10-21 最后材料；2026-10-22 提交）",
+  "version": "C6-1.0",
+  "date": "2026-10-21",
+  "baseline": "main@02fe746",
+  "c5_baseline": "main@a505d20",
+  "files": [
+    {
+      "file": "00_交付索引.md",
+      "bytes": 2405,
+      "sha256": "6f486b3b902058a60076c2e5b72f70775eecf6dc183ad749a73c9921b2dfd60d"
+    },
+    {
+      "file": "01_第五轮原包索引.md",
+      "bytes": 2606,
+      "sha256": "79629fe4f65b55cf93cb37edf7012a0654c7c74d3cc0713a8e221258a3c26583"
+    },
+    {
+      "file": "02_第六轮问题清单.json",
+      "bytes": 6922,
+      "sha256": "d7706bd06be0d9459fe05e61f8ed2f657f5877faca54f2813862b4f70edc8688"
+    },
+    {
+      "file": "02_第六轮问题清单.md",
+      "bytes": 7070,
+      "sha256": "d858f8b72831d7b10ae6c0c6a712e5408d38f421ee4b80fbe6aa03a4ceeeda28"
+    },
+    {
+      "file": "03_自查报告.md",
+      "bytes": 3623,
+      "sha256": "3de1deb8e6ed79d54598564b5e3975581559c9a4c52c3693af33f005a148d9b4"
+    },
+    {
+      "file": "04_勘误遵循核对.md",
+      "bytes": 2080,
+      "sha256": "c4f8bb5a50bfd0edb93dbed72d1adc28c74ba5def30fa62ce18d6dd35eed6d69"
+    },
+    {
+      "file": "C5原包/00_交付索引.md",
+      "bytes": 1938,
+      "sha256": "9cc01ea5ef89da8ac6991f8ed1088301ddfd197d4a14cd02f4f4e7828e418f45"
+    },
+    {
+      "file": "C5原包/01_组3执行记录.json",
+      "bytes": 22191,
+      "sha256": "a96ada1fbae55b1e6b49093295323296bc4ce594ea5393d693c8ba797c7c9094"
+    },
+    {
+      "file": "C5原包/01_组3执行记录.md",
+      "bytes": 4820,
+      "sha256": "fb8ff8ef3a4c8cb6a9edeb3e375873f21bb8a5e70e1b89efb37e6043fd2bcaed"
+    },
+    {
+      "file": "C5原包/02_G01-G15覆盖表.md",
+      "bytes": 4873,
+      "sha256": "420aafde765c02f9e86c4431bf8a1882501f91143f9699f18cf1659138d64459"
+    },
+    {
+      "file": "C5原包/03_入口矩阵_理财四类.json",
+      "bytes": 2002,
+      "sha256": "f48ae4acfffa24a4e5237f5999a11b53ae67215e285673b7ac51de4dae60ab29"
+    },
+    {
+      "file": "C5原包/03_入口矩阵_理财四类.md",
+      "bytes": 2847,
+      "sha256": "572d3892c666b4a7c5248ebc76f89d827fee9e4fc8f7ff02acb50e04373d1fd3"
+    },
+    {
+      "file": "C5原包/04_自查报告.md",
+      "bytes": 3881,
+      "sha256": "30ab85f8f687e8916847ae71acfc075460f6e9e3a775f1b5751d329c7d848a1f"
+    },
+    {
+      "file": "C5原包/05_勘误遵循核对.md",
+      "bytes": 2804,
+      "sha256": "0cbb06d5db64e5f6118d89c94dddea4fce70cac37be07d778505460ebcefc065"
+    },
+    {
+      "file": "C5原包/check_c5.py",
+      "bytes": 20067,
+      "sha256": "5bb6e302c808266281884422fc96e8d6e7fb33ec3faedba19703723a3b539db5"
+    },
+    {
+      "file": "C5原包/manifest.json",
+      "bytes": 1993,
+      "sha256": "c77025f80c686763e3861237540b1d4437e91824d17afd5b49ac6b3b1466d100"
+    },
+    {
+      "file": "C5原包/README.md",
+      "bytes": 3701,
+      "sha256": "36b26348b2c2d9936bbcf8b4a33324a06e7befc4ede375dd79a6210cd48a8745"
+    },
+    {
+      "file": "C5原包/selfcheck.json",
+      "bytes": 26292,
+      "sha256": "7050fce3f3406c8a663398eb1b4051d04588475f04eecd46129e48fc639bddad"
+    },
+    {
+      "file": "check_c6.py",
+      "bytes": 7935,
+      "sha256": "cf4c7628b23d15192cd0a5e974dfc35b5ac87738332635600a4c8715d478e9b0"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3295,
+      "sha256": "39e69cf1bdf716187d75e45ec5aa5649386eb942019f9e99bd695f93cb450952"
+    }
+  ],
+  "source": "C 第六轮在仓库内生成；C5原包为第五轮原包完整副本，未改内容",
+  "note": "manifest.json 与 selfcheck.json 不列入自身哈希；selfcheck.json 由 check_c6.py 运行刷新。"
+}

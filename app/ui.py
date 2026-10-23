@@ -72,10 +72,13 @@ NAV_ITEMS = (
     ('budget', 'app/pages/7_预算管理.py'),
     ('merchant', 'app/pages/8_生日与商户.py'),
     ('wealth', 'app/pages/9_理财.py'),
+    ('assistant', 'app/pages/0_AI银行助手.py'),
+    ('transfer', 'app/main.py'),
+    ('bills', 'app/main.py'),
 )
 
 NAV_LABELS = {
-    'home': '首页与转账',
+    'home': '银行首页',
     'accounts': '资料账单',
     'products': '产品对比',
     'cards': '卡片管理',
@@ -85,6 +88,9 @@ NAV_LABELS = {
     'budget': '预算管理',
     'merchant': '生日与商户',
     'wealth': '理财',
+    'assistant': 'AI 银行助手',
+    'transfer': '转账汇款',
+    'bills': '账单流水',
 }
 
 PRIMARY_NAV_KEYS = ('home', 'accounts', 'wealth')
@@ -105,6 +111,16 @@ _NAV_LOOKUP = {
     for key, path in NAV_ITEMS
 }
 _UNKNOWN_STATUS = {'label': '状态未知', 'color': 'gray'}
+_HOME_VIEWS = {'home': 'home', 'transfer': 'transfer', 'bills': 'bills'}
+_NAV_ICONS = {
+    'home': ':material/home:', 'assistant': ':material/auto_awesome:',
+    'accounts': ':material/folder_open:', 'bills': ':material/receipt_long:',
+    'cards': ':material/credit_card:', 'transfer': ':material/swap_horiz:',
+    'aa': ':material/group:', 'scheduled': ':material/schedule:',
+    'subscriptions': ':material/subscriptions:', 'budget': ':material/account_balance_wallet:',
+    'merchant': ':material/storefront:', 'wealth': ':material/savings:',
+    'products': ':material/compare_arrows:',
+}
 
 
 def _is_blank(value: Any) -> bool:
@@ -151,29 +167,42 @@ def render_page_header(title, subtitle=None):
     st.title(heading)
     if not _is_blank(subtitle):
         st.caption(subtitle)
-    st.divider()
+
+
+def _navigate(key, path):
+    if key in _HOME_VIEWS:
+        st.switch_page(path.removeprefix('app/'), query_params={'view': _HOME_VIEWS[key]})
+    else:
+        st.switch_page(path.removeprefix('app/'))
 
 
 def render_sidebar_nav(current_key):
     """Native navigation for all pages, with no dependency on a page registry at render time."""
     groups = (
-        ('日常银行', ('home', 'accounts', 'cards', 'aa', 'scheduled', 'budget')),
-        ('生活服务', ('subscriptions', 'merchant')),
-        ('理财规划', ('products', 'wealth')),
+        ('账户与账单', ('bills', 'cards', 'accounts')),
+        ('转账与收款', ('transfer', 'aa', 'scheduled')),
+        ('生活管理', ('subscriptions', 'budget', 'merchant')),
+        ('理财与产品', ('wealth', 'products')),
     )
+    def item(key):
+        label, path = _NAV_LOOKUP[key]
+        clicked = st.button(label, key='ui_menu_' + key, width='stretch',
+                            icon=_NAV_ICONS[key],
+                            type='primary' if key == current_key else 'tertiary')
+        if clicked and key != current_key:
+            _navigate(key, path)
+
     with st.sidebar:
-        st.caption('FinTechathon')
+        st.caption('FinTechathon 2026')
         st.subheader('银行助手')
         st.caption('模拟用户 A · 本地演示')
         with st.container(gap='xsmall'):
+            item('home')
+            item('assistant')
             for heading, keys in groups:
-                st.caption(heading)
-                for key in keys:
-                    label, path = _NAV_LOOKUP[key]
-                    clicked = st.button(label, key='ui_menu_' + key, width='stretch',
-                                        type='primary' if key == current_key else 'tertiary')
-                    if clicked and key != current_key:
-                        st.switch_page(path.removeprefix('app/'))
+                with st.expander(heading, expanded=current_key in keys):
+                    for key in keys:
+                        item(key)
 
 
 def render_app_nav(current_key, *, keys=PRIMARY_NAV_KEYS, key_prefix='app_nav'):
@@ -211,7 +240,7 @@ def render_app_nav(current_key, *, keys=PRIMARY_NAV_KEYS, key_prefix='app_nav'):
                 type='primary' if active else 'secondary',
             )
             if clicked and not active:
-                st.switch_page(path.removeprefix('app/'))
+                _navigate(key, path)
 
 
 def render_overview(items, *, columns=3, title=None):

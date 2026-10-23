@@ -1,0 +1,1069 @@
+{
+  "package": "C 第五轮组 3 理财联合验收",
+  "member": "C",
+  "round": "第五轮（2026-10-20 分派）",
+  "version": "C5-1.0",
+  "baseline": "main@a505d20",
+  "generated_at": "2026-10-20T21:50:29.090494+08:00",
+  "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "db": "C:\\Users\\zkq\\Desktop\\金科比赛\\_tmp5\\c5_2d15283f8bd048aa9571074f9639b1ab.sqlite3",
+  "group3": [
+    {
+      "id": "G3-01",
+      "title": "问卷 10 个分数边界映射",
+      "expected": [
+        {
+          "scores": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "total": 5,
+          "level": "R1"
+        },
+        {
+          "scores": [
+            1,
+            2,
+            1,
+            2,
+            2
+          ],
+          "total": 8,
+          "level": "R1"
+        },
+        {
+          "scores": [
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "total": 9,
+          "level": "R2"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            2,
+            2,
+            2
+          ],
+          "total": 12,
+          "level": "R2"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            3,
+            2,
+            2
+          ],
+          "total": 13,
+          "level": "R3"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            3,
+            3,
+            4
+          ],
+          "total": 16,
+          "level": "R3"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            3,
+            3,
+            3
+          ],
+          "total": 17,
+          "level": "R4"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            3,
+            3
+          ],
+          "total": 18,
+          "level": "R4"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "total": 19,
+          "level": "R5"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "total": 20,
+          "level": "R5"
+        }
+      ],
+      "actual": [
+        {
+          "scores": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "total": 5,
+          "level": "R1"
+        },
+        {
+          "scores": [
+            1,
+            2,
+            1,
+            2,
+            2
+          ],
+          "total": 8,
+          "level": "R1"
+        },
+        {
+          "scores": [
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "total": 9,
+          "level": "R2"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            2,
+            2,
+            2
+          ],
+          "total": 12,
+          "level": "R2"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            3,
+            2,
+            2
+          ],
+          "total": 13,
+          "level": "R3"
+        },
+        {
+          "scores": [
+            3,
+            3,
+            3,
+            3,
+            4
+          ],
+          "total": 16,
+          "level": "R3"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            3,
+            3,
+            3
+          ],
+          "total": 17,
+          "level": "R4"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            3,
+            3
+          ],
+          "total": 18,
+          "level": "R4"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            4,
+            3
+          ],
+          "total": 19,
+          "level": "R5"
+        },
+        {
+          "scores": [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "total": 20,
+          "level": "R5"
+        }
+      ],
+      "match": true,
+      "notes": "纯函数 questionnaire.score；5/8/9/12/13/16/17/18/19/20"
+    },
+    {
+      "id": "G3-02",
+      "title": "非法问卷拒绝且不落库",
+      "expected": [
+        {
+          "label": "missing_q5",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        },
+        {
+          "label": "unknown_choice",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        },
+        {
+          "label": "bad_version",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        }
+      ],
+      "actual": [
+        {
+          "label": "missing_q5",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        },
+        {
+          "label": "unknown_choice",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        },
+        {
+          "label": "bad_version",
+          "status": "failed",
+          "code": "INVALID_REQUEST"
+        }
+      ],
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-03",
+      "title": "风险评估 R3/R2 保存档案",
+      "expected": {
+        "r3": {
+          "status": "succeeded",
+          "risk_level": "R3",
+          "profile_ok": true
+        },
+        "r2": {
+          "status": "succeeded",
+          "risk_level": "R2",
+          "profile_ok": true
+        }
+      },
+      "actual": {
+        "r3": {
+          "status": "succeeded",
+          "risk_level": "R3",
+          "profile_ok": true
+        },
+        "r2": {
+          "status": "succeeded",
+          "risk_level": "R2",
+          "profile_ok": true
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-04",
+      "title": "R2 用户申购 R4 产品被拒且无副作用",
+      "expected": {
+        "status": "failed",
+        "code": "RISK_BLOCKED",
+        "snapshot": {
+          "account": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "holdings": [],
+          "orders": [],
+          "ledger": [],
+          "challenges": 0
+        }
+      },
+      "actual": {
+        "status": "failed",
+        "code": "RISK_BLOCKED",
+        "snapshot": {
+          "account": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "holdings": [],
+          "orders": [],
+          "ledger": [],
+          "challenges": 0
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-05",
+      "title": "起购不足/余额不足均确认前拒绝",
+      "expected": {
+        "minimum": {
+          "status": "failed",
+          "code": "LIMIT_EXCEEDED"
+        },
+        "insufficient": {
+          "status": "failed",
+          "code": "INSUFFICIENT_FUNDS"
+        },
+        "snapshot": {
+          "account": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "holdings": [],
+          "orders": [],
+          "ledger": [],
+          "challenges": 0
+        }
+      },
+      "actual": {
+        "minimum": {
+          "status": "failed",
+          "code": "LIMIT_EXCEEDED"
+        },
+        "insufficient": {
+          "status": "failed",
+          "code": "INSUFFICIENT_FUNDS"
+        },
+        "snapshot": {
+          "account": {
+            "balance_minor": 200000,
+            "available_minor": 200000,
+            "reserved_minor": 0
+          },
+          "holdings": [],
+          "orders": [],
+          "ledger": [],
+          "challenges": 0
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-06",
+      "title": "正常申购 50000：红色强验证、费用/份额/余额",
+      "expected": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "amount_minor": 50000,
+        "snapshot": {
+          "account": {
+            "balance_minor": 150000,
+            "available_minor": 150000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "499.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 1
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "499.5000",
+          "state": "open",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        }
+      },
+      "actual": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "amount_minor": 50000,
+        "snapshot": {
+          "account": {
+            "balance_minor": 150000,
+            "available_minor": 150000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "499.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 1
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "499.5000",
+          "state": "open",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-07",
+      "title": "持仓上下文只含 open 持仓",
+      "expected": [
+        {
+          "account_id": "demo_account_a",
+          "product_id": "WP-C02",
+          "units": "499.5000"
+        }
+      ],
+      "actual": [
+        {
+          "account_id": "demo_account_a",
+          "product_id": "WP-C02",
+          "units": "499.5000"
+        }
+      ],
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-08",
+      "title": "锁定期内赎回被拒且份额/余额不变",
+      "expected": {
+        "status": "failed",
+        "code": "INVALID_STATE",
+        "snapshot": {
+          "account": {
+            "balance_minor": 150000,
+            "available_minor": 150000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "499.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 1
+        }
+      },
+      "actual": {
+        "status": "failed",
+        "code": "INVALID_STATE",
+        "snapshot": {
+          "account": {
+            "balance_minor": 150000,
+            "available_minor": 150000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "499.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 1
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-09",
+      "title": "解锁当日部分赎回 200 份",
+      "expected": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "units": "200",
+        "snapshot": {
+          "account": {
+            "balance_minor": 170000,
+            "available_minor": 170000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "299.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 20000,
+              "fee_minor": 0,
+              "units": "200",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 20000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 2
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "299.5000",
+          "state": "open",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        }
+      },
+      "actual": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "units": "200",
+        "snapshot": {
+          "account": {
+            "balance_minor": 170000,
+            "available_minor": 170000,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "299.5000",
+              "state": "open",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 20000,
+              "fee_minor": 0,
+              "units": "200",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 20000,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 2
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "299.5000",
+          "state": "open",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        }
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-10",
+      "title": "清仓：份额归零、持仓 closed、上下文移除",
+      "expected": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "units": "299.5",
+        "snapshot": {
+          "account": {
+            "balance_minor": 199950,
+            "available_minor": 199950,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "0.0000",
+              "state": "closed",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 20000,
+              "fee_minor": 0,
+              "units": "200",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 29950,
+              "fee_minor": 0,
+              "units": "299.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 20000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 29950,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 3
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "0.0000",
+          "state": "closed",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        },
+        "context": []
+      },
+      "actual": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "units": "299.5",
+        "snapshot": {
+          "account": {
+            "balance_minor": 199950,
+            "available_minor": 199950,
+            "reserved_minor": 0
+          },
+          "holdings": [
+            {
+              "product_id": "WP-C02",
+              "units": "0.0000",
+              "state": "closed",
+              "lock_days": 7,
+              "confirmed_on": "2026-10-19"
+            }
+          ],
+          "orders": [
+            {
+              "order_type": "purchase",
+              "product_id": "WP-C02",
+              "amount_minor": 50000,
+              "fee_minor": 50,
+              "units": "499.5",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 20000,
+              "fee_minor": 0,
+              "units": "200",
+              "status": "succeeded"
+            },
+            {
+              "order_type": "redeem",
+              "product_id": "WP-C02",
+              "amount_minor": 29950,
+              "fee_minor": 0,
+              "units": "299.5",
+              "status": "succeeded"
+            }
+          ],
+          "ledger": [
+            {
+              "direction": "debit",
+              "amount_minor": 50000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 20000,
+              "kind": "wealth"
+            },
+            {
+              "direction": "credit",
+              "amount_minor": 29950,
+              "kind": "wealth"
+            }
+          ],
+          "challenges": 3
+        },
+        "holding": {
+          "product_id": "WP-C02",
+          "units": "0.0000",
+          "state": "closed",
+          "lock_days": 7,
+          "confirmed_on": "2026-10-19"
+        },
+        "context": []
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-11",
+      "title": "清仓后再赎回被拒",
+      "expected": {
+        "status": "failed",
+        "code": "INVALID_STATE"
+      },
+      "actual": {
+        "status": "failed",
+        "code": "INVALID_STATE"
+      },
+      "match": true,
+      "notes": ""
+    },
+    {
+      "id": "G3-12",
+      "title": "0.5 分费用进位：10500 申购费 11、份额 104.8900",
+      "expected": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "fee_minor": 11,
+        "order_units": "104.89",
+        "holding_units": "104.8900",
+        "balance": 189450
+      },
+      "actual": {
+        "pending_status": "awaiting_verification",
+        "done_status": "succeeded",
+        "fee_minor": 11,
+        "order_units": "104.89",
+        "holding_units": "104.8900",
+        "balance": 189450
+      },
+      "match": true,
+      "notes": ""
+    }
+  ],
+  "entry": [
+    {
+      "id": "C5-ENT-W01",
+      "title": "帮我做风险测评",
+      "expected": {
+        "status": "ready",
+        "intent": "wealth_assess",
+        "fields": {
+          "questionnaire_version": "wpq_v1"
+        },
+        "missing": []
+      },
+      "actual": {
+        "status": "ready",
+        "intent": "wealth_assess",
+        "fields": {
+          "questionnaire_version": "wpq_v1"
+        },
+        "missing": []
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    },
+    {
+      "id": "C5-ENT-W02",
+      "title": "从账户 demo_account_a 买理财 WP-C02 100元",
+      "expected": {
+        "status": "ready",
+        "intent": "wealth_purchase",
+        "fields": {
+          "account_id": "demo_account_a",
+          "product_id": "WP-C02",
+          "amount_text": "100元"
+        },
+        "missing": []
+      },
+      "actual": {
+        "status": "ready",
+        "intent": "wealth_purchase",
+        "fields": {
+          "account_id": "demo_account_a",
+          "product_id": "WP-C02",
+          "amount_text": "100元"
+        },
+        "missing": []
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    },
+    {
+      "id": "C5-ENT-W03",
+      "title": "从账户 demo_account_a 赎回理财 100份",
+      "expected": {
+        "status": "ready",
+        "intent": "wealth_redeem",
+        "fields": {
+          "account_id": "demo_account_a",
+          "units_text": "100"
+        },
+        "missing": []
+      },
+      "actual": {
+        "status": "ready",
+        "intent": "wealth_redeem",
+        "fields": {
+          "account_id": "demo_account_a",
+          "units_text": "100"
+        },
+        "missing": []
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    },
+    {
+      "id": "C5-ENT-W04",
+      "title": "查看账户 demo_account_a 的理财持仓",
+      "expected": {
+        "status": "ready",
+        "intent": "wealth_holdings",
+        "fields": {
+          "account_id": "demo_account_a"
+        },
+        "missing": []
+      },
+      "actual": {
+        "status": "ready",
+        "intent": "wealth_holdings",
+        "fields": {
+          "account_id": "demo_account_a"
+        },
+        "missing": []
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    },
+    {
+      "id": "C5-ENT-W05",
+      "title": "买理财 WP-C02 100元",
+      "expected": {
+        "status": "clarify",
+        "intent": "wealth_purchase",
+        "fields": {
+          "product_id": "WP-C02",
+          "amount_text": "100元"
+        },
+        "missing": [
+          "account_id"
+        ]
+      },
+      "actual": {
+        "status": "clarify",
+        "intent": "wealth_purchase",
+        "fields": {
+          "product_id": "WP-C02",
+          "amount_text": "100元"
+        },
+        "missing": [
+          "account_id"
+        ]
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    },
+    {
+      "id": "C5-ENT-W06",
+      "title": "赎回理财",
+      "expected": {
+        "status": "clarify",
+        "intent": "wealth_redeem",
+        "fields": {},
+        "missing": [
+          "account_id",
+          "units_text"
+        ]
+      },
+      "actual": {
+        "status": "clarify",
+        "intent": "wealth_redeem",
+        "fields": {},
+        "missing": [
+          "account_id",
+          "units_text"
+        ]
+      },
+      "match": true,
+      "notes": "route() 纯函数"
+    }
+  ],
+  "g_table": {
+    "rows": 15,
+    "missing": []
+  },
+  "failure_count": 0,
+  "failures": [],
+  "result": "PASS",
+  "limits": [
+    "本机实跑 13 项组 3/费用/入口检查；页面（Streamlit）未重跑。",
+    "使用临时 SQLite（非 runtime/ 日常库）；金额为整数分，份额为契约十进制字符串。",
+    "G01—G07、G09—G12、G14—G15 的 A 自动化证据仅引用测试名，不由 C 冒充独立执行；G13 未执行。",
+    "R01/R03-B 按 C-07 继续不启用，本包不涉及。"
+  ]
+}

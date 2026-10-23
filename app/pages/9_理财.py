@@ -43,6 +43,8 @@ def _units_widget_key(holding_id, units_text):
 
 
 st.set_page_config(page_title='模拟理财', layout='wide')
+from app.auth_ui import gate
+gate()
 ui.render_sidebar_nav('wealth')
 ui.render_page_header('理财操作', '评估风险、核对产品，再决定申购或赎回。')
 ui.render_app_nav('wealth')

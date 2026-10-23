@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 from uuid import uuid4
+from agent.model_providers import PROVIDERS, valid_model
 
 PROFILE = Path(__file__).resolve().parents[1] / '.cache' / 'bank-model' / 'profile.json'
 
@@ -53,32 +54,40 @@ class CredentialStore:
     def read(self):
         self._safe()
         if not self.path.exists():
-            return {'version':1, 'mode':'missing', 'model':'deepseek-flash'}
+            return {'version':2, 'mode':'missing', 'provider':'deepseek', 'model':'deepseek-flash'}
         try:
             value = json.loads(self.path.read_text(encoding='utf-8'))
-            if not isinstance(value, dict) or value.get('version') != 1 or value.get('mode') not in {'missing','desktop','independent'}:
+            if not isinstance(value, dict) or value.get('version') not in {1, 2} or value.get('mode') not in {'missing','desktop','independent'}:
                 raise ValueError()
-            if value.get('model') not in {'deepseek-flash','deepseek-v4-pro'}:
+            if value['version'] == 1:
+                value.update(version=2, provider='deepseek')
+            if value.get('provider') not in PROVIDERS or not valid_model(value.get('model')):
+                raise ValueError()
+            if value['mode'] == 'desktop' and value['provider'] != 'deepseek':
                 raise ValueError()
             if 'encrypted_key' in value and not isinstance(value['encrypted_key'], str):
                 raise ValueError()
             return value
-        except (OSError, ValueError):
+        except (OSError, ValueError, TypeError):
             raise CredentialError('模型本机配置无法读取，请重新保存设置。') from None
 
-    def save(self, *, mode, model='deepseek-flash', key=None, clear=False):
-        if mode not in {'missing','desktop','independent'} or model not in {'deepseek-flash','deepseek-v4-pro'}:
+    def save(self, *, mode, model='deepseek-flash', provider='deepseek', key=None, clear=False):
+        if mode not in {'missing','desktop','independent'} or provider not in PROVIDERS or not valid_model(model):
             raise CredentialError('模型设置无效。')
+        if mode == 'desktop' and provider != 'deepseek':
+            raise CredentialError('桌宠凭证只支持DeepSeek，请为所选服务商配置独立密钥。')
         value = self.read()
+        if value['provider'] != provider:
+            value.pop('encrypted_key', None)
         if key is not None:
-            if not isinstance(key, str) or not 12 <= len(key.strip()) <= 512 or any(c.isspace() for c in key.strip()):
+            if not isinstance(key, str) or not key.isascii() or not 12 <= len(key.strip()) <= 512 or any(c.isspace() for c in key.strip()):
                 raise CredentialError('密钥格式无效，请重新输入。')
             value['encrypted_key'] = base64.b64encode(_dpapi(key.strip().encode(), decrypt=False)).decode('ascii')
         if clear:
             value.pop('encrypted_key', None)
         if mode == 'independent' and not value.get('encrypted_key'):
-            raise CredentialError('请先输入银行项目独立密钥。')
-        value.update(mode=mode, model=model)
+            raise CredentialError('请先输入所选服务商的独立密钥；切换服务商不能复用原密钥。')
+        value.update(version=2, mode=mode, model=model, provider=provider)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self._safe()
         temp = self.path.with_name('profile-' + uuid4().hex + '.tmp')

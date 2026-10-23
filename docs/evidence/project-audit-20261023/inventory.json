@@ -1,0 +1,27 @@
+{
+  "tracked_or_nonignored_files": 566,
+  "text_files_scanned": 543,
+  "high_confidence_pattern_hits": [],
+  "patterns": [
+    "private_key_header",
+    "github_token",
+    "model_key"
+  ],
+  "limitations": "Pattern scan only. Does not certify absence of secrets, inspect binary workbook private data, or check online dependency CVEs.",
+  "evidence_drift": {
+    "ui_554": {
+      "saved_count": 108,
+      "changed": [
+        "app\\model_settings.py",
+        "agent\\model_client.py",
+        "agent\\model_credentials.py",
+        "tests\\test_model_settings_acceptance.py"
+      ]
+    },
+    "providers_564": {
+      "saved_count": 110,
+      "changed": []
+    }
+  },
+  "dependency_check": "pip check: No broken requirements found."
+}

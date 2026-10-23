@@ -1,0 +1,25 @@
+Timeout (0:00:45)!
+Thread 0x0000c43c (most recent call first):
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socket.py", line 295 in accept
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socket.py", line 627 in _fallback_socketpair
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\proactor_events.py", line 787 in _make_self_pipe
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\proactor_events.py", line 640 in __init__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\windows_events.py", line 316 in __init__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\events.py", line 720 in new_event_loop
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\events.py", line 823 in new_event_loop
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\local_script_runner.py", line 62 in __init__
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\app_test.py", line 517 in _run
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py", line 2911 in run
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\app_test.py", line 616 in run
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\tests\test_app.py", line 24 in setUp
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\case.py", line 586 in _callSetUp
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\case.py", line 630 in run
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\case.py", line 690 in __call__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 122 in run
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 84 in __call__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 122 in run
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 84 in __call__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 122 in run
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\suite.py", line 84 in __call__
+  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\runner.py", line 240 in run
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\local_reports\material_checks\project-audit\run_audit.py", line 17 in <module>

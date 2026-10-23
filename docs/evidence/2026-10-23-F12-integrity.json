@@ -1,0 +1,45 @@
+{
+  "executor": "A/Codex收尾完整性复核",
+  "base_commit": "02fe7464c9b131a3b18722bd9df85a54227a0ee1",
+  "head_unchanged": true,
+  "baseline_files": 518,
+  "baseline_modified": [
+    "README.md",
+    "agent/controller.py",
+    "agent/model_bank.py",
+    "agent/model_dialogue.py",
+    "app/model_bank_panel.py",
+    "bank/gateway.py",
+    "docs/AI模型接入与验收.md",
+    "docs/BLOCKERS.md",
+    "docs/下一阶段分工与实施计划/README.md",
+    "docs/成员资料勘误.md",
+    "scripts/acceptance.py"
+  ],
+  "unexpected_baseline_changes": [],
+  "material_files_checked": 105,
+  "all_materials_unchanged": true,
+  "runtime_before": {
+    "runtime/sandbox.sqlite3": "075ccfb8cc1a68a8579a9bb93ab65dc0b238b306a5aab2509ac76b847fc83efe"
+  },
+  "runtime_after": {
+    "runtime/sandbox.sqlite3": "075ccfb8cc1a68a8579a9bb93ab65dc0b238b306a5aab2509ac76b847fc83efe"
+  },
+  "runtime_unchanged": true,
+  "old_20_call_budget_unchanged": true,
+  "new_model_budget_used": 11,
+  "new_model_budget_limit": 12,
+  "source_evidence_mismatch": {
+    "full": [],
+    "live": []
+  },
+  "full_tests": 547,
+  "full_passed": true,
+  "live_groups": 9,
+  "live_passed": true,
+  "missing_document_links": [],
+  "git_diff_check_exit": 0,
+  "code_scope": "安全/权限保护变更及独立验收，无编码委派；源码/证据未提交或推送",
+  "limitations": "声明式计划逻辑隔离、本地模拟银行；无独立OS沙箱、真实认证或后台自动引擎。",
+  "passed": true
+}

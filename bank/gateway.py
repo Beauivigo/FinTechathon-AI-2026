@@ -24,23 +24,86 @@ PENDING = ('awaiting_confirmation', 'awaiting_verification')
 
 
 class BankGateway:
-    demo_mode = True
+    @property
+    def demo_mode(self):
+        with self.store.connection() as c:
+            return not bool(c.execute('SELECT 1 FROM auth_users LIMIT 1').fetchone())
     write_actions = frozenset({'transfer.create', 'transfer.schedule', 'transfer.split', 'subscription.review',
                                'subscription.scan', 'merchant.order', *member_workflows.ACTIONS,
                                *CARD_ACTIONS, *budget.ACTIONS, *wealth.ACTIONS,
                                *subscription_charge.ACTIONS})
     confirmed_reads = frozenset({'subscription.list'})
 
-    def __init__(self, store, *, clock=None):
+    def __init__(self, store, *, clock=None, auth=None, session_token=None, trusted_worker=False):
         self.store = store
         self.clock = clock or (lambda: datetime.now(timezone.utc))
         self.services = SandboxServices(store, clock=self.clock)
+        from .auth import AuthService
+        self.auth=auth or AuthService(store)
+        self.session_token=session_token;self.trusted_worker=trusted_worker
+
+    def _identity(self,principal,*,authorize=False):
+        if self.trusted_worker and authorize:
+            raise ServiceError('AUTH_INVALID','后台不能批准交易。')
+        if self.demo_mode:return
+        if self.trusted_worker and not authorize:return
+        if self.trusted_worker or self.auth.principal(self.session_token)!=principal:
+            raise ServiceError('AUTH_INVALID','当前登录身份无权办理该操作。')
+
+    def issue_totp_proof(self,challenge_id,code,*,principal_id):
+        self._identity(principal_id,authorize=True)
+        if self.demo_mode:raise ServiceError('AUTH_INVALID','尚未启用手机身份验证。')
+        valid=False;token=None;expired=False
+        with self.store.connection(write=True) as c:
+            row,request,previous=self._challenge(c,challenge_id,principal_id)
+            if row['kind']!='verify' or row['state']!='pending' or request['schema_version']!='1.2':
+                raise ServiceError('AUTH_INVALID','验证挑战无效。')
+            if self._expired(row,self.clock()):
+                self._finish(c,row,request,previous,principal_id,self.clock(),'expired','AUTH_EXPIRED');expired=True
+            else:
+                valid=self.auth.consume(c,self.session_token,code)
+                if valid:
+                    token=secrets.token_urlsafe(32)
+                    c.execute('UPDATE challenges SET proof_digest=? WHERE challenge_id=?',(hashlib.sha256(token.encode()).hexdigest(),challenge_id))
+                    c.execute('INSERT OR REPLACE INTO auth_proofs VALUES (?,?)',(challenge_id,hashlib.sha256(self.session_token.encode()).hexdigest()))
+                    self._audit(c,request,principal_id,'totp_verified',self.clock(),challenge_id=challenge_id)
+                else:
+                    attempts=row['failed_attempts']+1
+                    c.execute('UPDATE challenges SET failed_attempts=? WHERE challenge_id=?',(attempts,challenge_id))
+                    self._audit(c,request,principal_id,'verification_invalid',self.clock(),attempts=attempts)
+                    if attempts>=5:self._finish(c,row,request,previous,principal_id,self.clock(),'blocked','SAFETY_LOCKED')
+        if expired:raise ServiceError('AUTH_EXPIRED','本次授权已过期，请核对原结果后重新发起。')
+        if not valid:raise ServiceError('AUTH_INVALID','动态码无效、已使用或暂时锁定。')
+        return token
 
     def get_context(self, *, principal_id):
         try:
             return self.services.get_context(principal_id=principal_id)
         except (sqlite3.Error, ContractError) as exc:
             raise ServiceError("UPSTREAM_ERROR", "模拟资源暂不可用，请检查数据。") from exc
+
+    def record_agent_event(self, event, *, principal_id):
+        """可信接线专用审计入口，不是模型工具；只接受闭集技术元数据。"""
+        from agent.model_safety import EVENTS, PHASES, check_trace
+        from agent.model_dialogue import INTENTS
+        from shared.contracts import ACTIONS
+        try:
+            if type(event) is not dict or set(event) != {'trace_id','event','version','failures','phase','intent'}:
+                raise ValueError('invalid audit metadata')
+            check_trace(event['trace_id'])
+            if event['event'] not in EVENTS or event['phase'] not in PHASES:
+                raise ValueError('invalid audit event')
+            if event['intent'] is not None and event['intent'] not in {*INTENTS,*ACTIONS}:
+                raise ValueError('invalid audit action')
+            if any(type(event[k]) is not int or not 0<=event[k]<=1000000 for k in ('version','failures')):
+                raise ValueError('invalid audit counter')
+            with self.store.connection(write=True) as c:
+                require_principal(c,principal_id)
+                c.execute('''INSERT INTO audit_events(principal_id,trace_id,action,outcome,occurred_at,details_json)
+                    VALUES (?,?,?,?,?,?)''',(principal_id,event['trace_id'],'agent.plan',event['event'],
+                    utc_timestamp(self.clock().isoformat()),json.dumps({k:v for k,v in event.items() if k not in {'trace_id','event'}},ensure_ascii=False)))
+        except (ValueError,TypeError,sqlite3.Error,ContractError) as exc:
+            raise ServiceError('UPSTREAM_ERROR','计划审计未能保存，已停止新的模型推进。') from exc
 
     def run_reminders(self, *, principal_id):
         return member_workflows.run_reminders(self.store,principal_id,self.clock())
@@ -156,6 +219,8 @@ class BankGateway:
         try:
             with self.store.connection(write=True) as c:
                 row, request, previous = self._challenge(c, payload['challenge_id'], principal_id)
+                if payload['schema_version']!=request['schema_version']:
+                    raise ServiceError('AUTH_INVALID','授权版本与原操作不一致。')
                 if request['action'] in self.confirmed_reads:
                     owned_account(c,request['params']['account_id'],principal_id)
                 now = self.clock()
@@ -279,7 +344,7 @@ class BankGateway:
         expires = utc_timestamp((now + timedelta(minutes=10)).isoformat())
         next_action = dict(challenge_id=challenge, operation_digest=digest, kind=kind, expires_at=expires)
         if kind == 'verify':
-            next_action['methods'] = ['demo_otp']
+            next_action['methods'] = ['demo_otp'] if self.demo_mode else ['totp']
         status = 'awaiting_verification' if kind == 'verify' else 'awaiting_confirmation'
         result = adapt_result(request, dict(status=status, next_action=next_action), source='gateway')
         self._save(c, request, result, principal, previous)
@@ -385,6 +450,7 @@ class BankGateway:
 
     def issue_demo_proof(self, challenge_id, *, principal_id):
         """仅可信演示服务调用，不注册为模型工具；不保存明文、不重置失败次数。"""
+        if self.trusted_worker or not self.demo_mode:raise ServiceError('AUTH_INVALID','后台和真实验证模式禁止演示凭据。')
         error = None
         try:
             with self.store.connection(write=True) as c:
@@ -407,6 +473,8 @@ class BankGateway:
         return token
 
     def _approve(self, c, row, request, previous, principal, payload, now):
+        if not self.demo_mode and row['kind']=='verify' and request['schema_version']!='1.2':
+            return self._finish(c,row,request,previous,principal,now,'used','AUTH_INVALID'),None
         try:
             payee = self._binding(c, request, principal)
             # 老转账挑战继续使用原绑定字段；新业务不得把空绑定当作有效授权。
@@ -422,7 +490,11 @@ class BankGateway:
             return self._pending(c, request, principal, 'verify', payee, now, previous), None
         if row['kind'] == 'verify':
             digest = hashlib.sha256(payload.get('proof_token', '').encode()).hexdigest()
-            if not row['proof_digest'] or not hmac.compare_digest(row['proof_digest'], digest):
+            session_bound=True
+            if not self.demo_mode:
+                binding=c.execute('SELECT session_hash FROM auth_proofs WHERE challenge_id=?',(row['challenge_id'],)).fetchone()
+                session_bound=bool(binding and hmac.compare_digest(binding[0],hashlib.sha256(self.session_token.encode()).hexdigest()))
+            if not session_bound or not row['proof_digest'] or not hmac.compare_digest(row['proof_digest'], digest):
                 attempts = row['failed_attempts'] + 1
                 c.execute('UPDATE challenges SET failed_attempts=? WHERE challenge_id=?', (attempts, row['challenge_id']))
                 self._audit(c, request, principal, 'verification_invalid', now, attempts=attempts, challenge_id=row['challenge_id'])
@@ -576,3 +648,25 @@ class BankGateway:
         with self.services.transfer_context(c, request, principal_id=principal, now=now) as context:
             raw = handle(context['request']['params'], context=context)
         return adapt_result(request, raw, source='sandbox')
+
+
+# All trusted public page entry points enforce the same session boundary.
+from functools import wraps as _wraps
+
+def _guard_public(method):
+    @_wraps(method)
+    def guarded(self,*args,principal_id,**kwargs):
+        try:self._identity(principal_id,authorize=method.__name__=='authorize')
+        except sqlite3.Error:
+            if method.__name__=='execute':
+                request=args[0];validate_request(request)
+                uncertain=request['action'] in self.write_actions
+                return self._error(request,'RESULT_UNKNOWN' if uncertain else 'UPSTREAM_ERROR',status='unknown' if uncertain else 'failed')
+            raise ServiceError('UPSTREAM_ERROR','身份或银行状态暂不可核实。') from None
+        return method(self,*args,principal_id=principal_id,**kwargs)
+    return guarded
+
+for _name in ('get_context','record_agent_event','run_reminders','release_quote','list_orders',
+              'selected_order_card','list_reservations','subscription_charge_details','list_operations',
+              'operation_payee','execute','authorize','get_confirmed_read'):
+    setattr(BankGateway,_name,_guard_public(getattr(BankGateway,_name)))

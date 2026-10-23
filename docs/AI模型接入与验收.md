@@ -1,5 +1,33 @@
 # AI模型接入与验收
 
+## 2026-10-23 国内多服务商配置
+
+“模型设置”现在可选择 **DeepSeek、智谱GLM、通义千问（阿里云百炼）、豆包（火山方舟）、Kimi（月之暗面）**。先选服务商和模型，再输入该服务商的API密钥并保存。支持填写其他模型ID；豆包可填写已开通的`ep-`推理接入点。模型需支持Chat Completions与JSON对象输出，账号可用性以服务商控制台为准。
+
+| 服务商编号 | 固定官方Base URL | 预设模型 | 专属环境变量 |
+|---|---|---|---|
+| `deepseek` | `https://api.deepseek.com` | `deepseek-flash`、`deepseek-v4-pro` | `DEEPSEEK_API_KEY` |
+| `glm` | `https://open.bigmodel.cn/api/paas/v4` | `glm-4.7`、`glm-5.2` | `ZHIPU_API_KEY`或`ZAI_API_KEY` |
+| `qwen` | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen-plus`、`qwen-flash` | `DASHSCOPE_API_KEY` |
+| `doubao` | `https://ark.cn-beijing.volces.com/api/v3` | `doubao-seed-2-1-pro-260915` | `ARK_API_KEY` |
+| `kimi` | `https://api.moonshot.cn/v1` | `kimi-k2.6` | `MOONSHOT_API_KEY` |
+
+服务器设置`BANK_MODEL_PROVIDER`选择上表编号，`BANK_MODEL_NAME`可覆盖模型名。`BANK_MODEL_API_KEY`优先于对应服务商专属环境变量及本机保存的同服务商密钥；只有通用密钥、没有显式服务商或地址的旧服务器配置仍绑定DeepSeek。`BANK_MODEL_BASE_URL`可选，必须匹配选定服务商的官方地址；本地兼容入口仍只接受字面回环HTTP地址。百炼当前预设使用北京公共兼容地址，尚未加入工作空间专属域名或其他地域。
+
+本机仅保存一份独立配置。**切换服务商必须输入对应的新密钥**，空密钥保存失败时原配置保持；更换同服务商模型可保留密钥。服务商下拉选项变化会清空未保存的密码输入。旧v1配置只在内存中按DeepSeek解释，保存时写入含服务商绑定的v2；读取旧文件不会改写或重新加密。桌宠复用仅限DeepSeek，其他服务商不会读取或继承桌宠/DeepSeek凭证。现有已保存密钥和日常模拟账本未在此次开发测试中修改。
+
+预设按各家协议关闭思考并请求JSON输出；仅向千问发送`enable_thinking=false`，其他预设使用相应`thinking`参数。Kimi K3/K2.7 Code要求回传思考内容，当前银行对话未实现该协议，填写这些ID会在请求前明确拒绝。云端别名和豆包接入点可能返回实际模型版本，记录实际模型名；DeepSeek原有模型名一致性检查保留。非法JSON、截断、工具调用、HTTP错误和重定向仍拒绝，不自动重试或切换到其他收费服务商。银行业务、资金、共享契约和确认/强验证流程未改。
+
+协议依据（2026-10-23核对）：[智谱OpenAI兼容](https://docs.bigmodel.cn/cn/guide/develop/openai/introduction)、[智谱参数](https://docs.bigmodel.cn/api-reference/模型-api/对话补全)、[百炼Chat Completions](https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions)、[百炼北京公共地址](https://help.aliyun.com/en/model-studio/model-calling-in-sub-workspace)、[火山方舟地址与鉴权](https://docs.volcengine.com/docs/ark/base-url-and-authentication?lang=en)、[豆包JSON输出与非思考参数](https://console.volcengine.com/ark/region%3Acn-beijing/docs/structured-output-beta)、[Kimi JSON输出](https://platform.kimi.com/docs/guide/use-json-mode-feature-of-kimi-api)、[Kimi参数差异](https://platform.kimi.com/docs/api/models-overview)。
+
+独立全量离线验收**564项通过，0失败、0错误、0跳过**，日常模拟账本及原有本机密钥配置摘要未变。新增9项传输/密钥边界测试和1项实际设置页测试，覆盖所有预设请求字段、地址限制、凭证不串用、旧配置迁移、服务商切换、输入清空、自定义ID和停用。日志见[多服务商证据](evidence/model-providers-20261023/full.json)及[完整输出](evidence/model-providers-20261023/full.txt)，可用`python -B -X utf8 scripts/verify_model_providers.py`复现。Windows普通沙盒的默认临时目录写入及Streamlit内部回环连接限制与应用断言分别核实；最终页面/全量在获批本机环境运行，数据仍为独立临时夹具。
+
+新增服务商目前为离线协议和页面验收范围，**没有使用它们的真实密钥发起调用**；下文DeepSeek真实验收是此前版本记录，不能据此宣称GLM/千问/豆包/Kimi已实测通过。新增服务商真实验证所需的密钥和明确额度在[BLOCKERS](BLOCKERS.md)跟踪。
+
+## 既有DeepSeek接入与验收记录
+
+2026-10-23续验：安全资源边界、决策审计/跟踪号、模型会话熔断及六场景实际页面已补齐；当前版本547项全量、真实DeepSeek9组11次通过。见[最新报告](2026-10-23安全收口与六场景最终验收.md)。下文保留10-21首次接入记录与当时20次授权，不把历史额度/源码摘要当成最新状态。
+
 日期：2026-10-21。执行与独立验收：A / Codex。开发与测试基线：`21d9f785373749590d22ea3eab6ffa58cf4e2604`及当时已有的UI改动；最终源码摘要见验收证据，发布版本以Git提交记录定位。
 
 ## 本轮交付与赛题依据
@@ -16,7 +44,7 @@
 
 在AI助手左侧展开“模型设置”：
 
-1. 选择模型，输入新的API密钥，点击“保存或修改独立密钥”。已保存密钥不会回显，成功后清空输入框；修改仅影响后续新请求。
+1. 选择服务商和模型，输入对应API密钥，点击“保存或修改独立密钥”。已保存密钥不会回显，成功后清空输入框；修改仅影响后续新请求。
 2. 本机装有桌宠且需沿用时，点击“沿用桌宠本机配置”。本次已获用户明确授权并完成真实调用；不修改桌宠的密钥、聊天记录或设置。
 3. 点击“清除独立密钥并停用本机配置”可删除银行项目保存的独立密钥并停用该本机来源。部署环境变量若仍存在，会继续优先使用，页面已提示这一点。
 
@@ -26,8 +54,9 @@
 |---|---|
 | `BANK_MODEL_API_KEY` | 银行项目显式密钥，优先于本机保存配置 |
 | `DEEPSEEK_API_KEY` | 仅官方DeepSeek地址下的备用环境变量；不会自动发送到本地端点 |
-| `BANK_MODEL_NAME` | 显式模型名；官方默认按本机配置或`deepseek-flash`选择 |
-| `BANK_MODEL_BASE_URL` | 默认`https://api.deepseek.com`；也接受字面回环地址的HTTP兼容端点，禁止任意外部地址和重定向 |
+| `BANK_MODEL_PROVIDER` | 选择服务商；编号和对应密钥配置见顶部多服务商说明 |
+| `BANK_MODEL_NAME` | 显式模型名；默认按同服务商本机独立配置或该服务商首个预设选择 |
+| `BANK_MODEL_BASE_URL` | 默认按服务商选择；也接受字面回环地址的HTTP兼容端点，禁止任意外部地址和重定向 |
 | `BANK_MODEL_USE_DESKTOP_PET=1` | 显式启用本机桌宠凭证来源；也可通过设置页面选择 |
 
 传输配置函数也可接受服务器传入的配置映射；当前页面默认读取环境与本机配置。本地模型只具备兼容协议入口，尚未安装或实测任何本地模型，不能据此宣称本地模型已交付。
@@ -73,7 +102,7 @@
 
 账单统计按日期与既定类别计算消费/订阅毛支出和退款；不让AI编造分类或金额。当前异常提示只启用C1-003-R03分支A：消费、订阅、转账或理财的借方单笔金额≥5000元。借贷配对、跨期退款、理财收益率等未定/未启用规则不会自动判为异常；没有提示也不代表没有风险，见[账单计算](../billing/__init__.py)。
 
-模型可见内容包括用户对话、当前身份范围内的账户标识、卡片状态/限额、产品、持仓、模拟商品/地址，以及已执行步骤的业务回执。这些请求内容会通过HTTPS发送到官方DeepSeek；本地保存数据库不等于数据完全不出本机。当前验收只用虚构数据。未来接真实个人数据前，应另行完成逐字段最小化、脱敏、授权和服务方数据处理范围审核，不能直接沿用当前演示上下文。
+模型可见内容包括用户对话、当前身份范围内的账户标识、卡片状态/限额、产品、持仓、模拟商品/地址，以及已执行步骤的业务回执。这些请求内容会通过HTTPS发送到所选模型服务商的官方接口；本地保存数据库不等于数据完全不出本机。当前验收只用虚构数据。未来接真实个人数据前，应另行完成逐字段最小化、脱敏、授权和服务方数据处理范围审核，不能直接沿用当前演示上下文。
 
 密钥不放进模型提示词，独立密钥按当前Windows用户加密、密码框不回显、日志不输出明文，日常库与密钥文件不提交Git。DPAPI不防已控制当前Windows账号的程序；普通SQLite账本未做文件加密，审计表也不是不可篡改存储。数据库约束可挡非法写入，不能阻止有本机文件权限的人整库替换。
 

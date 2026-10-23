@@ -1,7 +1,7 @@
 """模型草稿到原银行工作流的可信接线，确认与验证由原界面执行。"""
 from copy import deepcopy
 import streamlit as st
-from agent.controller import Conversation
+from agent.controller import Conversation, reconcile_session_flows
 from agent.model_dialogue import DialogueSession
 from agent.model_runtime import TrustedModelCaller
 from agent.model_bank import BankPlanRunner, NeedsInput
@@ -10,6 +10,7 @@ from app import demo
 from app.workflow import render as render_bank_operation
 from shared import ContractError, ServiceError
 from shared.contracts import ACTIONS
+from bank.plan_store import PlanStore
 
 
 def _render_authoritative_request(flow):
@@ -44,11 +45,35 @@ def render_model_bank():
         caller=TrustedModelCaller(flow)
         st.session_state.model_bank_flow=flow
         st.session_state.model_caller=caller
-        st.session_state.model_dialogue=DialogueSession(caller)
+        st.session_state.model_dialogue=DialogueSession(caller,
+            audit=lambda event:flow.gateway.record_agent_event(event,principal_id=flow.principal_id))
     flow=st.session_state.model_bank_flow
+    reconcile_session_flows(st.session_state, flow)
     flow.refresh_operations()
+    from app.background_panel import render_background
+    render_background(flow)
     caller=st.session_state.model_caller
     session=st.session_state.model_dialogue
+    journal=PlanStore(flow.gateway.store)
+    with st.expander('恢复完整计划'):
+        plans=journal.list(flow.principal_id)
+        if plans:
+            selected=st.selectbox('选择已保存计划',plans,format_func=lambda r:r['updated_at']+' · '+r['plan_id'],key='saved_plan')
+            if st.button('恢复计划与进度',key='restore_plan'):
+                if flow.request and (flow.pending or flow.needs_reconciliation) and flow.request['trace_id']!=selected['plan_id']:
+                    st.warning('请先处理当前原操作，再切换其他计划。')
+                else:
+                    try:
+                        restored=BankPlanRunner.restore(flow,journal,selected['plan_id'],audit=session.audit)
+                        session.trace_id=restored.trace_id;session.version+=1
+                        session.history=[];session.checkpoints=[]
+                        session._state=session._empty()|dict(phase='paused' if restored.paused else 'plan',tasks=deepcopy(restored.tasks),
+                            proposal={'kind':'plan','tasks':deepcopy(restored.tasks)},reply='已从数据库恢复计划；已完成业务不会重新执行。')
+                        session._before_pause='plan'
+                        st.session_state.model_runner=restored;st.session_state.model_runner_version=session.version
+                        st.rerun()
+                    except (NeedsInput,ValueError,ContractError,ServiceError):st.warning('原计划暂不可恢复，请保留编号核实。')
+        else:st.caption('尚无已保存计划。')
     runner=st.session_state.get('model_runner')
     if runner:
         try:runner._sync()
@@ -56,6 +81,7 @@ def render_model_bank():
         caller.observations=deepcopy(runner.receipts)
     wrote=bool(runner and any(r['status']=='succeeded' and ACTIONS.get(t.get('bank_action'),{}).get('write') for t in runner.tasks for k,r in runner.receipts.items() if k==t['id']))
     snap=render_model_dialogue(session,blocked=flow.blocked,allow_back=not wrote)
+    st.caption('“新需求”只清空当前草稿；已启用后台的保存计划请先暂停或人工接管，不会随清空自动取消。')
     if caller.last_error:st.warning(caller.last_error)
     proposal=snap['proposal']
     if snap['phase'] in {'proposal','plan'} and proposal and st.session_state.get('model_runner_version')!=snap['version']:
@@ -63,15 +89,25 @@ def render_model_bank():
             tasks=[{'id':'t1','title':'当前需求','intent':proposal['intent'],'fields':proposal['fields'],'depends_on':[]}]
         else:tasks=proposal['tasks']
         try:
-            runner=BankPlanRunner(flow,tasks)
+            candidate=BankPlanRunner(flow,tasks,trace_id=session.trace_id,audit=session.audit,journal=journal)
+            if runner and runner.trace_id == session.trace_id:
+                candidate.inherit_completed(runner)
+            candidate.checkpoint('revision')
+            runner=candidate
             st.session_state.model_runner=runner
             st.session_state.model_runner_version=snap['version']
         except NeedsInput as exc:
-            st.warning(str(exc));runner=None
+            st.warning(str(exc))
+            if runner: runner.paused=True
+            return
     elif snap['phase'] not in {'proposal','plan','paused','handoff'}:
         st.session_state.pop('model_runner',None);runner=None
     if runner:
         runner.paused=runner.integrity_blocked or snap['phase'] in {'paused','handoff'} or any(t['status']=='stopped' for t in runner.tasks)
+        if st.button('允许后台准备后续待办（付款仍需授权）',key='plan_automation'):
+            runner.automation=True
+        try:runner.checkpoint('control')
+        except NeedsInput as exc:st.warning(str(exc));return
         issue=None
         try:
             # Only pure green queries advance on a rerun. Receipts prevent replay.
