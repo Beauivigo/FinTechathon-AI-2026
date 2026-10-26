@@ -25,7 +25,7 @@ display_key = {'转账汇款': 'transfer', '账单流水': 'bills'}.get(display_
 display_query = st.query_params.get('view')
 if display_query in {'home', 'transfer', 'bills'}:
     display_key = display_query
-from app.auth_ui import gate
+from app.auth_ui import error_text, gate
 gate()
 ui.render_sidebar_nav(display_key)
 
@@ -60,8 +60,8 @@ def perform(function, *args, **kwargs):
     try:
         function(*args, **kwargs)
     except (ValueError, ContractError, ServiceError) as exc:
-        # 用户文案不直接暴露后端错误详情；草稿错误给出可操作的输入提示。
-        message = str(exc) if type(exc) is ValueError else "调用未完成，请查询原操作；不要重复发起或重置来绕过核查。"
+        # 用户文案不直接暴露后端错误详情；验证码/过期/锁定给出可执行提示。
+        message = str(exc) if type(exc) is ValueError else error_text(exc)
         conversation.messages.append({"role": "assistant", "content": message})
     st.session_state.home_next_tab = "转账汇款"
     st.rerun()
@@ -115,6 +115,9 @@ with st.sidebar:
                     st.rerun()
                 except (ValueError, ServiceError):
                     st.error('重置未完成。请先处理或核实全部待办。')
+    st.divider()
+    from app.background_panel import render_background
+    render_background(conversation)
 
 
 # Tabs only select a view. All existing business guards and callbacks remain below.
@@ -178,7 +181,7 @@ with transfer_tab:
                 elif result["status"] in {"awaiting_confirmation", "awaiting_verification"}:
                     st.warning(text)
                     if result["status"] == "awaiting_verification":
-                        st.write("含本次的上海当日累计超过1000元，需要模拟强验证；已提出的验证要求不会跨日降级。")
+                        st.write("含本次的上海当日累计超过1000元，需要模拟强验证；已提出的验证要求不会跨日降级。" if conversation.gateway.demo_mode else "含本次的上海当日累计超过1000元，需要手机动态码验证；已提出的验证要求不会跨日降级。")
                         from app.auth_ui import transaction_code
                         code=transaction_code(conversation,key='transfer_totp')
                         if st.button("模拟验证并继续" if conversation.gateway.demo_mode else "验证并继续", type="primary", width="stretch"):

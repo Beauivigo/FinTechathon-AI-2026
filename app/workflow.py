@@ -49,8 +49,12 @@ def current():
 def perform(function, *args, **kwargs):
     try:
         function(*args, **kwargs)
-    except (ValueError, ServiceError, ContractError):
-        st.warning('操作未完成，请查询原操作状态后再继续。')
+    except ValueError as exc:
+        st.warning(str(exc))
+        st.stop()
+    except (ServiceError, ContractError) as exc:
+        from app.auth_ui import error_text
+        st.warning(error_text(exc))
         st.stop()
     st.rerun()
 
