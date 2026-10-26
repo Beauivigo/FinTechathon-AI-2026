@@ -11,6 +11,9 @@ jobs:
     runs-on: windows-latest
     env:
       PYTHONUTF8: '1'
+      # Avoid runneradmin's 8.3 TEMP alias; keep strict path/link checks intact.
+      TEMP: ${{ runner.temp }}
+      TMP: ${{ runner.temp }}
     strategy:
       fail-fast: false
       matrix:

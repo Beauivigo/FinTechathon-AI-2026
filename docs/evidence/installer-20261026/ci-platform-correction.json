@@ -8,5 +8,13 @@
   "failures": 2,
   "cause": "Windows-only DPAPI credential tests were executed on Linux",
   "correction": "Run unchanged assertions on windows-latest, preserve 3.10/3.12 coverage, add 3.14 and installer tooling checks; no production crypto downgrade",
-  "runtime_payload_unchanged": true
+  "runtime_payload_unchanged": true,
+  "windows_followup": {
+    "commit": "66e4c762d30d4a0019e869667ef65ebc738516c8",
+    "workflow": 40321417351,
+    "errors": 9,
+    "failures": 1,
+    "cause": "Runner TEMP uses RUNNER~1 alias, conflicting with strict path checks",
+    "correction": "Set TEMP and TMP to runner.temp outside the project; production path guards and test assertions unchanged"
+  }
 }
