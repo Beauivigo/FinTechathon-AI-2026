@@ -1,0 +1,5 @@
+{
+  "path": "docs/evidence/2026-10-19-routing-cases.json",
+  "sha256": "dcd60ecb7129acf38b767b8a2749e96f92a70ec412df6d7128ad00ffd39733d6",
+  "reason": "Required tracked routing fixture was omitted by broad evidence-directory exclusion. Restored original bytes; no source or assertions changed."
+}

@@ -1,0 +1,7 @@
+{
+  "command": "git -c core.safecrlf=false diff --no-index --check before worktree",
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "whitespace_errors": 0,
+  "note": "Windows CRLF handled by existing Git configuration; --no-index returns 1 when directories differ. Both output streams are empty."
+}

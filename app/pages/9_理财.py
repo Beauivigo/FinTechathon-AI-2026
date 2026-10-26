@@ -42,13 +42,13 @@ def _units_widget_key(holding_id, units_text):
     return 'wealth_units_' + str(holding_id) + '_' + str(units_text)
 
 
-st.set_page_config(page_title='模拟理财', layout='wide')
+st.set_page_config(page_title='理财', layout='wide')
 from app.auth_ui import gate
 gate()
 ui.render_sidebar_nav('wealth')
 ui.render_page_header('理财操作', '评估风险、核对产品，再决定申购或赎回。')
 ui.render_app_nav('wealth')
-st.caption('所有产品与资金均为本地模拟，不承诺收益；费用与份额以服务端结果为准。')
+st.caption('产品与资金均为本机数据，不承诺收益；费用与份额以服务端结果为准。')
 
 flow = current()
 resources = flow.resources
@@ -89,7 +89,7 @@ if flow.request and flow.request['action'] == 'wealth.assess' and flow.result \
     st.success(f"风险评估完成：{flow.result['data']['risk_level']}（档案 {flow.result['data']['risk_profile_id']}）")
 
 with trade_panel:
-    with ui.business_section('产品申购', description='请先完成风险问卷。申购须核对内容并通过模拟强验证。'):
+    with ui.business_section('产品申购', description='请先完成风险问卷；申购须核对内容并通过验证。'):
         profile_id = st.session_state.get('risk_profile_id')
         if products:
             product = st.selectbox('产品', products, key='wealth_product',

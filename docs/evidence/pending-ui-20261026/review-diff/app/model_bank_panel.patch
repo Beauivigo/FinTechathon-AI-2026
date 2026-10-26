@@ -1,0 +1,22 @@
+--- primary/app/model_bank_panel.py
++++ candidate/app/model_bank_panel.py
+@@ -49,6 +49,8 @@
+         st.session_state.model_dialogue=DialogueSession(caller,
+             audit=lambda event:flow.gateway.record_agent_event(event,principal_id=flow.principal_id))
+     flow=st.session_state.model_bank_flow
++    # 别的页面可能已确认/拒绝/过期收口原操作；先对齐权威记录再判断阻塞。
++    flow.settle()
+     reconcile_session_flows(st.session_state, flow)
+     flow.refresh_operations()
+     from app.background_panel import render_background
+@@ -81,6 +83,10 @@
+         except NeedsInput as exc:st.warning(str(exc))
+         caller.observations=deepcopy(runner.receipts)
+     wrote=bool(runner and any(r['status']=='succeeded' and ACTIONS.get(t.get('bank_action'),{}).get('write') for t in runner.tasks for k,r in runner.receipts.items() if k==t['id']))
++    if flow.blocked:
++        from app import pending_view
++        pending_view.render_unresolved(flow,key_prefix='model_pending',
++            note='待办结束前 AI 输入与发送保持暂停；确认、拒绝或查询原操作后自动恢复，模型不代替你确认或验证。')
+     snap=render_model_dialogue(session,blocked=flow.blocked,allow_back=not wrote)
+     st.caption('“新需求”只清空当前草稿；已启用后台的保存计划请先暂停或人工接管，不会随清空自动取消。')
+     if caller.last_error:st.warning(caller.last_error)

@@ -1,0 +1,18 @@
+test_compile_helper_rejects_tool_failure_and_empty_output (win_installer.test_installer.PayloadTests.test_compile_helper_rejects_tool_failure_and_empty_output) ... ok
+test_high_confidence_secret_content_fails_closed (win_installer.test_installer.PayloadTests.test_high_confidence_secret_content_fails_closed) ... ok
+test_licence_bundle_requires_evidence_and_keeps_sources (win_installer.test_installer.PayloadTests.test_licence_bundle_requires_evidence_and_keeps_sources) ... ok
+test_manifest_is_strict_deterministic_and_content_bound (win_installer.test_installer.PayloadTests.test_manifest_is_strict_deterministic_and_content_bound) ... ok
+test_nsis_script_is_chinese_strict_and_preserves_user_data (win_installer.test_installer.PayloadTests.test_nsis_script_is_chinese_strict_and_preserves_user_data) ... ok
+test_removal_plan_preserves_data_by_default (win_installer.test_installer.PayloadTests.test_removal_plan_preserves_data_by_default) ... ok
+test_requirements_input_is_read_only_and_offline_safe (win_installer.test_installer.PayloadTests.test_requirements_input_is_read_only_and_offline_safe) ... ok
+test_source_payload_includes_unknown_modules_and_excludes_dev_data (win_installer.test_installer.PayloadTests.test_source_payload_includes_unknown_modules_and_excludes_dev_data) ... ok
+test_source_payload_rejects_bad_tree_and_links (win_installer.test_installer.PayloadTests.test_source_payload_rejects_bad_tree_and_links) ... ok
+test_tool_detection_and_artifact_verification_fail_closed (win_installer.test_installer.PayloadTests.test_tool_detection_and_artifact_verification_fail_closed) ... ok
+test_generated_shortcuts_only_use_desktop_other_and_preserve_shared_folder (win_installer.test_runtime_paths.RuntimePathTests.test_generated_shortcuts_only_use_desktop_other_and_preserve_shared_folder) ... ok
+test_os_virtualized_data_path_is_canonical_and_raw_junction_is_rejected (win_installer.test_runtime_paths.RuntimePathTests.test_os_virtualized_data_path_is_canonical_and_raw_junction_is_rejected) ... ok
+test_source_junction_is_a_link_even_when_not_a_symbolic_link (win_installer.test_runtime_paths.RuntimePathTests.test_source_junction_is_a_link_even_when_not_a_symbolic_link) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.271s
+
+OK

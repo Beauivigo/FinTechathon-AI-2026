@@ -1,0 +1,17 @@
+{
+  "implementation_source_files_compared": 173,
+  "implementation_sources_changed": [],
+  "report_local_links_missing": [],
+  "documents_updated": [
+    "README.md",
+    "docs/BLOCKERS.md",
+    "docs\\2026-10-26参赛符合性复核.md"
+  ],
+  "full_regression": 619,
+  "clean_checks": 5,
+  "additional_recovery_authorization_probes": 2,
+  "capability_boundary_probes": 2,
+  "full_and_probes_passed": true,
+  "report_sha256": "74875602010b199b9c9f61c6561a1c7bb61244fe4121b0b7480ae44d42842b08",
+  "scope": "Audit only; existing source/credential/database files unchanged. No model call, commit, push or deployment."
+}

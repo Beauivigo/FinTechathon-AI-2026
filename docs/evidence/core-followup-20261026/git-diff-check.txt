@@ -1,0 +1,9 @@
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/auth_ui.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/background_panel.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/workflow.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'bank/auth.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'bank/store.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'bank/worker.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'requirements-app.txt', LF will be replaced by CRLF the next time Git touches it

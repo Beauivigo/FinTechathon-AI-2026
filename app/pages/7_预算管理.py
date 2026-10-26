@@ -5,7 +5,7 @@ import streamlit as st
 from app.workflow import current, render, perform
 from shared import ServiceError
 
-st.set_page_config(page_title='模拟预算管理', layout='wide')
+st.set_page_config(page_title='预算管理', layout='wide')
 from app import ui
 
 from app.auth_ui import gate
@@ -15,14 +15,14 @@ ui.render_page_header('预算预留与释放')
 ui.render_app_nav('budget')
 
 with st.container(border=True):
-    st.info('模拟预算：预留不付款，释放不产生退款流水。可到生日与商户页面逐笔采购；未知订单对应金额继续保留。')
+    st.info('预留不付款，释放不产生退款流水；未知订单对应金额继续保留。')
     flow = current()
     accounts = flow.resources['accounts']
     if accounts:
         with st.form('budget_form'):
             account = st.selectbox('预留账户', accounts, key='budget_account', format_func=lambda a:a['display_name'])
             amount = st.number_input('预留金额（分）', min_value=1, max_value=9007199254740991, value=30000, step=1, key='budget_amount')
-            purpose = st.text_input('用途', value='模拟生日预算', key='budget_purpose')
+            purpose = st.text_input('用途', value='生日预算', key='budget_purpose')
             if st.form_submit_button('申请预留预算', key='budget_reserve', disabled=flow.blocked or not purpose.strip()):
                 perform(flow.start_action, 'budget.reserve', dict(account_id=account['account_id'], amount_minor=amount, purpose=purpose.strip()))
     try:

@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "checks": 6,
+  "source": "Original unchanged broker frozen test",
+  "test_sha256": "77efcbce10371053884879b65f7f98fcf9252375e3899bddd341dfab7b7bdf10",
+  "fixture_snapshot_files": 589,
+  "first_attempt": "Git archive normalized CRLF; original run snapshot bytes restored for strict hash checks, no test assertion changed."
+}

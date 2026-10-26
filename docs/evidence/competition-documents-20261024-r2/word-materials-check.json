@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-24T16:30:40.619265",
+  "documents": [
+    {
+      "file": "参赛材料_Word_2026-10-24\\02_言行_技术文档_v0.2.docx",
+      "sha256": "557de102348dea1907590b6c11a35db7fc0a43fc2550512f3bb6802102025980",
+      "pages": 9,
+      "tables": 7,
+      "all_pages_visually_inspected": true
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24\\06_言行_安全自评报告_v0.2.docx",
+      "sha256": "c2f774d9041e839756bce61846a5c18fe5bd60808338aff3e489acc9931b08f9",
+      "pages": 8,
+      "tables": 6,
+      "all_pages_visually_inspected": true
+    }
+  ],
+  "current_python_source_hashes_match": 146,
+  "fresh_tests": {
+    "run": 619,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "clean_start_checks": 5
+  },
+  "rendering": "Bundled render_docx.py failed because soffice.exe unavailable; native Microsoft Word 15.0 export and bundled Poppler used; 17 pages visually inspected",
+  "concurrent_changes_preserved": [
+    "docs/BLOCKERS.md",
+    "requirements-app.txt"
+  ],
+  "concurrent_change_review": "BLOCKERS adds separate UI-delegation blocker with no UI implementation; requirements-app only line-ending change, pinned versions unchanged",
+  "arithmetic_checked": true,
+  "real_new_provider_api_calls": false,
+  "user_phone_acceptance": false,
+  "implementation_edits_by_this_task": false
+}

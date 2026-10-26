@@ -1,0 +1,19 @@
+{
+  "run_id": "7d0d7a3e-4f84-47a2-ae02-83172eab4262",
+  "base": "62aee8dd2e7b29b5662009b7a41f9362dd1395b4",
+  "workflow": "autonomous",
+  "runtime": "python",
+  "safety": "project-source-no-secrets-no-host-access",
+  "baseline_tests": "docs/evidence/u-baseline-20261023/full.json",
+  "baseline_tests_run": 592,
+  "baseline_clean_checks": 5,
+  "status": "dispatched_awaiting_implementation_and_independent_review",
+  "missing_isolated_dependencies": [
+    "streamlit",
+    "pyotp",
+    "qrcode"
+  ],
+  "user_phone_acceptance": "pending",
+  "github_push": false,
+  "primary_integration": false
+}

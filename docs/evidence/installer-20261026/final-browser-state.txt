@@ -1,0 +1,58 @@
+Browser tab: 1, Title: "AI银行助手", URL: "http://127.0.0.1:8526/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 126
+~				125 button (expanded) keyboard_arrow_down 模型设置, Secondary Actions: Collapse
++					139 text keyboard_arrow_down
++				140 text 本机保存来源：未配置 · DeepSeek
++				141 text 服务器环境变量如有配置会优先使用；设置仅影响模型调用，不修改银行操作和授权。
++				142 container
++					143 combo box (collapsed, settable) Description: 模型服务商, Value: DeepSeek, ID: react-aria5419427375-:r6d:, Secondary Actions: Expand
++					144 pop up button (collapsed) Description: Open, ID: react-aria5419427375-:r69:, Secondary Actions: Expand
++				145 container
++					146 combo box (collapsed, settable) Description: 独立密钥使用的模型, Value: deepseek-flash, ID: react-aria5419427375-:r6r:, Secondary Actions: Expand
++					147 pop up button (collapsed) Description: Open, ID: react-aria5419427375-:r6n:, Secondary Actions: Expand
++				148 container
++					149 button Help for 其他模型 ID（选填，填写后优先使用）
++					150 text field (settable) Description: 其他模型 ID（选填，填写后优先使用）, ID: :r74:
++				151 container
++					152 text 官方接口：
++					153 link Description: https://api.deepseek.com, Value: api.deepseek.com/
++				154 text 切换服务商需输入对应密钥，原密钥不会自动复用；当前仅保存一份独立配置。
++				155 container
++					156 text field (settable) 新的银行项目API密钥
++					157 checkbox Description: Show password, Value: 0
++				158 button 保存或修改独立密钥
++					159 text 保存或修改独立密钥
++				160 button 沿用桌宠本机配置
++					161 text 沿用桌宠本机配置
++				162 button 清除独立密钥并停用本机配置
++					163 text 清除独立密钥并停用本机配置
++				164 text 独立密钥按Windows当前用户加密保存，页面不会回显已保存密钥。切换来源不重发旧请求。
++				165 button (collapsed) keyboard_arrow_right 后台任务与通知, Secondary Actions: Expand
++					166 text keyboard_arrow_right
++					167 text 后台任务与通知
++				168 button (collapsed) keyboard_arrow_right 恢复完整计划, Secondary Actions: Expand
++					169 text keyboard_arrow_right
++					170 text 恢复完整计划
++				171 heading 用自然语言办理业务, Value: 3, ID: d5f8060b
++					172 text 用自然语言办理业务
++					173 link Description: Link to heading, Value: 127.0.0.1:8526/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B#d5f8060b
++				174 text 模型负责理解需求和规划；结果以账本回执为准，付款及敏感操作仍需确认或验证。
++				175 text entry area (settable) Description: 描述需求或补充上一条信息, ID: :r7k:
++				176 button 发送需求
++					177 text 发送需求
++				178 button 暂停
++					179 text 暂停
++				180 button 继续草稿
++					181 text 继续草稿
++				182 button 回退草稿
++					183 text 回退草稿
++				184 button 人工接管
++					185 text 人工接管
++				186 button 新需求
++					187 text 新需求
++				188 text “新需求”只清空当前草稿；已启用后台的保存计划请先暂停或人工接管，不会随清空自动取消。
++				189 button (collapsed) keyboard_arrow_right 恢复业务操作, Secondary Actions: Expand
++					190 text keyboard_arrow_right
++					191 text 恢复业务操作
+The focused UI element is 1 AXWebArea AI银行助手, URL: 127.0.0.1:8526/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B

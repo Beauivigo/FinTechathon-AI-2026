@@ -1,0 +1,6 @@
+2026-10-26 13:58:50.906 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+Traceback (most recent call last):
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\docs\evidence\core-repair-20261026\verify_revision_page.py", line 34, in <module>
+    assert app.session_state['model_runner'].plan_id==new.plan_id
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BankPlanRunner' object has no attribute 'plan_id'

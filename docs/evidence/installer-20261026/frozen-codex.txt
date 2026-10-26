@@ -1,0 +1,15 @@
+test_compile_helper_rejects_tool_failure_and_empty_output (__main__.PayloadTests.test_compile_helper_rejects_tool_failure_and_empty_output) ... ok
+test_high_confidence_secret_content_fails_closed (__main__.PayloadTests.test_high_confidence_secret_content_fails_closed) ... ok
+test_licence_bundle_requires_evidence_and_keeps_sources (__main__.PayloadTests.test_licence_bundle_requires_evidence_and_keeps_sources) ... ok
+test_manifest_is_strict_deterministic_and_content_bound (__main__.PayloadTests.test_manifest_is_strict_deterministic_and_content_bound) ... ok
+test_nsis_script_is_chinese_strict_and_preserves_user_data (__main__.PayloadTests.test_nsis_script_is_chinese_strict_and_preserves_user_data) ... ok
+test_removal_plan_preserves_data_by_default (__main__.PayloadTests.test_removal_plan_preserves_data_by_default) ... ok
+test_requirements_input_is_read_only_and_offline_safe (__main__.PayloadTests.test_requirements_input_is_read_only_and_offline_safe) ... ok
+test_source_payload_includes_unknown_modules_and_excludes_dev_data (__main__.PayloadTests.test_source_payload_includes_unknown_modules_and_excludes_dev_data) ... ok
+test_source_payload_rejects_bad_tree_and_links (__main__.PayloadTests.test_source_payload_rejects_bad_tree_and_links) ... ok
+test_tool_detection_and_artifact_verification_fail_closed (__main__.PayloadTests.test_tool_detection_and_artifact_verification_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.257s
+
+OK

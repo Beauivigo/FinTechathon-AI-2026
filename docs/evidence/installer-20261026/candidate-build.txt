@@ -1,0 +1,1 @@
+BUILT {"artifact": "dist\\yanxing-1.0.0-release\\����-1.0.0-x64-setup.exe", "manifest": "dist\\yanxing-1.0.0-release\\manifest.json", "sha256": "9b3a7c45978179ede4d018c179b107240a024326ebf45b8cd5b6bbc85f78993e", "size": 62379510, "payload_files": 6554}

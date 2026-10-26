@@ -6,7 +6,7 @@ from app import demo, ui
 from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
 from app.routing_panel import render_handoff
 
-LABELS = {'merchant.order':'模拟商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
+LABELS = {'merchant.order':'商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
           'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
           'subscription.scan': '扫描识别订阅',
@@ -32,17 +32,18 @@ def current():
         if 'action_flow' not in st.session_state:
             st.session_state.action_flow = Conversation(demo.gateway(), principal_id=demo.PRINCIPAL)
         flow = st.session_state.action_flow
-        other_flow = st.session_state.get('conversation')
+        # 其他页面可能已经确认/拒绝/过期收口原操作；先按权威记录对齐本页快照。
+        flow.settle()
         reconcile_session_flows(st.session_state, flow)
         if flow.external_blocked:
-            st.warning('转账结果尚待核实，请先到转账页面查询原操作。')
+            st.warning('其他页面仍有结果待核实，请先查询原操作；未知结果不能直接重新发起。')
         flow.refresh_operations()
         flow.resources = flow.gateway.get_context(principal_id=flow.principal_id)
         if st.session_state.get('routing_handoff'):
             render_handoff(st.session_state.routing_handoff)
         return flow
     except Exception:
-        st.error('模拟银行暂不可用，请检查原操作后再继续。')
+        st.error('银行数据暂不可用，请检查原操作后再继续。')
         st.stop()
 
 
@@ -61,7 +62,8 @@ def perform(function, *args, **kwargs):
 
 def render(flow):
     operations = [op for op in flow.operations if op['action'] in LABELS]
-    with st.expander('恢复业务操作', expanded=not flow.request and bool(operations)):
+    with st.expander('恢复业务操作', expanded=bool(flow.unresolved) or (flow.blocked and not flow.request)):
+        st.caption('这里只恢复原操作；恢复不会自动确认、验证或重新付款。')
         if operations:
             selected = st.selectbox('选择原操作', operations, key='action_history', format_func=lambda op:
                 f"{LABELS[op['action']]} · {op['status']} · {op['idempotency_key']}")
@@ -70,7 +72,7 @@ def render(flow):
         else:
             st.caption('暂无可恢复的业务操作。')
     if flow.blocked and not flow.request:
-        st.warning('请先恢复待办。转账待办请到转账页面处理。')
+        st.warning('已有待处理或待核实的操作；请在上方“恢复业务操作”中查询、确认或拒绝后再继续。')
     if not flow.request or not flow.result:
         return
     request, result = flow.request, flow.result
@@ -84,11 +86,11 @@ def render(flow):
         product=next((item for item in flow.resources['products'] if item['product_id']==p['product_id']),None)
         if product:
             st.write(product['name']+'；'+product['risk_level']+'；'+product['fee_description'])
-        st.caption('核对本笔申购内容后，需模拟强验证。')
+        st.caption('核对本笔申购内容后需验证。')
     if request['action']=='wealth.redeem':
         st.write('到账账户：'+p['account_id']+'；持仓：'+p['holding_id'])
         st.write('本笔赎回份额：'+p['units']+'份')
-        st.caption('模拟T+1：本演示在强验证成功后即时展示入账，以模拟次日到账，不代表真实即时到账。')
+        st.caption('演示 T+1：验证成功后即时展示入账，不代表真实到账时间。')
     if request['action']=='wealth.assess':
         st.write('风险问卷版本：'+p['questionnaire_version'])
     if request['action']=='subscription.charge':
@@ -105,7 +107,7 @@ def render(flow):
         st.caption('支付卡由系统自动选择并绑定，不支持手选；本期续费需独立强验证，核实订阅不授予后续自动扣款权限。')
     if request['action']=='merchant.order':
         st.write(f"本笔金额：{p['amount_minor']/100:.2f}元；计划配送日：{p['deliver_on']}")
-        st.write('商品：'+p['item_id']+'；模拟地址：'+p['delivery_address_id'])
+        st.write('商品：'+p['item_id']+'；地址：'+p['delivery_address_id'])
         try:
             selected=flow.gateway.selected_order_card(request,principal_id=flow.principal_id)
         except (ServiceError,ContractError):
@@ -149,7 +151,7 @@ def render(flow):
             st.caption('登记不扣款，到期另行确认；已派发不等于已付款。')
     if request['action'] == 'subscription.list':
         st.write('查询账户：' + p['account_id'])
-        st.caption('确认后才读取本次模拟订阅列表。')
+        st.caption('确认后才读取本次订阅列表。')
     if request['action'] == 'subscription.review':
         st.write('订阅：' + p['subscription_id'])
         st.write('本次选择：' + ('核实为订阅' if p['decision']=='accept' else '排除候选'))
@@ -166,14 +168,14 @@ def render(flow):
         st.write('收款账户：' + p['account_id'])
         st.write('参与人顺序：' + ' → '.join(p['payee_ids']))
         st.write(f"总金额：{p['amount_minor'] // 100}.{p['amount_minor'] % 100:02d} 元")
-        st.caption('只创建本地模拟收款单；不会发送通知，也不会执行参与人的付款。')
+        st.caption('只创建本机收款单；不会发送通知，也不会执行参与人的付款。')
     st.write(result_text(request, result))
     if result['status']=='succeeded' and request['action']=='card.apply':
         st.success('申请已受理，正在审核；受理不代表已发卡。编号：'+result['data']['application_id'])
     if result['status']=='succeeded' and request['action']=='merchant.order':
-        st.success('模拟订单已提交。编号：'+result['data']['order_id'])
+        st.success('订单已提交。编号：'+result['data']['order_id'])
     if result['status']=='succeeded' and request['action']=='subscription.remind':
-        st.caption('本地提醒已登记；请在订阅页面手动检查到期提醒，程序关闭时不会主动通知。')
+        st.caption('提醒已登记；启用后台后自动检查，也可手动检查，通知见站内待办。')
     if result['status'] == 'succeeded' and request['action'] in ('budget.reserve','budget.release'):
         st.caption('预留编号：' + result['data']['reservation_id'])
     if result['status'] == 'succeeded' and request['action'] == 'transfer.split':

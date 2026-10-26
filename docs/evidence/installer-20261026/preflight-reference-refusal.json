@@ -1,0 +1,6 @@
+{
+  "run_id": "1668d1ff-219c-4663-804e-055272257d92",
+  "error": "Control/dependency files forbidden",
+  "scope_reduced": "Removed explicit dependency-file references; dependencies still qualified by built-in read-only environment preflight",
+  "model_calls": 0
+}

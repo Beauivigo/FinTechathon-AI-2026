@@ -1,0 +1,35 @@
+--- primary/app/workflow.py
++++ candidate/app/workflow.py
+@@ -32,10 +32,11 @@
+         if 'action_flow' not in st.session_state:
+             st.session_state.action_flow = Conversation(demo.gateway(), principal_id=demo.PRINCIPAL)
+         flow = st.session_state.action_flow
+-        other_flow = st.session_state.get('conversation')
++        # 其他页面可能已经确认/拒绝/过期收口原操作；先按权威记录对齐本页快照。
++        flow.settle()
+         reconcile_session_flows(st.session_state, flow)
+         if flow.external_blocked:
+-            st.warning('转账结果尚待核实，请先到转账页面查询原操作。')
++            st.warning('其他页面仍有结果待核实，请先查询原操作；未知结果不能直接重新发起。')
+         flow.refresh_operations()
+         flow.resources = flow.gateway.get_context(principal_id=flow.principal_id)
+         if st.session_state.get('routing_handoff'):
+@@ -61,7 +62,8 @@
+ 
+ def render(flow):
+     operations = [op for op in flow.operations if op['action'] in LABELS]
+-    with st.expander('恢复业务操作', expanded=not flow.request and bool(operations)):
++    with st.expander('恢复业务操作', expanded=bool(flow.unresolved) or (flow.blocked and not flow.request)):
++        st.caption('这里只恢复原操作；恢复不会自动确认、验证或重新付款。')
+         if operations:
+             selected = st.selectbox('选择原操作', operations, key='action_history', format_func=lambda op:
+                 f"{LABELS[op['action']]} · {op['status']} · {op['idempotency_key']}")
+@@ -70,7 +72,7 @@
+         else:
+             st.caption('暂无可恢复的业务操作。')
+     if flow.blocked and not flow.request:
+-        st.warning('请先恢复待办。转账待办请到转账页面处理。')
++        st.warning('已有待处理或待核实的操作；请在上方“恢复业务操作”中查询、确认或拒绝后再继续。')
+     if not flow.request or not flow.result:
+         return
+     request, result = flow.request, flow.result

@@ -1,0 +1,24 @@
+[
+  {
+    "file": "参赛材料_Word_2026-10-24\\02_言行_技术文档_v0.4.docx",
+    "source": "参赛材料_Word_2026-10-24\\02_言行_技术文档_v0.3.docx",
+    "source_sha256": "bbc2f0adec1e3706763b2ada170420a6384e73dcad8818b96686c4995d0a9edb",
+    "sha256": "4e5a06ad916e094ad43c3d18e153691defa5cc7bc82e52bff3e27ac748505815",
+    "changed_parts": [
+      "word/document.xml",
+      "word/header1.xml"
+    ],
+    "original_preserved": true
+  },
+  {
+    "file": "参赛材料_Word_2026-10-24\\06_言行_安全自评报告_v0.4.docx",
+    "source": "参赛材料_Word_2026-10-24\\06_言行_安全自评报告_v0.3.docx",
+    "source_sha256": "fc42151753f30646d9c5365efc2a62d0d4da49eff9d0bbfb5b62afed9f1585cf",
+    "sha256": "5627c0560e5cc26d8224424270bea5e65f85e470761c39e2893054f8a24a645a",
+    "changed_parts": [
+      "word/document.xml",
+      "word/header1.xml"
+    ],
+    "original_preserved": true
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "run_id": "80acd3d5-c455-4bb8-8b54-c0f1f86f123d",
+  "baseline": "285c90c6014158b85d8323788945b085d1991192",
+  "tests": 627,
+  "clean_checks": 5,
+  "frozen_tests": [
+    10,
+    9
+  ],
+  "page_checks": 4,
+  "protected_data_unchanged": true,
+  "primary_source_synced": false,
+  "remaining": [
+    "定时转账备注需共享契约扩展",
+    "本人手机与当前模型在线验收",
+    "主目录同步待授权"
+  ],
+  "files": [
+    {
+      "path": "bank/worker.py",
+      "sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2"
+    },
+    {
+      "path": "bank/background.py",
+      "sha256": "6ddd9459e27f0dbaab101985907128845a8265fae0b4208595a3f6922aa92322"
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "sha256": "896fb21ca5cf6bbf021fc19b3c542a04c967913c101c69baa1687f2bf47666e1"
+    },
+    {
+      "path": "agent/model_bank.py",
+      "sha256": "789dde9662e139ca399289366e2737b608467f621bd89386d7ddfa5e22dd8f13"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "0f9d0be2ddde6f89eadae8a11e71a158f09d11276c9f4443e1d99f4da28cd3a1"
+    },
+    {
+      "path": "app/background_panel.py",
+      "sha256": "672546e32eeb310bdb4140aa2c1c74e93e503262a909a5800ddce0e7f134240a"
+    },
+    {
+      "path": "tests/test_model_bank.py",
+      "sha256": "4dcfb054013c8ed64cb8c12845192fe902f8610d01cf3bbff59a761cbd89d2bb"
+    },
+    {
+      "path": "bank/birthday.py",
+      "sha256": "7448b1d0770b8cd1a053f8843ba706cf3c2bbb771ad219fe5fdc02e8beb44718"
+    },
+    {
+      "path": "bank/merchant_scheduler.py",
+      "sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9"
+    },
+    {
+      "path": "bank/scheduler.py",
+      "sha256": "c9201d5983544bde98efa90b28618789642db8571c58e35f383c74155947534b"
+    },
+    {
+      "path": "docs/BLOCKERS.md",
+      "sha256": "c76351e06e18841da2f22dba2e65363e8e211be5a4ae3f6c94c3bb84e38ad823"
+    },
+    {
+      "path": "docs/2026-10-26定时约束与后台栅栏修复.md",
+      "sha256": "09125eb3ddd03ec3899911d00204a564817ded2fa5d3ecd763f1f2efc48d8019"
+    },
+    {
+      "path": "tests/test_audit_fix_20261026.py",
+      "sha256": "b60d5eefd37737761396b7b797af42ef841e4326b0cb3913d1e261a21e3e5cb9"
+    }
+  ],
+  "primary_source_unchanged_count": 173,
+  "final_status": "accepted_by_codex"
+}

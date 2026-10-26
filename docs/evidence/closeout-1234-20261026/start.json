@@ -1,0 +1,17 @@
+{
+  "run_id": "070d8ef9-1a28-4616-8bfa-f5578913d13f",
+  "session_id": "session-374eae3a-cc40-4d05-8a2d-4d336fa3db42",
+  "authorized": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "deferred": [
+    5
+  ],
+  "online_provider": "deepseek",
+  "second_provider": "pending configuration",
+  "requested_limit": 20,
+  "previous_ledgers_unchanged": true
+}

@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-26T01:05:22.694223+08:00",
+  "material_check": "docs/参赛材料/材料检查记录.json",
+  "material_check_sha256": "ce5de01e99486b325d966aeda9d3303e3820560e2b559bc1c2da009d35f4a9ce",
+  "implementation_sources_compared": 173,
+  "implementation_sources_changed": [],
+  "links_checked": 207,
+  "missing_links": [],
+  "word_pages_visually_inspected": 19,
+  "original_word_files_unchanged": true,
+  "git_diff_check_exit": 0,
+  "new_defects_reproduced": 2,
+  "new_defects_repaired": 0,
+  "scope": "Documentation and plan completed; source fixes remain pending. No fresh full regression claimed for documentation edits."
+}

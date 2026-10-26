@@ -10,9 +10,9 @@ def _render_pending(preview):
     operations = preview.get('pending_operations', [])
     plans = preview.get('pending_plans', [])
     if not operations and not plans:
-        st.success('没有未完成的银行操作或计划；退出不会删除任何本机数据。')
+        st.success('没有未完成的银行操作或计划；退出不会删除本机数据。')
     else:
-        st.warning('以下待办会保留在本机，重新打开后可以继续处理；退出不会自动付款、取消或重置。')
+        st.warning('以下待办会保留，重新打开后可继续；退出不会自动付款、取消或重置。')
         for row in operations[:8]:
             st.text(f"操作：{row['action']} · {row['status']} · {row['idempotency_key']}")
         for row in plans[:5]:
@@ -23,7 +23,7 @@ def _render_pending(preview):
 
 def render_exit(store, principal):
     with st.sidebar.expander('退出应用（不是关闭网页）'):
-        st.caption('关闭浏览器标签页只会离开页面，本机后台仍可继续；退出应用会停止本机页面服务，并请求本应用后台停止。')
+        st.caption('关闭网页只离开页面，本机后台仍可继续；退出应用会停止页面服务，并先请求本应用后台停止。')
         if st.button('查看未完成待办并准备退出', key='exit_prepare'):
             try:
                 st.session_state['exit_preview'] = exit_summary(store, principal)

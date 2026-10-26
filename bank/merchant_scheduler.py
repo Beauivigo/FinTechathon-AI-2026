@@ -67,6 +67,8 @@ class MerchantScheduler(Scheduler):
         """只受理到期操作并产生新授权，不授权付款；原键查询优先。"""
         results = []
         for task in self.list_tasks(principal_id=principal_id):
+            if self.guard is not None and not self.guard():
+                break
             if task['state'] not in ('scheduled', 'running', 'unknown'):
                 continue
             with self.store.connection(write=True) as c:

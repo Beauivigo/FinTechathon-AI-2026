@@ -1,0 +1,142 @@
+{
+  "executor": "Codex independent acceptance",
+  "run_id": "44a2833c-2e69-482c-9633-c7deab4c1512",
+  "base": "285c90c6014158b85d8323788945b085d1991192",
+  "full_tests": {
+    "run": 619,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "clean_start_checks": [
+    {
+      "name": "prepare",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_once",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_restart",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_loop_without_page",
+      "exit_code": 0
+    },
+    {
+      "name": "ledger_and_clean_page",
+      "exit_code": 0
+    }
+  ],
+  "frozen_tests": {
+    "run": 6,
+    "exit_code": 0,
+    "original_test_unchanged": true
+  },
+  "targeted_billing_page_tests": {
+    "run": 9,
+    "exit_code": 0
+  },
+  "browser_walkthrough": {
+    "pages": [
+      "首页",
+      "产品对比",
+      "资料账单",
+      "卡片管理",
+      "订阅管理",
+      "预算管理",
+      "生日与商户",
+      "AA收款",
+      "定时转账",
+      "理财",
+      "AI银行助手"
+    ],
+    "queries_executed": [
+      "产品对比",
+      "资料账单"
+    ],
+    "no_payment_or_model_submission": true,
+    "screenshots": [
+      "home-preview.png",
+      "materials-preview.png"
+    ],
+    "scope": "Live browser, separate temporary data; no user phone or real model HTTP."
+  },
+  "copy_word_counts": {
+    "before": {
+      "模拟": 81,
+      "演示": 10,
+      "沙盒": 0
+    },
+    "after": {
+      "模拟": 15,
+      "演示": 3,
+      "沙盒": 0
+    }
+  },
+  "changed_app_files": 20,
+  "primary_focus_file_drift": [
+    "app/background_panel.py",
+    "app/model_bank_panel.py"
+  ],
+  "model_profile_unchanged": true,
+  "integration_status": "Applied to local main after explicit user approval. Twenty app files backed up; latest memo display and phone acceptance module preserved. No commit/push.",
+  "whitespace_errors": 0,
+  "new_commit": false,
+  "pushed": false,
+  "history": "Initial full suite 618/619 passed. Important billing info box restored without changing assertions; then 9 targeted plus 619 full tests passed. First hash probe used Git-export line endings; exact snapshot bytes restored and original frozen tests passed.",
+  "isolated_ui_snapshot_passed": true,
+  "primary_live_database_validation": "Not claimed: live database hash changed during concurrent primary use; cause not established. This UI task ran all tests and browser sessions against disposable isolated databases only.",
+  "concurrent_primary_source_changes": {
+    "paths": [
+      "app/background_panel.py",
+      "app/model_bank_panel.py"
+    ],
+    "reason": "Both exactly match already accepted core repair run 80acd3d5-c455-4bb8-8b54-c0f1f86f123d. Eleven core source hashes verified against primary.",
+    "handled": "Only original UI text hunks merged into a separate combined fixture; current core conditions/widget keys preserved. Primary not overwritten."
+  },
+  "compatibility_with_latest_core": {
+    "status": "passed",
+    "tests": 627,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "clean_start_checks": 5,
+    "source_unchanged": true,
+    "isolated_runtime_unchanged": true,
+    "evidence": "compatibility-full.json",
+    "core_run": "80acd3d5-c455-4bb8-8b54-c0f1f86f123d",
+    "source_preservation": "11 accepted core source files verified; UI text hunks merged into two overlap components without changing core conditions/keys."
+  },
+  "primary_integration_scope": "Prepared patch of 20 app files only, preserving the newer accepted core implementation. No source or live database write performed.",
+  "broker_review_status": "accepted_by_codex",
+  "broker_scoped_files_accepted": 21,
+  "initial_automatic_review_rejection": "Resolved by recording primary concurrency and unknown live-database change honestly, limiting acceptance to isolated UI artifacts, and independently passing the latest-core compatibility suite. Original rejection/request preserved.",
+  "integrated_acceptance": {
+    "tests": 635,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "clean_start_checks": 5,
+    "evidence": "integrated-full.json",
+    "scope": "635 tests and 5 clean/background checks passed on the 156-source integration snapshot before later concurrent pending-operation additions.",
+    "source_files_in_tested_snapshot": 156
+  },
+  "current_ui_smoke": {
+    "tests": 30,
+    "passed": true,
+    "evidence": "current-ui-smoke.json"
+  },
+  "concurrent_changes_after_full_verification": [
+    "app/home_view.py",
+    "app/main.py",
+    "app/model_bank_panel.py",
+    "app/model_view.py",
+    "app/routing_panel.py",
+    "app/workflow.py",
+    "app/pages/3_卡片管理.py",
+    "agent/controller.py"
+  ]
+}

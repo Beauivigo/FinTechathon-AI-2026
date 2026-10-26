@@ -1,0 +1,1 @@
+{"path": "C:\\Users\\huang\\AppData\\Local\\Temp\\fintech-phone-acceptance-d9609cb24d34\\sandbox.sqlite3", "exists": false, "initialized": false, "setup_state": null, "bound": null}

@@ -1,0 +1,14 @@
+{
+  "install": {
+    "passed": true,
+    "runtime": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]\n1.65.0\n['D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-final\\\\全新安装目录\\\\python\\\\python314.zip', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-final\\\\全新安装目录\\\\python', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-final\\\\全新安装目录\\\\python\\\\Lib\\\\site-packages', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-final\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-final\\\\全新安装目录\\\\launcher']\n",
+    "previous_user_files": 0
+  },
+  "stop": {
+    "passed": true
+  },
+  "uninstall": {
+    "passed": true,
+    "retained_user_files": 3
+  }
+}

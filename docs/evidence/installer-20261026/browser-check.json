@@ -1,0 +1,12 @@
+{
+  "executor": "Codex via cua_repl",
+  "installer_sha256": "d47c7e9ce534f5ee4b7fe8a585d2a5eadebb018bdbcac064f86604ca725eb923",
+  "unmodified_delivery_install": true,
+  "cold_direct_material_page": true,
+  "home_navigation": true,
+  "ai_navigation": true,
+  "missing_key_shown": true,
+  "material_expense": "464.90",
+  "screenshot": "final-installed-bill.png",
+  "scope": "Temporary user storage and fictional bank data; no personal password, OTP, API key or external model request"
+}

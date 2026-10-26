@@ -1,0 +1,14 @@
+test_complete_birthday_draft_is_reviewable_and_clarifies_partial_input (__main__.NaturalLanguageBirthdayTests.test_complete_birthday_draft_is_reviewable_and_clarifies_partial_input) ... ok
+test_complete_birthday_plan_persists_restores_and_waits_for_authorization (__main__.NaturalLanguageBirthdayTests.test_complete_birthday_plan_persists_restores_and_waits_for_authorization) ... ok
+test_date_only_birthday_stays_read_only_and_is_not_a_purchase (__main__.NaturalLanguageBirthdayTests.test_date_only_birthday_stays_read_only_and_is_not_a_purchase) ... ok
+test_explicit_times_follow_the_existing_birthday_rules (__main__.NaturalLanguageBirthdayTests.test_explicit_times_follow_the_existing_birthday_rules) ... ok
+test_invalid_resources_budget_and_times_are_rejected_without_a_plan (__main__.NaturalLanguageBirthdayTests.test_invalid_resources_budget_and_times_are_rejected_without_a_plan) ... ok
+test_memo_text_cannot_change_identity_or_execute_commands (__main__.TransferMemoTests.test_memo_text_cannot_change_identity_or_execute_commands) ... ok
+test_scheduled_transfer_memo_is_not_silently_dropped (__main__.TransferMemoTests.test_scheduled_transfer_memo_is_not_silently_dropped) ... ok
+test_scheduled_transfer_without_memo_still_compiles (__main__.TransferMemoTests.test_scheduled_transfer_without_memo_still_compiles) ... ok
+test_transfer_memo_survives_clarification_compile_execution_and_recovery (__main__.TransferMemoTests.test_transfer_memo_survives_clarification_compile_execution_and_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.732s
+
+OK

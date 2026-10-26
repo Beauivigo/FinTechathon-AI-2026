@@ -1,0 +1,10 @@
+test_contract_and_model_compile_share_the_same_memo_rules (__main__.ScheduledMemoTests.test_contract_and_model_compile_share_the_same_memo_rules) ... ok
+test_legacy_scheduled_task_without_memo_still_executes (__main__.ScheduledMemoTests.test_legacy_scheduled_task_without_memo_still_executes) ... ok
+test_same_registration_key_with_changed_memo_conflicts (__main__.ScheduledMemoTests.test_same_registration_key_with_changed_memo_conflicts) ... ok
+test_schedule_spec_carries_memo_but_legacy_spec_is_unchanged (__main__.ScheduledMemoTests.test_schedule_spec_carries_memo_but_legacy_spec_is_unchanged) ... ok
+test_scheduled_memo_survives_registration_restart_dispatch_and_recovery (__main__.ScheduledMemoTests.test_scheduled_memo_survives_registration_restart_dispatch_and_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.495s
+
+OK

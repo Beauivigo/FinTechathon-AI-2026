@@ -1,0 +1,9 @@
+{
+  "executor": "Codex independent acceptance",
+  "command": "FINTECH_REVIEW_ROOT=<isolated fixture> python -B -X utf8 docs/evidence/u-delegation-20261023/independent_cases.py",
+  "exit_code": 0,
+  "case_count": 6,
+  "real_dependencies": true,
+  "phone_enrollment": "temporary test user; human phone not performed",
+  "test_source_sha256": "28e546cb7c2ff19214f692157031c547f06bef5d5ef3a57050941d922d7b4b40"
+}

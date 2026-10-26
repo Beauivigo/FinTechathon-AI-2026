@@ -1,0 +1,44 @@
+test_constants_are_exact_local_and_accessible (tests.test_ui_components.UiComponentTests.test_constants_are_exact_local_and_accessible) ... ok
+test_details_show_passed_values_and_missing_fields (tests.test_ui_components.UiComponentTests.test_details_show_passed_values_and_missing_fields) ... ok
+test_docs_cover_design_tokens_wiring_and_boundaries (tests.test_ui_components.UiComponentTests.test_docs_cover_design_tokens_wiring_and_boundaries) ... ok
+test_empty_state_returns_click_and_business_section_preserves_controls (tests.test_ui_components.UiComponentTests.test_empty_state_returns_click_and_business_section_preserves_controls) ... ok
+test_import_boundary_and_no_forbidden_native_apis (tests.test_ui_components.UiComponentTests.test_import_boundary_and_no_forbidden_native_apis) ... ok
+test_navigation_has_stable_keys_and_only_clicks_switch_pages (tests.test_ui_components.UiComponentTests.test_navigation_has_stable_keys_and_only_clicks_switch_pages) ... ok
+test_navigation_ignores_unknown_keys_and_empty_requests (tests.test_ui_components.UiComponentTests.test_navigation_ignores_unknown_keys_and_empty_requests) ... ok
+test_none_and_empty_inputs_are_safe (tests.test_ui_components.UiComponentTests.test_none_and_empty_inputs_are_safe) ... ok
+test_overview_empty_and_none_values_are_neutral (tests.test_ui_components.UiComponentTests.test_overview_empty_and_none_values_are_neutral) ... ok
+test_page_header_keeps_untrusted_text_out_of_html (tests.test_ui_components.UiComponentTests.test_page_header_keeps_untrusted_text_out_of_html) ... ok
+test_scope_note_reports_true_boundary (tests.test_ui_components.UiComponentTests.test_scope_note_reports_true_boundary) ... ok
+test_unknown_status_and_progress_never_claim_success (tests.test_ui_components.UiComponentTests.test_unknown_status_and_progress_never_claim_success) ... ok
+test_assistant_entry_returns_navigation_without_business_or_state (tests.test_home_view.HomeViewContractTests.test_assistant_entry_returns_navigation_without_business_or_state) ... ok
+test_clicked_service_button_returns_only_its_action_id (tests.test_home_view.HomeViewContractTests.test_clicked_service_button_returns_only_its_action_id) ... ok
+test_docs_wire_every_shortcut_to_a_concrete_destination (tests.test_home_view.HomeViewContractTests.test_docs_wire_every_shortcut_to_a_concrete_destination) ... ok
+test_empty_collections_are_distinct_from_unavailable_ones (tests.test_home_view.HomeViewContractTests.test_empty_collections_are_distinct_from_unavailable_ones) ... ok
+test_import_and_render_surface_are_display_only (tests.test_home_view.HomeViewContractTests.test_import_and_render_surface_are_display_only) ... ok
+test_renders_supplied_records_and_service_entries (tests.test_home_view.HomeViewContractTests.test_renders_supplied_records_and_service_entries) ... ok
+test_repeated_render_has_no_hidden_selection_or_data_mutation (tests.test_home_view.HomeViewContractTests.test_repeated_render_has_no_hidden_selection_or_data_mutation) ... ok
+test_transaction_unknown_fields_are_explicit (tests.test_home_view.HomeViewContractTests.test_transaction_unknown_fields_are_explicit) ... ok
+test_unknown_values_are_reported_without_fake_numbers_or_success (tests.test_home_view.HomeViewContractTests.test_unknown_values_are_reported_without_fake_numbers_or_success) ... ok
+test_account_selection_uses_owned_resources (tests.test_billing_page.BillingPageTests.test_account_selection_uses_owned_resources) ... 2026-10-26 18:10:39.919 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_amount_table_chart_and_refund_agree (tests.test_billing_page.BillingPageTests.test_amount_table_chart_and_refund_agree) ... 2026-10-26 18:10:40.607 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_bad_result_cannot_display_as_success (tests.test_billing_page.BillingPageTests.test_bad_result_cannot_display_as_success) ... 2026-10-26 18:10:41.792 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_failed_query_clears_previous_report (tests.test_billing_page.BillingPageTests.test_failed_query_clears_previous_report) ... 2026-10-26 18:10:42.374 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_invalid_range_does_not_execute (tests.test_billing_page.BillingPageTests.test_invalid_range_does_not_execute) ... 2026-10-26 18:10:43.358 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_leap_month_request_and_refresh_clear_report (tests.test_billing_page.BillingPageTests.test_leap_month_request_and_refresh_clear_report) ... 2026-10-26 18:10:43.814 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_query_preserves_pending_transfer (tests.test_billing_page.BillingPageTests.test_query_preserves_pending_transfer) ... 2026-10-26 18:10:44.346 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unknown_transfer_stays_unknown_until_recovered (tests.test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered) ... 2026-10-26 18:10:45.008 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_year_and_custom_dates_and_empty_month (tests.test_billing_page.BillingPageTests.test_year_and_custom_dates_and_empty_month) ... 2026-10-26 18:10:45.813 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 6.940s
+
+OK

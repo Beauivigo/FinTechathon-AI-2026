@@ -11,6 +11,7 @@ from app.workflow import render as render_bank_operation
 from shared import ContractError, ServiceError
 from shared.contracts import ACTIONS
 from bank.plan_store import PlanStore
+from bank.birthday import schedule_ready, tasks_from_slots
 
 
 def _render_authoritative_request(flow):
@@ -48,6 +49,8 @@ def render_model_bank():
         st.session_state.model_dialogue=DialogueSession(caller,
             audit=lambda event:flow.gateway.record_agent_event(event,principal_id=flow.principal_id))
     flow=st.session_state.model_bank_flow
+    # 别的页面可能已确认/拒绝/过期收口原操作；先对齐权威记录再判断阻塞。
+    flow.settle()
     reconcile_session_flows(st.session_state, flow)
     flow.refresh_operations()
     from app.background_panel import render_background
@@ -80,26 +83,49 @@ def render_model_bank():
         except NeedsInput as exc:st.warning(str(exc))
         caller.observations=deepcopy(runner.receipts)
     wrote=bool(runner and any(r['status']=='succeeded' and ACTIONS.get(t.get('bank_action'),{}).get('write') for t in runner.tasks for k,r in runner.receipts.items() if k==t['id']))
+    if flow.blocked:
+        from app import pending_view
+        pending_view.render_unresolved(flow,key_prefix='model_pending',
+            note='待办结束前 AI 输入与发送保持暂停；确认、拒绝或查询原操作后自动恢复，模型不代替你确认或验证。')
     snap=render_model_dialogue(session,blocked=flow.blocked,allow_back=not wrote)
     st.caption('“新需求”只清空当前草稿；已启用后台的保存计划请先暂停或人工接管，不会随清空自动取消。')
     if caller.last_error:st.warning(caller.last_error)
     proposal=snap['proposal']
-    if snap['phase'] in {'proposal','plan'} and proposal and st.session_state.get('model_runner_version')!=snap['version']:
-        if proposal['kind']=='single':
-            tasks=[{'id':'t1','title':'当前需求','intent':proposal['intent'],'fields':proposal['fields'],'depends_on':[]}]
-        else:tasks=proposal['tasks']
+    if (snap['phase'] in {'proposal','plan'} and proposal
+            and st.session_state.get('model_runner_version')!=snap['version']
+            and st.session_state.get('model_revision_rejected')!=snap['version']):
+        birthday_plan=False
         try:
+            if proposal['kind']=='single':
+                fields=proposal['fields']
+                if proposal['intent']=='birthday' and schedule_ready(fields):
+                    tasks=tasks_from_slots(flow,fields,previous=runner if runner and runner.trace_id==session.trace_id else None)
+                    birthday_plan=True
+                else:
+                    tasks=[{'id':'t1','title':'当前需求','intent':proposal['intent'],'fields':fields,'depends_on':[]}]
+            else:
+                tasks=proposal['tasks']
+                if (len(tasks)==1 and tasks[0].get('intent')=='birthday'
+                        and schedule_ready(tasks[0].get('fields',{}))):
+                    # A one-task birthday plan is the same trusted draft as a
+                    # single proposal; expand it into timed reserve/order/release steps.
+                    tasks=tasks_from_slots(flow,tasks[0]['fields'],previous=runner if runner and runner.trace_id==session.trace_id else None)
+                    birthday_plan=True
             candidate=BankPlanRunner(flow,tasks,trace_id=session.trace_id,audit=session.audit,journal=journal)
             if runner and runner.trace_id == session.trace_id:
                 candidate.inherit_completed(runner)
+            if birthday_plan:candidate.automation=True
             candidate.checkpoint('revision')
             runner=candidate
             st.session_state.model_runner=runner
             st.session_state.model_runner_version=snap['version']
+            st.session_state.pop('model_revision_rejected',None)
         except NeedsInput as exc:
             st.warning(str(exc))
-            if runner: runner.paused=True
-            return
+            st.session_state.model_revision_rejected=snap['version']
+        except (ValueError,ContractError,ServiceError):
+            st.warning('计划未保存，请核对生日、预算、商品、地址与时间；原计划保持不变。')
+            st.session_state.model_revision_rejected=snap['version']
     elif snap['phase'] not in {'proposal','plan','paused','handoff'}:
         st.session_state.pop('model_runner',None);runner=None
     if runner:
@@ -123,7 +149,7 @@ def render_model_bank():
             if st.button('选用此收款账户',key='model_pick_payee'):
                 runner.choices[pending['id']]=choice['payee_id'];st.rerun()
         if pending and not runner.paused and not flow.blocked:
-            st.caption('下一步：'+pending['title']+'。准备后仍须按银行要求确认或模拟强验证。')
+            st.caption('下一步：'+pending['title']+'。准备后仍须按银行要求确认或验证。')
             if st.button('核对并准备下一步',key='model_prepare_step'):
                 try:
                     runner.advance(allow_write=True)
@@ -131,13 +157,16 @@ def render_model_bank():
                 except (NeedsInput,ValueError,ContractError,ServiceError) as exc:
                     st.warning(str(exc) if isinstance(exc,NeedsInput) else '操作未通过银行校验，请补充或核对参数。')
         labels={'pending':'尚未执行','awaiting_bank':'待银行确认或核实','completed':'已完成','stopped':'已停止'}
-        st.dataframe([{'步骤':t['id'],'任务':t['title'],'先完成':','.join(t['depends_on']) or '无','状态':labels[t['status']]} for t in runner.tasks],hide_index=True)
+        st.dataframe([{'步骤':t['id'],'任务':t['title'],'先完成':','.join(t['depends_on']) or '无',
+            '生效时间':t.get('not_before') or '立即','状态':labels[t['status']]} for t in runner.tasks],hide_index=True)
+        if runner.automation:
+            st.caption('后台只会在生效时间之后准备待办；预算仍需确认，订单仍需强验证，剩余释放也需确认。')
         if runner.receipts:
             st.subheader('银行端实际回执')
             for key,result in runner.receipts.items():
                 with st.expander(key+' · '+result['status'],expanded=True):
                     st.json(result.get('data',result.get('error',{})))
-            st.caption('这些结果来自本地模拟银行；模型的草稿不是资金变动证据。')
+            st.caption('结果来自本地账本；模型草稿不是资金变动证据。')
         if wrote:st.caption('已有业务回执，不能用回退草稿撤销已提交操作；需要更正时先人工核对。')
     if _render_authoritative_request(flow):render_bank_operation(flow)
     if caller.last_metadata:

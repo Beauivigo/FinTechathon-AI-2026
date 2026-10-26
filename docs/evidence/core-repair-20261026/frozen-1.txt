@@ -1,0 +1,15 @@
+test_explicit_time_change_follows_existing_gate (__main__.Audit06PlanRevisionTests.test_explicit_time_change_follows_existing_gate) ... ok
+test_mixed_completed_and_pending_revision_keeps_remaining_gates (__main__.Audit06PlanRevisionTests.test_mixed_completed_and_pending_revision_keeps_remaining_gates) ... ok
+test_prepared_operation_key_is_preserved_and_content_change_rejected (__main__.Audit06PlanRevisionTests.test_prepared_operation_key_is_preserved_and_content_change_rejected) ... ok
+test_purpose_revision_keeps_all_time_gates_and_no_early_operation (__main__.Audit06PlanRevisionTests.test_purpose_revision_keeps_all_time_gates_and_no_early_operation) ... ok
+test_revision_cannot_drop_time_constrained_steps (__main__.Audit06PlanRevisionTests.test_revision_cannot_drop_time_constrained_steps) ... ok
+test_stale_revision_cannot_overwrite_newer_snapshot (__main__.Audit06PlanRevisionTests.test_stale_revision_cannot_overwrite_newer_snapshot) ... ok
+test_clean_exit_is_not_reported_unverified (__main__.Audit07LeaseFencingTests.test_clean_exit_is_not_reported_unverified) ... ok
+test_expired_lease_does_not_confirm_stop (__main__.Audit07LeaseFencingTests.test_expired_lease_does_not_confirm_stop) ... ok
+test_stop_is_confirmed_only_after_worker_acknowledges (__main__.Audit07LeaseFencingTests.test_stop_is_confirmed_only_after_worker_acknowledges) ... ok
+test_taken_over_worker_cannot_advance_new_plan_and_stop_is_honest (__main__.Audit07LeaseFencingTests.test_taken_over_worker_cannot_advance_new_plan_and_stop_is_honest) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.620s
+
+OK

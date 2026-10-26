@@ -1,0 +1,11 @@
+--- primary/app/model_view.py
++++ candidate/app/model_view.py
+@@ -8,6 +8,8 @@
+     st.subheader('用自然语言办理业务')
+     st.caption('模型负责理解需求和规划；结果以账本回执为准，付款及敏感操作仍需确认或验证。')
+     text=st.text_area('描述需求或补充上一条信息',key=key_prefix+'_input',max_chars=1000,disabled=blocked)
++    if blocked:
++        st.warning('当前有待处理或待核实的银行操作，输入与发送已暂停；请先在上方“待处理操作”中恢复并确认、拒绝或查询，恢复后会重新可用。')
+     if st.button('发送需求',key=key_prefix+'_send',disabled=blocked):
+         with st.spinner('正在理解需求…'):
+             session.submit(text)

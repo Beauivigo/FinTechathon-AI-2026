@@ -127,7 +127,7 @@ def _render_recovery_form(auth):
 
 def _render_binding(auth, token, *, heading='登录并绑定手机验证器'):
     st.title(heading)
-    st.info('请用手机验证器扫码，然后输入手机显示的动态码。二维码、密钥和动态码只在本机页面显示，不要发到聊天。')
+    st.info('用手机验证器扫码并输入动态码。二维码、密钥和动态码不要发到聊天。')
     try:
         import qrcode
         uri = auth.enrollment(token)
@@ -152,12 +152,12 @@ def _render_binding(auth, token, *, heading='登录并绑定手机验证器'):
 def _render_first_run(auth):
     with st.sidebar:
         st.markdown('### 首次使用')
-        st.caption('当前为明确标识的演示验证模式。创建本机账号并绑定手机后，红色业务才使用真实动态码。')
+        st.caption('未绑定手机时使用模拟验证；绑定后，红色业务使用手机动态码。')
         if not _setup_allowed():
             st.warning('首次设置只允许从本机回环地址（127.0.0.1/localhost）打开。当前访问地址不符合条件，没有创建入口，现有数据也未修改。')
             return
         with st.expander('创建本机账号并启用手机验证', expanded=True):
-            st.caption('这里创建的是本机模拟银行账户，不是开立真实银行账户。密码、恢复码和动态码不要发给AI。')
+            st.caption('这里创建本机模拟账户，不是真实银行账户；密码、恢复码和动态码不要发给AI。')
             with st.form('setup_begin'):
                 username = st.text_input('设置用户名', max_chars=64)
                 password = st.text_input('设置密码（至少12字符）', type='password', max_chars=256)

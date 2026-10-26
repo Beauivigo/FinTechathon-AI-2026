@@ -1,0 +1,2480 @@
+{
+  "definitions": [
+    {
+      "file": "app/auth_ui.py",
+      "line": 93,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 115,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 140,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 206,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 264,
+      "kind": "button"
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 165,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 14,
+      "kind": "button"
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 51,
+      "kind": "button"
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 54,
+      "kind": "button"
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 60,
+      "kind": "button"
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 99,
+      "kind": "button"
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "kind": "button"
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 27,
+      "kind": "button"
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 40,
+      "kind": "button"
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 52,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 101,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 309,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 89,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 108,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 255,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 200,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 158,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 192,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 188,
+      "kind": "button"
+    },
+    {
+      "file": "app/main.py",
+      "line": 190,
+      "kind": "button"
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 209,
+      "kind": "button"
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 215,
+      "kind": "button"
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 264,
+      "kind": "button"
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 269,
+      "kind": "button"
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 274,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 133,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 65,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 149,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 153,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 37,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 64,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 65,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 66,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 13,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 17,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 18,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 19,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 20,
+      "kind": "button"
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 21,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 132,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 82,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 78,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 80,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 92,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 100,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 103,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 105,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 125,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 127,
+      "kind": "button"
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 130,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/1_资料账单.py",
+      "line": 34,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/2_产品对比.py",
+      "line": 29,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/3_卡片管理.py",
+      "line": 43,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/3_卡片管理.py",
+      "line": 50,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/4_AA收款.py",
+      "line": 43,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 55,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 24,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 26,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 41,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 46,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 48,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 53,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 45,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 41,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 56,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 62,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/7_预算管理.py",
+      "line": 26,
+      "kind": "form_submit_button"
+    },
+    {
+      "file": "app/pages/7_预算管理.py",
+      "line": 39,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 51,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 64,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 43,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 59,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 77,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 79,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 82,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 121,
+      "kind": "button"
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 98,
+      "kind": "button"
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 175,
+      "kind": "button"
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 201,
+      "kind": "button"
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 188,
+      "kind": "button"
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 199,
+      "kind": "button"
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 193,
+      "kind": "button"
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 53,
+      "kind": "button"
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 54,
+      "kind": "button"
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 79,
+      "kind": "button"
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "kind": "button"
+    },
+    {
+      "file": "app/ui.py",
+      "line": 234,
+      "kind": "button"
+    },
+    {
+      "file": "app/ui.py",
+      "line": 330,
+      "kind": "button"
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 193,
+      "kind": "button"
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 189,
+      "kind": "button"
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 191,
+      "kind": "button"
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 70,
+      "kind": "button"
+    }
+  ],
+  "observed": [
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_home",
+      "label": "银行首页",
+      "rendered": 948,
+      "enabled": 948,
+      "disabled": 0,
+      "clicked": 5,
+      "clicked_tests": [
+        "test_closeout_tooling_20261026.CloseoutToolTests.test_phone_page_reruns_and_keeps_imported_aliases_isolated",
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer",
+        "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_assistant",
+      "label": "AI 银行助手",
+      "rendered": 944,
+      "enabled": 944,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_bills",
+      "label": "账单流水",
+      "rendered": 943,
+      "enabled": 943,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_cards",
+      "label": "卡片管理",
+      "rendered": 941,
+      "enabled": 941,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_accounts",
+      "label": "资料账单",
+      "rendered": 940,
+      "enabled": 940,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_transfer",
+      "label": "转账汇款",
+      "rendered": 939,
+      "enabled": 939,
+      "disabled": 0,
+      "clicked": 4,
+      "clicked_tests": [
+        "test_closeout_tooling_20261026.CloseoutToolTests.test_phone_page_reruns_and_keeps_imported_aliases_isolated",
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_aa",
+      "label": "AA 收款",
+      "rendered": 935,
+      "enabled": 935,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_scheduled",
+      "label": "定时转账",
+      "rendered": 934,
+      "enabled": 934,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_subscriptions",
+      "label": "订阅管理",
+      "rendered": 933,
+      "enabled": 933,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_budget",
+      "label": "预算管理",
+      "rendered": 932,
+      "enabled": 932,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_merchant",
+      "label": "生日与商户",
+      "rendered": 931,
+      "enabled": 931,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_wealth",
+      "label": "理财",
+      "rendered": 930,
+      "enabled": 930,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 189,
+      "key": "ui_menu_products",
+      "label": "产品对比",
+      "rendered": 929,
+      "enabled": 929,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 89,
+      "key": "example_0",
+      "label": "给李明转200元",
+      "rendered": 432,
+      "enabled": 348,
+      "disabled": 84,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 89,
+      "key": "example_1",
+      "label": "给小王转钱",
+      "rendered": 431,
+      "enabled": 347,
+      "disabled": 84,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 89,
+      "key": "example_2",
+      "label": "给小王转两百",
+      "rendered": 430,
+      "enabled": 346,
+      "disabled": 84,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 89,
+      "key": "example_3",
+      "label": "给李明转1200元",
+      "rendered": 429,
+      "enabled": 345,
+      "disabled": 84,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 101,
+      "key": "None",
+      "label": "新建对话",
+      "rendered": 428,
+      "enabled": 344,
+      "disabled": 84,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 108,
+      "key": "None",
+      "label": "确认重置模拟银行",
+      "rendered": 427,
+      "enabled": 3,
+      "disabled": 424,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed"
+      ]
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 53,
+      "key": "router_identify",
+      "label": "识别或补充需求",
+      "rendered": 381,
+      "enabled": 314,
+      "disabled": 67,
+      "clicked": 16,
+      "clicked_tests": [
+        "test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_followup_clear_and_rerun_have_no_bank_effect",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_navigation_to_subscription_keeps_business_unexecuted",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_negative_multi_intent_unsupported_do_not_navigate",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_destinations_are_real_pages_and_read_only",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_transfer_route_does_not_create_request"
+      ]
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 54,
+      "key": "router_clear",
+      "label": "清除未执行草稿",
+      "rendered": 381,
+      "enabled": 314,
+      "disabled": 67,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_followup_clear_and_rerun_have_no_bank_effect"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 309,
+      "key": "bill_query",
+      "label": "查询账单",
+      "rendered": 368,
+      "enabled": 367,
+      "disabled": 1,
+      "clicked": 12,
+      "clicked_tests": [
+        "test_billing_page.BillingPageTests.test_account_selection_uses_owned_resources",
+        "test_billing_page.BillingPageTests.test_amount_table_chart_and_refund_agree",
+        "test_billing_page.BillingPageTests.test_bad_result_cannot_display_as_success",
+        "test_billing_page.BillingPageTests.test_failed_query_clears_previous_report",
+        "test_billing_page.BillingPageTests.test_leap_month_request_and_refresh_clear_report",
+        "test_billing_page.BillingPageTests.test_query_preserves_pending_transfer",
+        "test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered",
+        "test_billing_page.BillingPageTests.test_year_and_custom_dates_and_empty_month"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 78,
+      "key": "bank_guide_open",
+      "label": "开始使用指南",
+      "rendered": 271,
+      "enabled": 271,
+      "disabled": 0,
+      "clicked": 6,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 80,
+      "key": "bank_guide_skip",
+      "label": "暂时跳过",
+      "rendered": 265,
+      "enabled": 265,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_transfer",
+      "label": "转账",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_home_shortcuts_change_views_without_creating_a_request",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_bills",
+      "label": "账单与流水",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_home_shortcuts_change_views_without_creating_a_request",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_cards",
+      "label": "卡片管理",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_aa",
+      "label": "AA收款",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 99,
+      "key": "home_assistant",
+      "label": "打开 AI 银行助手",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_scheduled",
+      "label": "定时转账",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_budget",
+      "label": "预算管理",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_wealth",
+      "label": "理财",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 4,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_primary_navigation_round_trip_keeps_the_ledger",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/home_view.py",
+      "line": 117,
+      "key": "home_service_products",
+      "label": "产品对比",
+      "rendered": 319,
+      "enabled": 319,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
+        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 190,
+      "key": "None",
+      "label": "确认此笔模拟转账",
+      "rendered": 43,
+      "enabled": 43,
+      "disabled": 0,
+      "clicked": 10,
+      "clicked_tests": [
+        "test_app.PageTests.test_confirmation_and_rerun_only_create_one_persisted_transfer",
+        "test_app.PageTests.test_cumulative_threshold_page_uses_ledger",
+        "test_app.PageTests.test_fresh_page_recovers_pending_and_success_without_automatic_authorization",
+        "test_app.PageTests.test_new_chat_preserves_bank_and_explicit_reset_restores_seed",
+        "test_app.PageTests.test_unknown_is_queryable_and_reset_cannot_bypass_it",
+        "test_app.PageTests.test_unknown_write_result_disables_new_submission",
+        "test_billing_page.BillingPageTests.test_query_preserves_pending_transfer",
+        "test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered",
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_transfer_status_requires_confirmation_and_rerun_never_repeats_payment"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 192,
+      "key": "None",
+      "label": "拒绝此操作",
+      "rendered": 37,
+      "enabled": 37,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 200,
+      "key": "None",
+      "label": "查询原操作结果",
+      "rendered": 72,
+      "enabled": 72,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_app.PageTests.test_unknown_is_queryable_and_reset_cannot_bypass_it",
+        "test_billing_page.BillingPageTests.test_unknown_transfer_stays_unknown_until_recovered",
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 255,
+      "key": "None",
+      "label": "恢复选中操作",
+      "rendered": 85,
+      "enabled": 85,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_app.PageTests.test_fresh_page_recovers_pending_and_success_without_automatic_authorization"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 175,
+      "key": "home_pending_open",
+      "label": "查看并处理待办",
+      "rendered": 45,
+      "enabled": 45,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 188,
+      "key": "home_pending_approve",
+      "label": "确认待办操作",
+      "rendered": 34,
+      "enabled": 34,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 199,
+      "key": "home_pending_reject",
+      "label": "拒绝待办操作",
+      "rendered": 37,
+      "enabled": 37,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 201,
+      "key": "home_pending_query",
+      "label": "查询待办结果",
+      "rendered": 54,
+      "enabled": 54,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/main.py",
+      "line": 188,
+      "key": "None",
+      "label": "模拟验证并继续",
+      "rendered": 7,
+      "enabled": 7,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_app.PageTests.test_cumulative_threshold_page_uses_ledger",
+        "test_app.PageTests.test_insufficient_funds_page_never_reports_success",
+        "test_app.PageTests.test_rejection_and_simulated_verification_are_separate_paths"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 193,
+      "key": "home_pending_verify",
+      "label": "模拟验证并处理待办",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/main.py",
+      "line": 158,
+      "key": "payee_demo_payee_wang_1",
+      "label": "小王 · 银行未提供 · ****1234",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/main.py",
+      "line": 158,
+      "key": "payee_demo_payee_wang_2",
+      "label": "小王 · 银行未提供 · ****5678",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_app.PageTests.test_optional_bank_name_and_invalid_candidate_input_do_not_break_page"
+      ]
+    },
+    {
+      "file": "app/main.py",
+      "line": 158,
+      "key": "payee_demo_payee_wang_1",
+      "label": "小王 · 模拟银行甲 · ****1234",
+      "rendered": 3,
+      "enabled": 3,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/main.py",
+      "line": 158,
+      "key": "payee_demo_payee_wang_2",
+      "label": "小王 · 模拟银行乙 · ****5678",
+      "rendered": 3,
+      "enabled": 3,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_app.PageTests.test_page_starts_and_missing_amount_then_payee_selection_works"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 234,
+      "key": "app_nav_home",
+      "label": "银行首页",
+      "rendered": 495,
+      "enabled": 495,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/ui.py",
+      "line": 234,
+      "key": "app_nav_accounts",
+      "label": "资料账单",
+      "rendered": 495,
+      "enabled": 486,
+      "disabled": 9,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/ui.py",
+      "line": 234,
+      "key": "app_nav_wealth",
+      "label": "理财",
+      "rendered": 495,
+      "enabled": 463,
+      "disabled": 32,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pages/7_预算管理.py",
+      "line": 26,
+      "key": "budget_reserve",
+      "label": "申请预留预算",
+      "rendered": 27,
+      "enabled": 14,
+      "disabled": 13,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release",
+        "test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions"
+      ]
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 70,
+      "key": "action_recover",
+      "label": "恢复选中操作",
+      "rendered": 282,
+      "enabled": 282,
+      "disabled": 0,
+      "clicked": 10,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release",
+        "test_card_limits.CardLimitTests.test_page_refresh_recovery",
+        "test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page",
+        "test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
+        "test_review_page_acceptance.ReviewPageTests.test_charge_recovery_displays_original_bound_amount_and_card",
+        "test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase",
+        "test_split.SplitTests.test_page_confirmation_and_fresh_session_recovery",
+        "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover"
+      ]
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 189,
+      "key": "action_approve",
+      "label": "确认本次操作",
+      "rendered": 75,
+      "enabled": 75,
+      "disabled": 0,
+      "clicked": 30,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release",
+        "test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions",
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "test_delivery_pages.DeliveryPageTests.test_card_application_page_only_receives",
+        "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery",
+        "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page",
+        "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat",
+        "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh",
+        "test_split.SplitTests.test_page_confirmation_and_fresh_session_recovery",
+        "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover",
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons",
+        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+      ]
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 191,
+      "key": "action_reject",
+      "label": "拒绝此操作",
+      "rendered": 70,
+      "enabled": 70,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions",
+        "test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money",
+        "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call"
+      ]
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 193,
+      "key": "action_query",
+      "label": "查询原操作结果",
+      "rendered": 176,
+      "enabled": 176,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_rejection_and_lost_response_blocks_new_actions",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery"
+      ]
+    },
+    {
+      "file": "app/pages/7_预算管理.py",
+      "line": 39,
+      "key": "budget_release",
+      "label": "申请释放预算",
+      "rendered": 7,
+      "enabled": 3,
+      "disabled": 4,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_budget.BudgetTests.test_page_confirmation_refresh_recovery_and_release"
+      ]
+    },
+    {
+      "file": "app/pages/3_卡片管理.py",
+      "line": 43,
+      "key": "card_submit",
+      "label": "提交卡片操作",
+      "rendered": 32,
+      "enabled": 19,
+      "disabled": 13,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_card_limits.CardLimitTests.test_page_refresh_recovery",
+        "test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page",
+        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+      ]
+    },
+    {
+      "file": "app/pages/3_卡片管理.py",
+      "line": 50,
+      "key": "card_apply",
+      "label": "申请卡片",
+      "rendered": 29,
+      "enabled": 16,
+      "disabled": 13,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_card_application_page_only_receives"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 175,
+      "key": "card_pending_open",
+      "label": "查看并处理待办",
+      "rendered": 14,
+      "enabled": 14,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 193,
+      "key": "card_pending_verify",
+      "label": "模拟验证并处理待办",
+      "rendered": 8,
+      "enabled": 8,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 199,
+      "key": "card_pending_reject",
+      "label": "拒绝待办操作",
+      "rendered": 9,
+      "enabled": 9,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 201,
+      "key": "card_pending_query",
+      "label": "查询待办结果",
+      "rendered": 9,
+      "enabled": 9,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/workflow.py",
+      "line": 189,
+      "key": "action_approve",
+      "label": "模拟验证并执行",
+      "rendered": 43,
+      "enabled": 43,
+      "disabled": 0,
+      "clicked": 18,
+      "clicked_tests": [
+        "test_card_limits.CardLimitTests.test_page_refresh_recovery",
+        "test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase",
+        "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_wealth_ui_preserves_the_strong_verification_gate",
+        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons",
+        "codex_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
+      ]
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 64,
+      "key": "bank_model_save",
+      "label": "保存或修改独立密钥",
+      "rendered": 219,
+      "enabled": 219,
+      "disabled": 0,
+      "clicked": 11,
+      "clicked_tests": [
+        "test_model_settings_acceptance.ModelSettingsAcceptance.test_provider_switch_model_id_and_matching_config_on_real_page",
+        "test_model_settings_acceptance.ModelSettingsAcceptance.test_save_modify_and_clear_key_in_real_page"
+      ]
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 65,
+      "key": "bank_model_desktop",
+      "label": "沿用桌宠本机配置",
+      "rendered": 219,
+      "enabled": 204,
+      "disabled": 15,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_model_settings_acceptance.ModelSettingsAcceptance.test_save_modify_and_clear_key_in_real_page"
+      ]
+    },
+    {
+      "file": "app/model_settings.py",
+      "line": 66,
+      "key": "bank_model_key_clear",
+      "label": "清除独立密钥并停用本机配置",
+      "rendered": 219,
+      "enabled": 219,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_model_settings_acceptance.ModelSettingsAcceptance.test_provider_switch_model_id_and_matching_config_on_real_page",
+        "test_model_settings_acceptance.ModelSettingsAcceptance.test_save_modify_and_clear_key_in_real_page"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 13,
+      "key": "bank_model_send",
+      "label": "发送需求",
+      "rendered": 190,
+      "enabled": 137,
+      "disabled": 53,
+      "clicked": 32,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit",
+        "test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers",
+        "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
+        "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
+        "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
+        "test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation",
+        "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat",
+        "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank",
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
+        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 17,
+      "key": "bank_model_pause",
+      "label": "暂停",
+      "rendered": 190,
+      "enabled": 190,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 18,
+      "key": "bank_model_resume",
+      "label": "继续草稿",
+      "rendered": 190,
+      "enabled": 137,
+      "disabled": 53,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 19,
+      "key": "bank_model_back",
+      "label": "回退草稿",
+      "rendered": 190,
+      "enabled": 96,
+      "disabled": 94,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 20,
+      "key": "bank_model_handoff",
+      "label": "人工接管",
+      "rendered": 190,
+      "enabled": 190,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank"
+      ]
+    },
+    {
+      "file": "app/model_view.py",
+      "line": 21,
+      "key": "bank_model_clear",
+      "label": "新需求",
+      "rendered": 190,
+      "enabled": 137,
+      "disabled": 53,
+      "clicked": 18,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit",
+        "test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers",
+        "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
+        "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment"
+      ]
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 133,
+      "key": "plan_automation",
+      "label": "允许后台准备后续待办（付款仍需授权）",
+      "rendered": 123,
+      "enabled": 123,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+      ]
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 153,
+      "key": "model_prepare_step",
+      "label": "核对并准备下一步",
+      "rendered": 48,
+      "enabled": 48,
+      "disabled": 0,
+      "clicked": 22,
+      "clicked_tests": [
+        "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
+        "test_closeout_acceptance.CloseoutPageTests.test_five_invalid_proofs_persist_after_page_restart_and_do_not_debit",
+        "test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money",
+        "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
+        "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
+        "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
+        "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
+        "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat",
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+      ]
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 65,
+      "key": "restore_plan",
+      "label": "恢复计划与进度",
+      "rendered": 139,
+      "enabled": 139,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 175,
+      "key": "model_pending_open",
+      "label": "查看并处理待办",
+      "rendered": 58,
+      "enabled": 58,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money",
+        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 188,
+      "key": "model_pending_approve",
+      "label": "确认待办操作",
+      "rendered": 35,
+      "enabled": 32,
+      "disabled": 3,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 199,
+      "key": "model_pending_reject",
+      "label": "拒绝待办操作",
+      "rendered": 51,
+      "enabled": 51,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
+        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 201,
+      "key": "model_pending_query",
+      "label": "查询待办结果",
+      "rendered": 50,
+      "enabled": 50,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 193,
+      "key": "model_pending_verify",
+      "label": "模拟验证并处理待办",
+      "rendered": 17,
+      "enabled": 17,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 43,
+      "key": "birthday_save_workflow",
+      "label": "保存日期与商品并启用后台准备",
+      "rendered": 96,
+      "enabled": 65,
+      "disabled": 31,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 51,
+      "key": "birthday_plan",
+      "label": "生成生日计划",
+      "rendered": 96,
+      "enabled": 65,
+      "disabled": 31,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 64,
+      "key": "birthday_reserve",
+      "label": "为所选商品申请预留",
+      "rendered": 95,
+      "enabled": 64,
+      "disabled": 31,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery"
+      ]
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 209,
+      "key": "msp_confirm",
+      "label": "确认草稿",
+      "rendered": 117,
+      "enabled": 61,
+      "disabled": 56,
+      "clicked": 13,
+      "clicked_tests": [
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_blocked_revokes_confirmation_keeps_recovery",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_changed_date_time_or_params_invalidates_confirmation",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_two_step_confirmation_and_original_fields"
+      ]
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 215,
+      "key": "msp_create",
+      "label": "确认登记",
+      "rendered": 117,
+      "enabled": 21,
+      "disabled": 96,
+      "clicked": 8,
+      "clicked_tests": [
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_two_step_confirmation_and_original_fields"
+      ]
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 59,
+      "key": "birthday_clear",
+      "label": "清除未执行计划",
+      "rendered": 11,
+      "enabled": 7,
+      "disabled": 4,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 77,
+      "key": "merchant_order",
+      "label": "申请本笔下单",
+      "rendered": 72,
+      "enabled": 45,
+      "disabled": 27,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery"
+      ]
+    },
+    {
+      "file": "app/pages/8_生日与商户.py",
+      "line": 79,
+      "key": "merchant_release",
+      "label": "申请释放可核实剩余预算",
+      "rendered": 70,
+      "enabled": 43,
+      "disabled": 27,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 188,
+      "key": "card_pending_approve",
+      "label": "确认待办操作",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 0,
+      "clicked_tests": []
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 24,
+      "key": "subscription_scan",
+      "label": "扫描自动识别订阅",
+      "rendered": 52,
+      "enabled": 28,
+      "disabled": 24,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 26,
+      "key": "subscription_list",
+      "label": "申请查看订阅",
+      "rendered": 51,
+      "enabled": 27,
+      "disabled": 24,
+      "clicked": 4,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page",
+        "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover",
+        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 55,
+      "key": "subscription_check_reminders",
+      "label": "检查到期本地提醒",
+      "rendered": 43,
+      "enabled": 19,
+      "disabled": 24,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 41,
+      "key": "subscription_review",
+      "label": "提交候选处理",
+      "rendered": 7,
+      "enabled": 7,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 46,
+      "key": "subscription_cancel",
+      "label": "申请取消订阅",
+      "rendered": 8,
+      "enabled": 8,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 48,
+      "key": "subscription_charge",
+      "label": "本期续费（到期后可用）",
+      "rendered": 7,
+      "enabled": 7,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/5_订阅管理.py",
+      "line": 53,
+      "key": "subscription_remind",
+      "label": "申请登记提醒",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 93,
+      "key": "None",
+      "label": "登录",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_h_pages.HPageTests.test_real_login_binding_and_logout_page"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 115,
+      "key": "None",
+      "label": "撤销原会话并重新绑定",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 140,
+      "key": "None",
+      "label": "完成绑定",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_h_pages.HPageTests.test_real_login_binding_and_logout_page",
+        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 264,
+      "key": "auth_logout",
+      "label": "退出登录",
+      "rendered": 18,
+      "enabled": 18,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_h_pages.HPageTests.test_real_login_binding_and_logout_page",
+        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+      ]
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 27,
+      "key": "exit_prepare",
+      "label": "查看未完成待办并准备退出",
+      "rendered": 16,
+      "enabled": 16,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 51,
+      "key": "bg_refresh",
+      "label": "刷新后台状态",
+      "rendered": 14,
+      "enabled": 14,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 60,
+      "key": "bg_start",
+      "label": "启用后台检查",
+      "rendered": 11,
+      "enabled": 11,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/pages/4_AA收款.py",
+      "line": 43,
+      "key": "split_submit",
+      "label": "提交 AA 收款单",
+      "rendered": 16,
+      "enabled": 9,
+      "disabled": 7,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_split.SplitTests.test_page_confirmation_and_fresh_session_recovery"
+      ]
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 41,
+      "key": "schedule_submit",
+      "label": "提交定时登记",
+      "rendered": 25,
+      "enabled": 16,
+      "disabled": 9,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh",
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 45,
+      "key": "schedule_run",
+      "label": "检查一次到期任务",
+      "rendered": 23,
+      "enabled": 23,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh"
+      ]
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 82,
+      "key": "wealth_assess",
+      "label": "提交风险评估",
+      "rendered": 32,
+      "enabled": 24,
+      "disabled": 8,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_wealth_ui_preserves_the_strong_verification_gate"
+      ]
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 98,
+      "key": "wealth_purchase",
+      "label": "申购",
+      "rendered": 31,
+      "enabled": 23,
+      "disabled": 8,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_wealth_ui_preserves_the_strong_verification_gate"
+      ]
+    },
+    {
+      "file": "app/pages/2_产品对比.py",
+      "line": 29,
+      "key": "product_compare",
+      "label": "对比所选产品",
+      "rendered": 8,
+      "enabled": 7,
+      "disabled": 1,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_wealth.WealthTests.test_page_table_and_selection_change"
+      ]
+    },
+    {
+      "file": "app/pages/1_资料账单.py",
+      "line": 34,
+      "key": "material_query",
+      "label": "查询资料账单",
+      "rendered": 9,
+      "enabled": 9,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_material_access.MaterialAccessTests.test_page_query_clears_stale_results_and_never_opens_bank",
+        "test_release_materials.ReleaseMaterialsTests.test_real_material_page_without_bank"
+      ]
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 264,
+      "key": "msp_check",
+      "label": "手动检查",
+      "rendered": 55,
+      "enabled": 55,
+      "disabled": 0,
+      "clicked": 6,
+      "clicked_tests": [
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_no_reservation_still_check_cancel_restore_and_distinguish_status"
+      ]
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 269,
+      "key": "msp_cancel",
+      "label": "确认取消",
+      "rendered": 55,
+      "enabled": 55,
+      "disabled": 0,
+      "clicked": 4,
+      "clicked_tests": [
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_cancel_requires_click_and_uses_current_target",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_no_reservation_still_check_cancel_restore_and_distinguish_status"
+      ]
+    },
+    {
+      "file": "app/merchant_schedule_panel.py",
+      "line": 274,
+      "key": "msp_restore",
+      "label": "恢复任务",
+      "rendered": 55,
+      "enabled": 55,
+      "disabled": 0,
+      "clicked": 8,
+      "clicked_tests": [
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_cancel_scheduled_release_and_no_reservation_history",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_changed_draft_and_cancel_pending_without_late_charge",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_fully_spent_reservation_retains_order_recovery",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
+        "test_merchant_schedule_page.MerchantSchedulePageTests.test_reply_loss_can_recover_original_pending_from_page",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_blocked_revokes_confirmation_keeps_recovery",
+        "test_merchant_schedule_panel.MerchantPanelTests.test_no_reservation_still_check_cancel_restore_and_distinguish_status"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 92,
+      "key": "bank_guide_topic_account",
+      "label": "了解账户",
+      "rendered": 21,
+      "enabled": 21,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 92,
+      "key": "bank_guide_topic_transfer",
+      "label": "练习转账",
+      "rendered": 20,
+      "enabled": 20,
+      "disabled": 0,
+      "clicked": 5,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 92,
+      "key": "bank_guide_topic_bills",
+      "label": "查看账单",
+      "rendered": 15,
+      "enabled": 15,
+      "disabled": 0,
+      "clicked": 2,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer",
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 132,
+      "key": "bank_guide_close",
+      "label": "关闭指南",
+      "rendered": 48,
+      "enabled": 48,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer",
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 125,
+      "key": "bank_guide_back",
+      "label": "上一步",
+      "rendered": 52,
+      "enabled": 34,
+      "disabled": 18,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 127,
+      "key": "bank_guide_next",
+      "label": "下一步",
+      "rendered": 41,
+      "enabled": 41,
+      "disabled": 0,
+      "clicked": 15,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 130,
+      "key": "bank_guide_choose",
+      "label": "换个任务",
+      "rendered": 31,
+      "enabled": 31,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 82,
+      "key": "bank_guide_open",
+      "label": "使用指南",
+      "rendered": 10,
+      "enabled": 10,
+      "disabled": 0,
+      "clicked": 3,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
+        "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 127,
+      "key": "bank_guide_next",
+      "label": "完成学习",
+      "rendered": 10,
+      "enabled": 10,
+      "disabled": 0,
+      "clicked": 5,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 100,
+      "key": "bank_guide_destination",
+      "label": "回到账户首页",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 103,
+      "key": "bank_guide_replay",
+      "label": "再学一遍",
+      "rendered": 7,
+      "enabled": 7,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 105,
+      "key": "bank_guide_choose",
+      "label": "学习其他任务",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 100,
+      "key": "bank_guide_destination",
+      "label": "去转账页面",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business"
+      ]
+    },
+    {
+      "file": "app/onboarding.py",
+      "line": 100,
+      "key": "bank_guide_destination",
+      "label": "去账单页面",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business"
+      ]
+    },
+    {
+      "file": "app/routing_panel.py",
+      "line": 79,
+      "key": "router_open",
+      "label": "进入对应表单核对",
+      "rendered": 32,
+      "enabled": 32,
+      "disabled": 0,
+      "clicked": 12,
+      "clicked_tests": [
+        "test_review_page_acceptance.ReviewPageTests.test_four_wealth_intents_open_real_page_without_writes",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_navigation_to_subscription_keeps_business_unexecuted",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_other_destinations_are_real_pages_and_read_only",
+        "test_routing_page_acceptance.RoutingPageAcceptanceTests.test_transfer_route_does_not_create_request"
+      ]
+    },
+    {
+      "file": "app/pages/9_理财.py",
+      "line": 121,
+      "key": "wealth_redeem",
+      "label": "赎回",
+      "rendered": 8,
+      "enabled": 6,
+      "disabled": 2,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
+      ]
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 56,
+      "key": "schedule_cancel",
+      "label": "取消选中任务",
+      "rendered": 4,
+      "enabled": 2,
+      "disabled": 2,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+      ]
+    },
+    {
+      "file": "app/pages/6_定时转账.py",
+      "line": 62,
+      "key": "schedule_execution",
+      "label": "查询并恢复此任务的付款操作",
+      "rendered": 6,
+      "enabled": 6,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh"
+      ]
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 14,
+      "key": "inbox_read",
+      "label": "将当前通知标为已读",
+      "rendered": 10,
+      "enabled": 10,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/background_panel.py",
+      "line": 54,
+      "key": "bg_stop",
+      "label": "停止后台检查",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 40,
+      "key": "exit_confirm",
+      "label": "确认退出应用并停止本机服务",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/lifecycle_panel.py",
+      "line": 52,
+      "key": "exit_cancel",
+      "label": "取消退出准备",
+      "rendered": 4,
+      "enabled": 4,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+      ]
+    },
+    {
+      "file": "app/pending_view.py",
+      "line": 201,
+      "key": "home_pending_source_2_query",
+      "label": "查询待办结果",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query"
+      ]
+    },
+    {
+      "file": "app/ui.py",
+      "line": 330,
+      "key": "qa_empty",
+      "label": "重新查看",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_empty_state_component_action_contract"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 165,
+      "key": "None",
+      "label": "创建本机账号并生成恢复码",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+      ]
+    },
+    {
+      "file": "app/auth_ui.py",
+      "line": 206,
+      "key": "None",
+      "label": "我已保存，继续绑定手机",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+      ]
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 149,
+      "key": "model_pick_payee",
+      "label": "选用此收款账户",
+      "rendered": 2,
+      "enabled": 2,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+      ]
+    },
+    {
+      "file": "app/model_bank_panel.py",
+      "line": 37,
+      "key": "model_reconcile_payee",
+      "label": "核实原转账",
+      "rendered": 3,
+      "enabled": 3,
+      "disabled": 0,
+      "clicked": 1,
+      "clicked_tests": [
+        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+      ]
+    }
+  ],
+  "definition_count": 97,
+  "rendered_definition_count": 97,
+  "clicked_definition_count": 96,
+  "unclicked_definitions": [
+    {
+      "file": "app/ui.py",
+      "line": 234,
+      "kind": "button"
+    }
+  ]
+}

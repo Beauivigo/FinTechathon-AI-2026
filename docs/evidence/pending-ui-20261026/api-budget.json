@@ -1,0 +1,424 @@
+{
+  "limit_CNY": "5.00",
+  "reserve_each_CNY": "0.25",
+  "authorization": "2026-10-26 用户授权实际银行API测试不超过5元",
+  "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "peak_input_miss_per_million_CNY": "2.00",
+  "peak_output_per_million_CNY": "8.00",
+  "calls": [
+    {
+      "name": "connectivity",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T06:52:58.216525+00:00",
+      "request_bytes": 331,
+      "usage": {
+        "prompt_tokens": 48,
+        "completion_tokens": 7,
+        "total_tokens": 55
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 48,
+          "completion_tokens": 7,
+          "total_tokens": 55
+        }
+      },
+      "conservative_usage_CNY": "0.000152"
+    },
+    {
+      "name": "freeze",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:12.776265+00:00",
+      "request_bytes": 8176,
+      "usage": {
+        "prompt_tokens": 2094,
+        "completion_tokens": 41,
+        "total_tokens": 2135
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2094,
+          "completion_tokens": 41,
+          "total_tokens": 2135
+        }
+      },
+      "conservative_usage_CNY": "0.004516"
+    },
+    {
+      "name": "unfreeze",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:14.723226+00:00",
+      "request_bytes": 8465,
+      "usage": {
+        "prompt_tokens": 2203,
+        "completion_tokens": 57,
+        "total_tokens": 2260
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2203,
+          "completion_tokens": 57,
+          "total_tokens": 2260
+        }
+      },
+      "conservative_usage_CNY": "0.004862"
+    },
+    {
+      "name": "transfer-missing",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:16.276880+00:00",
+      "request_bytes": 8470,
+      "usage": {
+        "prompt_tokens": 2197,
+        "completion_tokens": 36,
+        "total_tokens": 2233
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2197,
+          "completion_tokens": 36,
+          "total_tokens": 2233
+        }
+      },
+      "conservative_usage_CNY": "0.004682"
+    },
+    {
+      "name": "transfer-followup",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:17.787616+00:00",
+      "request_bytes": 8805,
+      "usage": {
+        "prompt_tokens": 2270,
+        "completion_tokens": 52,
+        "total_tokens": 2322
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2270,
+          "completion_tokens": 52,
+          "total_tokens": 2322
+        }
+      },
+      "conservative_usage_CNY": "0.004956"
+    },
+    {
+      "name": "bill",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:19.588914+00:00",
+      "request_bytes": 8525,
+      "usage": {
+        "prompt_tokens": 2221,
+        "completion_tokens": 40,
+        "total_tokens": 2261
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2221,
+          "completion_tokens": 40,
+          "total_tokens": 2261
+        }
+      },
+      "conservative_usage_CNY": "0.004762"
+    },
+    {
+      "name": "wealth-plan",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:21.001676+00:00",
+      "request_bytes": 8693,
+      "usage": {
+        "prompt_tokens": 2279,
+        "completion_tokens": 223,
+        "total_tokens": 2502
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2279,
+          "completion_tokens": 223,
+          "total_tokens": 2502
+        }
+      },
+      "conservative_usage_CNY": "0.006342"
+    },
+    {
+      "name": "subscription",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:23.421718+00:00",
+      "request_bytes": 9040,
+      "usage": {
+        "prompt_tokens": 2405,
+        "completion_tokens": 57,
+        "total_tokens": 2462
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2405,
+          "completion_tokens": 57,
+          "total_tokens": 2462
+        }
+      },
+      "conservative_usage_CNY": "0.005266"
+    },
+    {
+      "name": "birthday-plan",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:24.872994+00:00",
+      "request_bytes": 9258,
+      "usage": {
+        "prompt_tokens": 2464,
+        "completion_tokens": 297,
+        "total_tokens": 2761
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2464,
+          "completion_tokens": 297,
+          "total_tokens": 2761
+        }
+      },
+      "conservative_usage_CNY": "0.007304"
+    },
+    {
+      "name": "injection",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:49:27.954967+00:00",
+      "request_bytes": 9405,
+      "usage": {
+        "prompt_tokens": 2547,
+        "completion_tokens": 76,
+        "total_tokens": 2623
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2547,
+          "completion_tokens": 76,
+          "total_tokens": 2623
+        }
+      },
+      "conservative_usage_CNY": "0.005702"
+    },
+    {
+      "name": "bill",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:57:49.533061+00:00",
+      "request_bytes": 8185,
+      "usage": {
+        "prompt_tokens": 2096,
+        "completion_tokens": 45,
+        "total_tokens": 2141
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2096,
+          "completion_tokens": 45,
+          "total_tokens": 2141
+        }
+      },
+      "conservative_usage_CNY": "0.004552"
+    },
+    {
+      "name": "subscription",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:57:51.387256+00:00",
+      "request_bytes": 8965,
+      "usage": {
+        "prompt_tokens": 2335,
+        "completion_tokens": 58,
+        "total_tokens": 2393
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2335,
+          "completion_tokens": 58,
+          "total_tokens": 2393
+        }
+      },
+      "conservative_usage_CNY": "0.005134"
+    },
+    {
+      "name": "injection",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T07:57:53.007194+00:00",
+      "request_bytes": 8576,
+      "usage": {
+        "prompt_tokens": 2223,
+        "completion_tokens": 86,
+        "total_tokens": 2309
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2223,
+          "completion_tokens": 86,
+          "total_tokens": 2309
+        }
+      },
+      "conservative_usage_CNY": "0.005134"
+    },
+    {
+      "name": "freeze",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T08:13:19.253706+00:00",
+      "request_bytes": 8202,
+      "usage": {
+        "prompt_tokens": 2102,
+        "completion_tokens": 46,
+        "total_tokens": 2148
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2102,
+          "completion_tokens": 46,
+          "total_tokens": 2148
+        }
+      },
+      "conservative_usage_CNY": "0.004572"
+    },
+    {
+      "name": "unfreeze",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T08:13:21.391601+00:00",
+      "request_bytes": 8491,
+      "usage": {
+        "prompt_tokens": 2210,
+        "completion_tokens": 44,
+        "total_tokens": 2254
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2210,
+          "completion_tokens": 44,
+          "total_tokens": 2254
+        }
+      },
+      "conservative_usage_CNY": "0.004772"
+    },
+    {
+      "name": "transfer-missing",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T08:13:22.792403+00:00",
+      "request_bytes": 8496,
+      "usage": {
+        "prompt_tokens": 2211,
+        "completion_tokens": 53,
+        "total_tokens": 2264
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2211,
+          "completion_tokens": 53,
+          "total_tokens": 2264
+        }
+      },
+      "conservative_usage_CNY": "0.004846"
+    },
+    {
+      "name": "transfer-followup",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T08:13:24.436384+00:00",
+      "request_bytes": 8906,
+      "usage": {
+        "prompt_tokens": 2301,
+        "completion_tokens": 62,
+        "total_tokens": 2363
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2301,
+          "completion_tokens": 62,
+          "total_tokens": 2363
+        }
+      },
+      "conservative_usage_CNY": "0.005098"
+    },
+    {
+      "name": "injection",
+      "status": "response_received",
+      "reserved_CNY": "0.25",
+      "at_utc": "2026-10-26T08:13:26.098367+00:00",
+      "request_bytes": 8615,
+      "usage": {
+        "prompt_tokens": 2239,
+        "completion_tokens": 71,
+        "total_tokens": 2310
+      },
+      "metadata": {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "credential_source": "desktop",
+        "usage": {
+          "prompt_tokens": 2239,
+          "completion_tokens": 71,
+          "total_tokens": 2310
+        }
+      },
+      "conservative_usage_CNY": "0.005046"
+    }
+  ]
+}

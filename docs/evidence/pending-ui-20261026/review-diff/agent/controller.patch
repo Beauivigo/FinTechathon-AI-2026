@@ -1,0 +1,87 @@
+--- primary/agent/controller.py
++++ candidate/agent/controller.py
+@@ -6,6 +6,9 @@
+ from shared import (SCHEMA_VERSION, ServiceError, adapt_request, adapt_result, result_text, validate_context,
+                     validate_result, validate_transition, operation_digest)
+ from .intent import parse_transfer
++
++# 未决状态：必须由用户确认/强验证或经权威查询后才能继续。
++UNRESOLVED = frozenset({'awaiting_confirmation', 'awaiting_verification', 'running', 'unknown'})
+ 
+ 
+ class Conversation:
+@@ -28,6 +31,43 @@
+         return self.operations
+ 
+     @property
++    def unresolved(self):
++        """来自权威操作索引的未决项；不清空、不猜测，只反映最近一次刷新。"""
++        return tuple(op for op in self.operations if op['status'] in UNRESOLVED)
++
++    def settle(self):
++        """把本页快照对齐权威操作记录；只有权威终态才清除本地的未决标记。
++
++        另一页面/会话已经确认、拒绝或使授权过期时，本地仍可能保留旧的待确认
++        或未知快照。这里只通过原有 recover() 重新读取原操作（校验归属、摘要与
++        合法状态迁移），不会把 NOT_FOUND 或索引缺失当成未执行，也不会直接改写
++        结果或资金。
++        """
++        try:
++            self.refresh_operations()
++        except ServiceError:
++            return self.blocked
++        # 刷新/切页不代替用户主动核实；索引终态也不能自动消除本地unknown。
++        if self.needs_reconciliation or bool(self.result and self.result['status'] in {'unknown','running'}):
++            return self.blocked
++        request = self.request
++        if request is None:
++            return self.blocked
++        stale = self.pending
++        if not stale:
++            return self.blocked
++        key = (request['action'], request.get('idempotency_key', request['request_id']))
++        status = next((op['status'] for op in self.operations
++                       if (op['action'], op['idempotency_key']) == key), None)
++        if status is not None and status not in UNRESOLVED:
++            try:
++                self.recover(action=request['action'],
++                             idempotency_key=request.get('idempotency_key', request['request_id']))
++            except Exception:
++                pass  # 恢复失败时保留原请求与未决状态，交由页面继续查询。
++        return self.blocked
++
++    @property
+     def pending(self):
+         return not self.needs_reconciliation and bool(self.result and self.result["status"] in {"awaiting_confirmation", "awaiting_verification"})
+ 
+@@ -35,7 +75,7 @@
+     def blocked(self):
+         return (self.external_blocked or self.needs_reconciliation or self.pending
+             or bool(self.result and self.result['status'] in {'running', 'unknown'})
+-            or any(op['status'] in {'awaiting_confirmation', 'awaiting_verification', 'running', 'unknown'} for op in self.operations))
++            or bool(self.unresolved))
+ 
+     def _send_write(self, function, payload):
+         """发送后的异常可能已经产生业务结果，保留原请求并阻止换键重试。"""
+@@ -218,9 +258,20 @@
+ 
+ def reconcile_session_flows(state, current):
+     """Propagate unresolved client outcomes across all trusted page entry points."""
++    flows = [state.get(key) for key in ('conversation', 'action_flow', 'model_bank_flow')]
++    for other in flows:
++        if other is None or other is current:
++            continue
++        # 兄弟页面对象可能保留已在他处收口的旧快照；按权威记录重新核对。
++        if (getattr(other,'pending',False) and not other.needs_reconciliation
++                and hasattr(other,'settle')):
++            try:
++                other.settle()
++            except Exception:
++                pass
+     current.external_blocked = any(
+         other is not None and other is not current and (
+             other.needs_reconciliation or bool(other.result and other.result['status'] in {'unknown','running'})
+-        ) for other in (state.get(key) for key in ('conversation','action_flow','model_bank_flow'))
++        ) for other in flows
+     )
+     return current.external_blocked

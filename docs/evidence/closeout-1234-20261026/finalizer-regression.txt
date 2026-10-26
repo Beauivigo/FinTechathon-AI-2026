@@ -1,0 +1,1 @@
+{"passed":true,"checks":15,"modelApiCalls":0,"cases":["first correction","same-run rereview","unreviewed edit denied","newer run denied","binding preserved","failed review leaves accepted hash intact"],"fixture":"C:\\Users\\huang\\.codex\\delegates\\deepseek\\backups\\finalize-rereview-20261026\\fixture-vxgzRv"}

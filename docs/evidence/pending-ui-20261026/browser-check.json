@@ -1,0 +1,34 @@
+{
+  "executor": "Codex实际IAB浏览器",
+  "url": "http://127.0.0.1:8517",
+  "source_sha256": {
+    "app/ui.py": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4",
+    "app/main.py": "be4fcde7026d8a86e6e36300947c719b00a67505475ed9e8c534b29ff871fd35",
+    "app/pending_view.py": "69d23e49f85de198e099d516bae9420c72f92f5a5b4eecd4a4b1491e9ea994be",
+    "app/model_bank_panel.py": "4e1b61609994594cd15bd80190439a2241a0326eeaf3ff1cc83afa8f0de579b5",
+    "app/model_view.py": "dec94b15f04466b78a2d8f8db2048e44cd59066bdd72e1f3a962584196f311af"
+  },
+  "temporary_database_only": true,
+  "created_account": false,
+  "real_model_request": false,
+  "verified": [
+    {
+      "button": "页面内银行首页",
+      "file": "app/ui.py",
+      "line": 234,
+      "from_page": "AI银行助手",
+      "to_page": "个人银行首页",
+      "passed": true
+    },
+    {
+      "case": "临时订阅待办→AI禁用且显示原因→打开原参数→拒绝→输入和发送启用",
+      "passed": true,
+      "input_enabled": true,
+      "send_enabled": true
+    }
+  ],
+  "screenshot_sha256": {
+    "pending-visible-final.jpg": "284429c5cb378420f724684b43cafa6ca078bd439a85ba0cb97ebc6998379ac5",
+    "ai-unblocked-final.jpg": "6c935b4ac6dcffdfd76d5c1ffe2c7943c6952366c580d3540b65ec7a623210bf"
+  }
+}

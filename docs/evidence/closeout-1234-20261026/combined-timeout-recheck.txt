@@ -1,0 +1,7 @@
+test_confirmation_and_rerun_only_create_one_persisted_transfer (tests.test_app.PageTests.test_confirmation_and_rerun_only_create_one_persisted_transfer) ... 2026-10-26 15:56:12.896 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.979s
+
+OK

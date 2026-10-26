@@ -1,0 +1,11 @@
+--- primary/app/home_view.py
++++ candidate/app/home_view.py
+@@ -150,7 +150,7 @@
+         for item in todo_items:
+             st.write(_shown(item, '待办内容暂不可用'))
+     if pending_count != 0:
+-        st.caption('转账待办可从“操作记录”恢复，其他业务请到对应页面处理；结果未知时先查询原操作。')
++        st.caption('可直接在本页“待处理操作”中恢复并确认、拒绝或查询；结果未知或待核实时必须先查询原操作。')
+ 
+ 
+ def _render_transactions(data: Optional[HomeData]) -> None:

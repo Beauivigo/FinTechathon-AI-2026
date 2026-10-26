@@ -1,0 +1,21 @@
+{
+  "action": "finalize",
+  "runId": "9e771207-65bb-4a6f-a2b6-4edb4c847e18",
+  "evidence": {
+    "reviewer": "Codex",
+    "status": "rejected",
+    "checks": [
+      {
+        "command": "Codex Python hash review: 584 snapshot files unchanged, 173 primary source hashes unchanged, no result artifact, protected data unchanged; evidence docs/evidence/core-repair-20261026/failure-review.json",
+        "exitCode": 0,
+        "expectedExitCode": 0
+      },
+      {
+        "command": "Harness frozen stage 1 execution, test-attempt-desktop-0-1-0.json: runtime spawn failed before test start",
+        "exitCode": -4058,
+        "expectedExitCode": 0
+      }
+    ],
+    "files": []
+  }
+}

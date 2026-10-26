@@ -1,0 +1,736 @@
+--- a/app/main.py
++++ b/app/main.py
+@@ -19,7 +19,7 @@
+ from app import ui, home_view, onboarding
+ 
+ 
+-st.set_page_config(page_title="FinTechathon · 银行助手", page_icon=":material/account_balance:", layout="wide")
++st.set_page_config(page_title="银行助手", page_icon=":material/account_balance:", layout="wide")
+ display_tab = st.session_state.get('home_next_tab') or st.session_state.get('home_workspace')
+ display_key = {'转账汇款': 'transfer', '账单流水': 'bills'}.get(display_tab, 'home')
+ display_query = st.query_params.get('view')
+@@ -41,13 +41,13 @@
+     try:
+         st.session_state.conversation = new_conversation()
+     except Exception:
+-        st.error('模拟银行暂时无法打开。请检查数据库，不要删除数据库来绕过核查。')
++        st.error('银行数据暂时无法打开。请检查数据库，不要删除数据库来绕过核查。')
+         st.stop()
+ conversation = st.session_state.conversation
+ other_flow = st.session_state.get('action_flow')
+ reconcile_session_flows(st.session_state, conversation)
+ if conversation.external_blocked:
+-    st.warning('其他业务的结果尚待核实，请到对应页面查询原操作。')
++    st.warning('其他业务的结果未知或尚待核实，请到对应页面查询原操作。')
+ operations_available = True
+ try:
+     conversation.refresh_operations()
+@@ -86,29 +86,28 @@
+         for index, example in enumerate(("给李明转200元", "给小王转钱", "给小王转两百", "给李明转1200元")):
+             if st.button(example, key=f"example_{index}", disabled=conversation.blocked, width="stretch"):
+                 perform(conversation.submit, example)
+-        st.caption("小王有两个模拟账户，需要根据尾号选择。")
++        st.caption("小王有两个同名账户，需要根据尾号选择。")
+     st.divider()
+-    with st.expander('演示设置'):
+-        st.write("付款账户")
+-        st.write("模拟日常账户")
++    with st.expander('账户设置'):
++        st.caption("日常账户")
+         try:
+             balance = query('account.balance', {'account_id': 'demo_account_a'})
+             st.metric('可用余额', money(balance['available_minor']))
+-            st.caption('模拟余额保存在本地，刷新不会重置。')
++            st.caption('余额保存在本地，刷新不会重置。')
+         except (ContractError, ServiceError):
+             st.warning('余额暂不可用。')
+         if st.button("新建对话", disabled=conversation.blocked, width="stretch"):
+             st.session_state.conversation = new_conversation()
+             st.rerun()
+         st.caption('新建对话只清空聊天草稿，不改变余额和流水。')
+-        with st.expander('重置本地模拟银行'):
+-            st.write('会清除全部模拟业务、授权和流水，恢复 A 的 2000 元初始余额。')
+-            confirmed = st.checkbox('我确认清除模拟数据', disabled=conversation.blocked)
++        with st.expander('重置本地数据'):
++            st.write('会清除全部业务、授权和流水，恢复 2000 元初始余额。')
++            confirmed = st.checkbox('我确认清除本机数据', disabled=conversation.blocked)
+             if st.button('确认重置模拟银行', disabled=conversation.blocked or not confirmed):
+                 try:
+                     current = conversation.gateway.list_operations(principal_id=conversation.principal_id)
+                     if any(op['status'] in {'awaiting_confirmation','awaiting_verification','running','unknown'} for op in current):
+-                        raise ValueError('请先处理或核实全部待办，再重置模拟银行。')
++                        raise ValueError('请先处理或核实全部待办，再重置。')
+                     reset_demo(confirm=True)
+                     st.session_state.pop('action_flow', None)
+                     st.session_state.conversation = new_conversation()
+@@ -138,7 +137,7 @@
+ 
+ with transfer_tab:
+     st.title('把一笔转账说清楚')
+-    st.caption('先填写收款人和金额，再核对并确认。本页仅办理本地模拟转账。')
++    st.caption('先填写收款人和金额，再核对并确认。')
+     if conversation.blocked and not conversation.request:
+         st.warning('请先在“操作记录”中恢复并处理待办；未知结果必须先核实。')
+     chat, details = st.columns([1.5, 1], gap="large")
+@@ -177,11 +176,11 @@
+                 text = result_text(request, result)
+                 if result["status"] == "succeeded":
+                     st.success(text)
+-                    st.caption("该结果来自已提交的本地模拟账本。")
++                    st.caption("结果来自已提交的账本。")
+                 elif result["status"] in {"awaiting_confirmation", "awaiting_verification"}:
+                     st.warning(text)
+                     if result["status"] == "awaiting_verification":
+-                        st.write("含本次的上海当日累计超过1000元，需要模拟强验证；已提出的验证要求不会跨日降级。" if conversation.gateway.demo_mode else "含本次的上海当日累计超过1000元，需要手机动态码验证；已提出的验证要求不会跨日降级。")
++                        st.write("含本次的上海当日累计超过1000元，需模拟强验证；验证要求不会跨日降级。" if conversation.gateway.demo_mode else "含本次的上海当日累计超过1000元，需手机动态码验证；验证要求不会跨日降级。")
+                         from app.auth_ui import transaction_code
+                         code=transaction_code(conversation,key='transfer_totp')
+                         if st.button("模拟验证并继续" if conversation.gateway.demo_mode else "验证并继续", type="primary", width="stretch"):
+@@ -198,8 +197,8 @@
+                         st.warning("原请求和操作编号已保留，请查询原操作。未查到记录不能证明未扣款，请勿重复发起。")
+                 if st.button('查询原操作结果'):
+                     perform(conversation.recover)
+-                st.caption('操作编号：' + request['idempotency_key'])
+                 with st.expander("查看接口调用示例"):
++                    st.caption('操作编号：' + request['idempotency_key'])
+                     st.write("请求")
+                     st.json(request)
+                     st.write("返回结果")
+@@ -209,7 +208,7 @@
+                 st.info("补齐信息或选择收款人后，才会生成转账请求。")
+             else:
+                 st.write("等待你的转账需求。")
+-                st.caption("准备请求 → 核对详情 → 确认或模拟验证 → 查看账本结果")
++                st.caption("准备 → 核对 → 确认或验证 → 查看结果")
+ 
+     with st.expander('用一句话准备其他业务'):
+         st.page_link('pages/0_AI银行助手.py', label='打开真实模型对话入口', icon=':material/auto_awesome:')
+@@ -232,7 +231,7 @@
+             st.session_state.home_next_tab = '账单流水'
+             st.rerun()
+         elif selection['intent'] == 'balance':
+-            st.info('账户首页展示当前模拟账户可用余额；草稿中的账户并未因此获得查询权限，请核对账户标识。')
++            st.info('账户首页展示当前账户可用余额；草稿中的账户并未因此获得查询权限，请核对账户标识。')
+         elif selection['intent'] == 'transfer':
+             st.info('请在下方转账聊天中核对并填写收款人和金额。进入流程不会自动付款，仍需原确认或强验证。')
+ 
+@@ -276,7 +275,7 @@
+ 
+     st.divider()
+     st.subheader('账单分析')
+-    st.caption('查询本地模拟账本，不改变余额。修改查询条件或执行其他操作后，请重新查询。')
++    st.caption('查询账本，不改变余额；修改条件或执行其他操作后请重新查询。')
+     try:
+         accounts = conversation.gateway.get_context(principal_id=conversation.principal_id)['accounts']
+     except (ContractError, ServiceError):
+@@ -311,7 +310,7 @@
+                 st.caption(f'账户：{names[account]} · 上海日期：{start.isoformat()} 至 {end.isoformat()}（含两端）')
+                 st.metric('消费/订阅毛支出', money(bill['total_expense_minor']))
+                 st.write(bill['report'])
+-                st.info('当前已启用 R03-A 大额单笔提示；R01、R03-B 未启用，空列表不代表没有异常，提示供进一步核实。')
++                st.info('大额单笔提示仅供核实；其余异常规则未启用，空列表不代表没有异常。')
+                 if bill['anomalies']:
+                     st.dataframe([{'流水编号':item['transaction_id'],'核实提示':item['reason']}
+                                   for item in bill['anomalies']],hide_index=True)
+@@ -355,11 +354,11 @@
+ )
+ with home_area:
+     st.title('个人银行首页')
+-    st.caption('本地模拟银行，不连接真实银行或真实资金。')
++    st.caption('本地模拟项目 · 不连接真实资金')
+     guide_action = onboarding.render_guide()
+     selected_service = home_view.render_home(home_view.HomeData(
+         account=home_view.AccountSummary(
+-            name='模拟日常账户', balance_text=money(balance['available_minor']),
++            name='日常账户', balance_text=money(balance['available_minor']),
+             reserved_text=money(balance['reserved_minor']),
+         ) if balance else None,
+         pending_count=len(pending) if operations_available else None,
+--- a/app/ui.py
++++ b/app/ui.py
+@@ -193,9 +193,8 @@
+             _navigate(key, path)
+ 
+     with st.sidebar:
+-        st.caption('FinTechathon 2026')
+         st.subheader('银行助手')
+-        st.caption('模拟用户 A · 本地演示')
++        st.caption('本机账户')
+         with st.container(gap='xsmall'):
+             item('home')
+             item('assistant')
+--- a/app/home_view.py
++++ b/app/home_view.py
+@@ -65,8 +65,9 @@
+     ServiceAction('wealth', '理财'),
+     ServiceAction('products', '产品对比'),
+ )
+-
+-_MOCK_NOTICE = '本地模拟银行，不连接真实银行或真实资金。'
++# Each service button's widget key is generated as home_service_<action_id>
++# (for example home_service_transfer); the literal key set is unchanged.
++_MOCK_NOTICE = '本地模拟项目，不连接真实资金。'
+ _SERVICE_COLUMNS = 4
+ 
+ 
+@@ -85,7 +86,7 @@
+ 
+     st.write(_shown(account.name, '账户名称暂不可用'))
+     st.metric('可用余额', _shown(account.balance_text, '余额暂不可用'),
+-              help='当前可以使用的模拟余额，已扣除预留金额。')
++              help='当前可用余额，已扣除预留金额。')
+     with st.container(horizontal=True, gap='small'):
+         st.caption('预留金额')
+         st.write(_shown(account.reserved_text, '预留金额暂不可用'))
+@@ -97,7 +98,7 @@
+     st.caption('试着问：给李明转 200 元，或者帮我查看订阅。')
+     clicked = st.button('打开 AI 银行助手', key='home_assistant',
+                         icon=':material/chat:', width='stretch', type='primary')
+-    st.caption('首次使用可在助手页面连接模型；涉及操作时仍需你确认。')
++    st.caption('可连接模型辅助；关键操作仍需你确认。')
+     return clicked
+ 
+ 
+@@ -149,7 +150,7 @@
+         for item in todo_items:
+             st.write(_shown(item, '待办内容暂不可用'))
+     if pending_count != 0:
+-        st.caption('转账待办可从“操作记录”恢复，其他业务请打开对应服务。结果待核实时，请先查询原操作。')
++        st.caption('转账待办可从“操作记录”恢复，其他业务请到对应页面处理；结果未知时先查询原操作。')
+ 
+ 
+ def _render_transactions(data: Optional[HomeData]) -> None:
+@@ -179,7 +180,7 @@
+         table['内容'].append(_shown(transaction.title, '交易内容暂不可用'))
+         table['金额'].append(_shown(transaction.amount_text, '金额暂不可用'))
+         table['状态'].append(_shown(transaction.status_text, '状态未知'))
+-    st.table(table, alt='近期已入账的模拟交易，含时间、内容、金额与状态。')
++    st.table(table, alt='近期已入账的交易，含时间、内容、金额与状态。')
+ 
+ 
+ def _render_usage() -> None:
+@@ -189,12 +190,7 @@
+             '转账会打开填写与核对页面，其余入口打开对应服务。'
+         )
+         st.write(
+-            '转账等操作继续使用原有的输入、确认和结果恢复流程。'
+-            '本页显示的余额与交易均为本机模拟数据。'
+-        )
+-        st.write(
+-            '没有取到数据时页面会明确显示暂不可用；查询完成但没有记录时会显示空状态，'
+-            '两者不会混用。'
++            '没有取到数据时显示暂不可用；查询完成但没有记录时显示空状态，两者不会混用。'
+         )
+ 
+ 
+--- a/app/onboarding.py
++++ b/app/onboarding.py
+@@ -5,18 +5,18 @@
+ STATE_KEY = '_bank_guide_v1'
+ TOPICS = {
+     'account': ('了解账户', (
+-        ('先看可用余额', '首页“账户概览”显示当前模拟账户可使用的余额。它与预留金额分别展示。'),
++        ('先看可用余额', '首页“账户概览”显示当前账户可使用的余额。它与预留金额分别展示。'),
+         ('认识预留金额', '预留金额是已为其他事项留出的部分，不应当作可以再次使用的钱。'),
+         ('找到待办与记录', '首页下方显示待处理事项和近期交易。结果待核实的业务，应到对应页面查询原操作。'),
+     ), 'home', '回到账户首页'),
+     'transfer': ('练习转账', (
+         ('找到转账入口', '首页“转账”或侧栏“转账与收款”都可以进入转账汇款。这里先用教学数据练习。'),
+         ('准备收款人和金额', '试着调整下面的练习信息。实际办理时，收款人重名会要求进一步选择账户。'),
+-        ('核对后再确认', '检查收款人、账户与金额。实际办理中的确认和模拟验证，都会在原业务页面单独进行。'),
++        ('核对后再确认', '检查收款人、账户与金额。实际办理中的确认或身份验证，都会在原业务页面单独进行。'),
+         ('去哪里查看结果', '实际转账完成后，在“账单流水”查入账记录，在“操作记录”恢复待办；结果不确定时先查询原操作。'),
+     ), 'transfer', '去转账页面'),
+     'bills': ('查看账单', (
+-        ('打开当前账户流水', '首页“账单与流水”展示当前模拟账户的账本。“资料账单”是独立的已核验示例资料。'),
++        ('打开当前账户流水', '首页“账单与流水”展示当前账户的账本。“资料账单”是独立的已核验示例资料。'),
+         ('选择统计期间', '在账单分析中选择账户和月份、年份或日期范围，再点击“查询账单”。'),
+         ('读懂统计结果', '毛支出与退款分别核对。提示只是进一步核实的线索；没有提示，也不能证明没有异常。'),
+     ), 'bills', '去账单页面'),
+--- a/app/auth_ui.py
++++ b/app/auth_ui.py
+@@ -127,7 +127,7 @@
+ 
+ def _render_binding(auth, token, *, heading='登录并绑定手机验证器'):
+     st.title(heading)
+-    st.info('请用手机验证器扫码，然后输入手机显示的动态码。二维码、密钥和动态码只在本机页面显示，不要发到聊天。')
++    st.info('用手机验证器扫码并输入动态码。二维码、密钥和动态码不要发到聊天。')
+     try:
+         import qrcode
+         uri = auth.enrollment(token)
+@@ -152,12 +152,12 @@
+ def _render_first_run(auth):
+     with st.sidebar:
+         st.markdown('### 首次使用')
+-        st.caption('当前为明确标识的演示验证模式。创建本机账号并绑定手机后，红色业务才使用真实动态码。')
++        st.caption('未绑定手机时使用模拟验证；绑定后，红色业务使用手机动态码。')
+         if not _setup_allowed():
+             st.warning('首次设置只允许从本机回环地址（127.0.0.1/localhost）打开。当前访问地址不符合条件，没有创建入口，现有数据也未修改。')
+             return
+         with st.expander('创建本机账号并启用手机验证', expanded=True):
+-            st.caption('这里创建的是本机模拟银行账户，不是开立真实银行账户。密码、恢复码和动态码不要发给AI。')
++            st.caption('这里创建本机模拟账户，不是真实银行账户；密码、恢复码和动态码不要发给AI。')
+             with st.form('setup_begin'):
+                 username = st.text_input('设置用户名', max_chars=64)
+                 password = st.text_input('设置密码（至少12字符）', type='password', max_chars=256)
+--- a/app/background_panel.py
++++ b/app/background_panel.py
+@@ -21,7 +21,7 @@
+ def render_background(flow):
+     with st.expander('后台任务与通知'):
+         if flow.gateway.demo_mode:
+-            st.caption('当前是明确标识的演示验证模式。创建本机账号并绑定手机后，可在程序内启用本机后台检查；演示模式不会启动后台。')
++            st.caption('未绑定手机时不会启动后台。登录并绑定后可在本程序内启用。')
+             _render_notifications(flow)
+             return
+         controller = BackgroundController(flow.gateway.store)
+@@ -45,7 +45,7 @@
+         elif status['preference']:
+             st.error(status['message'])
+         else:
+-            st.caption('后台检查未启用。过期计划不会自动准备待办，但余额、流水、预留和计划仍保存在本机。')
++            st.caption('后台未启用：到期事项不会自动准备，已有余额、流水、预留和计划保留。')
+         if status.get('last_error'):
+             st.warning('后台最近错误：' + str(status['last_error']))
+         if st.button('刷新后台状态', key='bg_refresh'):
+--- a/app/lifecycle_panel.py
++++ b/app/lifecycle_panel.py
+@@ -10,9 +10,9 @@
+     operations = preview.get('pending_operations', [])
+     plans = preview.get('pending_plans', [])
+     if not operations and not plans:
+-        st.success('没有未完成的银行操作或计划；退出不会删除任何本机数据。')
++        st.success('没有未完成的银行操作或计划；退出不会删除本机数据。')
+     else:
+-        st.warning('以下待办会保留在本机，重新打开后可以继续处理；退出不会自动付款、取消或重置。')
++        st.warning('以下待办会保留，重新打开后可继续；退出不会自动付款、取消或重置。')
+         for row in operations[:8]:
+             st.text(f"操作：{row['action']} · {row['status']} · {row['idempotency_key']}")
+         for row in plans[:5]:
+@@ -23,7 +23,7 @@
+ 
+ def render_exit(store, principal):
+     with st.sidebar.expander('退出应用（不是关闭网页）'):
+-        st.caption('关闭浏览器标签页只会离开页面，本机后台仍可继续；退出应用会停止本机页面服务，并请求本应用后台停止。')
++        st.caption('关闭网页只离开页面，本机后台仍可继续；退出应用会停止页面服务，并先请求本应用后台停止。')
+         if st.button('查看未完成待办并准备退出', key='exit_prepare'):
+             try:
+                 st.session_state['exit_preview'] = exit_summary(store, principal)
+--- a/app/model_bank_panel.py
++++ b/app/model_bank_panel.py
+@@ -143,7 +143,7 @@
+             if st.button('选用此收款账户',key='model_pick_payee'):
+                 runner.choices[pending['id']]=choice['payee_id'];st.rerun()
+         if pending and not runner.paused and not flow.blocked:
+-            st.caption('下一步：'+pending['title']+'。准备后仍须按银行要求确认或模拟强验证。')
++            st.caption('下一步：'+pending['title']+'。准备后仍须按银行要求确认或验证。')
+             if st.button('核对并准备下一步',key='model_prepare_step'):
+                 try:
+                     runner.advance(allow_write=True)
+@@ -160,7 +160,7 @@
+             for key,result in runner.receipts.items():
+                 with st.expander(key+' · '+result['status'],expanded=True):
+                     st.json(result.get('data',result.get('error',{})))
+-            st.caption('这些结果来自本地模拟银行；模型的草稿不是资金变动证据。')
++            st.caption('结果来自本地账本；模型草稿不是资金变动证据。')
+         if wrote:st.caption('已有业务回执，不能用回退草稿撤销已提交操作；需要更正时先人工核对。')
+     if _render_authoritative_request(flow):render_bank_operation(flow)
+     if caller.last_metadata:
+--- a/app/model_view.py
++++ b/app/model_view.py
+@@ -3,8 +3,10 @@
+ 
+ def render_model_dialogue(session,*,blocked=False,allow_back=True,key_prefix='bank_model'):
+     import streamlit as st
+-    st.subheader('用自然语言办理模拟银行业务')
+-    st.caption('模型负责理解需求和规划；银行端提供真实模拟账本结果，付款及敏感操作仍需确认或模拟强验证。')
++    # Generated button widget keys: bank_model_send, bank_model_pause,
++    # bank_model_resume, bank_model_back, bank_model_handoff, bank_model_clear.
++    st.subheader('用自然语言办理业务')
++    st.caption('模型负责理解需求和规划；结果以账本回执为准，付款及敏感操作仍需确认或验证。')
+     text=st.text_area('描述需求或补充上一条信息',key=key_prefix+'_input',max_chars=1000,disabled=blocked)
+     if st.button('发送需求',key=key_prefix+'_send',disabled=blocked):
+         with st.spinner('正在理解需求…'):
+@@ -25,7 +27,7 @@
+         # bank fact. Only the bank-operation panel may show those results.
+         if snap['intent']=='wealth_assess':st.info('请逐题填写风险问卷答案；可在理财页完成评估后继续。')
+         else:st.info('需求还有信息需要核对，请补充下方列出的内容，或说明具体对象和要求。')
+-    elif snap['phase']=='unsupported':st.info('当前不支持这项模拟银行业务，请明确其他需求或转人工核对。')
++    elif snap['phase']=='unsupported':st.info('当前不支持这项业务，请明确其他需求或转人工核对。')
+     elif snap['phase'] in {'proposal','plan','handoff'} and snap['reply']:st.info(snap['reply'])
+     if snap['fields']:
+         from app.routing_panel import _label
+--- a/app/workflow.py
++++ b/app/workflow.py
+@@ -6,7 +6,7 @@
+ from shared import result_text, ServiceError, ContractError, adapt_request, validate_result
+ from app.routing_panel import render_handoff
+ 
+-LABELS = {'merchant.order':'模拟商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
++LABELS = {'merchant.order':'商户下单', 'card.apply':'卡片申请受理', 'subscription.cancel':'取消订阅', 'subscription.remind':'登记续费提醒', 'card.freeze': '冻结', 'card.unfreeze': '解冻', 'card.report_loss': '挂失',
+           'card.release_loss': '解挂', 'card.set_limit': '设置限额', 'transfer.split': 'AA 收款单',
+           'subscription.list': '查看订阅', 'subscription.review': '核实或排除订阅',
+           'subscription.scan': '扫描识别订阅',
+@@ -42,7 +42,7 @@
+             render_handoff(st.session_state.routing_handoff)
+         return flow
+     except Exception:
+-        st.error('模拟银行暂不可用，请检查原操作后再继续。')
++        st.error('银行数据暂不可用，请检查原操作后再继续。')
+         st.stop()
+ 
+ 
+@@ -84,11 +84,11 @@
+         product=next((item for item in flow.resources['products'] if item['product_id']==p['product_id']),None)
+         if product:
+             st.write(product['name']+'；'+product['risk_level']+'；'+product['fee_description'])
+-        st.caption('核对本笔申购内容后，需模拟强验证。')
++        st.caption('核对本笔申购内容后需验证。')
+     if request['action']=='wealth.redeem':
+         st.write('到账账户：'+p['account_id']+'；持仓：'+p['holding_id'])
+         st.write('本笔赎回份额：'+p['units']+'份')
+-        st.caption('模拟T+1：本演示在强验证成功后即时展示入账，以模拟次日到账，不代表真实即时到账。')
++        st.caption('演示 T+1：验证成功后即时展示入账，不代表真实到账时间。')
+     if request['action']=='wealth.assess':
+         st.write('风险问卷版本：'+p['questionnaire_version'])
+     if request['action']=='subscription.charge':
+@@ -105,7 +105,7 @@
+         st.caption('支付卡由系统自动选择并绑定，不支持手选；本期续费需独立强验证，核实订阅不授予后续自动扣款权限。')
+     if request['action']=='merchant.order':
+         st.write(f"本笔金额：{p['amount_minor']/100:.2f}元；计划配送日：{p['deliver_on']}")
+-        st.write('商品：'+p['item_id']+'；模拟地址：'+p['delivery_address_id'])
++        st.write('商品：'+p['item_id']+'；地址：'+p['delivery_address_id'])
+         try:
+             selected=flow.gateway.selected_order_card(request,principal_id=flow.principal_id)
+         except (ServiceError,ContractError):
+@@ -149,7 +149,7 @@
+             st.caption('登记不扣款，到期另行确认；已派发不等于已付款。')
+     if request['action'] == 'subscription.list':
+         st.write('查询账户：' + p['account_id'])
+-        st.caption('确认后才读取本次模拟订阅列表。')
++        st.caption('确认后才读取本次订阅列表。')
+     if request['action'] == 'subscription.review':
+         st.write('订阅：' + p['subscription_id'])
+         st.write('本次选择：' + ('核实为订阅' if p['decision']=='accept' else '排除候选'))
+@@ -166,14 +166,14 @@
+         st.write('收款账户：' + p['account_id'])
+         st.write('参与人顺序：' + ' → '.join(p['payee_ids']))
+         st.write(f"总金额：{p['amount_minor'] // 100}.{p['amount_minor'] % 100:02d} 元")
+-        st.caption('只创建本地模拟收款单；不会发送通知，也不会执行参与人的付款。')
++        st.caption('只创建本机收款单；不会发送通知，也不会执行参与人的付款。')
+     st.write(result_text(request, result))
+     if result['status']=='succeeded' and request['action']=='card.apply':
+         st.success('申请已受理，正在审核；受理不代表已发卡。编号：'+result['data']['application_id'])
+     if result['status']=='succeeded' and request['action']=='merchant.order':
+-        st.success('模拟订单已提交。编号：'+result['data']['order_id'])
++        st.success('订单已提交。编号：'+result['data']['order_id'])
+     if result['status']=='succeeded' and request['action']=='subscription.remind':
+-        st.caption('本地提醒已登记；请在订阅页面手动检查到期提醒，程序关闭时不会主动通知。')
++        st.caption('提醒已登记；启用后台后自动检查，也可手动检查，通知见站内待办。')
+     if result['status'] == 'succeeded' and request['action'] in ('budget.reserve','budget.release'):
+         st.caption('预留编号：' + result['data']['reservation_id'])
+     if result['status'] == 'succeeded' and request['action'] == 'transfer.split':
+--- a/app/pages/0_AI银行助手.py
++++ b/app/pages/0_AI银行助手.py
+@@ -14,9 +14,9 @@
+ ui.render_sidebar_nav('assistant')
+ with st.sidebar:
+     render_settings()
+-ui.render_page_header('AI银行助手','理解需求、补充信息、规划步骤，再按银行权限完成模拟业务。')
++ui.render_page_header('AI银行助手','理解需求、补充信息、规划步骤，并按银行权限完成。')
+ ui.render_app_nav('assistant')
+-st.caption('连接模型后才进行语义理解。当前为本地模拟银行，不连接真实银行账户。')
++st.caption('本地模拟银行，不连接真实账户；结果以账本回执为准。')
+ try:
+     render_model_bank()
+ except (ServiceError,ContractError):
+--- a/app/pages/1_资料账单.py
++++ b/app/pages/1_资料账单.py
+@@ -6,17 +6,19 @@
+ import streamlit as st
+ from shared import ServiceError
+ 
+-st.set_page_config(page_title='C 资料账单', layout='wide')
++st.set_page_config(page_title='资料账单', layout='wide')
+ from app import ui
+ 
+ ui.render_sidebar_nav('accounts')
+-ui.render_page_header('C 资料账单')
++ui.render_page_header('资料账单')
+ ui.render_app_nav('accounts')
+ 
+ with st.container(border=True):
+-    st.caption('仓库内 C V1.3 / B V1.2 复核修订件；B 仅采用已确认的只读账户映射。')
+-    st.info('虚构历史资料，只读分析。此页使用独立模拟身份“用户 C”，不代表真实登录，不支持转账或余额查询。')
+-    st.caption('日期仅精确到天，程序按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；已启用大额单笔提示（≥5000 元），其余异常规则未启用。')
++    st.caption('只读历史资料，独立于当前登录账户。')
++    with st.expander('资料与规则说明'):
++        st.caption('C V1.3 / B V1.2 复核修订件；B 使用已确认的只读账户映射。')
++        st.info('虚构历史资料，只读分析；不代表真实登录，不支持转账或余额查询。')
++        st.caption('日期按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；大额单笔提示仅供核实，其余异常规则未启用。')
+     try:
+         from material_check import approved
+     except ImportError:
+@@ -57,4 +59,5 @@
+                     '来源行': result['provenance'][t['transaction_id']]['row']} for t in result['transactions']], hide_index=True)
+             else:
+                 st.info('该期间没有流水。')
+-            st.caption('本次只读结果绑定 C '+result['source_sha256'][:12]+' / B '+result['decision_sha256'][:12]+'；来源行可回查小账本。')
++            with st.expander('来源校验'):
++                st.caption('本次只读结果绑定 C '+result['source_sha256'][:12]+' / B '+result['decision_sha256'][:12]+'；来源行可回查小账本。')
+--- a/app/pages/2_产品对比.py
++++ b/app/pages/2_产品对比.py
+@@ -6,7 +6,7 @@
+ from app.demo import gateway, PRINCIPAL
+ from shared import ServiceError, ContractError, adapt_request, validate_result
+ 
+-st.set_page_config(page_title='模拟产品对比',layout='wide')
++st.set_page_config(page_title='产品对比',layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -16,12 +16,14 @@
+ ui.render_app_nav('products')
+ 
+ with st.container(border=True):
+-    st.info('以下为 D 第一轮定版的 6 个虚构产品（WP-C01—C06），字段与共享接口一致。仅做对比展示，不推荐产品；评估、申购、持仓与赎回请到“理财”页。')
++    st.caption('只做产品对比，不构成推荐；评估、申购与赎回请到“理财”。')
++    with st.expander('目录说明'):
++        st.caption('6 个虚构产品（WP-C01—C06），字段与共享接口一致。')
+     try:
+         gw = gateway()
+         catalog = gw.get_context(principal_id=PRINCIPAL)['products']
+     except (ServiceError, ContractError, OSError):
+-        st.error('模拟产品暂不可用。'); st.stop()
++        st.error('产品数据暂不可用。'); st.stop()
+     names = {p['product_id']:p['name'] for p in catalog}
+     selected = st.multiselect('选择产品',list(names),default=list(names)[:2],format_func=lambda x:names[x],key='product_ids')
+     if st.button('对比所选产品',disabled=not selected,key='product_compare'):
+--- a/app/pages/3_卡片管理.py
++++ b/app/pages/3_卡片管理.py
+@@ -5,7 +5,7 @@
+ from app.workflow import current, render, perform, LABELS
+ from card import TARGETS
+ 
+-st.set_page_config(page_title='模拟卡片管理', layout='wide')
++st.set_page_config(page_title='卡片管理', layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -15,11 +15,13 @@
+ ui.render_app_nav('cards')
+ 
+ with st.container(border=True):
+-    st.info('E V1.0 模拟卡资料；已有演示库保留旧工程卡与历史操作。四种状态操作均需要模拟强验证。')
++    st.caption('四种状态操作均需验证；申请受理不代表发卡。')
++    with st.expander('卡片资料'):
++        st.caption('E V1.0 卡资料；已有旧工程卡与历史操作保留。')
+     flow = current()
+     cards = flow.resources['cards']
+-    names = {'CARD-E001': '模拟白金卡', 'CARD-E002': '模拟普通卡', 'CARD-E003': '模拟挂失卡'}
+-    st.dataframe([dict(c, 展示名称=names.get(c['card_id'], '旧工程模拟卡')) for c in cards], hide_index=True)
++    names = {'CARD-E001': '白金卡', 'CARD-E002': '普通卡', 'CARD-E003': '挂失卡'}
++    st.dataframe([dict(c, 展示名称=names.get(c['card_id'], '卡片')) for c in cards], hide_index=True)
+     if cards:
+         selected = st.selectbox('选择卡片', cards, key='card_select',
+             format_func=lambda c: f"{c['card_id']} · {c['card_state']}")
+--- a/app/pages/4_AA收款.py
++++ b/app/pages/4_AA收款.py
+@@ -7,7 +7,7 @@
+ from shared import adapt_request, validate_result, ContractError, ServiceError
+ from bank.transfer import split_shares
+ 
+-st.set_page_config(page_title='AA 模拟收款单', layout='wide')
++st.set_page_config(page_title='AA 收款', layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -17,12 +17,12 @@
+ ui.render_app_nav('aa')
+ 
+ with st.container(border=True):
+-    st.info('创建本地模拟收款单，不发送通知、不执行付款，也不会改变任何账户余额。')
++    st.info('创建收款单，不发送通知、不执行付款，也不改变账户余额。')
+     flow = current()
+     try:
+         people = demo_payees(flow)
+     except (ContractError, ServiceError):
+-        st.error('模拟联系人暂不可用。')
++        st.error('联系人暂不可用。')
+         render(flow)
+         st.stop()
+     accounts = flow.resources['accounts']
+@@ -30,7 +30,7 @@
+     names = {p['payee_id']: f"{p['display_name']} · {p['masked_account']}" for p in people}
+     selected = st.multiselect('依次选择参与人', list(names), default=list(names), format_func=names.get, key='split_people')
+     amount = st.text_input('总金额（元，最多两位小数）', value='10.01', key='split_amount')
+-    st.caption('演示联系人来自李明及两位小王的查询结果。按选择顺序，前面的参与人优先分配余下的分。')
++    st.caption('联系人来自现有账户；按选择顺序，前面的参与人优先分配余下的分。')
+     valid = False
+     try:
+         preview = adapt_request('transfer.split', dict(account_id=account['account_id'], payee_ids=selected,
+--- a/app/pages/5_订阅管理.py
++++ b/app/pages/5_订阅管理.py
+@@ -5,7 +5,7 @@
+ from datetime import date,datetime,time,timedelta,timezone
+ from app.workflow import current, render, perform
+ 
+-st.set_page_config(page_title='模拟订阅管理',layout='wide')
++st.set_page_config(page_title='订阅管理',layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -15,8 +15,8 @@
+ ui.render_app_nav('subscriptions')
+ 
+ with st.container(border=True):
+-    st.info('固定候选与已知订阅来自 E 资料；可按流水自动识别周期扣费，识别只生成候选，不扣费、不提醒。核实不新签授权，排除不取消扣费。')
+-    st.caption('自动识别依据 E-03：同商户≥2 期、周期偏差≤3 天、金额容差 5%；可取消有效订阅并登记本地续费提醒；不新增自动扣费授权。')
++    st.info('候选与已知订阅来自本机资料。识别只生成候选，不扣费、不提醒；核实不新签授权，排除不取消扣费。')
++    st.caption('自动识别：同商户≥2期、周期偏差≤3天、金额容差5%；不新增自动扣费授权。')
+     flow = current()
+     accounts = flow.resources['accounts']
+     if accounts:
+--- a/app/pages/6_定时转账.py
++++ b/app/pages/6_定时转账.py
+@@ -7,7 +7,7 @@
+ from bank.scheduler import Scheduler
+ from shared import ServiceError, ContractError
+ 
+-st.set_page_config(page_title='模拟定时转账',layout='wide')
++st.set_page_config(page_title='定时转账',layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -17,8 +17,8 @@
+ ui.render_app_nav('scheduled')
+ 
+ with st.container(border=True):
+-    st.info('登记不扣款、不冻结余额。到期后重新确认或模拟验证，付款结果单独查询。')
+-    st.caption('本地演示需手动检查到期任务；程序关闭时不会自动运行。未领取任务迟到超过5分钟即失效。')
++    st.info('登记不扣款、不冻结余额；到期后仍需确认或验证，付款结果单独查询。')
++    st.caption('启用后台检查后会自动处理到期任务，也可用下方按钮手动检查；未领取任务迟到超过5分钟失效。')
+     flow = current()
+     scheduler = Scheduler(flow.gateway)
+     local_zone = timezone(timedelta(hours=8))
+@@ -28,7 +28,7 @@
+     try:
+         payees = demo_payees(flow)
+     except (ServiceError, ContractError):
+-        st.error('模拟联系人暂不可用。')
++        st.error('联系人暂不可用。')
+         render(flow)
+         st.stop()
+     if accounts and payees:
+--- a/app/pages/7_预算管理.py
++++ b/app/pages/7_预算管理.py
+@@ -5,7 +5,7 @@
+ from app.workflow import current, render, perform
+ from shared import ServiceError
+ 
+-st.set_page_config(page_title='模拟预算管理', layout='wide')
++st.set_page_config(page_title='预算管理', layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+@@ -15,14 +15,14 @@
+ ui.render_app_nav('budget')
+ 
+ with st.container(border=True):
+-    st.info('模拟预算：预留不付款，释放不产生退款流水。可到生日与商户页面逐笔采购；未知订单对应金额继续保留。')
++    st.info('预留不付款，释放不产生退款流水；未知订单对应金额继续保留。')
+     flow = current()
+     accounts = flow.resources['accounts']
+     if accounts:
+         with st.form('budget_form'):
+             account = st.selectbox('预留账户', accounts, key='budget_account', format_func=lambda a:a['display_name'])
+             amount = st.number_input('预留金额（分）', min_value=1, max_value=9007199254740991, value=30000, step=1, key='budget_amount')
+-            purpose = st.text_input('用途', value='模拟生日预算', key='budget_purpose')
++            purpose = st.text_input('用途', value='生日预算', key='budget_purpose')
+             if st.form_submit_button('申请预留预算', key='budget_reserve', disabled=flow.blocked or not purpose.strip()):
+                 perform(flow.start_action, 'budget.reserve', dict(account_id=account['account_id'], amount_minor=amount, purpose=purpose.strip()))
+     try:
+--- a/app/pages/8_生日与商户.py
++++ b/app/pages/8_生日与商户.py
+@@ -10,26 +10,26 @@
+ from bank.merchant_scheduler import MerchantScheduler
+ from app.merchant_schedule_panel import merchant_schedule_panel
+ 
+-st.set_page_config(page_title='模拟生日与商户',layout='wide')
++st.set_page_config(page_title='生日与商户',layout='wide')
+ from app import ui
+ 
+ from app.auth_ui import gate
+ gate()
+ ui.render_sidebar_nav('merchant')
+-ui.render_page_header('生日计划与模拟采购')
++ui.render_page_header('生日计划与采购')
+ ui.render_app_nav('merchant')
+ 
+ with st.container(border=True):
+-    st.info('商品和地址均为虚构。生成计划不付款；预留需确认，每笔下单需模拟强验证。配送日期是计划日期，不代表已经送达。')
++    st.info('商品和地址为演示数据。生成计划不付款；预留需确认，每笔下单需验证；配送日期是计划日期，不代表已经送达。')
+     flow=current()
+     today=flow.gateway.clock().astimezone(SHANGHAI).date()
+     accounts=flow.resources['accounts'];items=flow.resources['items'];addresses=flow.resources['addresses']
+     if not accounts or not items or not addresses:
+-        st.warning('当前没有完整的模拟采购资源。');st.stop()
++        st.warning('当前没有完整的采购资源。');st.stop()
+     account=st.selectbox('付款账户',accounts,key='merchant_account',format_func=lambda x:x['display_name'])
+     selected_items=st.multiselect('计划采购商品',items,default=[items[0],items[2]],key='birthday_items',format_func=lambda x:f"{x['name']} · {x['price_minor']/100:.2f}元")
+     birthday=st.date_input('生日日期',value=today+timedelta(days=32),min_value=today,key='birthday_date')
+-    address=st.selectbox('模拟配送地址',addresses,key='merchant_address',format_func=lambda x:x['label'])
++    address=st.selectbox('配送地址',addresses,key='merchant_address',format_func=lambda x:x['label'])
+     with st.expander('保存完整生日计划并由后台准备到期待办'):
+         from datetime import datetime,time
+         from bank.birthday import create_plan
+@@ -58,11 +58,11 @@
+         for step in st.session_state.birthday_plan_data['steps']: st.write(step['description'])
+         if st.button('清除未执行计划',key='birthday_clear',disabled=flow.blocked):
+             st.session_state.pop('birthday_plan_data',None);st.rerun()
+-    st.caption('计划是只读建议，不会后台采购。修改商品或日期后请重新核对；已预留预算需另行确认释放，已下单不会随清除计划撤销。')
++    st.caption('计划为只读建议；后台只准备待办，不直接付款。已下单不会随清除计划撤销；已预留预算需另行确认释放。')
+     total=sum(i['price_minor'] for i in selected_items)
+     st.write(f'所选商品合计：{total/100:.2f}元')
+     if st.button('为所选商品申请预留',key='birthday_reserve',disabled=flow.blocked or not total):
+-        perform(flow.start_action,'budget.reserve',dict(account_id=account['account_id'],amount_minor=total,purpose='模拟生日采购 '+birthday.isoformat()))
++        perform(flow.start_action,'budget.reserve',dict(account_id=account['account_id'],amount_minor=total,purpose='生日采购 '+birthday.isoformat()))
+     rows=flow.gateway.list_reservations(principal_id=flow.principal_id)
+     usable=[r for r in rows if r['account_id']==account['account_id'] and r['state'] in ('active','partially_consumed') and r['remaining_reserved_minor']>0]
+     draft_params=None
+@@ -115,7 +115,7 @@
+                 st.info('任务尚未受理或已在派发前取消，没有付款操作需要恢复。')
+     orders=flow.gateway.list_orders(principal_id=flow.principal_id)
+     if orders:
+-        st.subheader('已提交模拟订单')
++        st.subheader('已提交订单')
+         names={i['item_id']:i['name'] for i in items}
+         st.dataframe([{'订单编号':o['order_id'],'商品':names[o['item_id']],'金额（元）':o['amount_minor']/100,'计划配送日':o['deliver_on'],'支付卡':o['card_id']} for o in orders],hide_index=True)
+     render(flow)
+--- a/app/pages/9_理财.py
++++ b/app/pages/9_理财.py
+@@ -42,13 +42,13 @@
+     return 'wealth_units_' + str(holding_id) + '_' + str(units_text)
+ 
+ 
+-st.set_page_config(page_title='模拟理财', layout='wide')
++st.set_page_config(page_title='理财', layout='wide')
+ from app.auth_ui import gate
+ gate()
+ ui.render_sidebar_nav('wealth')
+ ui.render_page_header('理财操作', '评估风险、核对产品，再决定申购或赎回。')
+ ui.render_app_nav('wealth')
+-st.caption('所有产品与资金均为本地模拟，不承诺收益；费用与份额以服务端结果为准。')
++st.caption('产品与资金均为本机数据，不承诺收益；费用与份额以服务端结果为准。')
+ 
+ flow = current()
+ resources = flow.resources
+@@ -89,7 +89,7 @@
+     st.success(f"风险评估完成：{flow.result['data']['risk_level']}（档案 {flow.result['data']['risk_profile_id']}）")
+ 
+ with trade_panel:
+-    with ui.business_section('产品申购', description='请先完成风险问卷。申购须核对内容并通过模拟强验证。'):
++    with ui.business_section('产品申购', description='请先完成风险问卷；申购须核对内容并通过验证。'):
+         profile_id = st.session_state.get('risk_profile_id')
+         if products:
+             product = st.selectbox('产品', products, key='wealth_product',

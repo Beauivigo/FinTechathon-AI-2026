@@ -193,9 +193,8 @@ def render_sidebar_nav(current_key):
             _navigate(key, path)
 
     with st.sidebar:
-        st.caption('FinTechathon 2026')
         st.subheader('银行助手')
-        st.caption('模拟用户 A · 本地演示')
+        st.caption('本机账户')
         with st.container(gap='xsmall'):
             item('home')
             item('assistant')

@@ -1,0 +1,39 @@
+{
+  "timing_revision": {
+    "reproduced": true,
+    "before_times": {
+      "reserve": "2026-11-01T09:00:00+08:00",
+      "order_1": "2026-11-18T09:00:00+08:00",
+      "release": null
+    },
+    "after_times": {
+      "reserve": null,
+      "order_1": null,
+      "release": null
+    },
+    "operation_states": [
+      "awaiting_confirmation"
+    ],
+    "balance": [
+      200000,
+      200000,
+      0
+    ],
+    "scope": "Protocol/compiler/journal/worker chain; deterministic model response, no real model or actual Streamlit page."
+  },
+  "expired_worker_after_stop": {
+    "reproduced": true,
+    "confirmed_stopped_before_resume": true,
+    "operations_before": 0,
+    "operations_after": 1,
+    "reported_running_after": false,
+    "balance": [
+      200000,
+      200000,
+      0
+    ],
+    "scope": "Real SQLite and two worker instances in threads; deterministic long tick/lease expiry, no process kill or live service."
+  },
+  "daily_data_and_profile_unchanged": true,
+  "note": "Reproduced=true means defect exists, not repaired or accepted."
+}

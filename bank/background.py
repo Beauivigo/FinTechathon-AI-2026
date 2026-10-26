@@ -11,9 +11,13 @@ The Streamlit page asks this stdlib-only module to start/stop the existing
 * the enabled/disabled preference is stored in ``app_settings`` and is
   restored when the local application starts again.
 
-The worker never approves a payment.  Stopping it does not cancel existing
-operations or plans; their persisted status remains visible for checking.
+A lease expiry or a takeover is not proof that the previous process stopped.
+``status``/``request_stop`` therefore distinguish a worker that acknowledged
+its stop from one whose outcome cannot be verified.  The worker never
+approves a payment.  Stopping it does not cancel existing operations or plans;
+their persisted status remains visible for checking.
 """
+import json
 import os
 import secrets
 import subprocess
@@ -70,6 +74,47 @@ class BackgroundController:
     def _lease(c):
         return c.execute("SELECT * FROM worker_lease WHERE name=?", (NAME,)).fetchone()
 
+    def _unretired_owners(self):
+        """Owners displaced by a takeover that never recorded a clean exit."""
+        try:
+            with self.store.connection() as c:
+                rows = [dict(r) for r in c.execute(
+                    "SELECT event,detail FROM background_events WHERE event IN "
+                    "('takeover','fenced','worker_stopped') ORDER BY event_id")]
+        except Exception:
+            return ['unverified']  # Missing audit evidence cannot confirm retirement.
+        pending = {}
+        for row in rows:
+            try:
+                detail = json.loads(row['detail'] or '{}')
+            except (TypeError, ValueError):
+                return ['unverified']
+            if not isinstance(detail, dict):
+                return ['unverified']
+            if row['event'] == 'takeover':
+                previous = detail.get('previous')
+                if isinstance(previous, str) and previous and not detail.get('clean'):
+                    pending[previous] = True
+            else:
+                owner = detail.get('owner')
+                if isinstance(owner, str) and pending.get(owner):
+                    pending[owner] = False
+        return [owner for owner, flag in pending.items() if flag]
+
+    @staticmethod
+    def _stop_state(row, live, stopping, unverified):
+        if live:
+            if stopping:
+                return 'stopping'
+            return 'starting' if row['last_tick'] in (None, 'starting') else 'running'
+        if row is None:
+            return 'unverified' if unverified else 'idle'
+        if row['last_tick'] == 'stopped' and row['stop_requested'] and not unverified:
+            return 'stopped'
+        if row['stop_requested'] or unverified:
+            return 'unverified'
+        return 'idle'
+
     def status(self):
         with self.store.connection() as c:
             row = self._lease(c)
@@ -80,6 +125,8 @@ class BackgroundController:
         starting = live and not stopping and row['last_tick'] in (None, 'starting')
         running = live and not stopping and not starting
         last_error = row['error'] if row is not None else None
+        unverified = self._unretired_owners()
+        stop_state = self._stop_state(row, live, stopping, unverified)
         return dict(
             preference=preference, live=live, running=running, stopping=stopping, starting=starting,
             pid=row['pid'] if row is not None else None,
@@ -87,17 +134,23 @@ class BackgroundController:
             started_at=row['started_at'] if row is not None else None,
             last_error=last_error,
             expires_in=max(0.0, (row['expires'] - now)) if row is not None else 0.0,
-            message=self._message(preference, live, stopping, row),
+            stop_state=stop_state,
+            unverified_instances=len(unverified),
+            message=self._message(preference, live, stopping, starting, row, stop_state),
         )
 
     @staticmethod
-    def _message(preference, live, stopping, row):
+    def _message(preference, live, stopping, starting, row, stop_state):
         if stopping:
             return '已请求停止：不再领取新任务，正在完成的检查会保留原操作结果。'
-        if live and row['last_tick'] in (None, 'starting'):
+        if starting:
             return '后台启动请求已提交，正在等待首次检查。'
         if live:
             return '后台运行中；关闭网页不会停止本应用后台。'
+        if stop_state == 'unverified':
+            return '无法核实此前实例是否已停止；后台不再领取新任务，已发出的操作请保留编号查询原结果。'
+        if stop_state == 'stopped':
+            return '后台已确认停止；已登记计划不会取消，重新启用后才会准备到期待办。'
         if not preference:
             return '后台未启用。关闭网页不会自动启动后台检查。'
         if row is not None and row['error']:
@@ -124,6 +177,9 @@ class BackgroundController:
                 existing = row
             else:
                 stamp = utc_text(now)
+                if row is not None and row['owner'] != owner:
+                    self._event(c, 'takeover', stamp, json.dumps(
+                        {'previous': row['owner'], 'clean': row['last_tick'] in ('stopped', 'exited')}))
                 c.execute('''INSERT INTO worker_lease
                     (name,owner,expires,last_tick,error,pid,started_at,stop_requested,stop_requested_at)
                     VALUES (?,?,?,?,NULL,NULL,?,0,NULL)
@@ -145,7 +201,7 @@ class BackgroundController:
         except Exception:
             with self.store.connection(write=True) as c:
                 stamp = utc_text(self.clock())
-                c.execute('''UPDATE worker_lease SET expires=0,error=?
+                c.execute('''UPDATE worker_lease SET expires=0,error=?,last_tick='exited'
                     WHERE name=? AND owner=?''',
                           ('后台启动失败，请检查本机运行环境后重试。', NAME, owner))
                 self._event(c, 'start_failed', stamp)
@@ -169,9 +225,10 @@ class BackgroundController:
             preference = self._enabled(c)
         now = self.clock()
         live = bool(row is not None and row['expires'] > now)
+        target = row['owner'] if row is not None else None
         if row is None and not has_setting:
             result = self.status()
-            result.update(requested=False, confirmed_stopped=True)
+            result.update(requested=False, confirmed_stopped=True, stop_state='never_started')
             return result
         with self.store.connection(write=True) as c:
             stamp = utc_text(now)
@@ -180,20 +237,37 @@ class BackgroundController:
                 c.execute('''INSERT INTO app_settings(key,value,updated_at) VALUES (?,?,?)
                     ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=excluded.updated_at''',
                           (PREFERENCE_KEY, '0', stamp))
-            if current is not None and current['expires'] > self.clock():
-                c.execute('''UPDATE worker_lease SET stop_requested=1,stop_requested_at=?
+            if current is not None:
+                # Keep the intent observable even when the lease already looks
+                # expired: expiry alone never proves the old process has died.
+                c.execute('''UPDATE worker_lease SET stop_requested=1,
+                    stop_requested_at=COALESCE(stop_requested_at,?)
                     WHERE name=? AND owner=?''', (stamp, NAME, current['owner']))
+                target = current['owner']
                 self._event(c, 'stop_requested', stamp)
-        if live and wait:
+        if wait:
             deadline = time.monotonic() + max(0, wait)
             while time.monotonic() < deadline:
                 with self.store.connection() as c:
                     current = self._lease(c)
-                    if current is None or current['expires'] <= self.clock():
-                        break
+                if current is None or current['owner'] != target or current['last_tick'] == 'stopped':
+                    break
                 self.sleep(0.2)
+        else:
+            with self.store.connection() as c:
+                current = self._lease(c)
         result = self.status()
-        result.update(requested=live, confirmed_stopped=not result['live'])
+        acknowledged = bool(current is not None and target is not None
+            and current['owner'] == target and current['stop_requested']
+            and current['last_tick'] == 'stopped' and current['expires'] <= self.clock())
+        if acknowledged and not self._unretired_owners():
+            stop_state = 'stopped'
+        elif target is not None and live:
+            stop_state = 'stopping'
+        else:
+            stop_state = 'unverified'
+        result.update(requested=target is not None,
+                      confirmed_stopped=(stop_state == 'stopped'), stop_state=stop_state)
         return result
 
     # ---- spawning ------------------------------------------------------------------

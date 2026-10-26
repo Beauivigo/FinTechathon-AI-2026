@@ -1,0 +1,10 @@
+{
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "daily_data_and_profile_unchanged": true,
+  "real_http_blocked": true,
+  "scope": "Two recovery/authorization probes and two verified capability boundaries. Temporary DPAPI/TOTP identities only; no physical phone or model call."
+}

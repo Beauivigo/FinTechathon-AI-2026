@@ -1,0 +1,14 @@
+{
+  "health_status": 200,
+  "health_body": "ok",
+  "model_profile_unchanged": true,
+  "startup_record_refreshed": true,
+  "actual_api_calls": 18,
+  "whole_database_file_matches_initial_preflight": false,
+  "passed": true,
+  "browser_login_page_observed": true,
+  "original_pending_status": "awaiting_confirmation",
+  "no_user_login_attempt": true,
+  "normal_startup_changes_launcher_record": true,
+  "read_reload_evidence": "daily-read-recheck.json"
+}

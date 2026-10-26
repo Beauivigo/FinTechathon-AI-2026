@@ -5,7 +5,7 @@ import streamlit as st
 from datetime import date,datetime,time,timedelta,timezone
 from app.workflow import current, render, perform
 
-st.set_page_config(page_title='模拟订阅管理',layout='wide')
+st.set_page_config(page_title='订阅管理',layout='wide')
 from app import ui
 
 from app.auth_ui import gate
@@ -15,8 +15,8 @@ ui.render_page_header('订阅核实与排除')
 ui.render_app_nav('subscriptions')
 
 with st.container(border=True):
-    st.info('固定候选与已知订阅来自 E 资料；可按流水自动识别周期扣费，识别只生成候选，不扣费、不提醒。核实不新签授权，排除不取消扣费。')
-    st.caption('自动识别依据 E-03：同商户≥2 期、周期偏差≤3 天、金额容差 5%；可取消有效订阅并登记本地续费提醒；不新增自动扣费授权。')
+    st.info('候选与已知订阅来自本机资料。识别只生成候选，不扣费、不提醒；核实不新签授权，排除不取消扣费。')
+    st.caption('自动识别：同商户≥2期、周期偏差≤3天、金额容差5%；不新增自动扣费授权。')
     flow = current()
     accounts = flow.resources['accounts']
     if accounts:

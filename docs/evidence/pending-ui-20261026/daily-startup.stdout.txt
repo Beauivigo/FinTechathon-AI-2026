@@ -1,0 +1,7 @@
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://127.0.0.1:8501
+
+应用已启动：http://127.0.0.1:8501
+关闭这个窗口会结束本机页面服务；仅关闭浏览器标签页不会停止已启用的后台检查。

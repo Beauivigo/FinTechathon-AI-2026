@@ -1,0 +1,54 @@
+{
+  "at_utc": "2026-10-26T08:20:16.770219+00:00",
+  "status": "primary_synced_and_independently_accepted",
+  "delegate_run_id": "0e7cba1a-b1cc-4208-ad7b-8a6fbb3d99b0",
+  "independent_tests": 658,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "button_definitions": 97,
+  "rendered": 97,
+  "automated_clicked_definitions": 96,
+  "browser_additional_clicked_definitions": 1,
+  "current_live_groups": [
+    {
+      "name": "resolve-pending-and-real-model-freeze",
+      "passed": true,
+      "balance_minor": 200000
+    },
+    {
+      "name": "multiturn-transfer-and-rerun",
+      "passed": true,
+      "balance_minor": 198000
+    },
+    {
+      "name": "injection-does-not-pay",
+      "passed": true,
+      "balance_minor": 198000
+    }
+  ],
+  "prior_revision_live_groups": 7,
+  "actual_api_calls": 18,
+  "conservative_usage_upper_CNY": "0.087698",
+  "reserved_total_CNY": "4.50",
+  "authorized_cap_CNY": "5.00",
+  "billing_note": "所有输入按高峰未命中、输出按高峰价计的用量估算上界；非账户账单。",
+  "primary_database_unchanged": true,
+  "model_profile_unchanged": true,
+  "delegate_review_status": "accepted_by_codex",
+  "reporter_exit_code": 0,
+  "primary_sync_authorized": true,
+  "primary_independent_tests": 658,
+  "primary_test_elapsed_seconds": 183.62,
+  "primary_acceptance_utc": "2026-10-26T10:13:36.676688+00:00",
+  "primary_file_hashes_match_accepted_snapshot": true,
+  "git_committed": false,
+  "git_pushed": false,
+  "primary_runtime_and_profile_unchanged_during_regression": true,
+  "daily_app_running": true,
+  "daily_app_url": "http://127.0.0.1:8501",
+  "daily_login_page_observed": true,
+  "normal_page_reload_changes_only_sqlite_header_counters": true,
+  "all_business_tables_unchanged_during_read_reload": true,
+  "original_pending_untouched": true
+}

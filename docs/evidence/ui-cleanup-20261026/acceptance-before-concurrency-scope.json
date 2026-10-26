@@ -1,0 +1,92 @@
+{
+  "executor": "Codex independent acceptance",
+  "run_id": "44a2833c-2e69-482c-9633-c7deab4c1512",
+  "base": "285c90c6014158b85d8323788945b085d1991192",
+  "full_tests": {
+    "run": 619,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "clean_start_checks": [
+    {
+      "name": "prepare",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_once",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_restart",
+      "exit_code": 0
+    },
+    {
+      "name": "worker_loop_without_page",
+      "exit_code": 0
+    },
+    {
+      "name": "ledger_and_clean_page",
+      "exit_code": 0
+    }
+  ],
+  "frozen_tests": {
+    "run": 6,
+    "exit_code": 0,
+    "original_test_unchanged": true
+  },
+  "targeted_billing_page_tests": {
+    "run": 9,
+    "exit_code": 0
+  },
+  "browser_walkthrough": {
+    "pages": [
+      "首页",
+      "产品对比",
+      "资料账单",
+      "卡片管理",
+      "订阅管理",
+      "预算管理",
+      "生日与商户",
+      "AA收款",
+      "定时转账",
+      "理财",
+      "AI银行助手"
+    ],
+    "queries_executed": [
+      "产品对比",
+      "资料账单"
+    ],
+    "no_payment_or_model_submission": true,
+    "screenshots": [
+      "home-preview.png",
+      "materials-preview.png"
+    ],
+    "scope": "Live browser, separate temporary data; no user phone or real model HTTP."
+  },
+  "copy_word_counts": {
+    "before": {
+      "模拟": 81,
+      "演示": 10,
+      "沙盒": 0
+    },
+    "after": {
+      "模拟": 15,
+      "演示": 3,
+      "沙盒": 0
+    }
+  },
+  "changed_app_files": 20,
+  "primary_focus_file_drift": [
+    "app/background_panel.py",
+    "app/model_bank_panel.py"
+  ],
+  "daily_database_unchanged": false,
+  "model_profile_unchanged": true,
+  "integration_status": "Awaiting explicit approval to apply accepted snapshot to local main.",
+  "whitespace_errors": 0,
+  "new_commit": false,
+  "pushed": false,
+  "passed": true,
+  "history": "Initial full suite 618/619 passed. Important billing info box restored without changing assertions; then 9 targeted plus 619 full tests passed. First hash probe used Git-export line endings; exact snapshot bytes restored and original frozen tests passed."
+}

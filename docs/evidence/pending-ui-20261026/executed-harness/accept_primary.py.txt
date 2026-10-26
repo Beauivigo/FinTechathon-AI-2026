@@ -1,0 +1,93 @@
+"""Codex完整实现后的独立回归与按钮执行覆盖记录；普通测试禁止外部HTTP。"""
+from pathlib import Path
+from hashlib import sha256
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
+from contextlib import redirect_stdout,redirect_stderr,ExitStack
+from functools import wraps
+from urllib.parse import urlsplit
+import ast,inspect,json,sys,tempfile,time,unittest,logging,importlib.util
+
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
+sys.path.insert(0,str(ROOT));tempfile.tempdir=None
+import streamlit as st
+from streamlit.delta_generator import DeltaGenerator
+import urllib.request
+logging.getLogger('streamlit').setLevel(logging.ERROR)
+observed={};active_test=None
+
+def wrap(original):
+    @wraps(original)
+    def call(*args,**kwargs):
+        result=original(*args,**kwargs)
+        frame=inspect.currentframe().f_back
+        site=None
+        while frame:
+            try:
+                relative=Path(frame.f_code.co_filename).resolve().relative_to(ROOT)
+                if relative.parts[0]=='app':site=(relative.as_posix(),frame.f_lineno);break
+            except (ValueError,OSError):pass
+            frame=frame.f_back
+        if site:
+            positional=args[1:] if args and isinstance(args[0],DeltaGenerator) else args
+            label=kwargs.get('label',positional[0] if positional else '')
+            key=kwargs.get('key');identity=json.dumps([*site,str(key),str(label)],ensure_ascii=False)
+            row=observed.setdefault(identity,dict(file=site[0],line=site[1],key=str(key),label=str(label),
+                rendered=0,enabled=0,disabled=0,clicked=0,clicked_tests=[]))
+            row['rendered']+=1;row['disabled' if kwargs.get('disabled',False) else 'enabled']+=1
+            if result:
+                row['clicked']+=1
+                if active_test not in row['clicked_tests']:row['clicked_tests'].append(active_test)
+        return result
+    return call
+
+class Result(unittest.TextTestResult):
+    def startTest(self,test):
+        global active_test
+        active_test=test.id();super().startTest(test)
+
+def run():
+    import bank.seed
+    primary=HERE.parents[1]
+    fingerprint=lambda p:sha256(p.read_bytes()).hexdigest() if p.is_file() else None
+    protected={str(p):fingerprint(p) for p in [primary/'runtime/sandbox.sqlite3',primary/'.cache/bank-model/profile.json']}
+    originals={};started=time.monotonic()
+    extra_only='--extra-only' in sys.argv
+    stem='primary-extra-independent' if extra_only else 'primary-independent'
+    log_path=HERE/(stem+'.txt')
+    with log_path.open('w',encoding='utf-8') as log,redirect_stdout(log),redirect_stderr(log),TemporaryDirectory() as td,ExitStack() as stack:
+        stack.enter_context(patch('bank.seed.PROJECT_ROOT',Path(td)))
+        stack.enter_context(patch('urllib.request.OpenerDirector.open',side_effect=AssertionError('Offline final acceptance forbids HTTP')))
+        for name in ('button','form_submit_button','download_button','link_button'):
+            for obj in (st,DeltaGenerator):
+                original=getattr(obj,name);stack.enter_context(patch.object(obj,name,wrap(original)))
+        spec=importlib.util.spec_from_file_location('codex_button_acceptance',HERE/'extra_buttons.py')
+        extra=importlib.util.module_from_spec(spec);spec.loader.exec_module(extra);extra.ROOT=ROOT
+        extra_suite=unittest.defaultTestLoader.loadTestsFromModule(extra)
+        suite=extra_suite if extra_only else unittest.TestSuite([unittest.defaultTestLoader.discover(str(ROOT/'tests')),extra_suite])
+        result=unittest.TextTestRunner(stream=log,verbosity=2,resultclass=Result).run(suite)
+    ast_sites=[]
+    for p in sorted((ROOT/'app').rglob('*.py')):
+        for node in ast.walk(ast.parse(p.read_text(encoding='utf-8-sig'))):
+            if isinstance(node,ast.Call) and isinstance(node.func,ast.Attribute) and node.func.attr in ('button','form_submit_button','download_button','link_button'):
+                ast_sites.append(dict(file=p.relative_to(ROOT).as_posix(),line=node.lineno,kind=node.func.attr))
+    rendered={(r['file'],r['line']) for r in observed.values()}
+    clicked={(r['file'],r['line']) for r in observed.values() if r['clicked']}
+    coverage=dict(definitions=ast_sites,observed=list(observed.values()),definition_count=len(ast_sites),
+        rendered_definition_count=sum((r['file'],r['line']) in rendered for r in ast_sites),
+        clicked_definition_count=sum((r['file'],r['line']) in clicked for r in ast_sites),
+        unclicked_definitions=[r for r in ast_sites if (r['file'],r['line']) not in clicked])
+    (HERE/('primary-button-coverage-extra.json' if extra_only else 'primary-button-coverage.json')).write_text(json.dumps(coverage,ensure_ascii=False,indent=2),encoding='utf-8')
+    record=dict(executor='Codex独立完整实现验收',run=result.testsRun,failures=len(result.failures),errors=len(result.errors),
+        skipped=len(result.skipped),elapsed_seconds=round(time.monotonic()-started,2),
+        protected_data_unchanged=all(fingerprint(Path(p))==h for p,h in protected.items()),
+        source_sha256={name:fingerprint(ROOT/name) for name in json.loads((HERE/'full-independent.json').read_text(encoding='utf-8'))['source_sha256']},
+        failed_tests=[t.id() for t,_ in result.failures+result.errors],
+        scope='真实Streamlit AppTest和临时模拟库；无外部HTTP；源按钮定义+实际点击记录，未覆盖项不算通过。')
+    record['passed']=result.wasSuccessful() and not result.skipped and record['protected_data_unchanged']
+    (HERE/(stem+'.json')).write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps({k:record[k] for k in ('run','failures','errors','skipped','elapsed_seconds','protected_data_unchanged','passed','failed_tests')},ensure_ascii=False))
+    print(json.dumps({k:coverage[k] for k in ('definition_count','rendered_definition_count','clicked_definition_count','unclicked_definitions')},ensure_ascii=False))
+    return 0 if record['passed'] else 1
+
+if __name__=='__main__':raise SystemExit(run())

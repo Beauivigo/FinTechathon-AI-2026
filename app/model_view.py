@@ -3,9 +3,13 @@
 
 def render_model_dialogue(session,*,blocked=False,allow_back=True,key_prefix='bank_model'):
     import streamlit as st
-    st.subheader('用自然语言办理模拟银行业务')
-    st.caption('模型负责理解需求和规划；银行端提供真实模拟账本结果，付款及敏感操作仍需确认或模拟强验证。')
+    # Generated button widget keys: bank_model_send, bank_model_pause,
+    # bank_model_resume, bank_model_back, bank_model_handoff, bank_model_clear.
+    st.subheader('用自然语言办理业务')
+    st.caption('模型负责理解需求和规划；结果以账本回执为准，付款及敏感操作仍需确认或验证。')
     text=st.text_area('描述需求或补充上一条信息',key=key_prefix+'_input',max_chars=1000,disabled=blocked)
+    if blocked:
+        st.warning('当前有待处理或待核实的银行操作，输入与发送已暂停；请先在上方“待处理操作”中恢复并确认、拒绝或查询，恢复后会重新可用。')
     if st.button('发送需求',key=key_prefix+'_send',disabled=blocked):
         with st.spinner('正在理解需求…'):
             session.submit(text)
@@ -25,12 +29,13 @@ def render_model_dialogue(session,*,blocked=False,allow_back=True,key_prefix='ba
         # bank fact. Only the bank-operation panel may show those results.
         if snap['intent']=='wealth_assess':st.info('请逐题填写风险问卷答案；可在理财页完成评估后继续。')
         else:st.info('需求还有信息需要核对，请补充下方列出的内容，或说明具体对象和要求。')
-    elif snap['phase']=='unsupported':st.info('当前不支持这项模拟银行业务，请明确其他需求或转人工核对。')
+    elif snap['phase']=='unsupported':st.info('当前不支持这项业务，请明确其他需求或转人工核对。')
     elif snap['phase'] in {'proposal','plan','handoff'} and snap['reply']:st.info(snap['reply'])
     if snap['fields']:
         from app.routing_panel import _label
         extra={'limit_text':'单笔限额','answers':'问卷答案','risk_profile_id':'风险档案编号','holding_id':'持仓编号',
-            'purpose':'预留用途','reservation_id':'预留编号','item_id':'商品编号','deliver_on':'配送日期','delivery_address_id':'配送地址编号'}
+            'purpose':'预留用途','reservation_id':'预留编号','item_id':'商品编号','deliver_on':'配送日期',
+            'delivery_address_id':'配送地址编号','memo':'转账备注'}
         st.caption('请核对需求中的信息')
         for key,value in snap['fields'].items():
             st.text(extra.get(key,_label(key))+'：'+str(value))

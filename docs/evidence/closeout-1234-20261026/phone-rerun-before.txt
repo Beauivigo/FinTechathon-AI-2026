@@ -1,0 +1,9 @@
+2026-10-26 14:50:38.721 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+Traceback (most recent call last):
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp4mirdrty\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp4mirdrty\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+{"first_elements": 42, "rerun_elements": 0, "exceptions": 0}
+  File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\docs\evidence\closeout-1234-20261026\reproduce_phone_rerun.py", line 12, in <module>
+    assert second>0, 'Phone acceptance page disappears after a successful first render'
+           ^^^^^^^^
+AssertionError: Phone acceptance page disappears after a successful first render

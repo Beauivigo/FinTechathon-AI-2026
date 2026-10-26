@@ -1,0 +1,14 @@
+{
+  "primary_runtime": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\runtime\\sandbox.sqlite3",
+  "preview_runtime": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\local_reports\\material_checks\\ui-cleanup-20261026-r2\\project-preview\\runtime\\sandbox.sqlite3",
+  "same_file": false,
+  "preview_bank_module": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\local_reports\\material_checks\\ui-cleanup-20261026-r2\\project-preview\\bank\\seed.py",
+  "source_location_definition": [
+    "from .store import PROJECT_ROOT, Store",
+    "def demo_path():",
+    "    root = PROJECT_ROOT.resolve()",
+    "    path = root / \"runtime\" / \"sandbox.sqlite3\"",
+    "    parser = argparse.ArgumentParser(description=\"P1 本地模拟银行；固定使用项目 runtime/sandbox.sqlite3\")"
+  ],
+  "task_behavior": "Only isolated tests/browser were executed. Main runtime was fingerprinted read-only. Concurrent daily hash change remains unattributed; no unchanged-data claim is made."
+}

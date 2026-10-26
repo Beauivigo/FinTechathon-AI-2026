@@ -10,26 +10,26 @@ from bank.merchant import SHANGHAI
 from bank.merchant_scheduler import MerchantScheduler
 from app.merchant_schedule_panel import merchant_schedule_panel
 
-st.set_page_config(page_title='模拟生日与商户',layout='wide')
+st.set_page_config(page_title='生日与商户',layout='wide')
 from app import ui
 
 from app.auth_ui import gate
 gate()
 ui.render_sidebar_nav('merchant')
-ui.render_page_header('生日计划与模拟采购')
+ui.render_page_header('生日计划与采购')
 ui.render_app_nav('merchant')
 
 with st.container(border=True):
-    st.info('商品和地址均为虚构。生成计划不付款；预留需确认，每笔下单需模拟强验证。配送日期是计划日期，不代表已经送达。')
+    st.info('商品和地址为演示数据。生成计划不付款；预留需确认，每笔下单需验证；配送日期是计划日期，不代表已经送达。')
     flow=current()
     today=flow.gateway.clock().astimezone(SHANGHAI).date()
     accounts=flow.resources['accounts'];items=flow.resources['items'];addresses=flow.resources['addresses']
     if not accounts or not items or not addresses:
-        st.warning('当前没有完整的模拟采购资源。');st.stop()
+        st.warning('当前没有完整的采购资源。');st.stop()
     account=st.selectbox('付款账户',accounts,key='merchant_account',format_func=lambda x:x['display_name'])
     selected_items=st.multiselect('计划采购商品',items,default=[items[0],items[2]],key='birthday_items',format_func=lambda x:f"{x['name']} · {x['price_minor']/100:.2f}元")
     birthday=st.date_input('生日日期',value=today+timedelta(days=32),min_value=today,key='birthday_date')
-    address=st.selectbox('模拟配送地址',addresses,key='merchant_address',format_func=lambda x:x['label'])
+    address=st.selectbox('配送地址',addresses,key='merchant_address',format_func=lambda x:x['label'])
     with st.expander('保存完整生日计划并由后台准备到期待办'):
         from datetime import datetime,time
         from bank.birthday import create_plan
@@ -58,11 +58,11 @@ with st.container(border=True):
         for step in st.session_state.birthday_plan_data['steps']: st.write(step['description'])
         if st.button('清除未执行计划',key='birthday_clear',disabled=flow.blocked):
             st.session_state.pop('birthday_plan_data',None);st.rerun()
-    st.caption('计划是只读建议，不会后台采购。修改商品或日期后请重新核对；已预留预算需另行确认释放，已下单不会随清除计划撤销。')
+    st.caption('计划为只读建议；后台只准备待办，不直接付款。已下单不会随清除计划撤销；已预留预算需另行确认释放。')
     total=sum(i['price_minor'] for i in selected_items)
     st.write(f'所选商品合计：{total/100:.2f}元')
     if st.button('为所选商品申请预留',key='birthday_reserve',disabled=flow.blocked or not total):
-        perform(flow.start_action,'budget.reserve',dict(account_id=account['account_id'],amount_minor=total,purpose='模拟生日采购 '+birthday.isoformat()))
+        perform(flow.start_action,'budget.reserve',dict(account_id=account['account_id'],amount_minor=total,purpose='生日采购 '+birthday.isoformat()))
     rows=flow.gateway.list_reservations(principal_id=flow.principal_id)
     usable=[r for r in rows if r['account_id']==account['account_id'] and r['state'] in ('active','partially_consumed') and r['remaining_reserved_minor']>0]
     draft_params=None
@@ -115,7 +115,7 @@ with st.container(border=True):
                 st.info('任务尚未受理或已在派发前取消，没有付款操作需要恢复。')
     orders=flow.gateway.list_orders(principal_id=flow.principal_id)
     if orders:
-        st.subheader('已提交模拟订单')
+        st.subheader('已提交订单')
         names={i['item_id']:i['name'] for i in items}
         st.dataframe([{'订单编号':o['order_id'],'商品':names[o['item_id']],'金额（元）':o['amount_minor']/100,'计划配送日':o['deliver_on'],'支付卡':o['card_id']} for o in orders],hide_index=True)
     render(flow)

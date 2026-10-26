@@ -1,0 +1,32 @@
+{
+  "commit": "285c90c6014158b85d8323788945b085d1991192",
+  "parent": "62aee8dd2e7b29b5662009b7a41f9362dd1395b4",
+  "files": [
+    "app/auth_ui.py",
+    "app/background_panel.py",
+    "app/lifecycle_panel.py",
+    "app/main.py",
+    "app/workflow.py",
+    "bank/auth.py",
+    "bank/background.py",
+    "bank/first_run.py",
+    "bank/lifecycle.py",
+    "bank/store.py",
+    "bank/worker.py",
+    "launcher.py",
+    "scripts/verify_u_core.py",
+    "tests/test_u1_setup.py",
+    "tests/test_u2_flows.py",
+    "tests/test_u3_background.py",
+    "tests/test_u4_launcher.py",
+    "tests/test_u_stage2_acceptance.py",
+    "tests/test_u_stage3_acceptance.py",
+    "启动银行助手.py"
+  ],
+  "file_count": 20,
+  "matches_user_approved_scope": true,
+  "accepted_source_bytes_unchanged": true,
+  "push_performed": false,
+  "repair_run_id": "9e771207-65bb-4a6f-a2b6-4edb4c847e18",
+  "repair_acceptance": "pending"
+}

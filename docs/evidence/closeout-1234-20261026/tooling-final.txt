@@ -1,0 +1,19 @@
+test_isolated_phone_database_rejects_project_and_runtime_paths (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_isolated_phone_database_rejects_project_and_runtime_paths) ... ok
+test_ledger_cap_provider_and_no_reset (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_ledger_cap_provider_and_no_reset) ... ok
+test_live_mode_refuses_before_network_without_ledger (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_live_mode_refuses_before_network_without_ledger) ... ok
+test_offline_acceptance_covers_current_trusted_flows (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_offline_acceptance_covers_current_trusted_flows) ... ok
+test_phone_check_mode_is_read_only (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_phone_check_mode_is_read_only) ... ok
+test_phone_page_reruns_and_keeps_imported_aliases_isolated (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_phone_page_reruns_and_keeps_imported_aliases_isolated) ... 2026-10-26 15:03:48.540 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_single_birthday_plan_matches_page_expansion (tests.test_closeout_tooling_20261026.CloseoutToolTests.test_single_birthday_plan_matches_page_expansion) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.269s
+
+OK
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\AppData\Local\Temp\tmp3ttvwgo1\fintech-phone-acceptance-d0ee0c8c3375\sandbox.sqlite3

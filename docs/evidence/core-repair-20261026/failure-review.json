@@ -1,0 +1,20 @@
+{
+  "run_id": "9e771207-65bb-4a6f-a2b6-4edb4c847e18",
+  "execution_status": "failed",
+  "stop_code": "INACTIVE_SCOPE",
+  "model_calls": 39,
+  "successful_source_writes": 0,
+  "snapshot_files_compared": 584,
+  "snapshot_changes": [],
+  "primary_source_files_unchanged": 173,
+  "daily_database_and_model_profile_unchanged": true,
+  "frozen_test_started": false,
+  "frozen_test_exit_code": -4058,
+  "failure_kind": "infrastructure spawn failure, not exhausted model budget or business-test assertion",
+  "runtime_at_failure": "C:/Users/huang/AppData/Local/OpenAI/Codex/bin/a96ca4c1eee0cf35/codex.exe",
+  "runtime_was_missing_when_diagnosed": true,
+  "concurrent_integration_maintenance_thread": "01a14e8e-7751-7502-8ae0-5d059dea8ff9",
+  "integration_changes_by_this_task": false,
+  "repairs_completed": false,
+  "review_decision": "rejected: no implementation result; preserve failure and session"
+}

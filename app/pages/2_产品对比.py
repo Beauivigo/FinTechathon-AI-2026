@@ -6,7 +6,7 @@ import streamlit as st
 from app.demo import gateway, PRINCIPAL
 from shared import ServiceError, ContractError, adapt_request, validate_result
 
-st.set_page_config(page_title='模拟产品对比',layout='wide')
+st.set_page_config(page_title='产品对比',layout='wide')
 from app import ui
 
 from app.auth_ui import gate
@@ -16,12 +16,14 @@ ui.render_page_header('产品对比')
 ui.render_app_nav('products')
 
 with st.container(border=True):
-    st.info('以下为 D 第一轮定版的 6 个虚构产品（WP-C01—C06），字段与共享接口一致。仅做对比展示，不推荐产品；评估、申购、持仓与赎回请到“理财”页。')
+    st.caption('只做产品对比，不构成推荐；评估、申购与赎回请到“理财”。')
+    with st.expander('目录说明'):
+        st.caption('6 个虚构产品（WP-C01—C06），字段与共享接口一致。')
     try:
         gw = gateway()
         catalog = gw.get_context(principal_id=PRINCIPAL)['products']
     except (ServiceError, ContractError, OSError):
-        st.error('模拟产品暂不可用。'); st.stop()
+        st.error('产品数据暂不可用。'); st.stop()
     names = {p['product_id']:p['name'] for p in catalog}
     selected = st.multiselect('选择产品',list(names),default=list(names)[:2],format_func=lambda x:names[x],key='product_ids')
     if st.button('对比所选产品',disabled=not selected,key='product_compare'):

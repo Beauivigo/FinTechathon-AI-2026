@@ -1,0 +1,14 @@
+--- primary/app/pages/3_卡片管理.py
++++ candidate/app/pages/3_卡片管理.py
+@@ -22,6 +22,11 @@
+     cards = flow.resources['cards']
+     names = {'CARD-E001': '白金卡', 'CARD-E002': '普通卡', 'CARD-E003': '挂失卡'}
+     st.dataframe([dict(c, 展示名称=names.get(c['card_id'], '卡片')) for c in cards], hide_index=True)
++    if flow.blocked:
++        from app import pending_view
++        st.warning('已有待处理或待核实的操作，卡片操作暂不可提交；请先在此确认、拒绝或查询原操作。')
++        pending_view.render_unresolved(flow, key_prefix='card_pending',
++            note='冻结/解冻/挂失仍需原强验证；处理完待办后本页提交按钮自动恢复。')
+     if cards:
+         selected = st.selectbox('选择卡片', cards, key='card_select',
+             format_func=lambda c: f"{c['card_id']} · {c['card_state']}")

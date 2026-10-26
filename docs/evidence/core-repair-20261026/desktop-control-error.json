@@ -1,0 +1,9 @@
+{
+  "phase": "agent_loop",
+  "errorType": "Error",
+  "errorCode": "INACTIVE_SCOPE",
+  "calls": 39,
+  "modelCallLimit": null,
+  "credentialConfigurationRejected": false,
+  "rawDiagnosticsSuppressed": true
+}

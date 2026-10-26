@@ -1,0 +1,81 @@
+{
+  "authorized": "2026-10-26 user selected 同步已验收修复（推荐）",
+  "at_utc": "2026-10-26T10:06:29.725105+00:00",
+  "files": [
+    {
+      "path": "app/main.py",
+      "new": false,
+      "lines": 102,
+      "primary_sha256": "4bf13068119ab7e55faabc2a5e83b1389d95b8d128c79b37bf0dc08f8b7cef78",
+      "candidate_sha256": "be4fcde7026d8a86e6e36300947c719b00a67505475ed9e8c534b29ff871fd35"
+    },
+    {
+      "path": "app/home_view.py",
+      "new": false,
+      "lines": 11,
+      "primary_sha256": "94713e604836e73ae6983f02c8b0062262e722ce393d37e6855e59691fcf9865",
+      "candidate_sha256": "08ec67061faa4f4ec788a3ab6ce3f967b4a6fc9f19174dd33441dff4de4c05ea"
+    },
+    {
+      "path": "app/model_view.py",
+      "new": false,
+      "lines": 11,
+      "primary_sha256": "726bf9d3a006447a5f0e977237d8f92ea77cc397f0d3ee25deb1090470f1b41a",
+      "candidate_sha256": "dec94b15f04466b78a2d8f8db2048e44cd59066bdd72e1f3a962584196f311af"
+    },
+    {
+      "path": "app/workflow.py",
+      "new": false,
+      "lines": 35,
+      "primary_sha256": "09dcf2ad44bd9ec735a976b33078a6a941175a9b09f9141872d2d322d2fc9fe9",
+      "candidate_sha256": "a2a9c9fcee7f191d1f61d97fbb35e6189a33c1bb887857239d5e2b38bb85497c"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "new": false,
+      "lines": 22,
+      "primary_sha256": "ce97d5499a323e19d794b82837e2b2b1bdc0a14bd65d8c76d440bed495c519f7",
+      "candidate_sha256": "4e1b61609994594cd15bd80190439a2241a0326eeaf3ff1cc83afa8f0de579b5"
+    },
+    {
+      "path": "agent/controller.py",
+      "new": false,
+      "lines": 87,
+      "primary_sha256": "9ef5f6855ea5bcc5ce72ebae4baf3dd27fc9bb22eada7be18e3f82b842995270",
+      "candidate_sha256": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "new": false,
+      "lines": 14,
+      "primary_sha256": "51125e95e4501809e645afe8cf486660fddd716863ccac0daa714a3a2ec1e1b5",
+      "candidate_sha256": "8aa6a3c4a531221b0a14cbd58e36a07110929454b5044d6b3532b7eea028ac75"
+    },
+    {
+      "path": "app/routing_panel.py",
+      "new": false,
+      "lines": 11,
+      "primary_sha256": "82de072d644dcf760aa7a9ebb6f524f1c89276580aca437d0f8673bec7c618e1",
+      "candidate_sha256": "7c48ea6372df1e13bcc08807e398e0f7a14f720e1c72b31034f5c1e7f8a4d3a2"
+    },
+    {
+      "path": "app/pending_view.py",
+      "new": true,
+      "lines": 206,
+      "primary_sha256": null,
+      "candidate_sha256": "69d23e49f85de198e099d516bae9420c72f92f5a5b4eecd4a4b1491e9ea994be"
+    },
+    {
+      "path": "tests/test_pending_resolution.py",
+      "new": true,
+      "lines": 248,
+      "primary_sha256": null,
+      "candidate_sha256": "bd490dbeb4b95bd84c01cf3d147d6bfcee1289022fed9d7e8eb1a48f1184b87b"
+    }
+  ],
+  "copied_source_files": 10,
+  "runtime_written": false,
+  "credential_written": false,
+  "git_committed": false,
+  "git_pushed": false
+}

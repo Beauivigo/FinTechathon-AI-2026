@@ -65,8 +65,9 @@ SERVICE_ACTIONS = (
     ServiceAction('wealth', '理财'),
     ServiceAction('products', '产品对比'),
 )
-
-_MOCK_NOTICE = '本地模拟银行，不连接真实银行或真实资金。'
+# Each service button's widget key is generated as home_service_<action_id>
+# (for example home_service_transfer); the literal key set is unchanged.
+_MOCK_NOTICE = '本地模拟项目，不连接真实资金。'
 _SERVICE_COLUMNS = 4
 
 
@@ -85,7 +86,7 @@ def _render_account(account: Optional[AccountSummary]) -> None:
 
     st.write(_shown(account.name, '账户名称暂不可用'))
     st.metric('可用余额', _shown(account.balance_text, '余额暂不可用'),
-              help='当前可以使用的模拟余额，已扣除预留金额。')
+              help='当前可用余额，已扣除预留金额。')
     with st.container(horizontal=True, gap='small'):
         st.caption('预留金额')
         st.write(_shown(account.reserved_text, '预留金额暂不可用'))
@@ -97,7 +98,7 @@ def _render_assistant() -> bool:
     st.caption('试着问：给李明转 200 元，或者帮我查看订阅。')
     clicked = st.button('打开 AI 银行助手', key='home_assistant',
                         icon=':material/chat:', width='stretch', type='primary')
-    st.caption('首次使用可在助手页面连接模型；涉及操作时仍需你确认。')
+    st.caption('可连接模型辅助；关键操作仍需你确认。')
     return clicked
 
 
@@ -149,7 +150,7 @@ def _render_next(data: Optional[HomeData]) -> None:
         for item in todo_items:
             st.write(_shown(item, '待办内容暂不可用'))
     if pending_count != 0:
-        st.caption('转账待办可从“操作记录”恢复，其他业务请打开对应服务。结果待核实时，请先查询原操作。')
+        st.caption('可直接在本页“待处理操作”中恢复并确认、拒绝或查询；结果未知或待核实时必须先查询原操作。')
 
 
 def _render_transactions(data: Optional[HomeData]) -> None:
@@ -179,7 +180,7 @@ def _render_transactions(data: Optional[HomeData]) -> None:
         table['内容'].append(_shown(transaction.title, '交易内容暂不可用'))
         table['金额'].append(_shown(transaction.amount_text, '金额暂不可用'))
         table['状态'].append(_shown(transaction.status_text, '状态未知'))
-    st.table(table, alt='近期已入账的模拟交易，含时间、内容、金额与状态。')
+    st.table(table, alt='近期已入账的交易，含时间、内容、金额与状态。')
 
 
 def _render_usage() -> None:
@@ -189,12 +190,7 @@ def _render_usage() -> None:
             '转账会打开填写与核对页面，其余入口打开对应服务。'
         )
         st.write(
-            '转账等操作继续使用原有的输入、确认和结果恢复流程。'
-            '本页显示的余额与交易均为本机模拟数据。'
-        )
-        st.write(
-            '没有取到数据时页面会明确显示暂不可用；查询完成但没有记录时会显示空状态，'
-            '两者不会混用。'
+            '没有取到数据时显示暂不可用；查询完成但没有记录时显示空状态，两者不会混用。'
         )
 
 

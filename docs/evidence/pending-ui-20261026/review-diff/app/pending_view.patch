@@ -1,0 +1,206 @@
+--- primary/app/pending_view.py
++++ candidate/app/pending_view.py
+@@ -0,0 +1,203 @@
++"""共享的“待处理操作”入口：只驱动既有确认、拒绝、恢复与验证流程。
++
++页面不在这里直接写银行账本，也不放宽任何门槛：所有按钮都调用
++agent.controller.Conversation 的原有 decide/recover 通道，保留归属、
++操作摘要、过期、未知结果与强验证规则。清单只来自会话最近一次刷新的
++权威操作索引，不读取已结束的历史页面对象。
++"""
++
++from agent.controller import UNRESOLVED
++
++ACTION_LABELS = {
++    'transfer.create': '转账',
++    'transfer.schedule': '定时转账',
++    'transfer.split': 'AA 收款单',
++    'card.apply': '卡片申请',
++    'card.freeze': '冻结卡片',
++    'card.unfreeze': '解冻卡片',
++    'card.report_loss': '挂失卡片',
++    'card.release_loss': '解挂卡片',
++    'card.set_limit': '设置限额',
++    'subscription.list': '查看订阅',
++    'subscription.review': '核实或排除订阅',
++    'subscription.scan': '扫描识别订阅',
++    'subscription.cancel': '取消订阅',
++    'subscription.remind': '登记续费提醒',
++    'subscription.charge': '本期订阅续费',
++    'merchant.order': '模拟商户下单',
++    'budget.reserve': '预留预算',
++    'budget.release': '释放预算',
++    'wealth.assess': '风险评估',
++    'wealth.purchase': '理财申购',
++    'wealth.redeem': '理财赎回',
++    'bill.analyze': '账单分析',
++}
++
++STATUS_LABELS = {
++    'awaiting_confirmation': '等待确认',
++    'awaiting_verification': '等待强验证',
++    'running': '正在处理',
++    'unknown': '结果待核实',
++}
++
++
++def action_label(action):
++    return ACTION_LABELS.get(action, action)
++
++
++def status_label(status):
++    return STATUS_LABELS.get(status, status)
++
++
++def operation_key(request):
++    return request.get('idempotency_key', request['request_id'])
++
++
++def unresolved_items(flow):
++    """返回权威索引中的未决操作；纯展示数据，不改变任何业务状态。"""
++    if flow is None:
++        return ()
++    return tuple(
++        dict(action=op['action'], key=op['idempotency_key'], status=op['status'],
++             action_label=action_label(op['action']), status_label=status_label(op['status']))
++        for op in flow.operations if op['status'] in UNRESOLVED
++    )
++
++
++def local_unresolved(flow):
++    """本页会话内存里仍待确认/待核实的结果；用于未知结果也必须可见。"""
++    if flow is None:
++        return False
++    if flow.needs_reconciliation or flow.pending:
++        return True
++    return bool(flow.result and flow.result['status'] in UNRESOLVED)
++
++
++def needs_attention(flow):
++    return local_unresolved(flow) or bool(unresolved_items(flow))
++
++
++def _flash_message(request, result):
++    from shared import result_text
++    text = result_text(request, result)
++    error = (result.get('error') or {}).get('message')
++    if error and error not in text:
++        text = text + ' ' + error
++    return text
++
++
++def _act(flow, call, flash_key):
++    """执行原确认/拒绝/查询动作；失败文案保留到下一次重跑后展示。"""
++    import streamlit as st
++    from app.auth_ui import error_text
++    from shared import ContractError, ServiceError
++    message = None
++    try:
++        outcome = call()
++        if isinstance(outcome, dict) and 'status' in outcome and flow.request is not None:
++            message = _flash_message(flow.request, outcome)
++    except (ValueError, ContractError, ServiceError) as exc:
++        message = str(exc) if type(exc) is ValueError else error_text(exc)
++    if message:
++        st.session_state[flash_key] = message
++    st.rerun()
++
++
++def _preview(flow):
++    """确认前展示服务端保存的原参数；核对失败时只能拒绝或查询。"""
++    import streamlit as st
++    from shared import ContractError, ServiceError
++    labels = {'account_id':'业务账户','payee_id':'收款人编号','payee_ids':'参与人编号',
++        'card_id':'银行卡编号','subscription_id':'订阅编号','reservation_id':'预留编号',
++        'product_id':'理财产品编号','risk_profile_id':'风险档案编号','holding_id':'持仓编号',
++        'item_id':'商品编号','delivery_address_id':'配送地址编号','deliver_on':'配送日期',
++        'execute_at':'预约时间','remind_at':'提醒时间','purpose':'用途','memo':'备注',
++        'questionnaire_version':'问卷版本','answers':'问卷选项','decision':'处理选择','units':'赎回份额'}
++    request = flow.request
++    for key,value in request['params'].items():
++        if key in {'amount_minor','limit_minor'}:
++            st.text(('本笔金额' if key=='amount_minor' else '单笔限额')+f'：{value//100}.{value%100:02d}元')
++        else:
++            st.text(labels.get(key,key)+'：'+str(value))
++    try:
++        if request['action'] in {'transfer.create','transfer.schedule'}:
++            payee=flow.gateway.operation_payee(request,principal_id=flow.principal_id)
++            if not payee:raise ValueError('payee unavailable')
++            st.text('收款人：'+payee['display_name']+' · '+payee['masked_account'])
++        if request['action']=='budget.release':
++            amount=flow.gateway.release_quote(request,principal_id=flow.principal_id)
++            st.text(f'当前可释放金额：{amount//100}.{amount%100:02d}元；确认时仍会复验。')
++        if request['action']=='subscription.charge':
++            details=flow.gateway.subscription_charge_details(request,principal_id=flow.principal_id)
++            if not details:raise ValueError('charge binding unavailable')
++            amount=details['amount_minor']
++            st.text(f"本期金额：{amount//100}.{amount%100:02d}元；原支付卡：{details['card_id']}")
++    except (ValueError,ContractError,ServiceError):
++        st.warning('原操作的对象或金额暂不可核实，暂不允许确认；请查询原结果，或拒绝本次操作。')
++        return False
++    return True
++
++
++def render_unresolved(flow, *, key_prefix, note=None):
++    """在阻塞发生的位置显示待办与可用处理动作；无待办时返回 False。"""
++    import streamlit as st
++    if flow is None:
++        return False
++    flash = st.session_state.pop(key_prefix + '_flash', None)
++    items = unresolved_items(flow)
++    local = local_unresolved(flow)
++    if not items and not local and flow.external_blocked:
++        shown = False
++        for index,key in enumerate(('conversation','action_flow','model_bank_flow')):
++            other = st.session_state.get(key)
++            if other is not None and other is not flow and local_unresolved(other):
++                shown = render_unresolved(other,key_prefix=key_prefix+'_source_'+str(index),
++                    note='另一页面保留了待核实原操作，请在这里查询原结果。') or shown
++        if shown:return True
++    if not items and not local:
++        # 刚完成确认/拒绝/查询后仍给出一次明确回执，然后自然收起待办区。
++        if flash:
++            st.info(flash)
++            return True
++        return False
++    st.subheader('待处理操作')
++    if note:
++        st.caption(note)
++    if flash:
++        st.info(flash)
++    if items:
++        st.warning(f'有 {len(items)} 项业务尚未结束；确认、拒绝或核实原结果后才能继续办理新的业务。')
++        selected = st.selectbox(
++            '选择待处理操作', items, key=key_prefix + '_select',
++            format_func=lambda item: (item['action_label'] + ' · ' + item['status_label']
++                                      + ' · ' + item['key']),
++        )
++        if st.button('查看并处理待办', key=key_prefix + '_open', width='stretch'):
++            _act(flow, lambda: flow.recover(action=selected['action'],
++                                            idempotency_key=selected['key']),
++                 key_prefix + '_flash')
++    else:
++        st.warning('本页仍有未核实的原操作；请查询权威结果后再继续，不要重复提交。')
++    request, result = flow.request, flow.result
++    if request is not None and result is not None and local:
++        # 本地快照仍显示未决：只在原操作确实可确认/可拒绝时给出按钮。
++        st.caption('原操作：' + action_label(request['action']) + ' · '
++                   + status_label(result['status']) + ' · ' + operation_key(request))
++        can_approve = _preview(flow)
++        if result['status'] == 'awaiting_confirmation':
++            if st.button('确认待办操作', key=key_prefix + '_approve', type='primary', width='stretch', disabled=not can_approve):
++                _act(flow, lambda: flow.decide(True), key_prefix + '_flash')
++        elif result['status'] == 'awaiting_verification':
++            if getattr(flow.gateway, 'demo_mode', False):
++                st.caption('此操作需要强验证；演示模式下可在此完成模拟验证，真实模式请到原业务页面输入动态码。')
++                if st.button('模拟验证并处理待办', key=key_prefix + '_verify', type='primary', width='stretch', disabled=not can_approve):
++                    _act(flow, lambda: flow.decide(True, simulate_verification=True),
++                         key_prefix + '_flash')
++            else:
++                st.caption('此操作需要手机动态码；请到原业务页面输入后继续，普通确认不能代替强验证。')
++        if result['status'] in {'awaiting_confirmation', 'awaiting_verification'}:
++            if st.button('拒绝待办操作', key=key_prefix + '_reject', width='stretch'):
++                _act(flow, lambda: flow.decide(False), key_prefix + '_flash')
++        if st.button('查询待办结果', key=key_prefix + '_query', width='stretch'):
++            _act(flow, lambda: flow.recover(), key_prefix + '_flash')
++    return True

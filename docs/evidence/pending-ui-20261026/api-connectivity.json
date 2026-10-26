@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "actual_http": true,
+  "metadata": {
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "credential_source": "desktop",
+    "usage": {
+      "prompt_tokens": 48,
+      "completion_tokens": 7,
+      "total_tokens": 55
+    }
+  },
+  "model_key_saved": false,
+  "note": "高峰、全部输入未命中计价为用量估算上界，不是账户实际扣费；每请求先预留0.25元，最多20次。"
+}

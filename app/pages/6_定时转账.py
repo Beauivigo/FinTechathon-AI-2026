@@ -7,7 +7,7 @@ from app.workflow import current, render, perform, demo_payees
 from bank.scheduler import Scheduler
 from shared import ServiceError, ContractError
 
-st.set_page_config(page_title='模拟定时转账',layout='wide')
+st.set_page_config(page_title='定时转账',layout='wide')
 from app import ui
 
 from app.auth_ui import gate
@@ -17,8 +17,8 @@ ui.render_page_header('定时转账')
 ui.render_app_nav('scheduled')
 
 with st.container(border=True):
-    st.info('登记不扣款、不冻结余额。到期后重新确认或模拟验证，付款结果单独查询。')
-    st.caption('本地演示需手动检查到期任务；程序关闭时不会自动运行。未领取任务迟到超过5分钟即失效。')
+    st.info('登记不扣款、不冻结余额；到期后仍需确认或验证，付款结果单独查询。')
+    st.caption('启用后台检查后会自动处理到期任务，也可用下方按钮手动检查；未领取任务迟到超过5分钟失效。')
     flow = current()
     scheduler = Scheduler(flow.gateway)
     local_zone = timezone(timedelta(hours=8))
@@ -28,7 +28,7 @@ with st.container(border=True):
     try:
         payees = demo_payees(flow)
     except (ServiceError, ContractError):
-        st.error('模拟联系人暂不可用。')
+        st.error('联系人暂不可用。')
         render(flow)
         st.stop()
     if accounts and payees:

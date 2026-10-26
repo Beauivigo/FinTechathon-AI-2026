@@ -1,0 +1,13 @@
+PASS transfer_memo
+PASS scheduled_memo
+PASS bill
+PASS wealth
+PASS card
+PASS subscription
+PASS birthday
+PASS revision
+PASS injection
+PASS assessment
+PASS compat_legacy_schedule
+mode=live cases=11 passed=11
+evidence=D:\FinTechathon-AI-2026\FinTechathon-AI-2026\docs\evidence\closeout-1234-20261026\2026-10-26-closeout-independent-live.json

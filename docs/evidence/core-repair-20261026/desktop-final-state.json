@@ -1,0 +1,10 @@
+{
+  "closed": true,
+  "calls": 39,
+  "modelCallLimit": null,
+  "stopCode": "INACTIVE_SCOPE",
+  "stageCount": 1,
+  "successfulWrites": 0,
+  "halted": true,
+  "testsPassed": false
+}

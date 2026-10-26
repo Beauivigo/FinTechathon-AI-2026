@@ -1,0 +1,81 @@
+{
+  "run_id": "070d8ef9-1a28-4616-8bfa-f5578913d13f",
+  "baseline": "285c90c6014158b85d8323788945b085d1991192",
+  "files": [
+    {
+      "path": "shared/contracts.py",
+      "accepted_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+      "primary_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "bank/scheduler.py",
+      "accepted_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+      "primary_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "agent/model_bank.py",
+      "accepted_sha256": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad",
+      "primary_sha256": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "accepted_sha256": "44d9f8f62486a48c505150fc10c4e77104e724d2ba9591721c8f2bdefae5ef89",
+      "primary_sha256": "44d9f8f62486a48c505150fc10c4e77104e724d2ba9591721c8f2bdefae5ef89",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "app/model_view.py",
+      "accepted_sha256": "9b7b6690409b4f6ccb3a7fb8959e99460a98e629736564948dddb1fcc8914dc7",
+      "primary_sha256": "726bf9d3a006447a5f0e977237d8f92ea77cc397f0d3ee25deb1090470f1b41a",
+      "merge": "Separate user-authorized UI wording integration retained; memo display preserved"
+    },
+    {
+      "path": "scripts/evaluate_closeout_model.py",
+      "accepted_sha256": "98927b9b03618118cb8f20472a8312647001b392407286a524e1d1040534afc6",
+      "primary_sha256": "98927b9b03618118cb8f20472a8312647001b392407286a524e1d1040534afc6",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "tests/test_audit_fix_20261026.py",
+      "accepted_sha256": "f619c7d188f517b4f43f390bd1d5ba56511094ee898a4b2d1a34bc97277c7d18",
+      "primary_sha256": "f619c7d188f517b4f43f390bd1d5ba56511094ee898a4b2d1a34bc97277c7d18",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "docs/接口约定与接入指南.md",
+      "accepted_sha256": "52c64c0c89ef9db98c1e870598190df264046a7b08d0e1bff5b40aeb5953d4ca",
+      "primary_sha256": "ae93b7f799555033bf66d0fab51f67a21bb12808106fd1cfae7aae3137897f2a",
+      "merge": "retained primary U/v16 note"
+    },
+    {
+      "path": "app/phone_acceptance.py",
+      "accepted_sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c",
+      "primary_sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "docs/2026-10-26定时转账备注与验收工具增量.md",
+      "accepted_sha256": "084f1718a24dd0fb626e99995d5086133b210b2af6d1d9c3cfc9d465c2414100",
+      "primary_sha256": "084f1718a24dd0fb626e99995d5086133b210b2af6d1d9c3cfc9d465c2414100",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "docs/2026-10-26本人手机安全验收单.md",
+      "accepted_sha256": "7782f30daf978aa72f7ae305aedd724358a8a4f5394ad02b8e6383d18aab97f3",
+      "primary_sha256": "7782f30daf978aa72f7ae305aedd724358a8a4f5394ad02b8e6383d18aab97f3",
+      "merge": "exact accepted file"
+    },
+    {
+      "path": "tests/test_closeout_tooling_20261026.py",
+      "accepted_sha256": "2481498f083b89ef38fa6030e31e0ae5016be82a73614d95a26587097d871b96",
+      "primary_sha256": "2481498f083b89ef38fa6030e31e0ae5016be82a73614d95a26587097d871b96",
+      "merge": "exact accepted file"
+    }
+  ],
+  "backup": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\closeout-1234-20261026\\before-main",
+  "committed": false,
+  "pushed": false
+}

@@ -1,0 +1,119 @@
+{
+  "checked_at": "2026-10-23T13:56:18.503575+08:00",
+  "executor": "A / Codex",
+  "scope": "Documentation checks only. Existing test outcomes are quoted with source fingerprint comparisons; no new application tests or live model calls.",
+  "base_commit": "02fe7464c9b131a3b18722bd9df85a54227a0ee1",
+  "working_tree_includes_preexisting_uncommitted_changes": true,
+  "intro_characters_including_punctuation": 174,
+  "intro_limit": 200,
+  "markdown_files": {
+    "docs/参赛材料/01-作品简介.md": "ff709591253b2efb8d437b9f7c88bc6e5721865a091ecd5708d89f1e5698d49c",
+    "docs/参赛材料/02-技术文档.md": "40ab27db413045501fdad3accb498542f3b0798d13c58876e4a4f8140fc7c8f2",
+    "docs/参赛材料/06-安全自评报告.md": "3e0799ba087181e44f2f4926e33faabb1e78b89da17df6c0df25f4254bfdb73b",
+    "docs/参赛材料/README.md": "24c7f3bffb1a54cf1ec51c659bb4b5b790e051600ff1b76348dc5c04e3556053"
+  },
+  "relative_links_checked": 65,
+  "missing_links_or_content_issues": [],
+  "preexisting_files_checked": 545,
+  "preexisting_files_changed": [],
+  "source_sha256": {
+    "agent/model_safety.py": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9",
+    "agent/model_dialogue.py": "5e4ec81dacb3d4cbd8bc3dc0dfe645f35f73ab43315a8693e1efd6339f55ce48",
+    "agent/model_bank.py": "b68b79383848bfb805ad6936fbb4e30879768f156c45739b32ae2447e79dcc43",
+    "agent/model_client.py": "9cacc7dac8a1513d09ced77271f584e8170981b09a70dc37dde8d920716ce6cd",
+    "agent/model_credentials.py": "e56bfb5530bffacb1d09bf23df9bd8b04c3782b86559da959534708011e21877",
+    "agent/controller.py": "1a1917b64398fb929e916ce18706287b18f410f0dda14f15015fd275fa1746d2",
+    "bank/gateway.py": "868aca6f287e3612b5dbee82cbb95e3c4e16ae3a15ecf4e5327c23ee1edf0c81",
+    "bank/store.py": "4d3673ff5ffb5984d61d568795573d9645f63b7278d57579a94c543cea496dc9",
+    "bank/wealth.py": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d",
+    "bank/subscription_charge.py": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517",
+    "billing/__init__.py": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9",
+    "subscription/__init__.py": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805",
+    "wealth/questionnaire.py": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882",
+    "wealth/catalog.py": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034",
+    "shared/contracts.py": "9bfc228f1a8c3922ec101442209ffdc789d79e866dfbb7b550e71526f8cd2fc4",
+    "shared/policy.py": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+    "app/main.py": "3ec3be712c6be8c55de4718907e20740b44b462e6cad4e161ff0a6416addb2c2",
+    "app/model_bank_panel.py": "f547298b4bf61dc9b9ede375101a761997ad206247c948647c34d1f689ae7635",
+    "requirements-app.txt": "79dd572625832b3c5c2121f5d906b3c231de5c67429227ebc50008523d537936"
+  },
+  "referenced_test_evidence": {
+    "docs/evidence/ui-bank-20261023/full.json": {
+      "sha256": "93cfc01d3b35525504459099018ee719516c344dae02a1d2a15641b506824c37",
+      "reported_passed": true,
+      "files_checked": 108,
+      "current_mismatches": [],
+      "run": 554,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "docs/evidence/2026-10-23-F12.json": {
+      "sha256": "70244864d6edee655d4a372a57cb6652bdd76306596e73586264ad5200dcee51",
+      "reported_passed": true,
+      "files_checked": 148,
+      "current_mismatches": [
+        "app/home_view.py",
+        "app/main.py",
+        "app/ui.py",
+        "tests/test_home_view.py",
+        "tests/test_ui_components.py"
+      ],
+      "run": 547,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "docs/evidence/2026-10-23-F12-live.json": {
+      "sha256": "1175610925008dde55e8754ec70fd8ac71b758fd57778e0034124e9d3610e226",
+      "reported_passed": true,
+      "files_checked": 148,
+      "current_mismatches": [
+        "app/home_view.py",
+        "app/main.py",
+        "app/ui.py",
+        "tests/test_home_view.py",
+        "tests/test_ui_components.py"
+      ],
+      "groups": 9,
+      "groups_reported_passed": 9,
+      "recorded_calls": 11
+    }
+  },
+  "birthday_example": {
+    "table": [
+      [
+        200000,
+        200000,
+        0
+      ],
+      [
+        200000,
+        164300,
+        35700
+      ],
+      [
+        180100,
+        164300,
+        15800
+      ],
+      [
+        180100,
+        180100,
+        0
+      ]
+    ],
+    "reserve_minor": 35700,
+    "order_minor": 19900,
+    "recorded_final_account": [
+      180100,
+      180100,
+      0
+    ],
+    "interpretation": "intermediate values independently derived; final and amounts cross-checked with recorded receipts"
+  },
+  "git_diff_check_exit": 0,
+  "application_tests_rerun": false,
+  "live_model_calls_added": 0,
+  "passed": true
+}

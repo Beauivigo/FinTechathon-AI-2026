@@ -1,0 +1,102 @@
+--- primary/app/main.py
++++ candidate/app/main.py
+@@ -16,7 +16,7 @@
+ from bank.store import Store
+ from shared import ContractError, ServiceError, result_text, adapt_request, validate_result
+ from app.routing_panel import render_router
+-from app import ui, home_view, onboarding
++from app import ui, home_view, onboarding, pending_view
+ 
+ 
+ st.set_page_config(page_title="银行助手", page_icon=":material/account_balance:", layout="wide")
+@@ -47,9 +47,11 @@
+ other_flow = st.session_state.get('action_flow')
+ reconcile_session_flows(st.session_state, conversation)
+ if conversation.external_blocked:
+-    st.warning('其他业务的结果未知或尚待核实，请到对应页面查询原操作。')
++    st.warning('其他业务的结果未知或尚待核实；可在本页“待处理操作”或对应页面查询原操作。')
+ operations_available = True
+ try:
++    # 其他页面/会话可能已经确认、拒绝或使原授权过期；先按权威记录收口本页快照。
++    conversation.settle()
+     conversation.refresh_operations()
+ except ServiceError:
+     operations_available = False
+@@ -106,7 +108,7 @@
+             if st.button('确认重置模拟银行', disabled=conversation.blocked or not confirmed):
+                 try:
+                     current = conversation.gateway.list_operations(principal_id=conversation.principal_id)
+-                    if any(op['status'] in {'awaiting_confirmation','awaiting_verification','running','unknown'} for op in current):
++                    if any(op['status'] in pending_view.UNRESOLVED for op in current):
+                         raise ValueError('请先处理或核实全部待办，再重置。')
+                     reset_demo(confirm=True)
+                     st.session_state.pop('action_flow', None)
+@@ -139,7 +141,7 @@
+     st.title('把一笔转账说清楚')
+     st.caption('先填写收款人和金额，再核对并确认。')
+     if conversation.blocked and not conversation.request:
+-        st.warning('请先在“操作记录”中恢复并处理待办；未知结果必须先核实。')
++        st.warning('已有待处理或待核实的操作；请先到“账户首页”的“待处理操作”恢复并确认、拒绝或查询，未知结果必须先核实。')
+     chat, details = st.columns([1.5, 1], gap="large")
+     with chat:
+         with ui.business_section("对话", description="告诉我收款人和金额，信息不完整时会先向你确认。"):
+@@ -166,7 +168,7 @@
+                 ui.render_status('needs_reconciliation' if result['status'] == 'unknown' else result['status'])
+             else:
+                 ui.render_status('draft', detail='先准备草稿，核对后才会进入确认。')
+-            if request and result:
++            if request and result and request['action']=='transfer.create':
+                 amount = request["params"]["amount_minor"]
+                 st.metric("转账金额", f"¥ {amount // 100:,}.{amount % 100:02d}")
+                 st.write("收款人：" + conversation.payee["display_name"])
+@@ -203,6 +205,9 @@
+                     st.json(request)
+                     st.write("返回结果")
+                     st.json(result)
++            elif request and result:
++                st.info(result_text(request,result))
++                st.caption('原操作：'+pending_view.action_label(request['action'])+'；此区域只展示转账详情。')
+             elif conversation.draft:
+                 st.write("收款人：" + conversation.draft["payee_query"])
+                 st.info("补齐信息或选择收款人后，才会生成转账请求。")
+@@ -241,7 +246,7 @@
+     with st.expander('恢复待处理操作 / 查看历史', expanded=True):
+         transfer_operations = [op for op in conversation.operations if op['action'] == 'transfer.create']
+         if any(op['action'] != 'transfer.create' for op in conversation.operations):
+-            st.caption('卡片、AA、订阅和定时登记请到侧栏对应页面恢复。')
++            st.caption('卡片、AA、订阅和定时登记可在“账户首页”的“待处理操作”或侧栏对应页面恢复。')
+         if transfer_operations:
+             labels = {'awaiting_confirmation':'待确认','awaiting_verification':'待模拟验证','succeeded':'已完成',
+                       'cancelled':'已拒绝','failed':'未完成','blocked':'已锁定','unknown':'待核实','running':'执行中'}
+@@ -326,9 +331,17 @@
+         st.caption('暂无可用于账单查询的账户。')
+ 
+ 
+-pending = [op for op in conversation.operations if op['status'] in {
+-    'awaiting_confirmation', 'awaiting_verification', 'running', 'unknown',
+-}]
++pending = list(conversation.unresolved)
++# 即使服务端索引已有终态，本地unknown仍须用户主动查询；首页如实保留这项待核实。
++pending_keys={(op['action'],op['idempotency_key']) for op in pending}
++for flow_key in ('conversation','action_flow','model_bank_flow'):
++    local_flow=st.session_state.get(flow_key)
++    if local_flow is not None and pending_view.local_unresolved(local_flow) and local_flow.request:
++        local_key=(local_flow.request['action'],pending_view.operation_key(local_flow.request))
++        if local_key not in pending_keys:
++            pending.append(dict(action=local_key[0],idempotency_key=local_key[1],
++                status='unknown' if local_flow.needs_reconciliation else local_flow.result['status']))
++            pending_keys.add(local_key)
+ action_names = {
+     'transfer.create': '转账', 'wealth.purchase': '理财申购',
+     'wealth.redeem': '理财赎回', 'merchant.order': '商户订单',
+@@ -355,6 +368,10 @@
+ with home_area:
+     st.title('个人银行首页')
+     st.caption('本地模拟项目 · 不连接真实资金')
++    # 待办在首页即可处理：确认/拒绝/查询都走原授权与恢复流程，不另建通道。
++    pending_view.render_unresolved(
++        conversation, key_prefix='home_pending',
++        note='处理完成后首页待办与各业务页会按权威结果更新；模型不会代替你确认或验证。')
+     guide_action = onboarding.render_guide()
+     selected_service = home_view.render_home(home_view.HomeData(
+         account=home_view.AccountSummary(

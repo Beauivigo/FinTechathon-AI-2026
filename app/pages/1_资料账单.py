@@ -6,17 +6,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import streamlit as st
 from shared import ServiceError
 
-st.set_page_config(page_title='C 资料账单', layout='wide')
+st.set_page_config(page_title='资料账单', layout='wide')
 from app import ui
 
 ui.render_sidebar_nav('accounts')
-ui.render_page_header('C 资料账单')
+ui.render_page_header('资料账单')
 ui.render_app_nav('accounts')
 
 with st.container(border=True):
-    st.caption('仓库内 C V1.3 / B V1.2 复核修订件；B 仅采用已确认的只读账户映射。')
-    st.info('虚构历史资料，只读分析。此页使用独立模拟身份“用户 C”，不代表真实登录，不支持转账或余额查询。')
-    st.caption('日期仅精确到天，程序按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；已启用大额单笔提示（≥5000 元），其余异常规则未启用。')
+    st.caption('只读历史资料，独立于当前登录账户。')
+    with st.expander('资料与规则说明'):
+        st.caption('C V1.3 / B V1.2 复核修订件；B 使用已确认的只读账户映射。')
+        st.info('虚构历史资料，只读分析；不代表真实登录，不支持转账或余额查询。')
+        st.caption('日期按上海午夜归属统计，非真实成交时间。退款原支付待补，不推断关联；大额单笔提示仅供核实，其余异常规则未启用。')
     try:
         from material_check import approved
     except ImportError:
@@ -57,4 +59,5 @@ with st.container(border=True):
                     '来源行': result['provenance'][t['transaction_id']]['row']} for t in result['transactions']], hide_index=True)
             else:
                 st.info('该期间没有流水。')
-            st.caption('本次只读结果绑定 C '+result['source_sha256'][:12]+' / B '+result['decision_sha256'][:12]+'；来源行可回查小账本。')
+            with st.expander('来源校验'):
+                st.caption('本次只读结果绑定 C '+result['source_sha256'][:12]+' / B '+result['decision_sha256'][:12]+'；来源行可回查小账本。')

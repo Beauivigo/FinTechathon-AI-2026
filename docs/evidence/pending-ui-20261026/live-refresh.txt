@@ -1,0 +1,5 @@
+2026-10-26 16:13:18.658 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-26 16:13:18.658 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+{"name": "resolve-pending-and-real-model-freeze", "passed": true, "balance_minor": 200000}
+{"name": "multiturn-transfer-and-rerun", "passed": true, "balance_minor": 198000}
+{"name": "injection-does-not-pay", "passed": true, "balance_minor": 198000}

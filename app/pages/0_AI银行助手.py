@@ -14,9 +14,9 @@ gate()
 ui.render_sidebar_nav('assistant')
 with st.sidebar:
     render_settings()
-ui.render_page_header('AI银行助手','理解需求、补充信息、规划步骤，再按银行权限完成模拟业务。')
+ui.render_page_header('AI银行助手','理解需求、补充信息、规划步骤，并按银行权限完成。')
 ui.render_app_nav('assistant')
-st.caption('连接模型后才进行语义理解。当前为本地模拟银行，不连接真实银行账户。')
+st.caption('本地模拟银行，不连接真实账户；结果以账本回执为准。')
 try:
     render_model_bank()
 except (ServiceError,ContractError):

@@ -1,0 +1,16 @@
+"""Run the unchanged application with installed user storage on every rerun."""
+import runpy
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT.parent / 'launcher'))
+from paths import configure
+configure()
+
+# Keep home navigation on this trusted storage entry after Streamlit reruns.
+from app import ui
+for key in ui._HOME_VIEWS:
+    label, _ = ui._NAV_LOOKUP[key]
+    ui._NAV_LOOKUP[key] = (label, 'app/installed_main.py')
+runpy.run_path(str(ROOT / 'app' / 'main.py'), run_name='__main__')

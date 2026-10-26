@@ -1,0 +1,14 @@
+{
+  "passed": false,
+  "exitCode": -4058,
+  "limit": null,
+  "killExit": null,
+  "spawnError": true,
+  "infrastructureError": true,
+  "elapsedMs": 1,
+  "truncated": false,
+  "stdout": "",
+  "stderr": "",
+  "resultId": 21,
+  "testSha256": "32b9577bcfd4de1607ad27fe10151d023ec18cc30d6a2e402566c2737003161b"
+}

@@ -1,0 +1,160 @@
+{
+  "status": "applied_and_ui_verified_concurrent_changes_preserved",
+  "branch": "main",
+  "head_unchanged": "285c90c6014158b85d8323788945b085d1991192",
+  "files": [
+    {
+      "path": "app/main.py",
+      "before_sha256": "c1bde0d8f3e63089803d358e490e22fd18389cbc1ec513f066f324c7b7060982",
+      "after_sha256": "4bf13068119ab7e55faabc2a5e83b1389d95b8d128c79b37bf0dc08f8b7cef78"
+    },
+    {
+      "path": "app/ui.py",
+      "before_sha256": "076852f2ebc11890c9b845b098e5c5cffcc3b87a8b37b96cb7bd84e886b02987",
+      "after_sha256": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4"
+    },
+    {
+      "path": "app/home_view.py",
+      "before_sha256": "dc476e490beedc9f893d712f72efd6557da53b5cc2af5d15584e10bc1393bff0",
+      "after_sha256": "94713e604836e73ae6983f02c8b0062262e722ce393d37e6855e59691fcf9865"
+    },
+    {
+      "path": "app/onboarding.py",
+      "before_sha256": "238a2fc9b400e9c8587777b4b6a0c57d467a18071db2e6305c976853b462cccb",
+      "after_sha256": "322409b4f0f5cefa317024d4edcecef19bbfbf8f06abc60b045fdd3ffaecfaea"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "before_sha256": "dbc1ad06d54c0c246f871ee2b90890cacbb453d40b50d556438d050dcfc042ef",
+      "after_sha256": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f"
+    },
+    {
+      "path": "app/background_panel.py",
+      "before_sha256": "672546e32eeb310bdb4140aa2c1c74e93e503262a909a5800ddce0e7f134240a",
+      "after_sha256": "173577a455e34143d7d7fb0e860cc4e8382313804d6cd4b2ac3b7d478c8d0c30"
+    },
+    {
+      "path": "app/lifecycle_panel.py",
+      "before_sha256": "cae589d18ff4c082d8c77fa4378818da37d1e732df26a829178133a15d6b08c1",
+      "after_sha256": "49b86ed03c55beb4563f0d33c14b2793b528c3e4a2717ff9a60a46dde17fff7e"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "before_sha256": "0f9d0be2ddde6f89eadae8a11e71a158f09d11276c9f4443e1d99f4da28cd3a1",
+      "after_sha256": "ce97d5499a323e19d794b82837e2b2b1bdc0a14bd65d8c76d440bed495c519f7"
+    },
+    {
+      "path": "app/model_view.py",
+      "before_sha256": "9b7b6690409b4f6ccb3a7fb8959e99460a98e629736564948dddb1fcc8914dc7",
+      "after_sha256": "726bf9d3a006447a5f0e977237d8f92ea77cc397f0d3ee25deb1090470f1b41a"
+    },
+    {
+      "path": "app/workflow.py",
+      "before_sha256": "d61336c1f95837abaf2624912463a5e66f5b4b4453dd86133b7fa73f948575dd",
+      "after_sha256": "09dcf2ad44bd9ec735a976b33078a6a941175a9b09f9141872d2d322d2fc9fe9"
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "before_sha256": "79e5908dc668faddd0ddaafb98cfcb3f3959919428bd26c731e0e429c0ccc995",
+      "after_sha256": "c7b22a5f7a9535cae58e0f882b8113e65fa154e4b3450bf371cbd117e692ccf1"
+    },
+    {
+      "path": "app/pages/1_资料账单.py",
+      "before_sha256": "1177ad72204d09493aaf525db59626ac2c9054eaadae9f0e2afedbae0cc3fc34",
+      "after_sha256": "9d3f6684b58d8c8ea5ca3c26c4a8eb02c05e02c1971717dbab81ddcd0f132f03"
+    },
+    {
+      "path": "app/pages/2_产品对比.py",
+      "before_sha256": "a05111433d1833af07646f44d533bc98ee3bf77e23f61617ac9be0c43177eacf",
+      "after_sha256": "62e8cba7c153206ce62d94cf9582a1d46d6d97bc5735cccdbbe3a349b60e603e"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "before_sha256": "52dbc776eac6ca1146939313327bc3f1ade52ba5837e5f8cd4da2fa5861e84b8",
+      "after_sha256": "51125e95e4501809e645afe8cf486660fddd716863ccac0daa714a3a2ec1e1b5"
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "before_sha256": "ae6807a7f4aa0cce3309c458cc6d133cf264b429386f92101331c928a0f0ad8f",
+      "after_sha256": "11b28b3b132bbe1aa9fbd7003bfedbf6f0ef48c96f61cb18981da79223789e84"
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "before_sha256": "69afae41d161ffa96ed654c187331bf14e82c527712262a8e5f1e5fa38eaf3dd",
+      "after_sha256": "f4fdf1a5e2e7b93f60c47f89cee10f3d69ffaeee8558cb7b5577d72a41b11452"
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "before_sha256": "5024f1ddc74a398f417ed73617969314dcfb5447b81b83b5e4433d2005bb7976",
+      "after_sha256": "5bf04f77395d42c19a92b5b51030dcf686ac9652c8a1f32680d9b6d31b1ca895"
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "before_sha256": "b94af413b04683e01afabaa6838c2f3f44e2deab2ee6e11395abd9c8ff47936e",
+      "after_sha256": "14f47784e423d9642ea7fdc90d29d7273ee72621a5b8ac558f97c333c884f7d6"
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "before_sha256": "104a59a76894c56ff8f2acb26a5c9c2cd07b4f7eb5c905d6ad9d654f00c58325",
+      "after_sha256": "630d3303bdbbc06d60c33c6fdbef9323898d631445f37fdcda02c796b559242c"
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "before_sha256": "42f51c69d35fabbb344ecdaeea7dfffb5acfd490cb579bbda45ad9880702b1b1",
+      "after_sha256": "2768234b7c5271508c3d725a317c76fcf0efaea2ff90f0773e6dd88436a99f3b"
+    }
+  ],
+  "other_sources_preserved": 122,
+  "memo_display_preserved": true,
+  "phone_acceptance_module_preserved": true,
+  "backup": "local_reports\\material_checks\\ui-cleanup-integration-backup-20261026",
+  "new_commit": false,
+  "pushed": false,
+  "data_files_overwritten": false,
+  "note": "Daily runtime contents are outside this UI acceptance; live database activity is not claimed unchanged.",
+  "verified_source_files": 156,
+  "final_full_tests": 635,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "clean_start_checks": 5,
+  "verification_scope": "Exact same current main source bytes tested in a fresh isolated fixture; no live model HTTP or user phone test.",
+  "evidence": "integrated-full.json",
+  "full_suite_scope": "635 tests and 5 clean/background checks passed on the 156-source integration snapshot before later concurrent pending-operation additions.",
+  "post_verification_concurrent_source_changes": [
+    "app/home_view.py",
+    "app/main.py",
+    "app/model_bank_panel.py",
+    "app/model_view.py",
+    "app/routing_panel.py",
+    "app/workflow.py",
+    "app/pages/3_卡片管理.py",
+    "agent/controller.py"
+  ],
+  "concurrent_changes_action": "Preserved without overwriting. Current UI smoke 30/30 passed; later business additions are not claimed covered by the old 635-test snapshot.",
+  "current_ui_smoke_tests": 30,
+  "current_ui_smoke_passed": true,
+  "current_ui_keys_preserved": true,
+  "current_app_sha256": {
+    "app/main.py": "be4fcde7026d8a86e6e36300947c719b00a67505475ed9e8c534b29ff871fd35",
+    "app/ui.py": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4",
+    "app/home_view.py": "08ec67061faa4f4ec788a3ab6ce3f967b4a6fc9f19174dd33441dff4de4c05ea",
+    "app/onboarding.py": "322409b4f0f5cefa317024d4edcecef19bbfbf8f06abc60b045fdd3ffaecfaea",
+    "app/auth_ui.py": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f",
+    "app/background_panel.py": "173577a455e34143d7d7fb0e860cc4e8382313804d6cd4b2ac3b7d478c8d0c30",
+    "app/lifecycle_panel.py": "49b86ed03c55beb4563f0d33c14b2793b528c3e4a2717ff9a60a46dde17fff7e",
+    "app/model_bank_panel.py": "4e1b61609994594cd15bd80190439a2241a0326eeaf3ff1cc83afa8f0de579b5",
+    "app/model_view.py": "dec94b15f04466b78a2d8f8db2048e44cd59066bdd72e1f3a962584196f311af",
+    "app/workflow.py": "a2a9c9fcee7f191d1f61d97fbb35e6189a33c1bb887857239d5e2b38bb85497c",
+    "app/pages/0_AI银行助手.py": "c7b22a5f7a9535cae58e0f882b8113e65fa154e4b3450bf371cbd117e692ccf1",
+    "app/pages/1_资料账单.py": "9d3f6684b58d8c8ea5ca3c26c4a8eb02c05e02c1971717dbab81ddcd0f132f03",
+    "app/pages/2_产品对比.py": "62e8cba7c153206ce62d94cf9582a1d46d6d97bc5735cccdbbe3a349b60e603e",
+    "app/pages/3_卡片管理.py": "8aa6a3c4a531221b0a14cbd58e36a07110929454b5044d6b3532b7eea028ac75",
+    "app/pages/4_AA收款.py": "11b28b3b132bbe1aa9fbd7003bfedbf6f0ef48c96f61cb18981da79223789e84",
+    "app/pages/5_订阅管理.py": "f4fdf1a5e2e7b93f60c47f89cee10f3d69ffaeee8558cb7b5577d72a41b11452",
+    "app/pages/6_定时转账.py": "5bf04f77395d42c19a92b5b51030dcf686ac9652c8a1f32680d9b6d31b1ca895",
+    "app/pages/7_预算管理.py": "14f47784e423d9642ea7fdc90d29d7273ee72621a5b8ac558f97c333c884f7d6",
+    "app/pages/8_生日与商户.py": "630d3303bdbbc06d60c33c6fdbef9323898d631445f37fdcda02c796b559242c",
+    "app/pages/9_理财.py": "2768234b7c5271508c3d725a317c76fcf0efaea2ff90f0773e6dd88436a99f3b"
+  }
+}

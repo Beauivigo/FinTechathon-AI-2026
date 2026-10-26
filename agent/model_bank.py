@@ -16,12 +16,16 @@ class NeedsInput(ValueError):
         self.choices = choices or []
 
 
-def _money(value,*,allow_zero=False):
+def money_minor(value,*,allow_zero=False):
+    """Trusted yuan text to integer minor units; never guessed or defaulted."""
     if not isinstance(value,str) or not re.fullmatch(r'[0-9]+(?:\.[0-9]{1,2})?元?',value.strip()):
         raise NeedsInput('请给出准确的正数金额，最多两位小数。')
     amount=yuan_to_minor(value.strip().removesuffix('元'))
     if amount<0 or (amount==0 and not allow_zero):raise NeedsInput('金额必须大于零。')
     return amount
+
+
+_money=money_minor
 
 
 def _units(value):
@@ -89,6 +93,10 @@ def compile_task(flow,intent,fields,*,selected_payee=None,results=None):
         return 'bill.analyze',{'account_id':account(),'start_date':start.isoformat(),'end_date':end.isoformat()}
     if intent in {'transfer','scheduled_transfer'}:
         params={'account_id':account(),'payee_id':_payee(flow,p.get('payee_query'),selected_payee),'amount_minor':_money(p.get('amount_text'))}
+        memo=p.get('memo')
+        if memo not in (None,''):
+            if not isinstance(memo,str) or not memo.strip() or len(memo)>200:raise NeedsInput('转账备注须为1—200个字符，且不能为空。')
+            params['memo']=memo.strip()
         if intent=='scheduled_transfer':
             if not p.get('execute_at'):raise NeedsInput('请给出带时区的预约时间。')
             params['execute_at']=p['execute_at']
@@ -137,6 +145,10 @@ def compile_task(flow,intent,fields,*,selected_payee=None,results=None):
         birthday=p.get('birthday')
         if not isinstance(birthday,str):raise NeedsInput('请明确生日日期。')
         date.fromisoformat(birthday)
+        if any(p.get(k) for k in ('budget_text','item_ids','delivery_address_id','budget_at','purchase_at')):
+            # A full birthday schedule is expanded by the trusted birthday chain;
+            # this path must never pretend the read-only date plan bought anything.
+            raise NeedsInput('完整生日定时计划由生日计划入口登记后逐步执行；当前只可只读核对生日日期。')
         return 'scenario.plan',{'goal':'生日 '+birthday}
     if intent=='budget_reserve':
         if not isinstance(p.get('purpose'),str) or not p['purpose'].strip():raise NeedsInput('请说明预留用途。')
@@ -152,6 +164,11 @@ def compile_task(flow,intent,fields,*,selected_payee=None,results=None):
         if p.get('card_id'):params['card_id']=own_object('cards','card_id')
         return 'merchant.order',params
     raise NeedsInput('当前没有这个可执行业务，请转人工核对。')
+
+
+TRUSTED_TASK_KEYS=('not_before','operation_key','request','registration_request','registration_result',
+    'execution_state','bank_action')
+GREEN_PLAN_ACTIONS=frozenset({'account.balance','bill.analyze','wealth.compare','scenario.plan'})
 
 
 class BankPlanRunner:
@@ -203,22 +220,54 @@ class BankPlanRunner:
         return runner
 
     def inherit_completed(self, previous):
-        """Only bank-verified completed steps may survive a plan revision."""
+        """Only bank-verified completed steps may survive a plan revision.
+
+        Trusted constraints of unfinished steps are never dropped by a model
+        revision: a matching task id keeps its ``not_before`` gate and any
+        prepared operation key, an explicit new value from a trusted caller is
+        respected, and an unmatched constrained or prepared step rejects the
+        revision so the stored plan stays intact.
+        """
         if previous.waiting or previous.integrity_blocked:
             raise NeedsInput('原步骤尚待核实，不能修改计划。')
         current = {t['id']: t for t in self.tasks}
+        inherited = set()
         for old in previous.tasks:
             if old['status'] != 'completed':
                 continue
             new = current.get(old['id'])
             if not new or any(new.get(k) != old.get(k) for k in ('intent','fields','depends_on')):
+                receipt = previous.receipts.get(old['id'])
+                if (old.get('bank_action') in GREEN_PLAN_ACTIONS and old['id'] not in current
+                        and receipt is not None and receipt.get('status') == 'succeeded'):
+                    # A completed read-only projection has no funds effect and may
+                    # be replaced by a new trusted plan; plan_events keeps the history.
+                    continue
                 raise NeedsInput('已完成步骤不能删除、改编号或修改内容；请保留原步骤并人工核对。')
             if old['id'] not in previous.receipts:
                 raise NeedsInput('已完成步骤缺少可信回执，请查询原操作。')
+            inherited.add(old['id'])
         for old in previous.tasks:
             if old['status'] == 'completed':
+                if old['id'] not in inherited:
+                    continue
                 current[old['id']].update(deepcopy(old))
                 self.receipts[old['id']] = deepcopy(previous.receipts[old['id']])
+        for old in previous.tasks:
+            if old['status'] == 'completed':
+                continue
+            new = current.get(old['id'])
+            prepared = bool(old.get('request') or old.get('operation_key') or old.get('registration_request'))
+            constrained = ('not_before' in old or 'registration_result' in old or 'execution_state' in old)
+            if new is None:
+                if prepared or constrained:
+                    raise NeedsInput('未完成步骤的时间或操作约束不能删除；请保留原编号，或先暂停/结束原计划。')
+                continue
+            if prepared and any(new.get(k) != old.get(k) for k in ('intent','fields','depends_on')):
+                raise NeedsInput('该步骤已有准备中的银行操作编号，不能改内容；请保留原步骤或先核实原操作。')
+            for key in TRUSTED_TASK_KEYS:
+                if key in old and key not in new:
+                    new[key] = deepcopy(old[key])
         self.choices = deepcopy(previous.choices)
         self.revision = previous.revision
         self.automation = previous.automation

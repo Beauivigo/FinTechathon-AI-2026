@@ -18,7 +18,12 @@ def check_time(execute_at, now):
 def spec_for(request, principal):
     key = sha256(json.dumps([principal,request['action'],request['idempotency_key']]).encode()).hexdigest()
     p = request['params']
-    payload = adapt_request('transfer.create', {k:p[k] for k in ('account_id','payee_id','amount_minor')},
+    fields = {k:p[k] for k in ('account_id','payee_id','amount_minor')}
+    if 'memo' in p:
+        # The optional registration memo is part of the fixed execution request;
+        # old registrations without it keep their original payload unchanged.
+        fields['memo'] = p['memo']
+    payload = adapt_request('transfer.create', fields,
         request_id='scheduled_req_'+key,trace_id=request['trace_id'],idempotency_key='scheduled_exec_'+key)
     payload['schema_version']=request['schema_version']
     return validate_task_spec(dict(schema_version='1.1',task_key='scheduled_task_'+key,trace_id=request['trace_id'],
@@ -115,8 +120,11 @@ def register(services, c, spec, principal):
 
 
 class Scheduler:
-    def __init__(self, gateway):
+    def __init__(self, gateway, *, guard=None):
         self.gateway, self.store, self.clock = gateway, gateway.store, gateway.clock
+        # A background worker passes its lease-ownership check here; an
+        # unguarded caller (trusted page) keeps the existing behaviour.
+        self.guard = guard
 
     def list_tasks(self, *, principal_id):
         with self.store.connection() as c:
@@ -141,6 +149,8 @@ class Scheduler:
         """手动检查一次。重启/并发恢复始终先查原执行键，重发也不换键。"""
         results = []
         for task in self.list_tasks(principal_id=principal_id):
+            if self.guard is not None and not self.guard():
+                break
             if task['spec']['payload'].get('action') != 'transfer.create':
                 continue
             if task['state'] not in ('scheduled','running','unknown'):

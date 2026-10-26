@@ -26,7 +26,10 @@ INTENTS = {
 SLOTS = {'account_id','period','payee_query','amount_text','execute_at','participants','card_operation',
     'card_id','limit_text','subscription_operation','subscription_id','remind_at','product_ids','product_id',
     'questionnaire_version','answers','risk_profile_id','holding_id','units_text','birthday','purpose',
-    'reservation_id','item_id','deliver_on','delivery_address_id','card_id'}
+    'reservation_id','item_id','deliver_on','delivery_address_id','card_id','memo','budget_text','item_ids',
+    'budget_at','purchase_at'}
+BIRTHDAY_PLAN_FIELDS=('birthday','budget_text','item_ids','delivery_address_id')
+BIRTHDAY_EXTRA_FIELDS=('budget_text','item_ids','delivery_address_id','budget_at','purchase_at')
 FORBIDDEN = {'confirmed','principal_id','proof_token','challenge_id','operation_digest','authorization','gate',
     'risk_score','risk_level','code','command','sql','shell','source','executed','result'}
 
@@ -43,7 +46,7 @@ SYSTEM_PROMPT = '''你是银行业务需求理解器。只输出一个完整JSON
 格式示例：{"reply":"请补充转账金额。","action":"clarify","intent":"transfer","slots":{"account_id":"服务端当前账户","payee_query":"李明"}}
 完整单任务用action=propose及intent/slots；多任务用action=plan及tasks数组，每项id/title/intent/slots/depends_on。
 例如先查余额后转账，第二步depends_on=[第一步id]。任务状态由银行端确定，不输出completed。
-跨场景生日需要明确日期、资金、商品、地址；birthday仅生成只读日期计划，预留和下单分别为独立任务。
+跨场景生日需要日期、资金、商品、地址；只有日期时用birthday生成只读日期计划，不能声称已登记采购。\n完整生日定时计划用一个birthday任务，slots给出birthday、budget_text、item_ids、delivery_address_id，\n可选budget_at/purchase_at（带时区）；缺任一项先clarify。未给时间时由银行端按生日当月1日09:00与提前两天09:00（上海时区）安排。\n转账可用可选memo（1—200字）；单笔与定时转账都保留备注，定时执行仍按原登记键和原授权。
 引用前置真实回执的编号仅使用@任务id.reservation_id或@任务id.risk_profile_id，不猜编号。
 不支持或超出业务范围用action=unsupported；需要澄清用action=clarify，不能把没有信息伪装为完整计划。
 卡片操作：申请/冻结/解冻/挂失/解挂/限额；订阅操作：查看/识别/核实/排除/取消/提醒/续费。
@@ -82,7 +85,7 @@ def _slots(value):
         if key=='answers':
             if not isinstance(item,dict) or len(item)>50 or any(not isinstance(k,str) or not isinstance(v,str) or len(k)>50 or len(v)>50 for k,v in item.items()):raise ValueError('answers invalid')
             out[key]=deepcopy(item)
-        elif key in {'participants','product_ids'} and isinstance(item,list):
+        elif key in {'participants','product_ids','item_ids'} and isinstance(item,list):
             if len(item)>20 or any(not isinstance(i,str) or not i.strip() or len(i)>100 for i in item):raise ValueError('list invalid')
             out[key]=','.join(i.strip() for i in item)
         else:
@@ -109,6 +112,10 @@ def _missing(intent,fields):
         op=fields.get('subscription_operation')
         required+=['account_id'] if op in {'查看','识别'} else ['subscription_id']
         if op=='提醒':required+=['remind_at']
+    if intent=='birthday' and any(fields.get(name) for name in BIRTHDAY_EXTRA_FIELDS):
+        # A date-only draft stays the compatible read-only plan; once any
+        # scheduling detail is present every trusted input must be supplied.
+        required+=[name for name in BIRTHDAY_PLAN_FIELDS if not fields.get(name)]
     return [name for name in required if not fields.get(name)]
 
 
@@ -208,7 +215,13 @@ class DialogueSession:
                     explicit_compare=len(ids)>=2 and all(re.search(r'(?<![A-Za-z0-9_-])'+re.escape(i)+r'(?![A-Za-z0-9_-])',text) for i in ids)
                 state.update(intent=intent,fields=fields,missing=missing,phase='clarify' if missing or (action=='clarify' and not explicit_compare) else 'proposal')
                 if state['phase']=='proposal':
-                    state['reply']='需求草稿已整理，尚未执行业务；银行端会核对实际对象及所需确认。'
+                    if intent=='birthday':
+                        complete=all(fields.get(name) for name in BIRTHDAY_PLAN_FIELDS)
+                        state['reply']=('生日定时计划草稿已整理：预算、商品、地址和时间仅作为待核对数据，尚未执行；到期后仍需确认或强验证。'
+                            if complete else
+                            '生日日期草稿已核对，仅日期只读；尚未登记预算或采购。完整定时计划还需：预算金额、商品编号、配送地址。')
+                    else:
+                        state['reply']='需求草稿已整理，尚未执行业务；银行端会核对实际对象及所需确认。'
                     state['proposal']={'kind':'single','status':'draft','requires_user_confirmation':True,'intent':intent,'fields':deepcopy(fields)}
                 elif missing and not reply:state['reply']='还需要补充：'+', '.join(missing)
             self._event('accepted',phase=state['phase'],intent=state['intent'])

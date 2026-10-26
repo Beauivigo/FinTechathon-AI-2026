@@ -1,0 +1,10 @@
+{
+  "run_id": "9e771207-65bb-4a6f-a2b6-4edb4c847e18",
+  "base_commit": "285c90c6014158b85d8323788945b085d1991192",
+  "thread_id": "01a16758-f016-7730-8410-c3b074ffe564",
+  "baseline_commit_file_count": 20,
+  "baseline_source_hashes_unchanged": true,
+  "pushed": false,
+  "status": "dispatched_running",
+  "session_id": "session-374eae3a-cc40-4d05-8a2d-4d336fa3db42"
+}

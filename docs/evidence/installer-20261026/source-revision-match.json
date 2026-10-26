@@ -1,0 +1,657 @@
+{
+  "passed": true,
+  "files": 81,
+  "byte_identical": 58,
+  "eol_only": 23,
+  "scope": "Delivered application/resource files versus staged Git source; only CRLF/LF text normalization differences permitted",
+  "comparison": [
+    {
+      "path": ".streamlit/config.toml",
+      "git_blob": "0a87e0a60c64f34e5e7cd91f82ae89b39bd98287",
+      "payload_raw_sha256": "e5062350d5e7a1afe41f4709aef7abeae187c86da29b6f17d3a86a4a101f51ef",
+      "git_raw_sha256": "7beb89bf4e553a8de93865a5bacd606f4a5c0dd33a761dddcc16830aac7cb531",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/__init__.py",
+      "git_blob": "c7d8de0d153edda34bc27ddb7ad0fd4bfb9eb157",
+      "payload_raw_sha256": "b3d6fcfaa8758553c002d1f8c4ed685ed9aeac774e5c9a9bcb8c0a38f7e12c26",
+      "git_raw_sha256": "9af6c7d8ac8172043ef79a8892f21cea4bf2125e089f199cac7d3d15d82a592f",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/controller.py",
+      "git_blob": "8af9a779813c3b97f0e186d23328e4323c3c2eb3",
+      "payload_raw_sha256": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231",
+      "git_raw_sha256": "b959a77984c3a223bfbca93f0ab14501a19b08d82242cec32589b0b78be47cfc",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/demo_gateway.py",
+      "git_blob": "c1edbfd678f4942470c3e9ade634e6dda653ed40",
+      "payload_raw_sha256": "3707e34fa001948ff994e2299382bafa43bc825ea70826788ae28fc0ca64ecf8",
+      "git_raw_sha256": "8c3c5d4d55b57c5e18a0f13b07511df36c016a9215865f7e234e81d59910cfce",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/intent.py",
+      "git_blob": "048effe67c7a9de5aa3057614d1e6ec85124373d",
+      "payload_raw_sha256": "f3013001160984584c77e3cd1d2af64d3ecf4097a9a2a612d00bce4d5064daed",
+      "git_raw_sha256": "5d09d69563d3ead530f2bd1f094af4a5c47f8f45adfb1323fb45faa300ed978c",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_bank.py",
+      "git_blob": "78cb36854fcbf20c05c765dd395a8f94955b7fad",
+      "payload_raw_sha256": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad",
+      "git_raw_sha256": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_client.py",
+      "git_blob": "9a08d256bd62563b84ef802e2f9492d26909e44c",
+      "payload_raw_sha256": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607",
+      "git_raw_sha256": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_credentials.py",
+      "git_blob": "e736e45bab0454959c8b2fca5ea6b3a63b650c86",
+      "payload_raw_sha256": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c",
+      "git_raw_sha256": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "git_blob": "2e75109dddd02ad96cb25a19c2f53b0565396df6",
+      "payload_raw_sha256": "44d9f8f62486a48c505150fc10c4e77104e724d2ba9591721c8f2bdefae5ef89",
+      "git_raw_sha256": "44d9f8f62486a48c505150fc10c4e77104e724d2ba9591721c8f2bdefae5ef89",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_providers.py",
+      "git_blob": "a0867eb0406d737c5975fffe6fcb1410c31b40cc",
+      "payload_raw_sha256": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32",
+      "git_raw_sha256": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_runtime.py",
+      "git_blob": "979ac49aa9f23b47f6597e154827fe908e1094ac",
+      "payload_raw_sha256": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2",
+      "git_raw_sha256": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/model_safety.py",
+      "git_blob": "fd5eeca0c29dedef8c795163e491846ac1acb987",
+      "payload_raw_sha256": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9",
+      "git_raw_sha256": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "agent/routing.py",
+      "git_blob": "1f592aeb5f40a7e472c38fc9f45408f182c202b3",
+      "payload_raw_sha256": "a44ccf4b766e56cfbad73d1236e49d7e2aed28f98f727086c05d009e97a80937",
+      "git_raw_sha256": "a44ccf4b766e56cfbad73d1236e49d7e2aed28f98f727086c05d009e97a80937",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/__init__.py",
+      "git_blob": "8cf976235a80c49bc8abd5232d2eb73558eda761",
+      "payload_raw_sha256": "e2676a295cae3a4036c8a558b72d01fb7eb4e5bafeaed6d63fda439417f65152",
+      "git_raw_sha256": "96b65825831483df71105d38cb9a0cc81743c2477dd64ff642c3070a25f4b394",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/auth_ui.py",
+      "git_blob": "58d82787f2233a9794fa56beb0be32502e67c706",
+      "payload_raw_sha256": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f",
+      "git_raw_sha256": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/background_panel.py",
+      "git_blob": "98838ede5c7b0ab5f4151f37ecb52bae8363c68a",
+      "payload_raw_sha256": "173577a455e34143d7d7fb0e860cc4e8382313804d6cd4b2ac3b7d478c8d0c30",
+      "git_raw_sha256": "173577a455e34143d7d7fb0e860cc4e8382313804d6cd4b2ac3b7d478c8d0c30",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/demo.py",
+      "git_blob": "96532697c851929067475371a197372f05775af5",
+      "payload_raw_sha256": "a8739f682e0ab6e3903f29eadaa0061a34c4e86ce42945eb38af218e6447c07e",
+      "git_raw_sha256": "a8739f682e0ab6e3903f29eadaa0061a34c4e86ce42945eb38af218e6447c07e",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/home_view.py",
+      "git_blob": "0b42434f866061c278942f2de2f0eb60d4282304",
+      "payload_raw_sha256": "08ec67061faa4f4ec788a3ab6ce3f967b4a6fc9f19174dd33441dff4de4c05ea",
+      "git_raw_sha256": "65101655dbb9c58520071e6b594d09a3508b248ac943ab91548e23cc72d1387b",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/lifecycle_panel.py",
+      "git_blob": "4e043025a7cde434c94085fc202f017b29a518ae",
+      "payload_raw_sha256": "49b86ed03c55beb4563f0d33c14b2793b528c3e4a2717ff9a60a46dde17fff7e",
+      "git_raw_sha256": "49b86ed03c55beb4563f0d33c14b2793b528c3e4a2717ff9a60a46dde17fff7e",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/main.py",
+      "git_blob": "d595cb63c4d075735cb89ac685fb867a7415cfbb",
+      "payload_raw_sha256": "be4fcde7026d8a86e6e36300947c719b00a67505475ed9e8c534b29ff871fd35",
+      "git_raw_sha256": "7e77bce0bdfd094de477b7b02503fc8161121a7be68ced9ef87a65105a63cec5",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/merchant_schedule_panel.py",
+      "git_blob": "c5d1c6006e80a3ab1767de0863ea916a90552b78",
+      "payload_raw_sha256": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047",
+      "git_raw_sha256": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "git_blob": "ef2592bc8a8457f4df13728386baf10eaba5747f",
+      "payload_raw_sha256": "4e1b61609994594cd15bd80190439a2241a0326eeaf3ff1cc83afa8f0de579b5",
+      "git_raw_sha256": "f0a2b3d26867c9fab119314bd92271df82a16324b664c290a0a059d6dedcb6db",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/model_settings.py",
+      "git_blob": "5d4bb917b53a7d248284c37cd4f584cf37557e50",
+      "payload_raw_sha256": "767834712d0fca4997d856de3ca40a0ec7f03e8a92f64e4e6d7ddbf6eb7b0c07",
+      "git_raw_sha256": "767834712d0fca4997d856de3ca40a0ec7f03e8a92f64e4e6d7ddbf6eb7b0c07",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/model_view.py",
+      "git_blob": "3ae911ec9ee90d1066417b39c9abd8f8e9a65481",
+      "payload_raw_sha256": "dec94b15f04466b78a2d8f8db2048e44cd59066bdd72e1f3a962584196f311af",
+      "git_raw_sha256": "d06bd6b21e5d386af4f64398e7412bb267fdc0cd0023886ddf6bb89893d3980f",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/onboarding.py",
+      "git_blob": "d526c0eabeeb5e3670938dcba09ede88b7c694d2",
+      "payload_raw_sha256": "322409b4f0f5cefa317024d4edcecef19bbfbf8f06abc60b045fdd3ffaecfaea",
+      "git_raw_sha256": "322409b4f0f5cefa317024d4edcecef19bbfbf8f06abc60b045fdd3ffaecfaea",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "git_blob": "69d4956536f06721dc09c1945033317d8b1d252c",
+      "payload_raw_sha256": "c7b22a5f7a9535cae58e0f882b8113e65fa154e4b3450bf371cbd117e692ccf1",
+      "git_raw_sha256": "c7b22a5f7a9535cae58e0f882b8113e65fa154e4b3450bf371cbd117e692ccf1",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/1_资料账单.py",
+      "git_blob": "143be9df6754794f49e05565b57328f9d481b3b4",
+      "payload_raw_sha256": "9d3f6684b58d8c8ea5ca3c26c4a8eb02c05e02c1971717dbab81ddcd0f132f03",
+      "git_raw_sha256": "9d3f6684b58d8c8ea5ca3c26c4a8eb02c05e02c1971717dbab81ddcd0f132f03",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/2_产品对比.py",
+      "git_blob": "30d251b2fa2ef5327037cd18153ff71b1bf7f603",
+      "payload_raw_sha256": "62e8cba7c153206ce62d94cf9582a1d46d6d97bc5735cccdbbe3a349b60e603e",
+      "git_raw_sha256": "62e8cba7c153206ce62d94cf9582a1d46d6d97bc5735cccdbbe3a349b60e603e",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "git_blob": "37b1ec7a0fc6219e9a18f65ea0b43e5b62c50d33",
+      "payload_raw_sha256": "8aa6a3c4a531221b0a14cbd58e36a07110929454b5044d6b3532b7eea028ac75",
+      "git_raw_sha256": "5427d483d68d596b7230357ab41d3857ea274d2dcd484992232dae45ca1cbee4",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "git_blob": "81c66edf2dce0abb0bcae7441c2847ef5e8d05d4",
+      "payload_raw_sha256": "11b28b3b132bbe1aa9fbd7003bfedbf6f0ef48c96f61cb18981da79223789e84",
+      "git_raw_sha256": "11b28b3b132bbe1aa9fbd7003bfedbf6f0ef48c96f61cb18981da79223789e84",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "git_blob": "2a64b682e9f637b6198d717d6e10076f3f501ebb",
+      "payload_raw_sha256": "f4fdf1a5e2e7b93f60c47f89cee10f3d69ffaeee8558cb7b5577d72a41b11452",
+      "git_raw_sha256": "f4fdf1a5e2e7b93f60c47f89cee10f3d69ffaeee8558cb7b5577d72a41b11452",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "git_blob": "edeb9db7e29a10af834d123b7782fa52bd931393",
+      "payload_raw_sha256": "5bf04f77395d42c19a92b5b51030dcf686ac9652c8a1f32680d9b6d31b1ca895",
+      "git_raw_sha256": "5bf04f77395d42c19a92b5b51030dcf686ac9652c8a1f32680d9b6d31b1ca895",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "git_blob": "3a89dc63e27674f2270a5255354b564598e36eb1",
+      "payload_raw_sha256": "14f47784e423d9642ea7fdc90d29d7273ee72621a5b8ac558f97c333c884f7d6",
+      "git_raw_sha256": "14f47784e423d9642ea7fdc90d29d7273ee72621a5b8ac558f97c333c884f7d6",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "git_blob": "3974c80db70bf49264f0c66d7235b9d5164df041",
+      "payload_raw_sha256": "630d3303bdbbc06d60c33c6fdbef9323898d631445f37fdcda02c796b559242c",
+      "git_raw_sha256": "630d3303bdbbc06d60c33c6fdbef9323898d631445f37fdcda02c796b559242c",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "git_blob": "02dbe0f762238c26b9fbd2706ecd276a7c4801f0",
+      "payload_raw_sha256": "2768234b7c5271508c3d725a317c76fcf0efaea2ff90f0773e6dd88436a99f3b",
+      "git_raw_sha256": "2768234b7c5271508c3d725a317c76fcf0efaea2ff90f0773e6dd88436a99f3b",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/pending_view.py",
+      "git_blob": "f8aa498a8caa90534a12f780bbd2ef477dda08d6",
+      "payload_raw_sha256": "69d23e49f85de198e099d516bae9420c72f92f5a5b4eecd4a4b1491e9ea994be",
+      "git_raw_sha256": "69d23e49f85de198e099d516bae9420c72f92f5a5b4eecd4a4b1491e9ea994be",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/phone_acceptance.py",
+      "git_blob": "1511f827cd0db55cfcc3ae333fc200f163090e8e",
+      "payload_raw_sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c",
+      "git_raw_sha256": "8cbed24aeb3a28e69ea0827f54f68368a8b5d3fa3e36ba66131f02f530615c07",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/routing_panel.py",
+      "git_blob": "0ba99bdd18068a13e7bb0698ae968a4169edfa50",
+      "payload_raw_sha256": "7c48ea6372df1e13bcc08807e398e0f7a14f720e1c72b31034f5c1e7f8a4d3a2",
+      "git_raw_sha256": "8395d21689187895f0170d1b8a3f4b14157e6c2be125243cf420d95f4c35820b",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/ui.py",
+      "git_blob": "ec59570ca2f93f7cac27a3e0bf94a3ec072f6c75",
+      "payload_raw_sha256": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4",
+      "git_raw_sha256": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "app/workflow.py",
+      "git_blob": "d139d68b545419c491917e3e763f6686ac2c4308",
+      "payload_raw_sha256": "a2a9c9fcee7f191d1f61d97fbb35e6189a33c1bb887857239d5e2b38bb85497c",
+      "git_raw_sha256": "d40f97db16b1c066aa5120f19eddc56c26787e1be6b00f278ddc28edf87058ea",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/__init__.py",
+      "git_blob": "575e17451d369ff309591fc8dd31dfa3ffd1c3b5",
+      "payload_raw_sha256": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+      "git_raw_sha256": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/auth.py",
+      "git_blob": "abcad1d0cacbea5ba2875a37d8efae47bf942a22",
+      "payload_raw_sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd",
+      "git_raw_sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/background.py",
+      "git_blob": "5ee5f7dd8c240e27c0d0a4f20b31986760ee5438",
+      "payload_raw_sha256": "6ddd9459e27f0dbaab101985907128845a8265fae0b4208595a3f6922aa92322",
+      "git_raw_sha256": "9be318db3c70c676a641d4b8f652559089ae083c05bf3d6b55cf561b4544e60a",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/birthday.py",
+      "git_blob": "4519b042f32837954fe64d3b91c1ca7b91031e41",
+      "payload_raw_sha256": "7448b1d0770b8cd1a053f8843ba706cf3c2bbb771ad219fe5fdc02e8beb44718",
+      "git_raw_sha256": "c63e5542ef61b49cfafd07db959aa6c70f0128a24e90bf85364ae3d635572876",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/budget.py",
+      "git_blob": "5e992532a67d3658735e2530027e10199f9e0bc6",
+      "payload_raw_sha256": "fdb16a560f116b5ac457ec1274554b500027fa37693cea0f2778079b2c07456d",
+      "git_raw_sha256": "1f45715b26002a641d09adf94bd79739c1cd1f259d294d4b1b022b368d3af56b",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/first_run.py",
+      "git_blob": "b350b5486ce8c7285b1b3ef74487048c0a790cb3",
+      "payload_raw_sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554",
+      "git_raw_sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/gateway.py",
+      "git_blob": "b561ff37242ed99d033d7862501529d4c99bdd88",
+      "payload_raw_sha256": "2e74bac4fe3d7117e752cda559f88314f9979ef1bcbb858ff6a3c84f040b5be3",
+      "git_raw_sha256": "e0d32e0e41a2f690b720e27ca7270178f4162d9b9a656da1bb39f1513d5d21c3",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/lifecycle.py",
+      "git_blob": "7bf2425422b7bc3934bc2410b40150bca14c84d3",
+      "payload_raw_sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae",
+      "git_raw_sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/member_workflows.py",
+      "git_blob": "d9371b4113840c2477b822e21d7b406cbc171b42",
+      "payload_raw_sha256": "9673f2e8ae057e859bdc8fea3897635bdde064023b01d8639c8d7d95951d3c0d",
+      "git_raw_sha256": "9673f2e8ae057e859bdc8fea3897635bdde064023b01d8639c8d7d95951d3c0d",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/merchant.py",
+      "git_blob": "271d03d1546d0ca50488ee9466280a5c5f86b661",
+      "payload_raw_sha256": "4fe9f9ec93b50d9ecc2f516503cf8d93020ae1f9949c3c57a06709b10b513ebf",
+      "git_raw_sha256": "1fdc16438459145a1b2ee746c227ebcaf4bcbf05d3f39a18af1a9c3827f28e1d",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/merchant_scheduler.py",
+      "git_blob": "37cfa65a766efe1c303fb6b10bac44dc2baf829e",
+      "payload_raw_sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9",
+      "git_raw_sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/plan_store.py",
+      "git_blob": "b0e18f50520e5e180ae8e9108cef87f1e7d56554",
+      "payload_raw_sha256": "63c1ca154856f63675500595cc670b96acf381850e1782dcfe71ae5774ffd71e",
+      "git_raw_sha256": "88923e0b820df17cf322835338028c304a69012d93237d3aa4da65961d9ae7d3",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/scheduler.py",
+      "git_blob": "62e8f6f4570ac6a67851f28b2dc1804679e059b2",
+      "payload_raw_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+      "git_raw_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/seed.py",
+      "git_blob": "440aff53229e4401567080769e76c580cefb5589",
+      "payload_raw_sha256": "7be0c8593df25d97fd238c26f967cc08eea495a71857703d53e50114951b768b",
+      "git_raw_sha256": "a0387d53f1a5393b76017e7bc06ba5f2a05fa32680534ed0a6ec6b7cb060d028",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/services.py",
+      "git_blob": "8c720dde3c1694f3df0e00e8aac15d55a1ae0f8a",
+      "payload_raw_sha256": "81f0ac915eebe90cce39ef475c34984b4f7743523f60e14382590bd240f29566",
+      "git_raw_sha256": "05a591bfab02184fd583fc6bd13e7838e64465ce2a90c3f894890516827c368c",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/store.py",
+      "git_blob": "69f916198bc7887caa7e62c0a00d82db70922151",
+      "payload_raw_sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62",
+      "git_raw_sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/subscription_charge.py",
+      "git_blob": "04cd0a79ebc3e4010fd4de88738ad02239e2ca14",
+      "payload_raw_sha256": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517",
+      "git_raw_sha256": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/transfer.py",
+      "git_blob": "e63294e1085c9c944dfcc72f4723016a6ea1658f",
+      "payload_raw_sha256": "928bbe19b5b650f7f9a1728aa4464f93eb54bcb7f67392fb726872fd2c4ee3b6",
+      "git_raw_sha256": "928bbe19b5b650f7f9a1728aa4464f93eb54bcb7f67392fb726872fd2c4ee3b6",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/wealth.py",
+      "git_blob": "7d8e10a34dedd8280d528a2e1d4406a7b4bda4a4",
+      "payload_raw_sha256": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d",
+      "git_raw_sha256": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "bank/worker.py",
+      "git_blob": "134c420a2cd65c57b2955ae2fea9c6a5ee9b6983",
+      "payload_raw_sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2",
+      "git_raw_sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "billing/__init__.py",
+      "git_blob": "2109f0cad07b9b59d9945350ef1d940ec8a005ea",
+      "payload_raw_sha256": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9",
+      "git_raw_sha256": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "card/__init__.py",
+      "git_blob": "6bfeabec358df7110ddfed79d16b01218109b965",
+      "payload_raw_sha256": "c90faef650847f6b0e3664013d7d94f752e6ef48fdedb10ebe8dd62bb765b48f",
+      "git_raw_sha256": "c90faef650847f6b0e3664013d7d94f752e6ef48fdedb10ebe8dd62bb765b48f",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/__init__.py",
+      "git_blob": "00daf4fa5b6ffbd1205c299ba347b7def5a7d948",
+      "payload_raw_sha256": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+      "git_raw_sha256": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/__main__.py",
+      "git_blob": "0e9cd1e73438c38adbbae854c206a0949e819d54",
+      "payload_raw_sha256": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077",
+      "git_raw_sha256": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/approved.py",
+      "git_blob": "dde1b4e4d3874afc40220b1259ac6f3fc0841660",
+      "payload_raw_sha256": "28eb39b260873074583edad63dd36c7f92233cffb2c38ea52348508bfec3b1fe",
+      "git_raw_sha256": "28eb39b260873074583edad63dd36c7f92233cffb2c38ea52348508bfec3b1fe",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/checks.py",
+      "git_blob": "14dab7ba5843702341302cde9e813e443afa322d",
+      "payload_raw_sha256": "d19d290256236cf24f83ca32bd6497e897b68430b10266718c6291a930ba457a",
+      "git_raw_sha256": "d19d290256236cf24f83ca32bd6497e897b68430b10266718c6291a930ba457a",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/reader.py",
+      "git_blob": "05d58ec2807ec11e30309c0f9e54092a53b18b7a",
+      "payload_raw_sha256": "15e186191c8606238ac345ece638293b97820d15383e1e8e71c24744972e7228",
+      "git_raw_sha256": "15e186191c8606238ac345ece638293b97820d15383e1e8e71c24744972e7228",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/reconcile.py",
+      "git_blob": "ac2b2e6a2b0d68d17a23f7e0219392a9ea075454",
+      "payload_raw_sha256": "125a361e17b912c1123540459dd23bdb7154ce8c844e17fa1da79a3671326d24",
+      "git_raw_sha256": "125a361e17b912c1123540459dd23bdb7154ce8c844e17fa1da79a3671326d24",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "material_check/report.py",
+      "git_blob": "53aba7e1dbfa16da4a216e48b3b492b22866ee37",
+      "payload_raw_sha256": "753dad4e57c07e0e3a99ad0ae05366be1a323776e56bb818cb4f8a506992b239",
+      "git_raw_sha256": "753dad4e57c07e0e3a99ad0ae05366be1a323776e56bb818cb4f8a506992b239",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "materials/reviewed/2026-10-16/账单数据与手算_C_V1.3_复核修订.xlsx",
+      "git_blob": "6c6150f3c14132aa9c075fe6f98098b6d5dba762",
+      "payload_raw_sha256": "496c6d27614add230f03b1440ebf155c9f813051ce04fdc493ef52269ec06d04",
+      "git_raw_sha256": "496c6d27614add230f03b1440ebf155c9f813051ce04fdc493ef52269ec06d04",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "materials/reviewed/2026-10-16/资金规则与功能复核_B_V1.2_复核修订.xlsx",
+      "git_blob": "9754dd7b223b26a8a3de64cab898b520a54fe04d",
+      "payload_raw_sha256": "4bb55f65c0548be5102b0757aec278be90c2fa1aef6f8c172fc04f28043be99b",
+      "git_raw_sha256": "4bb55f65c0548be5102b0757aec278be90c2fa1aef6f8c172fc04f28043be99b",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "scenario/__init__.py",
+      "git_blob": "3fb3e1a93540c1953601e1a27578dcc75184f129",
+      "payload_raw_sha256": "7b5f9d5cb2fa2217e9772e8c3adb833f0ca795179d971eb42ba6dd00ef650462",
+      "git_raw_sha256": "5ce3be22391f1c2521feee1d8651e2bcf7e8e7b53b22e7b8ca9c72e4cfbf54c2",
+      "byte_identical": false,
+      "normalized_equal": true
+    },
+    {
+      "path": "shared/__init__.py",
+      "git_blob": "79cf5bfbe3df1fd32eba0a95315c36cdada0049a",
+      "payload_raw_sha256": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612",
+      "git_raw_sha256": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "shared/adapters.py",
+      "git_blob": "18266341319f0427b68e3de3fefab16eefe58e93",
+      "payload_raw_sha256": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba",
+      "git_raw_sha256": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "shared/contracts.py",
+      "git_blob": "8462669df3069f8cbadc066193abf91d54a13aa2",
+      "payload_raw_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+      "git_raw_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "shared/policy.py",
+      "git_blob": "048a2ddd5e8307407537b473f0a86cd5ec73d8e9",
+      "payload_raw_sha256": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+      "git_raw_sha256": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "shared/services.py",
+      "git_blob": "d919afad607aec6fbc82e6a8a2675bc42d8fc0ca",
+      "payload_raw_sha256": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846",
+      "git_raw_sha256": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "subscription/__init__.py",
+      "git_blob": "cccd7c28389531cd87584fbe39031c240e5359c2",
+      "payload_raw_sha256": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805",
+      "git_raw_sha256": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "wealth/__init__.py",
+      "git_blob": "f05f73bdc168d7e3214ad91f9d24e96fedbc796e",
+      "payload_raw_sha256": "35478296e35374dfe008e76ba518eafa1cdd7076ec9477bf622324f1f15c8db6",
+      "git_raw_sha256": "35478296e35374dfe008e76ba518eafa1cdd7076ec9477bf622324f1f15c8db6",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "wealth/catalog.py",
+      "git_blob": "e2f5c871138c1a3d46468287cf448f8308b0b0ac",
+      "payload_raw_sha256": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034",
+      "git_raw_sha256": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034",
+      "byte_identical": true,
+      "normalized_equal": true
+    },
+    {
+      "path": "wealth/questionnaire.py",
+      "git_blob": "b143f56e58f2c9e9bc2464db81eb87d271d1bd3d",
+      "payload_raw_sha256": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882",
+      "git_raw_sha256": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882",
+      "byte_identical": true,
+      "normalized_equal": true
+    }
+  ]
+}

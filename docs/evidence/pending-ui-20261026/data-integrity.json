@@ -1,0 +1,24 @@
+{
+  "runtime/app_launcher.json": {
+    "checked": true,
+    "before": "0e0cb14673617c514a1743cff769b788cfa03bfb220eda2aba2c5baa89f0d90f",
+    "after": "0e0cb14673617c514a1743cff769b788cfa03bfb220eda2aba2c5baa89f0d90f",
+    "unchanged": true
+  },
+  "runtime/launcher.lock": {
+    "checked": false,
+    "before": null,
+    "after": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "unchanged": false
+  },
+  "runtime/sandbox.sqlite3": {
+    "checked": true,
+    "before": "7bc41fae73c80850daa542c419a1adfe631def0dd759d492d2423a31e9abe27c",
+    "after": "7bc41fae73c80850daa542c419a1adfe631def0dd759d492d2423a31e9abe27c",
+    "unchanged": true
+  },
+  "model_profile": {
+    "unchanged": true,
+    "sha256": "6b5e4982c23eb3f93f346de843248b86a8b6d6f3117e72b1556fcd4e75035027"
+  }
+}

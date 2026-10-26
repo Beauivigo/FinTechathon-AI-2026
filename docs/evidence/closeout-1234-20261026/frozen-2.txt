@@ -1,0 +1,10 @@
+test_isolated_phone_entry_rejects_daily_and_project_paths (__main__.CloseoutToolTests.test_isolated_phone_entry_rejects_daily_and_project_paths) ... ok
+test_ledger_cap_provider_and_no_reset (__main__.CloseoutToolTests.test_ledger_cap_provider_and_no_reset) ... ok
+test_live_refuses_before_network_without_ledger (__main__.CloseoutToolTests.test_live_refuses_before_network_without_ledger) ... ok
+test_offline_run_covers_current_flows_without_network_or_evidence (__main__.CloseoutToolTests.test_offline_run_covers_current_flows_without_network_or_evidence) ... ok
+test_offline_subset_and_manifest_do_not_require_git (__main__.CloseoutToolTests.test_offline_subset_and_manifest_do_not_require_git) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.797s
+
+OK

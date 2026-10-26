@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "source_hashes_match": true,
+  "protected_data_unchanged": true,
+  "unrelated_tracked_files_unchanged": true,
+  "tests": 627,
+  "clean_checks": 5,
+  "page_check_passed": true,
+  "committed": false,
+  "pushed": false,
+  "installer_updated": false,
+  "documentation": [
+    "README.md",
+    "docs/BLOCKERS.md",
+    "docs/2026-10-26本体修复独立验收.md",
+    "docs/下一阶段分工与实施计划/README.md",
+    "docs/参赛材料/README.md"
+  ]
+}

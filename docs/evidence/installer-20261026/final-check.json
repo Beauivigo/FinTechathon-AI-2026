@@ -1,0 +1,183 @@
+{
+  "executor": "Codex independent acceptance",
+  "passed": true,
+  "installer_sha256": "d47c7e9ce534f5ee4b7fe8a585d2a5eadebb018bdbcac064f86604ca725eb923",
+  "installer_bytes": 62382453,
+  "payload_files": 6554,
+  "python": "3.14.10",
+  "wheel_count": 42,
+  "project_checks": 658,
+  "installer_checks": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "windows_phases": {
+    "install": {
+      "passed": true,
+      "runtime": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]\n1.65.0\n['D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python\\\\python314.zip', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python\\\\Lib\\\\site-packages', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\launcher']\n",
+      "previous_user_files": 0,
+      "shortcuts": {
+        "desktop": "C:\\Users\\huang\\Desktop",
+        "links": [
+          {
+            "name": "启动言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\python\\pythonw.exe",
+            "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\launcher\\launch.py\""
+          },
+          {
+            "name": "停止言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\python\\pythonw.exe",
+            "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\launcher\\stop.py\" --quiet"
+          },
+          {
+            "name": "卸载言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\uninstall.exe",
+            "args": ""
+          }
+        ]
+      }
+    },
+    "start": {
+      "passed": true,
+      "pid": 44168,
+      "duplicate_launch_reused": true,
+      "url": "http://127.0.0.1:8526",
+      "data": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\clean-user\\Local\\言行\\data"
+    },
+    "stop": {
+      "passed": true
+    },
+    "upgrade": {
+      "passed": true,
+      "runtime": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]\n1.65.0\n['D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python\\\\python314.zip', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\python\\\\Lib\\\\site-packages', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\windows-delivery\\\\全新安装目录\\\\launcher']\n",
+      "previous_user_files": 3,
+      "shortcuts": {
+        "desktop": "C:\\Users\\huang\\Desktop",
+        "links": [
+          {
+            "name": "启动言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\python\\pythonw.exe",
+            "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\launcher\\launch.py\""
+          },
+          {
+            "name": "停止言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\python\\pythonw.exe",
+            "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\launcher\\stop.py\" --quiet"
+          },
+          {
+            "name": "卸载言行.lnk",
+            "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\windows-delivery\\全新安装目录\\uninstall.exe",
+            "args": ""
+          }
+        ]
+      }
+    },
+    "uninstall": {
+      "passed": true,
+      "retained_user_files": 4
+    }
+  },
+  "shortcuts": {
+    "OriginalOtherCount": 18,
+    "OriginalOtherUnchanged": true,
+    "OtherExists": true,
+    "RootShortcut": false,
+    "AppShortcutsLeft": 0
+  },
+  "source_payload_match": {
+    "executor": "Codex",
+    "passed": true,
+    "matched_source_files": 81,
+    "files": [
+      ".streamlit/config.toml",
+      "agent/__init__.py",
+      "agent/controller.py",
+      "agent/demo_gateway.py",
+      "agent/intent.py",
+      "agent/model_bank.py",
+      "agent/model_client.py",
+      "agent/model_credentials.py",
+      "agent/model_dialogue.py",
+      "agent/model_providers.py",
+      "agent/model_runtime.py",
+      "agent/model_safety.py",
+      "agent/routing.py",
+      "app/__init__.py",
+      "app/auth_ui.py",
+      "app/background_panel.py",
+      "app/demo.py",
+      "app/home_view.py",
+      "app/lifecycle_panel.py",
+      "app/main.py",
+      "app/merchant_schedule_panel.py",
+      "app/model_bank_panel.py",
+      "app/model_settings.py",
+      "app/model_view.py",
+      "app/onboarding.py",
+      "app/pages/0_AI银行助手.py",
+      "app/pages/1_资料账单.py",
+      "app/pages/2_产品对比.py",
+      "app/pages/3_卡片管理.py",
+      "app/pages/4_AA收款.py",
+      "app/pages/5_订阅管理.py",
+      "app/pages/6_定时转账.py",
+      "app/pages/7_预算管理.py",
+      "app/pages/8_生日与商户.py",
+      "app/pages/9_理财.py",
+      "app/pending_view.py",
+      "app/phone_acceptance.py",
+      "app/routing_panel.py",
+      "app/ui.py",
+      "app/workflow.py",
+      "bank/__init__.py",
+      "bank/auth.py",
+      "bank/background.py",
+      "bank/birthday.py",
+      "bank/budget.py",
+      "bank/first_run.py",
+      "bank/gateway.py",
+      "bank/lifecycle.py",
+      "bank/member_workflows.py",
+      "bank/merchant.py",
+      "bank/merchant_scheduler.py",
+      "bank/plan_store.py",
+      "bank/scheduler.py",
+      "bank/seed.py",
+      "bank/services.py",
+      "bank/store.py",
+      "bank/subscription_charge.py",
+      "bank/transfer.py",
+      "bank/wealth.py",
+      "bank/worker.py",
+      "billing/__init__.py",
+      "card/__init__.py",
+      "material_check/__init__.py",
+      "material_check/__main__.py",
+      "material_check/approved.py",
+      "material_check/checks.py",
+      "material_check/reader.py",
+      "material_check/reconcile.py",
+      "material_check/report.py",
+      "materials/reviewed/2026-10-16/账单数据与手算_C_V1.3_复核修订.xlsx",
+      "materials/reviewed/2026-10-16/资金规则与功能复核_B_V1.2_复核修订.xlsx",
+      "scenario/__init__.py",
+      "shared/__init__.py",
+      "shared/adapters.py",
+      "shared/contracts.py",
+      "shared/policy.py",
+      "shared/services.py",
+      "subscription/__init__.py",
+      "wealth/__init__.py",
+      "wealth/catalog.py",
+      "wealth/questionnaire.py"
+    ],
+    "installer_sha256": "d47c7e9ce534f5ee4b7fe8a585d2a5eadebb018bdbcac064f86604ca725eb923",
+    "source_tree_sha256": "f72af1d1da27059acc9a96f4ea7eb3caf2393eef57b2b179a85f91c38191e026"
+  },
+  "unmodified_delivery_install": true,
+  "personal_phone": "pending",
+  "second_provider_live": "pending configuration",
+  "ppt_video": "paused by user",
+  "installer_signed": false,
+  "notes": "Final runtime templates and all 81 application/resource files are content-bound to the delivered manifest. Earlier failures retained separately."
+}

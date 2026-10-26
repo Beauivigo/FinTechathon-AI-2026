@@ -1,0 +1,10 @@
+{
+  "executor": "Codex independent acceptance",
+  "command": "python -B -X utf8 independent_cases.py",
+  "exit_code": 0,
+  "seconds": 18.3,
+  "real_dependencies": true,
+  "temporary_accounts_only": true,
+  "user_phone_acceptance": false,
+  "test_source_sha256": "d0b37c4f0a80dc305c6e78184a9e0e38382d6a1b34211c28eeff19b3d9d740f3"
+}
