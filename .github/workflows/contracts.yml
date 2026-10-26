@@ -11,9 +11,6 @@ jobs:
     runs-on: windows-latest
     env:
       PYTHONUTF8: '1'
-      # Avoid runneradmin's 8.3 TEMP alias; keep strict path/link checks intact.
-      TEMP: ${{ runner.temp }}
-      TMP: ${{ runner.temp }}
     strategy:
       fail-fast: false
       matrix:
@@ -23,6 +20,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Use canonical runner temporary directory
+        run: |
+          if (-not (Test-Path -LiteralPath $env:RUNNER_TEMP)) { throw 'Runner temporary directory is unavailable' }
+          "TEMP=$env:RUNNER_TEMP" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "TMP=$env:RUNNER_TEMP" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Install page dependency
         run: python -m pip install -r requirements-app.txt -r requirements-materials.txt
       - name: Require page test dependency
@@ -34,8 +36,9 @@ jobs:
         run: python -m unittest win_installer.test_installer win_installer.test_runtime_paths -v
       - name: Run integration example
         run: python -X utf8 -m examples.contract_demo
-      - name: Run persistent gateway and funds examples
-        run: |
-          python -X utf8 -m examples.gateway_demo
-          python -X utf8 -m examples.funds_demo
-          python -X utf8 -m examples.billing_demo
+      - name: Run persistent gateway example
+        run: python -X utf8 -m examples.gateway_demo
+      - name: Run funds example
+        run: python -X utf8 -m examples.funds_demo
+      - name: Run billing example
+        run: python -X utf8 -m examples.billing_demo

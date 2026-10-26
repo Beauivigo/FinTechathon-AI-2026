@@ -16,5 +16,12 @@
     "failures": 1,
     "cause": "Runner TEMP uses RUNNER~1 alias, conflicting with strict path checks",
     "correction": "Set TEMP and TMP to runner.temp outside the project; production path guards and test assertions unchanged"
+  },
+  "context_scope_correction": {
+    "commit": "b65a8e4d7d5b6843345aca9d05c01ca3fc574ae2",
+    "workflow": 40322833900,
+    "cause": "runner context is unavailable in jobs.env",
+    "correction": "Read RUNNER_TEMP in a run step and write TEMP/TMP through GITHUB_ENV",
+    "reference": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability"
   }
 }

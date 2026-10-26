@@ -1,0 +1,39 @@
+{
+  "material_version": "v0.4",
+  "executor": "Codex",
+  "scope": "Authorized closeout 1-4; user phone pending; item5 deferred",
+  "source_baseline": "285c90c6014158b85d8323788945b085d1991192",
+  "source_manifest": "docs/evidence/closeout-1234-20261026/combined-source.json",
+  "offline_report": "docs/evidence/closeout-1234-20261026/combined-final-r2/full.json",
+  "online_report": "docs/evidence/closeout-1234-20261026/2026-10-26-closeout-independent-live.json",
+  "online_groups": 11,
+  "online_requests": 11,
+  "online_budget_limit": 20,
+  "word_documents": [
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.4.docx",
+      "sha256": "4e5a06ad916e094ad43c3d18e153691defa5cc7bc82e52bff3e27ac748505815"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.4.docx",
+      "sha256": "5627c0560e5cc26d8224424270bea5e65f85e470761c39e2893054f8a24a645a"
+    }
+  ],
+  "word_originals_preserved": true,
+  "word_pages_visually_checked": 19,
+  "renderer": "Microsoft Word 15.0 read-only PDF export + bundled pdfium rasterization; packaged render_docx attempted and unavailable without LibreOffice",
+  "phone_personal": "pending",
+  "other_providers_online": "not tested",
+  "item5": "deferred by user",
+  "offline_tests": 635,
+  "clean_start_checks": 5,
+  "links_checked": 261,
+  "missing_links": [],
+  "current_main_source_match": true,
+  "release_supplement": {
+    "version": "1.0.0",
+    "report": "docs/2026-10-26安装包与GitHub发布验收.md",
+    "evidence": "docs/evidence/installer-20261026/final-check.json",
+    "word_scope": "v0.4 body-repair snapshot retained; installation status in supplement"
+  }
+}
