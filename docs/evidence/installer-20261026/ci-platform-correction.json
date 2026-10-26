@@ -1,0 +1,12 @@
+{
+  "executor": "Codex final release acceptance",
+  "failed_commit": "d8ac0f4fa5eb1c13f98fad012240c8d2c40b07c9",
+  "failed_workflow": 40319839561,
+  "failed_runner": "ubuntu-latest",
+  "project_tests": 645,
+  "errors": 4,
+  "failures": 2,
+  "cause": "Windows-only DPAPI credential tests were executed on Linux",
+  "correction": "Run unchanged assertions on windows-latest, preserve 3.10/3.12 coverage, add 3.14 and installer tooling checks; no production crypto downgrade",
+  "runtime_payload_unchanged": true
+}

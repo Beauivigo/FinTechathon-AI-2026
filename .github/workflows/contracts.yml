@@ -7,10 +7,14 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Native credential encryption is intentionally backed by Windows DPAPI.
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: '1'
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ['3.10', '3.12']
+        python-version: ['3.10', '3.12', '3.14']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,6 +26,9 @@ jobs:
         run: python -c "from streamlit.testing.v1 import AppTest"
       - name: Validate contracts, examples and page interactions
         run: python -m unittest discover -s tests -v
+      - name: Validate Windows installer tooling
+        if: matrix.python-version != '3.10'
+        run: python -m unittest win_installer.test_installer win_installer.test_runtime_paths -v
       - name: Run integration example
         run: python -X utf8 -m examples.contract_demo
       - name: Run persistent gateway and funds examples
