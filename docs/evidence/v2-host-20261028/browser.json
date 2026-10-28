@@ -1,0 +1,909 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "blocks": [
+        {
+          "key": "st-key-vx-auth-entry",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-motion-welcome-demo",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-motion-welcome-setup",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "home",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-home-account",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-ai-card-home-entry",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-home-services",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-home-pending",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bill-card-home-recent",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "transfer",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-transfer-form",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-ai-card-transfer-chat",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stChatMessage",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-transfer-details",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "bills",
+      "blocks": [
+        {
+          "key": "st-key-vx-bill-card-ledger-flow",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bill-card-ledger-bill",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "operations",
+      "blocks": [
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpanderDetails",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "home-return",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-home-account",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-ai-card-home-entry",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-home-services",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-home-pending",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bill-card-home-recent",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "assistant",
+      "blocks": [
+        {
+          "key": "stAlertContainer",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-ai-card-dialogue",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "accounts",
+      "blocks": [
+        {
+          "key": "st-key-vx-bill-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "accounts-populated",
+      "blocks": [
+        {
+          "key": "st-key-vx-bill-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-activity-list-bill-sample-transactions",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products-populated",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-tile-core-product_comparison_records-0",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-tile-core-product_comparison_records-1",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products-table",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stDataFrame",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products-return",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-tile-core-product_comparison_records-0",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-tile-core-product_comparison_records-1",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "cards",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bankcard-core-card_summary_records-0",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bankcard-core-card_summary_records-1",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-bankcard-core-card_summary_records-2",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "aa",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "subscriptions",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "scheduled",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "budget",
+      "blocks": [
+        {
+          "key": "st-key-vx-bill-card-main",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stForm",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "merchant",
+      "blocks": [
+        {
+          "key": "stForm",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "wealth",
+      "blocks": [
+        {
+          "key": "stMetric",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stMetric",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpanderDetails",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-wealth-trade",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-wealth-holdings",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stAlertContainer",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-wealth-receipt",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "mine",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-security",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-settings",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "transfer-390",
+      "blocks": [
+        {
+          "key": "st-key-vx-core-card-transfer-form",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-ai-card-transfer-chat",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stChatMessage",
+          "name": "vx-reveal",
+          "duration": "0.34s"
+        },
+        {
+          "key": "st-key-vx-core-card-transfer-details",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        },
+        {
+          "key": "stExpander",
+          "name": "vx-arrive",
+          "duration": "0.34s"
+        }
+      ],
+      "missing": [],
+      "overflow": false,
+      "exceptions": 0,
+      "passed": true
+    }
+  ],
+  "navigation": [
+    {
+      "name": "home",
+      "selected": [
+        "st-key-ui_menu_home"
+      ],
+      "expected": "st-key-ui_menu_home",
+      "passed": true
+    },
+    {
+      "name": "transfer",
+      "selected": [
+        "st-key-ui_menu_home"
+      ],
+      "expected": "st-key-ui_menu_home",
+      "passed": true
+    },
+    {
+      "name": "bills",
+      "selected": [
+        "st-key-ui_menu_home"
+      ],
+      "expected": "st-key-ui_menu_home",
+      "passed": true
+    },
+    {
+      "name": "operations",
+      "selected": [
+        "st-key-ui_menu_home"
+      ],
+      "expected": "st-key-ui_menu_home",
+      "passed": true
+    },
+    {
+      "name": "home-return",
+      "selected": [
+        "st-key-ui_menu_home"
+      ],
+      "expected": "st-key-ui_menu_home",
+      "passed": true
+    },
+    {
+      "name": "assistant",
+      "selected": [
+        "st-key-ui_menu_assistant"
+      ],
+      "expected": "st-key-ui_menu_assistant",
+      "passed": true
+    },
+    {
+      "name": "accounts",
+      "selected": [
+        "st-key-ui_menu_accounts"
+      ],
+      "expected": "st-key-ui_menu_accounts",
+      "passed": true
+    },
+    {
+      "name": "products",
+      "selected": [
+        "st-key-ui_menu_products"
+      ],
+      "expected": "st-key-ui_menu_products",
+      "passed": true
+    },
+    {
+      "name": "cards",
+      "selected": [
+        "st-key-ui_menu_cards"
+      ],
+      "expected": "st-key-ui_menu_cards",
+      "passed": true
+    },
+    {
+      "name": "aa",
+      "selected": [
+        "st-key-ui_menu_aa"
+      ],
+      "expected": "st-key-ui_menu_aa",
+      "passed": true
+    },
+    {
+      "name": "subscriptions",
+      "selected": [
+        "st-key-ui_menu_subscriptions"
+      ],
+      "expected": "st-key-ui_menu_subscriptions",
+      "passed": true
+    },
+    {
+      "name": "scheduled",
+      "selected": [
+        "st-key-ui_menu_scheduled"
+      ],
+      "expected": "st-key-ui_menu_scheduled",
+      "passed": true
+    },
+    {
+      "name": "budget",
+      "selected": [
+        "st-key-ui_menu_budget"
+      ],
+      "expected": "st-key-ui_menu_budget",
+      "passed": true
+    },
+    {
+      "name": "merchant",
+      "selected": [
+        "st-key-ui_menu_merchant"
+      ],
+      "expected": "st-key-ui_menu_merchant",
+      "passed": true
+    },
+    {
+      "name": "wealth",
+      "selected": [
+        "st-key-ui_menu_wealth"
+      ],
+      "expected": "st-key-ui_menu_wealth",
+      "passed": true
+    },
+    {
+      "name": "mine",
+      "selected": [
+        "st-key-ui_menu_mine"
+      ],
+      "expected": "st-key-ui_menu_mine",
+      "passed": true
+    }
+  ],
+  "replay": [
+    {
+      "name": "transfer-return",
+      "before": 2,
+      "after": 3,
+      "hiddenName": "none",
+      "passed": true
+    },
+    {
+      "name": "expander-reopen",
+      "before": 2,
+      "after": 3,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "realHttpBlocked": true,
+  "financialWrites": false,
+  "reduced": [
+    {
+      "duration": "1e-06s"
+    },
+    {
+      "duration": "1e-06s"
+    },
+    {
+      "duration": "1e-06s"
+    },
+    {
+      "duration": "1e-06s"
+    },
+    {
+      "duration": "1e-06s"
+    }
+  ],
+  "reducedPassed": true,
+  "passed": true
+}

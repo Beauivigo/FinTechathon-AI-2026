@@ -1,82 +1,24 @@
 {
-  "material_version": "v0.5",
-  "checked_at_utc": "2026-10-26T12:30:15.784214+00:00",
+  "material_version": "v0.6",
+  "checked_at_utc": "2026-10-28T12:20:08.783990+00:00",
   "executor": "Codex",
-  "scope": "Local competition materials and OOXML refresh only; no new business/model/installer tests",
-  "source_baseline": "66e4c762d30d4a0019e869667ef65ebc738516c8",
-  "head_at_verification": "b65a8e4d7d5b6843345aca9d05c01ca3fc574ae2",
-  "application_source_comparison": {
-    "files": 81,
-    "normalized_CRLF_LF": true,
-    "mismatches": [],
-    "passed": true
-  },
-  "offline_evidence": {
-    "installer_report": "docs/evidence/installer-20261026/final-check.json",
-    "project_tests": 658,
-    "installer_tests": 13,
-    "pending_report": "docs/evidence/pending-ui-20261026/final-check.json",
-    "pending_regression": 658,
-    "counts_not_added": true
-  },
-  "online_evidence": {
-    "closeout_groups": 11,
-    "closeout_requests": 11,
-    "pending_total_requests": 18,
-    "pending_final_revision_requests": 5,
-    "pending_final_revision_groups": 3,
-    "original_revisions_retained": true,
-    "no_new_calls_this_material_update": true
-  },
-  "installer_update": {
-    "status": "completed",
-    "basis": "User confirmed this turn",
-    "latest_build_delivery": "preparing",
-    "existing_independently_tested_version": "1.0.0",
-    "new_build_version_hash_acceptance": "Use final delivery record; do not inherit old installer hash"
-  },
-  "word_documents": [
-    {
-      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.5.docx",
-      "source": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.4.docx",
-      "source_sha256": "4e5a06ad916e094ad43c3d18e153691defa5cc7bc82e52bff3e27ac748505815",
-      "sha256": "e1eab6a2d1e6b04a5d4d0af9c837f85fffa8b9189c88dd2918c740b0d741dee6",
-      "changed_parts": [
-        "word/document.xml",
-        "word/header1.xml"
-      ],
-      "original_preserved": true
-    },
-    {
-      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.5.docx",
-      "source": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.4.docx",
-      "source_sha256": "5627c0560e5cc26d8224424270bea5e65f85e470761c39e2893054f8a24a645a",
-      "sha256": "222f9a9a10ff61852a52ea62dfff5fa9f09f0ede17697c40c855a53591e79566",
-      "changed_parts": [
-        "word/document.xml",
-        "word/header1.xml"
-      ],
-      "original_preserved": true
-    }
-  ],
-  "word_originals_preserved": true,
-  "renderer": "Microsoft Word 15.0 read-only PDF export + bundled PDFium; packaged renderer missing LibreOffice",
-  "word_pages_visually_checked": 19,
-  "visual_report": "docs/evidence/material-refresh-20261026/visual-check.json",
-  "introduction_characters": 168,
-  "introduction_limit": 200,
-  "links_checked": 56,
-  "missing_links": [],
-  "phone_personal": "pending",
-  "other_providers_online": "not newly tested",
-  "ppt_video": "paused by user",
-  "local_only": true,
-  "previous_material_record": "docs/evidence/material-refresh-20261026/previous-material-record-v0.4.json",
-  "material_sha256": {
+  "base": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+  "files": {
+    "docs/参赛材料/README.md": "3eb6df18928473d7200435d9f025e88e58efca2f507434a978aaf6bef8168c0f",
     "docs/参赛材料/01-作品简介.md": "78758df82d2df92eee60b4bdc3ac53deef26e8cf2f04c21616967b6f84ae3364",
-    "docs/参赛材料/02-技术文档.md": "9afed67ba91321d1bf9cce77be3771ac0f22a16c15850c53ac9932c57662fef1",
-    "docs/参赛材料/06-安全自评报告.md": "bca68e051f6e8ef593002abf77e439bed6ac3f8f8e5cb0d342f07483a52c6991",
-    "docs/参赛材料/07-安装发布补充说明.md": "bf63ca9f62c9427d0de6c382c46df1f8c70ab7b5a2354ba5a3090885f6b8872f",
-    "docs/参赛材料/README.md": "0e3949d7f3f644aa2bc26f3c90af3a05d687a426ed5ad3744825d1c51e49c941"
-  }
+    "docs/参赛材料/02-技术文档.md": "c26eb715b879e6c566ce4c6e3c9f12407db4db3e22116962878e0b1da06f7917",
+    "docs/参赛材料/06-安全自评报告.md": "cbeba1006ecb42b4078054de7da789ff8a86858708d2043199952d54d57ab4a8",
+    "docs/参赛材料/07-安装发布补充说明.md": "7ac181fe7336e664ece8996e03fce32014ef6de2a95eed5ef44d1e704c5d0ca2",
+    "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.6.docx": "79092fee1cc2e80247f9b1f49873723a4b480d109111a70e8b647d6562642778",
+    "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.6.docx": "1d648efd6e5e0685ecd36db0a2b8c4882b760809339979bb140b87cfd6904fb7"
+  },
+  "word_pages": {
+    "technical": 10,
+    "security": 9
+  },
+  "word_renderer": "Microsoft Word 15.0 read-only PDF export + PDFium PNG",
+  "word_pages_visually_reviewed": 19,
+  "original_v05_preserved": true,
+  "scope": "Final UX source, bounded live API, installer and local material refresh; limitations recorded",
+  "evidence": "../evidence/ux-final-implementation-20261028/acceptance.json"
 }

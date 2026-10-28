@@ -1,0 +1,65 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- generic "keyboard_arrow_right 转账示例":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账示例
+- separator
+- generic "keyboard_arrow_right 账户设置":
+  - generic: keyboard_arrow_right
+  - paragraph: 账户设置
+- separator
+- generic "keyboard_arrow_right 后台任务与通知":
+  - generic: keyboard_arrow_right
+  - paragraph: 后台任务与通知
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- tablist:
+  - tab "首页":
+    - paragraph: 首页
+  - tab "转账与收款":
+    - paragraph: 转账与收款
+  - tab "收支明细":
+    - paragraph: 收支明细
+  - tab "操作记录" [active] [selected]:
+    - paragraph: 操作记录
+- tabpanel "操作记录":
+  - heading "操作记录" [level=1]:
+    - text: 操作记录
+    - link "Link to heading":
+      - /url: "#2e58c4c6"
+  - generic "keyboard_arrow_down 恢复待处理操作 / 查看历史":
+    - generic: keyboard_arrow_down
+    - paragraph: 恢复待处理操作 / 查看历史
+  - paragraph: 卡片、AA、订阅和定时登记可在“首页”的“待处理操作”或侧栏对应页面恢复。
+  - paragraph: 暂无历史操作。

@@ -48,7 +48,7 @@ def render_router(*, blocked=False):
     st.subheader('需求入口')
     st.caption('离线规则识别，仅支持有限表达；结果只是草稿，不会自动执行。')
     if blocked:
-        st.warning('请先在“账户首页”的“待处理操作”中恢复并确认、拒绝或查询；“操作记录”只看转账原操作，未知结果必须先核实。')
+        st.warning('存在待处理或待核实的原操作：请先在“首页”的“待处理操作”中确认、取消或查询；“操作记录”只看转账原操作，未知结果必须先核实。')
     text = st.text_input('请描述你的需求', key='router_input', max_chars=200, disabled=blocked)
     identify_clicked = st.button('识别或补充需求', key='router_identify', disabled=blocked)
     clear_clicked = st.button('清除未执行草稿', key='router_clear', disabled=blocked)

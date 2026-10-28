@@ -3,7 +3,7 @@ from datetime import date, time
 from pathlib import Path
 import os
 import unittest
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 ROOT=Path(__file__).resolve().parents[1]
 PANEL=Path(os.environ.get('MERCHANT_PANEL_UNDER_TEST',ROOT/'app/merchant_schedule_panel.py'))

@@ -3,7 +3,7 @@ from datetime import timedelta
 from pathlib import Path
 from unittest.mock import patch
 import unittest
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest, fill_manual_birthday
 from bank.merchant_scheduler import MerchantScheduler
 from tests import test_merchant as helpers
 
@@ -24,6 +24,7 @@ class MerchantSchedulePageTests(unittest.TestCase):
         mock=patch('app.demo.gateway',return_value=self.g);mock.start();self.addCleanup(mock.stop)
         p=AppTest.from_file(str(ROOT/'app/pages/8_生日与商户.py'),default_timeout=15).run()
         self.assertFalse(p.exception)
+        fill_manual_birthday(p)
         return p
 
     def click(self,p,key):

@@ -255,6 +255,84 @@ class PayloadTests(unittest.TestCase):
                 bi.read_requirements(root)
 
 
+REPO_ROOT = Path(bi.__file__).resolve().parents[1]
+
+
+class ReleaseVersionTests(unittest.TestCase):
+    """v2.0.0 交付入口一致性：版本、版本说明与发布载荷排除项。"""
+
+    def test_release_version_is_2_0_0_everywhere_users_look(self):
+        self.assertEqual(bi.PRODUCT_VERSION, '2.0.0')
+        expected = {
+            'README.md': ['2.0.0', '言行-2.0.0-x64-setup.exe'],
+            'win_installer/README.md': ['2.0.0', 'dist/yanxing-v2.0.0'],
+            'win_installer/payload_docs/使用说明.txt': ['言行 2.0.0'],
+            'win_installer/payload_docs/版本与升级说明.txt': ['言行 2.0.0'],
+            'docs/2026-10-28言行v2.0.0发布说明.md': ['2.0.0'],
+            'docs/U1-U5程序内使用说明.md': ['2.0.0'],
+        }
+        for relative, needles in expected.items():
+            path = REPO_ROOT / relative
+            self.assertTrue(path.is_file(), relative)
+            text = path.read_text(encoding='utf-8')
+            for needle in needles:
+                self.assertIn(needle, text, '%s 缺少 %r' % (relative, needle))
+
+    def test_historical_reports_keep_their_original_version_labels(self):
+        for relative, needle in (
+                ('docs/2026-10-26安装包与GitHub发布验收.md', '1.0.0'),
+                ('docs/2026-10-28全项目体验最终验收.md', '1.0.1'),
+                ('docs/参赛材料/07-安装发布补充说明.md', '1.0.1')):
+            text = (REPO_ROOT / relative).read_text(encoding='utf-8')
+            self.assertIn(needle, text, relative)
+            self.assertIn('历史', text, relative)
+
+    def test_payload_never_ships_harness_probes_dev_data_or_git_pointer(self):
+        entries = bi.source_payload(REPO_ROOT)
+        paths = {row['path'] for row in entries}
+        self.assertIn('app/main.py', paths)
+        self.assertIn('app/visual.py', paths)
+        self.assertIn('.streamlit/config.toml', paths)
+        self.assertIn('materials/reviewed/2026-10-16/账单数据与手算_C_V1.3_复核修订.xlsx', paths)
+        self.assertIn('materials/reviewed/2026-10-16/资金规则与功能复核_B_V1.2_复核修订.xlsx', paths)
+        for forbidden in ('_vx_test_runner.py', '_vx_apptest_probe.py', '_vx_scratch_probe.py',
+                          '.git', 'README.md', 'launcher.py', '启动银行助手.py',
+                          '启动A演示.ps1', 'requirements-app.txt',
+                          'win_installer/build_installer.py', 'local_reports/five-step-acceptance.json'):
+            self.assertNotIn(forbidden, paths, forbidden)
+        for prefix in ('tests/', 'docs/', 'runtime/', '.cache/', 'local_reports/',
+                       'dist/', 'examples/', 'win_installer/'):
+            self.assertFalse([row for row in paths if row.startswith(prefix)], prefix)
+        self.assertIn('material_check/approved.py', paths)
+
+    def test_probe_and_secret_fixtures_are_excluded_even_if_present(self):
+        # `.git` 在 git worktree 中是文本指针；沙盒禁止在临时目录创建该名字，
+        # 因此对常量做静态断言，并用真实前缀命名的探针验证同一分支。
+        self.assertIn('.git', bi.EXCLUDED_ROOT_PREFIXES)
+        with TemporaryDirectory() as td:
+            root = fixture_source(Path(td))
+            write(root / '_vx_test_runner.py', 'print(1)')
+            write(root / '_vx_probe.py', 'print(1)')
+            write(root / '.streamlit/secrets.toml', 'not-a-real-secret')
+            entries = bi.source_payload(root)
+            paths = {row['path'] for row in entries}
+            for excluded in ('_vx_test_runner.py', '_vx_probe.py', '.streamlit/secrets.toml'):
+                self.assertNotIn(excluded, paths)
+
+    def test_license_page_states_current_version_and_upgrade_data_rule(self):
+        with TemporaryDirectory() as td:
+            root = Path(td)
+            python_license = root / 'LICENSE.txt'
+            python_license.write_text('PSF licence', encoding='utf-8')
+            result = dict(packages=[], files=[], notices='third-party notices')
+            bi._license_page(root, result, python_license, version=bi.PRODUCT_VERSION)
+            text = (root / '许可与第三方说明.txt').read_text(encoding='utf-8')
+            self.assertIn('言行 2.0.0', text)
+            self.assertNotIn('言行 1.0.0', text)
+            self.assertIn('%LOCALAPPDATA%', text)
+            self.assertIn('保留账号', text)
+
+
 def __codex_acceptance__():
     suite = unittest.TestSuite()
     seen = set()

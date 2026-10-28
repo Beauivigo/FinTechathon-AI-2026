@@ -1,0 +1,76 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_down 生活管理":
+  - generic: keyboard_arrow_down
+  - paragraph: 生活管理
+- button "subscriptions 订阅管理":
+  - generic: subscriptions
+  - paragraph: 订阅管理
+- button "account_balance_wallet 预算管理":
+  - generic: account_balance_wallet
+  - paragraph: 预算管理
+- button "storefront 生日计划":
+  - generic: storefront
+  - paragraph: 生日计划
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "预算预留与释放" [level=1]:
+  - text: 预算预留与释放
+  - link "Link to heading":
+    - /url: "#f23b60e4"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- status:
+  - paragraph: 预留不付款，释放不产生退款流水；未知订单对应金额继续保留。
+- paragraph: 预留账户
+- combobox "预留账户": 模拟日常账户
+- button "Open":
+- paragraph: 预留金额（元，最多两位小数）
+- button "Help for 预留金额（元，最多两位小数）":
+- textbox "预留金额（元，最多两位小数）":
+  - /placeholder: ""
+- paragraph: 用途
+- textbox "用途":
+  - /placeholder: ""
+- paragraph: 请填写用途和元金额；确认后减少可用余额，账面余额不变，未发生付款。
+- button "核对并预留预算":
+  - paragraph: 核对并预留预算
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作

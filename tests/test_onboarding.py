@@ -74,7 +74,7 @@ class GuidePageTests(unittest.TestCase):
         before = self.bank_state(flow)
         request, result = deepcopy(flow.request), deepcopy(flow.result)
         page.button(key='ui_menu_home').click().run()
-        self.assertEqual(page.session_state['home_workspace'], '账户首页')
+        self.assertEqual(page.session_state['home_workspace'], '首页')
         for key in ('bank_guide_skip', 'bank_guide_open', 'bank_guide_topic_bills',
                     'bank_guide_close', 'bank_guide_open'):
             page.button(key=key).click().run()
@@ -84,7 +84,7 @@ class GuidePageTests(unittest.TestCase):
             self.assertEqual(self.bank_state(flow), before)
 
     def test_guided_destination_navigates_without_executing_business(self):
-        for topic, destination in (('account', '账户首页'), ('transfer', '转账汇款'), ('bills', '账单流水')):
+        for topic, destination in (('account', '首页'), ('transfer', '转账与收款'), ('bills', '收支明细')):
             with self.subTest(topic=topic):
                 page = self.page()
                 flow = page.session_state['conversation']
@@ -111,7 +111,7 @@ class GuidePageTests(unittest.TestCase):
             raise TimeoutError('Test lost reply after commit')
 
         flow.gateway.authorize = lost_reply
-        next(item for item in page.button if item.label == '确认此笔模拟转账').click().run()
+        page.button(key='transfer_approve').click().run()
         self.assertEqual(flow.result['status'], 'unknown')
         before, request = self.bank_state(flow), deepcopy(flow.request)
         page.button(key='ui_menu_home').click().run()
@@ -123,17 +123,22 @@ class GuidePageTests(unittest.TestCase):
             self.assertEqual(flow.result['status'], 'unknown')
             self.assertTrue(page.chat_input[0].disabled)
             self.assertEqual(self.bank_state(flow), before)
-        page.button(key='ui_menu_transfer').click().run()
+        page.button(key='home_service_transfer').click().run()
         next(item for item in page.button if item.label == '查询原操作结果').click().run()
         self.assertEqual(flow.result['status'], 'succeeded')
         self.assertEqual(len(self.bank_state(flow)['transfers']), 1)
 
-    def test_sidebar_view_shortcuts_and_ai_entry_only_navigate(self):
+    def test_home_view_shortcuts_and_ai_entry_only_navigate(self):
         page = self.page()
         flow = page.session_state['conversation']
         before = self.bank_state(flow)
-        for key, tab in (('transfer', '转账汇款'), ('bills', '账单流水'), ('home', '账户首页')):
-            page.button(key='ui_menu_' + key).click().run()
+        for key, tab in (('transfer', '转账与收款'), ('bills', '收支明细'), ('home', '首页')):
+            if key == 'home':
+                page.button(key='ui_menu_home').click().run()
+            else:
+                if page.session_state['home_workspace'] != '首页':
+                    page.button(key='ui_menu_home').click().run()
+                page.button(key='home_service_' + key).click().run()
             self.assertFalse(page.exception)
             self.assertEqual(page.session_state['home_workspace'], tab)
             self.assertEqual(self.bank_state(flow), before)
@@ -142,7 +147,7 @@ class GuidePageTests(unittest.TestCase):
         self.assertIn('AI银行助手', [item.value for item in page.title])
         self.assertEqual(self.bank_state(flow), before)
         page.button(key='ui_menu_home').click().run()
-        self.assertEqual(page.session_state['home_workspace'], '账户首页')
+        self.assertEqual(page.session_state['home_workspace'], '首页')
         self.assertEqual(self.bank_state(flow), before)
 
 

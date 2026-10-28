@@ -1,0 +1,13 @@
+{
+  "executor": "Codex CUA browser check",
+  "scope": "Independent localhost preview; one fictional 1200 CNY transfer; no real bank, model or phone action",
+  "cold_restart_recovery": true,
+  "transfer_count": 1,
+  "total_minor": 120000,
+  "level": "red",
+  "method": "demo_otp",
+  "status": "succeeded",
+  "proof": "browser-red-success.png",
+  "screenshot_sha256": "5ed948424c35c0a387957f468ab56f131bb20a307cddab89aa1d58ee9750589a",
+  "external_http_blocked": true
+}

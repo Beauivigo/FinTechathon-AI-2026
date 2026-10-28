@@ -1,0 +1,203 @@
+{
+  "scope": "current uncommitted source; isolated synthetic bank only",
+  "real_http_blocked": true,
+  "checks": [
+    {
+      "name": "birthday-manual-pending-return",
+      "before": {
+        "exception_count": 0,
+        "buttons": [
+          "app_nav_home",
+          "birthday_review",
+          "birthday_save_workflow",
+          "birthday_edit",
+          "birthday_plan",
+          "birthday_reserve",
+          "msp_confirm",
+          "msp_create",
+          "action_recover",
+          "action_approve",
+          "action_reject",
+          "action_query",
+          "demo_to_setup",
+          "ui_menu_home",
+          "ui_menu_transfer",
+          "ui_menu_bills",
+          "ui_menu_wealth",
+          "ui_menu_mine",
+          "ui_menu_assistant",
+          "ui_menu_cards",
+          "ui_menu_accounts",
+          "ui_menu_aa",
+          "ui_menu_scheduled",
+          "ui_menu_subscriptions",
+          "ui_menu_budget",
+          "ui_menu_merchant",
+          "ui_menu_products"
+        ],
+        "title": [
+          "生日计划"
+        ],
+        "warnings": [
+          "登记已暂停（blocked）；已有任务的查看、取消和恢复仍可用。"
+        ],
+        "pending_status": "awaiting_confirmation",
+        "approve_present": true
+      },
+      "after": {
+        "exception_count": 0,
+        "buttons": [
+          "app_nav_home",
+          "birthday_review",
+          "birthday_save_workflow",
+          "birthday_edit",
+          "demo_to_setup",
+          "ui_menu_home",
+          "ui_menu_transfer",
+          "ui_menu_bills",
+          "ui_menu_wealth",
+          "ui_menu_mine",
+          "ui_menu_assistant",
+          "ui_menu_cards",
+          "ui_menu_accounts",
+          "ui_menu_aa",
+          "ui_menu_scheduled",
+          "ui_menu_subscriptions",
+          "ui_menu_budget",
+          "ui_menu_merchant",
+          "ui_menu_products"
+        ],
+        "title": [
+          "生日计划"
+        ],
+        "warnings": [],
+        "pending_status": "awaiting_confirmation",
+        "approve_present": false,
+        "birthday_input_empty": true,
+        "address_input_empty": true,
+        "pending_view_present": false,
+        "reservation_count": 0,
+        "saved_plan_count": 0
+      },
+      "issue_reproduced": true
+    },
+    {
+      "name": "subscription-list-after-review",
+      "before": {
+        "exception_count": 0,
+        "buttons": [
+          "app_nav_home",
+          "subscription_scan",
+          "subscription_list",
+          "subscription_review",
+          "subscription_cancel",
+          "subscription_charge",
+          "subscription_remind",
+          "subscription_check_reminders",
+          "action_recover",
+          "action_query",
+          "demo_to_setup",
+          "ui_menu_home",
+          "ui_menu_transfer",
+          "ui_menu_bills",
+          "ui_menu_wealth",
+          "ui_menu_mine",
+          "ui_menu_assistant",
+          "ui_menu_cards",
+          "ui_menu_accounts",
+          "ui_menu_aa",
+          "ui_menu_scheduled",
+          "ui_menu_subscriptions",
+          "ui_menu_budget",
+          "ui_menu_merchant",
+          "ui_menu_products"
+        ],
+        "title": [
+          "订阅管理"
+        ],
+        "warnings": [],
+        "subscription_table_count": 1,
+        "review_present": true,
+        "cancel_present": true
+      },
+      "pending": {
+        "exception_count": 0,
+        "buttons": [
+          "app_nav_home",
+          "subscription_scan",
+          "subscription_list",
+          "subscription_check_reminders",
+          "action_recover",
+          "action_approve",
+          "action_reject",
+          "action_query",
+          "demo_to_setup",
+          "ui_menu_home",
+          "ui_menu_transfer",
+          "ui_menu_bills",
+          "ui_menu_wealth",
+          "ui_menu_mine",
+          "ui_menu_assistant",
+          "ui_menu_cards",
+          "ui_menu_accounts",
+          "ui_menu_aa",
+          "ui_menu_scheduled",
+          "ui_menu_subscriptions",
+          "ui_menu_budget",
+          "ui_menu_merchant",
+          "ui_menu_products"
+        ],
+        "title": [
+          "订阅管理"
+        ],
+        "warnings": [],
+        "pending_status": "awaiting_confirmation",
+        "subscription_table_count": 0,
+        "review_present": false,
+        "cancel_present": false
+      },
+      "after": {
+        "exception_count": 0,
+        "buttons": [
+          "app_nav_home",
+          "subscription_scan",
+          "subscription_list",
+          "subscription_check_reminders",
+          "action_recover",
+          "action_query",
+          "demo_to_setup",
+          "ui_menu_home",
+          "ui_menu_transfer",
+          "ui_menu_bills",
+          "ui_menu_wealth",
+          "ui_menu_mine",
+          "ui_menu_assistant",
+          "ui_menu_cards",
+          "ui_menu_accounts",
+          "ui_menu_aa",
+          "ui_menu_scheduled",
+          "ui_menu_subscriptions",
+          "ui_menu_budget",
+          "ui_menu_merchant",
+          "ui_menu_products"
+        ],
+        "title": [
+          "订阅管理"
+        ],
+        "warnings": [],
+        "result_status": "succeeded",
+        "subscription_table_count": 0,
+        "review_present": false,
+        "cancel_present": false
+      },
+      "issue_reproduced": true
+    }
+  ],
+  "source_sha256": {
+    "app/pages/8_生日与商户.py": "f9b1f525581e59d256068388d53eab32ef1f8fa297da85751733ff4818c6ff86",
+    "app/pages/5_订阅管理.py": "2c0bbe837a64a7e89c5de8bdd8cdcdf4c40511481eb76dc9c18837eff56c0ec6",
+    "app/saved_plan_view.py": "8e21036506199904589f1177a47ac881999a2efc50908c59021bb3e3b8f8cd63",
+    "app/workflow.py": "a6fd18510ef11e77c233cd9772d0d07fc6cb31d32edfe9a4201148ad6bbb1206"
+  },
+  "completed": true
+}

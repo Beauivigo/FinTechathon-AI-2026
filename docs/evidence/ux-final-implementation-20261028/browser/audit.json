@@ -1,0 +1,130 @@
+{
+  "pages": [
+    {
+      "name": "transfer",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/"
+    },
+    {
+      "name": "aa",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/AA%E6%94%B6%E6%AC%BE"
+    },
+    {
+      "name": "schedule",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6"
+    },
+    {
+      "name": "subscriptions",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86"
+    },
+    {
+      "name": "subscriptions",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86"
+    },
+    {
+      "name": "budget",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86"
+    },
+    {
+      "name": "birthday",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7"
+    },
+    {
+      "name": "products",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94"
+    },
+    {
+      "name": "wealth",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E7%90%86%E8%B4%A2"
+    },
+    {
+      "name": "bills",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/"
+    },
+    {
+      "name": "operations",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/"
+    },
+    {
+      "name": "historical",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/%E8%B5%84%E6%96%99%E8%B4%A6%E5%8D%95"
+    },
+    {
+      "name": "ai-final",
+      "layout": {
+        "doc": 390,
+        "exception": false,
+        "width": 390
+      },
+      "url": "http://127.0.0.1:8577/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B"
+    }
+  ],
+  "keyboard": {
+    "ai_input_tab_to_send": true
+  },
+  "zoom": {
+    "requested": "200%",
+    "verified": false,
+    "reason": "In-app browser did not apply browser zoom shortcuts"
+  },
+  "scope_note": "IAB screenshots/DOM inspect business pages; phone is not exercised. Native Edge check stopped because the current URL could not be reliably determined."
+}

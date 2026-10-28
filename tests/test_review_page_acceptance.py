@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from uuid import uuid4
 import unittest
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 from agent.routing import route
 from shared import adapt_request
 

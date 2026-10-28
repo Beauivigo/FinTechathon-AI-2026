@@ -1,0 +1,996 @@
+{
+  "schema_version": 1,
+  "executor": "Codex independent read-only audit",
+  "recorded_at_utc": "2026-10-28T14:59:29.395197+00:00",
+  "run_id": "7631e138-a8dd-41d6-a3d2-3430a28f5fda",
+  "before": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\before",
+  "review_worktree": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\worktree",
+  "method": "SHA-256 byte comparison; Python AST comparison of ordered business/widget calls and their if/for/except context; presentation containers and new pure rendering helpers allowed.",
+  "backend": {
+    "checked_files": 52,
+    "all_unchanged": true,
+    "added_files": [],
+    "files": [
+      {
+        "path": "agent/__init__.py",
+        "before_sha256": "b3d6fcfaa8758553c002d1f8c4ed685ed9aeac774e5c9a9bcb8c0a38f7e12c26",
+        "current_sha256": "b3d6fcfaa8758553c002d1f8c4ed685ed9aeac774e5c9a9bcb8c0a38f7e12c26",
+        "unchanged": true
+      },
+      {
+        "path": "agent/controller.py",
+        "before_sha256": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231",
+        "current_sha256": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231",
+        "unchanged": true
+      },
+      {
+        "path": "agent/demo_gateway.py",
+        "before_sha256": "3707e34fa001948ff994e2299382bafa43bc825ea70826788ae28fc0ca64ecf8",
+        "current_sha256": "3707e34fa001948ff994e2299382bafa43bc825ea70826788ae28fc0ca64ecf8",
+        "unchanged": true
+      },
+      {
+        "path": "agent/intent.py",
+        "before_sha256": "f3013001160984584c77e3cd1d2af64d3ecf4097a9a2a612d00bce4d5064daed",
+        "current_sha256": "f3013001160984584c77e3cd1d2af64d3ecf4097a9a2a612d00bce4d5064daed",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_bank.py",
+        "before_sha256": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989",
+        "current_sha256": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_client.py",
+        "before_sha256": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607",
+        "current_sha256": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_credentials.py",
+        "before_sha256": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c",
+        "current_sha256": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_dialogue.py",
+        "before_sha256": "067a3da82b8ca0c4071b0cbe0d6ef0659ac1bae7edcaa888568c84a8388fc047",
+        "current_sha256": "067a3da82b8ca0c4071b0cbe0d6ef0659ac1bae7edcaa888568c84a8388fc047",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_providers.py",
+        "before_sha256": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32",
+        "current_sha256": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_runtime.py",
+        "before_sha256": "8655e77d2444a650c2cfbd8a48639cf89a17ca5dac5328b2b03a2cb925c6d801",
+        "current_sha256": "8655e77d2444a650c2cfbd8a48639cf89a17ca5dac5328b2b03a2cb925c6d801",
+        "unchanged": true
+      },
+      {
+        "path": "agent/model_safety.py",
+        "before_sha256": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9",
+        "current_sha256": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9",
+        "unchanged": true
+      },
+      {
+        "path": "agent/routing.py",
+        "before_sha256": "a44ccf4b766e56cfbad73d1236e49d7e2aed28f98f727086c05d009e97a80937",
+        "current_sha256": "a44ccf4b766e56cfbad73d1236e49d7e2aed28f98f727086c05d009e97a80937",
+        "unchanged": true
+      },
+      {
+        "path": "bank/__init__.py",
+        "before_sha256": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+        "current_sha256": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a",
+        "unchanged": true
+      },
+      {
+        "path": "bank/auth.py",
+        "before_sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd",
+        "current_sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd",
+        "unchanged": true
+      },
+      {
+        "path": "bank/background.py",
+        "before_sha256": "6ddd9459e27f0dbaab101985907128845a8265fae0b4208595a3f6922aa92322",
+        "current_sha256": "6ddd9459e27f0dbaab101985907128845a8265fae0b4208595a3f6922aa92322",
+        "unchanged": true
+      },
+      {
+        "path": "bank/birthday.py",
+        "before_sha256": "7448b1d0770b8cd1a053f8843ba706cf3c2bbb771ad219fe5fdc02e8beb44718",
+        "current_sha256": "7448b1d0770b8cd1a053f8843ba706cf3c2bbb771ad219fe5fdc02e8beb44718",
+        "unchanged": true
+      },
+      {
+        "path": "bank/budget.py",
+        "before_sha256": "fdb16a560f116b5ac457ec1274554b500027fa37693cea0f2778079b2c07456d",
+        "current_sha256": "fdb16a560f116b5ac457ec1274554b500027fa37693cea0f2778079b2c07456d",
+        "unchanged": true
+      },
+      {
+        "path": "bank/first_run.py",
+        "before_sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554",
+        "current_sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554",
+        "unchanged": true
+      },
+      {
+        "path": "bank/gateway.py",
+        "before_sha256": "6618692e388b04b1a1735a80116a6ffad8699f3b9868f6096b6818f1a0665164",
+        "current_sha256": "6618692e388b04b1a1735a80116a6ffad8699f3b9868f6096b6818f1a0665164",
+        "unchanged": true
+      },
+      {
+        "path": "bank/lifecycle.py",
+        "before_sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae",
+        "current_sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae",
+        "unchanged": true
+      },
+      {
+        "path": "bank/member_workflows.py",
+        "before_sha256": "9673f2e8ae057e859bdc8fea3897635bdde064023b01d8639c8d7d95951d3c0d",
+        "current_sha256": "9673f2e8ae057e859bdc8fea3897635bdde064023b01d8639c8d7d95951d3c0d",
+        "unchanged": true
+      },
+      {
+        "path": "bank/merchant.py",
+        "before_sha256": "4fe9f9ec93b50d9ecc2f516503cf8d93020ae1f9949c3c57a06709b10b513ebf",
+        "current_sha256": "4fe9f9ec93b50d9ecc2f516503cf8d93020ae1f9949c3c57a06709b10b513ebf",
+        "unchanged": true
+      },
+      {
+        "path": "bank/merchant_scheduler.py",
+        "before_sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9",
+        "current_sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9",
+        "unchanged": true
+      },
+      {
+        "path": "bank/plan_store.py",
+        "before_sha256": "63c1ca154856f63675500595cc670b96acf381850e1782dcfe71ae5774ffd71e",
+        "current_sha256": "63c1ca154856f63675500595cc670b96acf381850e1782dcfe71ae5774ffd71e",
+        "unchanged": true
+      },
+      {
+        "path": "bank/resource_labels.py",
+        "before_sha256": "438bde0238e44492170a0ea698b80ca124f7d65c03634cc4d1d0510355c41d03",
+        "current_sha256": "438bde0238e44492170a0ea698b80ca124f7d65c03634cc4d1d0510355c41d03",
+        "unchanged": true
+      },
+      {
+        "path": "bank/scheduler.py",
+        "before_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+        "current_sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+        "unchanged": true
+      },
+      {
+        "path": "bank/seed.py",
+        "before_sha256": "7be0c8593df25d97fd238c26f967cc08eea495a71857703d53e50114951b768b",
+        "current_sha256": "7be0c8593df25d97fd238c26f967cc08eea495a71857703d53e50114951b768b",
+        "unchanged": true
+      },
+      {
+        "path": "bank/services.py",
+        "before_sha256": "81f0ac915eebe90cce39ef475c34984b4f7743523f60e14382590bd240f29566",
+        "current_sha256": "81f0ac915eebe90cce39ef475c34984b4f7743523f60e14382590bd240f29566",
+        "unchanged": true
+      },
+      {
+        "path": "bank/store.py",
+        "before_sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62",
+        "current_sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62",
+        "unchanged": true
+      },
+      {
+        "path": "bank/subscription_charge.py",
+        "before_sha256": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517",
+        "current_sha256": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517",
+        "unchanged": true
+      },
+      {
+        "path": "bank/transfer.py",
+        "before_sha256": "928bbe19b5b650f7f9a1728aa4464f93eb54bcb7f67392fb726872fd2c4ee3b6",
+        "current_sha256": "928bbe19b5b650f7f9a1728aa4464f93eb54bcb7f67392fb726872fd2c4ee3b6",
+        "unchanged": true
+      },
+      {
+        "path": "bank/wealth.py",
+        "before_sha256": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d",
+        "current_sha256": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d",
+        "unchanged": true
+      },
+      {
+        "path": "bank/worker.py",
+        "before_sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2",
+        "current_sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2",
+        "unchanged": true
+      },
+      {
+        "path": "shared/__init__.py",
+        "before_sha256": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612",
+        "current_sha256": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612",
+        "unchanged": true
+      },
+      {
+        "path": "shared/adapters.py",
+        "before_sha256": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba",
+        "current_sha256": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba",
+        "unchanged": true
+      },
+      {
+        "path": "shared/contracts.py",
+        "before_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+        "current_sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88",
+        "unchanged": true
+      },
+      {
+        "path": "shared/policy.py",
+        "before_sha256": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+        "current_sha256": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d",
+        "unchanged": true
+      },
+      {
+        "path": "shared/services.py",
+        "before_sha256": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846",
+        "current_sha256": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846",
+        "unchanged": true
+      },
+      {
+        "path": "billing/__init__.py",
+        "before_sha256": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9",
+        "current_sha256": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9",
+        "unchanged": true
+      },
+      {
+        "path": "card/__init__.py",
+        "before_sha256": "c90faef650847f6b0e3664013d7d94f752e6ef48fdedb10ebe8dd62bb765b48f",
+        "current_sha256": "c90faef650847f6b0e3664013d7d94f752e6ef48fdedb10ebe8dd62bb765b48f",
+        "unchanged": true
+      },
+      {
+        "path": "scenario/__init__.py",
+        "before_sha256": "7b5f9d5cb2fa2217e9772e8c3adb833f0ca795179d971eb42ba6dd00ef650462",
+        "current_sha256": "7b5f9d5cb2fa2217e9772e8c3adb833f0ca795179d971eb42ba6dd00ef650462",
+        "unchanged": true
+      },
+      {
+        "path": "subscription/__init__.py",
+        "before_sha256": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805",
+        "current_sha256": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805",
+        "unchanged": true
+      },
+      {
+        "path": "wealth/__init__.py",
+        "before_sha256": "35478296e35374dfe008e76ba518eafa1cdd7076ec9477bf622324f1f15c8db6",
+        "current_sha256": "35478296e35374dfe008e76ba518eafa1cdd7076ec9477bf622324f1f15c8db6",
+        "unchanged": true
+      },
+      {
+        "path": "wealth/catalog.py",
+        "before_sha256": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034",
+        "current_sha256": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034",
+        "unchanged": true
+      },
+      {
+        "path": "wealth/questionnaire.py",
+        "before_sha256": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882",
+        "current_sha256": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/__init__.py",
+        "before_sha256": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+        "current_sha256": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/__main__.py",
+        "before_sha256": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077",
+        "current_sha256": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/approved.py",
+        "before_sha256": "28eb39b260873074583edad63dd36c7f92233cffb2c38ea52348508bfec3b1fe",
+        "current_sha256": "28eb39b260873074583edad63dd36c7f92233cffb2c38ea52348508bfec3b1fe",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/checks.py",
+        "before_sha256": "d19d290256236cf24f83ca32bd6497e897b68430b10266718c6291a930ba457a",
+        "current_sha256": "d19d290256236cf24f83ca32bd6497e897b68430b10266718c6291a930ba457a",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/reader.py",
+        "before_sha256": "15e186191c8606238ac345ece638293b97820d15383e1e8e71c24744972e7228",
+        "current_sha256": "15e186191c8606238ac345ece638293b97820d15383e1e8e71c24744972e7228",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/reconcile.py",
+        "before_sha256": "125a361e17b912c1123540459dd23bdb7154ce8c844e17fa1da79a3671326d24",
+        "current_sha256": "125a361e17b912c1123540459dd23bdb7154ce8c844e17fa1da79a3671326d24",
+        "unchanged": true
+      },
+      {
+        "path": "material_check/report.py",
+        "before_sha256": "753dad4e57c07e0e3a99ad0ae05366be1a323776e56bb818cb4f8a506992b239",
+        "current_sha256": "753dad4e57c07e0e3a99ad0ae05366be1a323776e56bb818cb4f8a506992b239",
+        "unchanged": true
+      }
+    ]
+  },
+  "app": {
+    "checked_files": 31,
+    "guarded_event_count": 635,
+    "widget_and_business_calls_unchanged": true,
+    "files": [
+      {
+        "path": "app/__init__.py",
+        "before_sha256": "e2676a295cae3a4036c8a558b72d01fb7eb4e5bafeaed6d63fda439417f65152",
+        "current_sha256": "e2676a295cae3a4036c8a558b72d01fb7eb4e5bafeaed6d63fda439417f65152",
+        "changed": false,
+        "widget_call_count": 0,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/auth_ui.py",
+        "before_sha256": "7c12f2a289b667ed5d8e952dabe61e51df3c912cbe25d4516c6536aa2f89ad46",
+        "current_sha256": "2da9fc256117c836b8622e3d9770ab1ec15b8a9cc354b1c54316a2586e8b0e00",
+        "changed": true,
+        "widget_call_count": 22,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 19,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/background_panel.py",
+        "before_sha256": "41bcb224109dbc83398b2fb2b78c02e6b01f622d5427f4b6d1b4dd9eb1504a48",
+        "current_sha256": "41bcb224109dbc83398b2fb2b78c02e6b01f622d5427f4b6d1b4dd9eb1504a48",
+        "changed": false,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 5,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/demo.py",
+        "before_sha256": "a8739f682e0ab6e3903f29eadaa0061a34c4e86ce42945eb38af218e6447c07e",
+        "current_sha256": "a8739f682e0ab6e3903f29eadaa0061a34c4e86ce42945eb38af218e6447c07e",
+        "changed": false,
+        "widget_call_count": 0,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 2,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/home_view.py",
+        "before_sha256": "41963f66e2e4fd9c824e58547f107732299803d4b2a4a6b6eb87ed197c6fadf8",
+        "current_sha256": "c8671b9ff7ab77efcb1130276e6c595559e5cba8e5b2453093768521509f2e1c",
+        "changed": true,
+        "widget_call_count": 2,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": false,
+        "allowed_guard_difference": "Home service grid uses _SERVICE_COLUMNS=4 instead of literal 3; presentation layout only."
+      },
+      {
+        "path": "app/lifecycle_panel.py",
+        "before_sha256": "267e0d10e74b3f5c14f8ba731af4e18c20e8ee72c8e229697cfdf581fce472bf",
+        "current_sha256": "267e0d10e74b3f5c14f8ba731af4e18c20e8ee72c8e229697cfdf581fce472bf",
+        "changed": false,
+        "widget_call_count": 3,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/main.py",
+        "before_sha256": "41521c73af8d2463bc3436fcfe00d19d49258df965a06776ea73bab340f96580",
+        "current_sha256": "d64b0778ec64624ad8f91846daf61169c1bf5ea3143718699b63d89a46ffc5ba",
+        "changed": true,
+        "widget_call_count": 24,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 36,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/merchant_schedule_panel.py",
+        "before_sha256": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047",
+        "current_sha256": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047",
+        "changed": false,
+        "widget_call_count": 8,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/model_bank_panel.py",
+        "before_sha256": "d5a9245bb0c439f18db788362f339ceca135b6ab16f0dc55ebabf42ee504e473",
+        "current_sha256": "20a7864baba9bbd30e8c996d39696e4a5c74e1d77055ca6ae66599aa96a64c90",
+        "changed": true,
+        "widget_call_count": 6,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 17,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/model_settings.py",
+        "before_sha256": "2d061732ced3924f32b3e8142fed7bb3e14a9cb13d40f8a7e08b50b4a924d723",
+        "current_sha256": "2d061732ced3924f32b3e8142fed7bb3e14a9cb13d40f8a7e08b50b4a924d723",
+        "changed": false,
+        "widget_call_count": 7,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/model_view.py",
+        "before_sha256": "4a4b055ea13bfc638e0032e568be6d1c1390c765c0ac499e3d87f0e5eddb4192",
+        "current_sha256": "4a4b055ea13bfc638e0032e568be6d1c1390c765c0ac499e3d87f0e5eddb4192",
+        "changed": false,
+        "widget_call_count": 7,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 9,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/money.py",
+        "before_sha256": "d3d6c5bed6070f78f5c5724fd94d5cbdbb789ace6dc78c3279f1c003baf128ec",
+        "current_sha256": "d3d6c5bed6070f78f5c5724fd94d5cbdbb789ace6dc78c3279f1c003baf128ec",
+        "changed": false,
+        "widget_call_count": 1,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/onboarding.py",
+        "before_sha256": "d6722a488468699f66473c4d7f9335f968bc3fb1dfdc51ed50fe11504ec91dcb",
+        "current_sha256": "d6722a488468699f66473c4d7f9335f968bc3fb1dfdc51ed50fe11504ec91dcb",
+        "changed": false,
+        "widget_call_count": 13,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/0_AI银行助手.py",
+        "before_sha256": "f5c766f2454315cb8b0ef4a10d49522129858390885a975d67b64f1b9ace8720",
+        "current_sha256": "f339f62ae25a67adddd58ddc2fba8fe913ecb25e512710f7b8794967af0d9c6f",
+        "changed": true,
+        "widget_call_count": 0,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 1,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/10_我的.py",
+        "before_sha256": "560e18929dfb7233d1223f8150beba457c0566f5fcecc826e9e3b9c703c6e1c9",
+        "current_sha256": "289dbd0d4cba42a5f0c077c162ca96e145ddbdcc933d575a24c2b83e68a4b1db",
+        "changed": true,
+        "widget_call_count": 1,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 3,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/1_资料账单.py",
+        "before_sha256": "1a30deffe861f23c859b87858d0bca942f2a9ac6db527a69a3de70ef7e9f66f5",
+        "current_sha256": "87325b2b9de0fc4551620e7a9940ce864ac7f8e6abf30a9701fd02ad1e0f79d3",
+        "changed": true,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 2,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/2_产品对比.py",
+        "before_sha256": "700439c41e43d83e73a4ff91c2da83dd3aa2a6094a32abd40fd0f02079b7c779",
+        "current_sha256": "964826f86ead0bfe5a41ef68238850454c8aea11098b295bd007614fbb2e4be5",
+        "changed": true,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 8,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/3_卡片管理.py",
+        "before_sha256": "12a268c922a9903c6568ca5cc5a72a4ea3007fd14f5f10a736d65a364a52a392",
+        "current_sha256": "3e13ed9781b5b22b48d067c71f887968c3b427ea5f4a10d76d4f7c5215f20f31",
+        "changed": true,
+        "widget_call_count": 6,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 9,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/4_AA收款.py",
+        "before_sha256": "4464c54a986e1906ed50b5a33841232487d52cd59466cc37892b9e95c729e26c",
+        "current_sha256": "0c30a5578978996de122fbe90e6a719a50a2e941aa9eec74e45ae8ee4667fdf5",
+        "changed": true,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 6,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/5_订阅管理.py",
+        "before_sha256": "1757196d5ae298c08c4cfc2ea696553f3f1c89717619f375fe292dc111cfcbc1",
+        "current_sha256": "0a1647c2691704e45a78711706e8a2a5498f404c0937bca55155287b60b64f69",
+        "changed": true,
+        "widget_call_count": 13,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 13,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/6_定时转账.py",
+        "before_sha256": "36edec488535a8f694ca2f7e13be7b937494fedaba4f16f30da7dc004df6b679",
+        "current_sha256": "9feb90d06b2ae4b0daa4f0b5c31ee224b9ece10201a29c08da92e38d151608eb",
+        "changed": true,
+        "widget_call_count": 11,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 14,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/7_预算管理.py",
+        "before_sha256": "06f23c7aba7cb13a974f41dfe67166a1775c55c26eae1f252e96c0c046f1bbca",
+        "current_sha256": "5ff44f7aa5aaf2969063e17b92ec5dab512e96258ca999703095eaca422afc10",
+        "changed": true,
+        "widget_call_count": 5,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 10,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/8_生日与商户.py",
+        "before_sha256": "9106a862dce1b31ebc8d489c41d4b2f58a224a01301fe23bae678c6b9166161c",
+        "current_sha256": "8d38870fe21b5ed29b0628bade693e691079f2f200430563ea0ffd68bddbb348",
+        "changed": true,
+        "widget_call_count": 19,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 24,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pages/9_理财.py",
+        "before_sha256": "bda839233c8f5ef771923121fa312075fa4431c4ad8268f2f67a9df272421474",
+        "current_sha256": "a8a163851a9a047a5ef1426292e03d866065e9a975ad67110ba837157e114cff",
+        "changed": true,
+        "widget_call_count": 9,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 7,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/pending_view.py",
+        "before_sha256": "de80fbb27980a23ee9c1750433ec37a71349cb5075722448d31479909fcd8b7a",
+        "current_sha256": "de80fbb27980a23ee9c1750433ec37a71349cb5075722448d31479909fcd8b7a",
+        "changed": false,
+        "widget_call_count": 7,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 18,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/phone_acceptance.py",
+        "before_sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c",
+        "current_sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c",
+        "changed": false,
+        "widget_call_count": 0,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 1,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/presentation.py",
+        "before_sha256": "fd6545d1dd0baedd752acebcf71c87e313fecdc51d1566bf32e186bc90cc223c",
+        "current_sha256": "fd6545d1dd0baedd752acebcf71c87e313fecdc51d1566bf32e186bc90cc223c",
+        "changed": false,
+        "widget_call_count": 0,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 12,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/routing_panel.py",
+        "before_sha256": "b128909750fd22f633e5b90375ee161fc6627e1cd0f3852f67b2951ebeaf8306",
+        "current_sha256": "b128909750fd22f633e5b90375ee161fc6627e1cd0f3852f67b2951ebeaf8306",
+        "changed": false,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/saved_plan_view.py",
+        "before_sha256": "cc04910c035d50b870c7424fdc7da12c9b273b7d80d3aa8bd5743598cf8a3132",
+        "current_sha256": "96c4f73c7b55458bef58a3aecea9a5fa4b4ccc981ef1c9bac8e1af8e05fd730a",
+        "changed": true,
+        "widget_call_count": 5,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 2,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/ui.py",
+        "before_sha256": "c2a8973a6fcad7b75b07356282fce7b91c13ad5c2f045af588d7ae3e1e2bd1ca",
+        "current_sha256": "7d6eae3322f99851415a1f5e5d6742b012dd1cc685d95440ad8f231678541b3e",
+        "changed": true,
+        "widget_call_count": 4,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 0,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      },
+      {
+        "path": "app/workflow.py",
+        "before_sha256": "ca27b7ab1bc548f149389cf9023deda0882e5580be63895defbd9ef10bc9136e",
+        "current_sha256": "f9dfd7a43aa5f53fa26935ad5488c428e82ab6e2cb3fb353a90a9cae684c69ce",
+        "changed": true,
+        "widget_call_count": 5,
+        "widget_calls_and_source_order_unchanged": true,
+        "business_call_count": 30,
+        "business_calls_and_source_order_unchanged": true,
+        "guarded_events_unchanged": true,
+        "allowed_guard_difference": null
+      }
+    ]
+  },
+  "presentation": {
+    "home_desktop_service_columns": 4,
+    "home_layout_note": "Before rendered literal 3 columns; current renders 4 on desktop and CSS presents 2 on small screens. Intentional presentation change, not a business branch change.",
+    "record_group_count": 16,
+    "record_groups": [
+      {
+        "path": "app/main.py",
+        "line": 371,
+        "key": "ledger",
+        "layout": "activity",
+        "tone": "bill",
+        "limit": null,
+        "table_view": true,
+        "details_label": "对账表",
+        "progress_values": false,
+        "group_field": "时间（上海）"
+      },
+      {
+        "path": "app/main.py",
+        "line": 419,
+        "key": "bill-alerts",
+        "layout": "activity",
+        "tone": "bill",
+        "limit": null,
+        "table_view": false,
+        "details_label": "核实提示明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/model_bank_panel.py",
+        "line": 178,
+        "key": null,
+        "layout": "steps",
+        "tone": "ai",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/1_资料账单.py",
+        "line": 59,
+        "key": "sample-alerts",
+        "layout": "activity",
+        "tone": "bill",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/1_资料账单.py",
+        "line": 64,
+        "key": "sample-transactions",
+        "layout": "activity",
+        "tone": "bill",
+        "limit": null,
+        "table_view": true,
+        "details_label": "对账表",
+        "progress_values": false,
+        "group_field": "记账日期"
+      },
+      {
+        "path": "app/pages/2_产品对比.py",
+        "line": 42,
+        "key": "product_comparison_records",
+        "layout": "tiles",
+        "tone": "core",
+        "limit": null,
+        "table_view": true,
+        "details_label": "参数对比",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/3_卡片管理.py",
+        "line": 30,
+        "key": "card_summary_records",
+        "layout": "bankcards",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/4_AA收款.py",
+        "line": 46,
+        "key": "aa_share_preview_records",
+        "layout": "tiles",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/5_订阅管理.py",
+        "line": 73,
+        "key": "subscription_summary_records",
+        "layout": "tiles",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/5_订阅管理.py",
+        "line": 113,
+        "key": "subscription_reminder_records",
+        "layout": "activity",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/6_定时转账.py",
+        "line": 98,
+        "key": "scheduled_transfer_records",
+        "layout": "activity",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/7_预算管理.py",
+        "line": 49,
+        "key": "budget_reservation_records",
+        "layout": "tiles",
+        "tone": "bill",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": true,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/8_生日与商户.py",
+        "line": 158,
+        "key": "merchant_order_records",
+        "layout": "activity",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/pages/9_理财.py",
+        "line": 153,
+        "key": "wealth_holding_records",
+        "layout": "tiles",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/saved_plan_view.py",
+        "line": 51,
+        "key": null,
+        "layout": "steps",
+        "tone": "ai",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      },
+      {
+        "path": "app/workflow.py",
+        "line": 217,
+        "key": null,
+        "layout": "activity",
+        "tone": "core",
+        "limit": null,
+        "table_view": false,
+        "details_label": "对账明细",
+        "progress_values": false,
+        "group_field": null
+      }
+    ],
+    "remaining_direct_table_count": 7,
+    "remaining_direct_tables": [
+      {
+        "path": "app/main.py",
+        "line": 425,
+        "expanders": [
+          "查看分类金额明细"
+        ]
+      },
+      {
+        "path": "app/model_bank_panel.py",
+        "line": 184,
+        "expanders": [
+          "任务编号与后台准备说明"
+        ]
+      },
+      {
+        "path": "app/pages/1_资料账单.py",
+        "line": 53,
+        "expanders": [
+          "查看分类金额明细"
+        ]
+      },
+      {
+        "path": "app/pages/3_卡片管理.py",
+        "line": 36,
+        "expanders": [
+          "卡片编号与资料"
+        ]
+      },
+      {
+        "path": "app/pages/5_订阅管理.py",
+        "line": 79,
+        "expanders": [
+          "订阅资料详情（编号与原始字段）"
+        ]
+      },
+      {
+        "path": "app/pages/6_定时转账.py",
+        "line": 104,
+        "expanders": [
+          "预约编号与原始付款状态"
+        ]
+      },
+      {
+        "path": "app/pages/9_理财.py",
+        "line": 157,
+        "expanders": [
+          "持仓编号与详情"
+        ]
+      }
+    ],
+    "changed_app_files": [
+      "app/auth_ui.py",
+      "app/home_view.py",
+      "app/main.py",
+      "app/model_bank_panel.py",
+      "app/pages/0_AI银行助手.py",
+      "app/pages/10_我的.py",
+      "app/pages/1_资料账单.py",
+      "app/pages/2_产品对比.py",
+      "app/pages/3_卡片管理.py",
+      "app/pages/4_AA收款.py",
+      "app/pages/5_订阅管理.py",
+      "app/pages/6_定时转账.py",
+      "app/pages/7_预算管理.py",
+      "app/pages/8_生日与商户.py",
+      "app/pages/9_理财.py",
+      "app/saved_plan_view.py",
+      "app/ui.py",
+      "app/workflow.py"
+    ],
+    "new_visual_helper_sha256": "d7118a024c7b8c0e234d8056548fe653a14fcbdd8c0410f8883800ed5dfd324c",
+    "theme_config_sha256": "f5e914ccb1a9abf2a51324ca9bc4dfbf73aee38a23cc3293950c18b78962aa8b",
+    "final_presentation_changes": [
+      "Record tiles start a new native columns row after each pair, preserving mobile source order.",
+      "Lost-card status is red; original business status values and authorization rules remain unchanged.",
+      "Activity group dates are shown once without a duplicate metadata caption.",
+      "Historical sample kind labels: income/consumption/transfer/subscription/refund -> 收入/消费/转账/订阅/退款; credit/debit -> 入账/支出; unknown values preserve their original text.",
+      "Headings h1-h5 use fixed font rules; restrained motion honors reduced-motion; sidebar hiding is scoped to the standalone authentication entry shell.",
+      "Home service grid uses 4 desktop columns and 2 small-screen columns; all existing service action IDs and button keys remain unchanged."
+    ]
+  },
+  "limits": "Static source integrity and behavior-structure audit only; does not replace runtime or browser acceptance.",
+  "source_binding_sha256": {
+    "app/ui.py": "7d6eae3322f99851415a1f5e5d6742b012dd1cc685d95440ad8f231678541b3e",
+    "app/visual.py": "d7118a024c7b8c0e234d8056548fe653a14fcbdd8c0410f8883800ed5dfd324c",
+    "app/home_view.py": "c8671b9ff7ab77efcb1130276e6c595559e5cba8e5b2453093768521509f2e1c",
+    "app/pages/1_资料账单.py": "87325b2b9de0fc4551620e7a9940ce864ac7f8e6abf30a9701fd02ad1e0f79d3",
+    ".streamlit/config.toml": "f5e914ccb1a9abf2a51324ca9bc4dfbf73aee38a23cc3293950c18b78962aa8b"
+  }
+}

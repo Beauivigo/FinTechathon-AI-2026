@@ -1,0 +1,13 @@
+﻿area,coverage,method,status
+welcome-auth,全新体验、建号中断、恢复码、绑定、登录过期、退出恢复,existing native auth tests + browser welcome/mine,passed_with_stated_limits
+home,账户、可用、预留、待办、近期交易、空态/不可用态,suite + browser desktop/narrow,passed
+ai,追问与补全、暂停/继续、接管、新需求、配置失败、原未知请求保护,new independent flow tests + browser + two bounded live requests,passed
+transfer-aa,可信对象、精确金额、核对/修改、确认/强验证、拒绝、重复点击、收款单语义,existing financial tests + final button coverage,passed
+scheduling,登记、到期、迟到重授权、后台重启、真实付款状态、取消,scheduler tests + final page checks,passed
+billing,当前账本、历史独立样例、期间筛选、分析、空态,billing tests + all pages browser,passed
+wealth,比较带入、无预填问卷、申购、赎回、风险不符、起购不足、锁定期,wealth tests + final page checks,passed
+cards,每种状态合法动作、限额、申请、强验证、跨页刷新,card tests + independent state selectors + browser,passed
+subscriptions,黄色查询、快照连续管理、核实/排除/取消、提醒/续费、过期,independent continuity regression + domain tests,passed
+budget-birthday-merchant,预留、释放、手动待办跨页恢复、完整计划、订单与余款,independent continuity regression + worker/merchant tests,passed
+layout,全部页面桌面、390px、200%缩放、键盘焦点、按钮和错误可达,current browser walk-through and screenshots,passed_with_stated_limits
+delivery,帮助/参赛材料同版、独立运行时、安装/升级/启停/保留数据,freeze manifest + installer acceptance,passed_with_stated_limits

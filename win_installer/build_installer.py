@@ -24,7 +24,7 @@ import tempfile
 import zipfile
 
 BRAND = '言行'
-PRODUCT_VERSION = '1.0.0'
+PRODUCT_VERSION = '2.0.0'
 DATA_DIR_NAME = '言行'
 MANIFEST_SCHEMA = 1
 MIN_INSTALLER_BYTES = 1_000_000
@@ -44,7 +44,11 @@ EXCLUDED_ROOT_NAMES = {
     'README.md', 'AGENTS.md', 'requirements-app.txt', 'requirements-materials.txt',
     'launcher.py', '启动A演示.ps1', '启动银行助手.py', '.gitignore',
     '.gitattributes', '.env', '.env.local', 'test_model_security.py',
+    # 隔离工作区里的 Harness 诊断探针只用于本轮自测，绝不进入发布载荷。
+    '_vx_test_runner.py', '_vx_apptest_probe.py', '_vx_scratch_probe.py',
 }
+# `.git` 在普通检出中是目录、在 git worktree 中是文本指针；两种形态都不得进入载荷。
+EXCLUDED_ROOT_PREFIXES = ('_vx_', '.git')
 EXCLUDED_SUFFIXES = {
     '.pyc', '.pyo', '.log', '.db', '.sqlite', '.sqlite3', '.pem', '.key',
     '.p12', '.pfx', '.tmp', '.temp',
@@ -58,6 +62,7 @@ SECRET_NAME_PATTERNS = (
     re.compile(r'.*\.(?:pem|key|p12|pfx)$', re.I),
     re.compile(r'^id_(?:rsa|dsa|ec|ed25519)(?:\.pub)?$', re.I),
     re.compile(r'^credentials.*\.json$', re.I),
+    re.compile(r'^secrets\.toml$', re.I),
     re.compile(r'.*\.(?:sqlite3?|db)$', re.I),
 )
 SECRET_CONTENT_PATTERNS = (
@@ -137,7 +142,8 @@ def source_payload(source_root):
             full = current_path / name
             relative = full.relative_to(root).as_posix()
             top_level = '/' not in relative
-            if top_level and name in EXCLUDED_ROOT_NAMES:
+            if top_level and (name in EXCLUDED_ROOT_NAMES
+                              or name.startswith(EXCLUDED_ROOT_PREFIXES)):
                 continue
             if full.suffix.lower() in EXCLUDED_SUFFIXES:
                 continue
@@ -760,10 +766,12 @@ def _write_pth(python_dir, app_dir_name='app'):
     return pth
 
 
-def _license_page(payload_root, licence_result, python_license):
-    lines = ['言行 1.0.0 来源、许可与安全说明', '=' * 40, '',
+def _license_page(payload_root, licence_result, python_license, *, version=PRODUCT_VERSION):
+    title = '言行 %s 来源、许可与安全说明' % version
+    lines = [title, '=' * 40, '',
              '本安装包是本地模拟银行竞赛演示应用。不连接真实银行或真实资金。',
              '模型 API 需用户自行配置合法凭证与网络；安装包不包含任何密钥。',
+             '覆盖安装（1.0.x → %s）沿用 %%LOCALAPPDATA%%\\言行\\data，保留账号、账本、模型配置与快捷方式约定。' % version,
              'NSIS 安装器运行代码许可：licenses/nsis/COPYING.txt。项目源码权利由项目团队保留。',
              '', '项目源码说明：本应用源码随安装包内版本清单记录；第三方组件与许可见下。',
              '']
@@ -854,7 +862,7 @@ def assemble_payload(config, work_dir=None):
             raise BuildError('NSIS 官方编译器目录缺少 COPYING')
         (licences / 'nsis').mkdir(exist_ok=True)
         shutil.copy2(compiler_license, licences / 'nsis' / 'COPYING.txt')
-        _license_page(payload, licence_result, python_license)
+        _license_page(payload, licence_result, python_license, version=config.version)
         entries_before_version = _scan_tree(payload)
         version_info = dict(
             brand=str(config.brand), version=str(config.version), manifest_schema=MANIFEST_SCHEMA,

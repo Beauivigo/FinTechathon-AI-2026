@@ -1,0 +1,485 @@
+{
+  "screenshots": [
+    "welcome-1440.png",
+    "welcome-390.png",
+    "home-1440.png",
+    "home-1024.png",
+    "home-768.png",
+    "home-720.png",
+    "home-390.png",
+    "home-320.png",
+    "transfer-1440.png",
+    "transfer-390.png",
+    "bills-1440.png",
+    "bills-390.png",
+    "operations-1440.png",
+    "operations-390.png",
+    "assistant-1440.png",
+    "assistant-390.png",
+    "accounts-1440.png",
+    "accounts-390.png",
+    "products-1440.png",
+    "products-390.png",
+    "cards-1440.png",
+    "cards-390.png",
+    "aa-1440.png",
+    "aa-390.png",
+    "subscriptions-1440.png",
+    "subscriptions-390.png",
+    "scheduled-1440.png",
+    "scheduled-390.png",
+    "budget-1440.png",
+    "budget-390.png",
+    "merchant-1440.png",
+    "merchant-390.png",
+    "wealth-1440.png",
+    "wealth-390.png",
+    "mine-1440.png",
+    "mine-390.png"
+  ],
+  "checks": [
+    {
+      "name": "welcome",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "欢迎使用银行助手"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    欢迎使用银行助手本地模拟项目，不连接真实资金。请选择体验现有示例账户，或设置本机账号来管理同一套示",
+      "passed": true
+    },
+    {
+      "name": "welcome",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "欢迎使用银行助手"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    欢迎使用银行助手本地模拟项目，不连接真实资金。请选择体验现有示例账户，或设置本机账号来管理同一套示",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 1024,
+      "rootWidth": 1024,
+      "scrollWidth": 1024,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 720,
+      "rootWidth": 720,
+      "scrollWidth": 720,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "home",
+      "width": 320,
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "exceptions": 0,
+      "headings": [
+        "首页"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "transfer",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "转账与收款"
+      ],
+      "activeText": "转账与收款",
+      "passed": true
+    },
+    {
+      "name": "transfer",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "转账与收款"
+      ],
+      "activeText": "转账与收款",
+      "passed": true
+    },
+    {
+      "name": "bills",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "收支明细"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "bills",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "收支明细"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "operations",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "操作记录"
+      ],
+      "activeText": "操作记录",
+      "passed": true
+    },
+    {
+      "name": "operations",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "操作记录"
+      ],
+      "activeText": "操作记录",
+      "passed": true
+    },
+    {
+      "name": "assistant",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "AI银行助手"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "assistant",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "AI银行助手"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "accounts",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "历史样例分析"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left银行助手本机账户home首页swap_hori",
+      "passed": true
+    },
+    {
+      "name": "accounts",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "历史样例分析"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left银行助手本机账户home首页swap_hori",
+      "passed": true
+    },
+    {
+      "name": "products",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "产品对比"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "products",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "产品对比"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "cards",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "卡片管理"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "cards",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "卡片管理"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "aa",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "AA 收款"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "aa",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "AA 收款"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "subscriptions",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "订阅管理"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "subscriptions",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "订阅管理"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "scheduled",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "预约转账"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "scheduled",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "预约转账"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "budget",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "预算预留与释放"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "budget",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "预算预留与释放"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "merchant",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "生日计划"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "merchant",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "生日计划"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "wealth",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "理财操作"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "wealth",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "理财操作"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "mine",
+      "width": 1440,
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "headings": [
+        "我的"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    },
+    {
+      "name": "mine",
+      "width": 390,
+      "rootWidth": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "headings": [
+        "我的"
+      ],
+      "activeText": "You need to enable JavaScript to run this app.\n    keyboard_double_arrow_left体验示例账户 · 本机示例账本设置本机账号银行",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "realHttpBlocked": true,
+  "realBrowserZoom": "not verified",
+  "keyboard": {
+    "element": "A",
+    "text": "",
+    "outlineStyle": "solid",
+    "outlineWidth": "2px",
+    "boxShadow": "rgba(33, 96, 95, 0.5) 0px 0px 0px 3.2px"
+  },
+  "passed": true
+}

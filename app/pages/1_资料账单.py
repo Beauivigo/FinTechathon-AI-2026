@@ -4,16 +4,21 @@ import sys
 from datetime import date
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import streamlit as st
+from app.money import yuan_text
 from shared import ServiceError
 
-st.set_page_config(page_title='资料账单', layout='wide')
+st.set_page_config(page_title='历史样例分析', layout='wide')
 from app import ui
+from app import visual
 
+# 先注入固定静态样式，再渲染页面内容；st.set_page_config 已在本文件最前面调用。
+visual.apply('bill')
 ui.render_sidebar_nav('accounts')
-ui.render_page_header('资料账单')
-ui.render_app_nav('accounts')
+with visual.band('bill', 'accounts'):
+    ui.render_page_header('历史样例分析')
+    ui.render_app_nav('accounts')
 
-with st.container(border=True):
+with visual.card('bill', 'main'):
     st.caption('只读历史资料，独立于当前登录账户。')
     with st.expander('资料与规则说明'):
         st.caption('C V1.3 / B V1.2 复核修订件；B 使用已确认的只读账户映射。')
@@ -44,19 +49,25 @@ with st.container(border=True):
             st.metric('退款另列（元）', f"{refund // 100}.{refund % 100:02d}")
             st.write(bill['report'])
             if bill['categories']:
-                st.dataframe([{'分类': r['category'], '金额（分）': r['amount_minor']} for r in bill['categories']], hide_index=True)
-                st.bar_chart([{'分类': r['category'], '金额（分）': r['amount_minor']} for r in bill['categories']], x='分类', y='金额（分）')
+                with st.expander('查看分类金额明细', expanded=False):
+                    st.dataframe([{'分类': r['category'], '金额（元）': yuan_text(r['amount_minor'])} for r in bill['categories']], hide_index=True)
+                st.bar_chart([{'分类': r['category'], '金额（元）': r['amount_minor'] / 100} for r in bill['categories']], x='分类', y='金额（元）')
             else:
                 st.info('该期间没有计入毛支出的消费或订阅出账。')
             if bill['anomalies']:
                 st.warning('大额单笔提示（只提示核实，不判欺诈、不拦截、不改账）')
-                st.dataframe([{'流水编号': r['transaction_id'], '原因': r['reason']} for r in bill['anomalies']], hide_index=True)
+                ui.render_records([{'流水编号': r['transaction_id'], '原因': r['reason']} for r in bill['anomalies']], hide_index=True,
+                                  title_field='原因', meta_fields=('流水编号',), limit=None, key='sample-alerts', layout='activity', tone='bill')
             else:
                 st.caption('本区间未发现大额单笔；其余异常规则未启用，空列表不代表没有异常。')
             if result['transactions']:
-                st.dataframe([{'流水编号': t['transaction_id'], '记账日期': result['provenance'][t['transaction_id']]['source_date'],
-                    '类型': t['kind'], '方向': t['direction'], '金额（分）': t['amount_minor'],
-                    '来源行': result['provenance'][t['transaction_id']]['row']} for t in result['transactions']], hide_index=True)
+                ui.render_records([{'流水编号': t['transaction_id'], '记账日期': result['provenance'][t['transaction_id']]['source_date'],
+                    '类型': {'income':'收入', 'consumption':'消费', 'transfer':'转账', 'subscription':'订阅', 'refund':'退款'}.get(t['kind'], t['kind']),
+                    '方向': {'credit':'入账', 'debit':'支出'}.get(t['direction'], t['direction']), '金额（元）': yuan_text(t['amount_minor']),
+                    '来源行': result['provenance'][t['transaction_id']]['row']} for t in result['transactions']], hide_index=True,
+                    title_field='类型', value_field='金额（元）', meta_fields=('记账日期', '方向'),
+                    key='sample-transactions', layout='activity', tone='bill', group_field='记账日期',
+                    table_view=True, details_label='对账表')
             else:
                 st.info('该期间没有流水。')
             with st.expander('来源校验'):

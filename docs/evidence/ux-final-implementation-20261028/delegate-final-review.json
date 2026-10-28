@@ -1,0 +1,183 @@
+{
+  "reviewer": "Codex",
+  "status": "accepted",
+  "time": "2026-10-28T12:21:00.421Z",
+  "checks": [
+    {
+      "command": "Python 3.12 run_independent.py --name release-evidence-final --clean: 698 tests, 5 clean checks, 0 failures/errors/skips",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "run_independent.py --name final-navigation --tests tests.test_onboarding tests.test_closeout_tooling_20261026 tests.test_codex_ux_final: 20 passed",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "python -B -X utf8 -m unittest win_installer.test_installer win_installer.test_runtime_paths: 13 passed",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "live_final.py: 2 bounded actual DeepSeek calls and real page TOTP card freeze/unfreeze passed",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "win_installer.build_installer --source acceptance-tree --version 1.0.1; verify_installer.ps1 install/start/stop/upgrade/start/stop/uninstall: exit 0",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "run_independent.py --name controls-full18 --tests extra_buttons_final: 18 passed; combined 115/115 button definitions activated",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "run_primary_smoke.py --name primary-smoke: 35 passed; validate_delivery.py: 170 source files, 19 Word pages, package/source and protected-data hashes checked",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "0f3728d1a69fa64475b27387b53a039079525ca2cdf6c956996c1c4b5cd52c2f"
+    },
+    {
+      "path": "agent/model_bank.py",
+      "sha256": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989"
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "sha256": "067a3da82b8ca0c4071b0cbe0d6ef0659ac1bae7edcaa888568c84a8388fc047"
+    },
+    {
+      "path": "agent/model_runtime.py",
+      "sha256": "8655e77d2444a650c2cfbd8a48639cf89a17ca5dac5328b2b03a2cb925c6d801"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "7c12f2a289b667ed5d8e952dabe61e51df3c912cbe25d4516c6536aa2f89ad46"
+    },
+    {
+      "path": "app/home_view.py",
+      "sha256": "41963f66e2e4fd9c824e58547f107732299803d4b2a4a6b6eb87ed197c6fadf8"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "41521c73af8d2463bc3436fcfe00d19d49258df965a06776ea73bab340f96580"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "d5a9245bb0c439f18db788362f339ceca135b6ab16f0dc55ebabf42ee504e473"
+    },
+    {
+      "path": "app/model_settings.py",
+      "sha256": "2d061732ced3924f32b3e8142fed7bb3e14a9cb13d40f8a7e08b50b4a924d723"
+    },
+    {
+      "path": "app/model_view.py",
+      "sha256": "4a4b055ea13bfc638e0032e568be6d1c1390c765c0ac499e3d87f0e5eddb4192"
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "sha256": "f5c766f2454315cb8b0ef4a10d49522129858390885a975d67b64f1b9ace8720"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "sha256": "12a268c922a9903c6568ca5cc5a72a4ea3007fd14f5f10a736d65a364a52a392"
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "sha256": "4464c54a986e1906ed50b5a33841232487d52cd59466cc37892b9e95c729e26c"
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "sha256": "1757196d5ae298c08c4cfc2ea696553f3f1c89717619f375fe292dc111cfcbc1"
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "sha256": "36edec488535a8f694ca2f7e13be7b937494fedaba4f16f30da7dc004df6b679"
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "sha256": "06f23c7aba7cb13a974f41dfe67166a1775c55c26eae1f252e96c0c046f1bbca"
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "sha256": "9106a862dce1b31ebc8d489c41d4b2f58a224a01301fe23bae678c6b9166161c"
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "sha256": "bda839233c8f5ef771923121fa312075fa4431c4ad8268f2f67a9df272421474"
+    },
+    {
+      "path": "app/pending_view.py",
+      "sha256": "de80fbb27980a23ee9c1750433ec37a71349cb5075722448d31479909fcd8b7a"
+    },
+    {
+      "path": "app/presentation.py",
+      "sha256": "fd6545d1dd0baedd752acebcf71c87e313fecdc51d1566bf32e186bc90cc223c"
+    },
+    {
+      "path": "app/routing_panel.py",
+      "sha256": "b128909750fd22f633e5b90375ee161fc6627e1cd0f3852f67b2951ebeaf8306"
+    },
+    {
+      "path": "app/saved_plan_view.py",
+      "sha256": "cc04910c035d50b870c7424fdc7da12c9b273b7d80d3aa8bd5743598cf8a3132"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "c2a8973a6fcad7b75b07356282fce7b91c13ad5c2f045af588d7ae3e1e2bd1ca"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "ca27b7ab1bc548f149389cf9023deda0882e5580be63895defbd9ef10bc9136e"
+    },
+    {
+      "path": "bank/resource_labels.py",
+      "sha256": "438bde0238e44492170a0ea698b80ca124f7d65c03634cc4d1d0510355c41d03"
+    },
+    {
+      "path": "docs/BLOCKERS.md",
+      "sha256": "43fcb849c30883b81d7ddac16bcf66eb85f96a357b67c4359d33daec0c85b623"
+    },
+    {
+      "path": "docs/U1-U5程序内使用说明.md",
+      "sha256": "9d36005630fa455663965391830f9e9ec0a82bdf42b2700ddc838fa5f629bec1"
+    },
+    {
+      "path": "tests/test_closeout_acceptance.py",
+      "sha256": "79b8f8a113f42615616f9122cffdeb30e7205dadf811053d854dbdea14f41185"
+    },
+    {
+      "path": "tests/test_closeout_tooling_20261026.py",
+      "sha256": "a0c1f16b6e1a793f98775a8784a796f7138fb49390a9d6334ccff257b4e9cc69"
+    },
+    {
+      "path": "tests/test_codex_ux_final.py",
+      "sha256": "70cb10fd6565bbca0ebfad902a32999fb5832cd4741595ccc9c1314b4ed18af8"
+    },
+    {
+      "path": "tests/test_model_page_acceptance.py",
+      "sha256": "0b2499f5ec22e97a621f63fe867dc818dcdefdbcc744f0a71b9f4c33aa9fbe22"
+    },
+    {
+      "path": "tests/test_onboarding.py",
+      "sha256": "54a1deebf231595add834ec26b9c53a40a61e0b32b44d17ab84c74bd5e57987e"
+    },
+    {
+      "path": "tests/test_ui_components.py",
+      "sha256": "bdb32668470e2d6832ef4f420f71e8965ff0473786abfc96084bf75cccf0df10"
+    },
+    {
+      "path": "tests/test_ux_final.py",
+      "sha256": "a55d921e93a276d45b866c9e96eea1b0d4023f1ef9e652ea52d69f42c7048e17"
+    }
+  ],
+  "run_id": "ef4b7884-2a0e-4318-8ab6-70d9a179ddac",
+  "session_preserved": true,
+  "new_model_calls_in_finalize": 0
+}

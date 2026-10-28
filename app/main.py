@@ -16,18 +16,22 @@ from bank.seed import initialize, demo_path, reset_demo
 from bank.store import Store
 from shared import ContractError, ServiceError, result_text, adapt_request, validate_result
 from app.routing_panel import render_router
-from app import ui, home_view, onboarding, pending_view
+from app import ui, visual, home_view, onboarding, pending_view
+from app.money import amount_input, parse_yuan, yuan_text
+from app.presentation import approval_label, cancel_transfer_for_edit, render_authorization, failure_note
 
 
 st.set_page_config(page_title="银行助手", page_icon=":material/account_balance:", layout="wide")
 display_tab = st.session_state.get('home_next_tab') or st.session_state.get('home_workspace')
-display_key = {'转账汇款': 'transfer', '账单流水': 'bills'}.get(display_tab, 'home')
+display_key = {'转账与收款': 'transfer', '收支明细': 'bills'}.get(display_tab, 'home')
 display_query = st.query_params.get('view')
 if display_query in {'home', 'transfer', 'bills'}:
     display_key = display_query
+# 先注入固定静态样式，再渲染页面内容；st.set_page_config 已在本文件最前面调用。
+visual.apply('core')
 from app.auth_ui import error_text, gate
 gate()
-ui.render_sidebar_nav(display_key)
+ui.render_sidebar_nav(display_key, hide_home_views=True)
 
 
 def new_conversation():
@@ -53,6 +57,9 @@ try:
     # 其他页面/会话可能已经确认、拒绝或使原授权过期；先按权威记录收口本页快照。
     conversation.settle()
     conversation.refresh_operations()
+    resume = st.session_state.pop('pending_resume', None)
+    if resume:
+        conversation.recover(action=resume['action'], idempotency_key=resume['idempotency_key'])
 except ServiceError:
     operations_available = False
     st.warning('暂时无法刷新操作列表，请稍后重试。')
@@ -65,7 +72,7 @@ def perform(function, *args, **kwargs):
         # 用户文案不直接暴露后端错误详情；验证码/过期/锁定给出可执行提示。
         message = str(exc) if type(exc) is ValueError else error_text(exc)
         conversation.messages.append({"role": "assistant", "content": message})
-    st.session_state.home_next_tab = "转账汇款"
+    st.session_state.home_next_tab = "转账与收款"
     st.rerun()
 
 
@@ -79,6 +86,59 @@ def query(action, params):
 
 def money(amount):
     return f'¥ {amount // 100:,}.{amount % 100:02d}'
+
+
+def direct_transfer(conversation):
+    '''Form path using the same Conversation authorization and receipts as AI.'''
+    with visual.card('core', 'transfer-form'):
+        st.subheader('直接转账')
+        if conversation.blocked:
+            st.caption('当前有待处理或待核实的操作；请先在首页“待处理操作”中确认、取消或查询原操作。')
+            return
+        seed = st.session_state.pop('direct_edit_seed', None)
+        if seed:
+            st.session_state['direct_amount'] = f"{seed['amount_minor']//100}.{seed['amount_minor']%100:02d}"
+            st.session_state['direct_memo'] = seed.get('memo', '')
+        from app.workflow import demo_payees
+        accounts = conversation.resources['accounts']
+        try:
+            payees = demo_payees(conversation)
+        except (ServiceError, ContractError):
+            st.warning('收款人暂不可用；可改用下方自然语言转账或稍后重试。')
+            return
+        if not accounts or not payees:
+            st.caption('当前没有可用的付款账户或收款人。')
+            return
+        if seed:
+            st.session_state['direct_account'] = next((a for a in accounts if a['account_id']==seed['account_id']), None)
+            st.session_state['direct_payee'] = next((a for a in payees if a['payee_id']==seed['payee_id']), None)
+        account = st.selectbox('付款账户', accounts, index=0 if len(accounts) == 1 else None,
+                               format_func=lambda a: a['display_name'], key='direct_account')
+        payee = st.selectbox('收款人', payees, index=None,placeholder='请选择', key='direct_payee',
+                             format_func=lambda p: f"{p['display_name']} · {p.get('bank_name', '银行未提供')} · {p['masked_account']}")
+        amount = amount_input('转账金额（元，最多两位小数）', 'direct_amount')
+        memo = st.text_input('备注（选填）', max_chars=50, key='direct_memo')
+        ready = account is not None and payee is not None and bool(amount)
+        if not ready:
+            st.caption('请选择付款账户、收款人并填写金额；信息不完整时不会生成转账。')
+        if st.button('核对转账信息', key='direct_transfer_submit', width='stretch',
+                     disabled=conversation.blocked or not ready):
+            try:
+                amount_minor = parse_yuan(amount)
+            except ValueError as exc:
+                st.warning(str(exc))
+            else:
+                params = dict(account_id=account['account_id'], payee_id=payee['payee_id'],
+                              amount_minor=amount_minor)
+                if memo.strip():
+                    params['memo'] = memo.strip()
+                try:
+                    conversation.start_action('transfer.create', params)
+                except (ValueError, ContractError, ServiceError) as exc:
+                    st.error(error_text(exc))
+                else:
+                    st.session_state.home_next_tab = '转账与收款'
+                    st.rerun()
 
 
 balance = None
@@ -122,9 +182,9 @@ with st.sidebar:
 
 
 # Tabs only select a view. All existing business guards and callbacks remain below.
-tab_labels = ('账户首页', '转账汇款', '账单流水', '操作记录')
+tab_labels = ('首页', '转账与收款', '收支明细', '操作记录')
 requested_view = st.query_params.pop('view', None)
-view_tabs = {'home': '账户首页', 'transfer': '转账汇款', 'bills': '账单流水', 'history': '操作记录'}
+view_tabs = {'home': '首页', 'transfer': '转账与收款', 'bills': '收支明细', 'history': '操作记录'}
 if isinstance(requested_view, str) and requested_view in view_tabs:
     st.session_state.home_next_tab = view_tabs[requested_view]
 next_tab = st.session_state.pop('home_next_tab', None)
@@ -138,13 +198,18 @@ with home_tab:
 recent_rows = None
 
 with transfer_tab:
-    st.title('把一笔转账说清楚')
-    st.caption('先填写收款人和金额，再核对并确认。')
+    with visual.band('core', 'transfer'):
+        st.title('转账与收款')
+        st.page_link('pages/6_定时转账.py', label='预约转账')
+        st.page_link('pages/4_AA收款.py', label='AA收款单')
+        st.caption('填写信息 → 核对 → 确认或身份验证 → 结果。')
+    direct_transfer(conversation)
     if conversation.blocked and not conversation.request:
-        st.warning('已有待处理或待核实的操作；请先到“账户首页”的“待处理操作”恢复并确认、拒绝或查询，未知结果必须先核实。')
+        st.warning('已有待处理或待核实的操作；请先到“首页”的“待处理操作”恢复并确认、拒绝或查询，未知结果必须先核实。')
     chat, details = st.columns([1.5, 1], gap="large")
     with chat:
-        with ui.business_section("对话", description="告诉我收款人和金额，信息不完整时会先向你确认。"):
+        with ui.business_section("用一句话填写", description="无需配置模型；与上方表单共用核对、确认和结果。",
+                                 key=visual.card_key('ai', 'transfer-chat')):
             if not conversation.messages:
                 with st.chat_message("assistant"):
                     st.write("可以说“给李明转200元”。也可以先说“给小王转钱”，再补充金额。")
@@ -162,37 +227,64 @@ with transfer_tab:
                 perform(conversation.submit, prompt)
 
     with details:
-        with ui.business_section("当前操作"):
+        with ui.business_section("当前操作", key=visual.card_key('core', 'transfer-details')):
             request, result = conversation.request, conversation.result
             if result:
+                render_authorization(conversation.gateway, request, principal_id=conversation.principal_id)
                 ui.render_status('needs_reconciliation' if result['status'] == 'unknown' else result['status'])
             else:
                 ui.render_status('draft', detail='先准备草稿，核对后才会进入确认。')
             if request and result and request['action']=='transfer.create':
                 amount = request["params"]["amount_minor"]
                 st.metric("转账金额", f"¥ {amount // 100:,}.{amount % 100:02d}")
-                st.write("收款人：" + conversation.payee["display_name"])
-                st.write("收款账户：" + conversation.payee["masked_account"])
-                st.write("银行：" + conversation.payee.get("bank_name", "未提供"))
+                try:
+                    person = conversation.gateway.operation_payee(request, principal_id=conversation.principal_id)
+                except (ServiceError, ContractError):
+                    person = None
+                can_approve = bool(person)
+                if person:
+                    st.write('收款人：' + person['display_name'])
+                    st.write('收款账户：' + person['masked_account'])
+                    st.write('银行：' + person.get('bank_name', '未提供'))
+                else:
+                    st.warning('收款信息暂不可核实，请查询原操作后再确认。')
+                if request['params'].get('memo'):
+                    st.write("备注：" + request['params']['memo'])
                 st.divider()
                 text = result_text(request, result)
                 if result["status"] == "succeeded":
                     st.success(text)
                     st.caption("结果来自已提交的账本。")
+                    st.write('交易编号：'+result['data']['transaction_id'])
+                    try:
+                        from app.presentation import beijing
+                        receipt=conversation.gateway.transfer_receipt(result['data']['transaction_id'],principal_id=conversation.principal_id)
+                        st.write('完成时间：'+beijing(receipt['occurred_at']))
+                    except ServiceError:
+                        st.caption('回执时间暂不可读取，转账结果仍以原回执为准。')
+                    ui.render_service_link('bills','查看收支明细',widget_key='transfer_view_receipt')
                 elif result["status"] in {"awaiting_confirmation", "awaiting_verification"}:
                     st.warning(text)
                     if result["status"] == "awaiting_verification":
-                        st.write("含本次的上海当日累计超过1000元，需模拟强验证；验证要求不会跨日降级。" if conversation.gateway.demo_mode else "含本次的上海当日累计超过1000元，需手机动态码验证；验证要求不会跨日降级。")
+                        st.write("上海当日累计（含本次）超过1000元，需体验验证；验证要求不会跨日降级。" if conversation.gateway.demo_mode else "上海当日累计（含本次）超过1000元，需手机动态码验证；验证要求不会跨日降级。")
                         from app.auth_ui import transaction_code
                         code=transaction_code(conversation,key='transfer_totp')
-                        if st.button("模拟验证并继续" if conversation.gateway.demo_mode else "验证并继续", type="primary", width="stretch"):
+                        if st.button(approval_label(request, verify=True, demo=conversation.gateway.demo_mode), key="transfer_approve", type="primary", width="stretch", disabled=not can_approve):
                             perform(conversation.decide, True, simulate_verification=conversation.gateway.demo_mode,totp_code=code)
-                    elif st.button("确认此笔模拟转账", type="primary", width="stretch"):
+                    elif st.button(approval_label(request), key="transfer_approve", type="primary", width="stretch", disabled=not can_approve):
                         perform(conversation.decide, True)
-                    if st.button("拒绝此操作", width="stretch"):
+                    if st.button('返回修改', key='transfer_edit', width='stretch'):
+                        try:
+                            st.session_state['direct_edit_seed'] = cancel_transfer_for_edit(conversation)
+                        except (ValueError, ServiceError, ContractError) as exc:
+                            st.warning(str(exc) if isinstance(exc, ValueError) else error_text(exc))
+                        else:
+                            st.session_state.home_next_tab = '转账与收款'
+                            st.rerun()
+                    if st.button("取消本次操作", key='transfer_cancel', width="stretch"):
                         perform(conversation.decide, False)
                 else:
-                    st.info(text)
+                    st.info(text); note = failure_note(result); st.warning(note) if result.get('status') in {'failed','blocked'} and note else None
                     if result.get("error", {}).get("code") == "AUTH_EXPIRED":
                         st.write("此笔授权已过期，未执行转账。需要转账时请重新发起并确认。")
                     elif result["status"] == "unknown":
@@ -233,23 +325,25 @@ with transfer_tab:
         elif selection['intent'] in destinations:
             st.switch_page(destinations[selection['intent']])
         elif selection['intent'] == 'bill':
-            st.session_state.home_next_tab = '账单流水'
+            st.session_state.home_next_tab = '收支明细'
             st.rerun()
         elif selection['intent'] == 'balance':
-            st.info('账户首页展示当前账户可用余额；草稿中的账户并未因此获得查询权限，请核对账户标识。')
+            st.info('首页展示当前账户可用余额；草稿中的账户并未因此获得查询权限，请核对账户标识。')
         elif selection['intent'] == 'transfer':
             st.info('请在下方转账聊天中核对并填写收款人和金额。进入流程不会自动付款，仍需原确认或强验证。')
 
 
 with history_tab:
-    st.title('操作记录')
+    with visual.band('core', 'history'):
+        st.title('操作记录')
+        st.caption('恢复待处理操作不会自动确认或重新付款。')
     with st.expander('恢复待处理操作 / 查看历史', expanded=True):
         transfer_operations = [op for op in conversation.operations if op['action'] == 'transfer.create']
         if any(op['action'] != 'transfer.create' for op in conversation.operations):
-            st.caption('卡片、AA、订阅和定时登记可在“账户首页”的“待处理操作”或侧栏对应页面恢复。')
+            st.caption('卡片、AA、订阅和定时登记可在“首页”的“待处理操作”或侧栏对应页面恢复。')
         if transfer_operations:
-            labels = {'awaiting_confirmation':'待确认','awaiting_verification':'待模拟验证','succeeded':'已完成',
-                      'cancelled':'已拒绝','failed':'未完成','blocked':'已锁定','unknown':'待核实','running':'执行中'}
+            labels = {'awaiting_confirmation':'待确认','awaiting_verification':'待身份验证','succeeded':'已完成',
+                      'cancelled':'已取消','failed':'未完成','blocked':'已锁定','unknown':'结果待核实','running':'处理中'}
             selected = st.selectbox('选择原操作', transfer_operations,
                 format_func=lambda row: f"{labels.get(row['status'], row['status'])} · {row['idempotency_key']}")
             if st.button('恢复选中操作'):
@@ -259,76 +353,84 @@ with history_tab:
             st.write('暂无历史操作。')
 
 with ledger_tab:
-    st.title('账单与流水')
-    st.subheader('近 30 天流水')
-    try:
-        today = datetime.now(timezone(timedelta(hours=8))).date()
-        params = dict(account_id='demo_account_a', start_date=(today-timedelta(days=29)).isoformat(), end_date=today.isoformat(), limit=100)
-        data = query('transaction.list', params)
-        rows = data['transactions']
-        while data['next_cursor']:
-            data = query('transaction.list', params | dict(cursor=data['next_cursor']))
-            rows.extend(data['transactions'])
-        recent_rows = rows
-        if rows:
-            st.dataframe([{'时间（上海）': datetime.fromisoformat(row['occurred_at'].replace('Z', '+00:00')).astimezone(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S'), '方向': '转出' if row['direction']=='debit' else '转入',
-                '金额': money(row['amount_minor']), '流水编号': row['transaction_id']} for row in reversed(rows)], hide_index=True)
-        else:
-            st.caption('暂无流水。待确认、拒绝或失败不会产生转账流水。')
-    except (ContractError, ServiceError):
-        st.warning('流水暂不可用，请稍后查询。')
-
-    st.divider()
-    st.subheader('账单分析')
-    st.caption('查询账本，不改变余额；修改条件或执行其他操作后请重新查询。')
-    try:
-        accounts = conversation.gateway.get_context(principal_id=conversation.principal_id)['accounts']
-    except (ContractError, ServiceError):
-        accounts = []
-        st.warning('账单账户暂不可用，请稍后重试。')
-
-    if accounts:
-        names = {row['account_id']: row['display_name'] for row in accounts}
-        account = st.selectbox('账单账户', list(names), format_func=lambda key: f'{names[key]} · {key}', key='bill_account')
-        mode = st.radio('统计期间', ['月份', '年份', '日期范围'], horizontal=True, key='bill_mode')
-        current = datetime.now(timezone(timedelta(hours=8))).date()
-        if mode in {'月份', '年份'}:
-            year = st.number_input('账单年份', min_value=1, max_value=9999, value=current.year, step=1, key='bill_year')
-            if mode == '月份':
-                month = st.selectbox('账单月份', list(range(1, 13)), index=current.month-1, key='bill_month')
-                start, end = date(year, month, 1), date(year, month, monthrange(year, month)[1])
+    with visual.band('bill', 'ledger'):
+        st.title('收支明细')
+        st.caption('流水与账单分析都只查询账本，不改变余额。')
+    with visual.card('bill', 'ledger-flow'):
+        st.subheader('近 30 天流水')
+        try:
+            today = datetime.now(timezone(timedelta(hours=8))).date()
+            params = dict(account_id='demo_account_a', start_date=(today-timedelta(days=29)).isoformat(), end_date=today.isoformat(), limit=100)
+            data = query('transaction.list', params)
+            rows = data['transactions']
+            while data['next_cursor']:
+                data = query('transaction.list', params | dict(cursor=data['next_cursor']))
+                rows.extend(data['transactions'])
+            recent_rows = rows
+            if rows:
+                ui.render_records([{'时间（上海）': datetime.fromisoformat(row['occurred_at'].replace('Z', '+00:00')).astimezone(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S'), '方向': '转出' if row['direction']=='debit' else '转入',
+                    '金额': money(row['amount_minor']), '流水编号': row['transaction_id']} for row in reversed(rows)], hide_index=True,
+                    title_field='方向', value_field='金额', meta_fields=('时间（上海）',), key='ledger',
+                    layout='activity', tone='bill', group_field='时间（上海）', table_view=True, details_label='对账表')
             else:
-                start, end = date(year, 1, 1), date(year, 12, 31)
-        else:
-            start = st.date_input('开始日期（上海）', value=current.replace(day=1), min_value=date.min, max_value=date.max, key='bill_start')
-            end = st.date_input('结束日期（上海）', value=current, min_value=date.min, max_value=date.max, key='bill_end')
-        valid_range = start is not None and end is not None and start <= end
-        if not valid_range:
-            st.warning('请选择完整日期，且开始日期不能晚于结束日期。')
-        # 不缓存成功报告：失败、条件变化、转账或重置重跑后不会把旧报告当成本次结果。
-        if st.button('查询账单', key='bill_query', disabled=not valid_range):
-            try:
-                bill = query('bill.analyze', dict(account_id=account, start_date=start.isoformat(), end_date=end.isoformat()))
-            except (ContractError, ServiceError, TimeoutError):
-                st.error('账单查询未完成，请稍后重试；本次没有可展示的报告。')
-            else:
-                st.caption(f'账户：{names[account]} · 上海日期：{start.isoformat()} 至 {end.isoformat()}（含两端）')
-                st.metric('消费/订阅毛支出', money(bill['total_expense_minor']))
-                st.write(bill['report'])
-                st.info('大额单笔提示仅供核实；其余异常规则未启用，空列表不代表没有异常。')
-                if bill['anomalies']:
-                    st.dataframe([{'流水编号':item['transaction_id'],'核实提示':item['reason']}
-                                  for item in bill['anomalies']],hide_index=True)
-                if bill['categories']:
-                    st.dataframe([{'分类': row['category'], '金额（元）': money(row['amount_minor']),
-                                   '金额（分）': row['amount_minor']} for row in bill['categories']], hide_index=True)
-                    st.bar_chart([{'分类': row['category'], '金额（分）': row['amount_minor']}
-                                  for row in bill['categories']], x='分类', y='金额（分）')
-                    st.caption('图表单位为人民币分，与表格使用同一份接口金额；100 分 = 1 元。')
+                st.caption('暂无流水。待确认、拒绝或失败不会产生转账流水。')
+        except (ContractError, ServiceError):
+            st.warning('流水暂不可用，请稍后查询。')
+
+    with visual.card('bill', 'ledger-bill'):
+        st.subheader('账单分析')
+        st.caption('查询账本，不改变余额；修改条件或执行其他操作后请重新查询。')
+        try:
+            accounts = conversation.gateway.get_context(principal_id=conversation.principal_id)['accounts']
+        except (ContractError, ServiceError):
+            accounts = []
+            st.warning('账单账户暂不可用，请稍后重试。')
+
+        if accounts:
+            names = {row['account_id']: row['display_name'] for row in accounts}
+            account = st.selectbox('账单账户', list(names), format_func=lambda key: names[key], key='bill_account')
+            mode = st.radio('统计期间', ['月份', '年份', '日期范围'], horizontal=True, key='bill_mode')
+            current = datetime.now(timezone(timedelta(hours=8))).date()
+            if mode in {'月份', '年份'}:
+                year = st.number_input('账单年份', min_value=1, max_value=9999, value=current.year, step=1, key='bill_year')
+                if mode == '月份':
+                    month = st.selectbox('账单月份', list(range(1, 13)), index=current.month-1, key='bill_month')
+                    start, end = date(year, month, 1), date(year, month, monthrange(year, month)[1])
                 else:
-                    st.info('该期间没有计入毛支出的消费或订阅出账；退款情况见报告。')
-    else:
-        st.caption('暂无可用于账单查询的账户。')
+                    start, end = date(year, 1, 1), date(year, 12, 31)
+            else:
+                start = st.date_input('开始日期（上海）', value=current.replace(day=1), min_value=date.min, max_value=date.max, key='bill_start')
+                end = st.date_input('结束日期（上海）', value=current, min_value=date.min, max_value=date.max, key='bill_end')
+            valid_range = start is not None and end is not None and start <= end
+            if not valid_range:
+                st.warning('请选择完整日期，且开始日期不能晚于结束日期。')
+            # 不缓存成功报告：失败、条件变化、转账或重置重跑后不会把旧报告当成本次结果。
+            if st.button('查询账单', key='bill_query', disabled=not valid_range):
+                try:
+                    bill = query('bill.analyze', dict(account_id=account, start_date=start.isoformat(), end_date=end.isoformat()))
+                except (ContractError, ServiceError, TimeoutError):
+                    st.error('账单查询未完成，请稍后重试；本次没有可展示的报告。')
+                else:
+                    st.caption(f'账户：{names[account]} · 上海日期：{start.isoformat()} 至 {end.isoformat()}（含两端）')
+                    st.metric('消费/订阅毛支出', money(bill['total_expense_minor']))
+                    st.write(bill['report'])
+                    st.info('大额单笔提示仅供核实；其余异常规则未启用，空列表不代表没有异常。')
+                    if bill['anomalies']:
+                        ui.render_records([{'流水编号':item['transaction_id'],'核实提示':item['reason']}
+                                      for item in bill['anomalies']], hide_index=True,
+                                      title_field='核实提示', meta_fields=('流水编号',), limit=None,
+                                      key='bill-alerts', layout='activity', tone='bill', details_label='核实提示明细')
+                    if bill['categories']:
+                        with st.expander('查看分类金额明细', expanded=False):
+                            st.dataframe([{'分类': row['category'], '金额（元）': money(row['amount_minor'])}
+                                          for row in bill['categories']], hide_index=True)
+                        st.bar_chart([{'分类': row['category'], '金额（元）': row['amount_minor'] / 100}
+                                      for row in bill['categories']], x='分类', y='金额（元）')
+                        st.caption('表格与图表使用同一元金额；内部仍以整数分记账。')
+                    else:
+                        st.info('该期间没有计入毛支出的消费或订阅出账；退款情况见报告。')
+        else:
+            st.caption('暂无可用于账单查询的账户。')
 
 
 pending = list(conversation.unresolved)
@@ -336,7 +438,7 @@ pending = list(conversation.unresolved)
 pending_keys={(op['action'],op['idempotency_key']) for op in pending}
 for flow_key in ('conversation','action_flow','model_bank_flow'):
     local_flow=st.session_state.get(flow_key)
-    if local_flow is not None and pending_view.local_unresolved(local_flow) and local_flow.request:
+    if local_flow is not None and pending_view.local_unresolved(local_flow) and getattr(local_flow,'request',None):
         local_key=(local_flow.request['action'],pending_view.operation_key(local_flow.request))
         if local_key not in pending_keys:
             pending.append(dict(action=local_key[0],idempotency_key=local_key[1],
@@ -348,7 +450,7 @@ action_names = {
     'subscription.charge': '订阅续费', 'scheduled_transfer.create': '定时转账',
 }
 pending_labels = {
-    'awaiting_confirmation': '等待确认', 'awaiting_verification': '等待模拟验证',
+    'awaiting_confirmation': '等待确认', 'awaiting_verification': '等待身份验证',
     'running': '正在处理', 'unknown': '结果待核实',
 }
 kind_labels = {
@@ -359,15 +461,16 @@ recent_transactions = None if recent_rows is None else tuple(
     home_view.TransactionSummary(
         title=kind_labels.get(row.get('kind'), '账户交易'),
         time_text=datetime.fromisoformat(row['occurred_at'].replace('Z', '+00:00')).astimezone(
-            timezone(timedelta(hours=8))).strftime('%m-%d %H:%M'),
+            timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M'),
         amount_text=('−' if row['direction'] == 'debit' else '+') + money(row['amount_minor']),
         status_text='已入账',
     )
     for row in list(reversed(recent_rows))[:3]
 )
 with home_area:
-    st.title('个人银行首页')
-    st.caption('本地模拟项目 · 不连接真实资金')
+    with visual.band('core', 'home'):
+        st.title('首页')
+        st.caption('本地模拟项目 · 不连接真实资金')
     # 待办在首页即可处理：确认/拒绝/查询都走原授权与恢复流程，不另建通道。
     pending_view.render_unresolved(
         conversation, key_prefix='home_pending',
@@ -387,16 +490,17 @@ with home_area:
     ), show_header=False)
     selected_service = guide_action or selected_service
 if selected_service == 'home':
-    st.session_state.home_next_tab = '账户首页'
+    st.session_state.home_next_tab = '首页'
     st.rerun()
 if selected_service in {'transfer', 'bills'}:
-    st.session_state.home_next_tab = '转账汇款' if selected_service == 'transfer' else '账单流水'
+    st.session_state.home_next_tab = '转账与收款' if selected_service == 'transfer' else '收支明细'
     st.rerun()
 service_pages = {
     'assistant': 'pages/0_AI银行助手.py',
     'cards': 'pages/3_卡片管理.py', 'aa': 'pages/4_AA收款.py',
     'scheduled': 'pages/6_定时转账.py', 'budget': 'pages/7_预算管理.py',
     'wealth': 'pages/9_理财.py', 'products': 'pages/2_产品对比.py',
+    'subscriptions': 'pages/5_订阅管理.py', 'merchant': 'pages/8_生日与商户.py', 'mine': 'pages/10_我的.py',
 }
 if selected_service in service_pages:
     st.switch_page(service_pages[selected_service])

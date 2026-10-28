@@ -8,7 +8,7 @@ from bank.gateway import BankGateway
 from bank.seed import initialize
 from bank.store import Store
 from shared import adapt_request, ServiceError
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 
 class CardTests(unittest.TestCase):

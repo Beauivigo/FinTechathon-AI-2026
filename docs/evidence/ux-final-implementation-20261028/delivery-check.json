@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "source_files": 170,
+  "protected_data_unchanged": true,
+  "shared_files_unchanged": 5,
+  "assignment_unchanged": true,
+  "word_pages": 19,
+  "word_v05_preserved": true,
+  "links_checked_files": 8,
+  "broken_links": [],
+  "installer_sha256": "9308a9d5d86ffbf4be15289e0975307b5fed6b00641e132bfcc204a60a83b8ae",
+  "source_sync_files": 34,
+  "pending": [
+    "200% zoom",
+    "personal phone",
+    "second provider live",
+    "separate clean computer"
+  ],
+  "committed": false,
+  "pushed": false
+}

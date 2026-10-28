@@ -108,7 +108,7 @@ class CloseoutToolTests(unittest.TestCase):
             self.assertEqual(evaluator.sha256_file(database), before)
 
     def test_phone_page_reruns_and_keeps_imported_aliases_isolated(self):
-        from streamlit.testing.v1 import AppTest
+        from tests.ui_support import AppTest
         from app import auth_ui, demo, ui
         from bank import seed
         from bank.store import Store
@@ -124,7 +124,7 @@ class CloseoutToolTests(unittest.TestCase):
             page.run()
             self.assertFalse(page.exception)
             self.assertGreater(len(page.title) + len(page.header) + len(page.button), 0)
-            page.button(key='ui_menu_transfer').click().run()
+            page.button(key='home_service_transfer').click().run()
             self.assertFalse(page.exception)
             page.button(key='ui_menu_home').click().run()
             self.assertFalse(page.exception)

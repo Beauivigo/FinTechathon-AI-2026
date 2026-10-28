@@ -1,0 +1,214 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "0f3728d1a69fa64475b27387b53a039079525ca2cdf6c956996c1c4b5cd52c2f",
+      "primary_before": "a8c1a943992307817d1b0c32b3bbcca48f4daf8671ea9c7143efd198ea020807",
+      "before_snapshot": "5aacddfb0e8933ef5214a065fdba346c226d6acdd3006bd62266c7e1bfa018ac",
+      "final_documentation_revision": true
+    },
+    {
+      "path": "agent/model_bank.py",
+      "sha256": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989",
+      "primary_before": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad",
+      "before_snapshot": "6517abacc4d9c621a00b0458e5e75e8dd7ef9c29bbc439aea925eac166044fad"
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "sha256": "067a3da82b8ca0c4071b0cbe0d6ef0659ac1bae7edcaa888568c84a8388fc047",
+      "primary_before": "5be9b6d3d922b9201702567b4db7523b639fc8823bba3435193f8a40aa768506",
+      "before_snapshot": "5be9b6d3d922b9201702567b4db7523b639fc8823bba3435193f8a40aa768506"
+    },
+    {
+      "path": "agent/model_runtime.py",
+      "sha256": "8655e77d2444a650c2cfbd8a48639cf89a17ca5dac5328b2b03a2cb925c6d801",
+      "primary_before": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2",
+      "before_snapshot": "607bd972ba0031275eeb1d2dcaead231c69e9c1019c0e43bb2888c484ddd8fe2"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "7c12f2a289b667ed5d8e952dabe61e51df3c912cbe25d4516c6536aa2f89ad46",
+      "primary_before": "90e034c9d89c08f6b2d15419511b2e0f95a1ace1859b23fdcd855a12b9be741b",
+      "before_snapshot": "90e034c9d89c08f6b2d15419511b2e0f95a1ace1859b23fdcd855a12b9be741b"
+    },
+    {
+      "path": "app/home_view.py",
+      "sha256": "41963f66e2e4fd9c824e58547f107732299803d4b2a4a6b6eb87ed197c6fadf8",
+      "primary_before": "773d8cf21cd8cb6f2871db01db53408a5e9f8ab428b78a8c55a7d0db51da19a6",
+      "before_snapshot": "773d8cf21cd8cb6f2871db01db53408a5e9f8ab428b78a8c55a7d0db51da19a6"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "41521c73af8d2463bc3436fcfe00d19d49258df965a06776ea73bab340f96580",
+      "primary_before": "7cb9f50b1122db3a1e9da69c6c601df56244089b1b210008384e12ed464e43a7",
+      "before_snapshot": "7cb9f50b1122db3a1e9da69c6c601df56244089b1b210008384e12ed464e43a7"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "d5a9245bb0c439f18db788362f339ceca135b6ab16f0dc55ebabf42ee504e473",
+      "primary_before": "cacadc06743b2ffdb42e791493777011b485a951867469524009f9cb868bf7cb",
+      "before_snapshot": "cacadc06743b2ffdb42e791493777011b485a951867469524009f9cb868bf7cb"
+    },
+    {
+      "path": "app/model_settings.py",
+      "sha256": "2d061732ced3924f32b3e8142fed7bb3e14a9cb13d40f8a7e08b50b4a924d723",
+      "primary_before": "43d18d57bef64dda9b52a826f018e3517c2861c240a284a9c7dd08850a27a9e2",
+      "before_snapshot": "43d18d57bef64dda9b52a826f018e3517c2861c240a284a9c7dd08850a27a9e2"
+    },
+    {
+      "path": "app/model_view.py",
+      "sha256": "4a4b055ea13bfc638e0032e568be6d1c1390c765c0ac499e3d87f0e5eddb4192",
+      "primary_before": "8fc5e32987428dda8236782b6f784eaf32561f9f4c02d0a8fdf1c0bd9e30bf22",
+      "before_snapshot": "8fc5e32987428dda8236782b6f784eaf32561f9f4c02d0a8fdf1c0bd9e30bf22"
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "sha256": "f5c766f2454315cb8b0ef4a10d49522129858390885a975d67b64f1b9ace8720",
+      "primary_before": "191438c8841399757f5f065cb65fb47a3af967e3220e336a1603d26234ee7a89",
+      "before_snapshot": "191438c8841399757f5f065cb65fb47a3af967e3220e336a1603d26234ee7a89"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "sha256": "12a268c922a9903c6568ca5cc5a72a4ea3007fd14f5f10a736d65a364a52a392",
+      "primary_before": "0b0e2864730e25ff8636b7df0a03d5686058d4fd097ceb994e851a484287356e",
+      "before_snapshot": "0b0e2864730e25ff8636b7df0a03d5686058d4fd097ceb994e851a484287356e"
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "sha256": "4464c54a986e1906ed50b5a33841232487d52cd59466cc37892b9e95c729e26c",
+      "primary_before": "04c4e3840862a1bdd7741dd3943f814914c8caf86758b3667aef63ba8b2487ed",
+      "before_snapshot": "04c4e3840862a1bdd7741dd3943f814914c8caf86758b3667aef63ba8b2487ed"
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "sha256": "1757196d5ae298c08c4cfc2ea696553f3f1c89717619f375fe292dc111cfcbc1",
+      "primary_before": "2c0bbe837a64a7e89c5de8bdd8cdcdf4c40511481eb76dc9c18837eff56c0ec6",
+      "before_snapshot": "2c0bbe837a64a7e89c5de8bdd8cdcdf4c40511481eb76dc9c18837eff56c0ec6"
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "sha256": "36edec488535a8f694ca2f7e13be7b937494fedaba4f16f30da7dc004df6b679",
+      "primary_before": "b82fdb76319f0d5a97a211c4615ac665bb2812506459aee23de0ec06c30263a5",
+      "before_snapshot": "b82fdb76319f0d5a97a211c4615ac665bb2812506459aee23de0ec06c30263a5"
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "sha256": "06f23c7aba7cb13a974f41dfe67166a1775c55c26eae1f252e96c0c046f1bbca",
+      "primary_before": "9b062498f5eb75cdab873833f6db9b0504e116c5272aa38268663e50451e4644",
+      "before_snapshot": "9b062498f5eb75cdab873833f6db9b0504e116c5272aa38268663e50451e4644"
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "sha256": "9106a862dce1b31ebc8d489c41d4b2f58a224a01301fe23bae678c6b9166161c",
+      "primary_before": "f9b1f525581e59d256068388d53eab32ef1f8fa297da85751733ff4818c6ff86",
+      "before_snapshot": "f9b1f525581e59d256068388d53eab32ef1f8fa297da85751733ff4818c6ff86"
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "sha256": "bda839233c8f5ef771923121fa312075fa4431c4ad8268f2f67a9df272421474",
+      "primary_before": "d777db29b085423c504f722b77af004a4d34ad5faf13cb5b12c291e9648f683a",
+      "before_snapshot": "d777db29b085423c504f722b77af004a4d34ad5faf13cb5b12c291e9648f683a"
+    },
+    {
+      "path": "app/pending_view.py",
+      "sha256": "de80fbb27980a23ee9c1750433ec37a71349cb5075722448d31479909fcd8b7a",
+      "primary_before": "e6ca6eec854287ad15b47b61e447b9a8388c23179834181dca55cb686fd9f9e7",
+      "before_snapshot": "e6ca6eec854287ad15b47b61e447b9a8388c23179834181dca55cb686fd9f9e7"
+    },
+    {
+      "path": "app/presentation.py",
+      "sha256": "fd6545d1dd0baedd752acebcf71c87e313fecdc51d1566bf32e186bc90cc223c",
+      "primary_before": "3a97e94c44a7851db11512a1539554e1d90de9251272f0d9e76dbc443ae67f24",
+      "before_snapshot": "3a97e94c44a7851db11512a1539554e1d90de9251272f0d9e76dbc443ae67f24"
+    },
+    {
+      "path": "app/routing_panel.py",
+      "sha256": "b128909750fd22f633e5b90375ee161fc6627e1cd0f3852f67b2951ebeaf8306",
+      "primary_before": "7c48ea6372df1e13bcc08807e398e0f7a14f720e1c72b31034f5c1e7f8a4d3a2",
+      "before_snapshot": "7c48ea6372df1e13bcc08807e398e0f7a14f720e1c72b31034f5c1e7f8a4d3a2"
+    },
+    {
+      "path": "app/saved_plan_view.py",
+      "sha256": "cc04910c035d50b870c7424fdc7da12c9b273b7d80d3aa8bd5743598cf8a3132",
+      "primary_before": "8e21036506199904589f1177a47ac881999a2efc50908c59021bb3e3b8f8cd63",
+      "before_snapshot": "8e21036506199904589f1177a47ac881999a2efc50908c59021bb3e3b8f8cd63"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "c2a8973a6fcad7b75b07356282fce7b91c13ad5c2f045af588d7ae3e1e2bd1ca",
+      "primary_before": "f5189904ef178454a1a59ac21cb7d9a08a5b701003ff53413d095da53d1346d1",
+      "before_snapshot": "f5189904ef178454a1a59ac21cb7d9a08a5b701003ff53413d095da53d1346d1"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "ca27b7ab1bc548f149389cf9023deda0882e5580be63895defbd9ef10bc9136e",
+      "primary_before": "46ed44ae2652db2801c7fd4f50c7065951ea25fe51386c15e0142ae0749dea62",
+      "before_snapshot": "46ed44ae2652db2801c7fd4f50c7065951ea25fe51386c15e0142ae0749dea62"
+    },
+    {
+      "path": "bank/resource_labels.py",
+      "sha256": "438bde0238e44492170a0ea698b80ca124f7d65c03634cc4d1d0510355c41d03",
+      "primary_before": null,
+      "before_snapshot": null
+    },
+    {
+      "path": "docs/BLOCKERS.md",
+      "sha256": "43fcb849c30883b81d7ddac16bcf66eb85f96a357b67c4359d33daec0c85b623",
+      "primary_before": "35b49a356fb7674cd5b2be9b3b04e6c7b357fbf9ad0680f7d1f20f7eee152909",
+      "before_snapshot": "ba356b70a60f35d9dde030c1b2c7fab4d9078d832a544bb1df9e85e8d74ef6f7"
+    },
+    {
+      "path": "docs/U1-U5程序内使用说明.md",
+      "sha256": "9d36005630fa455663965391830f9e9ec0a82bdf42b2700ddc838fa5f629bec1",
+      "primary_before": "bc35462865401d8b6c40f7c8494b374e76f905eb7a933496b04306d4581a7d9f",
+      "before_snapshot": "bc35462865401d8b6c40f7c8494b374e76f905eb7a933496b04306d4581a7d9f",
+      "final_documentation_revision": true
+    },
+    {
+      "path": "tests/test_closeout_acceptance.py",
+      "sha256": "79b8f8a113f42615616f9122cffdeb30e7205dadf811053d854dbdea14f41185",
+      "primary_before": "e7fcc2da3134773f79c7d541120c8396db7b4fecf64eb628d55ae7f2d80ac3c7",
+      "before_snapshot": "e7fcc2da3134773f79c7d541120c8396db7b4fecf64eb628d55ae7f2d80ac3c7"
+    },
+    {
+      "path": "tests/test_closeout_tooling_20261026.py",
+      "sha256": "a0c1f16b6e1a793f98775a8784a796f7138fb49390a9d6334ccff257b4e9cc69",
+      "primary_before": "439393b34a750be91e0de8e19213cd80765252cd1de29921c9a286597f44f35e",
+      "before_snapshot": "439393b34a750be91e0de8e19213cd80765252cd1de29921c9a286597f44f35e"
+    },
+    {
+      "path": "tests/test_codex_ux_final.py",
+      "sha256": "70cb10fd6565bbca0ebfad902a32999fb5832cd4741595ccc9c1314b4ed18af8",
+      "primary_before": null,
+      "before_snapshot": null
+    },
+    {
+      "path": "tests/test_model_page_acceptance.py",
+      "sha256": "0b2499f5ec22e97a621f63fe867dc818dcdefdbcc744f0a71b9f4c33aa9fbe22",
+      "primary_before": "a1bc8f304722cab60cef2ba7433137685db8479e0d1f20f8bf2e77fb6015847c",
+      "before_snapshot": "a1bc8f304722cab60cef2ba7433137685db8479e0d1f20f8bf2e77fb6015847c"
+    },
+    {
+      "path": "tests/test_onboarding.py",
+      "sha256": "54a1deebf231595add834ec26b9c53a40a61e0b32b44d17ab84c74bd5e57987e",
+      "primary_before": "2da3d5f36826de4fe0422b0decb5880d34486aa778c8dc1d9f76792528a00a75",
+      "before_snapshot": "2da3d5f36826de4fe0422b0decb5880d34486aa778c8dc1d9f76792528a00a75"
+    },
+    {
+      "path": "tests/test_ui_components.py",
+      "sha256": "bdb32668470e2d6832ef4f420f71e8965ff0473786abfc96084bf75cccf0df10",
+      "primary_before": "69748fd4c384d1a2588c34f6b604bb5bc35893b217a281ac707b4484657d0ee7",
+      "before_snapshot": "69748fd4c384d1a2588c34f6b604bb5bc35893b217a281ac707b4484657d0ee7"
+    },
+    {
+      "path": "tests/test_ux_final.py",
+      "sha256": "a55d921e93a276d45b866c9e96eea1b0d4023f1ef9e652ea52d69f42c7048e17",
+      "primary_before": null,
+      "before_snapshot": null
+    }
+  ],
+  "conflicts": [],
+  "other_source_changes": [],
+  "accepted_test": "release-evidence-final/result.json",
+  "primary_sync_authorized": "2026-10-28 user confirmed 同步已验收修正"
+}

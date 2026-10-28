@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import unittest
 from unittest.mock import patch
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest, fill_manual_birthday
 import tests.test_merchant as helper
 from shared import ServiceError
 
@@ -14,6 +14,7 @@ class DeliveryPageTests(unittest.TestCase):
     def page(self,path):
         page=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app/main.py'),default_timeout=10).run()
         page.switch_page('pages/'+path).run();self.assertFalse(page.exception)
+        if path=='8_生日与商户.py':fill_manual_birthday(page)
         return page
 
     def test_birthday_plan_reserve_order_restart_release(self):

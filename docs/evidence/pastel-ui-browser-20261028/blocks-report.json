@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "name": "setup-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "setup-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "home-normal",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "cards-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "cards-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "products-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "history-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "history-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "passed": true
+    },
+    {
+      "name": "history-last-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "exceptions": 0,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "realHttpBlocked": true,
+  "financialWrites": false,
+  "auth": {
+    "sidebarDisplay": "absent",
+    "mainLeft": 260,
+    "mainRight": 1180,
+    "viewport": 1440,
+    "formCount": 1,
+    "inputsVisible": true
+  },
+  "businessSidebar": true,
+  "motion": {
+    "name": "vx-arrive",
+    "duration": "0.34s",
+    "reduced": false
+  },
+  "reducedMotion": {
+    "duration": "1e-06s",
+    "reduced": true
+  },
+  "bankcardCount": 3,
+  "productTileCount": 2,
+  "transactionCount": 5,
+  "passed": true
+}

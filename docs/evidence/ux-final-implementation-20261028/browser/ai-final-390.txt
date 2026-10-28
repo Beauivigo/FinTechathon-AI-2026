@@ -1,0 +1,71 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "AI银行助手" [level=1]:
+  - text: AI银行助手
+  - link "Link to heading":
+    - /url: "#ai"
+- paragraph: 理解需求、补充信息、规划步骤，并按银行权限完成。
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- paragraph: 当前调用服务商：DeepSeek · 来源：未配置
+- alert:
+  - paragraph: 尚未配置模型。可到“我的—高级设置”配置，或先使用手动业务入口。
+- button "前往模型设置":
+  - paragraph: 前往模型设置
+- button "手动办理与账户首页":
+  - paragraph: 手动办理与账户首页
+- heading "用自然语言办理业务" [level=3]:
+  - text: 用自然语言办理业务
+  - link "Link to heading":
+    - /url: "#d5f8060b"
+- paragraph: 模型负责理解需求和规划；结果以账本回执为准，付款及敏感操作仍需确认或验证。
+- paragraph: 描述需求或补充上一条信息
+- textbox "描述需求或补充上一条信息":
+  - /placeholder: ""
+- button "发送需求":
+  - paragraph: 发送需求
+- paragraph: “新需求”只清空当前草稿与输入；已启用后台的保存计划请先暂停或改为手动处理，不会随清空自动取消。
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作

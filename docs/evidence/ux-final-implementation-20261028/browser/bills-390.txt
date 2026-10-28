@@ -1,0 +1,99 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- generic "keyboard_arrow_right 转账示例":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账示例
+- separator
+- generic "keyboard_arrow_right 账户设置":
+  - generic: keyboard_arrow_right
+  - paragraph: 账户设置
+- separator
+- generic "keyboard_arrow_right 后台任务与通知":
+  - generic: keyboard_arrow_right
+  - paragraph: 后台任务与通知
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- tablist:
+  - tab "首页":
+    - paragraph: 首页
+  - tab "转账与收款":
+    - paragraph: 转账与收款
+  - tab "收支明细" [selected]:
+    - paragraph: 收支明细
+  - tab "操作记录":
+    - paragraph: 操作记录
+- tabpanel "收支明细":
+  - heading "收支明细" [level=1]:
+    - text: 收支明细
+    - link "Link to heading":
+      - /url: "#4c321ac1"
+  - heading "近 30 天流水" [level=3]:
+    - text: 近 30 天流水
+    - link "Link to heading":
+      - /url: "#30"
+  - paragraph: 暂无流水。待确认、拒绝或失败不会产生转账流水。
+  - separator
+  - heading "账单分析" [level=3]:
+    - text: 账单分析
+    - link "Link to heading":
+      - /url: "#7812d230"
+  - paragraph: 查询账本，不改变余额；修改条件或执行其他操作后请重新查询。
+  - paragraph: 账单账户
+  - combobox "账单账户": 模拟日常账户
+  - button "Open":
+  - paragraph: 统计期间
+  - radiogroup "统计期间":
+    - radio "月份" [checked]
+    - paragraph: 月份
+    - radio "年份"
+    - paragraph: 年份
+    - radio "日期范围"
+    - paragraph: 日期范围
+  - paragraph: 账单年份
+  - spinbutton "账单年份": "2026"
+  - button "Decrement":
+  - button "Increment":
+  - paragraph: 账单月份
+  - combobox "账单月份": "10"
+  - button "Open":
+  - button "查询账单" [active]:
+    - paragraph: 查询账单
+  - paragraph: 账户：模拟日常账户 · 上海日期：2026-10-01 至 2026-10-31（含两端）
+  - paragraph: 消费/订阅毛支出
+  - paragraph: ¥ 0.00
+  - paragraph: 上海日期 2026-10-01 至 2026-10-31（含两端），消费/订阅毛支出 0.00 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。
+  - status:
+    - paragraph: 大额单笔提示仅供核实；其余异常规则未启用，空列表不代表没有异常。
+  - status:
+    - paragraph: 该期间没有计入毛支出的消费或订阅出账；退款情况见报告。

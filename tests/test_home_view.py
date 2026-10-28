@@ -173,7 +173,7 @@ class HomeViewContractTests(unittest.TestCase):
         self.assertIsNone(hv.render_home(data))
         text = _text(self.fake)
         expected_fragments = (
-            '个人银行首页',
+            '首页',
             '本地模拟',
             '账户概览',
             '日常储蓄账户',
@@ -306,13 +306,14 @@ class HomeViewContractTests(unittest.TestCase):
         hv = self.hv
         expected = [
             ('transfer', '转账'),
-            ('bills', '账单与流水'),
+            ('bills', '收支明细'),
             ('cards', '卡片管理'),
             ('aa', 'AA收款'),
-            ('scheduled', '定时转账'),
+            ('scheduled', '预约转账'),
             ('budget', '预算管理'),
             ('wealth', '理财'),
             ('products', '产品对比'),
+            ('subscriptions','订阅管理'), ('merchant','生日计划'), ('mine','我的'),
         ]
         self.assertEqual(
             [(item.action_id, item.label) for item in hv.SERVICE_ACTIONS],
@@ -410,13 +411,14 @@ class HomeViewContractTests(unittest.TestCase):
         self.assertIn('render_home', doc)
         targets = {
             'transfer': '主脚本',
-            'bills': '账单流水',
+            'bills': '收支明细',
             'cards': 'pages/3_卡片管理.py',
             'aa': 'pages/4_AA收款.py',
             'scheduled': 'pages/6_定时转账.py',
             'budget': 'pages/7_预算管理.py',
             'wealth': 'pages/9_理财.py',
             'products': 'pages/2_产品对比.py',
+            'subscriptions':'pages/5_订阅管理.py', 'merchant':'pages/8_生日与商户.py','mine':'pages/10_我的.py',
         }
         for action in self.hv.SERVICE_ACTIONS:
             with self.subTest(action_id=action.action_id):

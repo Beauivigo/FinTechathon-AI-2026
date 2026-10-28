@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import ast
 import importlib.util
+import re
 import sys
 import types
 import unittest
@@ -26,6 +27,7 @@ class FakeStreamlit(types.ModuleType):
         super().__init__('streamlit')
         self.calls = []
         self.button_results = {}
+        self.sidebar = _FakeContainer()
 
     def reset(self):
         self.calls.clear()
@@ -43,7 +45,9 @@ class FakeStreamlit(types.ModuleType):
                 spec = args[0] if args else kwargs.get('spec', 1)
                 count = spec if isinstance(spec, int) else len(spec)
                 return [_FakeContainer() for _ in range(count)]
-            if name == 'container':
+            if name == 'tabs':
+                return [_FakeContainer() for _ in args[0]]
+            if name in {'container', 'expander'}:
                 return _FakeContainer()
             return None
 
@@ -117,29 +121,29 @@ class UiComponentTests(unittest.TestCase):
 
     def test_constants_are_exact_local_and_accessible(self):
         self.assertEqual(self.ui.PALETTE, {
-            'ink': '#020617',
-            'navy': '#0F172A',
-            'paper': '#F8FAFC',
+            'ink': '#1F3336',
+            'ink_strong': '#17302F',
+            'paper': '#FBFDFB',
             'surface': '#FFFFFF',
-            'muted': '#475569',
-            'border': '#E2E8F0',
-            'brass': '#A16207',
-            'danger': '#B91C1C',
+            'muted': '#54686B',
+            'border': '#DCE8E4',
+            'primary': '#21605F',
+            'danger': '#A32A35',
         })
         self.assertEqual(self.ui.THEME_TOKENS, {
-            'primaryColor': '#A16207',
-            'backgroundColor': '#F8FAFC',
+            'primaryColor': '#21605F',
+            'backgroundColor': '#FBFDFB',
             'secondaryBackgroundColor': '#FFFFFF',
-            'textColor': '#020617',
-            'borderColor': '#E2E8F0',
-            'baseRadius': '0.5rem',
-            'buttonRadius': '0.5rem',
+            'textColor': '#1F3336',
+            'borderColor': '#DCE8E4',
+            'baseRadius': '0.75rem',
+            'buttonRadius': '0.75rem',
             'showWidgetBorder': True,
-            'headingFontSizes': ['2rem', '1.5rem', '1.25rem', '1.125rem', '1rem', '0.875rem'],
+            'headingFontSizes': ['2.15rem', '1.5rem', '1.25rem', '1.125rem', '1rem', '0.875rem'],
         })
         self.assertEqual(self.ui.SIDEBAR_THEME_TOKENS, {
             'backgroundColor': '#FFFFFF',
-            'secondaryBackgroundColor': '#F1F5F9',
+            'secondaryBackgroundColor': '#F5FAF8',
         })
         for part in ('IBM Plex Sans', 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'):
             self.assertIn(part, self.ui.FONT_STACK)
@@ -149,6 +153,7 @@ class UiComponentTests(unittest.TestCase):
         self.assertNotIn('已实现', self.ui.SCOPE_NOTE)
         self.assertEqual(dict(self.ui.NAV_ITEMS), {
             'home': 'app/main.py',
+            'mine':'app/pages/10_我的.py',
             'accounts': 'app/pages/1_资料账单.py',
             'products': 'app/pages/2_产品对比.py',
             'cards': 'app/pages/3_卡片管理.py',
@@ -162,14 +167,72 @@ class UiComponentTests(unittest.TestCase):
             'transfer': 'app/main.py',
             'bills': 'app/main.py',
         })
-        self.assertEqual(self.ui.NAV_LABELS['home'], '银行首页')
-        self.assertEqual(self.ui.PRIMARY_NAV_KEYS, ('home', 'accounts', 'wealth'))
+        self.assertEqual(self.ui.NAV_LABELS['home'], '首页')
+        self.assertEqual(self.ui.PRIMARY_NAV_KEYS, ('home',))
         self.assertEqual(set(self.ui.STATUS_META), {'draft', 'ready', 'pending', 'running', 'blocked', 'failed', 'done', 'unknown'})
         self.assertEqual(self.ui.STATUS_META['done'], {'label': '已完成', 'color': 'green'})
         self.assertGreaterEqual(_contrast(self.ui.PALETTE['ink'], self.ui.PALETTE['paper']), 7.0)
-        self.assertGreaterEqual(_contrast('#FFFFFF', self.ui.PALETTE['brass']), 4.5)
+        self.assertGreaterEqual(_contrast('#FFFFFF', self.ui.PALETTE['primary']), 4.5)
         self.assertGreaterEqual(_contrast(self.ui.PALETTE['muted'], self.ui.PALETTE['surface']), 4.5)
         self.assertGreaterEqual(_contrast(self.ui.PALETTE['danger'], self.ui.PALETTE['surface']), 4.5)
+
+    def test_records_show_all_values_by_default_without_hiding_them_in_tables(self):
+        rows = [{'名称': f'记录{i}', '金额': f'{i}.00', '状态': '待核对'} for i in range(5)]
+        original = [dict(row) for row in rows]
+        self.ui.render_records(rows, title_field='名称', value_field='金额',
+                               meta_fields=('状态',), key='records-test', hide_index=True)
+        shown = [str(args[0]) for name, args, _kwargs in self.st.calls
+                 if name in {'write', 'text', 'caption', 'subheader', 'badge'} and args]
+        shown.extend(str(self.argument(call, 1, 'value')) for call in self.found('metric'))
+        for row in rows:
+            self.assertIn(row['名称'], shown)
+            self.assertIn(row['金额'], shown)
+        self.assertTrue(any('待核对' in value for value in shown))
+        self.assertEqual(rows, original)
+        self.assertEqual(self.found('dataframe'), [])
+        self.assertEqual(self.found('expander'), [])
+        self.assertEqual(self.found('tabs'), [])
+        self.assert_safe_native_calls()
+
+    def test_records_keep_zero_missing_and_untrusted_text_as_native_values(self):
+        rows = [{'参与人': '<script>value</script>', '金额（元）': '0.00'},
+                {'参与人': '乙', '金额（元）': 0}, {'参与人': '丙', '金额（元）': None},
+                {'参与人': '丁', '金额（元）': '12.34'}]
+        original = [dict(row) for row in rows]
+        self.ui.render_records(rows, title_field='参与人', value_field='金额（元）',
+                               layout='activity', tone='core', key='all-records', hide_index=True)
+        shown = [str(args[0]) for name, args, _kwargs in self.st.calls
+                 if name in {'write', 'text', 'caption', 'subheader'} and args]
+        for value in ('<script>value</script>', '乙', '丙', '丁', '0.00', '0', '未提供', '12.34'):
+            self.assertIn(value, shown)
+        self.assertEqual(shown.count('未提供'), 1)
+        self.assertEqual(rows, original)
+        self.assertEqual(self.found('dataframe'), [])
+        self.assert_safe_native_calls()
+
+    def test_explicit_record_table_retains_full_native_data_and_empty_records_stay_empty(self):
+        rows = [{'名称': f'记录{i}', '金额': f'{i}.00'} for i in range(5)]
+        self.ui.render_records(rows, title_field='名称', value_field='金额',
+                               layout='activity', tone='bill', table_view=True, limit=2,
+                               key='records-with-table', hide_index=True,
+                               column_order=['名称', '金额'])
+        self.assertEqual(len(self.found('tabs')), 1)
+        self.assertEqual(len(self.argument(self.found('tabs')[0], 0, 'tabs')), 2)
+        self.assertEqual(len(self.found('dataframe')), 1)
+        table = self.found('dataframe')[0]
+        self.assertEqual(self.argument(table, 0, 'data'), rows)
+        self.assertTrue(table[1]['hide_index'])
+        self.assertEqual(table[1]['column_order'], ['名称', '金额'])
+        self.assertEqual(self.found('expander'), [])
+        self.assert_safe_native_calls()
+        self.st.reset()
+        self.ui.render_records([], key='empty-records', hide_index=True)
+        self.assertEqual(self.found('subheader'), [])
+        self.assertEqual(self.found('write'), [])
+        self.assertEqual(self.found('dataframe'), [])
+        self.assertEqual(self.found('tabs'), [])
+        self.assertIn('暂无记录。', [self.argument(call, 0, 'body') for call in self.found('caption')])
+        self.assert_safe_native_calls()
 
     def test_docs_cover_design_tokens_wiring_and_boundaries(self):
         self.assertTrue(DOC_PATH.is_file(), 'missing UI design document')
@@ -193,8 +256,11 @@ class UiComponentTests(unittest.TestCase):
         self.assertIn('Codex', doc)
         self.assertIn('from app import ui', doc)
         self.assertIn('不会自动付款', doc)
+        # Plain source citations do not load external page assets. Keep remote
+        # images, code/config URLs and unsafe rendering outside that exception.
+        doc_without_citations = re.sub(r'(?<!!)\[[^\]]+\]\(https?://[^)\s]+\)', '[reference]', doc)
         for forbidden in ('http://', 'https://', 'fonts.googleapis', 'unsafe_allow_html', '[server]', 'enableStaticServing'):
-            self.assertNotIn(forbidden, doc)
+            self.assertNotIn(forbidden, doc_without_citations)
 
     def test_import_boundary_and_no_forbidden_native_apis(self):
         tree = ast.parse(UI_PATH.read_text(encoding='utf-8'))
@@ -240,25 +306,42 @@ class UiComponentTests(unittest.TestCase):
     def test_navigation_has_stable_keys_and_only_clicks_switch_pages(self):
         routes = dict(self.ui.NAV_ITEMS)
         self.st.button_results = {'app_nav_wealth': True}
-        self.ui.render_app_nav('home')
+        self.ui.render_app_nav('home', keys=('home','accounts','wealth'))
         buttons = self.found('button')
         self.assertEqual(len(buttons), 3)
-        self.assertEqual([self.argument(call, 0, 'label') for call in buttons], ['银行首页', '资料账单', '理财'])
+        self.assertEqual([self.argument(call, 0, 'label') for call in buttons], ['首页', '历史样例分析', '理财'])
         self.assertEqual([self.argument(call, 0, 'key') for call in buttons], ['app_nav_home', 'app_nav_accounts', 'app_nav_wealth'])
         self.assertIs(self.argument(buttons[0], 0, 'disabled'), True)
-        self.assertEqual(self.argument(buttons[0], 0, 'type'), 'primary')
+        self.assertEqual(self.argument(buttons[0], 0, 'type'), 'tertiary')
         self.assertIs(self.argument(buttons[2], 0, 'disabled'), False)
-        self.assertEqual(self.argument(buttons[2], 0, 'type'), 'secondary')
+        self.assertEqual(self.argument(buttons[2], 0, 'type'), 'tertiary')
         for call in buttons:
-            self.assertEqual(self.argument(call, 0, 'width'), 'stretch')
+            self.assertEqual(self.argument(call, 0, 'width'), 'content')
         switches = self.found('switch_page')
         self.assertEqual(len(switches), 1)
         self.assertEqual(self.argument(switches[0], 0, 'page'), routes['wealth'].removeprefix('app/'))
         self.st.reset()
         self.st.button_results = {'app_nav_home': True}
-        self.ui.render_app_nav('home')
+        self.ui.render_app_nav('home', keys=('home','accounts','wealth'))
         self.assertEqual(self.found('switch_page'), [])
         self.assert_safe_native_calls()
+
+    def test_hidden_workspace_children_keep_their_home_parent_highlighted(self):
+        for current_key in ('home', 'transfer', 'bills'):
+            with self.subTest(current_key=current_key):
+                self.st.reset()
+                self.ui.render_sidebar_nav(current_key, hide_home_views=True)
+                active = [self.argument(call, 0, 'key') for call in self.found('button')
+                          if self.argument(call, 0, 'type') == 'primary']
+                self.assertEqual(active, ['ui_menu_home'])
+                self.assertFalse(any(self.argument(call, 0, 'key') in {'ui_menu_transfer', 'ui_menu_bills'}
+                                     for call in self.found('button')))
+                self.assertEqual(self.found('switch_page'), [])
+        self.st.reset()
+        self.ui.render_sidebar_nav('bills')
+        active = [self.argument(call, 0, 'key') for call in self.found('button')
+                  if self.argument(call, 0, 'type') == 'primary']
+        self.assertEqual(active, ['ui_menu_bills'])
 
     def test_overview_empty_and_none_values_are_neutral(self):
         self.ui.render_overview([])
@@ -307,7 +390,7 @@ class UiComponentTests(unittest.TestCase):
         self.ui.render_status('mystery', title='核对结果', detail='<i>未决</i>')
         badges = self.found('badge')
         self.assertEqual(len(badges), 1)
-        self.assertEqual(self.argument(badges[0], 0, 'label'), '状态未知')
+        self.assertEqual(self.argument(badges[0], 0, 'label'), '结果待核实')
         self.assertEqual(self.argument(badges[0], 1, 'color'), 'gray')
         self.assertEqual(len(self.found('warning')), 1)
         self.assertEqual(self.found('success'), [])
@@ -327,7 +410,7 @@ class UiComponentTests(unittest.TestCase):
             {'label': '外部结果', 'status': 'mystery'},
         ], title='操作进度')
         badges = self.found('badge')
-        self.assertEqual([self.argument(call, 0, 'label') for call in badges], ['已完成', '待确认', '状态未知'])
+        self.assertEqual([self.argument(call, 0, 'label') for call in badges], ['已完成', '待确认', '结果待核实'])
         self.assertEqual(self.argument(badges[2], 1, 'color'), 'gray')
         self.assertEqual(self.found('success'), [])
         self.st.reset()
@@ -364,6 +447,14 @@ class UiComponentTests(unittest.TestCase):
         self.assertEqual(len(self.found('subheader')), 1)
         writes = [self.argument(call, 0, 'body') for call in self.found('write')]
         self.assertIn('existing_control', writes)
+        # 视觉表面通过显式稳定 key 传入；未传时保持原生容器行为。
+        self.st.reset()
+        with self.ui.business_section('转账', key='vx-ai-card-chat'):
+            self.st.write('existing_control')
+        containers = self.found('container')
+        self.assertEqual(len(containers), 1)
+        self.assertEqual(self.argument(containers[0], 0, 'key'), 'vx-ai-card-chat')
+        self.assertIs(self.argument(containers[0], 0, 'border'), True)
 
     def test_scope_note_reports_true_boundary(self):
         self.ui.render_scope_note()
@@ -384,7 +475,7 @@ class UiComponentTests(unittest.TestCase):
         buttons = self.found('button')
         self.assertEqual(len(buttons), 1)
         self.assertIs(self.argument(buttons[0], 0, 'disabled'), False)
-        self.assertEqual(self.argument(buttons[0], 0, 'type'), 'secondary')
+        self.assertEqual(self.argument(buttons[0], 0, 'type'), 'tertiary')
         self.assertEqual(self.found('switch_page'), [])
 
     def test_none_and_empty_inputs_are_safe(self):

@@ -229,12 +229,14 @@ class BudgetTests(unittest.TestCase):
         with self.store.connection() as c:self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],STORAGE_VERSION)
 
     def test_page_confirmation_refresh_recovery_and_release(self):
-        from streamlit.testing.v1 import AppTest
+        from tests.ui_support import AppTest
         root=Path(__file__).resolve().parents[1]
         with patch('bank.seed.demo_path',return_value=self.store.path),patch('app.demo.gateway',return_value=self.g):
             page=AppTest.from_file(str(root/'app/main.py')).run()
             page.switch_page('pages/7_预算管理.py').run()
             self.assertFalse(page.exception)
+            page.text_input(key='budget_amount').set_value('300.00')
+            page.text_input(key='budget_purpose').set_value('本次预算')
             page.button(key='budget_reserve').click().run()
             self.assertEqual(self.balances(),(200000,200000,0))
             self.assertTrue(page.button(key='budget_reserve').disabled)
@@ -245,23 +247,29 @@ class BudgetTests(unittest.TestCase):
             page.button(key='action_approve').click().run()
             self.assertFalse(page.exception)
             self.assertEqual(self.balances(),(200000,170000,30000))
-            self.assertEqual(len(page.dataframe[0].value),1)
+            self.assertEqual([m.value for m in page.metric if m.label=='剩余预留（元）'], ['300.00元'])
+            self.assertTrue(any('本次预算' == m.value for m in page.markdown))
             page.button(key='budget_release').click().run()
             self.assertEqual(self.balances(),(200000,170000,30000))
             page.button(key='action_approve').click().run()
             self.assertFalse(page.exception)
             self.assertEqual(self.balances(),(200000,200000,0))
-            self.assertEqual(page.dataframe[0].value.iloc[0]['state'],'released')
+            self.assertEqual([m.value for m in page.metric if m.label=='剩余预留（元）'], ['0.00元'])
+            self.assertTrue(any('badge[已释放]' in m.value for m in page.markdown))
 
     def test_page_rejection_and_lost_response_blocks_new_actions(self):
-        from streamlit.testing.v1 import AppTest
+        from tests.ui_support import AppTest
         root=Path(__file__).resolve().parents[1]
         with patch('bank.seed.demo_path',return_value=self.store.path),patch('app.demo.gateway',return_value=self.g):
             page=AppTest.from_file(str(root/'app/main.py')).run()
             page.switch_page('pages/7_预算管理.py').run()
+            page.text_input(key='budget_amount').set_value('300.00')
+            page.text_input(key='budget_purpose').set_value('本次预算')
             page.button(key='budget_reserve').click().run()
             page.button(key='action_reject').click().run()
             self.assertEqual(self.balances(),(200000,200000,0))
+            page.text_input(key='budget_amount').set_value('300.00')
+            page.text_input(key='budget_purpose').set_value('本次预算')
             page.button(key='budget_reserve').click().run()
             authorize=self.g.authorize
             def lost(*args,**kwargs):

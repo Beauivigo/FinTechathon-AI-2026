@@ -3,7 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -13,6 +13,9 @@ class RoutingPageAcceptanceTests(unittest.TestCase):
         self.temp = TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root_patch = patch('bank.seed.PROJECT_ROOT', Path(self.temp.name))
         self.root_patch.start(); self.addCleanup(self.root_patch.stop)
+        from bank import seed
+        rebound=patch('app.demo.demo_path',new=seed.demo_path)
+        rebound.start();self.addCleanup(rebound.stop)
         self.p = AppTest.from_file(str(ROOT/'app/main.py'), default_timeout=15).run()
         self.assertFalse(self.p.exception)
 
@@ -72,7 +75,7 @@ class RoutingPageAcceptanceTests(unittest.TestCase):
 
     def test_other_page_unknown_blocks_route(self):
         from types import SimpleNamespace
-        self.p.session_state['action_flow'] = SimpleNamespace(needs_reconciliation=True)
+        self.p.session_state['action_flow'] = SimpleNamespace(needs_reconciliation=True, pending=False, result=None, request=None, operations=[], external_blocked=False)
         self.p.run()
         self.assertTrue(self.p.text_input(key='router_input').disabled)
         self.assertTrue(self.p.button(key='router_identify').disabled)
@@ -89,10 +92,10 @@ class RoutingPageAcceptanceTests(unittest.TestCase):
         for text, title in (
             ('冻结卡片 CARD-E001', '卡片'),
             ('AA收款', 'AA'),
-            ('明天给李明转200元', '定时'),
+            ('明天给李明转200元', '预约'),
             ('生日2026-11-20', '生日'),
             ('产品对比', '产品'),
-            ('查账户 ACCT-C001 的2026-10账单', '资料账单'),
+            ('查账户 ACCT-C001 的2026-10账单', '历史样例分析'),
         ):
             with self.subTest(text=text):
                 self.p.switch_page('main.py').run()

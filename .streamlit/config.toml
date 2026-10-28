@@ -4,20 +4,26 @@ toolbarMode = "viewer"
 
 [theme]
 base = "light"
-primaryColor = "#A16207"
-backgroundColor = "#F8FAFC"
+primaryColor = "#21605F"
+backgroundColor = "#FBFDFB"
 secondaryBackgroundColor = "#FFFFFF"
-textColor = "#020617"
-borderColor = "#E2E8F0"
-baseRadius = "0.5rem"
-buttonRadius = "0.5rem"
+textColor = "#1F3336"
+borderColor = "#DCE8E4"
+baseRadius = "0.75rem"
+buttonRadius = "0.75rem"
 showWidgetBorder = true
 showSidebarBorder = true
 baseFontSize = 16
 headingFontWeights = [600, 600, 600, 600, 600, 600]
-headingFontSizes = ["2rem", "1.5rem", "1.25rem", "1.125rem", "1rem", "0.875rem"]
+headingFontSizes = ["2.15rem", "1.5rem", "1.25rem", "1.125rem", "1rem", "0.875rem"]
 font = "IBM Plex Sans, Noto Sans SC, Source Han Sans SC, PingFang SC, Microsoft YaHei, sans-serif"
+greenColor = "#1F6350"
+orangeColor = "#7A5714"
+redColor = "#A32A35"
+blueColor = "#396C7A"
+violetColor = "#74618F"
+chartCategoricalColors = ["#4C7E80", "#B46E62", "#88759E", "#71946B", "#AA9258", "#5C8FA3"]
 
 [theme.sidebar]
 backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F1F5F9"
+secondaryBackgroundColor = "#F5FAF8"

@@ -1,0 +1,14 @@
+2026-10-28 18:31:56.752 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 18:31:57.614 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 18:31:58.324 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 18:32:03.021 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+----------------------------------------------------------------------
+Ran 21 tests in 13.306s
+
+OK
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3

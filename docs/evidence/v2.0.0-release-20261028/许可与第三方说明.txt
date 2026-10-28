@@ -1,0 +1,171 @@
+﻿言行 2.0.0 来源、许可与安全说明
+========================================
+
+本安装包是本地模拟银行竞赛演示应用。不连接真实银行或真实资金。
+模型 API 需用户自行配置合法凭证与网络；安装包不包含任何密钥。
+覆盖安装（1.0.x → 2.0.0）沿用 %LOCALAPPDATA%\言行\data，保留账号、账本、模型配置与快捷方式约定。
+NSIS 安装器运行代码许可：licenses/nsis/COPYING.txt。项目源码权利由项目团队保留。
+
+项目源码说明：本应用源码随安装包内版本清单记录；第三方组件与许可见下。
+
+Python 运行时许可：licenses/python/LICENSE.txt
+
+言行 第三方组件许可与来源清单
+============================================
+本文件由构建工具从已安装 wheel 的 METADATA 与许可证文件自动汇总。
+完整许可证文本位于同目录下的各组件文件夹；来源字段原样取自包元数据。
+
+- altair 6.3.0 | Copyright (c) 2015-2025, Vega-Altair Developers
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of vega-altair nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. | Documentation, https://altair-viz.github.io ; Source, https://github.com/vega/altair
+    文件: altair/LICENSE
+- anyio 4.15.1 | MIT | Documentation, https://anyio.readthedocs.io/en/latest/ ; Changelog, https://anyio.readthedocs.io/en/stable/versionhistory.html ; Source code, https://github.com/agronholm/anyio ; Issue tracker, https://github.com/agronholm/anyio/issues
+    文件: anyio/LICENSE
+- attrs 26.1.0 | MIT | Documentation, https://www.attrs.org/ ; Changelog, https://www.attrs.org/en/stable/changelog.html ; GitHub, https://github.com/python-attrs/attrs ; Funding, https://github.com/sponsors/hynek ; Tidelift, https://tidelift.com/subscription/pkg/pypi-attrs?utm_source=pypi-attrs&utm_medium=pypi
+    文件: attrs/LICENSE
+- certifi 2026.10.23 | MPL-2.0 | https://github.com/certifi/python-certifi ; Source, https://github.com/certifi/python-certifi
+    文件: certifi/LICENSE
+- charset-normalizer 3.5.2 | MIT | Changelog, https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md ; Documentation, https://charset-normalizer.readthedocs.io/ ; Code, https://github.com/jawah/charset_normalizer ; Issue tracker, https://github.com/jawah/charset_normalizer/issues
+    文件: charset-normalizer/LICENSE
+- click 8.5.0 | BSD-3-Clause | Changes, https://click.palletsprojects.com/page/changes/ ; Chat, https://discord.gg/pallets ; Documentation, https://click.palletsprojects.com/ ; Donate, https://palletsprojects.com/donate ; Source, https://github.com/pallets/click/
+    文件: click/LICENSE.txt
+- colorama 0.4.6 | see licence files | Homepage, https://github.com/tartley/colorama
+    文件: colorama/LICENSE.txt
+- et_xmlfile 2.0.0 | MIT | https://foss.heptapod.net/openpyxl/et_xmlfile ; Documentation, https://openpyxl.pages.heptapod.net/et_xmlfile/ ; Source, https://foss.heptapod.net/openpyxl/et_xmlfile ; Tracker, https://foss.heptapod.net/openpyxl/et_xmfile/-/issues
+    文件: et_xmlfile/AUTHORS.txt
+    文件: et_xmlfile/LICENCE.python
+    文件: et_xmlfile/LICENCE.rst
+- h11 0.16.0 | MIT | https://github.com/python-hyper/h11
+    文件: h11/LICENSE.txt
+- httptools 0.9.0 | MIT | Homepage, https://github.com/MagicStack/httptools
+    文件: httptools/LICENSE
+    文件: httptools/LICENSE-MIT
+    文件: httptools/LICENSE
+- idna 3.20 | BSD-3-Clause | Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md ; Issue tracker, https://github.com/kjd/idna/issues ; Source, https://github.com/kjd/idna
+    文件: idna/LICENSE.md
+- itsdangerous 2.2.0 | see licence files | Changes, https://itsdangerous.palletsprojects.com/changes/ ; Chat, https://discord.gg/pallets ; Documentation, https://itsdangerous.palletsprojects.com/ ; Donate, https://palletsprojects.com/donate ; Source, https://github.com/pallets/itsdangerous/
+    文件: itsdangerous/LICENSE.txt
+- Jinja2 3.1.6 | see licence files | Changes, https://jinja.palletsprojects.com/changes/ ; Chat, https://discord.gg/pallets ; Documentation, https://jinja.palletsprojects.com/ ; Donate, https://palletsprojects.com/donate ; Source, https://github.com/pallets/jinja/
+    文件: Jinja2/LICENSE.txt
+- jsonschema 4.26.0 | MIT | Homepage, https://github.com/python-jsonschema/jsonschema ; Documentation, https://python-jsonschema.readthedocs.io/ ; Issues, https://github.com/python-jsonschema/jsonschema/issues/ ; Funding, https://github.com/sponsors/Julian ; Tidelift, https://tidelift.com/subscription/pkg/pypi-jsonschema?utm_source=pypi-jsonschema&utm_medium=referral&utm_campaign=pypi-link ; Changelog, https://github.com/python-jsonschema/jsonschema/blob/main/CHANGELOG.rst ; Source, https://github.com/python-jsonschema/jsonschema
+    文件: jsonschema/COPYING
+- jsonschema-specifications 2025.9.1 | MIT | Documentation, https://jsonschema-specifications.readthedocs.io/ ; Homepage, https://github.com/python-jsonschema/jsonschema-specifications ; Issues, https://github.com/python-jsonschema/jsonschema-specifications/issues/ ; Funding, https://github.com/sponsors/Julian ; Tidelift, https://tidelift.com/subscription/pkg/pypi-jsonschema-specifications?utm_source=pypi-jsonschema-specifications&utm_medium=referral&utm_campaign=pypi-link ; Source, https://github.com/python-jsonschema/jsonschema-specifications
+    文件: jsonschema-specifications/COPYING
+- MarkupSafe 3.0.4 | BSD-3-Clause | Donate, https://palletsprojects.com/donate ; Documentation, https://markupsafe.palletsprojects.com/ ; Changes, https://markupsafe.palletsprojects.com/page/changes/ ; Source, https://github.com/pallets/markupsafe/ ; Chat, https://discord.gg/pallets
+    文件: MarkupSafe/LICENSE.txt
+- narwhals 2.27.1 | MIT | Homepage, https://github.com/narwhals-dev/narwhals ; Documentation, https://narwhals-dev.github.io/narwhals/ ; Repository, https://github.com/narwhals-dev/narwhals ; Bug Tracker, https://github.com/narwhals-dev/narwhals/issues
+    文件: narwhals/LICENSE.md
+- numpy 2.5.4 | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 | homepage, https://numpy.org ; documentation, https://numpy.org/doc/ ; source, https://github.com/numpy/numpy ; download, https://pypi.org/project/numpy/#files ; tracker, https://github.com/numpy/numpy/issues ; release notes, https://numpy.org/doc/stable/release
+    文件: numpy/LICENSE.txt
+    文件: numpy/LICENSE.txt
+    文件: numpy/COPYING
+    文件: numpy/LICENSE
+    文件: numpy/dragon4_LICENSE.txt
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.txt
+    文件: numpy/LICENSE
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+    文件: numpy/LICENSE.md
+- openpyxl 3.1.5 | MIT | https://openpyxl.readthedocs.io ; Documentation, https://openpyxl.readthedocs.io/en/stable/ ; Source, https://foss.heptapod.net/openpyxl/openpyxl ; Tracker, https://foss.heptapod.net/openpyxl/openpyxl/-/issues
+    文件: openpyxl/LICENCE.rst
+- packaging 26.3 | Apache-2.0 OR BSD-2-Clause | Documentation, https://packaging.pypa.io/ ; Source, https://github.com/pypa/packaging
+    文件: packaging/LICENSE
+    文件: packaging/LICENSE.APACHE
+    文件: packaging/LICENSE.BSD
+- pandas 3.1.0 | BSD-3-Clause | homepage, https://pandas.pydata.org ; source, https://github.com/pandas-dev/pandas ; documentation, https://pandas.pydata.org/docs/ ; changelog, https://pandas.pydata.org/docs/whatsnew/index.html ; issues, https://github.com/pandas-dev/pandas/issues ; funding, https://opencollective.com/pandas
+    文件: pandas/LICENSE
+    文件: pandas/BOTTLENECK_LICENCE
+    文件: pandas/DATEUTIL_LICENSE
+    文件: pandas/HAVEN_LICENSE
+    文件: pandas/HAVEN_MIT
+    文件: pandas/KLIB_LICENSE
+    文件: pandas/MUSL_LICENSE
+    文件: pandas/NUMPY_LICENSE
+    文件: pandas/PACKAGING_LICENSE
+    文件: pandas/PSF_LICENSE
+    文件: pandas/PYPERCLIP_LICENSE
+    文件: pandas/PYUPGRADE_LICENSE
+    文件: pandas/SAS7BDAT_LICENSE
+    文件: pandas/STATSBASE_JL_LICENSE
+    文件: pandas/ULTRAJSON_LICENSE
+    文件: pandas/XSIMD_LICENSE
+    文件: pandas/LICENSE-APACHE
+    文件: pandas/LICENSE-BOOST
+    文件: pandas/LICENSE-MIT
+- pillow 12.3.0 | MIT-CMU | Release notes, https://pillow.readthedocs.io/en/stable/releasenotes/index.html ; Changelog, https://github.com/python-pillow/Pillow/releases ; Documentation, https://pillow.readthedocs.io ; Funding, https://tidelift.com/subscription/pkg/pypi-pillow?utm_source=pypi-pillow&utm_medium=pypi ; Homepage, https://python-pillow.github.io ; Mastodon, https://fosstodon.org/@pillow ; Source, https://github.com/python-pillow/Pillow
+    文件: pillow/LICENSE
+- protobuf 7.36.2 | 3-Clause BSD License | https://developers.google.com/protocol-buffers/
+    文件: protobuf/LICENSE
+- pyarrow 25.0.1 | Apache-2.0 | Homepage, https://arrow.apache.org/ ; Documentation, https://arrow.apache.org/docs/python ; Repository, https://github.com/apache/arrow ; Issues, https://github.com/apache/arrow/issues
+    文件: pyarrow/LICENSE.txt
+    文件: pyarrow/NOTICE.txt
+- pydeck 0.9.3 | Apache License 2.0 | https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
+    文件: pydeck/LICENSE.txt
+- PyOTP 2.10.0 | MIT | Homepage, https://github.com/pyauth/pyotp ; Documentation, https://github.com/pyauth/pyotp ; Source Code, https://github.com/pyauth/pyotp ; Issue Tracker, https://github.com/pyauth/pyotp/issues ; Change Log, https://github.com/pyauth/pyotp/blob/main/Changes.rst
+    文件: PyOTP/LICENSE
+- python-dateutil 3.0.0 | Dual License | https://github.com/dateutil/dateutil ; Documentation, https://dateutil.readthedocs.io/en/stable/ ; Source, https://github.com/dateutil/dateutil
+    文件: python-dateutil/LICENSE
+- python-multipart 0.0.32 | Apache-2.0 | Homepage, https://github.com/Kludex/python-multipart ; Documentation, https://kludex.github.io/python-multipart/ ; Changelog, https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md ; Source, https://github.com/Kludex/python-multipart
+    文件: python-multipart/LICENSE.txt
+- qrcode 8.2 | BSD | https://github.com/lincolnloop/python-qrcode
+    文件: qrcode/LICENSE
+- referencing 0.37.0 | MIT | Documentation, https://referencing.readthedocs.io/ ; Homepage, https://github.com/python-jsonschema/referencing ; Issues, https://github.com/python-jsonschema/referencing/issues/ ; Funding, https://github.com/sponsors/Julian ; Tidelift, https://tidelift.com/subscription/pkg/pypi-referencing?utm_source=pypi-referencing&utm_medium=referral&utm_campaign=pypi-link ; Changelog, https://referencing.readthedocs.io/en/stable/changes/ ; Source, https://github.com/python-jsonschema/referencing
+    文件: referencing/COPYING
+- requests 2.34.2 | Apache-2.0 | Documentation, https://requests.readthedocs.io ; Source, https://github.com/psf/requests
+    文件: requests/LICENSE
+    文件: requests/NOTICE
+- rpds-py 2026.9.1 | MIT | Documentation, https://rpds.readthedocs.io/ ; Funding, https://github.com/sponsors/Julian ; Homepage, https://github.com/crate-py/rpds ; Issues, https://github.com/crate-py/rpds/issues/ ; Source, https://github.com/crate-py/rpds ; Tidelift, https://tidelift.com/subscription/pkg/pypi-rpds-py?utm_source=pypi-rpds-py&utm_medium=referral&utm_campaign=pypi-link ; Upstream, https://github.com/orium/rpds
+    文件: rpds-py/LICENSE
+- six 1.17.0 | MIT | https://github.com/benjaminp/six
+    文件: six/LICENSE
+- starlette 1.10.0 | BSD-3-Clause | Homepage, https://github.com/Kludex/starlette ; Documentation, https://starlette.dev/ ; Changelog, https://starlette.dev/release-notes/ ; Funding, https://github.com/sponsors/Kludex ; Source, https://github.com/Kludex/starlette
+    文件: starlette/LICENSE.md
+- streamlit 1.65.0 | Apache-2.0 | Homepage, https://streamlit.io ; Documentation, https://docs.streamlit.io/ ; Source Code, https://github.com/streamlit/streamlit ; Bug Tracker, https://github.com/streamlit/streamlit/issues ; Release Notes, https://docs.streamlit.io/develop/quick-reference/changelog ; Community, https://discuss.streamlit.io/
+- toml 0.10.2 | MIT | https://github.com/uiri/toml
+    文件: toml/LICENSE
+- typing_extensions 4.16.0 | PSF-2.0 | Bug Tracker, https://github.com/python/typing_extensions/issues ; Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md ; Documentation, https://typing-extensions.readthedocs.io/ ; Home, https://github.com/python/typing_extensions ; Q & A, https://github.com/python/typing/discussions ; Repository, https://github.com/python/typing_extensions
+    文件: typing_extensions/LICENSE
+- tzdata 2026.5 | Apache-2.0 | https://github.com/python/tzdata ; Bug Reports, https://github.com/python/tzdata/issues ; Source, https://github.com/python/tzdata ; Documentation, https://tzdata.python.org
+    文件: tzdata/LICENSE
+    文件: tzdata/LICENSE_APACHE
+- urllib3 2.8.0 | MIT | Changelog, https://github.com/urllib3/urllib3/blob/main/CHANGES.rst ; Documentation, https://urllib3.readthedocs.io ; Code, https://github.com/urllib3/urllib3 ; Issue tracker, https://github.com/urllib3/urllib3/issues ; Security policy, https://urllib3.readthedocs.io/en/latest/security.html
+    文件: urllib3/LICENSE.txt
+- uvicorn 0.54.0 | BSD-3-Clause | Changelog, https://uvicorn.dev/release-notes ; Funding, https://github.com/sponsors/Kludex ; Homepage, https://uvicorn.dev/ ; Source, https://github.com/Kludex/uvicorn
+    文件: uvicorn/LICENSE.md
+- watchdog 6.0.0 | Apache-2.0 | https://github.com/gorakhargosh/watchdog ; Documentation, https://python-watchdog.readthedocs.io/en/stable/ ; Source, https://github.com/gorakhargosh/watchdog/ ; Issues, https://github.com/gorakhargosh/watchdog/issues ; Changelog, https://github.com/gorakhargosh/watchdog/blob/master/changelog.rst
+    文件: watchdog/AUTHORS
+    文件: watchdog/COPYING
+    文件: watchdog/LICENSE
+- websockets 17.3 | BSD-3-Clause | Homepage, https://github.com/python-websockets/websockets ; Changelog, https://websockets.readthedocs.io/en/stable/project/changelog.html ; Documentation, https://websockets.readthedocs.io/ ; Funding, https://tidelift.com/subscription/pkg/pypi-websockets?utm_source=pypi-websockets&utm_medium=referral&utm_campaign=readme ; Tracker, https://github.com/python-websockets/websockets/issues
+    文件: websockets/LICENSE

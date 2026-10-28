@@ -1,0 +1,46 @@
+{
+  "executor": "Codex independent review",
+  "date": "2026-10-28",
+  "head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+  "checks": {
+    "run": 72,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "real_http_blocked": true,
+    "scope": "Current source; temporary simulated identities and ledgers"
+  },
+  "command": "python -B -X utf8 .cache/permission-ui-20261028/run_baseline.py",
+  "exit_code": 0,
+  "environment": "Same project venv with formal execution permission for Streamlit loopback; temporary ledgers; real HTTP blocked",
+  "interrupted_restricted_checks": [
+    {
+      "command": "python -B -X utf8 -m unittest tests.test_contracts tests.test_gateway tests.test_gateway_extension tests.test_real_auth tests.test_bank_conventions -q",
+      "outcome": "Interrupted after no progress in page startup; no complete result"
+    },
+    {
+      "command": "python -B -X utf8 .cache/permission-ui-20261028/run_baseline.py",
+      "outcome": "Interrupted after faulthandler localized wait to socket._fallback_socketpair accept -> asyncio.ProactorEventLoop -> Streamlit AppTest; not a business assertion failure"
+    }
+  ],
+  "source_changes": [
+    "docs/BLOCKERS.md"
+  ],
+  "protected_changes": [],
+  "implementation": "Not started; explicit original-session/base reconciliation choice pending",
+  "delegate": {
+    "session_preserved": true,
+    "base": "285c90c6014158b85d8323788945b085d1991192",
+    "current_head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+    "request_prepared": true,
+    "request_queued": false,
+    "model_calls": 0
+  },
+  "findings": {
+    "outdated_pending_label": "Already corrected in existing bank-conventions changes",
+    "separate_authorization_requirement_and_execution_status": "Still requires implementation",
+    "user_phone_acceptance": "Still pending; automated temporary TOTP is not user signoff",
+    "installer": "Original v1.0.0 source snapshot; unchanged"
+  }
+}

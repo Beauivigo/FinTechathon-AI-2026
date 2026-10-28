@@ -1,0 +1,113 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "理财操作" [level=1]:
+  - text: 理财操作
+  - link "Link to heading":
+    - /url: "#1d0b23bd"
+- paragraph: 评估风险、核对产品，再决定申购或赎回。
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- button "浏览与对比产品":
+  - paragraph: 浏览与对比产品
+- paragraph: 产品与资金均为本机数据，不承诺收益；费用与份额以服务端结果为准。
+- paragraph: 账户
+- combobox "账户": 模拟日常账户
+- button "Open":
+- paragraph: 当前账户
+- paragraph: 模拟日常账户
+- paragraph: 可选产品
+- paragraph: "6"
+- paragraph: 持仓笔数
+- paragraph: "0"
+- generic "keyboard_arrow_down 风险问卷 wpq_v1":
+  - generic: keyboard_arrow_down
+  - paragraph: 风险问卷 wpq_v1
+- paragraph: 投资经验
+- combobox "投资经验"
+- button "Open":
+- paragraph: 收入稳定性
+- combobox "收入稳定性"
+- button "Open":
+- paragraph: 可投资资产比例
+- combobox "可投资资产比例"
+- button "Open":
+- paragraph: 最大回撤接受度
+- combobox "最大回撤接受度"
+- button "Open":
+- paragraph: 投资目标
+- combobox "投资目标"
+- button "Open":
+- paragraph: 请逐题选择，未作答不会代入默认答案。
+- button "提交风险评估" [disabled]:
+  - paragraph: 提交风险评估
+- paragraph: 完成全部 5 题后即可提交评估。
+- heading "产品申购" [level=3]:
+  - text: 产品申购
+  - link "Link to heading":
+    - /url: "#906557c6"
+- paragraph: 请先完成风险问卷；申购须核对内容并通过验证。
+- paragraph: 产品
+- combobox "产品": 现金钱包（虚构） · R1 · 起购 1.00元
+- button "Open":
+- paragraph: 费用：申购费0、赎回费0（虚构现金管理类，不承诺收益）
+- paragraph: 锁定期：0天；赎回条件：随时可申请赎回，T+1到账
+- paragraph: 申购金额（元）
+- textbox "申购金额（元）":
+  - /placeholder: ""
+- button "核对并申购":
+  - paragraph: 核对并申购
+- heading "当前持仓" [level=3]:
+  - text: 当前持仓
+  - link "Link to heading":
+    - /url: "#8dbbf6a8"
+- paragraph: 查看已有份额，按原规则发起赎回。
+- status:
+  - paragraph: 暂无持仓；申购成功后刷新可见。
+- heading "操作确认与回执" [level=3]:
+  - text: 操作确认与回执
+  - link "Link to heading":
+    - /url: "#cff28397"
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作

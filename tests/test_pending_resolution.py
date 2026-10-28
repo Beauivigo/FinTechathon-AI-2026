@@ -68,7 +68,7 @@ class PendingResolutionTests(unittest.TestCase):
                          [('subscription.list', 'awaiting_confirmation')])
         self.assertEqual(items[0]['key'], original['idempotency_key'])
         self.assertIn('查看订阅', items[0]['action_label'])
-        self.assertIn('等待确认', items[0]['status_label'])
+        self.assertIn('待确认', items[0]['status_label'])
         self.assertTrue(pending_view.needs_attention(flow))
         self.assertEqual(set(UNRESOLVED), {'awaiting_confirmation', 'awaiting_verification',
                                            'running', 'unknown'})
@@ -237,7 +237,7 @@ class PendingResolutionTests(unittest.TestCase):
             text = (root / name).read_text(encoding='utf-8')
             self.assertIn('pending_view.render_unresolved', text, name)
         panel = (root / 'app/pending_view.py').read_text(encoding='utf-8')
-        for label in ('查看并处理待办', '确认待办操作', '拒绝待办操作', '查询待办结果'):
+        for label in ('查看并处理待办', 'approval_label(request)', '取消本次操作', '查询待办结果'):
             self.assertIn(label, panel)
 
 

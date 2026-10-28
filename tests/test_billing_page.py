@@ -43,9 +43,11 @@ class BillingPageTests(unittest.TestCase):
             self.click('查询账单')
         self.assertEqual(len(self.app.exception), 0)
         self.assertEqual(self.total(), ['¥ 120.00'])
-        table = next(d.value for d in self.app.dataframe if '金额（分）' in d.value.columns)
-        self.assertEqual(table['金额（分）'].sum(), 12000)
-        self.assertEqual(chart.call_args.args[0], table[['分类', '金额（分）']].to_dict('records'))
+        table = next(d.value for d in self.app.dataframe if '金额（元）' in d.value.columns)
+        from decimal import Decimal
+        self.assertEqual(sum(Decimal(x.replace('¥','').replace(',','').strip()) for x in table['金额（元）']), Decimal('120.00'))
+        expected=[{'分类':r['分类'], '金额（元）':float(Decimal(r['金额（元）'].replace('¥','').replace(',','').strip()))} for r in table.to_dict('records')]
+        self.assertEqual(chart.call_args.args[0], expected)
         self.assertTrue(any('退款入账 30.00 元' in m.value for m in self.app.markdown))
         self.assertTrue(any('空列表不代表没有异常' in m.value for m in self.app.info))
 
@@ -90,7 +92,7 @@ class BillingPageTests(unittest.TestCase):
         with patch.object(self.chat.gateway, 'execute', side_effect=corrupt):
             self.click('查询账单')
         self.assertEqual(self.total(), [])
-        self.assertFalse(any('金额（分）' in d.value.columns for d in self.app.dataframe))
+        self.assertFalse(any('金额（元）' in d.value.columns for d in self.app.dataframe))
         self.assertTrue(any('本次没有可展示的报告' in x.value for x in self.app.error))
         self.assertEqual(len(self.app.exception), 0)
 
@@ -131,7 +133,7 @@ class BillingPageTests(unittest.TestCase):
         self.click('查询账单')
         self.assertEqual(before, (self.chat.request, self.chat.result))
         self.assertTrue(self.app.chat_input[0].disabled)
-        self.click('确认此笔模拟转账')
+        self.app.button(key='transfer_approve').click().run()
         self.assertEqual(self.chat.result['status'], 'succeeded')
         self.assertEqual(self.total(), [])
         self.assertEqual(len(self.app.exception), 0)
@@ -143,7 +145,7 @@ class BillingPageTests(unittest.TestCase):
             authorize(payload, **kwargs)
             raise TimeoutError('lost')
         self.chat.gateway.authorize = lost
-        self.click('确认此笔模拟转账')
+        self.app.button(key='transfer_approve').click().run()
         self.click('查询账单')
         self.assertEqual(self.chat.result['status'], 'unknown')
         self.assertTrue(self.app.chat_input[0].disabled)

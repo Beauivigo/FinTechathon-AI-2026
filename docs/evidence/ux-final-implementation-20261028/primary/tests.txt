@@ -1,0 +1,61 @@
+test_another_page_hides_completed_receipt_but_keeps_pending_recovery (tests.test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery) ... ok
+test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved (tests.test_codex_ux_final.FinalContinuityTests.test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved) ... ok
+test_controls_change_on_the_same_click_without_an_extra_rerun (tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun) ... 2026-10-28 19:57:21.915 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context (tests.test_codex_ux_final.FinalContinuityTests.test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context) ... ok
+test_observation_does_not_replace_an_unknown_committed_transfer (tests.test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer) ... 2026-10-28 19:57:22.499 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_side_query_preserves_the_pending_original_plan (tests.test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan) ... 2026-10-28 19:57:22.838 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured (tests.test_codex_ux_final.FinalContinuityTests.test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured) ... 2026-10-28 19:57:23.340 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_operation_keeps_dialogue_and_hides_dead_submission (tests.test_ux_final.ConversationGateTests.test_pending_operation_keeps_dialogue_and_hides_dead_submission) ... ok
+test_recovered_pending_operation_needs_no_new_form (tests.test_ux_final.ConversationGateTests.test_recovered_pending_operation_needs_no_new_form) ... ok
+test_missing_fields_use_readable_names (tests.test_ux_final.DialogueControlTests.test_missing_fields_use_readable_names) ... ok
+test_paused_and_handoff_offer_a_continue_or_manual_path (tests.test_ux_final.DialogueControlTests.test_paused_and_handoff_offer_a_continue_or_manual_path) ... ok
+test_paused_or_handoff_submit_is_explained_without_a_model_call (tests.test_ux_final.DialogueControlTests.test_paused_or_handoff_submit_is_explained_without_a_model_call) ... ok
+test_card_actions_follow_the_state_machine (tests.test_ux_final.PresentationHelperTests.test_card_actions_follow_the_state_machine) ... ok
+test_failure_note_uses_reviewed_codes_and_never_raw_backend_text (tests.test_ux_final.PresentationHelperTests.test_failure_note_uses_reviewed_codes_and_never_raw_backend_text) ... ok
+test_model_error_guidance_distinguishes_common_causes (tests.test_ux_final.PresentationHelperTests.test_model_error_guidance_distinguishes_common_causes) ... ok
+test_schedule_display_separates_appointment_and_payment (tests.test_ux_final.PresentationHelperTests.test_schedule_display_separates_appointment_and_payment) ... ok
+test_subscription_snapshot_keeps_confirmed_rows_and_receipt_updates (tests.test_ux_final.PresentationHelperTests.test_subscription_snapshot_keeps_confirmed_rows_and_receipt_updates) ... ok
+test_confirmed_read_snapshot_survives_management_receipt (tests.test_ux_final.SubscriptionJourneyTests.test_confirmed_read_snapshot_survives_management_receipt) ... ok
+test_client_construction_error_does_not_echo_previous_metadata (tests.test_ux_final.TrustedCallerTests.test_client_construction_error_does_not_echo_previous_metadata) ... ok
+test_stale_error_is_cleared_before_building_the_client (tests.test_ux_final.TrustedCallerTests.test_stale_error_is_cleared_before_building_the_client) ... ok
+test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward (tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward) ... 2026-10-28 19:57:23.598 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_birthday_pending_operation_visible_after_navigation (tests.test_ux_final.UxPageTests.test_birthday_pending_operation_visible_after_navigation) ... 2026-10-28 19:57:24.106 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_green_query_has_no_recovery_control (tests.test_ux_final.UxPageTests.test_green_query_has_no_recovery_control) ... 2026-10-28 19:57:24.732 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_operation_keeps_ai_input_usable_but_blocks_preparation (tests.test_ux_final.UxPageTests.test_pending_operation_keeps_ai_input_usable_but_blocks_preparation) ... 2026-10-28 19:57:25.017 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_subscription_list_stays_after_review (tests.test_ux_final.UxPageTests.test_subscription_list_stays_after_review) ... 2026-10-28 19:57:25.255 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_fresh_page_recovers_original_transfer_details_without_new_model_call (tests.test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call) ... 2026-10-28 19:57:25.949 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 19:57:26.315 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_green_query_runs_without_extra_confirmation (tests.test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation) ... 2026-10-28 19:57:26.751 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat (tests.test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat) ... 2026-10-28 19:57:27.072 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pause_and_handoff_do_not_call_model_or_write_bank (tests.test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank) ... 2026-10-28 19:57:27.626 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guide_preserves_unknown_result_and_the_original_recovery_gate (tests.test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate) ... 2026-10-28 19:57:28.125 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guide_skip_close_and_reopen_preserve_pending_transfer (tests.test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer) ... 2026-10-28 19:57:29.997 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guided_destination_navigates_without_executing_business (tests.test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business) ... 2026-10-28 19:57:31.384 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 19:57:32.517 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 19:57:33.789 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_home_view_shortcuts_and_ai_entry_only_navigate (tests.test_onboarding.GuidePageTests.test_home_view_shortcuts_and_ai_entry_only_navigate) ... 2026-10-28 19:57:34.977 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_transfer_exercise_edits_and_replays_without_any_bank_write (tests.test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write) ... 2026-10-28 19:57:36.082 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_all_topics_complete_backtrack_replay_and_close (tests.test_onboarding.GuideStateTests.test_all_topics_complete_backtrack_replay_and_close) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 17.210s
+
+OK

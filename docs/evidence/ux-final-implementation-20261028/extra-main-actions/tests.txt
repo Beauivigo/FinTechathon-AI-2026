@@ -1,0 +1,13 @@
+test_wealth_redeem_uses_red_verification (extra_buttons_final.ButtonCases.test_wealth_redeem_uses_red_verification) ... ok
+test_cancel_an_unclaimed_schedule_preserves_balance (extra_buttons_final.ButtonCases.test_cancel_an_unclaimed_schedule_preserves_balance) ... 2026-10-28 19:56:08.286 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_saved_birthday_pause_resume_restore_and_clear_draft (extra_buttons_final.ButtonCases.test_saved_birthday_pause_resume_restore_and_clear_draft) ... 2026-10-28 19:56:08.722 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_draft_back_and_setup_cancel_paths (extra_buttons_final.ButtonCases.test_draft_back_and_setup_cancel_paths) ... 2026-10-28 19:56:09.366 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 19:56:09.709 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.867s
+
+OK

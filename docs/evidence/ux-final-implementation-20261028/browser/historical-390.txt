@@ -1,0 +1,86 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_down 其他服务":
+  - generic: keyboard_arrow_down
+  - paragraph: 其他服务
+- button "credit_card 卡片管理":
+  - generic: credit_card
+  - paragraph: 卡片管理
+- button "folder_open 历史样例分析":
+  - generic: folder_open
+  - paragraph: 历史样例分析
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "历史样例分析" [level=1]:
+  - text: 历史样例分析
+  - link "Link to heading":
+    - /url: "#f599b680"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- paragraph: 只读历史资料，独立于当前登录账户。
+- generic "keyboard_arrow_right 资料与规则说明":
+  - generic: keyboard_arrow_right
+  - paragraph: 资料与规则说明
+- paragraph: 资料账户
+- combobox "资料账户": 工资储蓄卡（含微信渠道） · ACCT-C001
+- button "Open":
+- paragraph: 开始日期（上海）
+- group "开始日期（上海）":
+  - spinbutton "year, 开始日期（上海）": "2026"
+  - generic: /
+  - spinbutton "month, 开始日期（上海）": "08"
+  - generic: /
+  - spinbutton "day, 开始日期（上海）": "01"
+- textbox: 2026-08-01
+- paragraph: 结束日期（上海）
+- group "结束日期（上海）":
+  - spinbutton "year, 结束日期（上海）": "2026"
+  - generic: /
+  - spinbutton "month, 结束日期（上海）": "08"
+  - generic: /
+  - spinbutton "day, 结束日期（上海）": "31"
+- textbox: 2026-08-31
+- button "查询资料账单" [active]:
+  - paragraph: 查询资料账单
+- paragraph: 资料毛支出（元）
+- paragraph: "464.90"
+- paragraph: 退款另列（元）
+- paragraph: "0.00"
+- paragraph: 上海日期 2026-08-01 至 2026-08-31（含两端），消费/订阅毛支出 464.90 元。本期退款入账 0.00 元，另列且不冲减毛支出；不推断退款原订单或归属月份。收入、转账、理财不计入毛支出。已启用大额单笔提示（单笔 ≥5000.00 元，C1-003-R03 分支A）；借贷配对、跨期退款、理财收益率等其余规则尚未启用，空列表不代表没有异常。
+- button "Show/hide columns":
+- button "Download as CSV":
+- button "Search":
+- button "Fullscreen":

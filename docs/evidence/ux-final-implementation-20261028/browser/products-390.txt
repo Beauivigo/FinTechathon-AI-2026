@@ -1,0 +1,88 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_down 理财服务":
+  - generic: keyboard_arrow_down
+  - paragraph: 理财服务
+- button "compare_arrows 产品对比":
+  - generic: compare_arrows
+  - paragraph: 产品对比
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "产品对比" [level=1]:
+  - text: 产品对比
+  - link "Link to heading":
+    - /url: "#79bbe68d"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- paragraph: 只做产品对比，不构成推荐；评估、申购与赎回请到“理财”。
+- generic "keyboard_arrow_right 目录说明":
+  - generic: keyboard_arrow_right
+  - paragraph: 目录说明
+- paragraph: 选择产品
+- generic: 现金钱包（虚构）
+- button:
+- generic: 稳健短债（虚构）
+- button:
+- group "Selected values":
+  - generic "现金钱包（虚构）":
+    - generic "现金钱包（虚构）"
+    - button "Remove 现金钱包（虚构）":
+  - generic "稳健短债（虚构）":
+    - generic "稳健短债（虚构）"
+    - button "Remove 稳健短债（虚构）":
+- combobox "选择产品"
+- button "Clear all":
+- button "Open":
+- button "对比所选产品" [active]:
+  - paragraph: 对比所选产品
+- paragraph:
+  - generic: 授权级别：绿色 · 自动执行
+- paragraph: 执行状态
+- paragraph:
+  - generic: 已完成
+- button "Show/hide columns":
+- button "Download as CSV":
+- button "Search":
+- button "Fullscreen":
+- paragraph: 对比结果不构成推荐；申购、费用、份额与赎回仍按理财页现有规则。
+- paragraph: 选择要继续办理的产品
+- combobox "选择要继续办理的产品"
+- button "Open":
+- button "去理财办理所选产品" [disabled]:
+  - paragraph: 去理财办理所选产品

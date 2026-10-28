@@ -1,0 +1,135 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_down 生活管理":
+  - generic: keyboard_arrow_down
+  - paragraph: 生活管理
+- button "subscriptions 订阅管理":
+  - generic: subscriptions
+  - paragraph: 订阅管理
+- button "account_balance_wallet 预算管理":
+  - generic: account_balance_wallet
+  - paragraph: 预算管理
+- button "storefront 生日计划":
+  - generic: storefront
+  - paragraph: 生日计划
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "订阅管理" [level=1]:
+  - text: 订阅管理
+  - link "Link to heading":
+    - /url: "#4b99cd24"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- status:
+  - paragraph: 候选与已知订阅来自本机资料。识别只生成候选，不扣费、不提醒；核实不新签授权，排除不取消扣费。
+- paragraph: 自动识别：同商户≥2期、周期偏差≤3天、金额容差5%；不新增自动扣费授权。
+- paragraph: 订阅账户
+- combobox "订阅账户": 模拟日常账户
+- button "Open":
+- button "扫描自动识别订阅":
+  - paragraph: 扫描自动识别订阅
+- paragraph: 订阅包含扣费资料，需要你确认授权读取本次列表；查询本身不扣款，也不授予代扣权限。
+- button "申请查看订阅":
+  - paragraph: 申请查看订阅
+- paragraph: 已确认查询的订阅快照 · 2026-10-28 19:33:14 北京时间；管理结果按账本回执更新，需要最新全量状态时请重新申请查看。
+- button "Show/hide columns":
+- button "Download as CSV":
+- button "Search":
+- button "Fullscreen":
+- generic "keyboard_arrow_right 订阅资料详情（编号与原始字段）":
+  - generic: keyboard_arrow_right
+  - paragraph: 订阅资料详情（编号与原始字段）
+- paragraph: 选择候选
+- combobox "选择候选": 模拟影音会员 · 待核实候选
+- button "Open":
+- paragraph: 候选依据：E V1.0 固定模拟样例：P-1/P-2/P-3，2026-08-05、09-05、10-05各2500分；非自动识别。
+- paragraph: 处理方式
+- combobox "处理方式": 核实
+- button "Open":
+- button "提交候选处理":
+  - paragraph: 提交候选处理
+- paragraph: 管理有效订阅
+- combobox "管理有效订阅": 模拟健身年卡 · 有效
+- button "Open":
+- button "申请取消订阅":
+  - paragraph: 申请取消订阅
+- button "本期续费（到期后可用）":
+  - paragraph: 本期续费（到期后可用）
+- paragraph: 提醒日期
+- group "提醒日期":
+  - spinbutton "year, 提醒日期": "2027"
+  - generic: /
+  - spinbutton "month, 提醒日期": "01"
+  - generic: /
+  - spinbutton "day, 提醒日期": "07"
+- textbox: 2027-01-07
+- paragraph: 提醒时间（北京时间）
+- group "提醒时间（北京时间）":
+  - spinbutton "小时, 提醒时间（北京时间）": "09"
+  - generic: ":"
+  - spinbutton "分钟, 提醒时间（北京时间）": "00"
+- button "申请登记提醒":
+  - paragraph: 申请登记提醒
+- button "检查到期本地提醒":
+  - paragraph: 检查到期本地提醒
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作
+- heading "当前操作：查看订阅" [level=3]:
+  - text: 当前操作：查看订阅
+  - link "Link to heading":
+    - /url: "#6981cfde"
+- paragraph:
+  - generic: 授权级别：黄色 · 用户确认
+- paragraph: 执行状态
+- paragraph:
+  - generic: 已完成
+- generic: 业务账户：模拟日常账户
+- generic "keyboard_arrow_right 原操作编号与详细参数":
+  - generic: keyboard_arrow_right
+  - paragraph: 原操作编号与详细参数
+- paragraph: 查询账户：模拟日常账户
+- paragraph: 确认后才读取本次订阅列表。
+- paragraph: 【模拟】操作已完成。
+- generic: 本次读取2条订阅；查询未扣款。
+- button "查询原操作结果":
+  - paragraph: 查询原操作结果
+- generic "keyboard_arrow_right 操作编号与原始请求":
+  - generic: keyboard_arrow_right
+  - paragraph: 操作编号与原始请求

@@ -10,7 +10,7 @@ from bank.gateway import BankGateway
 from bank.seed import initialize
 from bank.store import Store
 from shared import adapt_request, ContractError, ServiceError
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 
 class SubscriptionTests(unittest.TestCase):
@@ -121,10 +121,13 @@ class SubscriptionTests(unittest.TestCase):
         with patch('bank.seed.demo_path',return_value=self.store.path),patch('app.demo.gateway',return_value=self.g):
             page=AppTest.from_file(str(root/'app/main.py')).run();page.switch_page('pages/5_订阅管理.py').run()
             self.assertFalse(page.dataframe)
+            self.assertFalse([m for m in page.metric if m.label=='金额'])
             page.button(key='subscription_list').click().run();self.assertFalse(page.dataframe)
+            self.assertFalse([m for m in page.metric if m.label=='金额'])
             page=AppTest.from_file(str(root/'app/main.py')).run();page.switch_page('pages/5_订阅管理.py').run()
             page.button(key='action_recover').click().run();page.button(key='action_approve').click().run()
-            self.assertFalse(page.exception);self.assertEqual(len(page.dataframe[0].value),2)
+            self.assertFalse(page.exception)
+            self.assertEqual(sorted(m.value for m in page.metric if m.label=='金额'), ['1,200.00元','25.00元'])
             page.selectbox(key='subscription_decision').select('reject').run()
             page.button(key='subscription_review').click().run();self.assertEqual(self.state(),'candidate')
             page.button(key='action_approve').click().run();self.assertEqual(self.state(),'dismissed')

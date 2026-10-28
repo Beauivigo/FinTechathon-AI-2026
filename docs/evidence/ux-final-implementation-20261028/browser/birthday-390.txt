@@ -1,0 +1,111 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_down 生活管理":
+  - generic: keyboard_arrow_down
+  - paragraph: 生活管理
+- button "subscriptions 订阅管理":
+  - generic: subscriptions
+  - paragraph: 订阅管理
+- button "account_balance_wallet 预算管理":
+  - generic: account_balance_wallet
+  - paragraph: 预算管理
+- button "storefront 生日计划":
+  - generic: storefront
+  - paragraph: 生日计划
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "生日计划" [level=1]:
+  - text: 生日计划
+  - link "Link to heading":
+    - /url: "#e6b7d86a"
+- paragraph: 填写安排 → 核对计划 → 保存 → 查看进度和待办。
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- paragraph: 保存计划不付款；预算预留需确认，每笔下单需身份验证。配送日期是计划日期，不代表已经送达。
+- paragraph: 付款账户
+- combobox "付款账户": 模拟日常账户
+- button "Open":
+- paragraph: 生日日期
+- group "生日日期":
+  - spinbutton "year, 生日日期": yyyy
+  - generic: /
+  - spinbutton "month, 生日日期": mm
+  - generic: /
+  - spinbutton "day, 生日日期": dd
+- textbox
+- paragraph: 计划采购商品
+- combobox "计划采购商品"
+- button "Open":
+- paragraph: 配送地址
+- combobox "配送地址"
+- button "Open":
+- paragraph: 生日总预算（元）
+- button "Help for 生日总预算（元）":
+- textbox "生日总预算（元）":
+  - /placeholder: ""
+- paragraph: 预算处理日期（生日当月）
+- group "预算处理日期（生日当月）":
+  - spinbutton "year, 预算处理日期（生日当月）": yyyy
+  - generic: /
+  - spinbutton "month, 预算处理日期（生日当月）": mm
+  - generic: /
+  - spinbutton "day, 预算处理日期（生日当月）": dd
+- textbox
+- paragraph: 预算处理时刻（北京时间）
+- group "预算处理时刻（北京时间）":
+  - spinbutton "小时, 预算处理时刻（北京时间）": "09"
+  - generic: ":"
+  - spinbutton "分钟, 预算处理时刻（北京时间）": "00"
+- paragraph: 提前两天的采购时刻（北京时间）
+- group "提前两天的采购时刻（北京时间）":
+  - spinbutton "小时, 提前两天的采购时刻（北京时间）": "09"
+  - generic: ":"
+  - spinbutton "分钟, 提前两天的采购时刻（北京时间）": "00"
+- button "核对生日计划":
+  - paragraph: 核对生日计划
+- generic "keyboard_arrow_right 后台任务与通知":
+  - generic: keyboard_arrow_right
+  - paragraph: 后台任务与通知
+- paragraph: 尚无已保存计划。保存后可在这里恢复，不需要去 AI 页面查找编号。
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作
+- generic "keyboard_arrow_right 手动管理采购与预算":
+  - generic: keyboard_arrow_right
+  - paragraph: 手动管理采购与预算

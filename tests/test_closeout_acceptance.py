@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 from bank.gateway import BankGateway
 from bank.seed import initialize
 from bank.store import Store
@@ -46,7 +46,8 @@ class CloseoutPageTests(unittest.TestCase):
         return tuple(row.values())
 
     def send(self,text,value,*,new=True):
-        if new:self.app.button(key='bank_model_clear').click().run()
+        if new and self.app.session_state['model_dialogue'].snapshot()['phase']!='idle':
+            self.app.button(key='bank_model_clear').click().run()
         value=deepcopy(value)
         # 模拟模型从已提供的单一可信账户上下文填入账户，与真实调用协议一致。
         if value.get('action')=='plan':value.setdefault('slots',{})['account_id']='demo_account_a'
@@ -120,7 +121,10 @@ class CloseoutPageTests(unittest.TestCase):
         self.prepare();self.assertEqual(self.approve().result['data']['subscription_state'],'cancelled')
         self.assertEqual(self.balance(),(145600,145600,0))
         self.assertEqual(len(self.rows('SELECT * FROM subscription_charges')),1)
-        self.assertTrue(any('本地模拟银行' in item.value for item in self.app.caption))
+        self.assertTrue(
+            any('模型配置已保存，连接状态以实际调用为准' in item.value for item in self.app.caption)
+            or any('尚未配置模型' in item.value for item in self.app.warning)
+        )
         self.assertFalse(any(op['status'] in {'unknown','awaiting_confirmation','awaiting_verification'}
             for op in self.gateway.list_operations(principal_id='demo_user_a')))
 
@@ -140,7 +144,10 @@ class CloseoutPageTests(unittest.TestCase):
             authorize(*args,**kwargs);raise ServiceError('RESULT_UNKNOWN','模拟提交后回执丢失')
         with patch.object(self.gateway,'authorize',side_effect=lost):self.approve()
         self.assertEqual(flow.result['status'],'unknown');self.assertEqual(self.balance(),(80000,80000,0))
-        self.assertTrue(self.app.text_area(key='bank_model_input').disabled)
+        # The AI stays usable for reading/asking; only new business submission is gated.
+        self.assertFalse(self.app.text_area(key='bank_model_input').disabled)
+        self.assertFalse(self.app.button(key='bank_model_send').disabled)
+        self.assertTrue(any(b.key in {'model_pending_open','action_query'} for b in self.app.button))
         calls=self.model.call_count
         self.app=self.page();self.app.button(key='action_recover').click().run()
         recovered=self.app.session_state['model_bank_flow']
@@ -161,8 +168,8 @@ class CloseoutPageTests(unittest.TestCase):
         self.assertTrue(runner.paused);self.assertEqual(self.balance(),(200000,164300,35700))
         self.app.button(key='bank_model_resume').click().run();self.assertFalse(runner.paused)
         self.app.button(key='bank_model_handoff').click().run();calls=self.model.call_count
-        self.app.text_area(key='bank_model_input').set_value('继续下单')
-        self.app.button(key='bank_model_send').click().run()
+        self.assertTrue(self.app.button(key='bank_model_send').disabled)
+        self.assertTrue(any(b.key.startswith('bank_model_manual_') for b in self.app.button))
         self.assertEqual(self.model.call_count,calls);self.assertEqual(self.gateway.list_orders(principal_id='demo_user_a'),[])
         self.send('释放刚才未用的生日预算',proposal('budget_release',{'reservation_id':reservation}))
         self.prepare();self.approve();self.assertEqual(self.balance(),(200000,200000,0))
@@ -174,8 +181,10 @@ class CloseoutPageTests(unittest.TestCase):
         for _ in range(5):self.app.button(key='bank_model_send').click().run()
         self.assertFalse(self.app.exception)
         self.assertEqual(self.app.session_state['model_dialogue'].snapshot()['phase'],'locked')
-        self.app.button(key='bank_model_back').click().run();self.app.button(key='bank_model_resume').click().run()
-        self.app.button(key='bank_model_send').click().run();self.assertEqual(self.model.call_count,5)
+        self.assertTrue(self.app.button(key='bank_model_send').disabled)
+        self.assertTrue(any(b.key=='bank_model_clear' for b in self.app.button))
+        self.assertFalse(any(b.key in {'bank_model_back','bank_model_pause','bank_model_resume','bank_model_handoff'} for b in self.app.button))
+        self.assertEqual(self.model.call_count,5)
         self.assertEqual(self.rows('SELECT * FROM operations'),[])
         self.send('查询余额',proposal('balance',{}))
         self.assertEqual(self.app.session_state['model_runner'].receipts['t1']['data']['balance_minor'],200000)

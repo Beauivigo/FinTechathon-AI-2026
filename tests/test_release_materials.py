@@ -10,7 +10,7 @@ from material_check import approved
 from material_check.reader import read_workbook
 from material_check.reconcile import reconcile_material
 from shared import adapt_request
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 
 class ReleaseMaterialsTests(unittest.TestCase):

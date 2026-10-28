@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-28",
+  "head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+  "worktree_includes_existing_uncommitted_changes": true,
+  "scope": "Source and evidence review plus isolated business AppTest reproductions, pure AI state probes and welcome/home/card browser inspection; execution plan only",
+  "previous_acceptance": {
+    "path": "docs/evidence/bank-conventions-primary-20261028/full.json",
+    "files_recorded": 157,
+    "matched_at_initial_review": 157,
+    "files_matching_at_end": 149,
+    "mismatches_at_end": [
+      "app\\main.py",
+      "app\\model_bank_panel.py",
+      "app\\pending_view.py",
+      "app\\presentation.py",
+      "app\\ui.py",
+      "app\\workflow.py",
+      "app\\pages\\2_产品对比.py",
+      "bank\\gateway.py"
+    ],
+    "run": 659,
+    "rerun_this_turn": false
+  },
+  "reviewed_product_sources_at_start": 75,
+  "current_product_sources": 75,
+  "concurrent_source_changes": [
+    "app/main.py",
+    "app/model_bank_panel.py",
+    "app/pending_view.py",
+    "app/presentation.py",
+    "app/ui.py",
+    "app/workflow.py",
+    "app/pages/2_产品对比.py",
+    "bank/gateway.py"
+  ],
+  "concurrent_source_additions": [],
+  "product_code_edited_by_this_review": false,
+  "reproductions": {
+    "business_latest": [
+      {
+        "name": "birthday-manual-pending-return",
+        "issue_reproduced": true
+      },
+      {
+        "name": "subscription-list-after-review",
+        "issue_reproduced": true
+      }
+    ],
+    "business_latest_exit_code": 0,
+    "business_latest_hashes_match": true,
+    "ai": {
+      "paused_send_no_change": true,
+      "handoff_send_no_change": true,
+      "model_calls": 1,
+      "factory_error_leaves_stale_error": true,
+      "real_model_calls": 0,
+      "data": "synthetic in-memory state; no ledger"
+    }
+  },
+  "browser": {
+    "data": "Separate non-secret source copy with fresh synthetic ledger on 127.0.0.1:8577; model HTTP blocked",
+    "visually_observed": [
+      "welcome",
+      "home",
+      "cards"
+    ],
+    "limitation": "Later browser controller reported browser.user unavailable; no claim of complete browser or narrow viewport acceptance",
+    "preview_stopped": true
+  },
+  "new_real_api_calls": 0,
+  "documents_modified": [
+    "docs/全项目用户体验最终完善方案.md",
+    "docs/BLOCKERS.md"
+  ],
+  "member_assignments_modified": false,
+  "product_fixes_by_this_review": "Not started",
+  "local_reproduction_command": ".venv/Scripts/python.exe -B -X utf8 .cache/ux-final-audit-20261028/business-journey-repro-latest.py",
+  "local_reproduction_script_sha256": "0ed38a78cd841c94834c32f8f2c8c604556edaa85749910d1fc0da1b64d8474f",
+  "acceptance_boundary": "The new checks reproduce current defects; successful reproduction is not a fixed or accepted product. No fresh full regression, user phone, live model or installer validation.",
+  "new_plan_local_links_checked": 6,
+  "missing_links": []
+}

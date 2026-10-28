@@ -1,0 +1,19 @@
+{
+  "primary_source_unchanged": true,
+  "primary_head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+  "shared_and_dependencies_unchanged": {
+    "shared": true,
+    "requirements-app.txt": true,
+    "requirements-materials.txt": true
+  },
+  "source_files": 55,
+  "production_files": 28,
+  "real_http_blocked": true,
+  "full_tests": 659,
+  "clean_checks": 5,
+  "final_display_tests": 18,
+  "run_id": "ca5149ac-7afe-4c4e-bfa4-f03b6fa8dfd0",
+  "integrated": false,
+  "commit": false,
+  "push": false
+}

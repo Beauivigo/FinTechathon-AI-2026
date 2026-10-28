@@ -8,7 +8,7 @@ from bank.gateway import BankGateway
 from bank.seed import initialize
 from bank.store import Store
 from shared import adapt_request, ServiceError
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 
 class CardLimitTests(unittest.TestCase):
@@ -92,7 +92,7 @@ class CardLimitTests(unittest.TestCase):
             page=AppTest.from_file(str(root/'app/main.py')).run()
             page.switch_page('pages/3_卡片管理.py').run()
             page.selectbox(key='card_action').select('card.set_limit').run()
-            page.number_input(key='card_limit_CARD-E001').set_value(0).run()
+            page.text_input(key='card_limit_CARD-E001').set_value('0').run()
             page.button(key='card_submit').click().run()
             self.assertFalse(page.exception);self.assertEqual(self.row()['limit_minor'],50000)
             page=AppTest.from_file(str(root/'app/main.py')).run()

@@ -1,0 +1,129 @@
+{
+  "executor": "Codex, explicit human authorization to directly complete this round",
+  "date": "2026-10-28",
+  "head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+  "scope": "Original authorization evidence and execution status shown separately, retaining existing uncommitted banking UI",
+  "full": {
+    "run": 673,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "clean_checks": 5,
+    "result": "final/full.json"
+  },
+  "new_regressions": 14,
+  "targeted_followup": {
+    "run": 21,
+    "passed": true,
+    "log": "targeted-21.txt"
+  },
+  "browser": "browser.json",
+  "protected": [
+    {
+      "path": "runtime/sandbox.sqlite3",
+      "unchanged": true
+    },
+    {
+      "path": "runtime/sandbox.sqlite3-wal",
+      "unchanged": true
+    },
+    {
+      "path": ".cache/bank-model/profile.json",
+      "unchanged": true
+    },
+    {
+      "path": "shared/contracts.py",
+      "unchanged": true
+    },
+    {
+      "path": "shared/policy.py",
+      "unchanged": true
+    }
+  ],
+  "unrelated_existing_files_unchanged": true,
+  "files": [
+    {
+      "path": "bank/gateway.py",
+      "sha256": "6618692e388b04b1a1735a80116a6ffad8699f3b9868f6096b6818f1a0665164"
+    },
+    {
+      "path": "app/presentation.py",
+      "sha256": "3a97e94c44a7851db11512a1539554e1d90de9251272f0d9e76dbc443ae67f24"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "f5189904ef178454a1a59ac21cb7d9a08a5b701003ff53413d095da53d1346d1"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "7cb9f50b1122db3a1e9da69c6c601df56244089b1b210008384e12ed464e43a7"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "46ed44ae2652db2801c7fd4f50c7065951ea25fe51386c15e0142ae0749dea62"
+    },
+    {
+      "path": "app/pending_view.py",
+      "sha256": "e6ca6eec854287ad15b47b61e447b9a8388c23179834181dca55cb686fd9f9e7"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "cacadc06743b2ffdb42e791493777011b485a951867469524009f9cb868bf7cb"
+    },
+    {
+      "path": "app/pages/2_产品对比.py",
+      "sha256": "700439c41e43d83e73a4ff91c2da83dd3aa2a6094a32abd40fd0f02079b7c779"
+    },
+    {
+      "path": "tests/test_authorization_display.py",
+      "sha256": "4b588e84086c6cdd2b14ad5551aebe698d4b29028702527301d6c078d0427a0b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a8c1a943992307817d1b0c32b3bbcca48f4daf8671ea9c7143efd198ea020807"
+    },
+    {
+      "path": "docs/BLOCKERS.md",
+      "sha256": "35b49a356fb7674cd5b2be9b3b04e6c7b357fbf9ad0680f7d1f20f7eee152909"
+    },
+    {
+      "path": "docs/2026-10-28授权级别展示验收.md",
+      "sha256": "0de069fe73c8291232e2dbc111bd4ed36a532c3f48250afb294b845335090cce"
+    }
+  ],
+  "delegation": {
+    "original_session_preserved": true,
+    "base_reconciled": true,
+    "native_history_backed_up": true,
+    "reconciliation": {
+      "oldBase": "285c90c6014158b85d8323788945b085d1991192",
+      "nextBase": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
+      "sessionId": "session-374eae3a-cc40-4d05-8a2d-4d336fa3db42",
+      "runHistoryPreserved": true,
+      "cumulativeFilesBackedUp": 626,
+      "primaryFilesAligned": 912,
+      "backup": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\backups\\permission-ui-align-f3ad65e5-1d08-4a51-b5a1-a8fd6994d949",
+      "primaryUnchanged": true,
+      "modelApiCalls": 0
+    },
+    "runtime_path_repaired": true,
+    "runtime_sha256": "5c1b55966bf9f757dcbf00065c9a6cb862ead55d34b015f1be1939ff18e43943",
+    "original_mxc_probe_passed": true,
+    "permissions_changed": false,
+    "zero_api_control_assertions": 49,
+    "native_session_activation": "Still unresolved; no replacement or repeated model dispatch",
+    "preflight_run": "edc152aa-bd93-4c48-962e-be492ab81829",
+    "activation_run": "03b02df0-faa2-4699-ac46-a97f04ac5618",
+    "model_calls": 0,
+    "failed_runs_finalized": "rejected_by_codex"
+  },
+  "installer_rebuilt": false,
+  "git_committed_or_pushed": false,
+  "real_user_phone_accepted": false,
+  "status": "accepted_by_codex_direct",
+  "isolated_direct_change_mirror": {
+    "performed": false,
+    "reason": "Another conversation owns the global delegation lock; no lock or other task was interrupted. Current direct implementation is accepted in the primary source; recover and align the original native Session before any future delegation."
+  },
+  "all_final_python_sources_checked": 158
+}

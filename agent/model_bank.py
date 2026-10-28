@@ -334,7 +334,7 @@ class BankPlanRunner:
     def advance(self,*,allow_write=False):
         self._sync()
         if self.paused or self.waiting:return None
-        if self.flow.blocked:raise NeedsInput('请先处理或核实原操作。')
+        blocked=self.flow.blocked
         for task in self.tasks:
             if task['status']=='completed':continue
             if task.get('not_before'):
@@ -346,10 +346,29 @@ class BankPlanRunner:
                 ancestors|={d for t in self.tasks if t['id'] in ancestors for d in t['depends_on']}
             action,params=compile_task(self.flow,task['intent'],task.get('fields',{}),selected_payee=self.choices.get(task['id']),
                 results={key:value for key,value in self.receipts.items() if key in ancestors})
+            if blocked and action not in GREEN_PLAN_ACTIONS | {'__holdings__'}:
+                raise NeedsInput('请先处理或核实原操作，再提交这项业务；纯查询仍可继续。')
             if action=='__holdings__':
                 result={'status':'succeeded','data':params,'source':'trusted_context'}
                 self._audit_result(task)
                 self.receipts[task['id']]=result;task['status']='completed'
+                self.checkpoint()
+                return result
+            if blocked:
+                # A pure observation must never replace the original pending or
+                # unknown request held by Conversation, even when it fails.
+                request=task.get('request') or adapt_request(action,params,
+                    request_id='req_'+uuid4().hex,trace_id=self.trace_id,
+                    idempotency_key='operation_'+uuid4().hex)
+                if not getattr(self.flow.gateway,'demo_mode',True):request['schema_version']='1.2'
+                if request['action']!=action or request['params']!=params:
+                    raise NeedsInput('查询草稿已变化，请重新核对；原操作保持不变。')
+                task.update(request=request,operation_key=request['idempotency_key'],bank_action=action)
+                result=validate_result(request,self.flow.gateway.execute(request,principal_id=self.flow.principal_id))
+                self._audit_result(task)
+                self.receipts[task['id']]=deepcopy(result)
+                task['status']='completed' if result['status']=='succeeded' else 'stopped'
+                if task['status']=='stopped':self.paused=True
                 self.checkpoint()
                 return result
             # Green pure queries execute automatically; other actions keep explicit preparation + original authorization.

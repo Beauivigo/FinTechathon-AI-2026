@@ -1,0 +1,24 @@
+{
+  "executor": "Codex host independent acceptance",
+  "utc": "2026-10-28T16:16:25.993387+00:00",
+  "version": "2.0.0",
+  "full_tests": 713,
+  "clean_checks": 5,
+  "installer_tests": 18,
+  "installer_sha256": "5764a9d56c958280966d8d90b9c16f4c6ea89ac03d1a27f95eaeaf7b0b7e7b46",
+  "installer_size": 62408254,
+  "source_tree_sha256": "96f4401346a2db38377f331d9d2cc235ad22b153416817e725a3c4d346bfb030",
+  "temporary_windows_upgrade": true,
+  "actual_upgrade": {
+    "old": "1.0.0",
+    "new": "2.0.0",
+    "data_unchanged_during_install": true,
+    "preserved_file_count": 5
+  },
+  "browser_states": 22,
+  "browser_block_checks": 108,
+  "browser_passed": true,
+  "unsigned": true,
+  "private_data_exported": false,
+  "passed": true
+}

@@ -1,0 +1,98 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_down 转账服务":
+  - generic: keyboard_arrow_down
+  - paragraph: 转账服务
+- button "group AA 收款":
+  - generic: group
+  - paragraph: AA 收款
+- button "schedule 预约转账":
+  - generic: schedule
+  - paragraph: 预约转账
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "预约转账" [level=1]:
+  - text: 预约转账
+  - link "Link to heading":
+    - /url: "#405021b0"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- status:
+  - paragraph: 预约只登记，不扣款、不冻结余额；到期后仍需你确认或身份验证，派发不等于付款。
+- paragraph: 未领取任务迟到超过5分钟会失效；后台检查未启用时，可用下方按钮手动检查。
+- paragraph: 服务端北京时间：2026-10-28 19:32:33
+- paragraph: 当前为体验示例账户；体验模式不启动后台，可用“检查一次”手动推进到期任务。
+- paragraph: 付款账户
+- combobox "付款账户": 模拟日常账户
+- button "Open":
+- paragraph: 收款人
+- combobox "收款人"
+- button "Open":
+- paragraph: 预约金额（元，最多两位小数）
+- button "Help for 预约金额（元，最多两位小数）":
+- textbox "预约金额（元，最多两位小数）":
+  - /placeholder: ""
+- paragraph: 备注（选填）
+- textbox "备注（选填）":
+  - /placeholder: ""
+- paragraph: 执行日期（北京时间）
+- group "执行日期（北京时间）":
+  - spinbutton "year, 执行日期（北京时间）": "2026"
+  - generic: /
+  - spinbutton "month, 执行日期（北京时间）": "10"
+  - generic: /
+  - spinbutton "day, 执行日期（北京时间）": "28"
+- textbox: 2026-10-28
+- paragraph: 执行时间（北京时间）
+- group "执行时间（北京时间）":
+  - spinbutton "小时, 执行时间（北京时间）": "19"
+  - generic: ":"
+  - spinbutton "分钟, 执行时间（北京时间）": "37"
+- paragraph: 保存前请核对：到期后需本人处理；付款是否完成以原执行结果为准。
+- button "核对并保存预约":
+  - paragraph: 核对并保存预约
+- separator
+- button "检查一次到期任务":
+  - paragraph: 检查一次到期任务
+- generic "keyboard_arrow_right 后台任务与通知":
+  - generic: keyboard_arrow_right
+  - paragraph: 后台任务与通知
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作

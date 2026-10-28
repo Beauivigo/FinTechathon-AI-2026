@@ -14,7 +14,7 @@ from subscription import record as subscription_record, checked_review, scan as 
 from shared import (ContractError, ServiceError, adapt_result, validate_request,
                     validate_authorization, operation_digest, required_gate, validate_transition)
 from shared.adapters import loads_request, loads_result
-from shared.contracts import MAX_SAFE_INTEGER
+from shared.contracts import ACTIONS, MAX_SAFE_INTEGER
 from .services import SandboxServices, require_principal, owned_account
 from .store import utc_timestamp
 from .transfer import handle, split_shares
@@ -81,6 +81,30 @@ class BankGateway:
             return self.services.get_context(principal_id=principal_id)
         except (sqlite3.Error, ContractError) as exc:
             raise ServiceError("UPSTREAM_ERROR", "模拟资源暂不可用，请检查数据。") from exc
+
+    def latest_risk_profile(self, *, principal_id):
+        """Owned authoritative assessment for page recovery; not a model tool."""
+        try:
+            with self.store.connection() as c:
+                require_principal(c, principal_id)
+                row = c.execute('SELECT profile_id,risk_level,questionnaire_version,created_at FROM risk_profiles '
+                                'WHERE principal_id=? ORDER BY created_at DESC,rowid DESC LIMIT 1', (principal_id,)).fetchone()
+                return dict(row) if row else None
+        except sqlite3.Error:
+            raise ServiceError('UPSTREAM_ERROR','风险评估暂不可读取。') from None
+
+    def transfer_receipt(self, transaction_id, *, principal_id):
+        """Display committed receipt metadata only for its owning principal."""
+        try:
+            with self.store.connection() as c:
+                require_principal(c, principal_id)
+                row=c.execute('SELECT transaction_id,amount_minor,occurred_at FROM transfers '
+                              'WHERE transaction_id=? AND principal_id=?',(transaction_id,principal_id)).fetchone()
+                if row is None:
+                    raise ServiceError('NOT_FOUND','未找到当前用户的转账回执。')
+                return dict(row)
+        except sqlite3.Error:
+            raise ServiceError('UPSTREAM_ERROR','转账回执暂不可读取。') from None
 
     def record_agent_event(self, event, *, principal_id):
         """可信接线专用审计入口，不是模型工具；只接受闭集技术元数据。"""
@@ -262,6 +286,47 @@ class BankGateway:
     def _key(request, principal):
         # 黄色查询允许不提供写幂等键，以请求ID恢复本次确认；不修改公开请求。
         return principal, request['action'], request.get('idempotency_key', request['request_id'])
+
+    def authorization_requirement(self, request, *, principal_id):
+        """Read-only page metadata, never an authorization or a model tool.
+
+        Keep the original challenge and any upgrade: recomputing a completed
+        transfer would count its own payment twice or lower it after midnight.
+        """
+        try:
+            validate_request(request)
+            with self.store.connection() as c:
+                require_principal(c, principal_id)
+                if 'account_id' in request['params']:
+                    owned_account(c, request['params']['account_id'], principal_id)
+                saved = self._load(c, request, principal_id)
+                if saved is None:
+                    level = required_gate(request)['risk_level'] if request['action'] not in self.write_actions | self.confirmed_reads else None
+                    return dict(risk_level=level, methods=[])
+                original, result = saved
+                rows = c.execute('''SELECT challenge_id,kind FROM challenges
+                    WHERE principal_id=? AND action=? AND idempotency_key=? AND digest=?''',
+                    (*self._key(original, principal_id), operation_digest(original, principal_id=principal_id))).fetchall()
+                kinds = {row['kind'] for row in rows}
+                level = ('red' if 'verify' in kinds else 'yellow') if kinds else (
+                    'green' if ACTIONS[original['action']]['risk'] == 'green' else None)
+                methods = []
+                if level == 'red':
+                    if result['status'] in PENDING:
+                        methods = result['next_action'].get('methods', [])
+                    else:
+                        ids = {row['challenge_id'] for row in rows if row['kind'] == 'verify'}
+                        events = c.execute('''SELECT outcome,details_json FROM audit_events
+                            WHERE principal_id=? AND action=? AND outcome IN ('totp_verified','demo_proof_issued')
+                            ORDER BY event_id DESC''', (principal_id, original['action']))
+                        for event in events:
+                            detail = json.loads(event['details_json'])
+                            if detail.get('idempotency_key') == self._key(original, principal_id)[2] and detail.get('challenge_id') in ids:
+                                methods = ['totp' if event['outcome'] == 'totp_verified' else 'demo_otp']
+                                break
+                return dict(risk_level=level, methods=methods)
+        except (sqlite3.Error, ContractError, ValueError, TypeError) as exc:
+            raise ServiceError('UPSTREAM_ERROR', '原操作的授权级别暂不可核实。') from exc
 
     def get_confirmed_read(self, key, *, principal_id):
         """可信页面恢复黄色只读会话；不扩大operation.get的公开写操作范围。"""
@@ -666,7 +731,7 @@ def _guard_public(method):
         return method(self,*args,principal_id=principal_id,**kwargs)
     return guarded
 
-for _name in ('get_context','record_agent_event','run_reminders','release_quote','list_orders',
+for _name in ('authorization_requirement','transfer_receipt','latest_risk_profile','get_context','record_agent_event','run_reminders','release_quote','list_orders',
               'selected_order_card','list_reservations','subscription_charge_details','list_operations',
               'operation_payee','execute','authorize','get_confirmed_read'):
     setattr(BankGateway,_name,_guard_public(getattr(BankGateway,_name)))

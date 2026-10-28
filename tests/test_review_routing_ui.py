@@ -188,10 +188,9 @@ class WealthPageSafetyTests(unittest.TestCase):
                         if keyword.arg == 'key' and isinstance(keyword.value, ast.Constant):
                             key_value = keyword.value.value
                         if (keyword.arg == 'disabled'
-                                and isinstance(keyword.value, ast.Attribute)
-                                and keyword.value.attr == 'blocked'
-                                and isinstance(keyword.value.value, ast.Name)
-                                and keyword.value.value.id == 'flow'):
+                                and any(isinstance(part, ast.Attribute) and part.attr=='blocked'
+                                        and isinstance(part.value, ast.Name) and part.value.id=='flow'
+                                        for part in ast.walk(keyword.value))):
                             blocked = True
                     if key_value is not None:
                         buttons[key_value] = buttons.get(key_value, False) or blocked

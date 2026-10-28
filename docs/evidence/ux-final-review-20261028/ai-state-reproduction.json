@@ -1,0 +1,8 @@
+{
+  "paused_send_no_change": true,
+  "handoff_send_no_change": true,
+  "model_calls": 1,
+  "factory_error_leaves_stale_error": true,
+  "real_model_calls": 0,
+  "data": "synthetic in-memory state; no ledger"
+}

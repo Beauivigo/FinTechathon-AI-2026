@@ -1,0 +1,96 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_down 转账服务":
+  - generic: keyboard_arrow_down
+  - paragraph: 转账服务
+- button "group AA 收款":
+  - generic: group
+  - paragraph: AA 收款
+- button "schedule 预约转账":
+  - generic: schedule
+  - paragraph: 预约转账
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- heading "AA 收款" [level=1]:
+  - text: AA 收款
+  - link "Link to heading":
+    - /url: "#aa"
+- button "arrow_back 首页":
+  - generic "首页":
+    - generic: arrow_back
+    - paragraph: 首页
+- status:
+  - paragraph: 创建收款单，不发送通知、不执行付款，也不改变账户余额。
+- paragraph: 收款账户
+- combobox "收款账户": 模拟日常账户
+- button "Open":
+- paragraph: 依次选择参与人
+- combobox "依次选择参与人"
+- button "Open":
+- paragraph: 总金额（元，最多两位小数）
+- textbox "总金额（元，最多两位小数）":
+  - /placeholder: ""
+- paragraph: 联系人来自现有账户；按选择顺序，前面的参与人优先分配余下的分。
+- alert:
+  - paragraph: 请选择参与人并输入有效金额；每人至少分配 1 分，金额最多两位小数。
+- button "核对并创建收款单" [disabled]:
+  - paragraph: 核对并创建收款单
+- generic "keyboard_arrow_right 恢复业务操作":
+  - generic: keyboard_arrow_right
+  - paragraph: 恢复业务操作
+- heading "当前操作：冻结" [level=3]:
+  - text: 当前操作：冻结
+  - link "Link to heading":
+    - /url: "#226400b4"
+- paragraph:
+  - generic: 授权级别：红色 · 强验证
+- paragraph: 验证方式：体验模拟验证
+- paragraph: 执行状态
+- paragraph:
+  - generic: 已完成
+- generic: 卡片：白金卡
+- generic "keyboard_arrow_right 原操作编号与详细参数":
+  - generic: keyboard_arrow_right
+  - paragraph: 原操作编号与详细参数
+- paragraph: 卡片：白金卡 · CARD-E001
+- paragraph: 解挂后保持冻结，需要另行验证解冻。卡片状态尚未关联账户转账限制。
+- paragraph: 【模拟】卡片已冻结。
+- button "查询原操作结果":
+  - paragraph: 查询原操作结果
+- generic "keyboard_arrow_right 操作编号与原始请求":
+  - generic: keyboard_arrow_right
+  - paragraph: 操作编号与原始请求

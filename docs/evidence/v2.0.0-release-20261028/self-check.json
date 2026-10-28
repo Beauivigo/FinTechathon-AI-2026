@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "release": "言行 2.0.0",
+  "executor": "DeepSeek coding agent (same native session, isolated worktree)",
+  "environment": {
+    "os": "Windows 10/11 x64 sandbox (AppContainer)",
+    "build_python": "3.12 (project runtime)",
+    "loopback": "unavailable; Streamlit AppTest and live servers not run",
+    "toolchain": "read-only D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\toolchain",
+    "toolchain_python_zip_sha256": "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159",
+    "toolchain_nsis_zip_sha256": "56581f90db321581c5381193d796fffcf2d24b2f8fed2160a6c6a3baa67f2c4f",
+    "wheel_lock_entries": 42
+  },
+  "checks": [
+    {
+      "name": "installer offline regression",
+      "command": "python -B -X utf8 -m unittest win_installer.test_installer win_installer.test_runtime_paths -v",
+      "result": "18 tests, 0 failures, 0 errors"
+    },
+    {
+      "name": "ui component contracts",
+      "command": "python -B -X utf8 -m unittest tests.test_ui_components",
+      "result": "16 tests OK (unchanged UI contracts still pass)"
+    },
+    {
+      "name": "home view contracts",
+      "command": "python -B -X utf8 -m unittest tests.test_home_view",
+      "result": "9 tests OK"
+    },
+    {
+      "name": "payload stage-only build",
+      "command": "python -B -X utf8 -m win_installer.build_installer --stage-only ... --version default 2.0.0",
+      "result": "exit 0, 60.7s, payload files 6561, total bytes 305749981"
+    },
+    {
+      "name": "nsis compile",
+      "command": "makensis 3.12 (i386)",
+      "result": "BLOCKED: [WinError 623] invalid system DLL relocation when launching 32-bit makensis in this AppContainer; no installer generated, left to Codex host build"
+    },
+    {
+      "name": "install/upgrade/uninstall",
+      "command": "win_installer/verify_windows.py (needs real installer + host)",
+      "result": "NOT RUN in sandbox; Codex acceptance"
+    },
+    {
+      "name": "full business regression / browser",
+      "command": "tests/ (AppTest) and browser",
+      "result": "NOT RUN: loopback unavailable"
+    }
+  ],
+  "payload": {
+    "version": "2.0.0",
+    "file_count": 6561,
+    "total_bytes": 305749981,
+    "source_tree_sha256": "96f4401346a2db38377f331d9d2cc235ad22b153416817e725a3c4d346bfb030",
+    "payload_tree_sha256": "b8229633977ce604c914d7d97dad7293e2cf344066127509b6ec6b919271b4a8",
+    "python": "3.14.10",
+    "wheels": 42,
+    "source_entries": 87,
+    "excluded": [
+      "_vx_* harness probes",
+      ".git pointer",
+      ".venv",
+      ".cache",
+      "runtime",
+      "local_reports",
+      "tests",
+      "docs (source)",
+      "scripts",
+      "examples",
+      "win_installer",
+      "credentials/secrets",
+      "daily ledger and model config"
+    ]
+  },
+  "source_sha256": {
+    "win_installer/build_installer.py": "a892d0bb46cc268976c4e129f40c9dcb054a5cdb90a7f5551345e3133700562a",
+    "win_installer/test_installer.py": "3210138f74da6632be4c72d9a9f7ec2eab3be79255a37fa8c3cea88d2e536ec3",
+    "win_installer/test_runtime_paths.py": "a7e46de6f26ad978ef91eae7220762eb0b0974cf4cda93d796792f8c9db64698",
+    "win_installer/README.md": "a80d7404c9fbf03f657f4b9178bf6b415aa81e0dbfdf81668a5ca1a4d2bba069",
+    "win_installer/payload_docs/使用说明.txt": "f3abcb8f63fcbd4e5cc21a55790dd5ca57a1f8177cd7e6b8b78798ba9559012d",
+    "win_installer/payload_docs/版本与升级说明.txt": "db65e4ce6d524e55b523830796dbf5f50a84ea495dc382ccb2162af3967254ad",
+    "README.md": "44ef3d984dd47a9094df1df28d39c158c80b2528c6101866f6de4fa0b82942ca",
+    "docs/2026-10-28言行v2.0.0发布说明.md": "770f1eb4681a1d844c69ddd93b4a95588058b3176374339a1936fc1083825504",
+    "docs/U1-U5程序内使用说明.md": "8c31cf86750578c2f09ecf5ea8f0f805fa9b606f422891bfa5dfe0e68dcea427",
+    "docs/BLOCKERS.md": "6bd041424c68e091b2746234cbb8543d2e176c4ba1179c86cfa2bc3109e0c34d",
+    "docs/下一阶段分工与实施计划/README.md": "9871c923cb3639310d2fbf8245e7aad6a40a2e38af7802607931068a3345ec23",
+    "docs/evidence/v2.0.0-release-20261028/payload-manifest.json": "4f7147de821f1a85941170522e36299083fcc722ff769a7648a547f4a62b1c77",
+    "docs/evidence/v2.0.0-release-20261028/version.json": "699d2e016cc06ac8d39fb924140d4bd0bdc7e0974f2a1105ce0fd7ed6b62d4c4",
+    "docs/evidence/v2.0.0-release-20261028/许可与第三方说明.txt": "bc96b3a0fb3b66d3ac9305d3919e25989699cc72186cd5cfee010dad91192593",
+    "docs/evidence/v2.0.0-release-20261028/stage-only-log.txt": "6ef74699b23efd5a281801f70596079d81ae9fc48ed7adcf06f087c600886004"
+  },
+  "not_claimed": [
+    "Git commit/tag/push",
+    "GitHub Release upload",
+    "real installer artifact",
+    "host install/upgrade/uninstall",
+    "browser visual acceptance",
+    "full suite counts for 2.0.0"
+  ],
+  "next_owner": "Codex final acceptance: build installer with NSIS on host, run verify_windows install -> start -> stop -> upgrade -> start -> stop -> uninstall, browser check, then commit/tag/Release upload",
+  "model_reported_checked_at_utc": "2026-10-28T16:00:00+00:00",
+  "codex_recorded_at_utc": "2026-10-28T15:53:24.590387+00:00",
+  "timing_note": "Model execution timestamp was not verified; retained as reported only. Codex host results are independent."
+}

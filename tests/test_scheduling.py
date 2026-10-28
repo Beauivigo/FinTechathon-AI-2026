@@ -11,7 +11,7 @@ from bank.seed import initialize
 from bank.store import Store
 from bank.scheduler import Scheduler, transition, owned_task
 from shared import adapt_request, ServiceError
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 
 class SchedulingTests(unittest.TestCase):
@@ -243,6 +243,9 @@ class SchedulingTests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1]
         with patch('bank.seed.demo_path',return_value=self.store.path),patch('app.demo.gateway',return_value=self.g):
             page=AppTest.from_file(str(root/'app/main.py')).run();page.switch_page('pages/6_定时转账.py').run()
+            people=__import__('app.workflow',fromlist=['demo_payees']).demo_payees(page.session_state['action_flow'])
+            page.selectbox(key='schedule_payee').select(people[0])
+            page.text_input(key='schedule_amount').set_value('200.00')
             page.button(key='schedule_submit').click().run();page.button(key='action_approve').click().run()
             self.assertFalse(page.exception);self.assertEqual(self.money(),((200000,200000,0),0,0))
             self.now+=timedelta(minutes=5);page.button(key='schedule_run').click().run()

@@ -1,0 +1,126 @@
+Browser tab: 1, Title: "银行助手", URL: "http://127.0.0.1:8531/".
+1 AXWebArea 银行助手, URL: 127.0.0.1:8531/
+	2 container
+		3 container
+			4 container
+				5 text 体验示例账户 · 本机示例账本
+				6 button 设置本机账号
+					7 text 设置本机账号
+				8 heading 银行助手, Value: 3
+					9 text 银行助手
+				10 text 本机账户
+				72 button home 首页
+					74 text home
+					75 text 首页
+				73 button swap_horiz 转账与收款
+					76 text swap_horiz
+					77 text 转账与收款
+				17 button receipt_long 收支明细
+					18 text receipt_long
+					19 text 收支明细
+				20 button savings 理财
+					21 text savings
+					22 text 理财
+				23 button person 我的
+					24 text person
+					25 text 我的
+				26 button auto_awesome AI 银行助手
+					27 text auto_awesome
+					28 text AI 银行助手
+				29 button (collapsed) keyboard_arrow_right 其他服务, Secondary Actions: Expand
+					30 text keyboard_arrow_right
+					31 text 其他服务
+				32 button (collapsed) keyboard_arrow_right 转账服务, Secondary Actions: Expand
+					33 text keyboard_arrow_right
+					34 text 转账服务
+				35 button (collapsed) keyboard_arrow_right 生活管理, Secondary Actions: Expand
+					36 text keyboard_arrow_right
+					37 text 生活管理
+				38 button (collapsed) keyboard_arrow_right 理财服务, Secondary Actions: Expand
+					39 text keyboard_arrow_right
+					40 text 理财服务
+				41 button (collapsed) keyboard_arrow_right 转账示例, Secondary Actions: Expand
+					42 text keyboard_arrow_right
+					43 text 转账示例
+				44 button (collapsed) keyboard_arrow_right 账户设置, Secondary Actions: Expand
+					45 text keyboard_arrow_right
+					46 text 账户设置
+				47 button (collapsed) keyboard_arrow_right 后台任务与通知, Secondary Actions: Expand
+					48 text keyboard_arrow_right
+					49 text 后台任务与通知
+			50 pop up button (collapsed) Description: Main menu, Secondary Actions: Expand
+			51 container 转账与收款
+				52 tab group react-aria7524111009-:r7:
+					53 tab (selectable, settable, boolean) 首页, ID: react-aria7524111009-:r7:-tab-0, Value: 0
+首页
+					54 tab (selected, settable, boolean) 转账与收款, ID: react-aria7524111009-:r7:-tab-1, Value: 1
+转账与收款
+					55 tab (selectable, settable, boolean) 收支明细, ID: react-aria7524111009-:r7:-tab-2, Value: 0
+收支明细
+					56 tab (selectable, settable, boolean) 操作记录, ID: react-aria7524111009-:r7:-tab-3, Value: 0
+操作记录
+				79 container Description: 转账与收款, ID: react-aria7524111009-:r7:-tabpanel-1
+					80 heading 转账与收款, Value: 1, ID: b5b9a2ef
+						81 text 转账与收款
+						82 link Description: Link to heading, Value: 127.0.0.1:8531/#b5b9a2ef
+					83 link Description: 预约转账, Value: 127.0.0.1:8531/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6
+					84 link Description: AA收款单, Value: 127.0.0.1:8531/AA%E6%94%B6%E6%AC%BE
+					85 text 填写信息 → 核对 → 确认或身份验证 → 结果。
+					86 heading 直接转账, Value: 3, ID: 9265c4b2
+						87 text 直接转账
+						88 link Description: Link to heading, Value: 127.0.0.1:8531/#9265c4b2
+					89 container
+						90 combo box (collapsed, settable) Description: 付款账户, Value: 模拟日常账户, ID: react-aria7524111009-:r11:, Secondary Actions: Expand
+						91 pop up button (collapsed) Description: Open, ID: react-aria7524111009-:rt:, Secondary Actions: Expand
+					92 container
+						93 combo box (collapsed, settable) Description: 收款人, ID: react-aria7524111009-:r1f:, Secondary Actions: Expand
+						94 pop up button (collapsed) Description: Open, ID: react-aria7524111009-:r1b:, Secondary Actions: Expand
+					95 container
+						96 button Help for 转账金额（元，最多两位小数）
+						97 text field (settable) Description: 转账金额（元，最多两位小数）, ID: :r1o:
+					98 container
+						99 text field (settable) Description: 备注（选填）, ID: :r20:
+					100 text 请选择付款账户、收款人并填写金额；信息不完整时不会生成转账。
+					101 button (disabled) 核对转账信息
+						102 text 核对转账信息
+					103 heading 用一句话填写, Value: 3, ID: 39a189c6
+						104 text 用一句话填写
+						105 link Description: Link to heading, Value: 127.0.0.1:8531/#39a189c6
+					106 text 无需配置模型；与上方表单共用核对、确认和结果。
+					107 text smart_toy
+					108 container Chat message from assistant
+						109 text 【模拟】转账已完成。
+					110 container
+						111 text entry area (settable) 例如：给小王转200元
+						112 button (disabled) Send message
+					113 heading 当前操作, Value: 3, ID: 38726e5b
+						114 text 当前操作
+						115 link Description: Link to heading, Value: 127.0.0.1:8531/#38726e5b
+					116 text 授权级别：红色 · 强验证
+					117 text 验证方式：体验模拟验证
+					118 text 按原操作的授权记录展示；日累计含本次1000元为确认门槛，执行前仍会重验，强验证要求不会跨日降低。
+					119 text 执行状态
+					120 text 已完成
+					121 container
+						122 text 转账金额
+						123 text ¥ 1,200.00
+					124 text 收款人：李明
+					125 text 收款账户：****9012
+					126 text 银行：模拟银行甲
+					127 text 【模拟】转账已完成。
+					128 text 结果来自已提交的账本。
+					129 text 交易编号：transfer_ebdd5d9e2ac54238b3261d14389dba83
+					130 container
+						131 text 完成时间：2026-10-28 18:29 :39  北京时间
+					132 button 查看收支明细
+						133 text 查看收支明细
+					134 button 查询原操作结果
+						135 text 查询原操作结果
+					136 button (collapsed) keyboard_arrow_right 查看接口调用示例, Secondary Actions: Expand
+						137 text keyboard_arrow_right
+						138 text 查看接口调用示例
+					139 button (collapsed) keyboard_arrow_right 用一句话准备其他业务, Secondary Actions: Expand
+						140 text keyboard_arrow_right
+						141 text 用一句话准备其他业务
+
+The focused UI element is 51 container 转账与收款

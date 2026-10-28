@@ -13,7 +13,7 @@ from bank.store import Store
 from bank.transfer import split_shares
 from shared import adapt_request, ContractError, ServiceError
 from shared.contracts import MAX_SAFE_INTEGER
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 
 PEOPLE = ['demo_payee_li', 'demo_payee_wang_1', 'demo_payee_wang_2']
 
@@ -123,6 +123,7 @@ class SplitTests(unittest.TestCase):
             self.assertFalse(app.exception)
             app.text_input(key='split_amount').set_value('0.001').run()
             self.assertTrue(app.button(key='split_submit').disabled)
+            app.multiselect(key='split_people').set_value(['demo_payee_li','demo_payee_wang_1'])
             app.text_input(key='split_amount').set_value('10.01').run()
             app.button(key='split_submit').click().run()
             self.assert_no_payment(0)

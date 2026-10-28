@@ -2,6 +2,7 @@
 import streamlit as st
 
 from bank.background import BackgroundController
+from app.presentation import beijing
 
 
 def _render_notifications(flow):
@@ -37,7 +38,7 @@ def render_background(flow):
             st.info('后台正在启动，等待首次检查；尚未确认运行。')
         elif status['running']:
             st.success('后台检查运行中')
-            st.caption(f"最近检查：{status['last_tick'] or '启动中'} · 关闭网页不会停止本应用后台。")
+            st.caption(f"最近检查：{beijing(status['last_tick']) if status['last_tick'] else '启动中'} · 关闭网页不会停止本应用后台。")
         elif status['stopping']:
             st.warning(status['message'])
         elif status.get('stop_state') == 'stopped':

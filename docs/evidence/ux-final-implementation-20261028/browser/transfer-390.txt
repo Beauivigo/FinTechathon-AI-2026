@@ -1,0 +1,116 @@
+- button "keyboard_double_arrow_left":
+  - generic: keyboard_double_arrow_left
+- paragraph: 体验示例账户 · 本机示例账本
+- button "设置本机账号":
+  - paragraph: 设置本机账号
+- heading "银行助手" [level=3]
+- paragraph: 本机账户
+- button "home 首页":
+  - generic: home
+  - paragraph: 首页
+- button "swap_horiz 转账与收款":
+  - generic: swap_horiz
+  - paragraph: 转账与收款
+- button "receipt_long 收支明细":
+  - generic: receipt_long
+  - paragraph: 收支明细
+- button "savings 理财":
+  - generic: savings
+  - paragraph: 理财
+- button "person 我的":
+  - generic: person
+  - paragraph: 我的
+- button "auto_awesome AI 银行助手":
+  - generic: auto_awesome
+  - paragraph: AI 银行助手
+- generic "keyboard_arrow_right 其他服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 其他服务
+- generic "keyboard_arrow_right 转账服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账服务
+- generic "keyboard_arrow_right 生活管理":
+  - generic: keyboard_arrow_right
+  - paragraph: 生活管理
+- generic "keyboard_arrow_right 理财服务":
+  - generic: keyboard_arrow_right
+  - paragraph: 理财服务
+- generic "keyboard_arrow_right 转账示例":
+  - generic: keyboard_arrow_right
+  - paragraph: 转账示例
+- separator
+- generic "keyboard_arrow_right 账户设置":
+  - generic: keyboard_arrow_right
+  - paragraph: 账户设置
+- separator
+- generic "keyboard_arrow_right 后台任务与通知":
+  - generic: keyboard_arrow_right
+  - paragraph: 后台任务与通知
+- banner:
+  - button "keyboard_double_arrow_right":
+    - generic: keyboard_double_arrow_right
+  - button "Main menu":
+- tablist:
+  - tab "首页":
+    - paragraph: 首页
+  - tab "转账与收款" [selected]:
+    - paragraph: 转账与收款
+  - tab "收支明细":
+    - paragraph: 收支明细
+  - tab "操作记录":
+    - paragraph: 操作记录
+- tabpanel "转账与收款":
+  - heading "转账与收款" [level=1]:
+    - text: 转账与收款
+    - link "Link to heading":
+      - /url: "#b5b9a2ef"
+  - link "预约转账":
+    - /url: 定时转账
+    - paragraph: 预约转账
+  - link "AA收款单":
+    - /url: AA收款
+    - paragraph: AA收款单
+  - paragraph: 填写信息 → 核对 → 确认或身份验证 → 结果。
+  - heading "直接转账" [level=3]:
+    - text: 直接转账
+    - link "Link to heading":
+      - /url: "#9265c4b2"
+  - paragraph: 付款账户
+  - combobox "付款账户": 模拟日常账户
+  - button "Open":
+  - paragraph: 收款人
+  - combobox "收款人"
+  - button "Open":
+  - paragraph: 转账金额（元，最多两位小数）
+  - button "Help for 转账金额（元，最多两位小数）":
+  - textbox "转账金额（元，最多两位小数）":
+    - /placeholder: ""
+  - paragraph: 备注（选填）
+  - textbox "备注（选填）":
+    - /placeholder: ""
+  - paragraph: 请选择付款账户、收款人并填写金额；信息不完整时不会生成转账。
+  - button "核对转账信息" [disabled]:
+    - paragraph: 核对转账信息
+  - heading "用一句话填写" [level=3]:
+    - text: 用一句话填写
+    - link "Link to heading":
+      - /url: "#39a189c6"
+  - paragraph: 无需配置模型；与上方表单共用核对、确认和结果。
+  - generic: smart_toy
+  - generic "Chat message from assistant":
+    - paragraph: 可以说“给李明转200元”。也可以先说“给小王转钱”，再补充金额。
+  - textbox "例如：给小王转200元"
+  - button "Send message" [disabled]:
+  - heading "当前操作" [level=3]:
+    - text: 当前操作
+    - link "Link to heading":
+      - /url: "#38726e5b"
+  - paragraph: 执行状态
+  - paragraph:
+    - generic: 草稿
+  - paragraph: 先准备草稿，核对后才会进入确认。
+  - paragraph: 等待你的转账需求。
+  - paragraph: 准备 → 核对 → 确认或验证 → 查看结果
+  - generic "keyboard_arrow_right 用一句话准备其他业务":
+    - generic: keyboard_arrow_right
+    - paragraph: 用一句话准备其他业务

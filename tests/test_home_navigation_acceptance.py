@@ -15,21 +15,21 @@ class HomeNavigationAcceptanceTests(unittest.TestCase):
         page = self.page()
         flow = page.session_state['conversation']
         before = self.snapshot(flow)
-        self.assertEqual(page.session_state['home_workspace'], '账户首页')
-        self.assertIn('个人银行首页', [title.value for title in page.title])
+        self.assertEqual(page.session_state['home_workspace'], '首页')
+        self.assertIn('首页', [title.value for title in page.title])
         page.button(key='home_service_transfer').click().run()
         self.assertFalse(page.exception)
-        self.assertEqual(page.session_state['home_workspace'], '转账汇款')
+        self.assertEqual(page.session_state['home_workspace'], '转账与收款')
         self.assertIsNone(flow.request)
         self.assertEqual(self.snapshot(flow), before)
         page.button(key='home_service_bills').click().run()
         self.assertFalse(page.exception)
-        self.assertEqual(page.session_state['home_workspace'], '账单流水')
+        self.assertEqual(page.session_state['home_workspace'], '收支明细')
         self.assertEqual(self.snapshot(flow), before)
 
     def test_every_other_home_service_navigates_and_returns_without_business_writes(self):
         destinations = {
-            'cards': '卡片管理', 'aa': 'AA 收款', 'scheduled': '定时转账',
+            'cards': '卡片管理', 'aa': 'AA 收款', 'scheduled': '预约转账',
             'budget': '预算预留与释放', 'wealth': '理财操作', 'products': '产品对比',
         }
         for action, title in destinations.items():
@@ -43,7 +43,7 @@ class HomeNavigationAcceptanceTests(unittest.TestCase):
                 self.assertEqual(self.snapshot(flow), before)
                 page.button(key='ui_menu_home').click().run()
                 self.assertFalse(page.exception)
-                self.assertIn('个人银行首页', [heading.value for heading in page.title])
+                self.assertIn('首页', [heading.value for heading in page.title])
                 self.assertEqual(self.snapshot(flow), before)
 
     def test_pending_confirmation_and_unavailable_data_stay_explicit(self):
@@ -51,7 +51,7 @@ class HomeNavigationAcceptanceTests(unittest.TestCase):
         flow = page.session_state['conversation']
         page.chat_input[0].set_value('给李明转200元').run()
         self.assertFalse(page.exception)
-        self.assertEqual(page.session_state['home_workspace'], '转账汇款')
+        self.assertEqual(page.session_state['home_workspace'], '转账与收款')
         self.assertEqual(flow.result['status'], 'awaiting_confirmation')
         self.assertEqual(len(self.snapshot(flow)['transfers']), 0)
         self.assertTrue(any('有 1 项业务待处理' in item.value for item in page.warning))

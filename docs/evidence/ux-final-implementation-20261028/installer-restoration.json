@@ -1,0 +1,9 @@
+{
+  "test_install": ".cache\\installer-20261026\\ux-final-20261028\\全新安装目录",
+  "original_shortcuts_restored": true,
+  "passed": true,
+  "registry_restored": true,
+  "actual_install_untouched": "C:\\Users\\huang\\言行",
+  "test_install_original_label": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\installed",
+  "label_correction": "The acceptance module used 全新安装目录; only this descriptive label was corrected. Original restoration flags and phase evidence are unchanged."
+}

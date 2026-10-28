@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 import pyotp
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 from bank.store import Store
 from bank.seed import initialize
 from bank.auth import AuthService

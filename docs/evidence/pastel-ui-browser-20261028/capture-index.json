@@ -1,0 +1,47 @@
+{
+  "screenshot_behavior": "Finite transitions fast-forwarded for stable captures only; normal and reduced motion separately verified in blocks-report.json.",
+  "full_matrix_artifacts": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-matrix",
+  "full_block_artifacts": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-blocks",
+  "files": [
+    {
+      "name": "blocks-report.json",
+      "sha256": "ec1fa396902c997b3b11e7a7df697bb45255de3439d2278c342cb08c23007ad8"
+    },
+    {
+      "name": "business-audit.json",
+      "sha256": "9f9e5c545125a55522013db4524a29ba6b164f5dffd4926e27bb17d3331238f5"
+    },
+    {
+      "name": "cards-1440.png",
+      "sha256": "5daba817b45aff1d1529fe56ce8ce2317b1c4abe9774f622e6ee8b52062bb1a5"
+    },
+    {
+      "name": "cards-390.png",
+      "sha256": "e80542eb52bdf2a8c4585283a99ca05aeaf46ddf7ea2bc8dbf50953f7c12a016"
+    },
+    {
+      "name": "history-390.png",
+      "sha256": "567cb56ac0b52e3967c21d73b591b9aab6f5e5aa08ddc7ac1157224b3e70eb2a"
+    },
+    {
+      "name": "home-normal.png",
+      "sha256": "0e3ceb2a470bbfc48b71f7139bab3610aabe2d48fc578fbcb93e40974878ab00"
+    },
+    {
+      "name": "matrix-report.json",
+      "sha256": "c6d7a6a06f09cbbf88e4d85fb9a32278a1fd4bb714d7cb169a07218e6579559c"
+    },
+    {
+      "name": "products-1440.png",
+      "sha256": "b8f7d414d1e2b97152b2a8c776e97cb76b68647de9b3ac0643286412e83f54b6"
+    },
+    {
+      "name": "setup-1440.png",
+      "sha256": "215bb41c7b990a97517375f3811954c80c55b260a13fe1997e995adfaeeeeea0"
+    },
+    {
+      "name": "setup-390.png",
+      "sha256": "e3dd99ea59195b3259a4c5e71bb187134dfbc1b271410be43a1d2dd56e75e4f6"
+    }
+  ]
+}

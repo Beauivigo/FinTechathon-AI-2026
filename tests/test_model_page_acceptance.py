@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 from bank.store import Store
 from bank import seed
 
@@ -35,7 +35,11 @@ class ModelPageAcceptance(unittest.TestCase):
             self.assertEqual(self.balance(),200000)
             app.button(key='model_prepare_step').click().run()
             self.assertFalse(app.exception);self.assertEqual(self.balance(),200000)
-            self.assertTrue(app.text_area(key='bank_model_input').disabled)
+            # AI may keep clarifying/drafting while one operation awaits
+            # confirmation; only preparing another business step is gated.
+            self.assertFalse(app.text_area(key='bank_model_input').disabled)
+            self.assertFalse(app.button(key='bank_model_send').disabled)
+            self.assertFalse(any(b.key=='model_prepare_step' for b in app.button))
             app.button(key='action_approve').click().run()
             self.assertFalse(app.exception);self.assertEqual(self.balance(),198000)
             app.run();app.run()
@@ -54,14 +58,23 @@ class ModelPageAcceptance(unittest.TestCase):
             app.run();self.assertEqual(model.call_count,1)
 
     def test_pause_and_handoff_do_not_call_model_or_write_bank(self):
-        with patch('bank.seed.PROJECT_ROOT',self.root),patch('agent.model_client.ModelClient.__call__') as model:
+        output={'reply':'草稿','action':'propose','intent':'transfer','slots':{'account_id':'demo_account_a','payee_query':'李明','amount_text':'20元'}}
+        with patch('bank.seed.PROJECT_ROOT',self.root),patch('agent.model_client.ModelClient.__call__',return_value=json.dumps(output,ensure_ascii=False)) as model:
             app=AppTest.from_file(str(PAGE),default_timeout=15).run()
-            app.button(key='bank_model_pause').click().run()
-            app.text_area(key='bank_model_input').set_value('给李明转钱')
+            self.assertFalse(any(b.key in {'bank_model_pause','bank_model_handoff'} for b in app.button))
+            model.assert_not_called()
+            app.text_area(key='bank_model_input').set_value('给李明转20元')
             app.button(key='bank_model_send').click().run()
-            self.assertFalse(app.exception);model.assert_not_called()
+            self.assertEqual(model.call_count,1)
+            app.button(key='bank_model_pause').click().run()
+            self.assertTrue(app.button(key='bank_model_send').disabled)
+            self.assertTrue(any(b.key=='bank_model_resume' for b in app.button))
+            self.assertEqual(model.call_count,1)
+            app.button(key='bank_model_resume').click().run()
             app.button(key='bank_model_handoff').click().run()
             self.assertEqual(app.session_state['model_dialogue'].snapshot()['phase'],'handoff')
+            self.assertTrue(app.button(key='bank_model_send').disabled)
+            self.assertTrue(any(b.key=='bank_model_manual_transfer' for b in app.button))
             self.assertEqual(self.balance(),200000)
 
     def test_fresh_page_recovers_original_transfer_details_without_new_model_call(self):
@@ -72,7 +85,8 @@ class ModelPageAcceptance(unittest.TestCase):
             first.button(key='bank_model_send').click().run()
             first.button(key='model_prepare_step').click().run()
             second=AppTest.from_file(str(PAGE),default_timeout=15).run()
-            self.assertTrue(second.text_area(key='bank_model_input').disabled)
+            self.assertFalse(second.text_area(key='bank_model_input').disabled)
+            self.assertFalse(second.button(key='bank_model_send').disabled)
             second.button(key='action_recover').click().run()
             self.assertFalse(second.exception)
             visible=' '.join(t.value for t in second.text)

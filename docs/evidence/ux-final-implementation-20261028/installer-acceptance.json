@@ -1,0 +1,66 @@
+{
+  "install": {
+    "passed": true,
+    "runtime": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]\n1.65.0\n['D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python\\\\python314.zip', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python\\\\Lib\\\\site-packages', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\launcher']\n",
+    "previous_user_files": 0,
+    "shortcuts": {
+      "desktop": "C:\\Users\\huang\\Desktop",
+      "links": [
+        {
+          "name": "启动言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\python\\pythonw.exe",
+          "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\launcher\\launch.py\""
+        },
+        {
+          "name": "停止言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\python\\pythonw.exe",
+          "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\launcher\\stop.py\" --quiet"
+        },
+        {
+          "name": "卸载言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\uninstall.exe",
+          "args": ""
+        }
+      ]
+    }
+  },
+  "start": {
+    "passed": true,
+    "pid": 47392,
+    "duplicate_launch_reused": true,
+    "url": "http://127.0.0.1:8526",
+    "data": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\clean-user\\Local\\言行\\data"
+  },
+  "stop": {
+    "passed": true
+  },
+  "upgrade": {
+    "passed": true,
+    "runtime": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]\n1.65.0\n['D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python\\\\python314.zip', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\python\\\\Lib\\\\site-packages', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\app', 'D:\\\\FinTechathon-AI-2026\\\\FinTechathon-AI-2026\\\\.cache\\\\installer-20261026\\\\ux-final-20261028\\\\全新安装目录\\\\launcher']\n",
+    "previous_user_files": 2,
+    "shortcuts": {
+      "desktop": "C:\\Users\\huang\\Desktop",
+      "links": [
+        {
+          "name": "启动言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\python\\pythonw.exe",
+          "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\launcher\\launch.py\""
+        },
+        {
+          "name": "停止言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\python\\pythonw.exe",
+          "args": "-B \"D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\launcher\\stop.py\" --quiet"
+        },
+        {
+          "name": "卸载言行.lnk",
+          "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\installer-20261026\\ux-final-20261028\\全新安装目录\\uninstall.exe",
+          "args": ""
+        }
+      ]
+    }
+  },
+  "uninstall": {
+    "passed": true,
+    "retained_user_files": 3
+  }
+}

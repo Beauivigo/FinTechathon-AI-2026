@@ -10,7 +10,7 @@ from agent.controller import UNRESOLVED
 
 ACTION_LABELS = {
     'transfer.create': '转账',
-    'transfer.schedule': '定时转账',
+    'transfer.schedule': '预约转账',
     'transfer.split': 'AA 收款单',
     'card.apply': '卡片申请',
     'card.freeze': '冻结卡片',
@@ -24,7 +24,7 @@ ACTION_LABELS = {
     'subscription.cancel': '取消订阅',
     'subscription.remind': '登记续费提醒',
     'subscription.charge': '本期订阅续费',
-    'merchant.order': '模拟商户下单',
+    'merchant.order': '商户下单',
     'budget.reserve': '预留预算',
     'budget.release': '释放预算',
     'wealth.assess': '风险评估',
@@ -34,11 +34,49 @@ ACTION_LABELS = {
 }
 
 STATUS_LABELS = {
-    'awaiting_confirmation': '等待确认',
-    'awaiting_verification': '等待强验证',
-    'running': '正在处理',
+    'awaiting_confirmation': '待确认',
+    'awaiting_verification': '待身份验证',
+    'running': '处理中',
     'unknown': '结果待核实',
 }
+
+PAGE_BY_ACTION = {
+    'transfer.create': 'main.py',
+    'transfer.schedule': 'pages/6_定时转账.py',
+    'transfer.split': 'pages/4_AA收款.py',
+    'card.apply': 'pages/3_卡片管理.py',
+    'card.freeze': 'pages/3_卡片管理.py',
+    'card.unfreeze': 'pages/3_卡片管理.py',
+    'card.report_loss': 'pages/3_卡片管理.py',
+    'card.release_loss': 'pages/3_卡片管理.py',
+    'card.set_limit': 'pages/3_卡片管理.py',
+    'subscription.list': 'pages/5_订阅管理.py',
+    'subscription.review': 'pages/5_订阅管理.py',
+    'subscription.scan': 'pages/5_订阅管理.py',
+    'subscription.cancel': 'pages/5_订阅管理.py',
+    'subscription.remind': 'pages/5_订阅管理.py',
+    'subscription.charge': 'pages/5_订阅管理.py',
+    'merchant.order': 'pages/8_生日与商户.py',
+    'budget.reserve': 'pages/7_预算管理.py',
+    'budget.release': 'pages/7_预算管理.py',
+    'wealth.assess': 'pages/9_理财.py',
+    'wealth.purchase': 'pages/9_理财.py',
+    'wealth.redeem': 'pages/9_理财.py',
+}
+
+
+def _switch_to(flow, action, key):
+    import streamlit as st
+    st.session_state['pending_resume'] = {'action': action, 'idempotency_key': key}
+    if action == 'transfer.create':
+        st.session_state['home_next_tab'] = '转账与收款'
+        st.switch_page('main.py')
+        return
+    path = PAGE_BY_ACTION.get(action)
+    if path is None:
+        st.info('未找到该业务的原页面，请在操作记录中查询原操作。')
+        return
+    st.switch_page(path.removeprefix('app/'))
 
 
 def action_label(action):
@@ -79,11 +117,43 @@ def needs_attention(flow):
 
 def _flash_message(request, result):
     from shared import result_text
+    from app.presentation import failure_note
     text = result_text(request, result)
-    error = (result.get('error') or {}).get('message')
-    if error and error not in text:
-        text = text + ' ' + error
+    note = failure_note(result)
+    if note and note not in text:
+        text = text + ' ' + note
     return text
+
+
+def _brief(flow, item):
+    """Read original metadata without approving a pending confirmed read."""
+    from uuid import uuid4
+    from shared import adapt_request, validate_result, ServiceError, ContractError
+    from app.money import yuan_text
+    from app.presentation import resource_name, beijing
+    base=item['action_label']+' · '+item['status_label']
+    try:
+        if item['action']=='subscription.list':
+            record=flow.gateway.get_confirmed_read(item['key'],principal_id=flow.principal_id)
+        else:
+            request=adapt_request('operation.get',dict(original_action=item['action'],original_idempotency_key=item['key']),
+                request_id='view_'+uuid4().hex,trace_id='pending_'+uuid4().hex)
+            result=validate_result(request,flow.gateway.execute(request,principal_id=flow.principal_id))
+            if result['status']!='succeeded':return base+' · 信息暂不可核实'
+            record=result['data']
+        original=record['operation_request'];params=original['params'];parts=[]
+        if original['action'] in {'transfer.create','transfer.schedule'}:
+            person=flow.gateway.operation_payee(original,principal_id=flow.principal_id)
+            if person:parts.append(person['display_name']+' '+person['masked_account'])
+        elif params.get('product_id'):parts.append(resource_name(flow,'product_id',params['product_id']))
+        elif params.get('purpose'):parts.append(params['purpose'])
+        elif params.get('account_id'):parts.append(resource_name(flow,'account_id',params['account_id']))
+        if 'amount_minor' in params:parts.append(yuan_text(params['amount_minor']))
+        if 'units' in params:parts.append(params['units']+'份')
+        if params.get('execute_at'):parts.append(beijing(params['execute_at']))
+        return base+' · '+' · '.join(parts or ['查看原操作详情'])
+    except (ValueError,ServiceError,ContractError):
+        return base+' · 信息暂不可核实'
 
 
 def _act(flow, call, flash_key):
@@ -107,18 +177,21 @@ def _preview(flow):
     """确认前展示服务端保存的原参数；核对失败时只能拒绝或查询。"""
     import streamlit as st
     from shared import ContractError, ServiceError
-    labels = {'account_id':'业务账户','payee_id':'收款人编号','payee_ids':'参与人编号',
-        'card_id':'银行卡编号','subscription_id':'订阅编号','reservation_id':'预留编号',
-        'product_id':'理财产品编号','risk_profile_id':'风险档案编号','holding_id':'持仓编号',
-        'item_id':'商品编号','delivery_address_id':'配送地址编号','deliver_on':'配送日期',
-        'execute_at':'预约时间','remind_at':'提醒时间','purpose':'用途','memo':'备注',
-        'questionnaire_version':'问卷版本','answers':'问卷选项','decision':'处理选择','units':'赎回份额'}
+    from app.money import yuan_text
+    from app.presentation import resource_name, beijing
+    labels = {'account_id':'业务账户','product_id':'理财产品','item_id':'商品',
+        'card_id':'卡片','delivery_address_id':'配送地址','deliver_on':'配送日期',
+        'execute_at':'预约时间','remind_at':'提醒时间','purpose':'用途','memo':'备注','units':'赎回份额'}
     request = flow.request
-    for key,value in request['params'].items():
-        if key in {'amount_minor','limit_minor'}:
-            st.text(('本笔金额' if key=='amount_minor' else '单笔限额')+f'：{value//100}.{value%100:02d}元')
-        else:
-            st.text(labels.get(key,key)+'：'+str(value))
+    for key, value in request['params'].items():
+        if key in {'amount_minor', 'limit_minor'}:
+            st.text(('本笔金额' if key=='amount_minor' else '单笔限额')+'：'+yuan_text(value))
+        elif key in labels:
+            display = beijing(value) if key in {'execute_at','remind_at'} else resource_name(flow,key,value)
+            st.text(labels[key]+'：'+display+('份' if key=='units' else ''))
+    with st.expander('原操作编号与详细参数'):
+        st.caption('操作编号：'+operation_key(request))
+        st.json(request['params'])
     try:
         if request['action'] in {'transfer.create','transfer.schedule'}:
             payee=flow.gateway.operation_payee(request,principal_id=flow.principal_id)
@@ -138,7 +211,7 @@ def _preview(flow):
     return True
 
 
-def render_unresolved(flow, *, key_prefix, note=None):
+def render_unresolved(flow, *, key_prefix, note=None, include_local=True):
     """在阻塞发生的位置显示待办与可用处理动作；无待办时返回 False。"""
     import streamlit as st
     if flow is None:
@@ -166,37 +239,45 @@ def render_unresolved(flow, *, key_prefix, note=None):
     if flash:
         st.info(flash)
     if items:
+        items=tuple(dict(item,display=_brief(flow,item)) for item in items)
         st.warning(f'有 {len(items)} 项业务尚未结束；确认、拒绝或核实原结果后才能继续办理新的业务。')
         selected = st.selectbox(
             '选择待处理操作', items, key=key_prefix + '_select',
-            format_func=lambda item: (item['action_label'] + ' · ' + item['status_label']
-                                      + ' · ' + item['key']),
+            format_func=lambda item:item['display'],
         )
         if st.button('查看并处理待办', key=key_prefix + '_open', width='stretch'):
             _act(flow, lambda: flow.recover(action=selected['action'],
                                             idempotency_key=selected['key']),
                  key_prefix + '_flash')
+        if st.button('前往原业务页面', key=key_prefix + '_goto', width='stretch'):
+            _switch_to(flow, selected['action'], selected['key'])
     else:
         st.warning('本页仍有未核实的原操作；请查询权威结果后再继续，不要重复提交。')
     request, result = flow.request, flow.result
-    if request is not None and result is not None and local:
+    if include_local and request is not None and result is not None and local:
+        from app.presentation import render_authorization
+        render_authorization(flow.gateway, request, principal_id=flow.principal_id)
         # 本地快照仍显示未决：只在原操作确实可确认/可拒绝时给出按钮。
+        st.caption('执行状态：' + status_label(result['status']))
         st.caption('原操作：' + action_label(request['action']) + ' · '
                    + status_label(result['status']) + ' · ' + operation_key(request))
         can_approve = _preview(flow)
         if result['status'] == 'awaiting_confirmation':
-            if st.button('确认待办操作', key=key_prefix + '_approve', type='primary', width='stretch', disabled=not can_approve):
+            from app.presentation import approval_label
+            if st.button(approval_label(request), key=key_prefix + '_approve', type='primary', width='stretch', disabled=not can_approve):
                 _act(flow, lambda: flow.decide(True), key_prefix + '_flash')
         elif result['status'] == 'awaiting_verification':
-            if getattr(flow.gateway, 'demo_mode', False):
-                st.caption('此操作需要强验证；演示模式下可在此完成模拟验证，真实模式请到原业务页面输入动态码。')
-                if st.button('模拟验证并处理待办', key=key_prefix + '_verify', type='primary', width='stretch', disabled=not can_approve):
-                    _act(flow, lambda: flow.decide(True, simulate_verification=True),
-                         key_prefix + '_flash')
-            else:
-                st.caption('此操作需要手机动态码；请到原业务页面输入后继续，普通确认不能代替强验证。')
+            from app.auth_ui import transaction_code
+            from app.presentation import approval_label
+            code = transaction_code(flow, key=key_prefix+'_totp')
+            if flow.gateway.demo_mode:
+                st.caption('体验验证仅用于示例账本；设置本机账号后使用手机验证器。')
+            if st.button(approval_label(request, verify=True, demo=flow.gateway.demo_mode),
+                         key=key_prefix+'_verify', type='primary', width='stretch', disabled=not can_approve):
+                _act(flow, lambda: flow.decide(True, simulate_verification=flow.gateway.demo_mode, totp_code=code),
+                     key_prefix+'_flash')
         if result['status'] in {'awaiting_confirmation', 'awaiting_verification'}:
-            if st.button('拒绝待办操作', key=key_prefix + '_reject', width='stretch'):
+            if st.button('取消本次操作', key=key_prefix + '_reject', width='stretch'):
                 _act(flow, lambda: flow.decide(False), key_prefix + '_flash')
         if st.button('查询待办结果', key=key_prefix + '_query', width='stretch'):
             _act(flow, lambda: flow.recover(), key_prefix + '_flash')

@@ -1,0 +1,74 @@
+test_all_navigation_instances_and_examples_are_real_clicks (extra_buttons_final.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks) ... 2026-10-28 20:17:05.136 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:05.409 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:05.949 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:06.210 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:06.804 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:07.096 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:07.639 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:08.146 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:08.609 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:09.076 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:09.559 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:09.879 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:10.172 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:10.468 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:10.880 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:11.356 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:11.815 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:12.382 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:12.871 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:13.411 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:13.903 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:14.363 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:14.888 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:15.403 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:15.799 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:16.301 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_authenticated_background_notifications_and_exit_controls (extra_buttons_final.ButtonCases.test_authenticated_background_notifications_and_exit_controls) ... 2026-10-28 20:17:18.527 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:18.527 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+应用正常退出：未完成待办与计划已保留在本机。
+ok
+test_cancel_an_unclaimed_schedule_preserves_balance (extra_buttons_final.ButtonCases.test_cancel_an_unclaimed_schedule_preserves_balance) ... 2026-10-28 20:17:20.254 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_cross_page_unknown_stays_locked_until_explicit_query (extra_buttons_final.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query) ... 2026-10-28 20:17:20.873 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:21.206 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_draft_back_and_setup_cancel_paths (extra_buttons_final.ButtonCases.test_draft_back_and_setup_cancel_paths) ... 2026-10-28 20:17:21.509 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:21.840 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_empty_state_component_action_contract (extra_buttons_final.ButtonCases.test_empty_state_component_action_contract) ... 2026-10-28 20:17:22.463 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_expired_read_ends_without_reading_subscription_or_moving_money (extra_buttons_final.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money) ... 2026-10-28 20:17:22.664 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_first_setup_ack_binding_and_recovery_buttons (extra_buttons_final.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons) ... 2026-10-28 20:17:23.032 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_guide_choose_buttons_in_active_and_completed_states (extra_buttons_final.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states) ... 2026-10-28 20:17:25.657 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_home_confirm_clears_real_pending_count_and_card_can_freeze (extra_buttons_final.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze) ... 2026-10-28 20:17:27.295 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:27.960 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_model_recipient_choice_automation_and_unavailable_preview (extra_buttons_final.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview) ... 2026-10-28 20:17:28.330 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_multistep_automation_only_prepares_and_does_not_pay (extra_buttons_final.ButtonCases.test_multistep_automation_only_prepares_and_does_not_pay) ... 2026-10-28 20:17:29.082 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_ai_query_reject_then_input_and_model_are_usable (extra_buttons_final.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable) ... 2026-10-28 20:17:29.479 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_pending_origin_link_and_local_query_reject_controls (extra_buttons_final.ButtonCases.test_pending_origin_link_and_local_query_reject_controls) ... 2026-10-28 20:17:30.071 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:30.565 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:30.565 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_saved_birthday_pause_resume_restore_and_clear_draft (extra_buttons_final.ButtonCases.test_saved_birthday_pause_resume_restore_and_clear_draft) ... 2026-10-28 20:17:30.776 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_settings_and_compact_navigation_and_local_setup_cancel (extra_buttons_final.ButtonCases.test_settings_and_compact_navigation_and_local_setup_cancel) ... 2026-10-28 20:17:31.798 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-28 20:17:32.258 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_subscription_scan_and_due_charge_buttons (extra_buttons_final.ButtonCases.test_subscription_scan_and_due_charge_buttons) ... 2026-10-28 20:17:33.034 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_wealth_redeem_uses_red_verification (extra_buttons_final.ButtonCases.test_wealth_redeem_uses_red_verification) ... 2026-10-28 20:17:33.812 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 29.454s
+
+OK

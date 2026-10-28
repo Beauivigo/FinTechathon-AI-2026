@@ -174,7 +174,12 @@ class DialogueSession:
 
     def submit(self,text):
         if self.locked:return self.snapshot()
-        if self._state['phase'] in {'paused','handoff'}:return self.snapshot()
+        if self._state['phase'] in {'paused','handoff'}:
+            # Never silently ignore a send: explain why and how to continue.
+            self._state['error']=('会话已暂停：请先点击“继续草稿”，再发送需求；已提交的银行操作不会因暂停而撤销。'
+                if self._state['phase']=='paused' else
+                '会话已改为手动处理：请使用页面上的手动业务入口；已有银行操作请先核实原结果。')
+            return self.snapshot()
         if not isinstance(text,str) or not text.strip() or len(text)>1000:
             self._state=self._empty()|{'phase':'error','error':'请输入1—1000字的业务需求。'}
             return self._control('input_rejected')
@@ -248,11 +253,14 @@ class DialogueSession:
         if self.locked:return self.snapshot()
         if self._state['phase'] not in {'paused','handoff'}:
             self._before_pause=self._state['phase'];self._state['phase']='paused'
+            self._state['error']=None
         return self._control('paused')
 
     def resume(self):
         if self.locked:return self.snapshot()
-        if self._state['phase']=='paused':self._state['phase']=self._before_pause
+        if self._state['phase']=='paused':
+            self._state['phase']=self._before_pause
+            self._state['error']=None
         return self._control('resumed')
 
     def back(self):
@@ -266,7 +274,8 @@ class DialogueSession:
     def handoff(self):
         if self.locked:return self.snapshot()
         self._state['phase']='handoff'
-        self._state['reply']='已停止自动推进，请人工核对；尚未向任何外部联系人发送消息。'
+        self._state['error']=None
+        self._state['reply']='已停止自动推进，可改为手动处理；已有银行操作请先核实原结果。'
         self._state['proposal']=None
         return self._control('handoff')
 

@@ -4,6 +4,8 @@ import os
 import streamlit as st
 
 from bank.lifecycle import exit_summary, normal_exit
+from app.pending_view import action_label
+from app.presentation import STATES
 
 
 def _render_pending(preview):
@@ -14,7 +16,7 @@ def _render_pending(preview):
     else:
         st.warning('以下待办会保留，重新打开后可继续；退出不会自动付款、取消或重置。')
         for row in operations[:8]:
-            st.text(f"操作：{row['action']} · {row['status']} · {row['idempotency_key']}")
+            st.text(f"操作：{action_label(row['action'])} · {STATES.get(row['status'],row['status'])} · {row['idempotency_key']}")
         for row in plans[:5]:
             st.text(f"计划：{row['plan_id']} · 未完成 {row['unfinished']} 步")
     if preview.get('unread_notifications'):

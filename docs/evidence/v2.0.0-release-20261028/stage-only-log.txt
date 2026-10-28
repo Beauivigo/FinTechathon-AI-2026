@@ -1,0 +1,6 @@
+CMD: C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -B -X utf8 -m win_installer.build_installer --stage-only --source C:\Users\huang\.codex\delegates\deepseek\conversations\0888d1d9fe19c26ab65f5dc123fc9aa85396e0fe4b791e4a070b40d5e51a0b3d\worktree --runtime-zip D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\toolchain\python-3.14.10-embed-amd64.zip --wheels D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\toolchain\wheels --nsis D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\toolchain\nsis\nsis-3.12\makensis.exe --output C:\Users\huang\AppData\Local\Packages\sandbox.{751799ec-9a4c-4999-a8ba-5ba9d07a606b}\AC\vxs
+EXIT: 0  ELAPSED: 60.7s
+STDOUT:
+STAGE-ONLY 未生成安装器；payload=C:\Users\huang\AppData\Local\Packages\sandbox.{751799ec-9a4c-4999-a8ba-5ba9d07a606b}\AC\vxs\.stage-work\payload manifest=C:\Users\huang\AppData\Local\Packages\sandbox.{751799ec-9a4c-4999-a8ba-5ba9d07a606b}\AC\vxs\payload-manifest.json files=6561
+
+STDERR:

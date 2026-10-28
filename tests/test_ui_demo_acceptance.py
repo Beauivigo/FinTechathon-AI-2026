@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from streamlit.testing.v1 import AppTest
+from tests.ui_support import AppTest
 from bank import seed
 
 
@@ -59,7 +59,7 @@ class UiDemoAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.snapshot(flow), before)
         page.button(key='app_nav_home').click().run()
         self.assertFalse(page.exception)
-        self.assertIn('个人银行首页', [heading.value for heading in page.title])
+        self.assertIn('首页', [heading.value for heading in page.title])
         self.assertEqual(self.snapshot(flow), before)
 
     def test_transfer_status_requires_confirmation_and_rerun_never_repeats_payment(self):
@@ -70,7 +70,7 @@ class UiDemoAcceptanceTests(unittest.TestCase):
         self.assertEqual(flow.result['status'], 'awaiting_confirmation')
         self.assertTrue(self.badge_contains(page, '待确认'))
         self.assertEqual(len(self.snapshot(flow)['transfers']), 0)
-        next(button for button in page.button if button.label == '确认此笔模拟转账').click().run()
+        page.button(key='transfer_approve').click().run()
         self.assertFalse(page.exception)
         self.assertEqual(flow.result['status'], 'succeeded')
         self.assertTrue(self.badge_contains(page, '已完成'))
@@ -83,20 +83,22 @@ class UiDemoAcceptanceTests(unittest.TestCase):
         page = self.page('pages/9_理财.py')
         initial = page.session_state['action_flow']
         self.assertEqual(initial.gateway.store.path, self.data_root / 'runtime' / 'sandbox.sqlite3')
-        self.assertFalse(page.button(key='wealth_assess').disabled,
-                         {'path': str(initial.gateway.store.path),
-                          'request': initial.request, 'result': initial.result,
-                          'external_blocked': initial.external_blocked,
-                          'needs_reconciliation': initial.needs_reconciliation})
+        self.assertTrue(page.button(key='wealth_assess').disabled)
+        for i in range(1,6):
+            self.assertIsNone(page.selectbox(key='answer_q'+str(i)).value)
+            page.selectbox(key='answer_q'+str(i)).select('a')
+        page.run()
+        self.assertFalse(page.button(key='wealth_assess').disabled)
         page.button(key='wealth_assess').click().run()
         self.assertFalse(page.exception)
         flow = page.session_state['action_flow']
         self.assertEqual(flow.result['status'], 'succeeded')
         before = self.snapshot(flow)
+        page.text_input(key='wealth_amount').set_value('100.00')
         page.button(key='wealth_purchase').click().run()
         self.assertFalse(page.exception)
         self.assertEqual(flow.result['status'], 'awaiting_verification')
-        self.assertTrue(self.badge_contains(page, '待模拟验证'))
+        self.assertTrue(self.badge_contains(page, '待身份验证'))
         after = self.snapshot(flow)
         self.assertEqual(after['accounts'], before['accounts'])
         self.assertEqual(after['holdings'], before['holdings'])
