@@ -1,0 +1,134 @@
+{
+  "team": "速发贝",
+  "product": "言行",
+  "product_version": "2.0.0",
+  "submission_date": "2026-11-01",
+  "rechecked_utc": "2026-11-01T06:21:59.081693+00:00",
+  "files": [
+    {
+      "folder": "01_技术文档",
+      "file": "速发贝_言行_技术文档.pdf",
+      "bytes": 825356,
+      "MB": 0.825,
+      "limit_bytes": 50000000,
+      "sha256": "9cce402aec3ccff1c1700d3811f3499e90addf741dbe6a0ae4c97c12431a0f4e",
+      "status": "passed"
+    },
+    {
+      "folder": "02_答辩材料",
+      "file": "速发贝_言行_答辩材料.pptx",
+      "bytes": 1668853,
+      "MB": 1.669,
+      "limit_bytes": 80000000,
+      "sha256": "4bf1a6372f96da0bc2a9b637bc552685eda72bd8d55acfbc32d92d52b3770e34",
+      "status": "passed"
+    },
+    {
+      "folder": "03_源代码与部署材料",
+      "file": "速发贝_言行_源码与部署.zip",
+      "bytes": 65364916,
+      "MB": 65.365,
+      "limit_bytes": 300000000,
+      "sha256": "6708e0bea72e408bac6938a14a432291c5b65c432a7e064a2f51614cf2b29a20",
+      "status": "passed"
+    },
+    {
+      "folder": "04_安全自评报告",
+      "file": "速发贝_言行_安全自评报告.pdf",
+      "bytes": 808978,
+      "MB": 0.809,
+      "limit_bytes": 50000000,
+      "sha256": "8e15f700b098fecf316cb2921119f90140bab39f5daf8e65fc245411a5b7f642",
+      "status": "passed"
+    }
+  ],
+  "video_folder_empty": true,
+  "offline_tests": {
+    "application": 713,
+    "installer_tools": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_overlap_tests": 101,
+  "mobile_layout": {
+    "widths": [
+      320,
+      360,
+      390,
+      412,
+      768
+    ],
+    "base_page_viewport_combinations": 80,
+    "overflow_findings": 0,
+    "page_exceptions": 0,
+    "browser_script_errors": 0,
+    "fresh_owned_service": true,
+    "physical_phone_verified": false
+  },
+  "mobile_example_transfer_ui_states": 6,
+  "example_ledger_after_transfer_flow": {
+    "transfers": 2,
+    "transferred_minor": 122000,
+    "balance_minor": 78000,
+    "available_minor": 78000,
+    "reserved_minor": 0,
+    "cancel_and_query_did_not_duplicate_payment": true
+  },
+  "source_code_files_matching_tested_extraction": 182,
+  "source_package_file_count": 236,
+  "source_zip_integrity": "passed",
+  "source_zip_local_links": "passed",
+  "whole_package_secret_pattern_scan": "passed",
+  "technical_pages": 10,
+  "security_pages": 8,
+  "presentation": {
+    "slides": 24,
+    "speaker_notes": 24,
+    "planned_seconds": 540,
+    "spoken_cjk_chars": 1957,
+    "live_rehearsal": false,
+    "transitions": "fade",
+    "original_screenshots_sha256": [
+      "0e3ceb2a470bbfc48b71f7139bab3610aabe2d48fc578fbcb93e40974878ab00",
+      "5daba817b45aff1d1529fe56ce8ce2317b1c4abe9774f622e6ee8b52062bb1a5",
+      "5ed948424c35c0a387957f468ab56f131bb20a307cddab89aa1d58ee9750589a",
+      "643568a83421dd2473724e3a3e47b101f7eeb28bc01c11c25cd26497d2f47c64"
+    ]
+  },
+  "obsolete_documents_deleted": 13,
+  "new_live_model_requests": 0,
+  "new_installer_build_or_install": false,
+  "known_boundaries": [
+    "手机尺寸为浏览器仿真；实体手机扫码、动态码及恢复仍待本人签收",
+    "当前仅电脑本机回环访问，未提供手机浏览器远程银行部署",
+    "第二家在线模型、独立新电脑与200%实际桌面缩放未验；安装器未签名",
+    "历史安装器不含可选桌宠桥接脚本，安装版应独立填写密钥",
+    "9分钟为讲稿节奏预算，未完成人工计时排练"
+  ],
+  "final_document_dependencies": {
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "tests.test_home_view",
+      "tests.test_ui_components",
+      "win_installer.test_installer",
+      "-q"
+    ],
+    "working_directory": "<final ZIP extraction>",
+    "started_utc": "2026-11-01T06:27:25.561010+00:00",
+    "elapsed_seconds": 0.657,
+    "exit_code": 0,
+    "tests": 40,
+    "overlap_with_existing_tests": true,
+    "log": "final-document-dependencies.txt",
+    "raw_log_sha256": "4e1b8b21b02882f2984497b29dabf452a55cd8f09d778397770f4f794f180a79",
+    "display_log_sha256": "4e1b8b21b02882f2984497b29dabf452a55cd8f09d778397770f4f794f180a79"
+  },
+  "final_source_manifest_verification": "passed",
+  "primary_code_files_unchanged_since_audit_start": 194
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "disposable simulated SQLite databases; no model calls, personal identity or actual funds",
+  "cumulative_transfer": {
+    "prepared_statuses": [
+      "awaiting_confirmation",
+      "awaiting_confirmation"
+    ],
+    "first_authorization": "succeeded",
+    "second_authorization": "awaiting_verification",
+    "balances_after": {
+      "balance_minor": 140000,
+      "available_minor": 140000,
+      "reserved_minor": 0
+    }
+  },
+  "immediate_simulated_redemption": {
+    "clock_unchanged": "2026-11-01T01:00:00+00:00",
+    "redeem_status": "succeeded",
+    "balance_before_redeem": {
+      "balance_minor": 190000,
+      "available_minor": 190000,
+      "reserved_minor": 0
+    },
+    "balance_after_redeem": {
+      "balance_minor": 191000,
+      "available_minor": 191000,
+      "reserved_minor": 0
+    }
+  }
+}

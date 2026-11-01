@@ -1,12 +1,12 @@
 {
   "generatedAt": "2026-10-20T10:56:30.254Z",
-  "scope": "Only this project review run; final Codex repairs independently tested in primary checkout",
+  "scope": "Only this project review run; final 独立复核 repairs independently tested in primary checkout",
   "rows": [
     {
       "id": "b2fc97f7-8679-420e-b4ec-91697cea691c",
       "sample": "unclassified",
       "executionStatus": "tests_failed",
-      "status": "rejected_by_codex",
+      "status": "rejected_by_review",
       "review": "rejected",
       "stage": 1,
       "stageCount": 1,

@@ -1,4 +1,4 @@
-"""Codex独立复核：真实页面导航、恢复、披露与输入精度。"""
+"""review独立复核：真实页面导航、恢复、披露与输入精度。"""
 from datetime import datetime,timezone
 from decimal import Decimal
 from pathlib import Path

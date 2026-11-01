@@ -23,7 +23,7 @@
 
 ## 在开发机复现构建
 
-以下在仓库根目录的 PowerShell 执行。构建机需要可用 Python/pip，安装包使用官方 CPython 3.14.10 embeddable x64 和锁定的 42 个 wheel。编译器为官方 NSIS 3.12 便携包；不复用开发机 `.venv` 或 Codex 运行时。
+以下在仓库根目录的 PowerShell 执行。构建机需要可用 Python/pip，安装包使用官方 CPython 3.14.10 embeddable x64 和锁定的 42 个 wheel。编译器为官方 NSIS 3.12 便携包；不复用开发机 `.venv` 或 独立复核 运行时。
 
 ```powershell
 $toolRoot = Join-Path $PWD '.cache/installer-20261026/toolchain'

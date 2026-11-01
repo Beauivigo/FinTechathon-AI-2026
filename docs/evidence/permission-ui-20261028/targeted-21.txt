@@ -6,9 +6,9 @@
 Ran 21 tests in 13.306s
 
 OK
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
-隔离身份数据库：C:\Users\huang\.codex\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3
+隔离身份数据库：C:\Users\huang\.review\delegates\deepseek\backups\permission-acceptance-temp-20261028\tmpxwvn758t\fintech-phone-acceptance-d9609cb24d34\sandbox.sqlite3

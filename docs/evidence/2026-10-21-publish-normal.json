@@ -1,5 +1,5 @@
 {
-  "executor": "Codex独立提交前复验",
+  "executor": "独立提交前复验",
   "command": ".cache/publish_acceptance.py normal",
   "run": 29,
   "failures": 0,

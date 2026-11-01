@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-01T06:27:26.182028+00:00",
+  "final_files": [
+    {
+      "folder": "01_技术文档",
+      "file": "速发贝_言行_技术文档.pdf",
+      "bytes": 825356,
+      "MB": 0.825,
+      "limit_bytes": 50000000,
+      "sha256": "9cce402aec3ccff1c1700d3811f3499e90addf741dbe6a0ae4c97c12431a0f4e",
+      "status": "passed"
+    },
+    {
+      "folder": "02_答辩材料",
+      "file": "速发贝_言行_答辩材料.pptx",
+      "bytes": 1668853,
+      "MB": 1.669,
+      "limit_bytes": 80000000,
+      "sha256": "4bf1a6372f96da0bc2a9b637bc552685eda72bd8d55acfbc32d92d52b3770e34",
+      "status": "passed"
+    },
+    {
+      "folder": "03_源代码与部署材料",
+      "file": "速发贝_言行_源码与部署.zip",
+      "bytes": 65364916,
+      "MB": 65.365,
+      "limit_bytes": 300000000,
+      "sha256": "6708e0bea72e408bac6938a14a432291c5b65c432a7e064a2f51614cf2b29a20",
+      "status": "passed"
+    },
+    {
+      "folder": "04_安全自评报告",
+      "file": "速发贝_言行_安全自评报告.pdf",
+      "bytes": 808978,
+      "MB": 0.809,
+      "limit_bytes": 50000000,
+      "sha256": "8e15f700b098fecf316cb2921119f90140bab39f5daf8e65fc245411a5b7f642",
+      "status": "passed"
+    }
+  ],
+  "final_source_files": 236,
+  "final_code_files_equal_tested_extraction": 182,
+  "primary_code_files_unchanged_since_audit_start": 194,
+  "source_zip_sha256": "6708e0bea72e408bac6938a14a432291c5b65c432a7e064a2f51614cf2b29a20",
+  "manifest_integrity": "passed",
+  "local_markdown_links": "passed",
+  "obsolete_files_deleted": 13,
+  "backup_original_hashes_verified": true,
+  "video_empty": true,
+  "final_document_dependencies": {
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "tests.test_home_view",
+      "tests.test_ui_components",
+      "win_installer.test_installer",
+      "-q"
+    ],
+    "working_directory": "<final ZIP extraction>",
+    "started_utc": "2026-11-01T06:27:25.561010+00:00",
+    "elapsed_seconds": 0.657,
+    "exit_code": 0,
+    "tests": 40,
+    "overlap_with_existing_tests": true,
+    "log": "final-document-dependencies.txt",
+    "raw_log_sha256": "4e1b8b21b02882f2984497b29dabf452a55cd8f09d778397770f4f794f180a79",
+    "display_log_sha256": "4e1b8b21b02882f2984497b29dabf452a55cd8f09d778397770f4f794f180a79"
+  }
+}

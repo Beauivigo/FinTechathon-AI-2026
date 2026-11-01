@@ -1,5 +1,5 @@
 {
-  "executor": "Codex",
+  "executor": "独立复核",
   "source_hashes_match": true,
   "full_tests": 469,
   "passed": true,
@@ -7,5 +7,5 @@
   "assignment_sha256": "1d1647ee5b002422ba18e8475006efdec478d1d42fce49943d0b6a28a37c67ea",
   "all_daily_runtime_unchanged": true,
   "local_links_missing": [],
-  "delegate_original_review": "rejected; final Codex repairs independently accepted"
+  "delegate_original_review": "rejected; final 独立复核 repairs independently accepted"
 }

@@ -1,5 +1,5 @@
 {
-  "executor": "Codex独立完整实现验收",
+  "executor": "独立完整实现验收",
   "run": 658,
   "failures": 1,
   "errors": 2,

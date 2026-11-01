@@ -2,11 +2,11 @@
   "action": "finalize",
   "runId": "cd01f692-6dd4-45fe-b808-fda6400cc4be",
   "evidence": {
-    "reviewer": "Codex",
+    "reviewer": "独立复核",
     "status": "accepted",
     "checks": [
       {
-        "command": "cwd=C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree; project .venv Python -B -X utf8 -m unittest win_installer.test_installer win_installer.test_runtime_paths -v",
+        "command": "cwd=C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree; project .venv Python -B -X utf8 -m unittest win_installer.test_installer win_installer.test_runtime_paths -v",
         "exitCode": 0,
         "expectedExitCode": 0
       },
@@ -16,32 +16,32 @@
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\build_installer.py --source D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026 --runtime-zip .cache\\installer-20261026\\toolchain\\python-3.14.10-embed-amd64.zip --wheels .cache\\installer-20261026\\toolchain\\wheels --output dist\\yanxing-1.0.0-delivery --nsis .cache\\installer-20261026\\toolchain\\nsis\\nsis-3.12\\makensis.exe",
+        "command": "project .venv Python C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\build_installer.py --source D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026 --runtime-zip .cache\\installer-20261026\\toolchain\\python-3.14.10-embed-amd64.zip --wheels .cache\\installer-20261026\\toolchain\\wheels --output dist\\yanxing-1.0.0-delivery --nsis .cache\\installer-20261026\\toolchain\\nsis\\nsis-3.12\\makensis.exe",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py install --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
+        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py install --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py start --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
+        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py start --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py stop --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
+        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py stop --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py upgrade --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
+        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py upgrade --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py uninstall --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
+        "command": "project .venv Python -X utf8 C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\cd01f692-6dd4-45fe-b808-fda6400cc4be\\worktree\\win_installer\\verify_windows.py uninstall --artifact dist\\yanxing-1.0.0-delivery\\言行-1.0.0-x64-setup.exe --work .cache\\installer-20261026\\windows-delivery",
         "exitCode": 0,
         "expectedExitCode": 0
       }

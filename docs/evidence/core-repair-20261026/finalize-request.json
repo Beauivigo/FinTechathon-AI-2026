@@ -2,7 +2,7 @@
   "action": "finalize",
   "runId": "80acd3d5-c455-4bb8-8b54-c0f1f86f123d",
   "evidence": {
-    "reviewer": "Codex",
+    "reviewer": "独立复核",
     "status": "accepted",
     "checks": [
       {

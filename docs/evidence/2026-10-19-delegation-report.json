@@ -27,8 +27,8 @@
     {
       "id": "194ce68f-83ca-4724-88c9-eb1355eaaedf",
       "sample": "synthetic",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "recordedModelAttempts": null,
       "observedAttempts": null,
@@ -55,8 +55,8 @@
     {
       "id": "5a3c8616-355a-47e3-bcb7-124af219263a",
       "sample": "synthetic",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "recordedModelAttempts": 1,
       "observedAttempts": 1,
@@ -83,8 +83,8 @@
     {
       "id": "d835b709-d5b1-4b28-8365-88cd05825093",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "recordedModelAttempts": 1,
       "observedAttempts": 1,
@@ -111,8 +111,8 @@
     {
       "id": "d90a86af-ae40-4461-80be-1754b791e1e7",
       "sample": "unclassified",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "recordedModelAttempts": null,
       "observedAttempts": null,
@@ -139,8 +139,8 @@
     {
       "id": "fb4b0921-146a-4b7d-9e70-94ddf34a5e26",
       "sample": "synthetic",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "recordedModelAttempts": 1,
       "observedAttempts": 1,
@@ -165,12 +165,12 @@
       "issues": []
     }
   ],
-  "codexQuotaSavingsPercent": null,
-  "conclusion": "insufficient_comparable_codex_measurements",
+  "reviewQuotaSavingsPercent": null,
+  "conclusion": "insufficient_comparable_review_measurements",
   "limitations": [
     "Known token totals may be partial; missing is not zero.",
     "Synthetic and unclassified tasks are excluded from real-task evaluation.",
-    "DeepSeek tokens and elapsed time cannot establish Codex quota savings.",
-    "Review/rework minutes are optional Codex observations, never inferred from waiting time."
+    "DeepSeek tokens and elapsed time cannot establish 独立复核 quota savings.",
+    "Review/rework minutes are optional 独立复核 observations, never inferred from waiting time."
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "executor": "Codex CUA browser check",
+  "executor": "独立复核 CUA browser check",
   "scope": "Independent localhost preview; one fictional 1200 CNY transfer; no real bank, model or phone action",
   "cold_restart_recovery": true,
   "transfer_count": 1,

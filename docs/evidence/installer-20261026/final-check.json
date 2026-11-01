@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "passed": true,
   "installer_sha256": "d47c7e9ce534f5ee4b7fe8a585d2a5eadebb018bdbcac064f86604ca725eb923",
   "installer_bytes": 62382453,
@@ -85,7 +85,7 @@
     "AppShortcutsLeft": 0
   },
   "source_payload_match": {
-    "executor": "Codex",
+    "executor": "独立复核",
     "passed": true,
     "matched_source_files": 81,
     "files": [

@@ -149,7 +149,7 @@ def main():
             result=run_case(name,flow);results.append(result)
             print(json.dumps({'case':name,'passed':result['passed'],'error':result.get('error')},ensure_ascii=False),flush=True)
     after=hashlib.sha256(runtime.read_bytes()).hexdigest() if runtime.exists() else None
-    report={'executor':'Codex独立真实模型与模拟网关验收','fixture_clock':'2026-10-21T11:00:00+08:00',
+    report={'executor':'review独立真实模型与模拟网关验收','fixture_clock':'2026-10-21T11:00:00+08:00',
         'cases':results,'budget':json.loads(LEDGER.read_text()),'daily_runtime_unchanged':before==after,
         'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'agent').glob('model_*.py')},
         'passed':all(r['passed'] for r in results) and before==after,'scope':'真实DeepSeek接口、桌宠凭证只读复用、独立临时模拟账本；不代表真实银行或真实身份认证。'}

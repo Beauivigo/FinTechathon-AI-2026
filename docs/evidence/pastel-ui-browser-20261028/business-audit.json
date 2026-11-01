@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "executor": "Codex independent read-only audit",
+  "executor": "独立复核 independent read-only audit",
   "recorded_at_utc": "2026-10-28T14:59:29.395197+00:00",
   "run_id": "7631e138-a8dd-41d6-a3d2-3430a28f5fda",
-  "before": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\before",
-  "review_worktree": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\worktree",
+  "before": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\before",
+  "review_worktree": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\7631e138-a8dd-41d6-a3d2-3430a28f5fda\\worktree",
   "method": "SHA-256 byte comparison; Python AST comparison of ordered business/widget calls and their if/for/except context; presentation containers and new pure rendering helpers allowed.",
   "backend": {
     "checked_files": 52,

@@ -8,11 +8,11 @@
   "runtime_unchanged": true,
   "passed": true,
   "command": [
-    "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\run_checks.py",
+    "C:\\Users\\huang\\.review\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-demo-20261021\\run_checks.py",
     "--repo",
     "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026",
     "--output",
-    "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-home-redesign-20261021\\primary-full",
+    "C:\\Users\\huang\\.review\\visualizations\\2026\\10\\20\\01a15974-c2fe-7d00-ac77-1f47eee0309f\\ui-home-redesign-20261021\\primary-full",
     "--mode",
     "full"
   ]

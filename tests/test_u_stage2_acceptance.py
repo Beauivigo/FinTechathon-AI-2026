@@ -31,7 +31,7 @@ def _verify_hashes():
             raise AssertionError('frozen U1/U2 test changed: ' + name)
 
 
-def __codex_acceptance__():
+def __review_acceptance__():
     root = _root()
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))

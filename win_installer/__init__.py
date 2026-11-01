@@ -7,5 +7,5 @@ pinned wheels into the portable runtime and only packages the frozen source
 tree passed by the caller.
 
 No compiler is invoked here during development; real compilation is a separate
-acceptance step by Codex on the build host.
+acceptance step by review on the build host.
 """

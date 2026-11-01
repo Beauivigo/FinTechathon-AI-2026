@@ -27,8 +27,8 @@
     {
       "id": "1800762f-cb4d-43ee-9d72-11f9189a0229",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "stage": null,
       "stageCount": null,
@@ -58,8 +58,8 @@
     {
       "id": "18ef36aa-3330-44fc-8924-8aaba89c424f",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "stage": null,
       "stageCount": null,
@@ -89,8 +89,8 @@
     {
       "id": "194ce68f-83ca-4724-88c9-eb1355eaaedf",
       "sample": "synthetic",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -120,8 +120,8 @@
     {
       "id": "4474369d-7ce1-41a8-99e2-2c11a8096b57",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "stage": null,
       "stageCount": null,
@@ -151,8 +151,8 @@
     {
       "id": "5a3c8616-355a-47e3-bcb7-124af219263a",
       "sample": "synthetic",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -213,8 +213,8 @@
     {
       "id": "68eee924-cfd6-4a6e-8f1f-3d2f81a421b8",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "stage": null,
       "stageCount": null,
@@ -306,8 +306,8 @@
     {
       "id": "a295b228-4166-46f5-8ebd-ef1d062a588b",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": 2,
       "stageCount": 2,
@@ -337,8 +337,8 @@
     {
       "id": "ce2c067a-a257-4355-929a-fde10ef31656",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -368,8 +368,8 @@
     {
       "id": "d2259464-cdaa-49d5-aa53-2e0473cc50b5",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "awaiting_codex_review",
+      "executionStatus": "awaiting_review_review",
+      "status": "awaiting_review_review",
       "review": "missing",
       "stage": null,
       "stageCount": null,
@@ -399,8 +399,8 @@
     {
       "id": "d835b709-d5b1-4b28-8365-88cd05825093",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -430,8 +430,8 @@
     {
       "id": "d90a86af-ae40-4461-80be-1754b791e1e7",
       "sample": "unclassified",
-      "executionStatus": "accepted_by_codex",
-      "status": "accepted_by_codex",
+      "executionStatus": "accepted_by_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -523,8 +523,8 @@
     {
       "id": "f96c872e-5199-4592-b9fa-0f71d61ac1be",
       "sample": "unclassified",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": 3,
       "stageCount": 3,
@@ -554,8 +554,8 @@
     {
       "id": "fb4b0921-146a-4b7d-9e70-94ddf34a5e26",
       "sample": "synthetic",
-      "executionStatus": "awaiting_codex_review",
-      "status": "accepted_by_codex",
+      "executionStatus": "awaiting_review_review",
+      "status": "accepted_by_review",
       "review": "accepted",
       "stage": null,
       "stageCount": null,
@@ -583,12 +583,12 @@
       "issues": []
     }
   ],
-  "codexQuotaSavingsPercent": null,
-  "conclusion": "insufficient_comparable_codex_measurements",
+  "reviewQuotaSavingsPercent": null,
+  "conclusion": "insufficient_comparable_review_measurements",
   "limitations": [
     "Known token totals may be partial; missing is not zero.",
     "Synthetic and unclassified tasks are excluded from real-task evaluation.",
-    "DeepSeek tokens and elapsed time cannot establish Codex quota savings.",
-    "Review/rework minutes are optional Codex observations, never inferred from waiting time."
+    "DeepSeek tokens and elapsed time cannot establish 独立复核 quota savings.",
+    "Review/rework minutes are optional 独立复核 observations, never inferred from waiting time."
   ]
 }

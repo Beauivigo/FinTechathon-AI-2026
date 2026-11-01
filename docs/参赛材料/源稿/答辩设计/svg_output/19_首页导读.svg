@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" data-pptx-page-role="content">
+<defs><linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFD0" stop-opacity="0.7"/><stop offset="0.48" stop-color="#F8FBFA"/><stop offset="1" stop-color="#D8EFFF" stop-opacity="0.75"/></linearGradient><filter id="lift"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#21605F" flood-opacity="0.08"/></filter></defs>
+<rect id="p19-background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="url(#field)"/>
+<g id="p19-heading" data-pptx-bounds="64 34 1152 118" fill="#183B3A"><text x="64" y="56" font-size="14" fill="#466460">03　演示与收尾 / 首页</text><text x="64" y="124" font-size="44" font-weight="bold">第一屏：我在哪，能做什么</text></g>
+<g id="p19-account-context" data-pptx-bounds="64 206 428 102" fill="#183B3A"><text x="64" y="240" font-size="28" font-weight="bold">账户与可用余额</text><text x="64" y="288">先确认正在使用的账户。</text></g>
+<g id="p19-assistant-entry" data-pptx-bounds="64 336 428 102" fill="#183B3A"><text x="64" y="370" font-size="28" font-weight="bold">AI 银行助手</text><text x="64" y="418">从需求开始，让程序核对。</text></g>
+<g id="p19-service-entries" data-pptx-bounds="64 466 428 138" fill="#183B3A"><text x="64" y="500" font-size="28" font-weight="bold">常用业务与全部服务</text><text x="64" y="548">首页常用四项，<tspan x="64" dy="36">其他服务另有入口。</tspan></text></g>
+<g id="p19-home-screenshot" data-pptx-bounds="532 170 684 488" fill="#466460"><rect x="532" y="174" width="684" height="480" rx="24" fill="#FFFFFF" filter="url(#lift)"/><image href="../images/image_0e3ceb2a470bbfc4.png" x="550" y="184" width="648" height="450" preserveAspectRatio="xMidYMid meet"/><text x="550" y="650" font-size="14">2026-10-28 源码预览 · 首页 · 模拟数据</text></g>
+<g id="p19-footer" data-pptx-role="footer" data-pptx-bounds="64 664 1152 34" font-size="14" fill="#466460"><text x="64" y="688">页面明确标注本地模拟，不连接真实资金。</text><text x="1216" y="688" text-anchor="end">19 / 24</text></g>
+</svg>

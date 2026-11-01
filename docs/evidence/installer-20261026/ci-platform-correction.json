@@ -1,5 +1,5 @@
 {
-  "executor": "Codex final release acceptance",
+  "executor": "独立复核 final release acceptance",
   "failed_commit": "d8ac0f4fa5eb1c13f98fad012240c8d2c40b07c9",
   "failed_workflow": 40319839561,
   "failed_runner": "ubuntu-latest",

@@ -702,10 +702,10 @@
       "disabled": 0,
       "activated": 21,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery",
-        "tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
-        "tests.test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
-        "tests.test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "tests.test_review_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery",
+        "tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "tests.test_review_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
+        "tests.test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward",
         "tests.test_ux_final.UxPageTests.test_birthday_pending_operation_visible_after_navigation",
         "tests.test_ux_final.UxPageTests.test_green_query_has_no_recovery_control",
@@ -1214,7 +1214,7 @@
       "disabled": 1,
       "activated": 1,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery"
+        "tests.test_review_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery"
       ]
     },
     {
@@ -1341,9 +1341,9 @@
       "disabled": 9,
       "activated": 10,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
-        "tests.test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
-        "tests.test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "tests.test_review_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
+        "tests.test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward",
         "tests.test_ux_final.UxPageTests.test_green_query_has_no_recovery_control",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
@@ -1362,7 +1362,7 @@
       "disabled": 0,
       "activated": 3,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank"
       ]
@@ -1388,7 +1388,7 @@
       "disabled": 0,
       "activated": 3,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank"
       ]
@@ -1414,7 +1414,7 @@
       "disabled": 0,
       "activated": 3,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "tests.test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat"
       ]
@@ -1440,7 +1440,7 @@
       "disabled": 0,
       "activated": 3,
       "tests": [
-        "tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "tests.test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward",
         "tests.test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank"
       ]

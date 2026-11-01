@@ -47,7 +47,7 @@
   "same_run_rereview": "final current hashes accepted",
   "source_changed_during_primary_full_record_retained": true,
   "one_timeout_record_retained": true,
-  "final_status": "accepted_by_codex",
+  "final_status": "accepted_by_review",
   "head": "285c90c6014158b85d8323788945b085d1991192",
   "committed": false,
   "pushed": false

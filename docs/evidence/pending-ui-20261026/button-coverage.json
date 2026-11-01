@@ -501,7 +501,7 @@
         "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
         "test_onboarding.GuidePageTests.test_guide_skip_close_and_reopen_preserve_pending_transfer",
         "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -514,7 +514,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -528,7 +528,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -541,7 +541,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -554,7 +554,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -570,7 +570,7 @@
         "test_closeout_tooling_20261026.CloseoutToolTests.test_phone_page_reruns_and_keeps_imported_aliases_isolated",
         "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
         "test_onboarding.GuidePageTests.test_sidebar_view_shortcuts_and_ai_entry_only_navigate",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -583,7 +583,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -596,7 +596,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -609,7 +609,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -622,7 +622,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -635,7 +635,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -648,7 +648,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -661,7 +661,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -674,7 +674,7 @@
       "disabled": 84,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -687,7 +687,7 @@
       "disabled": 84,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -700,7 +700,7 @@
       "disabled": 84,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -713,7 +713,7 @@
       "disabled": 84,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -806,7 +806,7 @@
         "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
         "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
         "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -833,7 +833,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_home_shortcuts_change_views_without_creating_a_request",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -847,7 +847,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_home_shortcuts_change_views_without_creating_a_request",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -861,7 +861,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -875,7 +875,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -902,7 +902,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -916,7 +916,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -931,7 +931,7 @@
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
         "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_primary_navigation_round_trip_keeps_the_ledger",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -945,7 +945,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_home_navigation_acceptance.HomeNavigationAcceptanceTests.test_every_other_home_service_navigates_and_returns_without_business_writes",
-        "codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
+        "review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks"
       ]
     },
     {
@@ -1021,7 +1021,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+        "review_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
       ]
     },
     {
@@ -1034,7 +1034,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+        "review_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
       ]
     },
     {
@@ -1227,8 +1227,8 @@
         "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh",
         "test_split.SplitTests.test_page_confirmation_and_fresh_session_recovery",
         "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover",
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons",
-        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons",
+        "review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
       ]
     },
     {
@@ -1286,7 +1286,7 @@
       "clicked_tests": [
         "test_card_limits.CardLimitTests.test_page_refresh_recovery",
         "test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page",
-        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+        "review_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
       ]
     },
     {
@@ -1323,7 +1323,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
+        "review_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze"
       ]
     },
     {
@@ -1368,8 +1368,8 @@
         "test_merchant_schedule_page.MerchantSchedulePageTests.test_register_due_verify_release_complete_page_flow",
         "test_review_page_acceptance.ReviewPageTests.test_fresh_session_can_recover_and_verify_wealth_purchase",
         "test_ui_demo_acceptance.UiDemoAcceptanceTests.test_wealth_ui_preserves_the_strong_verification_gate",
-        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons",
-        "codex_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
+        "review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons",
+        "review_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
       ]
     },
     {
@@ -1434,8 +1434,8 @@
         "test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation",
         "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat",
         "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank",
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
-        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
+        "review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
       ]
     },
     {
@@ -1522,7 +1522,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
       ]
     },
     {
@@ -1543,7 +1543,7 @@
         "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
         "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
         "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat",
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
       ]
     },
     {
@@ -1569,8 +1569,8 @@
       "disabled": 0,
       "clicked": 2,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money",
-        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+        "review_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money",
+        "review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
       ]
     },
     {
@@ -1583,7 +1583,7 @@
       "disabled": 3,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money"
+        "review_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money"
       ]
     },
     {
@@ -1596,8 +1596,8 @@
       "disabled": 0,
       "clicked": 2,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
-        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview",
+        "review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
       ]
     },
     {
@@ -1610,7 +1610,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
+        "review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable"
       ]
     },
     {
@@ -1634,7 +1634,7 @@
       "disabled": 31,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
       ]
     },
     {
@@ -1648,7 +1648,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
       ]
     },
     {
@@ -1713,7 +1713,7 @@
       "disabled": 4,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
       ]
     },
     {
@@ -1766,7 +1766,7 @@
       "disabled": 24,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+        "review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
       ]
     },
     {
@@ -1781,7 +1781,7 @@
       "clicked_tests": [
         "test_delivery_pages.DeliveryPageTests.test_subscription_reminder_and_cancel_from_page",
         "test_subscriptions.SubscriptionTests.test_page_confirm_refresh_review_and_recover",
-        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+        "review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
       ]
     },
     {
@@ -1833,7 +1833,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
+        "review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons"
       ]
     },
     {
@@ -1872,7 +1872,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+        "review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
       ]
     },
     {
@@ -1886,7 +1886,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_h_pages.HPageTests.test_real_login_binding_and_logout_page",
-        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+        "review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
       ]
     },
     {
@@ -1900,7 +1900,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_h_pages.HPageTests.test_real_login_binding_and_logout_page",
-        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+        "review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
       ]
     },
     {
@@ -1913,7 +1913,7 @@
       "disabled": 0,
       "clicked": 2,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -1926,7 +1926,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -1939,7 +1939,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -1966,7 +1966,7 @@
       "clicked": 2,
       "clicked_tests": [
         "test_scheduling.SchedulingTests.test_page_registration_dispatch_payment_refresh",
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
       ]
     },
     {
@@ -2113,7 +2113,7 @@
         "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
         "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
         "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -2171,7 +2171,7 @@
         "test_onboarding.GuidePageTests.test_guide_preserves_unknown_result_and_the_original_recovery_gate",
         "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
         "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -2184,7 +2184,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -2213,7 +2213,7 @@
       "clicked_tests": [
         "test_onboarding.GuidePageTests.test_guided_destination_navigates_without_executing_business",
         "test_onboarding.GuidePageTests.test_transfer_exercise_edits_and_replays_without_any_bank_write",
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -2252,7 +2252,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
+        "review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states"
       ]
     },
     {
@@ -2307,7 +2307,7 @@
       "disabled": 2,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
+        "review_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification"
       ]
     },
     {
@@ -2320,7 +2320,7 @@
       "disabled": 2,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
+        "review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons"
       ]
     },
     {
@@ -2346,7 +2346,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -2359,7 +2359,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -2372,7 +2372,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -2385,7 +2385,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
+        "review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls"
       ]
     },
     {
@@ -2398,7 +2398,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query"
+        "review_button_acceptance.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query"
       ]
     },
     {
@@ -2411,7 +2411,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_empty_state_component_action_contract"
+        "review_button_acceptance.ButtonCases.test_empty_state_component_action_contract"
       ]
     },
     {
@@ -2424,7 +2424,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+        "review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
       ]
     },
     {
@@ -2437,7 +2437,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
+        "review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons"
       ]
     },
     {
@@ -2450,7 +2450,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
       ]
     },
     {
@@ -2463,7 +2463,7 @@
       "disabled": 0,
       "clicked": 1,
       "clicked_tests": [
-        "codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
+        "review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview"
       ]
     }
   ],

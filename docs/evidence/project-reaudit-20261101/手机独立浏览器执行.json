@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-01T06:14:28.798380+00:00",
+  "scope": "disposable copied source/example account; local HTTP only; no actual phone, real model or money",
+  "port": 58155,
+  "checks": [
+    {
+      "script": "browser_transfer_flow.cjs",
+      "exit_code": 0
+    },
+    {
+      "script": "browser_matrix.cjs",
+      "exit_code": 0
+    }
+  ],
+  "health_status": 200,
+  "owned_port_closed": true,
+  "example_ledger_after_flow": {
+    "transfers": 2,
+    "transferred_minor": 122000,
+    "balance_minor": 78000,
+    "available_minor": 78000,
+    "reserved_minor": 0,
+    "cancel_and_query_did_not_duplicate_payment": true
+  }
+}

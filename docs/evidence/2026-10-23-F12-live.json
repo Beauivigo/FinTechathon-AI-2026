@@ -1,5 +1,5 @@
 {
-  "executor": "A/Codex独立真实DeepSeek复验",
+  "executor": "A/独立真实DeepSeek复验",
   "fixture_clock": "2026-10-23T11:00:00+08:00，赎回组推进7天",
   "cases": [
     {

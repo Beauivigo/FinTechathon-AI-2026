@@ -1,0 +1,2347 @@
+[
+  {
+    "width": 320,
+    "state": "welcome",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "欢迎使用银行助手"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "setup",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 851,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 241.8125,
+          "y": 438.890625,
+          "width": 32,
+          "height": 16,
+          "right": 273.8125,
+          "bottom": 454.890625
+        }
+      },
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 241.8125,
+          "y": 530.078125,
+          "width": 32,
+          "height": 16,
+          "right": 273.8125,
+          "bottom": 546.078125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "设置本机账号"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "home",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1856,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 可用余额",
+        "rect": {
+          "x": 105.765625,
+          "y": 497.59375,
+          "width": 16,
+          "height": 16,
+          "right": 121.765625,
+          "bottom": 513.59375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet\n账户概览",
+      "auto_awesome\nAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "transfer",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1628,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 转账金额（元，最多两位小数）",
+        "rect": {
+          "x": 278.8125,
+          "y": 605.640625,
+          "width": 16,
+          "height": 16,
+          "right": 294.8125,
+          "bottom": 621.640625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "bills",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1302,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": null,
+        "rect": {
+          "x": 24.1875,
+          "y": 964.984375,
+          "width": 13,
+          "height": 13,
+          "right": 37.1875,
+          "bottom": 977.984375
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 98.1875,
+          "y": 964.984375,
+          "width": 13,
+          "height": 13,
+          "right": 111.1875,
+          "bottom": 977.984375
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 172.1875,
+          "y": 964.984375,
+          "width": 13,
+          "height": 13,
+          "right": 185.1875,
+          "bottom": 977.984375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "operations",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "cards",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1901,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "卡片管理"
+    ],
+    "url": "/%E5%8D%A1%E7%89%87%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "aa",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 889,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 275.8125,
+          "y": 428.1875,
+          "width": 32,
+          "height": 22,
+          "right": 307.8125,
+          "bottom": 450.1875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "AA 收款"
+    ],
+    "url": "/AA%E6%94%B6%E6%AC%BE",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "scheduled",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1431,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预约金额（元，最多两位小数）",
+        "rect": {
+          "x": 292.8125,
+          "y": 665.75,
+          "width": 16,
+          "height": 16,
+          "right": 308.8125,
+          "bottom": 681.75
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预约转账"
+    ],
+    "url": "/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "budget",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预留金额（元，最多两位小数）",
+        "rect": {
+          "x": 271.8125,
+          "y": 412.59375,
+          "width": 16,
+          "height": 16,
+          "right": 287.8125,
+          "bottom": 428.59375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预算预留与释放"
+    ],
+    "url": "/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "wealth",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 2317,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "理财操作"
+    ],
+    "url": "/%E7%90%86%E8%B4%A2",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "products",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Remove 现金钱包（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 371.25,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 378.25
+        }
+      },
+      {
+        "text": "Remove 稳健短债（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 404.25,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 411.25
+        }
+      },
+      {
+        "text": "Open",
+        "rect": {
+          "x": 275.8125,
+          "y": 380.25,
+          "width": 32,
+          "height": 22,
+          "right": 307.8125,
+          "bottom": 402.25
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "产品对比"
+    ],
+    "url": "/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "subscriptions",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 877,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "订阅管理"
+    ],
+    "url": "/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "birthday",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1434,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 254.8125,
+          "y": 577.640625,
+          "width": 32,
+          "height": 22,
+          "right": 286.8125,
+          "bottom": 599.640625
+        }
+      },
+      {
+        "text": "Help for 生日总预算（元）",
+        "rect": {
+          "x": 271.8125,
+          "y": 717.421875,
+          "width": 16,
+          "height": 16,
+          "right": 287.8125,
+          "bottom": 733.421875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "生日计划"
+    ],
+    "url": "/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "mine",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 其他模型 ID（选填，填写后优先使用）",
+        "rect": {
+          "x": 261.8125,
+          "y": 1004.65625,
+          "width": 16,
+          "height": 16,
+          "right": 277.8125,
+          "bottom": 1020.65625
+        }
+      },
+      {
+        "text": "Show password",
+        "rect": {
+          "x": 244.8125,
+          "y": 1292.984375,
+          "width": 32,
+          "height": 16,
+          "right": 276.8125,
+          "bottom": 1308.984375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "我的"
+    ],
+    "url": "/%E6%88%91%E7%9A%84",
+    "page_errors": []
+  },
+  {
+    "width": 320,
+    "state": "assistant",
+    "viewport": 320,
+    "document_scroll_width": 320,
+    "main_scroll_height": 1040,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "AI银行助手"
+    ],
+    "url": "/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "welcome",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "欢迎使用银行助手"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "setup",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 281.8125,
+          "y": 416.5,
+          "width": 32,
+          "height": 16,
+          "right": 313.8125,
+          "bottom": 432.5
+        }
+      },
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 281.8125,
+          "y": 507.6875,
+          "width": 32,
+          "height": 16,
+          "right": 313.8125,
+          "bottom": 523.6875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "设置本机账号"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "home",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1807,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 可用余额",
+        "rect": {
+          "x": 105.765625,
+          "y": 470.40625,
+          "width": 16,
+          "height": 16,
+          "right": 121.765625,
+          "bottom": 486.40625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet\n账户概览",
+      "auto_awesome\nAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "transfer",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1604,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 转账金额（元，最多两位小数）",
+        "rect": {
+          "x": 318.8125,
+          "y": 581.578125,
+          "width": 16,
+          "height": 16,
+          "right": 334.8125,
+          "bottom": 597.578125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "bills",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1241,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": null,
+        "rect": {
+          "x": 24.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 37.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 98.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 111.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 172.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 185.1875,
+          "bottom": 917.140625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "operations",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "cards",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1901,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "卡片管理"
+    ],
+    "url": "/%E5%8D%A1%E7%89%87%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "aa",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 889,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 315.8125,
+          "y": 428.1875,
+          "width": 32,
+          "height": 22,
+          "right": 347.8125,
+          "bottom": 450.1875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "AA 收款"
+    ],
+    "url": "/AA%E6%94%B6%E6%AC%BE",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "scheduled",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1406,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预约金额（元，最多两位小数）",
+        "rect": {
+          "x": 332.8125,
+          "y": 640.734375,
+          "width": 16,
+          "height": 16,
+          "right": 348.8125,
+          "bottom": 656.734375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预约转账"
+    ],
+    "url": "/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "budget",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预留金额（元，最多两位小数）",
+        "rect": {
+          "x": 311.8125,
+          "y": 412.59375,
+          "width": 16,
+          "height": 16,
+          "right": 327.8125,
+          "bottom": 428.59375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预算预留与释放"
+    ],
+    "url": "/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "wealth",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 2295,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "理财操作"
+    ],
+    "url": "/%E7%90%86%E8%B4%A2",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "products",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Remove 现金钱包（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 371.25,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 378.25
+        }
+      },
+      {
+        "text": "Remove 稳健短债（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 404.25,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 411.25
+        }
+      },
+      {
+        "text": "Open",
+        "rect": {
+          "x": 315.8125,
+          "y": 380.25,
+          "width": 32,
+          "height": 22,
+          "right": 347.8125,
+          "bottom": 402.25
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "产品对比"
+    ],
+    "url": "/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "subscriptions",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 877,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "订阅管理"
+    ],
+    "url": "/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "birthday",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1388,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 294.8125,
+          "y": 531.1875,
+          "width": 32,
+          "height": 22,
+          "right": 326.8125,
+          "bottom": 553.1875
+        }
+      },
+      {
+        "text": "Help for 生日总预算（元）",
+        "rect": {
+          "x": 311.8125,
+          "y": 670.96875,
+          "width": 16,
+          "height": 16,
+          "right": 327.8125,
+          "bottom": 686.96875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "生日计划"
+    ],
+    "url": "/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "mine",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 其他模型 ID（选填，填写后优先使用）",
+        "rect": {
+          "x": 301.8125,
+          "y": 982.265625,
+          "width": 16,
+          "height": 16,
+          "right": 317.8125,
+          "bottom": 998.265625
+        }
+      },
+      {
+        "text": "Show password",
+        "rect": {
+          "x": 284.8125,
+          "y": 1225.8125,
+          "width": 32,
+          "height": 16,
+          "right": 316.8125,
+          "bottom": 1241.8125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "我的"
+    ],
+    "url": "/%E6%88%91%E7%9A%84",
+    "page_errors": []
+  },
+  {
+    "width": 360,
+    "state": "assistant",
+    "viewport": 360,
+    "document_scroll_width": 360,
+    "main_scroll_height": 1017,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "AI银行助手"
+    ],
+    "url": "/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "welcome",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "欢迎使用银行助手"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "setup",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 311.8125,
+          "y": 416.5,
+          "width": 32,
+          "height": 16,
+          "right": 343.8125,
+          "bottom": 432.5
+        }
+      },
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 311.8125,
+          "y": 507.6875,
+          "width": 32,
+          "height": 16,
+          "right": 343.8125,
+          "bottom": 523.6875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "设置本机账号"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "home",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1784,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 可用余额",
+        "rect": {
+          "x": 105.765625,
+          "y": 470.40625,
+          "width": 16,
+          "height": 16,
+          "right": 121.765625,
+          "bottom": 486.40625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet\n账户概览",
+      "auto_awesome\nAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "transfer",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1554,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 转账金额（元，最多两位小数）",
+        "rect": {
+          "x": 348.8125,
+          "y": 581.578125,
+          "width": 16,
+          "height": 16,
+          "right": 364.8125,
+          "bottom": 597.578125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "bills",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1241,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": null,
+        "rect": {
+          "x": 24.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 37.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 98.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 111.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 172.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 185.1875,
+          "bottom": 917.140625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "operations",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "cards",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1901,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "卡片管理"
+    ],
+    "url": "/%E5%8D%A1%E7%89%87%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "aa",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 889,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 345.8125,
+          "y": 428.1875,
+          "width": 32,
+          "height": 22,
+          "right": 377.8125,
+          "bottom": 450.1875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "AA 收款"
+    ],
+    "url": "/AA%E6%94%B6%E6%AC%BE",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "scheduled",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1406,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预约金额（元，最多两位小数）",
+        "rect": {
+          "x": 362.8125,
+          "y": 640.734375,
+          "width": 16,
+          "height": 16,
+          "right": 378.8125,
+          "bottom": 656.734375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预约转账"
+    ],
+    "url": "/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "budget",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预留金额（元，最多两位小数）",
+        "rect": {
+          "x": 341.8125,
+          "y": 412.59375,
+          "width": 16,
+          "height": 16,
+          "right": 357.8125,
+          "bottom": 428.59375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预算预留与释放"
+    ],
+    "url": "/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "wealth",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 2272,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "理财操作"
+    ],
+    "url": "/%E7%90%86%E8%B4%A2",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "products",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Remove 现金钱包（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 371.25,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 378.25
+        }
+      },
+      {
+        "text": "Remove 稳健短债（虚构）",
+        "rect": {
+          "x": 284.1875,
+          "y": 371.25,
+          "width": 15,
+          "height": 7,
+          "right": 299.1875,
+          "bottom": 378.25
+        }
+      },
+      {
+        "text": "Open",
+        "rect": {
+          "x": 345.8125,
+          "y": 363.75,
+          "width": 32,
+          "height": 22,
+          "right": 377.8125,
+          "bottom": 385.75
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "产品对比"
+    ],
+    "url": "/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "subscriptions",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 877,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "订阅管理"
+    ],
+    "url": "/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "birthday",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 1388,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 324.8125,
+          "y": 531.1875,
+          "width": 32,
+          "height": 22,
+          "right": 356.8125,
+          "bottom": 553.1875
+        }
+      },
+      {
+        "text": "Help for 生日总预算（元）",
+        "rect": {
+          "x": 341.8125,
+          "y": 670.96875,
+          "width": 16,
+          "height": 16,
+          "right": 357.8125,
+          "bottom": 686.96875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "生日计划"
+    ],
+    "url": "/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "mine",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 其他模型 ID（选填，填写后优先使用）",
+        "rect": {
+          "x": 331.8125,
+          "y": 968.671875,
+          "width": 16,
+          "height": 16,
+          "right": 347.8125,
+          "bottom": 984.671875
+        }
+      },
+      {
+        "text": "Show password",
+        "rect": {
+          "x": 314.8125,
+          "y": 1198.625,
+          "width": 32,
+          "height": 16,
+          "right": 346.8125,
+          "bottom": 1214.625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "我的"
+    ],
+    "url": "/%E6%88%91%E7%9A%84",
+    "page_errors": []
+  },
+  {
+    "width": 390,
+    "state": "assistant",
+    "viewport": 390,
+    "document_scroll_width": 390,
+    "main_scroll_height": 993,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "AI银行助手"
+    ],
+    "url": "/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "welcome",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "欢迎使用银行助手"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "setup",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 333.8125,
+          "y": 416.5,
+          "width": 32,
+          "height": 16,
+          "right": 365.8125,
+          "bottom": 432.5
+        }
+      },
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 333.8125,
+          "y": 507.6875,
+          "width": 32,
+          "height": 16,
+          "right": 365.8125,
+          "bottom": 523.6875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "设置本机账号"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "home",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1784,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 可用余额",
+        "rect": {
+          "x": 105.765625,
+          "y": 470.40625,
+          "width": 16,
+          "height": 16,
+          "right": 121.765625,
+          "bottom": 486.40625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet\n账户概览",
+      "auto_awesome\nAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "transfer",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1554,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 转账金额（元，最多两位小数）",
+        "rect": {
+          "x": 370.8125,
+          "y": 581.578125,
+          "width": 16,
+          "height": 16,
+          "right": 386.8125,
+          "bottom": 597.578125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "bills",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1241,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": null,
+        "rect": {
+          "x": 24.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 37.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 98.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 111.1875,
+          "bottom": 917.140625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 172.1875,
+          "y": 904.140625,
+          "width": 13,
+          "height": 13,
+          "right": 185.1875,
+          "bottom": 917.140625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "operations",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "cards",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1901,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "卡片管理"
+    ],
+    "url": "/%E5%8D%A1%E7%89%87%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "aa",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 889,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 367.8125,
+          "y": 428.1875,
+          "width": 32,
+          "height": 22,
+          "right": 399.8125,
+          "bottom": 450.1875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "AA 收款"
+    ],
+    "url": "/AA%E6%94%B6%E6%AC%BE",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "scheduled",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1406,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预约金额（元，最多两位小数）",
+        "rect": {
+          "x": 384.8125,
+          "y": 640.734375,
+          "width": 16,
+          "height": 16,
+          "right": 400.8125,
+          "bottom": 656.734375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预约转账"
+    ],
+    "url": "/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "budget",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预留金额（元，最多两位小数）",
+        "rect": {
+          "x": 363.8125,
+          "y": 412.59375,
+          "width": 16,
+          "height": 16,
+          "right": 379.8125,
+          "bottom": 428.59375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预算预留与释放"
+    ],
+    "url": "/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "wealth",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 2250,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "理财操作"
+    ],
+    "url": "/%E7%90%86%E8%B4%A2",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "products",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Remove 现金钱包（虚构）",
+        "rect": {
+          "x": 137.1875,
+          "y": 348.859375,
+          "width": 15,
+          "height": 7,
+          "right": 152.1875,
+          "bottom": 355.859375
+        }
+      },
+      {
+        "text": "Remove 稳健短债（虚构）",
+        "rect": {
+          "x": 284.1875,
+          "y": 348.859375,
+          "width": 15,
+          "height": 7,
+          "right": 299.1875,
+          "bottom": 355.859375
+        }
+      },
+      {
+        "text": "Open",
+        "rect": {
+          "x": 367.8125,
+          "y": 341.359375,
+          "width": 32,
+          "height": 22,
+          "right": 399.8125,
+          "bottom": 363.359375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "产品对比"
+    ],
+    "url": "/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "subscriptions",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 852,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "订阅管理"
+    ],
+    "url": "/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "birthday",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 1388,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 346.8125,
+          "y": 531.1875,
+          "width": 32,
+          "height": 22,
+          "right": 378.8125,
+          "bottom": 553.1875
+        }
+      },
+      {
+        "text": "Help for 生日总预算（元）",
+        "rect": {
+          "x": 363.8125,
+          "y": 670.96875,
+          "width": 16,
+          "height": 16,
+          "right": 379.8125,
+          "bottom": 686.96875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "生日计划"
+    ],
+    "url": "/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "mine",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 844,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 其他模型 ID（选填，填写后优先使用）",
+        "rect": {
+          "x": 353.8125,
+          "y": 968.671875,
+          "width": 16,
+          "height": 16,
+          "right": 369.8125,
+          "bottom": 984.671875
+        }
+      },
+      {
+        "text": "Show password",
+        "rect": {
+          "x": 336.8125,
+          "y": 1198.625,
+          "width": 32,
+          "height": 16,
+          "right": 368.8125,
+          "bottom": 1214.625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "我的"
+    ],
+    "url": "/%E6%88%91%E7%9A%84",
+    "page_errors": []
+  },
+  {
+    "width": 412,
+    "state": "assistant",
+    "viewport": 412,
+    "document_scroll_width": 412,
+    "main_scroll_height": 993,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "AI银行助手"
+    ],
+    "url": "/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "welcome",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "欢迎使用银行助手"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "setup",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 686.609375,
+          "y": 412.90625,
+          "width": 32,
+          "height": 16,
+          "right": 718.609375,
+          "bottom": 428.90625
+        }
+      },
+      {
+        "text": "visibility",
+        "rect": {
+          "x": 686.609375,
+          "y": 504.09375,
+          "width": 32,
+          "height": 16,
+          "right": 718.609375,
+          "bottom": 520.09375
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "设置本机账号"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "home",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1775,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 可用余额",
+        "rect": {
+          "x": 109.96875,
+          "y": 473,
+          "width": 16,
+          "height": 16,
+          "right": 125.96875,
+          "bottom": 489
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet\n账户概览",
+      "auto_awesome\nAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "transfer",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1526,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 转账金额（元，最多两位小数）",
+        "rect": {
+          "x": 721.609375,
+          "y": 586.6875,
+          "width": 16,
+          "height": 16,
+          "right": 737.609375,
+          "bottom": 602.6875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "bills",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1231,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": null,
+        "rect": {
+          "x": 30.390625,
+          "y": 892.40625,
+          "width": 13,
+          "height": 13,
+          "right": 43.390625,
+          "bottom": 905.40625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 104.390625,
+          "y": 892.40625,
+          "width": 13,
+          "height": 13,
+          "right": 117.390625,
+          "bottom": 905.40625
+        }
+      },
+      {
+        "text": null,
+        "rect": {
+          "x": 178.390625,
+          "y": 892.40625,
+          "width": 13,
+          "height": 13,
+          "right": 191.390625,
+          "bottom": 905.40625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "operations",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "首页",
+      "account_balance_wallet账户概览",
+      "auto_awesomeAI 银行助手",
+      "常用业务",
+      "待处理事项",
+      "近期交易",
+      "转账与收款",
+      "收支明细",
+      "操作记录"
+    ],
+    "url": "/",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "cards",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1837,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "卡片管理"
+    ],
+    "url": "/%E5%8D%A1%E7%89%87%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "aa",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 720.609375,
+          "y": 405.765625,
+          "width": 32,
+          "height": 22,
+          "right": 752.609375,
+          "bottom": 427.765625
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "AA 收款"
+    ],
+    "url": "/AA%E6%94%B6%E6%AC%BE",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "scheduled",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1316,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预约金额（元，最多两位小数）",
+        "rect": {
+          "x": 737.609375,
+          "y": 573.53125,
+          "width": 16,
+          "height": 16,
+          "right": 753.609375,
+          "bottom": 589.53125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预约转账"
+    ],
+    "url": "/%E5%AE%9A%E6%97%B6%E8%BD%AC%E8%B4%A6",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "budget",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 预留金额（元，最多两位小数）",
+        "rect": {
+          "x": 716.609375,
+          "y": 390.171875,
+          "width": 16,
+          "height": 16,
+          "right": 732.609375,
+          "bottom": 406.171875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "预算预留与释放"
+    ],
+    "url": "/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "wealth",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 2251,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "理财操作"
+    ],
+    "url": "/%E7%90%86%E8%B4%A2",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "products",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Remove 现金钱包（虚构）",
+        "rect": {
+          "x": 141.390625,
+          "y": 351.453125,
+          "width": 15,
+          "height": 7,
+          "right": 156.390625,
+          "bottom": 358.453125
+        }
+      },
+      {
+        "text": "Remove 稳健短债（虚构）",
+        "rect": {
+          "x": 288.390625,
+          "y": 351.453125,
+          "width": 15,
+          "height": 7,
+          "right": 303.390625,
+          "bottom": 358.453125
+        }
+      },
+      {
+        "text": "Open",
+        "rect": {
+          "x": 720.609375,
+          "y": 343.953125,
+          "width": 32,
+          "height": 22,
+          "right": 752.609375,
+          "bottom": 365.953125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "产品对比"
+    ],
+    "url": "/%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "subscriptions",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "订阅管理"
+    ],
+    "url": "/%E8%AE%A2%E9%98%85%E7%AE%A1%E7%90%86",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "birthday",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1346,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Open",
+        "rect": {
+          "x": 699.609375,
+          "y": 511.390625,
+          "width": 32,
+          "height": 22,
+          "right": 731.609375,
+          "bottom": 533.390625
+        }
+      },
+      {
+        "text": "Help for 生日总预算（元）",
+        "rect": {
+          "x": 716.609375,
+          "y": 651.171875,
+          "width": 16,
+          "height": 16,
+          "right": 732.609375,
+          "bottom": 667.171875
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "生日计划"
+    ],
+    "url": "/%E7%94%9F%E6%97%A5%E4%B8%8E%E5%95%86%E6%88%B7",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "mine",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [
+      {
+        "text": "Help for 其他模型 ID（选填，填写后优先使用）",
+        "rect": {
+          "x": 704.609375,
+          "y": 933.515625,
+          "width": 16,
+          "height": 16,
+          "right": 720.609375,
+          "bottom": 949.515625
+        }
+      },
+      {
+        "text": "Show password",
+        "rect": {
+          "x": 687.609375,
+          "y": 1141.078125,
+          "width": 32,
+          "height": 16,
+          "right": 719.609375,
+          "bottom": 1157.078125
+        }
+      }
+    ],
+    "exceptions": [],
+    "heading": [
+      "我的"
+    ],
+    "url": "/%E6%88%91%E7%9A%84",
+    "page_errors": []
+  },
+  {
+    "width": 768,
+    "state": "assistant",
+    "viewport": 768,
+    "document_scroll_width": 768,
+    "main_scroll_height": 1024,
+    "overflow": [],
+    "small_targets": [],
+    "exceptions": [],
+    "heading": [
+      "AI银行助手"
+    ],
+    "url": "/AI%E9%93%B6%E8%A1%8C%E5%8A%A9%E6%89%8B",
+    "page_errors": []
+  }
+]

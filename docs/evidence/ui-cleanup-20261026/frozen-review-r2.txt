@@ -1,0 +1,11 @@
+test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) ... ok
+test_every_page_still_parses (__main__.__review_acceptance__.test_every_page_still_parses) ... ok
+test_one_project_nature_note_and_required_decision_copy_remain (__main__.__review_acceptance__.test_one_project_nature_note_and_required_decision_copy_remain) ... ok
+test_page_titles_drop_repeated_simulation_prefix (__main__.__review_acceptance__.test_page_titles_drop_repeated_simulation_prefix) ... ok
+test_simulation_and_demo_wording_is_measurably_reduced (__main__.__review_acceptance__.test_simulation_and_demo_wording_is_measurably_reduced) ... ok
+test_widget_keys_are_byte_for_byte_preserved (__main__.__review_acceptance__.test_widget_keys_are_byte_for_byte_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.173s
+
+OK

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" data-pptx-page-role="content">
+<defs><linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFD0" stop-opacity="0.7"/><stop offset="0.5" stop-color="#F8FBFA"/><stop offset="1" stop-color="#D8EFFF" stop-opacity="0.75"/></linearGradient><filter id="lift"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#21605F" flood-opacity="0.08"/></filter></defs>
+<rect id="p14-background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="url(#field)"/>
+<g id="p14-heading" data-pptx-bounds="64 34 1152 118" fill="#183B3A"><text x="64" y="56" font-size="14" fill="#466460">02　业务与资金 / 卡片</text><text x="64" y="124" font-size="44" font-weight="bold">卡片管理，让每一步都可核对</text></g>
+<g id="p14-acceptance" data-pptx-bounds="64 206 428 102" fill="#183B3A"><text x="64" y="240" font-size="28" font-weight="bold">申请受理</text><text x="64" y="288">进入流程，尚未审批或发卡。</text></g>
+<g id="p14-state-limit" data-pptx-bounds="64 336 428 102" fill="#183B3A"><text x="64" y="370" font-size="28" font-weight="bold">限额与状态</text><text x="64" y="418">逐卡核对限额、冻结与挂失。</text></g>
+<g id="p14-pay-check" data-pptx-bounds="64 466 428 130" fill="#183B3A"><text x="64" y="500" font-size="28" font-weight="bold">支付前复验</text><text x="64" y="548">挂失卡不能支付，<tspan x="64" dy="36">解挂等动作重新验证。</tspan></text></g>
+<g id="p14-product-screenshot" data-pptx-bounds="532 170 684 488" fill="#466460"><rect x="532" y="174" width="684" height="480" rx="24" fill="#FFFFFF" filter="url(#lift)"/><image href="../images/image_5daba817b45aff1d.png" x="550" y="184" width="648" height="450" preserveAspectRatio="xMidYMid meet"/><text x="550" y="650" font-size="14">2026-10-28 源码预览 · 卡片管理 · 模拟数据</text></g>
+<g id="p14-footer" data-pptx-role="footer" data-pptx-bounds="64 664 1152 34" font-size="14" fill="#466460"><text x="64" y="688">图像来源按 SHA256 对应仓库证据，完整保留原图。</text><text x="1216" y="688" text-anchor="end">14 / 24</text></g>
+</svg>

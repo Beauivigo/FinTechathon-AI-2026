@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "command": "python -B -X utf8 scripts/verify_h_core.py",
   "run": 619,
   "failures": 1,

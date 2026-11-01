@@ -1,4 +1,4 @@
-"""Codex补充按钮实点验收。仅可抛弃临时身份/账本；不触碰日常账户。"""
+"""独立复核补充按钮实点验收。仅可抛弃临时身份/账本；不触碰日常账户。"""
 from pathlib import Path
 from datetime import datetime,timedelta,timezone
 from tempfile import TemporaryDirectory

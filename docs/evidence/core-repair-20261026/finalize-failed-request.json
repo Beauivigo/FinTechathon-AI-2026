@@ -2,11 +2,11 @@
   "action": "finalize",
   "runId": "9e771207-65bb-4a6f-a2b6-4edb4c847e18",
   "evidence": {
-    "reviewer": "Codex",
+    "reviewer": "独立复核",
     "status": "rejected",
     "checks": [
       {
-        "command": "Codex Python hash review: 584 snapshot files unchanged, 173 primary source hashes unchanged, no result artifact, protected data unchanged; evidence docs/evidence/core-repair-20261026/failure-review.json",
+        "command": "独立复核 Python hash review: 584 snapshot files unchanged, 173 primary source hashes unchanged, no result artifact, protected data unchanged; evidence docs/evidence/core-repair-20261026/failure-review.json",
         "exitCode": 0,
         "expectedExitCode": 0
       },

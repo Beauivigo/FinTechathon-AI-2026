@@ -1,0 +1,186 @@
+{
+  "reviewer": "独立复核",
+  "status": "accepted",
+  "checks": [
+    {
+      "command": "python -B -X utf8 scripts/verify_h_core.py --output docs/evidence/u-independent-r3 (complete isolated review fixture; installed project Python)",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "FINTECH_REVIEW_ROOT=<review fixture> python -B -X utf8 docs/evidence/u-delegation-20261023/independent_cases.py",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "dbc1ad06d54c0c246f871ee2b90890cacbb453d40b50d556438d050dcfc042ef"
+    },
+    {
+      "path": "app/background_panel.py",
+      "sha256": "37c24b076cd7719d86abe2c5e12cd391ea5162eb5f8b81bf092740f8f0ef8b0d"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "c1bde0d8f3e63089803d358e490e22fd18389cbc1ec513f066f324c7b7060982"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "d61336c1f95837abaf2624912463a5e66f5b4b4453dd86133b7fa73f948575dd"
+    },
+    {
+      "path": "bank/auth.py",
+      "sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd"
+    },
+    {
+      "path": "bank/worker.py",
+      "sha256": "2e0be06f1ecf9ca02ace6e0c9d06afe4d50098fc138679b4e9e6974fe274a9c0"
+    },
+    {
+      "path": "bank/store.py",
+      "sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62"
+    },
+    {
+      "path": "README.md",
+      "sha256": "40cf3f9f782606fa356fe63b3ea0f083a047f9f4450908c54710102335eb2b68"
+    },
+    {
+      "path": "app/lifecycle_panel.py",
+      "sha256": "cae589d18ff4c082d8c77fa4378818da37d1e732df26a829178133a15d6b08c1"
+    },
+    {
+      "path": "bank/background.py",
+      "sha256": "45fe64a38e5ee43bbb1130381c30e8cc51bd0a127bcacb5c2cf180e9b2747b37"
+    },
+    {
+      "path": "bank/first_run.py",
+      "sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554"
+    },
+    {
+      "path": "bank/lifecycle.py",
+      "sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae"
+    },
+    {
+      "path": "docs/U1-U5程序内使用说明.md",
+      "sha256": "786311ad8eeac0278d84fc2cb605d568fa73a250066c440ac66d01b631413ac0"
+    },
+    {
+      "path": "docs/evidence/u1-u5-selftest-1/selftest.json",
+      "sha256": "e48a7d9fc625d8a2c175e114356fdd1005056f13108ff2843f1bd5251e29646a"
+    },
+    {
+      "path": "docs/evidence/u1-u5-selftest-2/selftest.json",
+      "sha256": "548e84ccaeeaa7416e45b53e4c11cfed256375e3e2b1dcc16e1d0fa95ee56829"
+    },
+    {
+      "path": "docs/evidence/u1-u5-selftest-3/selftest.json",
+      "sha256": "f3b5d15dd15bc175bc17c469e8c4577f6b6a3f0b824aa991d92b0b8e7ce444d2"
+    },
+    {
+      "path": "launcher.py",
+      "sha256": "4045d83885a8c613b0d62177a02d347211698c3b13223845d5b3562e00ecfe7a"
+    },
+    {
+      "path": "scripts/verify_u_core.py",
+      "sha256": "d3b87e2ce9fbaf69f7f4dd84f41e40f4547ef0d2da36ae4db6bd4e9fe8713d6f"
+    },
+    {
+      "path": "tests/test_u1_setup.py",
+      "sha256": "272f88dc84ea9ccc8d7c052e21c26b740facae4ff2d513fcd630f2860821ce92"
+    },
+    {
+      "path": "tests/test_u2_flows.py",
+      "sha256": "8fdd827400ebb136997ce4d6528dc159707da3a00308f32878e91cb390f0ec3f"
+    },
+    {
+      "path": "tests/test_u3_background.py",
+      "sha256": "cfaa8865cd7107e2b17f550a8e9052afb04b5bb1a047895a58b898058854cae2"
+    },
+    {
+      "path": "tests/test_u4_launcher.py",
+      "sha256": "543e699469fb0ddd0bb71203beadfd724cb14b40fc05965f32a3656ae877d7f0"
+    },
+    {
+      "path": "tests/test_u_stage2_acceptance.py",
+      "sha256": "8f8c385e1f7e1249777cb8701685dcf7ff6883edfb447ab45263561c0d9022a2"
+    },
+    {
+      "path": "tests/test_u_stage3_acceptance.py",
+      "sha256": "30a4177580ef1b00a0d08d8bed1e578ea982694898e4c6cff1ec786890ce3b63"
+    },
+    {
+      "path": "启动银行助手.py",
+      "sha256": "2439b84644c57dd307d48f52414611a2868f9d160a6e54f752db504ae77b2f0d"
+    }
+  ],
+  "artifactsUnavailable": false,
+  "time": "2026-10-23T14:02:51.591Z",
+  "source": "独立复核 final-review attestation; commands already executed by 独立复核",
+  "conversationKey": "f30595aecc6e69f89a08c97d48c35bfd09a58d6ef800426a9b1392aa56cc15e7",
+  "reviewedSnapshot": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\7d0d7a3e-4f84-47a2-ae02-83172eab4262\\worktree",
+  "activeCorrections": [
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "dbc1ad06d54c0c246f871ee2b90890cacbb453d40b50d556438d050dcfc042ef"
+    },
+    {
+      "path": "app/background_panel.py",
+      "sha256": "37c24b076cd7719d86abe2c5e12cd391ea5162eb5f8b81bf092740f8f0ef8b0d"
+    },
+    {
+      "path": "bank/worker.py",
+      "sha256": "2e0be06f1ecf9ca02ace6e0c9d06afe4d50098fc138679b4e9e6974fe274a9c0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "40cf3f9f782606fa356fe63b3ea0f083a047f9f4450908c54710102335eb2b68"
+    },
+    {
+      "path": "bank/background.py",
+      "sha256": "45fe64a38e5ee43bbb1130381c30e8cc51bd0a127bcacb5c2cf180e9b2747b37"
+    },
+    {
+      "path": "bank/first_run.py",
+      "sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554"
+    },
+    {
+      "path": "bank/lifecycle.py",
+      "sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae"
+    },
+    {
+      "path": "docs/U1-U5程序内使用说明.md",
+      "sha256": "786311ad8eeac0278d84fc2cb605d568fa73a250066c440ac66d01b631413ac0"
+    },
+    {
+      "path": "launcher.py",
+      "sha256": "4045d83885a8c613b0d62177a02d347211698c3b13223845d5b3562e00ecfe7a"
+    },
+    {
+      "path": "scripts/verify_u_core.py",
+      "sha256": "d3b87e2ce9fbaf69f7f4dd84f41e40f4547ef0d2da36ae4db6bd4e9fe8713d6f"
+    },
+    {
+      "path": "tests/test_u1_setup.py",
+      "sha256": "272f88dc84ea9ccc8d7c052e21c26b740facae4ff2d513fcd630f2860821ce92"
+    },
+    {
+      "path": "tests/test_u3_background.py",
+      "sha256": "cfaa8865cd7107e2b17f550a8e9052afb04b5bb1a047895a58b898058854cae2"
+    },
+    {
+      "path": "tests/test_u_stage2_acceptance.py",
+      "sha256": "8f8c385e1f7e1249777cb8701685dcf7ff6883edfb447ab45263561c0d9022a2"
+    },
+    {
+      "path": "tests/test_u_stage3_acceptance.py",
+      "sha256": "30a4177580ef1b00a0d08d8bed1e578ea982694898e4c6cff1ec786890ce3b63"
+    }
+  ]
+}

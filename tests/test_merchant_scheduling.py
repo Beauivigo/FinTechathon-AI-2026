@@ -1,4 +1,4 @@
-"""Codex 独立验收：真实网关/临时库，不使用委派自测结果。"""
+"""review 独立验收：真实网关/临时库，不使用委派自测结果。"""
 from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 from datetime import timedelta

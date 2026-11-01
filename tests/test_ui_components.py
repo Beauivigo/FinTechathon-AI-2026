@@ -237,7 +237,7 @@ class UiComponentTests(unittest.TestCase):
     def test_docs_cover_design_tokens_wiring_and_boundaries(self):
         self.assertTrue(DOC_PATH.is_file(), 'missing UI design document')
         doc = DOC_PATH.read_text(encoding='utf-8')
-        for heading in ('## 设计方向', '## 设计 token 与主题配置', '## 组件 API', '## Codex 最终接线', '## 真实能力与边界', '## 本地启动与验证'):
+        for heading in ('## 设计方向', '## 设计 token 与主题配置', '## 组件 API', '## 最终接线与验收', '## 真实能力与边界', '## 本地启动与验证'):
             self.assertIn(heading, doc)
         for api in ('render_page_header', 'render_app_nav', 'business_section', 'render_overview', 'render_details', 'render_status', 'render_progress', 'render_empty_state', 'render_scope_note'):
             self.assertIn(api, doc)
@@ -253,7 +253,7 @@ class UiComponentTests(unittest.TestCase):
         self.assertIn('streamlit run app/main.py', doc)
         self.assertIn('python -m unittest discover -s tests -p test_ui_components.py -v', doc)
         self.assertIn('AppTest', doc)
-        self.assertIn('Codex', doc)
+        self.assertIn('独立验收', doc)
         self.assertIn('from app import ui', doc)
         self.assertIn('不会自动付款', doc)
         # Plain source citations do not load external page assets. Keep remote

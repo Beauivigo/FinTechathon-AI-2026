@@ -1,4 +1,4 @@
-"""Codex release acceptance on disposable directories, using the actual installer."""
+"""review release acceptance on disposable directories, using the actual installer."""
 import argparse
 from hashlib import sha256
 import json
@@ -50,14 +50,17 @@ def run(artifact, work, phase):
             assert sha256((data / name).read_bytes()).hexdigest() == digest, name
         probe = subprocess.run([str(python), '-B', '-X', 'utf8', '-c',
             'import sys,os,streamlit,pyotp,qrcode,openpyxl;from pathlib import Path;'
+            'root=Path(sys.argv[1]).resolve();'
+            'assert Path(sys.executable).resolve()==root/"python"/"python.exe";'
+            'assert all(Path(p).resolve().is_relative_to(root) for p in sys.path if p);'
             'from bank.seed import demo_path;from agent.model_credentials import PROFILE;'
             'data=Path(os.environ["LOCALAPPDATA"])/"言行"/"data";'
             'assert demo_path()==data/"runtime"/"sandbox.sqlite3";'
             'assert PROFILE==data/".cache"/"bank-model"/"profile.json";'
-            'print(sys.version);print(streamlit.__version__);print(sys.path)'],
+            'print(sys.version);print(streamlit.__version__);print(sys.path)', str(target)],
             capture_output=True, text=True, env=env, cwd=work, timeout=40)
         assert probe.returncode == 0, probe.stderr
-        assert '.venv' not in probe.stdout and 'codex-runtimes' not in probe.stdout
+        assert '.venv' not in probe.stdout
         links = shortcuts(env)
         assert len(links['links']) == 3, links
         assert not (Path(links['desktop']) / '言行.lnk').exists()

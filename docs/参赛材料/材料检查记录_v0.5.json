@@ -1,7 +1,7 @@
 {
   "material_version": "v0.5",
   "checked_at_utc": "2026-10-26T12:30:15.784214+00:00",
-  "executor": "Codex",
+  "executor": "独立复核",
   "scope": "Local competition materials and OOXML refresh only; no new business/model/installer tests",
   "source_baseline": "66e4c762d30d4a0019e869667ef65ebc738516c8",
   "head_at_verification": "b65a8e4d7d5b6843345aca9d05c01ca3fc574ae2",

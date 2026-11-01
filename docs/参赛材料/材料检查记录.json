@@ -1,7 +1,7 @@
 {
   "material_version": "v0.6",
   "checked_at_utc": "2026-10-28T12:20:08.783990+00:00",
-  "executor": "Codex",
+  "executor": "独立复核",
   "base": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
   "files": {
     "docs/参赛材料/README.md": "3eb6df18928473d7200435d9f025e88e58efca2f507434a978aaf6bef8168c0f",

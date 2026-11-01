@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" data-pptx-page-role="content">
+<defs><linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFEAE1" stop-opacity="0.5"/><stop offset="0.5" stop-color="#F8FBFA"/><stop offset="1" stop-color="#B6FAFF" stop-opacity="0.55"/></linearGradient></defs>
+<rect id="p10-background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="url(#field)"/>
+<g id="p10-heading" data-pptx-bounds="64 34 1152 118" fill="#183B3A"><text x="64" y="56" font-size="14" fill="#466460">02　业务与资金 / 对象与边界</text><text x="64" y="124" font-size="44" font-weight="bold">业务对象不同，执行边界同样清楚</text></g>
+<g id="p10-transfer-object" data-pptx-bounds="64 188 552 124" fill="#183B3A"><text x="64" y="222" font-size="28" font-weight="bold">转账 / 资金转移</text><text x="64" y="268">到期重新授权；<tspan x="64" dy="36">AA 建单不等于收齐。</tspan></text></g>
+<g id="p10-billing-object" data-pptx-bounds="664 188 552 124" fill="#183B3A"><text x="664" y="222" font-size="28" font-weight="bold">账单 / 消费解释</text><text x="664" y="268">分类、退款与大额提示；<tspan x="664" dy="36">既定异常规则不是完整反欺诈。</tspan></text></g>
+<g id="p10-wealth-object" data-pptx-bounds="64 336 552 124" fill="#183B3A"><text x="64" y="370" font-size="28" font-weight="bold">理财 / 风险适配</text><text x="64" y="416">申购、赎回使用红色授权；<tspan x="64" dy="36">静态净值与本地即时模拟记账。</tspan></text></g>
+<g id="p10-card-object" data-pptx-bounds="664 336 552 124" fill="#183B3A"><text x="664" y="370" font-size="28" font-weight="bold">卡片 / 状态与限额</text><text x="664" y="416">管理限额、冻结与挂失；<tspan x="664" dy="36">申请受理不代表审批或发卡。</tspan></text></g>
+<g id="p10-subscription-object" data-pptx-bounds="64 484 552 124" fill="#183B3A"><text x="64" y="518" font-size="28" font-weight="bold">订阅 / 周期管理</text><text x="64" y="564">每期续费单独强验证；<tspan x="64" dy="36">到期提醒保留在站内。</tspan></text></g>
+<g id="p10-birthday-object" data-pptx-bounds="664 484 552 124" fill="#183B3A"><text x="664" y="518" font-size="28" font-weight="bold">生日 / 预算与采购</text><text x="664" y="564">预留不等于扣款；<tspan x="664" dy="36">后台准备待办，付款仍需授权。</tspan></text></g>
+<g id="p10-footer" data-pptx-role="footer" data-pptx-bounds="64 646 1152 52" font-size="14" fill="#466460"><line x1="64" y1="650" x2="1216" y2="650" stroke="#D5E5E0"/><text x="64" y="686">受理、建单和计划，均需与最终执行状态分开。</text><text x="1216" y="686" text-anchor="end">10 / 24</text></g>
+</svg>

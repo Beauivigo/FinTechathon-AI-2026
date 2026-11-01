@@ -1,0 +1,20 @@
+test_compile_helper_rejects_tool_failure_and_empty_output (win_installer.test_installer.PayloadTests.test_compile_helper_rejects_tool_failure_and_empty_output) ... ok
+test_high_confidence_secret_content_fails_closed (win_installer.test_installer.PayloadTests.test_high_confidence_secret_content_fails_closed) ... ok
+test_licence_bundle_requires_evidence_and_keeps_sources (win_installer.test_installer.PayloadTests.test_licence_bundle_requires_evidence_and_keeps_sources) ... ok
+test_manifest_is_strict_deterministic_and_content_bound (win_installer.test_installer.PayloadTests.test_manifest_is_strict_deterministic_and_content_bound) ... ok
+test_nsis_script_is_chinese_strict_and_preserves_user_data (win_installer.test_installer.PayloadTests.test_nsis_script_is_chinese_strict_and_preserves_user_data) ... ok
+test_removal_plan_preserves_data_by_default (win_installer.test_installer.PayloadTests.test_removal_plan_preserves_data_by_default) ... ok
+test_requirements_input_is_read_only_and_offline_safe (win_installer.test_installer.PayloadTests.test_requirements_input_is_read_only_and_offline_safe) ... ok
+test_source_payload_includes_unknown_modules_and_excludes_dev_data (win_installer.test_installer.PayloadTests.test_source_payload_includes_unknown_modules_and_excludes_dev_data) ... ok
+test_source_payload_rejects_bad_tree_and_links (win_installer.test_installer.PayloadTests.test_source_payload_rejects_bad_tree_and_links) ... ok
+test_tool_detection_and_artifact_verification_fail_closed (win_installer.test_installer.PayloadTests.test_tool_detection_and_artifact_verification_fail_closed) ... ok
+test_historical_reports_keep_their_original_version_labels (win_installer.test_installer.ReleaseVersionTests.test_historical_reports_keep_their_original_version_labels) ... ok
+test_license_page_states_current_version_and_upgrade_data_rule (win_installer.test_installer.ReleaseVersionTests.test_license_page_states_current_version_and_upgrade_data_rule) ... ok
+test_payload_never_ships_harness_probes_dev_data_or_git_pointer (win_installer.test_installer.ReleaseVersionTests.test_payload_never_ships_harness_probes_dev_data_or_git_pointer) ... ok
+test_probe_and_secret_fixtures_are_excluded_even_if_present (win_installer.test_installer.ReleaseVersionTests.test_probe_and_secret_fixtures_are_excluded_even_if_present) ... ok
+test_release_version_is_2_0_0_everywhere_users_look (win_installer.test_installer.ReleaseVersionTests.test_release_version_is_2_0_0_everywhere_users_look) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.281s
+
+OK

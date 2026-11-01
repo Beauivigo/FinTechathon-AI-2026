@@ -333,7 +333,7 @@ class ReleaseVersionTests(unittest.TestCase):
             self.assertIn('保留账号', text)
 
 
-def __codex_acceptance__():
+def __review_acceptance__():
     suite = unittest.TestSuite()
     seen = set()
     import gc
@@ -356,8 +356,8 @@ def __codex_acceptance__():
 
 
 _main = sys.modules.get('__main__')
-if _main is not None and not hasattr(_main, '__codex_acceptance__'):
-    _main.__codex_acceptance__ = __codex_acceptance__
+if _main is not None and not hasattr(_main, '__review_acceptance__'):
+    _main.__review_acceptance__ = __review_acceptance__
 
 
 if __name__ == '__main__':

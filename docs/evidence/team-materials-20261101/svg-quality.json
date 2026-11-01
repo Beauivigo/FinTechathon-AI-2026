@@ -1,0 +1,1601 @@
+{
+  "schema": "ppt-master.svg-quality-report.v1",
+  "stage": "final",
+  "target": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "digest": "6ec3174f3464c8a621ad637d9f4deb7d34f19fb6b16f50c2df67bf04cc1ab691",
+    "file_count": 24,
+    "files": [
+      {
+        "file": "01_言行.svg",
+        "sha256": "066a2e2324151adb7c959feb061614f2825f50970505ec98d026a8e8e6b4d763"
+      },
+      {
+        "file": "02_可信路径.svg",
+        "sha256": "5ab8ddca2b8790848e53a288382f6892a75ca40b9d4efb4a38ab37fa5fc64a22"
+      },
+      {
+        "file": "03_模型与执行.svg",
+        "sha256": "92d9f9c70155dfafbe21ee9b22ef3196cde4747d638ff0e77bfae18b0517d8e7"
+      },
+      {
+        "file": "04_六场景主干.svg",
+        "sha256": "fc01dcc4b5b80532e17939bea829d69f1f31a7c4674c94db7a318b0904a6cda0"
+      },
+      {
+        "file": "05_四层架构.svg",
+        "sha256": "684dc6e7e482e73729ae463145c78e51763a241c6540fa2317410ecd55ceb2e3"
+      },
+      {
+        "file": "06_模型与在线证据.svg",
+        "sha256": "336e9549fa1a7bd584d99b5b28184c0f5e62c12d3bcd07ff493cc9f3195e0feb"
+      },
+      {
+        "file": "07_累计授权.svg",
+        "sha256": "531b89a0f2785ca009066501c7ebad5cb4b6e6888ee7602d55c7ff8719c6bbad"
+      },
+      {
+        "file": "08_五道防线.svg",
+        "sha256": "40873343b3e56712c62c9dbd4ce793f409122318814e599f73346b5f40df64dc"
+      },
+      {
+        "file": "09_业务与资金.svg",
+        "sha256": "2fd493deeb0e3e1e45f9c535e640f688adc68a3a806c8e7306abb491cc9d286d"
+      },
+      {
+        "file": "10_业务对象与边界.svg",
+        "sha256": "6522eb74bd17d507a9d1e1724d6972ed9f556071351cd81d0aea0f746f15bb13"
+      },
+      {
+        "file": "11_转账流程.svg",
+        "sha256": "80971c89757b1364c137d43275b966584759d4f58fce89381848ecf54a6db85a"
+      },
+      {
+        "file": "12_账单解释.svg",
+        "sha256": "4a8bd036207b050efb9afb0ba756eab565e7e043b2c97b78aff8159982259ed6"
+      },
+      {
+        "file": "13_理财风险适配.svg",
+        "sha256": "8384503c45ea564fb4cd1e3ebfe2b2ef029cafd20e473ff02a625ee6be38d8e0"
+      },
+      {
+        "file": "14_卡片管理.svg",
+        "sha256": "14018b38b0150a5778420f89125c31cc3aaaac852df495cdbf003753ad6abd4a"
+      },
+      {
+        "file": "15_订阅与生日.svg",
+        "sha256": "4ca80cce52081f32ace8c865b757e53084b1f9f3bcffd1d269b9e2f4ea25b945"
+      },
+      {
+        "file": "16_验收证据.svg",
+        "sha256": "a7c1c44429a35305904c583e642434631de9e81d446cc22ceadefdb8e08fb1ed"
+      },
+      {
+        "file": "17_演示与收尾.svg",
+        "sha256": "fd1997e8f7b1ec1af4ce1b1b18c3c03cffdd516d54db808594b1262a716656e6"
+      },
+      {
+        "file": "18_五分钟演示动线.svg",
+        "sha256": "2d834bd9c677591ee62a695ae9d46165e93983881ecbc4e2f1208d609f2063bb"
+      },
+      {
+        "file": "19_首页导读.svg",
+        "sha256": "495502af6ccb45065c371bbeceb916faee312c7ea7ca461dc9b04f2496395951"
+      },
+      {
+        "file": "20_转账核对.svg",
+        "sha256": "95b07a628830152bd244287bc677d3c02af1503dfc81ef176949a55709598f95"
+      },
+      {
+        "file": "21_授权回执.svg",
+        "sha256": "ca5882bc4598e10e3052182074baed9f976fce8b4801504b373f49da9ca74f25"
+      },
+      {
+        "file": "22_完成度边界.svg",
+        "sha256": "d3a397460b451940ab25c2751ebc914a996177a391676b1338eb8f022f5017bd"
+      },
+      {
+        "file": "23_团队协作.svg",
+        "sha256": "0bed6648816fe9fd5c733aa5078b609832d9bf4faf04c643ea0490c27e92905f"
+      },
+      {
+        "file": "24_可信闭环.svg",
+        "sha256": "a5a291ca3fdaa74b96c79a6d47ae4819208d01e1027af44e7db5a6a14a53e582"
+      }
+    ]
+  },
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "warnings": 0,
+    "errors": 0
+  },
+  "issue_types": {},
+  "categories": {
+    "blocking": {
+      "count": 0,
+      "issues": []
+    },
+    "introduced": {
+      "count": 0,
+      "issues": []
+    },
+    "inherited": {
+      "count": 0,
+      "issues": []
+    },
+    "source-import": {
+      "count": 0,
+      "summary": {
+        "warning_count": 0,
+        "by_code": {}
+      }
+    }
+  },
+  "drift": {
+    "colors": {},
+    "fonts": {},
+    "sizes": {}
+  },
+  "carrier_receipt": {
+    "scope": "informational-not-a-quota",
+    "pages": 24,
+    "totals": {
+      "text_elements": 437,
+      "image_placements": 4,
+      "icons": 0,
+      "svg_geometry_elements": 159,
+      "preset_shapes": 0,
+      "page_frame_elements": 26,
+      "marker_uses": 5,
+      "inline_emphasis_runs": 3,
+      "gradient_uses": 32,
+      "filter_uses": 6,
+      "text_effects": 0
+    },
+    "pages_with": {
+      "images": 4,
+      "icons": 0,
+      "presets": 0,
+      "charts": 0,
+      "tables": 0,
+      "formulas": 0,
+      "inline_emphasis_runs": 3,
+      "gradient_uses": 24,
+      "filter_uses": 6,
+      "text_effects": 0
+    },
+    "relationship_pages": 21,
+    "geometry_elements": {
+      "circle": 34,
+      "ellipse": 2,
+      "line": 24,
+      "path": 0,
+      "polygon": 0,
+      "polyline": 0,
+      "rect": 99
+    },
+    "preset_names": {},
+    "native_objects": {
+      "chart": 0,
+      "formula_block": 0,
+      "formula_inline": 0,
+      "other": 0,
+      "table": 0
+    },
+    "image_page_max_frame_share_range": [
+      0.3164,
+      0.3752
+    ]
+  },
+  "project_issues": {
+    "template": [],
+    "animation": [],
+    "illustration": [],
+    "communication_trace": [],
+    "pptx_structure": []
+  },
+  "files": [
+    {
+      "file": "01_言行.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\01_言行.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 16,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 3,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 5,
+              "ellipse": 1,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 16,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "066a2e2324151adb7c959feb061614f2825f50970505ec98d026a8e8e6b4d763"
+    },
+    {
+      "file": "02_可信路径.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\02_可信路径.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 21,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 2,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 21,
+        "tspan_elements": 4
+      },
+      "passed": true,
+      "source_sha256": "5ab8ddca2b8790848e53a288382f6892a75ca40b9d4efb4a38ab37fa5fc64a22"
+    },
+    {
+      "file": "03_模型与执行.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\03_模型与执行.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 18,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 8,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 1
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 18,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "92d9f9c70155dfafbe21ee9b22ef3196cde4747d638ff0e77bfae18b0517d8e7"
+    },
+    {
+      "file": "04_六场景主干.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\04_六场景主干.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 19,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 8,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 19,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "fc01dcc4b5b80532e17939bea829d69f1f31a7c4674c94db7a318b0904a6cda0"
+    },
+    {
+      "file": "05_四层架构.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\05_四层架构.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 24,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 3
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 24,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "684dc6e7e482e73729ae463145c78e51763a241c6540fa2317410ecd55ceb2e3"
+    },
+    {
+      "file": "06_模型与在线证据.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\06_模型与在线证据.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 19,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 2,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 19,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "336e9549fa1a7bd584d99b5b28184c0f5e62c12d3bcd07ff493cc9f3195e0feb"
+    },
+    {
+      "file": "07_累计授权.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\07_累计授权.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 18,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 1,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 4,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 18,
+        "tspan_elements": 6
+      },
+      "passed": true,
+      "source_sha256": "531b89a0f2785ca009066501c7ebad5cb4b6e6888ee7602d55c7ff8719c6bbad"
+    },
+    {
+      "file": "08_五道防线.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\08_五道防线.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 25,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 25,
+        "tspan_elements": 11
+      },
+      "passed": true,
+      "source_sha256": "40873343b3e56712c62c9dbd4ce793f409122318814e599f73346b5f40df64dc"
+    },
+    {
+      "file": "09_业务与资金.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\09_业务与资金.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 18,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 2,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 18,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "2fd493deeb0e3e1e45f9c535e640f688adc68a3a806c8e7306abb491cc9d286d"
+    },
+    {
+      "file": "10_业务对象与边界.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\10_业务对象与边界.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 16,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 16,
+        "tspan_elements": 6
+      },
+      "passed": true,
+      "source_sha256": "6522eb74bd17d507a9d1e1724d6972ed9f556071351cd81d0aea0f746f15bb13"
+    },
+    {
+      "file": "11_转账流程.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\11_转账流程.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 24,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 1,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 4,
+              "circle": 6,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 24,
+        "tspan_elements": 4
+      },
+      "passed": true,
+      "source_sha256": "80971c89757b1364c137d43275b966584759d4f58fce89381848ecf54a6db85a"
+    },
+    {
+      "file": "12_账单解释.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\12_账单解释.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 16,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 1
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 16,
+        "tspan_elements": 8
+      },
+      "passed": true,
+      "source_sha256": "4a8bd036207b050efb9afb0ba756eab565e7e043b2c97b78aff8159982259ed6"
+    },
+    {
+      "file": "13_理财风险适配.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\13_理财风险适配.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 25,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 8,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 25,
+        "tspan_elements": 3
+      },
+      "passed": true,
+      "source_sha256": "8384503c45ea564fb4cd1e3ebfe2b2ef029cafd20e473ff02a625ee6be38d8e0"
+    },
+    {
+      "file": "14_卡片管理.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\14_卡片管理.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 11,
+          "images": {
+            "placements": 1,
+            "files": [
+              "image_5daba817b45aff1d.png"
+            ],
+            "max_frame_share": 0.3164
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 11,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "14018b38b0150a5778420f89125c31cc3aaaac852df495cdbf003753ad6abd4a"
+    },
+    {
+      "file": "15_订阅与生日.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\15_订阅与生日.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 22,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 4,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 22,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "4ca80cce52081f32ace8c865b757e53084b1f9f3bcffd1d269b9e2f4ea25b945"
+    },
+    {
+      "file": "16_验收证据.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\16_验收证据.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 24,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 4,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 24,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "a7c1c44429a35305904c583e642434631de9e81d446cc22ceadefdb8e08fb1ed"
+    },
+    {
+      "file": "17_演示与收尾.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\17_演示与收尾.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 11,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 2,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 11,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "fd1997e8f7b1ec1af4ce1b1b18c3c03cffdd516d54db808594b1262a716656e6"
+    },
+    {
+      "file": "18_五分钟演示动线.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\18_五分钟演示动线.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 27,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 27,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "2d834bd9c677591ee62a695ae9d46165e93983881ecbc4e2f1208d609f2063bb"
+    },
+    {
+      "file": "19_首页导读.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\19_首页导读.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 11,
+          "images": {
+            "placements": 1,
+            "files": [
+              "image_0e3ceb2a470bbfc4.png"
+            ],
+            "max_frame_share": 0.3164
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 11,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "495502af6ccb45065c371bbeceb916faee312c7ea7ca461dc9b04f2496395951"
+    },
+    {
+      "file": "20_转账核对.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\20_转账核对.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 11,
+          "images": {
+            "placements": 1,
+            "files": [
+              "image_643568a83421dd24.png"
+            ],
+            "max_frame_share": 0.3164
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 11,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "95b07a628830152bd244287bc677d3c02af1503dfc81ef176949a55709598f95"
+    },
+    {
+      "file": "21_授权回执.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\21_授权回执.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 13,
+          "images": {
+            "placements": 1,
+            "files": [
+              "image_f236390284a9e9df.jpg"
+            ],
+            "max_frame_share": 0.3752
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 13,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "ca5882bc4598e10e3052182074baed9f976fce8b4801504b373f49da9ca74f25"
+    },
+    {
+      "file": "22_完成度边界.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\22_完成度边界.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 10,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 4,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 10,
+        "tspan_elements": 13
+      },
+      "passed": true,
+      "source_sha256": "d3a397460b451940ab25c2751ebc914a996177a391676b1338eb8f022f5017bd"
+    },
+    {
+      "file": "23_团队协作.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\23_团队协作.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 25,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 1,
+            "gradient_uses": 1,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 25,
+        "tspan_elements": 16
+      },
+      "passed": true,
+      "source_sha256": "0bed6648816fe9fd5c733aa5078b609832d9bf4faf04c643ea0490c27e92905f"
+    },
+    {
+      "file": "24_可信闭环.svg",
+      "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\svg_output\\24_可信闭环.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 13,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 3,
+            "filter_uses": 1,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 1,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei, Arial, sans-serif"
+        ],
+        "text_elements": 13,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "a5a291ca3fdaa74b96c79a6d47ae4819208d01e1027af44e7db5a6a14a53e582"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "executor": "A/Codex收尾完整性复核",
+  "executor": "A/独立复核收尾完整性复核",
   "base_commit": "02fe7464c9b131a3b18722bd9df85a54227a0ee1",
   "head_unchanged": true,
   "baseline_files": 518,

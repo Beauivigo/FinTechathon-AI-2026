@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "name": "01_技术文档 unique file and hash",
+      "passed": true,
+      "details": {
+        "file": "速发贝_言行_技术文档.pdf",
+        "bytes": 825356,
+        "sha256": "9cce402aec3ccff1c1700d3811f3499e90addf741dbe6a0ae4c97c12431a0f4e"
+      }
+    },
+    {
+      "name": "01_技术文档 recorded size limit",
+      "passed": true,
+      "details": 50000000
+    },
+    {
+      "name": "02_答辩材料 unique file and hash",
+      "passed": true,
+      "details": {
+        "file": "速发贝_言行_答辩材料.pptx",
+        "bytes": 1668853,
+        "sha256": "4bf1a6372f96da0bc2a9b637bc552685eda72bd8d55acfbc32d92d52b3770e34"
+      }
+    },
+    {
+      "name": "02_答辩材料 recorded size limit",
+      "passed": true,
+      "details": 80000000
+    },
+    {
+      "name": "03_源代码与部署材料 unique file and hash",
+      "passed": true,
+      "details": {
+        "file": "速发贝_言行_源码与部署.zip",
+        "bytes": 65364916,
+        "sha256": "6708e0bea72e408bac6938a14a432291c5b65c432a7e064a2f51614cf2b29a20"
+      }
+    },
+    {
+      "name": "03_源代码与部署材料 recorded size limit",
+      "passed": true,
+      "details": 300000000
+    },
+    {
+      "name": "04_安全自评报告 unique file and hash",
+      "passed": true,
+      "details": {
+        "file": "速发贝_言行_安全自评报告.pdf",
+        "bytes": 808978,
+        "sha256": "8e15f700b098fecf316cb2921119f90140bab39f5daf8e65fc245411a5b7f642"
+      }
+    },
+    {
+      "name": "04_安全自评报告 recorded size limit",
+      "passed": true,
+      "details": 50000000
+    },
+    {
+      "name": "05_演示视频 unique file and hash",
+      "passed": true,
+      "details": {
+        "file": "速发贝_言行_演示视频.mp4",
+        "bytes": 41609323,
+        "sha256": "0c476f47d5ad3c2af85a99457d5c36bde1ef6e931fb788e105a9d0e393bab2a5"
+      }
+    },
+    {
+      "name": "five submission files",
+      "passed": true,
+      "details": 5
+    },
+    {
+      "name": "current delivery links exist",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "application source remains byte-identical to the 713-test run",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "passed": 12,
+  "failed": 0
+}

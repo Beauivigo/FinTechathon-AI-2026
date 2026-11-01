@@ -622,7 +622,7 @@ def base_record(mode, results, model_calls, *, ledger_before=None, ledger_after=
         sources, source_error = {}, type(exc).__name__ + ': ' + str(exc)[:200]
     return dict(
         mode=mode,
-        executor='A/Codex current closeout acceptance',
+        executor='A/review current closeout acceptance',
         generated_at=datetime.now(timezone.utc).isoformat(),
         fixture_clock=FIXTURE_NOW.isoformat() + ' (2026-10-26T11:00+08:00)',
         simulated_model=(mode == 'offline'),

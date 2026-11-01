@@ -1,0 +1,56 @@
+{
+  "pdf": {
+    "pixel_identical_to_previously_reviewed_pages": [
+      "pdf-pages/1/page-1.png",
+      "pdf-pages/1/page-2.png",
+      "pdf-pages/1/page-3.png",
+      "pdf-pages/1/page-6.png",
+      "pdf-pages/1/page-7.png",
+      "pdf-pages/1/page-8.png",
+      "pdf-pages/2/page-01.png",
+      "pdf-pages/2/page-02.png"
+    ],
+    "revised_pages_visually_reviewed": [
+      "pdf-pages/1/page-4.png",
+      "pdf-pages/1/page-5.png",
+      "pdf-pages/2/page-03.png",
+      "pdf-pages/2/page-04.png",
+      "pdf-pages/2/page-05.png",
+      "pdf-pages/2/page-06.png",
+      "pdf-pages/2/page-07.png",
+      "pdf-pages/2/page-08.png",
+      "pdf-pages/2/page-09.png",
+      "pdf-pages/2/page-10.png"
+    ]
+  },
+  "ppt": {
+    "pixel_identical_to_previously_reviewed_pages": [
+      "ppt-native/幻灯片1.PNG",
+      "ppt-native/幻灯片11.PNG",
+      "ppt-native/幻灯片12.PNG",
+      "ppt-native/幻灯片14.PNG",
+      "ppt-native/幻灯片15.PNG",
+      "ppt-native/幻灯片16.PNG",
+      "ppt-native/幻灯片17.PNG",
+      "ppt-native/幻灯片18.PNG",
+      "ppt-native/幻灯片19.PNG",
+      "ppt-native/幻灯片2.PNG",
+      "ppt-native/幻灯片20.PNG",
+      "ppt-native/幻灯片21.PNG",
+      "ppt-native/幻灯片22.PNG",
+      "ppt-native/幻灯片23.PNG",
+      "ppt-native/幻灯片24.PNG",
+      "ppt-native/幻灯片3.PNG",
+      "ppt-native/幻灯片4.PNG",
+      "ppt-native/幻灯片5.PNG",
+      "ppt-native/幻灯片6.PNG",
+      "ppt-native/幻灯片8.PNG",
+      "ppt-native/幻灯片9.PNG"
+    ],
+    "revised_pages_visually_reviewed": [
+      "ppt-native/幻灯片10.PNG",
+      "ppt-native/幻灯片13.PNG",
+      "ppt-native/幻灯片7.PNG"
+    ]
+  }
+}

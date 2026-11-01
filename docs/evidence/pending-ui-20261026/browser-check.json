@@ -1,5 +1,5 @@
 {
-  "executor": "Codex实际IAB浏览器",
+  "executor": "独立复核实际IAB浏览器",
   "url": "http://127.0.0.1:8517",
   "source_sha256": {
     "app/ui.py": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4",

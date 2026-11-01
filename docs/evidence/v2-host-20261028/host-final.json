@@ -1,5 +1,5 @@
 {
-  "executor": "Codex host independent acceptance",
+  "executor": "独立复核 host independent acceptance",
   "utc": "2026-10-28T16:16:25.993387+00:00",
   "version": "2.0.0",
   "full_tests": 713,

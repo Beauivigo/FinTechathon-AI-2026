@@ -25,7 +25,7 @@
         "part": "word/document.xml",
         "paragraph": 4,
         "before": "材料版本v0.5，2026年10月26日。核对时Git HEAD为d8ac0f4fa5eb1c13f98fad012240c8d2c40b07c9。具体源码、材料和验收以指纹清单对应；本次没有修改业务代码。v0.4及更早Word保留原时点。",
-        "after": "材料v0.6，2026年10月28日；基线b5b5733及已验收未提交改动。原DeepSeek Session与历史保留，Codex独立修正和验收。最终文件哈希及证据确定实际版本；v0.5和更早Word保留原时点。"
+        "after": "材料v0.6，2026年10月28日；基线b5b5733及已验收未提交改动。原DeepSeek Session与历史保留，独立修正和验收。最终文件哈希及证据确定实际版本；v0.5和更早Word保留原时点。"
       },
       {
         "part": "word/document.xml",

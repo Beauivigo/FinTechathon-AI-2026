@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent current UI smoke",
+  "executor": "独立复核 independent current UI smoke",
   "run": 30,
   "failures": 0,
   "errors": 0,

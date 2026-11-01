@@ -70,7 +70,7 @@ with TemporaryDirectory() as td:
         try:fn();record=dict(name=name,passed=True,balance_minor=money())
         except Exception as exc:record=dict(name=name,passed=False,error=type(exc).__name__+': '+str(exc))
         results.append(record);print(json.dumps(record,ensure_ascii=False),flush=True)
-        (HERE/'live-pages.json').write_text(json.dumps(dict(executor='Codex独立真实模型与页面验收',cases=results,transcript=transcript,
+        (HERE/'live-pages.json').write_text(json.dumps(dict(executor='独立真实模型与页面验收',cases=results,transcript=transcript,
             budget=json.loads(budget.LEDGER.read_text(encoding='utf-8')),source_sha256={p.relative_to(ROOT).as_posix():sha256(p.read_bytes()).hexdigest() for p in ROOT.rglob('*.py') if '.cache' not in p.relative_to(ROOT).parts},
             passed=all(r['passed'] for r in results),scope='真实DeepSeek、实际Streamlit、临时虚构账本与本机TOTP算法；不等于本人手机现场验收，未操作日常银行数据。'),ensure_ascii=False,indent=2),encoding='utf-8')
     with patch('app.demo.gateway',return_value=gw),patch('app.auth_ui.service',return_value=auth),patch('bank.seed.PROJECT_ROOT',data),patch('app.model_bank_panel.TrustedModelCaller',side_effect=caller):

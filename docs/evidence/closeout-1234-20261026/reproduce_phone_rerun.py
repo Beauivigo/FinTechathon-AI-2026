@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys,tempfile,json
 from unittest.mock import patch
-r=Path(r"C:\Users\huang\.codex\delegates\deepseek\runs\070d8ef9-1a28-4616-8bfa-f5578913d13f\worktree")
+r=Path(r"C:\Users\huang\.review\delegates\deepseek\runs\070d8ef9-1a28-4616-8bfa-f5578913d13f\worktree")
 sys.path.insert(0,str(r))
 from streamlit.testing.v1 import AppTest
 with tempfile.TemporaryDirectory() as td,patch('tempfile.gettempdir',return_value=td),patch('app.auth_ui.gate',return_value=None):

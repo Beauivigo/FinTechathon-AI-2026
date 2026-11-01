@@ -88,7 +88,7 @@ def main():
     clean_error=None
     try:clean=clean_start(out) if result.wasSuccessful() else []
     except Exception as exc:clean=[];clean_error=str(exc)
-    record=dict(executor='Codex independent acceptance',command='python -B -X utf8 scripts/verify_h_core.py',run=result.testsRun,
+    record=dict(executor='review independent acceptance',command='python -B -X utf8 scripts/verify_h_core.py',run=result.testsRun,
                 failures=len(result.failures),errors=len(result.errors),skipped=len(result.skipped),source_sha256=baseline,
                 source_unchanged=baseline==sources(),runtime_unchanged=fingerprint(runtime)==before[0],profile_unchanged=fingerprint(profile)==before[1],
                 clean_start=clean,clean_error=clean_error,real_http_blocked=True,phone_enrollment='Not performed by user; automated temporary enrollment is covered separately',

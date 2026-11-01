@@ -1,0 +1,733 @@
+{
+  "basis": "Final code bytes equal the actual tested ZIP extraction. Document link annotations and acceptance records are excluded from code comparison.",
+  "files": [
+    {
+      "path": "launcher.py",
+      "sha256": "4045d83885a8c613b0d62177a02d347211698c3b13223845d5b3562e00ecfe7a"
+    },
+    {
+      "path": "requirements-app.txt",
+      "sha256": "84308ea7c63109931f995ce2db40c006cdd25380043e7ad3adee853c9d4766fe"
+    },
+    {
+      "path": "requirements-materials.txt",
+      "sha256": "eee451bc515073078e47db74030514b68a2220a38cd3c1732e8576c155b2bd95"
+    },
+    {
+      "path": "启动银行助手.py",
+      "sha256": "2439b84644c57dd307d48f52414611a2868f9d160a6e54f752db504ae77b2f0d"
+    },
+    {
+      "path": ".streamlit/config.toml",
+      "sha256": "f5e914ccb1a9abf2a51324ca9bc4dfbf73aee38a23cc3293950c18b78962aa8b"
+    },
+    {
+      "path": "agent/controller.py",
+      "sha256": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231"
+    },
+    {
+      "path": "agent/demo_gateway.py",
+      "sha256": "3707e34fa001948ff994e2299382bafa43bc825ea70826788ae28fc0ca64ecf8"
+    },
+    {
+      "path": "agent/intent.py",
+      "sha256": "f3013001160984584c77e3cd1d2af64d3ecf4097a9a2a612d00bce4d5064daed"
+    },
+    {
+      "path": "agent/model_bank.py",
+      "sha256": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989"
+    },
+    {
+      "path": "agent/model_client.py",
+      "sha256": "503001481eb6c2f662e9fe3b37eb2a0b96758ce12a8e7519fd52a0c748d22607"
+    },
+    {
+      "path": "agent/model_credentials.py",
+      "sha256": "01d9025b73ca6ebe5d225924a08d0c486e3a4b2ecfb7871eea474834659e0c7c"
+    },
+    {
+      "path": "agent/model_dialogue.py",
+      "sha256": "067a3da82b8ca0c4071b0cbe0d6ef0659ac1bae7edcaa888568c84a8388fc047"
+    },
+    {
+      "path": "agent/model_providers.py",
+      "sha256": "c9445dfff3e107009ca97fe0728e4ee31d016f2199cd45379f77f37039c4bd32"
+    },
+    {
+      "path": "agent/model_runtime.py",
+      "sha256": "8655e77d2444a650c2cfbd8a48639cf89a17ca5dac5328b2b03a2cb925c6d801"
+    },
+    {
+      "path": "agent/model_safety.py",
+      "sha256": "24a9b4cba76b1a6d6293979da7abf84c5754962119e9dd99902a9133ff0602c9"
+    },
+    {
+      "path": "agent/routing.py",
+      "sha256": "a44ccf4b766e56cfbad73d1236e49d7e2aed28f98f727086c05d009e97a80937"
+    },
+    {
+      "path": "agent/__init__.py",
+      "sha256": "b3d6fcfaa8758553c002d1f8c4ed685ed9aeac774e5c9a9bcb8c0a38f7e12c26"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "6f1e4492514917e7ba993a168ebeedd8ed15dde4fdbf001ae82760b70396f4b9"
+    },
+    {
+      "path": "app/background_panel.py",
+      "sha256": "41bcb224109dbc83398b2fb2b78c02e6b01f622d5427f4b6d1b4dd9eb1504a48"
+    },
+    {
+      "path": "app/demo.py",
+      "sha256": "a8739f682e0ab6e3903f29eadaa0061a34c4e86ce42945eb38af218e6447c07e"
+    },
+    {
+      "path": "app/home_view.py",
+      "sha256": "c8671b9ff7ab77efcb1130276e6c595559e5cba8e5b2453093768521509f2e1c"
+    },
+    {
+      "path": "app/lifecycle_panel.py",
+      "sha256": "267e0d10e74b3f5c14f8ba731af4e18c20e8ee72c8e229697cfdf581fce472bf"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "d64b0778ec64624ad8f91846daf61169c1bf5ea3143718699b63d89a46ffc5ba"
+    },
+    {
+      "path": "app/merchant_schedule_panel.py",
+      "sha256": "692d87a8e20482c99b2168b0925424aed623d9dd97e6a317be0261490208e047"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "20a7864baba9bbd30e8c996d39696e4a5c74e1d77055ca6ae66599aa96a64c90"
+    },
+    {
+      "path": "app/model_settings.py",
+      "sha256": "2d061732ced3924f32b3e8142fed7bb3e14a9cb13d40f8a7e08b50b4a924d723"
+    },
+    {
+      "path": "app/model_view.py",
+      "sha256": "4a4b055ea13bfc638e0032e568be6d1c1390c765c0ac499e3d87f0e5eddb4192"
+    },
+    {
+      "path": "app/money.py",
+      "sha256": "d3d6c5bed6070f78f5c5724fd94d5cbdbb789ace6dc78c3279f1c003baf128ec"
+    },
+    {
+      "path": "app/onboarding.py",
+      "sha256": "550f9c747c9f39385bb6091f508bf2ddbba7a56c985bd77a29cf63c495004bac"
+    },
+    {
+      "path": "app/pending_view.py",
+      "sha256": "de80fbb27980a23ee9c1750433ec37a71349cb5075722448d31479909fcd8b7a"
+    },
+    {
+      "path": "app/phone_acceptance.py",
+      "sha256": "01d8d1bc94fb4157b48bd07cc5bdc3a4a14e8200ac965e86f0049da07ff6644c"
+    },
+    {
+      "path": "app/presentation.py",
+      "sha256": "fd6545d1dd0baedd752acebcf71c87e313fecdc51d1566bf32e186bc90cc223c"
+    },
+    {
+      "path": "app/routing_panel.py",
+      "sha256": "b128909750fd22f633e5b90375ee161fc6627e1cd0f3852f67b2951ebeaf8306"
+    },
+    {
+      "path": "app/saved_plan_view.py",
+      "sha256": "96c4f73c7b55458bef58a3aecea9a5fa4b4ccc981ef1c9bac8e1af8e05fd730a"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "4068a2788dd42335709b1d7edd07a63ac7d2f7e1bce0d4a92e407d587a585fcc"
+    },
+    {
+      "path": "app/visual.py",
+      "sha256": "005f8fe79870cfb4ef68432ad879db90b27253b7e52eadc5a81b66f10f5beeb1"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "f9dfd7a43aa5f53fa26935ad5488c428e82ab6e2cb3fb353a90a9cae684c69ce"
+    },
+    {
+      "path": "app/__init__.py",
+      "sha256": "e2676a295cae3a4036c8a558b72d01fb7eb4e5bafeaed6d63fda439417f65152"
+    },
+    {
+      "path": "bank/auth.py",
+      "sha256": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd"
+    },
+    {
+      "path": "bank/background.py",
+      "sha256": "6ddd9459e27f0dbaab101985907128845a8265fae0b4208595a3f6922aa92322"
+    },
+    {
+      "path": "bank/birthday.py",
+      "sha256": "7448b1d0770b8cd1a053f8843ba706cf3c2bbb771ad219fe5fdc02e8beb44718"
+    },
+    {
+      "path": "bank/budget.py",
+      "sha256": "fdb16a560f116b5ac457ec1274554b500027fa37693cea0f2778079b2c07456d"
+    },
+    {
+      "path": "bank/first_run.py",
+      "sha256": "49dcdadd5abf6c15597e90c3680bb41e3a4c6288f9547047627224dad9906554"
+    },
+    {
+      "path": "bank/gateway.py",
+      "sha256": "6618692e388b04b1a1735a80116a6ffad8699f3b9868f6096b6818f1a0665164"
+    },
+    {
+      "path": "bank/lifecycle.py",
+      "sha256": "8dabbeb2793fba4c5ac60406aec98dcd544029c2baa94182f1a19456cb5ac5ae"
+    },
+    {
+      "path": "bank/member_workflows.py",
+      "sha256": "9673f2e8ae057e859bdc8fea3897635bdde064023b01d8639c8d7d95951d3c0d"
+    },
+    {
+      "path": "bank/merchant.py",
+      "sha256": "4fe9f9ec93b50d9ecc2f516503cf8d93020ae1f9949c3c57a06709b10b513ebf"
+    },
+    {
+      "path": "bank/merchant_scheduler.py",
+      "sha256": "adb08ed072b5348aca44764ded77b8b3e6ccd5bf6514d3e564a8a4b9d889b5b9"
+    },
+    {
+      "path": "bank/plan_store.py",
+      "sha256": "63c1ca154856f63675500595cc670b96acf381850e1782dcfe71ae5774ffd71e"
+    },
+    {
+      "path": "bank/resource_labels.py",
+      "sha256": "438bde0238e44492170a0ea698b80ca124f7d65c03634cc4d1d0510355c41d03"
+    },
+    {
+      "path": "bank/scheduler.py",
+      "sha256": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921"
+    },
+    {
+      "path": "bank/seed.py",
+      "sha256": "7be0c8593df25d97fd238c26f967cc08eea495a71857703d53e50114951b768b"
+    },
+    {
+      "path": "bank/services.py",
+      "sha256": "81f0ac915eebe90cce39ef475c34984b4f7743523f60e14382590bd240f29566"
+    },
+    {
+      "path": "bank/store.py",
+      "sha256": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62"
+    },
+    {
+      "path": "bank/subscription_charge.py",
+      "sha256": "12eacf1e001969900e179d92a57a93bca815bc833a8dab5b06eb41f029f7a517"
+    },
+    {
+      "path": "bank/transfer.py",
+      "sha256": "928bbe19b5b650f7f9a1728aa4464f93eb54bcb7f67392fb726872fd2c4ee3b6"
+    },
+    {
+      "path": "bank/wealth.py",
+      "sha256": "0b62c144c766ca45e41dae51f34db79efa4362b012336ce4085d3292fd28ac1d"
+    },
+    {
+      "path": "bank/worker.py",
+      "sha256": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2"
+    },
+    {
+      "path": "bank/__init__.py",
+      "sha256": "a40e3932e5c29db82a20942c9da412d761bb28f332441223b846bfe875295b3a"
+    },
+    {
+      "path": "billing/__init__.py",
+      "sha256": "56d2ab30b0081777ee3032688e11588601d0d685a1efc96ac469b8a005ceede9"
+    },
+    {
+      "path": "card/__init__.py",
+      "sha256": "c90faef650847f6b0e3664013d7d94f752e6ef48fdedb10ebe8dd62bb765b48f"
+    },
+    {
+      "path": "examples/billing_demo.py",
+      "sha256": "c627eb44a6f714a64d616e4150f89166a54de5ccc5ac453298518d2c0fb84596"
+    },
+    {
+      "path": "examples/contract_demo.py",
+      "sha256": "3d0a3c2e2ce89fb2bbdb3e00e91c9832dc5dc48d8af1ca219f8ee3b077746daa"
+    },
+    {
+      "path": "examples/five_step_acceptance.py",
+      "sha256": "6b01a9626a3288b1bdae588bf98b52c69edfa0336b193b20eba8682d667fdcac"
+    },
+    {
+      "path": "examples/funds_demo.py",
+      "sha256": "11502ed7aef2af2cb4200cad82051f97e882b983a575f48beb2842b62412ce61"
+    },
+    {
+      "path": "examples/gateway_demo.py",
+      "sha256": "b3cfb3c56d2e677a5791def932fca99714f15da44af0697524df6c54c59b7d90"
+    },
+    {
+      "path": "examples/module_examples.py",
+      "sha256": "4c5b5f605ae83259763f1236b1484e099ab64d9c146c7696b6192edc31418d17"
+    },
+    {
+      "path": "examples/service_examples.py",
+      "sha256": "4e70289dbfbcfe93cd513f85e22174081aecdaafbc9ae52fa1fb756eba5410e4"
+    },
+    {
+      "path": "examples/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "material_check/approved.py",
+      "sha256": "28eb39b260873074583edad63dd36c7f92233cffb2c38ea52348508bfec3b1fe"
+    },
+    {
+      "path": "material_check/checks.py",
+      "sha256": "d19d290256236cf24f83ca32bd6497e897b68430b10266718c6291a930ba457a"
+    },
+    {
+      "path": "material_check/reader.py",
+      "sha256": "15e186191c8606238ac345ece638293b97820d15383e1e8e71c24744972e7228"
+    },
+    {
+      "path": "material_check/reconcile.py",
+      "sha256": "125a361e17b912c1123540459dd23bdb7154ce8c844e17fa1da79a3671326d24"
+    },
+    {
+      "path": "material_check/report.py",
+      "sha256": "753dad4e57c07e0e3a99ad0ae05366be1a323776e56bb818cb4f8a506992b239"
+    },
+    {
+      "path": "material_check/__init__.py",
+      "sha256": "81dfc919f906e3871870c659e0404771605f72b6cfcbe05666a46d23677c2663"
+    },
+    {
+      "path": "material_check/__main__.py",
+      "sha256": "9ce4c6faa73f36bbabbcf9a94b8e54b6442305890e5791a36273c09a7337b077"
+    },
+    {
+      "path": "scenario/__init__.py",
+      "sha256": "7b5f9d5cb2fa2217e9772e8c3adb833f0ca795179d971eb42ba6dd00ef650462"
+    },
+    {
+      "path": "scripts/desktop_pet_model_key.cjs",
+      "sha256": "8b61c4ea1197b136a0f79609477f3c0228e6487a3839760d64521434f99b2f9b"
+    },
+    {
+      "path": "scripts/evaluate_closeout_model.py",
+      "sha256": "c8118615fd6f030c17f1339d6309c3bee84c5462f4ca8ed78953625e3012abbf"
+    },
+    {
+      "path": "shared/adapters.py",
+      "sha256": "e621f3e4ec3efdb27e234d96c454ec58b1093dba837a1b8c57b8cd5994bbb7ba"
+    },
+    {
+      "path": "shared/contracts.py",
+      "sha256": "6fdf4b16ef8827b8905eafb718926e52022bce8b5b28a3950e15be719ab2ec88"
+    },
+    {
+      "path": "shared/policy.py",
+      "sha256": "8c5ce6b8390549585e7a67a32832ad524d9132c2568eb1c56649d09a59e0606d"
+    },
+    {
+      "path": "shared/services.py",
+      "sha256": "03871dd18f76d4a13d24fd81daf6fd7ca33311331eb6b0ce6d844a8c9acbd846"
+    },
+    {
+      "path": "shared/__init__.py",
+      "sha256": "335d0627d5783d6bb957fcf0cd41376edfa9bdb7f411a3c6d02d159fc70d4612"
+    },
+    {
+      "path": "subscription/__init__.py",
+      "sha256": "0d19bda24621f82139c838d34062b691befdfe2d4acf89e589236092343bb805"
+    },
+    {
+      "path": "tests/test_agent.py",
+      "sha256": "25a4291d29544373042c3d31fb36fa21b0c212435349f6a5a02a21fecca725ff"
+    },
+    {
+      "path": "tests/test_app.py",
+      "sha256": "2bf46fc534040e4eb6fe7f5ebf2428c75de96033ec047675784e97c2b13dc9dd"
+    },
+    {
+      "path": "tests/test_audit_fix_20261026.py",
+      "sha256": "f619c7d188f517b4f43f390bd1d5ba56511094ee898a4b2d1a34bc97277c7d18"
+    },
+    {
+      "path": "tests/test_audit_repairs.py",
+      "sha256": "30c7d7e34da27d0b6fcd4e4e835e4eb8ae3efba89597714a06f1c31f6c046006"
+    },
+    {
+      "path": "tests/test_authorization_display.py",
+      "sha256": "4b588e84086c6cdd2b14ad5551aebe698d4b29028702527301d6c078d0427a0b"
+    },
+    {
+      "path": "tests/test_bank.py",
+      "sha256": "8047af91a0c7d183931c6a64b5119e3e8dafb44ab346567ca1fb203185b591ce"
+    },
+    {
+      "path": "tests/test_bank_conventions.py",
+      "sha256": "0444cdf9b05f7cacb4e23e7e3f9be3d17e7b7bd4731f3eef57654804dbbe4975"
+    },
+    {
+      "path": "tests/test_billing.py",
+      "sha256": "f37ac7bc2f6a56a8de7184cb17056eb5fd50b6c7759cbe5cd75f96e7eb6cb87a"
+    },
+    {
+      "path": "tests/test_billing_fixture.py",
+      "sha256": "cf6ca246220e8aade31749adb8f88df3d57cfaf4533675ea86359e40d89f3d40"
+    },
+    {
+      "path": "tests/test_billing_gateway.py",
+      "sha256": "eb0e11846ec04e884469a0da4308f6b767a9c4a568bd24488033545faa407225"
+    },
+    {
+      "path": "tests/test_billing_page.py",
+      "sha256": "4de9ae2e73af2edd9845a8b8965901dbec59d9b4de966fda9630261ee6c9486e"
+    },
+    {
+      "path": "tests/test_boundaries.py",
+      "sha256": "cdb265d05e34636c314ea24685d10de2e817a4a445cf44cf6bcf06ee552d5028"
+    },
+    {
+      "path": "tests/test_budget.py",
+      "sha256": "766099ac3960849eb352094883961e67d2a58e36b980d57ae67f0cdf5e43c576"
+    },
+    {
+      "path": "tests/test_cards.py",
+      "sha256": "2e8b4ff0438c398e3ac2df69dace82987f601f7584c4a33aada0ce1422e9f59b"
+    },
+    {
+      "path": "tests/test_card_limits.py",
+      "sha256": "01f59687661d630dc371c427ee44458c9b92ad3b35b753e2e6518e4d728c72c3"
+    },
+    {
+      "path": "tests/test_closeout_acceptance.py",
+      "sha256": "009daca79a34209d48932c9b9e90dd9e44073d1f78ab9b480464c585c9182a5f"
+    },
+    {
+      "path": "tests/test_closeout_tooling_20261026.py",
+      "sha256": "a0c1f16b6e1a793f98775a8784a796f7138fb49390a9d6334ccff257b4e9cc69"
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "sha256": "22168b8a9e837453d8a0a674ff6a215b5ef78dde55a4d4c0240773bcba2a7d4f"
+    },
+    {
+      "path": "tests/test_delivery_pages.py",
+      "sha256": "0e2d415cde0b2e8f1dcdc5be61bb88f53f1e97135939ca113304104e08cea6e5"
+    },
+    {
+      "path": "tests/test_funds.py",
+      "sha256": "789536d2f916dc92add6a8d794a52a7bfe7e9a988fd3dec212f9143694b64b62"
+    },
+    {
+      "path": "tests/test_gateway.py",
+      "sha256": "46461f0ba6cb7fd6c6b338118177b11972b5e8e00612213749b9954b471fb828"
+    },
+    {
+      "path": "tests/test_gateway_extension.py",
+      "sha256": "592d68d3f23818f70b77a81a447384e0db72f7aef1603a20fa690e1133f4ab26"
+    },
+    {
+      "path": "tests/test_home_navigation_acceptance.py",
+      "sha256": "3e0a16dd7fba74e9947990f9c5d87361b9370d12a7054adc7182de9671730de9"
+    },
+    {
+      "path": "tests/test_home_view.py",
+      "sha256": "1d298eb6d85448d5e2210fd08391b6331e35e74276ce04efc65c9e673bf70327"
+    },
+    {
+      "path": "tests/test_h_pages.py",
+      "sha256": "3495db6d0c495bfe05f37c1bca3319ffa60495936c2d5077d6daf4a72cccbd13"
+    },
+    {
+      "path": "tests/test_material_access.py",
+      "sha256": "8331442d3abe1e4e1f4ce8e439ae1b4d28e6a0c99e6b9d253be620261a86166b"
+    },
+    {
+      "path": "tests/test_material_checks.py",
+      "sha256": "5d83074afed5b8b85647fbc1dcefed0610b60b0110a6d1eb6655cd68b11eae8e"
+    },
+    {
+      "path": "tests/test_material_reader.py",
+      "sha256": "4d361fbdbbf51a6052ea7a513c88e22cd6f17b03c13858032aeb32af16863c29"
+    },
+    {
+      "path": "tests/test_material_reconcile.py",
+      "sha256": "e0e69915d91666f749ee9380fee47dba471e463ff3b09fe44092422924a63028"
+    },
+    {
+      "path": "tests/test_material_report.py",
+      "sha256": "15867400344fafd33a04b0e44ee24270253969c5ff74889d1dd16b718e0c93a5"
+    },
+    {
+      "path": "tests/test_material_v12.py",
+      "sha256": "f4c2b7c5bc28fc30a0c1f9f17daa055a373c00a0b745c98dc13339dc8ea66740"
+    },
+    {
+      "path": "tests/test_member_workflows.py",
+      "sha256": "84ec9e40b9ff6622870b2358ccbbd750f7391618511fe29f3ac7fe43a47bcb91"
+    },
+    {
+      "path": "tests/test_merchant.py",
+      "sha256": "bcb11a967f666bd8683d24943db5720ce21eee41f8046445c098a713df3fea99"
+    },
+    {
+      "path": "tests/test_merchant_schedule_page.py",
+      "sha256": "da79d018adc9c30d424905fb97dda38b3e997beedb0354b5fa710c6b9d1a58d2"
+    },
+    {
+      "path": "tests/test_merchant_schedule_panel.py",
+      "sha256": "ee7827065659a0ba596eebdcb4ec294968a4718187cee71a7cc25d7b8867d6f0"
+    },
+    {
+      "path": "tests/test_merchant_scheduling.py",
+      "sha256": "4cdd7d2e8be901609b689827f6bfd571194e91a3a7b8358a5559ec500461917d"
+    },
+    {
+      "path": "tests/test_model_bank.py",
+      "sha256": "4dcfb054013c8ed64cb8c12845192fe902f8610d01cf3bbff59a761cbd89d2bb"
+    },
+    {
+      "path": "tests/test_model_dialogue.py",
+      "sha256": "e57f19cf1af429fa4d28ca5c37aa623b50ba11c53a14c0b48153fe3adf31c917"
+    },
+    {
+      "path": "tests/test_model_page_acceptance.py",
+      "sha256": "0b2499f5ec22e97a621f63fe867dc818dcdefdbcc744f0a71b9f4c33aa9fbe22"
+    },
+    {
+      "path": "tests/test_model_providers.py",
+      "sha256": "50f702df97eb0fbb560ea3248d519c24f5bb08bf87e5b1fc11cc0a3b98ef3479"
+    },
+    {
+      "path": "tests/test_model_security.py",
+      "sha256": "b49434b40c0972cf9eecac4b91689c0e05786b2bb2813dafe6cba1c028aff4f4"
+    },
+    {
+      "path": "tests/test_model_settings_acceptance.py",
+      "sha256": "38d989fdb270e6887e78deccea0b32a269f26b749005a4f0abcd55a1e1b319a8"
+    },
+    {
+      "path": "tests/test_model_transport.py",
+      "sha256": "1887c969a307a0a13d08a83a2c11b014621cd86e8844c70b3320688f12cdfadf"
+    },
+    {
+      "path": "tests/test_onboarding.py",
+      "sha256": "54a1deebf231595add834ec26b9c53a40a61e0b32b44d17ab84c74bd5e57987e"
+    },
+    {
+      "path": "tests/test_pending_resolution.py",
+      "sha256": "3f747b8547e9fe8b8589f7c7f30169c5491d2549bebf49156d57162acb85d835"
+    },
+    {
+      "path": "tests/test_plan_persistence.py",
+      "sha256": "ca255fd9884f54973437abde94b7a253c042165b12f7012f2b6d779111d94c2a"
+    },
+    {
+      "path": "tests/test_real_auth.py",
+      "sha256": "e641d5a1f385727a1993419199d89f5a5f525ad3296497f871d1873dbeeab7cc"
+    },
+    {
+      "path": "tests/test_recovery.py",
+      "sha256": "fc8a9d052ebcbc5dd606175b9b22384ccd3e20cbacff0d1ed7f9cade1e8d95c9"
+    },
+    {
+      "path": "tests/test_release_materials.py",
+      "sha256": "66bb88494f5b5877f0b464362adbde360777beffceb2c66227c637cb9f6ee59e"
+    },
+    {
+      "path": "tests/test_review_funds.py",
+      "sha256": "d56c8544bf305daa4278738b28d3605b084d3a192a0160b831564a5935ae859a"
+    },
+    {
+      "path": "tests/test_review_page_acceptance.py",
+      "sha256": "5046225eb841374b8bd114eacfec5475db0898146fb4cecbdbb2a900e1113b27"
+    },
+    {
+      "path": "tests/test_review_routing_ui.py",
+      "sha256": "ad36e1b31f340f7bcc3caf0dbe0c5013ba6b3fdad9cfe2db943c1c53fa0cb4a7"
+    },
+    {
+      "path": "tests/test_review_ux_final.py",
+      "sha256": "70cb10fd6565bbca0ebfad902a32999fb5832cd4741595ccc9c1314b4ed18af8"
+    },
+    {
+      "path": "tests/test_routing_acceptance.py",
+      "sha256": "145bf95af6a09dd680c86fe31d3336fdffef7345db0375e2f0c253e33f2f9c28"
+    },
+    {
+      "path": "tests/test_routing_page_acceptance.py",
+      "sha256": "888008940b2785f30da07c8fbcc14b138e2b59316c903dca54b4feda0a187c8d"
+    },
+    {
+      "path": "tests/test_scheduling.py",
+      "sha256": "5b10ac1a7ae7219dcbf0841591c368727f9ee8228404b95304f3ac9f3e155eca"
+    },
+    {
+      "path": "tests/test_services.py",
+      "sha256": "30004f5ccc95aaa1b5265b9eb847cf45b76a6dd804c701e6a88b6ca9dd9c378c"
+    },
+    {
+      "path": "tests/test_six_scenarios.py",
+      "sha256": "c79c115b890675b62a6d2d1f9ce33e000adad21dbec8d8b4246190050c78187e"
+    },
+    {
+      "path": "tests/test_split.py",
+      "sha256": "db005b6c5e269f23b9c1a432d60037a6e2f6c26def23b7b5ae151b97d37d4c3e"
+    },
+    {
+      "path": "tests/test_subscriptions.py",
+      "sha256": "7ff907ede0c989b623142c9949904b7e8ce7e1a14273714f06f35f9966fc49d2"
+    },
+    {
+      "path": "tests/test_subscription_charge.py",
+      "sha256": "d9187f5aa677c4b63a6f878919e3c249bb824b229f2933f989ba724c1b28e050"
+    },
+    {
+      "path": "tests/test_subscription_scan.py",
+      "sha256": "e8bd45c9d7af842366cdb3c57a5b445a39d80991e42c77f923cfad01d731353a"
+    },
+    {
+      "path": "tests/test_u1_setup.py",
+      "sha256": "272f88dc84ea9ccc8d7c052e21c26b740facae4ff2d513fcd630f2860821ce92"
+    },
+    {
+      "path": "tests/test_u2_flows.py",
+      "sha256": "8fdd827400ebb136997ce4d6528dc159707da3a00308f32878e91cb390f0ec3f"
+    },
+    {
+      "path": "tests/test_u3_background.py",
+      "sha256": "cfaa8865cd7107e2b17f550a8e9052afb04b5bb1a047895a58b898058854cae2"
+    },
+    {
+      "path": "tests/test_u4_launcher.py",
+      "sha256": "543e699469fb0ddd0bb71203beadfd724cb14b40fc05965f32a3656ae877d7f0"
+    },
+    {
+      "path": "tests/test_ui_components.py",
+      "sha256": "19a09fd6d0b26ed52c779a81d4cc9d6a2131113a7a2de3355ff753577002610a"
+    },
+    {
+      "path": "tests/test_ui_demo_acceptance.py",
+      "sha256": "1c99811f70bebe0456776da80de37d234ee36b020260384b2b71572b6ec4ca54"
+    },
+    {
+      "path": "tests/test_ux_final.py",
+      "sha256": "9536b6f0b6a04e54bba91a85b242ba59e9da6e7bf5cd9d27967ddf99ee626a94"
+    },
+    {
+      "path": "tests/test_u_stage2_acceptance.py",
+      "sha256": "7f39fc8c8eef23dfe73b399f14dd1d69ab5427385cc7f89968415d94239a184a"
+    },
+    {
+      "path": "tests/test_u_stage3_acceptance.py",
+      "sha256": "b3f3c8438df3262f4ebcab422c14a823e2995d387923cac5954729947f61f05f"
+    },
+    {
+      "path": "tests/test_visual_system.py",
+      "sha256": "13d56c08cec4d55010fbc166cb010aba49ebf050b3d4f800841d8aca51980bb0"
+    },
+    {
+      "path": "tests/test_wealth.py",
+      "sha256": "cb6a11c8ec6206a9e2355f7d96872c536cb6075c34f592f1c9ff38cfacc9335b"
+    },
+    {
+      "path": "tests/test_wealth_assess.py",
+      "sha256": "c9d5b9bdce5e9451e625fe0f47caa193a916f7c32bbdd96da2ea1ce25b6a46fd"
+    },
+    {
+      "path": "tests/test_wealth_purchase.py",
+      "sha256": "4df88916b19914e7fe7a36f4283a2a2e2fed6049ac48bd479bc69783cf7a9f04"
+    },
+    {
+      "path": "tests/test_wealth_redeem.py",
+      "sha256": "989ada455a80cf15836d9e706f604973493611926902c791c0ccb8d54bf33710"
+    },
+    {
+      "path": "tests/test_worker_birthday.py",
+      "sha256": "f60dd81c7437260a27ee07c4a3bc6c3fe2790a8f52634d7043c7bfc2ec240dd9"
+    },
+    {
+      "path": "tests/ui_support.py",
+      "sha256": "456fb0f5ba41377e5f106e3bf824d412afb56b24a640e81d657f852cd420b14c"
+    },
+    {
+      "path": "wealth/catalog.py",
+      "sha256": "4fb01ad7acf4edd2c39d09a7aa6ec4b28ed14dfa3a8e29f98e8c2f9dd8e3f034"
+    },
+    {
+      "path": "wealth/questionnaire.py",
+      "sha256": "594877c4cbf757be89fdf9dfdd1f3dbff483d4e134bf38cd953fe277a24ee882"
+    },
+    {
+      "path": "wealth/__init__.py",
+      "sha256": "35478296e35374dfe008e76ba518eafa1cdd7076ec9477bf622324f1f15c8db6"
+    },
+    {
+      "path": "win_installer/build_installer.py",
+      "sha256": "f0fe955fda638d07c896623ad6ec7cd8d036963e5da26d909816853faf7bea85"
+    },
+    {
+      "path": "win_installer/test_installer.py",
+      "sha256": "9d13f6c34a21fdaf8ffcdaed6c5d61167606bee898782bc8296f4e7f2cc63ca1"
+    },
+    {
+      "path": "win_installer/test_runtime_paths.py",
+      "sha256": "a7e46de6f26ad978ef91eae7220762eb0b0974cf4cda93d796792f8c9db64698"
+    },
+    {
+      "path": "win_installer/verify_windows.py",
+      "sha256": "eacb34d07a368c395827e686d72e24d95804837b65096e3e633a48fb17a7f006"
+    },
+    {
+      "path": "win_installer/__init__.py",
+      "sha256": "82b8a5d767a024d53a9d21be8fd56c86315f357bcf9f6f8a0b2cfc00dadfb045"
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "sha256": "f339f62ae25a67adddd58ddc2fba8fe913ecb25e512710f7b8794967af0d9c6f"
+    },
+    {
+      "path": "app/pages/10_我的.py",
+      "sha256": "289dbd0d4cba42a5f0c077c162ca96e145ddbdcc933d575a24c2b83e68a4b1db"
+    },
+    {
+      "path": "app/pages/1_资料账单.py",
+      "sha256": "87325b2b9de0fc4551620e7a9940ce864ac7f8e6abf30a9701fd02ad1e0f79d3"
+    },
+    {
+      "path": "app/pages/2_产品对比.py",
+      "sha256": "964826f86ead0bfe5a41ef68238850454c8aea11098b295bd007614fbb2e4be5"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "sha256": "3e13ed9781b5b22b48d067c71f887968c3b427ea5f4a10d76d4f7c5215f20f31"
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "sha256": "0c30a5578978996de122fbe90e6a719a50a2e941aa9eec74e45ae8ee4667fdf5"
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "sha256": "0a1647c2691704e45a78711706e8a2a5498f404c0937bca55155287b60b64f69"
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "sha256": "9feb90d06b2ae4b0daa4f0b5c31ee224b9ece10201a29c08da92e38d151608eb"
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "sha256": "5ff44f7aa5aaf2969063e17b92ec5dab512e96258ca999703095eaca422afc10"
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "sha256": "8d38870fe21b5ed29b0628bade693e691079f2f200430563ea0ffd68bddbb348"
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "sha256": "a8a163851a9a047a5ef1426292e03d866065e9a975ad67110ba837157e114cff"
+    }
+  ]
+}

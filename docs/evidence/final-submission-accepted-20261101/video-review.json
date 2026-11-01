@@ -1,0 +1,40 @@
+{
+  "executor": "Codex",
+  "finalized_utc": "2026-11-01T07:50:49.567878+00:00",
+  "file": "速发贝_言行_参赛提交材料_20261101/05_演示视频/速发贝_言行_演示视频.mp4",
+  "sha256": "0c476f47d5ad3c2af85a99457d5c36bde1ef6e931fb788e105a9d0e393bab2a5",
+  "bytes": 41609323,
+  "duration_seconds": 170.0,
+  "frames": 5100,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "audio_rate_hz": 48000,
+  "audio_channels": 2,
+  "video_checks_passed": 41,
+  "video_checks_failed": 0,
+  "independent_checks_passed": 31,
+  "independent_checks_failed": 0,
+  "musical_actions": 79,
+  "max_beat_frame_error_ms": 16.145000000022947,
+  "sfx_events": 86,
+  "integrated_loudness_lufs": -14.01,
+  "true_peak_dbtp": -4.21,
+  "original_music_sha256": "431eeecb67a7bbd1bb13f990a1378e0563d9454fa6f595912081bc975f118f87",
+  "scene_review": [
+    "连续转账与累计",
+    "毛支出与退款分列",
+    "风险尺与本人验证",
+    "同一挂失卡拒绝支付",
+    "周期记录与订阅候选",
+    "生日预览到保存待办",
+    "独立历史原单查询",
+    "结尾金额保持一致"
+  ],
+  "scope": "本地模拟展示视频；不代表真实银行、商户、资金或本人手机验收。",
+  "passed": true
+}

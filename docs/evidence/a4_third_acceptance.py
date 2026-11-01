@@ -1,4 +1,4 @@
-"""Codex 验收包装：复用项目验收器，独立命名证据，不覆盖历史 S3 记录。"""
+"""review 验收包装：复用项目验收器，独立命名证据，不覆盖历史 S3 记录。"""
 from pathlib import Path
 import json
 import subprocess

@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "command": "python -B -X utf8 scripts/verify_ui_redesign.py",
   "run": 554,
   "failures": 0,

@@ -1,4 +1,4 @@
-"""Codex独立对话验收；假模型只用于离线边界，不计真实模型通过。"""
+"""review独立对话验收；假模型只用于离线边界，不计真实模型通过。"""
 from copy import deepcopy
 import json
 import unittest

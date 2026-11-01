@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-30",
+  "reviewer": "独立复核",
+  "status": "passed",
+  "source_commit": "e555721b4be4e8674ef56d9ec80b1e10487d5116",
+  "output_file": "参赛材料_Word_2026-10-24/言行_FinTechathon_2026_勘误与视觉升级版.pptx",
+  "output_sha256": "98e5e1b006a1bb031d9fbb996c4a6efcb76880280df8a0f3ce2e62c57c179e94",
+  "output_bytes": 1671933,
+  "source_original_hashes_unchanged": {
+    "言行_FinTechathon_2026_最终版.pptx": "e0649077bbc1d61fb2b2b3095683adc65789a2bdc4edbe02d97463e7eba33e99",
+    "PPT勘误_言行_FinTechathon_2026.docx": "63133d84411cec4480256409c17616c1a2cc4aa04af274ab004b7c711968a30a"
+  },
+  "slides": 24,
+  "speaker_notes": 24,
+  "aspect_ratio": "16:9",
+  "native_editable_shapes": 572,
+  "native_text_runs": 521,
+  "native_groups": 178,
+  "screenshots": 4,
+  "screenshot_sha256_unchanged": {
+    "ppt/media/image_0e3ceb2a470bbfc4.png": "0e3ceb2a470bbfc48b71f7139bab3610aabe2d48fc578fbcb93e40974878ab00",
+    "ppt/media/image_5daba817b45aff1d.png": "5daba817b45aff1d1529fe56ce8ce2317b1c4abe9774f622e6ee8b52062bb1a5",
+    "ppt/media/image_5ed948424c35c0a3.jpg": "5ed948424c35c0a387957f468ab56f131bb20a307cddab89aa1d58ee9750589a",
+    "ppt/media/image_643568a83421dd24.png": "643568a83421dd2473724e3a3e47b101f7eeb28bc01c11c25cd26497d2f47c64"
+  },
+  "external_relationships": 0,
+  "transition": "fade, 0.4s; no object animation, sound or auto-advance",
+  "svg_quality": {
+    "slides_passed": 24,
+    "errors": 0,
+    "warnings": 0
+  },
+  "pptx_postflight": "passed",
+  "native_renderer": {
+    "slides": 24,
+    "width_pt": 960.0,
+    "height_pt": 540.0,
+    "renderer": "Microsoft PowerPoint 15.0",
+    "output": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\optimized-render",
+    "png_count": 24
+  },
+  "visual_review": {
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "method": "Viewed native PowerPoint exports in six 2x2 contact sheets; focused full-size checks include slides 7 and 21",
+    "result": "No visible clipping, overlap, unreadable body text or misaligned page structure found"
+  },
+  "fresh_offline_targeted_tests": 57,
+  "historical_v2_regression_count_not_rerun": 713,
+  "corrections": [
+    "PPT-30-01",
+    "PPT-30-02",
+    "PPT-30-03",
+    "PPT-30-04",
+    "PPT-30-05",
+    "PPT-30-06",
+    "PPT-30-07"
+  ],
+  "limitations": [
+    "Names retained from the provided deck; official registration roster not available for independent cross-check",
+    "No new real-bank, personal-phone, second-provider or production validation",
+    "Optional HTML preview unavailable because Flask was absent; actual Microsoft PowerPoint exports were reviewed instead"
+  ]
+}

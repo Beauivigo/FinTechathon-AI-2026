@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-10-26T01:05:22.694223+08:00",
-  "executor": "A / Codex",
+  "executor": "A / 独立复核",
   "material_version": "v0.3",
   "scope": "Project audit follow-up and documentation correction only. New defects were reproduced, not repaired. No application source implementation edits.",
   "base_commit": "62aee8dd2e7b29b5662009b7a41f9362dd1395b4",

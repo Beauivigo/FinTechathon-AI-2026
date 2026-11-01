@@ -35,12 +35,12 @@
     {
       "name": "nsis compile",
       "command": "makensis 3.12 (i386)",
-      "result": "BLOCKED: [WinError 623] invalid system DLL relocation when launching 32-bit makensis in this AppContainer; no installer generated, left to Codex host build"
+      "result": "BLOCKED: [WinError 623] invalid system DLL relocation when launching 32-bit makensis in this AppContainer; no installer generated, left to 独立复核 host build"
     },
     {
       "name": "install/upgrade/uninstall",
       "command": "win_installer/verify_windows.py (needs real installer + host)",
-      "result": "NOT RUN in sandbox; Codex acceptance"
+      "result": "NOT RUN in sandbox; 独立复核 acceptance"
     },
     {
       "name": "full business regression / browser",
@@ -98,8 +98,8 @@
     "browser visual acceptance",
     "full suite counts for 2.0.0"
   ],
-  "next_owner": "Codex final acceptance: build installer with NSIS on host, run verify_windows install -> start -> stop -> upgrade -> start -> stop -> uninstall, browser check, then commit/tag/Release upload",
+  "next_owner": "独立复核 final acceptance: build installer with NSIS on host, run verify_windows install -> start -> stop -> upgrade -> start -> stop -> uninstall, browser check, then commit/tag/Release upload",
   "model_reported_checked_at_utc": "2026-10-28T16:00:00+00:00",
-  "codex_recorded_at_utc": "2026-10-28T15:53:24.590387+00:00",
-  "timing_note": "Model execution timestamp was not verified; retained as reported only. Codex host results are independent."
+  "review_recorded_at_utc": "2026-10-28T15:53:24.590387+00:00",
+  "timing_note": "Model execution timestamp was not verified; retained as reported only. 独立复核 host results are independent."
 }

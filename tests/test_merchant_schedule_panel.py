@@ -1,4 +1,4 @@
-"""Codex真实Streamlit验收；可指定隔离worktree组件，不采用代理stub结果。"""
+"""review真实Streamlit验收；可指定隔离worktree组件，不采用代理stub结果。"""
 from datetime import date, time
 from pathlib import Path
 import os

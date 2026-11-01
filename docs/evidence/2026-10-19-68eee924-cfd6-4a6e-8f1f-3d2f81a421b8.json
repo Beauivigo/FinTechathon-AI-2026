@@ -1,5 +1,5 @@
 {
-  "reviewer": "Codex",
+  "reviewer": "独立复核",
   "status": "rejected",
   "run_id": "68eee924-cfd6-4a6e-8f1f-3d2f81a421b8",
   "commands": [
@@ -12,7 +12,7 @@
     }
   ],
   "inspectedFileHashes": {
-    "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\68eee924-cfd6-4a6e-8f1f-3d2f81a421b8\\worktree\\agent\\routing.py": "dad2b4bb3b9e15fb57ed8115f899f02c3471fbf27873af0ef1eea03c538f6371"
+    "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\68eee924-cfd6-4a6e-8f1f-3d2f81a421b8\\worktree\\agent\\routing.py": "dad2b4bb3b9e15fb57ed8115f899f02c3471fbf27873af0ef1eea03c538f6371"
   },
   "acceptanceHashes": {
     "tests\\test_routing_acceptance.py": "f147da8387864c6e6e9853ec43b3ed7091f44926be1ddd83620f311d56e335b6",

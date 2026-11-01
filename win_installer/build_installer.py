@@ -922,7 +922,7 @@ def build_installer(config):
             build_tool_sha256=sha256(Path(__file__).read_bytes()).hexdigest(),
             wheel_inventory=result['version_info']['wheels'],
             unsigned=True,
-            note='未签名；真实安装/启动/卸载/升级验收由 Codex 在宿主执行。',
+            note='未签名；真实安装、启动、卸载与升级须在宿主独立验收。',
         )
         verify_artifact(artifact, artifact_manifest)
         (output / 'manifest.json').write_text(
@@ -936,7 +936,7 @@ def build_installer(config):
                  'Python：' + result['version_info']['python'],
                  '安装器未签名；SmartScreen 可能提示未知发布者。',
                  '安装/升级默认保留 %LOCALAPPDATA%\\言行\\data；卸载默认也保留。',
-                 '真实编译、安装、启动、停止、卸载与最小升级验收由 Codex 独立执行。']
+                 '构建与安装验证分别记录；真实安装、启停、卸载与覆盖升级须在宿主完成。']
         (output / 'RELEASE-NOTES.txt').write_text('\n'.join(notes) + '\n', encoding='utf-8')
         return dict(artifact=str(artifact), manifest=str(output / 'manifest.json'),
                     sha256=digest, size=artifact.stat().st_size,
@@ -947,7 +947,7 @@ def build_installer(config):
 
 def _parser():
     parser = argparse.ArgumentParser(description='构建言行 Windows x64 安装包（真实编译需 NSIS/Python runtime/wheels）。')
-    parser.add_argument('--source', required=False, help='Codex 冻结的完整源码目录')
+    parser.add_argument('--source', required=False, help='已冻结的完整源码目录')
     parser.add_argument('--runtime-zip', required=False, help='官方 CPython 3.14.10 Windows embeddable x64 zip')
     parser.add_argument('--wheels', required=False, help='requirements-app.txt 对应的离线 win_amd64 wheel 目录')
     parser.add_argument('--output', required=False, help='输出目录（安装器与清单）')

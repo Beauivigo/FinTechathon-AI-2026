@@ -1,4 +1,4 @@
-"""Codex independent checks against the complete isolated review fixture."""
+"""review independent checks against the complete isolated review fixture."""
 from contextlib import ExitStack
 from datetime import datetime, timezone
 from pathlib import Path

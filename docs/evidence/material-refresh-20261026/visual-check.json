@@ -1,5 +1,5 @@
 {
-  "executor": "Codex",
+  "executor": "独立复核",
   "method": "Microsoft Word read-only PDF export; bundled PDFium page PNGs inspected at original resolution",
   "pages_reviewed": 19,
   "technical_pages": 10,

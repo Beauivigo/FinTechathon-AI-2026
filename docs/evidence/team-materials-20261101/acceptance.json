@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "completion_date": "2026-11-01",
+  "team": "速发贝",
+  "product": "言行",
+  "scan": {
+    "text_files": 7715,
+    "office_files": 87,
+    "source_archives": 2,
+    "python_syntax_files": 176
+  },
+  "redacted_brand_content_matches": 0,
+  "redacted_brand_filename_matches": 0,
+  "regression_tests": 713,
+  "installer_tool_tests": 15,
+  "application_business_code_changed": false,
+  "ppt": {
+    "slides": 24,
+    "notes": 24,
+    "screenshots": 4,
+    "picture_bytes_unchanged": true,
+    "sha256": "0aeda2ef3f38a6962eb18a69879a472d94c3f8e8026af8f610a70c7960470f6d",
+    "bytes": 1671944,
+    "svg_quality": {
+      "total": 24,
+      "passed": 24,
+      "warnings": 0,
+      "errors": 0
+    },
+    "native_rendered_pages": 24,
+    "changed_pages_visually_checked": [
+      1,
+      23,
+      24
+    ],
+    "transition": "fade 0.4s"
+  },
+  "word_visual_review": {
+    "documents": 4,
+    "pages": 38,
+    "pages_per_document": [
+      10,
+      10,
+      9,
+      9
+    ],
+    "renderer": "Microsoft Word 15.0 + bundled Poppler",
+    "all_pages_inspected": true
+  },
+  "office_files": [
+    {
+      "file": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.2.docx",
+      "sha256": "557de102348dea1907590b6c11a35db7fc0a43fc2550512f3bb6802102025980",
+      "bytes": 141542
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.3.docx",
+      "sha256": "bbc2f0adec1e3706763b2ada170420a6384e73dcad8818b96686c4995d0a9edb",
+      "bytes": 142592
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.4.docx",
+      "sha256": "699fdfe4a62e70392fc07aa891f7156c8117b69794af5f6c86911d61ecf15635",
+      "bytes": 142415
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.5.docx",
+      "sha256": "e1eab6a2d1e6b04a5d4d0af9c837f85fffa8b9189c88dd2918c740b0d741dee6",
+      "bytes": 142376
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.6.docx",
+      "sha256": "569d00f8c7aacc0beaa8e7a9612c60238d608cffdc75237ca953cdbbe95902a1",
+      "bytes": 142538
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.2.docx",
+      "sha256": "c2f774d9041e839756bce61846a5c18fe5bd60808338aff3e489acc9931b08f9",
+      "bytes": 143282
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.3.docx",
+      "sha256": "fc42151753f30646d9c5365efc2a62d0d4da49eff9d0bbfb5b62afed9f1585cf",
+      "bytes": 144443
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.4.docx",
+      "sha256": "df78a57e6a48c0352c792ee25235928b1b995967347d30fc03acf12840bc5b1f",
+      "bytes": 144337
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.5.docx",
+      "sha256": "222f9a9a10ff61852a52ea62dfff5fa9f09f0ede17697c40c855a53591e79566",
+      "bytes": 144476
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.6.docx",
+      "sha256": "b1cd9ac5497a3fcd71cc2a58d909f4c29def39a228c731138943c0bf97af1f9b",
+      "bytes": 144518
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/PPT勘误_言行_FinTechathon_2026.docx",
+      "sha256": "63133d84411cec4480256409c17616c1a2cc4aa04af274ab004b7c711968a30a",
+      "bytes": 32658
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/言行_FinTechathon_2026_勘误与视觉升级版.pptx",
+      "sha256": "0aeda2ef3f38a6962eb18a69879a472d94c3f8e8026af8f610a70c7960470f6d",
+      "bytes": 1671944
+    },
+    {
+      "file": "参赛材料_Word_2026-10-24/言行_FinTechathon_2026_最终版.pptx",
+      "sha256": "4cfd00016b30f0cf37f00d7956354bce6c970abe84241e47804c37b5f2620ae2",
+      "bytes": 1633970
+    }
+  ],
+  "historical_source_archives": [
+    {
+      "file": "dist/yanxing-1.0.0-delivery/YanXing-1.0.0-source.zip",
+      "sha256": "aadf59735345083de7b4e1d91cc292ca99355d8a13e565ab35e7cdc0e25fa953",
+      "local_historical_redacted_copy": true
+    },
+    {
+      "file": "dist/yanxing-2.0.0-delivery/YanXing-2.0.0-source.zip",
+      "sha256": "a1d8e791182747d303a44410729148c938257b0218d769c01723972525c4a360",
+      "local_historical_redacted_copy": true
+    }
+  ],
+  "boundaries": [
+    "Git history, development caches, third-party dependencies and private runtime data are excluded from submission cleanup",
+    "Installer binaries and remote GitHub assets unchanged; local historical source archives are labeled redacted copies",
+    "Originals retained in a separate local private backup; redacted copies have new hashes",
+    "No new real bank, personal phone or paid model verification"
+  ]
+}

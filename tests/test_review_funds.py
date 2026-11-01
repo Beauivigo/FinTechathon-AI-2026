@@ -1,4 +1,4 @@
-"""Codex独立资金复核：临时库，回归实际规则缺口。"""
+"""review独立资金复核：临时库，回归实际规则缺口。"""
 import json
 from concurrent.futures import ThreadPoolExecutor
 from unittest.mock import patch

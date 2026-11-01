@@ -1,5 +1,5 @@
 {
-  "reviewer": "Codex",
+  "reviewer": "独立复核",
   "status": "accepted",
   "checks": [
     {
@@ -62,9 +62,9 @@
   ],
   "artifactsUnavailable": false,
   "time": "2026-10-26T08:22:54.672Z",
-  "source": "Codex final-review attestation; commands already executed by Codex",
+  "source": "独立复核 final-review attestation; commands already executed by 独立复核",
   "conversationKey": "18e4f31806eb9e7cf7fc9a47142479d3ec3e226c11624d84aa111b65f3e920c6",
-  "reviewedSnapshot": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\0e7cba1a-b1cc-4208-ad7b-8a6fbb3d99b0\\worktree",
+  "reviewedSnapshot": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\0e7cba1a-b1cc-4208-ad7b-8a6fbb3d99b0\\worktree",
   "activeCorrections": [
     {
       "path": "app/main.py",

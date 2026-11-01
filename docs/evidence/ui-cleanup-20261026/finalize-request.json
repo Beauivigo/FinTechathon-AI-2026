@@ -2,26 +2,26 @@
   "action": "finalize",
   "runId": "44a2833c-2e69-482c-9633-c7deab4c1512",
   "evidence": {
-    "reviewer": "Codex",
+    "reviewer": "独立复核",
     "status": "accepted",
     "checks": [
       {
-        "command": "Codex isolated python -B -X utf8 scripts/verify_h_core.py --output docs/evidence/ui-cleanup-codex-20261026-r2; 619 tests and 5 clean/background checks; evidence docs/evidence/ui-cleanup-20261026/full.json",
+        "command": "独立复核 isolated python -B -X utf8 scripts/verify_h_core.py --output docs/evidence/ui-cleanup-review-20261026-r2; 619 tests and 5 clean/background checks; evidence docs/evidence/ui-cleanup-20261026/full.json",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex original unchanged broker frozen stage-1.txt: 6 checks passed, evidence frozen-final.txt",
+        "command": "独立复核 original unchanged broker frozen stage-1.txt: 6 checks passed, evidence frozen-final.txt",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex python -B -X utf8 -m unittest tests.test_billing_page -v: 9 actual Streamlit page checks passed",
+        "command": "独立复核 python -B -X utf8 -m unittest tests.test_billing_page -v: 9 actual Streamlit page checks passed",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex browser walkthrough: 11 pages rendered; product and historical-bill queries displayed; screenshots and acceptance.json saved; no payment/model submission",
+        "command": "独立复核 browser walkthrough: 11 pages rendered; product and historical-bill queries displayed; screenshots and acceptance.json saved; no payment/model submission",
         "exitCode": 0,
         "expectedExitCode": 0
       },

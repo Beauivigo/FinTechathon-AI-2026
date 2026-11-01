@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "run": 691,
   "failures": 7,
   "errors": 2,

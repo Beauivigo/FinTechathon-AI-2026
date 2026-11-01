@@ -1,7 +1,7 @@
 {
   "screenshot_behavior": "Finite transitions fast-forwarded for stable captures only; normal and reduced motion separately verified in blocks-report.json.",
-  "full_matrix_artifacts": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-matrix",
-  "full_block_artifacts": "C:\\Users\\huang\\.codex\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-blocks",
+  "full_matrix_artifacts": "C:\\Users\\huang\\.review\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-matrix",
+  "full_block_artifacts": "C:\\Users\\huang\\.review\\visualizations\\2026\\10\\28\\01a18277-5f59-7873-a625-000a47928e1f\\pastel-ui-delivery-blocks",
   "files": [
     {
       "name": "blocks-report.json",

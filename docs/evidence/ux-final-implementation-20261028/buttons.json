@@ -745,10 +745,10 @@
         "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
         "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers",
         "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
-        "test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery",
-        "test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
-        "test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
-        "test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "test_review_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery",
+        "test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "test_review_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
+        "test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "test_delivery_pages.DeliveryPageTests.test_birthday_plan_reserve_order_restart_release",
         "test_delivery_pages.DeliveryPageTests.test_card_application_page_only_receives",
         "test_delivery_pages.DeliveryPageTests.test_merchant_lost_reply_blocks_page_until_recovery",
@@ -2289,7 +2289,7 @@
       "activated": 2,
       "tests": [
         "test_cards.CardTests.test_page_and_refresh_recovery_and_transfer_page",
-        "test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery"
+        "test_review_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery"
       ]
     },
     {
@@ -2415,9 +2415,9 @@
         "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
         "test_closeout_acceptance.CloseoutPageTests.test_page_five_model_failures_lock_and_manual_new_task_recovers",
         "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
-        "test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
-        "test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
-        "test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "test_review_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer",
+        "test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
         "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
         "test_model_page_acceptance.ModelPageAcceptance.test_green_query_runs_without_extra_confirmation",
@@ -2438,7 +2438,7 @@
       "activated": 4,
       "tests": [
         "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
-        "test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank",
         "test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward"
       ]
@@ -2465,7 +2465,7 @@
       "activated": 4,
       "tests": [
         "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
-        "test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank",
         "test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward"
       ]
@@ -2511,7 +2511,7 @@
         "test_closeout_acceptance.CloseoutPageTests.test_followup_rejection_and_dependency_do_not_move_money",
         "test_closeout_acceptance.CloseoutPageTests.test_lost_commit_receipt_recovered_in_fresh_page_without_duplicate_payment",
         "test_closeout_acceptance.CloseoutPageTests.test_six_scenes_from_dialogue_through_page_gates_to_actual_ledger",
-        "test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
+        "test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan",
         "test_h_pages.RecoveryPageTests.test_fresh_page_restores_full_plan_and_original_payment",
         "test_model_page_acceptance.ModelPageAcceptance.test_fresh_page_recovers_original_transfer_details_without_new_model_call",
         "test_model_page_acceptance.ModelPageAcceptance.test_model_transfer_uses_original_confirmation_and_rerun_does_not_repeat"
@@ -2579,7 +2579,7 @@
       "activated": 4,
       "tests": [
         "test_closeout_acceptance.CloseoutPageTests.test_birthday_pause_handoff_then_release_unused_budget",
-        "test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
+        "test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun",
         "test_model_page_acceptance.ModelPageAcceptance.test_pause_and_handoff_do_not_call_model_or_write_bank",
         "test_ux_final.UxPageTests.test_ai_paused_and_handoff_send_is_disabled_with_a_path_forward"
       ]

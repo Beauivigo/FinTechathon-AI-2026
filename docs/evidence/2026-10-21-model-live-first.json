@@ -1,5 +1,5 @@
 {
-  "executor": "Codex独立真实模型与模拟网关验收",
+  "executor": "独立真实模型与模拟网关验收",
   "fixture_clock": "2026-10-21T11:00:00+08:00",
   "cases": [
     {

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-11-01T06:30:44.023638+00:00",
+  "current_markdown_files": 11,
+  "current_local_links_resolved": 192,
+  "new_public_evidence_text_brand_scan": "passed",
+  "final_four_file_hashes": "passed",
+  "exactly_five_submission_folders": true,
+  "video_folder_empty": true,
+  "receipt_matches_final_verification": true
+}

@@ -1,0 +1,145 @@
+{
+  "reviewer": "独立复核",
+  "status": "accepted",
+  "checks": [
+    {
+      "command": "独立复核 isolated UI snapshot acceptance: 619 tests and 5 clean/background checks passed; full.json. This accepts the scoped artifact only, not current live main/runtime.",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "独立复核 original unchanged frozen source: 6 tests passed; frozen-final.txt; and 9 targeted actual billing-page checks passed.",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "独立复核 separate latest-core compatibility fixture: 627 tests and 5 clean/background checks passed, compatibility-full.json. Applied UI text hunks to two newer accepted core components, preserved branch/key AST; 11 core source hashes verified. No primary writes.",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "独立复核 live browser: 11 pages rendered, two read-only queries displayed, screenshots saved. Disposable preview database is a separate file; runtime-scope.json.",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "command": "git -c core.safecrlf=false diff --no-index --check before worktree: differing directories with empty diagnostics; whitespace errors zero.",
+      "exitCode": 1,
+      "expectedExitCode": 1
+    },
+    {
+      "command": "Concurrency review: two primary component changes exactly match accepted core repair; live database hash changed with unknown cause, explicitly NOT attested unchanged and NOT a UI acceptance criterion. acceptance.json records isolated scope; prepared-main.patch not applied; integration awaits explicit approval.",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "app/main.py",
+      "sha256": "4bf13068119ab7e55faabc2a5e83b1389d95b8d128c79b37bf0dc08f8b7cef78"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4"
+    },
+    {
+      "path": "app/home_view.py",
+      "sha256": "94713e604836e73ae6983f02c8b0062262e722ce393d37e6855e59691fcf9865"
+    },
+    {
+      "path": "app/onboarding.py",
+      "sha256": "322409b4f0f5cefa317024d4edcecef19bbfbf8f06abc60b045fdd3ffaecfaea"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f"
+    },
+    {
+      "path": "app/background_panel.py",
+      "sha256": "58b5b80130c6f22edb4bdac3f1036cb2b620b54443d866e3ad72f82a395cf477"
+    },
+    {
+      "path": "app/lifecycle_panel.py",
+      "sha256": "49b86ed03c55beb4563f0d33c14b2793b528c3e4a2717ff9a60a46dde17fff7e"
+    },
+    {
+      "path": "app/model_bank_panel.py",
+      "sha256": "c46773c4bf44143c09ccef95d33ca173576f3ae62f583087a9135eb91458d918"
+    },
+    {
+      "path": "app/model_view.py",
+      "sha256": "dd43e68bd1d4add7a669428065db886d1856201a7f3d5abd9adc637dd9a24924"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "09dcf2ad44bd9ec735a976b33078a6a941175a9b09f9141872d2d322d2fc9fe9"
+    },
+    {
+      "path": "app/pages/0_AI银行助手.py",
+      "sha256": "c7b22a5f7a9535cae58e0f882b8113e65fa154e4b3450bf371cbd117e692ccf1"
+    },
+    {
+      "path": "app/pages/1_资料账单.py",
+      "sha256": "9d3f6684b58d8c8ea5ca3c26c4a8eb02c05e02c1971717dbab81ddcd0f132f03"
+    },
+    {
+      "path": "app/pages/2_产品对比.py",
+      "sha256": "62e8cba7c153206ce62d94cf9582a1d46d6d97bc5735cccdbbe3a349b60e603e"
+    },
+    {
+      "path": "app/pages/3_卡片管理.py",
+      "sha256": "51125e95e4501809e645afe8cf486660fddd716863ccac0daa714a3a2ec1e1b5"
+    },
+    {
+      "path": "app/pages/4_AA收款.py",
+      "sha256": "11b28b3b132bbe1aa9fbd7003bfedbf6f0ef48c96f61cb18981da79223789e84"
+    },
+    {
+      "path": "app/pages/5_订阅管理.py",
+      "sha256": "f4fdf1a5e2e7b93f60c47f89cee10f3d69ffaeee8558cb7b5577d72a41b11452"
+    },
+    {
+      "path": "app/pages/6_定时转账.py",
+      "sha256": "5bf04f77395d42c19a92b5b51030dcf686ac9652c8a1f32680d9b6d31b1ca895"
+    },
+    {
+      "path": "app/pages/7_预算管理.py",
+      "sha256": "14f47784e423d9642ea7fdc90d29d7273ee72621a5b8ac558f97c333c884f7d6"
+    },
+    {
+      "path": "app/pages/8_生日与商户.py",
+      "sha256": "630d3303bdbbc06d60c33c6fdbef9323898d631445f37fdcda02c796b559242c"
+    },
+    {
+      "path": "app/pages/9_理财.py",
+      "sha256": "2768234b7c5271508c3d725a317c76fcf0efaea2ff90f0773e6dd88436a99f3b"
+    },
+    {
+      "path": "docs/evidence/2026-10-26-ui-copy/result.json",
+      "sha256": "cf3d18adee67061462756cc750a1084e79df9fc714cbeb409f7ac6e23a5f56e7"
+    }
+  ],
+  "artifactsUnavailable": false,
+  "time": "2026-10-26T06:47:22.208Z",
+  "source": "独立复核 final-review attestation; commands already executed by 独立复核",
+  "conversationKey": "f30595aecc6e69f89a08c97d48c35bfd09a58d6ef800426a9b1392aa56cc15e7",
+  "reviewedSnapshot": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\44a2833c-2e69-482c-9633-c7deab4c1512\\worktree",
+  "activeCorrections": [
+    {
+      "path": "app/main.py",
+      "sha256": "4bf13068119ab7e55faabc2a5e83b1389d95b8d128c79b37bf0dc08f8b7cef78"
+    },
+    {
+      "path": "app/ui.py",
+      "sha256": "d369aaa56a33c31fccb302035f660ed11cec615a61475a3e06592d90f9c412e4"
+    },
+    {
+      "path": "app/auth_ui.py",
+      "sha256": "39d29647dd7e6ecdd5b0b219f8adac35cc1068150c4263035e83657290bf527f"
+    },
+    {
+      "path": "app/workflow.py",
+      "sha256": "09dcf2ad44bd9ec735a976b33078a6a941175a9b09f9141872d2d322d2fc9fe9"
+    }
+  ]
+}

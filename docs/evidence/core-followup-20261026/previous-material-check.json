@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-10-23T13:56:18.503575+08:00",
-  "executor": "A / Codex",
+  "executor": "A / 独立复核",
   "scope": "Documentation checks only. Existing test outcomes are quoted with source fingerprint comparisons; no new application tests or live model calls.",
   "base_commit": "02fe7464c9b131a3b18722bd9df85a54227a0ee1",
   "working_tree_includes_preexisting_uncommitted_changes": true,

@@ -1,5 +1,5 @@
 {
-  "reviewer": "Codex",
+  "reviewer": "独立复核",
   "runs": [
     {
       "run_id": "6575b5df-5c6f-49d6-840c-bd4a7f1721d0",
@@ -7,7 +7,7 @@
       "error": "Harness failed or returned incomplete result; raw diagnostics suppressed",
       "result_exists": false,
       "code_exists": false,
-      "evidence_dir": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\6575b5df-5c6f-49d6-840c-bd4a7f1721d0",
+      "evidence_dir": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\6575b5df-5c6f-49d6-840c-bd4a7f1721d0",
       "events": [
         {
           "time": "2026-10-19T05:26:11.430Z",
@@ -130,7 +130,7 @@
       "error": "Bad control character in string literal in JSON at position 245 (line 1 column 246)",
       "result_exists": false,
       "code_exists": false,
-      "evidence_dir": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\f89a2855-523f-473f-acd9-31f15b02d605",
+      "evidence_dir": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\f89a2855-523f-473f-acd9-31f15b02d605",
       "events": [
         {
           "time": "2026-10-19T05:31:38.269Z",
@@ -286,7 +286,7 @@
       "error": "Harness failed or returned incomplete result; raw diagnostics suppressed",
       "result_exists": false,
       "code_exists": false,
-      "evidence_dir": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\da12b38f-5b15-46e4-bda0-b1ccac207907",
+      "evidence_dir": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\da12b38f-5b15-46e4-bda0-b1ccac207907",
       "events": [
         {
           "time": "2026-10-19T05:37:00.862Z",
@@ -405,11 +405,11 @@
     },
     {
       "run_id": "f96c872e-5199-4592-b9fa-0f71d61ac1be",
-      "status": "accepted_by_codex",
+      "status": "accepted_by_review",
       "review": "accepted",
       "result_exists": true,
       "code_exists": true,
-      "evidence_dir": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\f96c872e-5199-4592-b9fa-0f71d61ac1be",
+      "evidence_dir": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\f96c872e-5199-4592-b9fa-0f71d61ac1be",
       "events": [
         {
           "time": "2026-10-19T05:48:42.955Z",
@@ -841,16 +841,16 @@
         },
         {
           "time": "2026-10-19T06:00:30.928Z",
-          "status": "awaiting_codex_review"
+          "status": "awaiting_review_review"
         },
         {
           "time": "2026-10-19T10:08:13.706Z",
-          "status": "accepted_by_codex",
-          "reviewer": "Codex"
+          "status": "accepted_by_review",
+          "reviewer": "独立复核"
         }
       ]
     }
   ],
-  "review_status": "Fixed-entry retry accepted by Codex after real component/page tests and 426-test overall acceptance; earlier failed runs remain history",
+  "review_status": "Fixed-entry retry accepted by 独立复核 after real component/page tests and 426-test overall acceptance; earlier failed runs remain history",
   "scope": "Same constrained entry and one ordinary UI file; no protected sources delegated"
 }

@@ -1,4 +1,4 @@
-"""Codex固定验收执行器：在普通沙盒加载隔离产物，不复制至主工作区。"""
+"""review固定验收执行器：在普通沙盒加载隔离产物，不复制至主工作区。"""
 import argparse
 import hashlib
 import importlib.util
@@ -23,19 +23,19 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('run_id')
     args = parser.parse_args()
-    run = Path('C:/Users/huang/.codex/delegates/deepseek/runs')/args.run_id
+    run = Path('C:/Users/huang/.review/delegates/deepseek/runs')/args.run_id
     source = run/'worktree/agent/routing.py'
     result = json.loads((run/'result.json').read_text(encoding='utf-8'))
     returned = {f['path']: f['content'] for f in result.get('files', [])}
     assert set(returned) == {'agent/routing.py'}, 'Unexpected returned scope'
     assert source.read_text(encoding='utf-8') == returned['agent/routing.py']
     load('agent.routing', source)
-    tests = load('codex_routing_acceptance', ROOT/'tests/test_routing_acceptance.py')
+    tests = load('review_routing_acceptance', ROOT/'tests/test_routing_acceptance.py')
     prefix = ROOT/'docs/evidence'/('2026-10-19-'+args.run_id)
     with prefix.with_suffix('.txt').open('w', encoding='utf-8') as log:
         result = unittest.TextTestRunner(stream=log, verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(tests))
     passed = result.wasSuccessful() and not result.skipped
-    record = dict(reviewer='Codex', status='accepted' if passed else 'rejected', run_id=args.run_id,
+    record = dict(reviewer='review', status='accepted' if passed else 'rejected', run_id=args.run_id,
                   commands=[dict(command=' '.join(sys.argv), tests=result.testsRun, failures=len(result.failures), errors=len(result.errors), skipped=len(result.skipped))],
                   inspectedFileHashes={str(source):hashlib.sha256(source.read_bytes()).hexdigest()},
                   acceptanceHashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in
@@ -44,7 +44,7 @@ def main():
     body = json.dumps(record, ensure_ascii=False, indent=2)+'\n'
     prefix.with_suffix('.json').write_text(body, encoding='utf-8')
     try:
-        (run/'codex-review.json').write_text(body, encoding='utf-8')
+        (run/'independent-review.json').write_text(body, encoding='utf-8')
         review_saved = True
     except PermissionError:
         review_saved = False

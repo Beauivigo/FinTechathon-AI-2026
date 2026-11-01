@@ -1,0 +1,106 @@
+{
+  "deleted_count": 13,
+  "deleted_bytes": 3124819,
+  "backup": ".cache/project-reaudit-20261101/expired-documents-backup.zip",
+  "backup_sha256": "dcc24376f084dc64c01a28a031612682063d830d62265e2ddefb63490f007dee",
+  "restorable_original_hashes_verified": true,
+  "files": [
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.2.docx",
+      "bytes": 141542,
+      "sha256": "557de102348dea1907590b6c11a35db7fc0a43fc2550512f3bb6802102025980",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.3.docx",
+      "bytes": 142592,
+      "sha256": "bbc2f0adec1e3706763b2ada170420a6384e73dcad8818b96686c4995d0a9edb",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.4.docx",
+      "bytes": 142415,
+      "sha256": "699fdfe4a62e70392fc07aa891f7156c8117b69794af5f6c86911d61ecf15635",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.5.docx",
+      "bytes": 142376,
+      "sha256": "e1eab6a2d1e6b04a5d4d0af9c837f85fffa8b9189c88dd2918c740b0d741dee6",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.2.docx",
+      "bytes": 143282,
+      "sha256": "c2f774d9041e839756bce61846a5c18fe5bd60808338aff3e489acc9931b08f9",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.3.docx",
+      "bytes": 144443,
+      "sha256": "fc42151753f30646d9c5365efc2a62d0d4da49eff9d0bbfb5b62afed9f1585cf",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.4.docx",
+      "bytes": 144337,
+      "sha256": "df78a57e6a48c0352c792ee25235928b1b995967347d30fc03acf12840bc5b1f",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.5.docx",
+      "bytes": 144476,
+      "sha256": "222f9a9a10ff61852a52ea62dfff5fa9f09f0ede17697c40c855a53591e79566",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/02_言行_技术文档_v0.6.docx",
+      "bytes": 142538,
+      "sha256": "569d00f8c7aacc0beaa8e7a9612c60238d608cffdc75237ca953cdbbe95902a1",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/06_言行_安全自评报告_v0.6.docx",
+      "bytes": 144518,
+      "sha256": "b1cd9ac5497a3fcd71cc2a58d909f4c29def39a228c731138943c0bf97af1f9b",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/言行_FinTechathon_2026_勘误与视觉升级版.pptx",
+      "bytes": 1671944,
+      "sha256": "0aeda2ef3f38a6962eb18a69879a472d94c3f8e8026af8f610a70c7960470f6d",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/02_答辩材料/速发贝_言行_答辩材料.pptx"
+    },
+    {
+      "path": "docs/参赛材料/02-技术文档.md",
+      "bytes": 11066,
+      "sha256": "c26eb715b879e6c566ce4c6e3c9f12407db4db3e22116962878e0b1da06f7917",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/01_技术文档/速发贝_言行_技术文档.pdf"
+    },
+    {
+      "path": "docs/参赛材料/06-安全自评报告.md",
+      "bytes": 9290,
+      "sha256": "cbeba1006ecb42b4078054de7da789ff8a86858708d2043199952d54d57ab4a8",
+      "replacement": "速发贝_言行_参赛提交材料_20261101/04_安全自评报告/速发贝_言行_安全自评报告.pdf"
+    }
+  ],
+  "updated_markdown_links": [
+    {
+      "path": "docs/参赛材料/01-作品简介.md",
+      "links": 2
+    },
+    {
+      "path": "docs/evidence/ppt-recheck-20261030/README.md",
+      "links": 1
+    },
+    {
+      "path": "docs/evidence/team-materials-20261101/README.md",
+      "links": 3
+    },
+    {
+      "path": "参赛材料_Word_2026-10-24/PPT复核勘误_言行_FinTechathon_2026_20261030.md",
+      "links": 1
+    }
+  ],
+  "video_untouched": true
+}

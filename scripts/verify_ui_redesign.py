@@ -24,7 +24,7 @@ def main():
             suite = unittest.TestLoader().discover(str(ROOT / 'tests'))
             result = unittest.TextTestRunner(stream=log, verbosity=2).run(suite)
     unchanged = fingerprint() == before
-    record = dict(executor='Codex independent acceptance', command='python -B -X utf8 scripts/verify_ui_redesign.py',
+    record = dict(executor='review independent acceptance', command='python -B -X utf8 scripts/verify_ui_redesign.py',
                   run=result.testsRun, failures=len(result.failures), errors=len(result.errors), skipped=len(result.skipped),
                   runtime_unchanged=unchanged, passed=result.wasSuccessful() and not result.skipped and unchanged,
                   scope='Full current suite, temporary simulated databases; no live model requests.',

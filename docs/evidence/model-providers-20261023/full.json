@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "date": "2026-10-23",
   "command": "python -B -X utf8 scripts/verify_model_providers.py",
   "run": 564,

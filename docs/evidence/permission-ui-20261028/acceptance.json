@@ -1,5 +1,5 @@
 {
-  "executor": "Codex, explicit human authorization to directly complete this round",
+  "executor": "独立复核, explicit human authorization to directly complete this round",
   "date": "2026-10-28",
   "head": "b5b5733ffe0ee1ef8b39133bf9d1c89054dea0d5",
   "scope": "Original authorization evidence and execution status shown separately, retaining existing uncommitted banking UI",
@@ -102,7 +102,7 @@
       "runHistoryPreserved": true,
       "cumulativeFilesBackedUp": 626,
       "primaryFilesAligned": 912,
-      "backup": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\backups\\permission-ui-align-f3ad65e5-1d08-4a51-b5a1-a8fd6994d949",
+      "backup": "C:\\Users\\huang\\.review\\delegates\\deepseek\\backups\\permission-ui-align-f3ad65e5-1d08-4a51-b5a1-a8fd6994d949",
       "primaryUnchanged": true,
       "modelApiCalls": 0
     },
@@ -115,12 +115,12 @@
     "preflight_run": "edc152aa-bd93-4c48-962e-be492ab81829",
     "activation_run": "03b02df0-faa2-4699-ac46-a97f04ac5618",
     "model_calls": 0,
-    "failed_runs_finalized": "rejected_by_codex"
+    "failed_runs_finalized": "rejected_by_review"
   },
   "installer_rebuilt": false,
   "git_committed_or_pushed": false,
   "real_user_phone_accepted": false,
-  "status": "accepted_by_codex_direct",
+  "status": "accepted_by_review_direct",
   "isolated_direct_change_mirror": {
     "performed": false,
     "reason": "Another conversation owns the global delegation lock; no lock or other task was interrupted. Current direct implementation is accepted in the primary source; recover and align the original native Session before any future delegation."

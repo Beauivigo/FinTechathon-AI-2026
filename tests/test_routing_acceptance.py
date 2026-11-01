@@ -1,4 +1,4 @@
-"""Codex固定验收：输入矩阵、纯函数边界、澄清和草稿隔离。"""
+"""review固定验收：输入矩阵、纯函数边界、澄清和草稿隔离。"""
 import ast
 from copy import deepcopy
 import json

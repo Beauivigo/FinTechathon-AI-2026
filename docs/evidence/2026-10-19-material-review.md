@@ -1,6 +1,6 @@
 # 2026-10-19 B/C/E 材料独立核验
 
-执行者 A/Codex；基线 `56b8ea765850aea3ce3b24ea863cbc36a7e09048`；D 不在本次范围。未改生产代码、共享接口或日常运行数据库。原件只读归档于 materials/inbox，逐文件 SHA-256 见各成员 manifest。
+执行者 A/独立复核；基线 `56b8ea765850aea3ce3b24ea863cbc36a7e09048`；D 不在本次范围。未改生产代码、共享接口或日常运行数据库。原件只读归档于 materials/inbox，逐文件 SHA-256 见各成员 manifest。
 
 ## 实际执行
 

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24T08:11:23.918733+00:00",
-  "executor": "Codex independent final integration checks",
+  "executor": "独立复核 independent final integration checks",
   "run_id": "7d0d7a3e-4f84-47a2-ae02-83172eab4262",
   "local_branch": "main",
   "baseline_commit": "62aee8dd2e7b29b5662009b7a41f9362dd1395b4",
@@ -182,7 +182,7 @@
     "exit_code": 0,
     "scope": "Complete isolated fixture with real dependencies; not rerun against daily primary runtime."
   },
-  "accepted_manifest_source": "../u-delegation-20261023/codex-review.json",
+  "accepted_manifest_source": "../u-delegation-20261023/independent-review.json",
   "source_hashes_match_full_acceptance": true,
   "primary_data": [
     {

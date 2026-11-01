@@ -1,0 +1,129 @@
+{
+  "planned_seconds": 540,
+  "limit_seconds": 600,
+  "spoken_cjk_chars": 1957,
+  "basis": "approximately 240 Chinese characters per minute plus transition/pause time; planned, not a recorded rehearsal",
+  "slides": [
+    {
+      "slide": 1,
+      "seconds": 18,
+      "cumulative_seconds": 18
+    },
+    {
+      "slide": 2,
+      "seconds": 20,
+      "cumulative_seconds": 38
+    },
+    {
+      "slide": 3,
+      "seconds": 20,
+      "cumulative_seconds": 58
+    },
+    {
+      "slide": 4,
+      "seconds": 17,
+      "cumulative_seconds": 75
+    },
+    {
+      "slide": 5,
+      "seconds": 24,
+      "cumulative_seconds": 99
+    },
+    {
+      "slide": 6,
+      "seconds": 22,
+      "cumulative_seconds": 121
+    },
+    {
+      "slide": 7,
+      "seconds": 37,
+      "cumulative_seconds": 158
+    },
+    {
+      "slide": 8,
+      "seconds": 31,
+      "cumulative_seconds": 189
+    },
+    {
+      "slide": 9,
+      "seconds": 15,
+      "cumulative_seconds": 204
+    },
+    {
+      "slide": 10,
+      "seconds": 24,
+      "cumulative_seconds": 228
+    },
+    {
+      "slide": 11,
+      "seconds": 25,
+      "cumulative_seconds": 253
+    },
+    {
+      "slide": 12,
+      "seconds": 22,
+      "cumulative_seconds": 275
+    },
+    {
+      "slide": 13,
+      "seconds": 25,
+      "cumulative_seconds": 300
+    },
+    {
+      "slide": 14,
+      "seconds": 23,
+      "cumulative_seconds": 323
+    },
+    {
+      "slide": 15,
+      "seconds": 25,
+      "cumulative_seconds": 348
+    },
+    {
+      "slide": 16,
+      "seconds": 31,
+      "cumulative_seconds": 379
+    },
+    {
+      "slide": 17,
+      "seconds": 16,
+      "cumulative_seconds": 395
+    },
+    {
+      "slide": 18,
+      "seconds": 17,
+      "cumulative_seconds": 412
+    },
+    {
+      "slide": 19,
+      "seconds": 18,
+      "cumulative_seconds": 430
+    },
+    {
+      "slide": 20,
+      "seconds": 20,
+      "cumulative_seconds": 450
+    },
+    {
+      "slide": 21,
+      "seconds": 23,
+      "cumulative_seconds": 473
+    },
+    {
+      "slide": 22,
+      "seconds": 27,
+      "cumulative_seconds": 500
+    },
+    {
+      "slide": 23,
+      "seconds": 23,
+      "cumulative_seconds": 523
+    },
+    {
+      "slide": 24,
+      "seconds": 17,
+      "cumulative_seconds": 540
+    }
+  ],
+  "revision": "Corrected current transfer aggregate semantics and immediate simulated settlement; original 540-second pacing budget retained."
+}

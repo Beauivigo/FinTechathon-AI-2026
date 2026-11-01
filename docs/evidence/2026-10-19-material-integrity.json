@@ -1,5 +1,5 @@
 {
-  "executor": "A/Codex",
+  "executor": "A/独立复核",
   "date": "2026-10-19",
   "checks": {
     "B-original-and-archive-hashes": true,

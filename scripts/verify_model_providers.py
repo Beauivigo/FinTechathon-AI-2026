@@ -30,7 +30,7 @@ def main():
             result = unittest.TextTestRunner(stream=log, verbosity=2).run(suite)
     runtime_unchanged = fingerprint(runtime) == before[0]
     profile_unchanged = fingerprint(profile) == before[1]
-    record = dict(executor='Codex independent acceptance', date='2026-10-23',
+    record = dict(executor='review independent acceptance', date='2026-10-23',
         command='python -B -X utf8 scripts/verify_model_providers.py',
         run=result.testsRun, failures=len(result.failures), errors=len(result.errors), skipped=len(result.skipped),
         runtime_unchanged=runtime_unchanged, saved_profile_unchanged=profile_unchanged,

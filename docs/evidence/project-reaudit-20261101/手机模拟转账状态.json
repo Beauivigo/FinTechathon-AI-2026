@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "state": "yellow-confirmation",
+      "yellow": true,
+      "red": false,
+      "completed": false,
+      "cancelled": false,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    },
+    {
+      "state": "cancelled",
+      "yellow": true,
+      "red": false,
+      "completed": false,
+      "cancelled": true,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    },
+    {
+      "state": "yellow-completed",
+      "yellow": true,
+      "red": false,
+      "completed": true,
+      "cancelled": true,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    },
+    {
+      "state": "red-verification",
+      "yellow": false,
+      "red": true,
+      "completed": true,
+      "cancelled": true,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    },
+    {
+      "state": "red-completed",
+      "yellow": false,
+      "red": true,
+      "completed": true,
+      "cancelled": true,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    },
+    {
+      "state": "original-result-query",
+      "yellow": false,
+      "red": true,
+      "completed": true,
+      "cancelled": true,
+      "exception": false,
+      "viewport": 390,
+      "scope": "disposable example account; demo verification only"
+    }
+  ],
+  "page_errors": []
+}

@@ -1,4 +1,4 @@
-"""Codex独立联合页面验收：真实Streamlit、网关与临时SQLite。"""
+"""review独立联合页面验收：真实Streamlit、网关与临时SQLite。"""
 from datetime import timedelta
 from pathlib import Path
 from unittest.mock import patch

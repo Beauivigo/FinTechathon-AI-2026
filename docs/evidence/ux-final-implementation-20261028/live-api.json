@@ -597,7 +597,7 @@
     "tests/test_card_limits.py": "01f59687661d630dc371c427ee44458c9b92ad3b35b753e2e6518e4d728c72c3",
     "tests/test_closeout_acceptance.py": "79b8f8a113f42615616f9122cffdeb30e7205dadf811053d854dbdea14f41185",
     "tests/test_closeout_tooling_20261026.py": "439393b34a750be91e0de8e19213cd80765252cd1de29921c9a286597f44f35e",
-    "tests/test_codex_ux_final.py": "4447ce688595f21baf91d405c8be083beffa2e4bf8e8dbef67e3c1a5f5484c2b",
+    "tests/test_review_ux_final.py": "4447ce688595f21baf91d405c8be083beffa2e4bf8e8dbef67e3c1a5f5484c2b",
     "tests/test_contracts.py": "22168b8a9e837453d8a0a674ff6a215b5ef78dde55a4d4c0240773bcba2a7d4f",
     "tests/test_delivery_pages.py": "0e2d415cde0b2e8f1dcdc5be61bb88f53f1e97135939ca113304104e08cea6e5",
     "tests/test_funds.py": "789536d2f916dc92add6a8d794a52a7bfe7e9a988fd3dec212f9143694b64b62",

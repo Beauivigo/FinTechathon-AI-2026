@@ -1,4 +1,4 @@
-"""Codex页面验收：只读路由不得绕过原确认与恢复。"""
+"""review页面验收：只读路由不得绕过原确认与恢复。"""
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest

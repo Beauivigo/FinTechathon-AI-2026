@@ -1,8 +1,8 @@
 {
   "run_id": "cd01f692-6dd4-45fe-b808-fda6400cc4be",
   "execution_status": "failed",
-  "codex_review": "accepted",
+  "review_review": "accepted",
   "reviewed_file_count": 12,
   "model_result_complete": false,
-  "scope": "This bank installer run only; original partial implementation and failures retained, completed by Codex independent review"
+  "scope": "This bank installer run only; original partial implementation and failures retained, completed by 独立复核 independent review"
 }

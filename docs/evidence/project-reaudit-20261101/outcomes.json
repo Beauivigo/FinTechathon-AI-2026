@@ -1,0 +1,80 @@
+[
+  {
+    "check": "module-origins",
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-c",
+      "import app, bank, agent, tests, pathlib, json; root=pathlib.Path.cwd().resolve(); mods=[app,bank,agent,tests]; rows={m.__name__:[str(pathlib.Path(p).resolve().relative_to(root)) for p in ([m.__file__] if m.__file__ else m.__path__)] for m in mods}; print(json.dumps(rows,ensure_ascii=False))"
+    ],
+    "working_directory": "<extracted-source>",
+    "started_utc": "2026-11-01T06:04:39.436818+00:00",
+    "elapsed_seconds": 0.078,
+    "exit_code": 0,
+    "log": "module-origins.txt",
+    "raw_log_sha256": "f33d4407e39eb33a91ad1e473f89ac310b2e2e8fa4427d87b5189a35cdb87ebe",
+    "display_log_sha256": "f33d4407e39eb33a91ad1e473f89ac310b2e2e8fa4427d87b5189a35cdb87ebe"
+  },
+  {
+    "check": "runtime-secret-scan",
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-c",
+      "from pathlib import Path; from win_installer.build_installer import source_payload,scan_secrets; root=Path.cwd(); entries=source_payload(root); scan_secrets(root,entries); print('PASS runtime payload secret scan:',len(entries),'files')"
+    ],
+    "working_directory": "<extracted-source>",
+    "started_utc": "2026-11-01T06:04:39.505866+00:00",
+    "elapsed_seconds": 0.625,
+    "exit_code": 0,
+    "log": "runtime-secret-scan.txt",
+    "raw_log_sha256": "4ca508a8240e95c7426baa76cb535420fa7396711011d0ca688478d0ce3a6135",
+    "display_log_sha256": "4ca508a8240e95c7426baa76cb535420fa7396711011d0ca688478d0ce3a6135"
+  },
+  {
+    "check": "unittest",
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "working_directory": "<extracted-source>",
+    "started_utc": "2026-11-01T06:04:40.130945+00:00",
+    "elapsed_seconds": 163.032,
+    "exit_code": 0,
+    "log": "unittest.txt",
+    "raw_log_sha256": "6128f4a2a6ccdf361433b75831f8433806032837d97da05d0456582981004ca4",
+    "display_log_sha256": "fa9248b60d7c96434e21e62cc53a79ef56335e51d61c758fe326ccd4fbef6a37"
+  },
+  {
+    "check": "installer-tools",
+    "command": [
+      "python",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "win_installer.test_installer",
+      "-v"
+    ],
+    "working_directory": "<extracted-source>",
+    "started_utc": "2026-11-01T06:07:23.157439+00:00",
+    "elapsed_seconds": 0.515,
+    "exit_code": 0,
+    "log": "installer-tools.txt",
+    "raw_log_sha256": "89467adc09486eb55e6f0c75b85fb7b5de0d18ea0f98ee8ce68663c52fabe833",
+    "display_log_sha256": "89467adc09486eb55e6f0c75b85fb7b5de0d18ea0f98ee8ce68663c52fabe833"
+  }
+]

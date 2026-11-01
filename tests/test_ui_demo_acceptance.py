@@ -1,4 +1,4 @@
-"""Codex independent UI acceptance against real Streamlit pages and temporary data."""
+"""review independent UI acceptance against real Streamlit pages and temporary data."""
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest

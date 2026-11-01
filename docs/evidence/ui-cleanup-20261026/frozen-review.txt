@@ -1,0 +1,107 @@
+test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) ... 
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/auth.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/gateway.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/worker.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/store.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='agent/controller.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='shared/contracts.py') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='requirements-app.txt') ... FAIL
+  test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='requirements-materials.txt') ... FAIL
+test_every_page_still_parses (__main__.__review_acceptance__.test_every_page_still_parses) ... ok
+test_one_project_nature_note_and_required_decision_copy_remain (__main__.__review_acceptance__.test_one_project_nature_note_and_required_decision_copy_remain) ... ok
+test_page_titles_drop_repeated_simulation_prefix (__main__.__review_acceptance__.test_page_titles_drop_repeated_simulation_prefix) ... ok
+test_simulation_and_demo_wording_is_measurably_reduced (__main__.__review_acceptance__.test_simulation_and_demo_wording_is_measurably_reduced) ... ok
+test_widget_keys_are_byte_for_byte_preserved (__main__.__review_acceptance__.test_widget_keys_are_byte_for_byte_preserved) ... ok
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/auth.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: 'b4f6104414d7cbcfb9526ee0e9a2f8314691f53cb5015d362b4d3d42be20e74c' != 'ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd'
+- b4f6104414d7cbcfb9526ee0e9a2f8314691f53cb5015d362b4d3d42be20e74c
++ ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/gateway.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: '2e74bac4fe3d7117e752cda559f88314f9979ef1bcbb858ff6a3c84f040b5be3' != 'e0d32e0e41a2f690b720e27ca7270178f4162d9b9a656da1bb39f1513d5d21c3'
+- 2e74bac4fe3d7117e752cda559f88314f9979ef1bcbb858ff6a3c84f040b5be3
++ e0d32e0e41a2f690b720e27ca7270178f4162d9b9a656da1bb39f1513d5d21c3
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/worker.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: '4e2a8e798519ced229307e7f12f5983a9d95f29c243fbe3f2e012d52288e46ee' != '2e0be06f1ecf9ca02ace6e0c9d06afe4d50098fc138679b4e9e6974fe274a9c0'
+- 4e2a8e798519ced229307e7f12f5983a9d95f29c243fbe3f2e012d52288e46ee
++ 2e0be06f1ecf9ca02ace6e0c9d06afe4d50098fc138679b4e9e6974fe274a9c0
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='bank/store.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: 'ea68e08b4f45dc51be78ec2006b7b7f8a04e19c454830b1f0ca1178d92961fb4' != '7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62'
+- ea68e08b4f45dc51be78ec2006b7b7f8a04e19c454830b1f0ca1178d92961fb4
++ 7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='agent/controller.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: '9ef5f6855ea5bcc5ce72ebae4baf3dd27fc9bb22eada7be18e3f82b842995270' != '41693474b128520e3a9e4ddbd452478f9543088c12084856fe1c15f5e910ad57'
+- 9ef5f6855ea5bcc5ce72ebae4baf3dd27fc9bb22eada7be18e3f82b842995270
++ 41693474b128520e3a9e4ddbd452478f9543088c12084856fe1c15f5e910ad57
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='shared/contracts.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: '1b748e9499b38252308d5691614fbf09278d58b4d5638adff989f2449015d02a' != 'c5f26bb71970916d0413e4e57e887aed7e3367923b61fe3d74faa4908a746f40'
+- 1b748e9499b38252308d5691614fbf09278d58b4d5638adff989f2449015d02a
++ c5f26bb71970916d0413e4e57e887aed7e3367923b61fe3d74faa4908a746f40
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='requirements-app.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: 'd8855fcbfdb92d2365db48bed0295a82b593dd90425fc6a6bee5b43edb902f08' != '84308ea7c63109931f995ce2db40c006cdd25380043e7ad3adee853c9d4766fe'
+- d8855fcbfdb92d2365db48bed0295a82b593dd90425fc6a6bee5b43edb902f08
++ 84308ea7c63109931f995ce2db40c006cdd25380043e7ad3adee853c9d4766fe
+
+
+======================================================================
+FAIL: test_business_contract_and_dependency_files_are_unchanged (__main__.__review_acceptance__.test_business_contract_and_dependency_files_are_unchanged) (name='requirements-materials.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\huang\.review\delegates\deepseek\runs\44a2833c-2e69-482c-9633-c7deab4c1512\desktop-frozen\stage-1.txt", line 123, in test_business_contract_and_dependency_files_are_unchanged
+    self.assertEqual(actual, expected)
+AssertionError: 'f25347f8fd1fef29ce085b9ca5f31d52155b0de73d4dbbfcf7786b5ee75f85e3' != 'eee451bc515073078e47db74030514b68a2220a38cd3c1732e8576c155b2bd95'
+- f25347f8fd1fef29ce085b9ca5f31d52155b0de73d4dbbfcf7786b5ee75f85e3
++ eee451bc515073078e47db74030514b68a2220a38cd3c1732e8576c155b2bd95
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.195s
+
+FAILED (failures=8)

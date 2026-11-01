@@ -1,6 +1,6 @@
 {
   "material_version": "v0.4",
-  "executor": "Codex",
+  "executor": "独立复核",
   "scope": "Authorized closeout 1-4; user phone pending; item5 deferred",
   "source_baseline": "285c90c6014158b85d8323788945b085d1991192",
   "source_manifest": "docs/evidence/closeout-1234-20261026/combined-source.json",

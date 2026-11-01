@@ -1,0 +1,35 @@
+{
+  "reviewed_utc": "2026-11-01T05:41:25.917741+00:00",
+  "command": "python -B -X utf8 -m unittest tests.test_gateway tests.test_recovery tests.test_real_auth tests.test_worker_birthday tests.test_audit_fix_20261026 tests.test_budget tests.test_merchant -v",
+  "tests": 101,
+  "elapsed_test_seconds": 27.34,
+  "exit_code": 0,
+  "overlaps_previous_full_suite": true,
+  "scope": "temporary simulated SQLite identities; no real model requests; no daily profile read",
+  "source_sha256": {
+    "bank/gateway.py": "6618692e388b04b1a1735a80116a6ffad8699f3b9868f6096b6818f1a0665164",
+    "bank/auth.py": "ade3771da939ec65fd2b75741db07048b7de199ccb7e3f816df74306594650fd",
+    "bank/store.py": "7e4bef8f97fce46d6ca2477889a1bdda8a741357dbec27963a2822b37b208a62",
+    "bank/budget.py": "fdb16a560f116b5ac457ec1274554b500027fa37693cea0f2778079b2c07456d",
+    "bank/merchant.py": "4fe9f9ec93b50d9ecc2f516503cf8d93020ae1f9949c3c57a06709b10b513ebf",
+    "bank/scheduler.py": "e1154d8f4af79b9d2b5d54878ab967f54f21bc63392dd9bafccc91816e74d921",
+    "bank/worker.py": "197695aef12b241896a6184772e80b7701c2091ebbfd7a61ccd5e46c571487e2",
+    "bank/plan_store.py": "63c1ca154856f63675500595cc670b96acf381850e1782dcfe71ae5774ffd71e",
+    "agent/controller.py": "aa46dfdd263406cc6ae2e97213874d68fad2579593b5cbd1a18189f77e49c231",
+    "agent/model_bank.py": "bbc2b63f88a87f987e0c1e56f4602065a752f632b027457ec46e3cf1ccd66989"
+  },
+  "source_zip_sha256": "02776dfa35d1d22517276c7eb618b7becd6d40a2cf99096075fe38c090387438",
+  "reviewed_core_files_match_source_zip": {
+    "bank/gateway.py": true,
+    "bank/auth.py": true,
+    "bank/store.py": true,
+    "bank/budget.py": true,
+    "bank/merchant.py": true,
+    "bank/scheduler.py": true,
+    "bank/worker.py": true,
+    "bank/plan_store.py": true,
+    "agent/controller.py": true,
+    "agent/model_bank.py": true
+  },
+  "log_sha256": "315c86366ac242088ed6b6a1f63b5267e2eab2385805f98c271c4d0ad468c46f"
+}

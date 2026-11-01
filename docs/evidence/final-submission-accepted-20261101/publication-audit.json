@@ -1,0 +1,15 @@
+{
+  "files": 1253,
+  "bytes": 149413249,
+  "large_files": [
+    {
+      "path": "速发贝_言行_参赛提交材料_20261101/03_源代码与部署材料/速发贝_言行_源码与部署.zip",
+      "bytes": 65364916
+    }
+  ],
+  "private_paths": [],
+  "secret_pattern_files": [],
+  "known_synthetic_test_only": [],
+  "unexpected_secret_files": [],
+  "passed": true
+}

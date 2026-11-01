@@ -2,7 +2,7 @@
 
 Runnable checks use isolated temporary banks only. Page tests use the repository
 AppTest fixture; they are skipped automatically when the platform blocks
-loopback (qualified MXC), and Codex runs them in final acceptance.
+loopback (qualified MXC), and review runs them in final acceptance.
 """
 from datetime import datetime, timedelta, timezone
 import json

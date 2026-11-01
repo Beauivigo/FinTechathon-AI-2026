@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" data-pptx-page-role="content">
+<defs><linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFD0" stop-opacity="0.7"/><stop offset="0.48" stop-color="#F8FBFA"/><stop offset="1" stop-color="#D8EFFF" stop-opacity="0.75"/></linearGradient><filter id="lift"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#21605F" flood-opacity="0.08"/></filter></defs>
+<rect id="p20-background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="url(#field)"/>
+<g id="p20-heading" data-pptx-bounds="64 34 1152 118" fill="#183B3A"><text x="64" y="56" font-size="14" fill="#466460">03　演示与收尾 / 补齐与确认</text><text x="64" y="124" font-size="44" font-weight="bold">第二屏：先补信息，再让用户确认</text></g>
+<g id="p20-missing-info" data-pptx-bounds="64 206 428 102" fill="#183B3A"><text x="64" y="240" font-size="28" font-weight="bold">缺信息，先补齐</text><text x="64" y="288">收款人、金额、付款账户先核对。</text></g>
+<g id="p20-shared-flow" data-pptx-bounds="64 336 428 138" fill="#183B3A"><text x="64" y="370" font-size="28" font-weight="bold">一句话或表单</text><text x="64" y="418">共用核对、确认与结果链；<tspan x="64" dy="36">此图展示转账表单。</tspan></text></g>
+<g id="p20-confirmation" data-pptx-bounds="64 502 428 102" fill="#183B3A"><text x="64" y="536" font-size="28" font-weight="bold">确认与执行分开</text><text x="64" y="584">用户先看清这一次的操作。</text></g>
+<g id="p20-transfer-screenshot" data-pptx-bounds="532 170 684 488" fill="#466460"><rect x="532" y="174" width="684" height="480" rx="24" fill="#FFFFFF" filter="url(#lift)"/><image href="../images/image_643568a83421dd24.png" x="550" y="184" width="648" height="450" preserveAspectRatio="xMidYMid meet"/><text x="550" y="650" font-size="14">2026-10-28 导航与动效源码预览 · 转账表单</text></g>
+<g id="p20-footer" data-pptx-role="footer" data-pptx-bounds="64 664 1152 34" font-size="14" fill="#466460"><text x="64" y="688">截图说明页面核对环节；模型补齐能力另由对应代码和测试支撑。</text><text x="1216" y="688" text-anchor="end">20 / 24</text></g>
+</svg>

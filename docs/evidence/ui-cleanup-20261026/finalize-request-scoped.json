@@ -2,26 +2,26 @@
   "action": "finalize",
   "runId": "44a2833c-2e69-482c-9633-c7deab4c1512",
   "evidence": {
-    "reviewer": "Codex",
+    "reviewer": "独立复核",
     "status": "accepted",
     "checks": [
       {
-        "command": "Codex isolated UI snapshot acceptance: 619 tests and 5 clean/background checks passed; full.json. This accepts the scoped artifact only, not current live main/runtime.",
+        "command": "独立复核 isolated UI snapshot acceptance: 619 tests and 5 clean/background checks passed; full.json. This accepts the scoped artifact only, not current live main/runtime.",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex original unchanged frozen source: 6 tests passed; frozen-final.txt; and 9 targeted actual billing-page checks passed.",
+        "command": "独立复核 original unchanged frozen source: 6 tests passed; frozen-final.txt; and 9 targeted actual billing-page checks passed.",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex separate latest-core compatibility fixture: 627 tests and 5 clean/background checks passed, compatibility-full.json. Applied UI text hunks to two newer accepted core components, preserved branch/key AST; 11 core source hashes verified. No primary writes.",
+        "command": "独立复核 separate latest-core compatibility fixture: 627 tests and 5 clean/background checks passed, compatibility-full.json. Applied UI text hunks to two newer accepted core components, preserved branch/key AST; 11 core source hashes verified. No primary writes.",
         "exitCode": 0,
         "expectedExitCode": 0
       },
       {
-        "command": "Codex live browser: 11 pages rendered, two read-only queries displayed, screenshots saved. Disposable preview database is a separate file; runtime-scope.json.",
+        "command": "独立复核 live browser: 11 pages rendered, two read-only queries displayed, screenshots saved. Disposable preview database is a separate file; runtime-scope.json.",
         "exitCode": 0,
         "expectedExitCode": 0
       },

@@ -35,7 +35,7 @@
   "billing_note": "所有输入按高峰未命中、输出按高峰价计的用量估算上界；非账户账单。",
   "primary_database_unchanged": true,
   "model_profile_unchanged": true,
-  "delegate_review_status": "accepted_by_codex",
+  "delegate_review_status": "accepted_by_review",
   "reporter_exit_code": 0,
   "primary_sync_authorized": true,
   "primary_independent_tests": 658,

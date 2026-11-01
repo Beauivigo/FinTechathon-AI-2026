@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "run_id": "44a2833c-2e69-482c-9633-c7deab4c1512",
   "base": "285c90c6014158b85d8323788945b085d1991192",
   "full_tests": {
@@ -111,7 +111,7 @@
     "source_preservation": "11 accepted core source files verified; UI text hunks merged into two overlap components without changing core conditions/keys."
   },
   "primary_integration_scope": "Prepared patch of 20 app files only, preserving the newer accepted core implementation. No source or live database write performed.",
-  "broker_review_status": "accepted_by_codex",
+  "broker_review_status": "accepted_by_review",
   "broker_scoped_files_accepted": 21,
   "initial_automatic_review_rejection": "Resolved by recording primary concurrency and unknown live-database change honestly, limiting acceptance to isolated UI artifacts, and independently passing the latest-core compatibility suite. Original rejection/request preserved.",
   "integrated_acceptance": {

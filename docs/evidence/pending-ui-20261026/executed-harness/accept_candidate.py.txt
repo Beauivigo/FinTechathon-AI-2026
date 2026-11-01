@@ -1,4 +1,4 @@
-"""Codex完整实现后的独立回归与按钮执行覆盖记录；普通测试禁止外部HTTP。"""
+"""独立复核完整实现后的独立回归与按钮执行覆盖记录；普通测试禁止外部HTTP。"""
 from pathlib import Path
 from hashlib import sha256
 from tempfile import TemporaryDirectory
@@ -61,7 +61,7 @@ def run():
         for name in ('button','form_submit_button','download_button','link_button'):
             for obj in (st,DeltaGenerator):
                 original=getattr(obj,name);stack.enter_context(patch.object(obj,name,wrap(original)))
-        spec=importlib.util.spec_from_file_location('codex_button_acceptance',HERE/'extra_buttons.py')
+        spec=importlib.util.spec_from_file_location('review_button_acceptance',HERE/'extra_buttons.py')
         extra=importlib.util.module_from_spec(spec);spec.loader.exec_module(extra)
         extra_suite=unittest.defaultTestLoader.loadTestsFromModule(extra)
         suite=extra_suite if extra_only else unittest.TestSuite([unittest.defaultTestLoader.discover(str(ROOT/'tests')),extra_suite])
@@ -78,7 +78,7 @@ def run():
         clicked_definition_count=sum((r['file'],r['line']) in clicked for r in ast_sites),
         unclicked_definitions=[r for r in ast_sites if (r['file'],r['line']) not in clicked])
     (HERE/('button-coverage-extra.json' if extra_only else 'button-coverage.json')).write_text(json.dumps(coverage,ensure_ascii=False,indent=2),encoding='utf-8')
-    record=dict(executor='Codex独立完整实现验收',run=result.testsRun,failures=len(result.failures),errors=len(result.errors),
+    record=dict(executor='独立完整实现验收',run=result.testsRun,failures=len(result.failures),errors=len(result.errors),
         skipped=len(result.skipped),elapsed_seconds=round(time.monotonic()-started,2),
         protected_data_unchanged=all(fingerprint(Path(p))==h for p,h in protected.items()),
         source_sha256={p.relative_to(ROOT).as_posix():fingerprint(p) for p in ROOT.rglob('*.py') if '.cache' not in p.relative_to(ROOT).parts},

@@ -1,0 +1,326 @@
+{
+  "schema": "ppt-master.pptx-postflight-report.v1",
+  "status": "passed",
+  "output": {
+    "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\exports\\yanxing-fintechathon-pastel_20261030_130700.pptx",
+    "bytes": 1671933
+  },
+  "source": {
+    "svg_slide_count": 24,
+    "layout_definition_count": 0,
+    "fingerprint": {
+      "algorithm": "sha256",
+      "digest": "11afa2fce4ea50f8d3662c46ad1055b014593a7006416108eb35c79a70223894",
+      "file_count": 24,
+      "files": [
+        {
+          "file": "01_言行.svg",
+          "sha256": "47090041bb7c69c617f6b19067c1b6d122d97bb350422c381707062c2d095b2f"
+        },
+        {
+          "file": "02_可信路径.svg",
+          "sha256": "5ab8ddca2b8790848e53a288382f6892a75ca40b9d4efb4a38ab37fa5fc64a22"
+        },
+        {
+          "file": "03_模型与执行.svg",
+          "sha256": "92d9f9c70155dfafbe21ee9b22ef3196cde4747d638ff0e77bfae18b0517d8e7"
+        },
+        {
+          "file": "04_六场景主干.svg",
+          "sha256": "fc01dcc4b5b80532e17939bea829d69f1f31a7c4674c94db7a318b0904a6cda0"
+        },
+        {
+          "file": "05_四层架构.svg",
+          "sha256": "684dc6e7e482e73729ae463145c78e51763a241c6540fa2317410ecd55ceb2e3"
+        },
+        {
+          "file": "06_模型与在线证据.svg",
+          "sha256": "336e9549fa1a7bd584d99b5b28184c0f5e62c12d3bcd07ff493cc9f3195e0feb"
+        },
+        {
+          "file": "07_累计授权.svg",
+          "sha256": "531b89a0f2785ca009066501c7ebad5cb4b6e6888ee7602d55c7ff8719c6bbad"
+        },
+        {
+          "file": "08_五道防线.svg",
+          "sha256": "40873343b3e56712c62c9dbd4ce793f409122318814e599f73346b5f40df64dc"
+        },
+        {
+          "file": "09_业务与资金.svg",
+          "sha256": "2fd493deeb0e3e1e45f9c535e640f688adc68a3a806c8e7306abb491cc9d286d"
+        },
+        {
+          "file": "10_业务对象与边界.svg",
+          "sha256": "6522eb74bd17d507a9d1e1724d6972ed9f556071351cd81d0aea0f746f15bb13"
+        },
+        {
+          "file": "11_转账流程.svg",
+          "sha256": "80971c89757b1364c137d43275b966584759d4f58fce89381848ecf54a6db85a"
+        },
+        {
+          "file": "12_账单解释.svg",
+          "sha256": "4a8bd036207b050efb9afb0ba756eab565e7e043b2c97b78aff8159982259ed6"
+        },
+        {
+          "file": "13_理财风险适配.svg",
+          "sha256": "8384503c45ea564fb4cd1e3ebfe2b2ef029cafd20e473ff02a625ee6be38d8e0"
+        },
+        {
+          "file": "14_卡片管理.svg",
+          "sha256": "14018b38b0150a5778420f89125c31cc3aaaac852df495cdbf003753ad6abd4a"
+        },
+        {
+          "file": "15_订阅与生日.svg",
+          "sha256": "4ca80cce52081f32ace8c865b757e53084b1f9f3bcffd1d269b9e2f4ea25b945"
+        },
+        {
+          "file": "16_验收证据.svg",
+          "sha256": "a7c1c44429a35305904c583e642434631de9e81d446cc22ceadefdb8e08fb1ed"
+        },
+        {
+          "file": "17_演示与收尾.svg",
+          "sha256": "fd1997e8f7b1ec1af4ce1b1b18c3c03cffdd516d54db808594b1262a716656e6"
+        },
+        {
+          "file": "18_五分钟演示动线.svg",
+          "sha256": "2d834bd9c677591ee62a695ae9d46165e93983881ecbc4e2f1208d609f2063bb"
+        },
+        {
+          "file": "19_首页导读.svg",
+          "sha256": "495502af6ccb45065c371bbeceb916faee312c7ea7ca461dc9b04f2496395951"
+        },
+        {
+          "file": "20_转账核对.svg",
+          "sha256": "95b07a628830152bd244287bc677d3c02af1503dfc81ef176949a55709598f95"
+        },
+        {
+          "file": "21_授权回执.svg",
+          "sha256": "ca5882bc4598e10e3052182074baed9f976fce8b4801504b373f49da9ca74f25"
+        },
+        {
+          "file": "22_完成度边界.svg",
+          "sha256": "d3a397460b451940ab25c2751ebc914a996177a391676b1338eb8f022f5017bd"
+        },
+        {
+          "file": "23_团队协作.svg",
+          "sha256": "4b104e712d63851007d64a86d4a42177072535991701b3774d07e8cc7912a798"
+        },
+        {
+          "file": "24_可信闭环.svg",
+          "sha256": "dd91e8139da75f705d8de02fca93b2ea14918424dcb39996434bb7060b3eaab8"
+        }
+      ]
+    },
+    "authoring_roundtrip": null
+  },
+  "package": {
+    "zip_integrity": "passed",
+    "corrupt_member": null,
+    "slides": 24,
+    "notes": 24,
+    "masters": 1,
+    "layouts": 1
+  },
+  "checks": {
+    "zip_integrity": "passed",
+    "slide_count": "passed",
+    "internal_relationships": "enforced-at-build",
+    "structured_package": "not-applicable",
+    "transitions": "enforced-at-build",
+    "animations": "enforced-at-build",
+    "project_svg_contract": "enforced-at-build",
+    "compatibility_normalization": "not-applicable",
+    "authoring_roundtrip": "not-applicable",
+    "quality_gate": "passed",
+    "quality_warnings": "passed",
+    "template_tokens": "passed",
+    "external_images": "passed",
+    "font_portability": "passed"
+  },
+  "quality": {
+    "status": "loaded",
+    "path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\validation\\svg_quality_report.json",
+    "schema": "ppt-master.svg-quality-report.v1",
+    "stage": "final",
+    "source_match": "passed",
+    "source_fingerprint": {
+      "algorithm": "sha256",
+      "digest": "11afa2fce4ea50f8d3662c46ad1055b014593a7006416108eb35c79a70223894",
+      "file_count": 24,
+      "files": [
+        {
+          "file": "01_言行.svg",
+          "sha256": "47090041bb7c69c617f6b19067c1b6d122d97bb350422c381707062c2d095b2f"
+        },
+        {
+          "file": "02_可信路径.svg",
+          "sha256": "5ab8ddca2b8790848e53a288382f6892a75ca40b9d4efb4a38ab37fa5fc64a22"
+        },
+        {
+          "file": "03_模型与执行.svg",
+          "sha256": "92d9f9c70155dfafbe21ee9b22ef3196cde4747d638ff0e77bfae18b0517d8e7"
+        },
+        {
+          "file": "04_六场景主干.svg",
+          "sha256": "fc01dcc4b5b80532e17939bea829d69f1f31a7c4674c94db7a318b0904a6cda0"
+        },
+        {
+          "file": "05_四层架构.svg",
+          "sha256": "684dc6e7e482e73729ae463145c78e51763a241c6540fa2317410ecd55ceb2e3"
+        },
+        {
+          "file": "06_模型与在线证据.svg",
+          "sha256": "336e9549fa1a7bd584d99b5b28184c0f5e62c12d3bcd07ff493cc9f3195e0feb"
+        },
+        {
+          "file": "07_累计授权.svg",
+          "sha256": "531b89a0f2785ca009066501c7ebad5cb4b6e6888ee7602d55c7ff8719c6bbad"
+        },
+        {
+          "file": "08_五道防线.svg",
+          "sha256": "40873343b3e56712c62c9dbd4ce793f409122318814e599f73346b5f40df64dc"
+        },
+        {
+          "file": "09_业务与资金.svg",
+          "sha256": "2fd493deeb0e3e1e45f9c535e640f688adc68a3a806c8e7306abb491cc9d286d"
+        },
+        {
+          "file": "10_业务对象与边界.svg",
+          "sha256": "6522eb74bd17d507a9d1e1724d6972ed9f556071351cd81d0aea0f746f15bb13"
+        },
+        {
+          "file": "11_转账流程.svg",
+          "sha256": "80971c89757b1364c137d43275b966584759d4f58fce89381848ecf54a6db85a"
+        },
+        {
+          "file": "12_账单解释.svg",
+          "sha256": "4a8bd036207b050efb9afb0ba756eab565e7e043b2c97b78aff8159982259ed6"
+        },
+        {
+          "file": "13_理财风险适配.svg",
+          "sha256": "8384503c45ea564fb4cd1e3ebfe2b2ef029cafd20e473ff02a625ee6be38d8e0"
+        },
+        {
+          "file": "14_卡片管理.svg",
+          "sha256": "14018b38b0150a5778420f89125c31cc3aaaac852df495cdbf003753ad6abd4a"
+        },
+        {
+          "file": "15_订阅与生日.svg",
+          "sha256": "4ca80cce52081f32ace8c865b757e53084b1f9f3bcffd1d269b9e2f4ea25b945"
+        },
+        {
+          "file": "16_验收证据.svg",
+          "sha256": "a7c1c44429a35305904c583e642434631de9e81d446cc22ceadefdb8e08fb1ed"
+        },
+        {
+          "file": "17_演示与收尾.svg",
+          "sha256": "fd1997e8f7b1ec1af4ce1b1b18c3c03cffdd516d54db808594b1262a716656e6"
+        },
+        {
+          "file": "18_五分钟演示动线.svg",
+          "sha256": "2d834bd9c677591ee62a695ae9d46165e93983881ecbc4e2f1208d609f2063bb"
+        },
+        {
+          "file": "19_首页导读.svg",
+          "sha256": "495502af6ccb45065c371bbeceb916faee312c7ea7ca461dc9b04f2496395951"
+        },
+        {
+          "file": "20_转账核对.svg",
+          "sha256": "95b07a628830152bd244287bc677d3c02af1503dfc81ef176949a55709598f95"
+        },
+        {
+          "file": "21_授权回执.svg",
+          "sha256": "ca5882bc4598e10e3052182074baed9f976fce8b4801504b373f49da9ca74f25"
+        },
+        {
+          "file": "22_完成度边界.svg",
+          "sha256": "d3a397460b451940ab25c2751ebc914a996177a391676b1338eb8f022f5017bd"
+        },
+        {
+          "file": "23_团队协作.svg",
+          "sha256": "4b104e712d63851007d64a86d4a42177072535991701b3774d07e8cc7912a798"
+        },
+        {
+          "file": "24_可信闭环.svg",
+          "sha256": "dd91e8139da75f705d8de02fca93b2ea14918424dcb39996434bb7060b3eaab8"
+        }
+      ]
+    },
+    "summary": {
+      "total": 24,
+      "passed": 24,
+      "warnings": 0,
+      "errors": 0
+    },
+    "categories": {
+      "blocking": {
+        "count": 0,
+        "issues": []
+      },
+      "introduced": {
+        "count": 0,
+        "issues": []
+      },
+      "inherited": {
+        "count": 0,
+        "issues": []
+      },
+      "source-import": {
+        "count": 0,
+        "summary": {
+          "warning_count": 0,
+          "by_code": {}
+        }
+      }
+    }
+  },
+  "resources": {
+    "unresolved_template_tokens": [],
+    "fonts": {
+      "stacks": [
+        "Microsoft YaHei, Arial, sans-serif"
+      ],
+      "generic_only_stacks": [],
+      "unsafe_exported_faces": []
+    },
+    "images": {
+      "data_uri": 0,
+      "local": 4,
+      "external": 0,
+      "external_references": []
+    }
+  },
+  "export_policy": {
+    "project_svg_contract": "strict",
+    "dangerous_normalization_count": 0
+  },
+  "deck_motion": {
+    "transition": {
+      "effect": "fade",
+      "effect_options": {},
+      "duration": 0.4,
+      "auto_advance": null,
+      "sound": null
+    },
+    "animation": {
+      "effect": "none",
+      "effect_request": null,
+      "duration": 0.4,
+      "stagger": 0.5,
+      "trigger": "after-previous"
+    },
+    "cli_overrides": {
+      "transition": false,
+      "transition_duration": false,
+      "auto_advance": false,
+      "transition_sound": false,
+      "animation": false,
+      "animation_duration": false,
+      "animation_stagger": false,
+      "animation_trigger": false
+    },
+    "narration_timings": false
+  },
+  "backup_path": "D:\\FinTechathon-AI-2026\\FinTechathon-AI-2026\\.cache\\ppt-audit-20261030\\workspaces\\yanxing-fintechathon-pastel_ppt169_20261030\\backup\\20261030_130700\\svg_output",
+  "conversion_trace_path": null
+}

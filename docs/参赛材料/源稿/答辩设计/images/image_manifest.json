@@ -1,0 +1,322 @@
+[
+  {
+    "index": 1,
+    "filename": "image_5daba817b45aff1d.png",
+    "original_filename": "image_5daba817b45aff1d.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_5daba817b45aff1d.png",
+    "content_type": "image/png",
+    "display_left_emu": 5791200,
+    "display_top_emu": 1981200,
+    "display_width_emu": 5715000,
+    "display_height_emu": 3971925,
+    "display_width_in": 6.25,
+    "display_height_in": 4.3438,
+    "display_ratio": 1.438849,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 14,
+        "shape_name": "Image 21",
+        "display_left_emu": 5791200,
+        "display_top_emu": 1981200,
+        "display_width_emu": 5715000,
+        "display_height_emu": 3971925,
+        "display_width_in": 6.25,
+        "display_height_in": 4.3438,
+        "display_ratio": 1.438849
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.438849
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版"
+  },
+  {
+    "index": 2,
+    "filename": "image_0e3ceb2a470bbfc4.png",
+    "original_filename": "image_0e3ceb2a470bbfc4.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_0e3ceb2a470bbfc4.png",
+    "content_type": "image/png",
+    "display_left_emu": 4773930,
+    "display_top_emu": 1885950,
+    "display_width_emu": 6035040,
+    "display_height_emu": 4191000,
+    "display_width_in": 6.6,
+    "display_height_in": 4.5833,
+    "display_ratio": 1.44,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 19,
+        "shape_name": "Image 20",
+        "display_left_emu": 4773930,
+        "display_top_emu": 1885950,
+        "display_width_emu": 6035040,
+        "display_height_emu": 4191000,
+        "display_width_in": 6.6,
+        "display_height_in": 4.5833,
+        "display_ratio": 1.44
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.44
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版"
+  },
+  {
+    "index": 3,
+    "filename": "image_643568a83421dd24.png",
+    "original_filename": "image_643568a83421dd24.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_643568a83421dd24.png",
+    "content_type": "image/png",
+    "display_left_emu": 4677537,
+    "display_top_emu": 1885950,
+    "display_width_emu": 5980176,
+    "display_height_emu": 4152900,
+    "display_width_in": 6.54,
+    "display_height_in": 4.5417,
+    "display_ratio": 1.44,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 20,
+        "shape_name": "Image 20",
+        "display_left_emu": 4677537,
+        "display_top_emu": 1885950,
+        "display_width_emu": 5980176,
+        "display_height_emu": 4152900,
+        "display_width_in": 6.54,
+        "display_height_in": 4.5417,
+        "display_ratio": 1.44
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.44
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版"
+  },
+  {
+    "index": 4,
+    "filename": "image_f236390284a9e9df.jpg",
+    "original_filename": "image_f236390284a9e9df.jpg",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".jpg",
+    "source_target": "ppt/media/image_f236390284a9e9df.jpg",
+    "content_type": "image/jpeg",
+    "display_left_emu": 4800600,
+    "display_top_emu": 1885950,
+    "display_width_emu": 6705600,
+    "display_height_emu": 3771900,
+    "display_width_in": 7.3333,
+    "display_height_in": 4.125,
+    "display_ratio": 1.777778,
+    "pixel_width": 1280,
+    "pixel_height": 720,
+    "pixel_ratio": 1.777778,
+    "occurrences": [
+      {
+        "slide_index": 21,
+        "shape_name": "Image 23",
+        "display_left_emu": 4800600,
+        "display_top_emu": 1885950,
+        "display_width_emu": 6705600,
+        "display_height_emu": 3771900,
+        "display_width_in": 7.3333,
+        "display_height_in": 4.125,
+        "display_ratio": 1.777778
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.777778
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版"
+  },
+  {
+    "index": 1,
+    "filename": "image_5daba817b45aff1d_2.png",
+    "original_filename": "image_5daba817b45aff1d.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_5daba817b45aff1d.png",
+    "content_type": "image/png",
+    "display_left_emu": 5791200,
+    "display_top_emu": 1981200,
+    "display_width_emu": 5715000,
+    "display_height_emu": 3971925,
+    "display_width_in": 6.25,
+    "display_height_in": 4.3438,
+    "display_ratio": 1.438849,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 14,
+        "shape_name": "Image 21",
+        "display_left_emu": 5791200,
+        "display_top_emu": 1981200,
+        "display_width_emu": 5715000,
+        "display_height_emu": 3971925,
+        "display_width_in": 6.25,
+        "display_height_in": 4.3438,
+        "display_ratio": 1.438849
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.438849
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版_2"
+  },
+  {
+    "index": 2,
+    "filename": "image_0e3ceb2a470bbfc4_2.png",
+    "original_filename": "image_0e3ceb2a470bbfc4.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_0e3ceb2a470bbfc4.png",
+    "content_type": "image/png",
+    "display_left_emu": 4773930,
+    "display_top_emu": 1885950,
+    "display_width_emu": 6035040,
+    "display_height_emu": 4191000,
+    "display_width_in": 6.6,
+    "display_height_in": 4.5833,
+    "display_ratio": 1.44,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 19,
+        "shape_name": "Image 20",
+        "display_left_emu": 4773930,
+        "display_top_emu": 1885950,
+        "display_width_emu": 6035040,
+        "display_height_emu": 4191000,
+        "display_width_in": 6.6,
+        "display_height_in": 4.5833,
+        "display_ratio": 1.44
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.44
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版_2"
+  },
+  {
+    "index": 3,
+    "filename": "image_643568a83421dd24_2.png",
+    "original_filename": "image_643568a83421dd24.png",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".png",
+    "source_target": "ppt/media/image_643568a83421dd24.png",
+    "content_type": "image/png",
+    "display_left_emu": 4677537,
+    "display_top_emu": 1885950,
+    "display_width_emu": 5980176,
+    "display_height_emu": 4152900,
+    "display_width_in": 6.54,
+    "display_height_in": 4.5417,
+    "display_ratio": 1.44,
+    "pixel_width": 1440,
+    "pixel_height": 1000,
+    "pixel_ratio": 1.44,
+    "occurrences": [
+      {
+        "slide_index": 20,
+        "shape_name": "Image 20",
+        "display_left_emu": 4677537,
+        "display_top_emu": 1885950,
+        "display_width_emu": 5980176,
+        "display_height_emu": 4152900,
+        "display_width_in": 6.54,
+        "display_height_in": 4.5417,
+        "display_ratio": 1.44
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.44
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版_2"
+  },
+  {
+    "index": 4,
+    "filename": "image_f236390284a9e9df_2.jpg",
+    "original_filename": "image_f236390284a9e9df.jpg",
+    "asset_kind": "bitmap",
+    "svg_renderable": true,
+    "pptx_native_supported": true,
+    "source_kind": "pptx_picture",
+    "source_ext": ".jpg",
+    "source_target": "ppt/media/image_f236390284a9e9df.jpg",
+    "content_type": "image/jpeg",
+    "display_left_emu": 4800600,
+    "display_top_emu": 1885950,
+    "display_width_emu": 6705600,
+    "display_height_emu": 3771900,
+    "display_width_in": 7.3333,
+    "display_height_in": 4.125,
+    "display_ratio": 1.777778,
+    "pixel_width": 1280,
+    "pixel_height": 720,
+    "pixel_ratio": 1.777778,
+    "occurrences": [
+      {
+        "slide_index": 21,
+        "shape_name": "Image 23",
+        "display_left_emu": 4800600,
+        "display_top_emu": 1885950,
+        "display_width_emu": 6705600,
+        "display_height_emu": 3771900,
+        "display_width_in": 7.3333,
+        "display_height_in": 4.125,
+        "display_ratio": 1.777778
+      }
+    ],
+    "usage_count": 1,
+    "display_ratio_variants": [
+      1.777778
+    ],
+    "source_namespace": "言行_FinTechathon_2026_最终版_2"
+  }
+]

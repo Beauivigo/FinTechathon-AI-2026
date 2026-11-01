@@ -5,7 +5,7 @@
       "id": "8cc7ffc3-4170-473a-87e5-7ce9a520513a",
       "sample": "unclassified",
       "executionStatus": "failed",
-      "status": "rejected_by_codex",
+      "status": "rejected_by_review",
       "review": "rejected",
       "stage": 1,
       "stageCount": 1,

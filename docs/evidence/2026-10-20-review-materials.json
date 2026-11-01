@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent check",
+  "executor": "独立复核 independent check",
   "cases": 24,
   "mismatches": [],
   "scope": "C archived 24 route cases; no archive or selfcheck rewritten"

@@ -1,13 +1,13 @@
-test_another_page_hides_completed_receipt_but_keeps_pending_recovery (tests.test_codex_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery) ... ok
-test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved (tests.test_codex_ux_final.FinalContinuityTests.test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved) ... ok
-test_controls_change_on_the_same_click_without_an_extra_rerun (tests.test_codex_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun) ... 2026-10-28 19:57:21.915 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_another_page_hides_completed_receipt_but_keeps_pending_recovery (tests.test_review_ux_final.FinalContinuityTests.test_another_page_hides_completed_receipt_but_keeps_pending_recovery) ... ok
+test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved (tests.test_review_ux_final.FinalContinuityTests.test_balance_receipt_shows_authoritative_amount_and_unknown_schedule_stays_unresolved) ... ok
+test_controls_change_on_the_same_click_without_an_extra_rerun (tests.test_review_ux_final.FinalContinuityTests.test_controls_change_on_the_same_click_without_an_extra_rerun) ... 2026-10-28 19:57:21.915 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context (tests.test_codex_ux_final.FinalContinuityTests.test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context) ... ok
-test_observation_does_not_replace_an_unknown_committed_transfer (tests.test_codex_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer) ... 2026-10-28 19:57:22.499 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context (tests.test_review_ux_final.FinalContinuityTests.test_model_gets_the_card_names_used_by_the_manual_page_without_mutating_context) ... ok
+test_observation_does_not_replace_an_unknown_committed_transfer (tests.test_review_ux_final.FinalContinuityTests.test_observation_does_not_replace_an_unknown_committed_transfer) ... 2026-10-28 19:57:22.499 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_side_query_preserves_the_pending_original_plan (tests.test_codex_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan) ... 2026-10-28 19:57:22.838 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_side_query_preserves_the_pending_original_plan (tests.test_review_ux_final.FinalContinuityTests.test_side_query_preserves_the_pending_original_plan) ... 2026-10-28 19:57:22.838 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured (tests.test_codex_ux_final.FinalContinuityTests.test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured) ... 2026-10-28 19:57:23.340 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured (tests.test_review_ux_final.FinalContinuityTests.test_unrelated_provider_environment_does_not_claim_the_selected_model_is_configured) ... 2026-10-28 19:57:23.340 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
 test_pending_operation_keeps_dialogue_and_hides_dead_submission (tests.test_ux_final.ConversationGateTests.test_pending_operation_keeps_dialogue_and_hides_dead_submission) ... ok
 test_recovered_pending_operation_needs_no_new_form (tests.test_ux_final.ConversationGateTests.test_recovered_pending_operation_needs_no_new_form) ... ok

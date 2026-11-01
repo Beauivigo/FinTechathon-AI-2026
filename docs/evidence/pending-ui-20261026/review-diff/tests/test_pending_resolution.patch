@@ -4,7 +4,7 @@
 +"""回归：subscription.list 确认门等未决操作必须可核对、确认、拒绝、过期收口。
 +
 +只使用独立临时模拟银行；不读取或修改宿主 runtime 演示库，不产生真实扣款。
-+不依赖 Streamlit AppTest（Windows MXC 无回环），页面接线由静态断言与 Codex
++不依赖 Streamlit AppTest（Windows MXC 无回环），页面接线由静态断言与 独立复核
 +独立 AppTest/视觉验收覆盖。
 +"""
 +

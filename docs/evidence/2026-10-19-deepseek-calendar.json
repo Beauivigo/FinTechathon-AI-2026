@@ -8,6 +8,6 @@
   "skipped": 0,
   "accepted": true,
   "integrated": false,
-  "location": "C:\\Users\\huang\\.codex\\delegates\\deepseek\\runs\\d835b709-d5b1-4b28-8365-88cd05825093\\worktree\\tests\\test_birthday_calendar_delegated.py",
+  "location": "C:\\Users\\huang\\.review\\delegates\\deepseek\\runs\\d835b709-d5b1-4b28-8365-88cd05825093\\worktree\\tests\\test_birthday_calendar_delegated.py",
   "execution": "Normal sandbox, isolated test file imported against primary scenario implementation"
 }

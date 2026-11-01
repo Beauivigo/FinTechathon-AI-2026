@@ -194,7 +194,7 @@ class BankConventionPages(unittest.TestCase):
     def test_birthday_saved_and_restored_on_same_page_without_payment(self):
         p=self.page('pages/8_生日与商户.py');flow=p.session_state['action_flow']
         resources=flow.resources
-        birthday=flow.gateway.clock().astimezone(timezone(timedelta(hours=8))).date()+timedelta(days=32)
+        birthday=(flow.gateway.clock().astimezone(timezone(timedelta(hours=8))).date()+timedelta(days=32)).replace(day=15)
         p.date_input(key='birthday_date').set_value(birthday)
         p.date_input(key='birthday_budget_day').set_value(birthday.replace(day=1))
         p.multiselect(key='birthday_items').set_value(resources['items'][:2])

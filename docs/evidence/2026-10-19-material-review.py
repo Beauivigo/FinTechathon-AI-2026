@@ -112,7 +112,7 @@ for name, consumed, released, expected in [('P1',0,0,(200000,170000,30000)),('P3
     actual=(200000-consumed,170000+released,30000-consumed-released)
     check('B-handcalc:'+name,actual==expected and actual[0]==actual[1]+actual[2],dict(values=actual,consumed=consumed,released=released,remaining=actual[2]))
 check('runtime-unchanged',before==runtime_hashes())
-result = dict(executor='A/Codex independent rerun',date='2026-10-19',head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),python=sys.version,scope='B/C/E materials only; D excluded; reference cases are not production feature acceptance',checks=checks,rerun_cases=summaries,runtime_before=before,passed=sum(c['passed'] for c in checks),failed=sum(not c['passed'] for c in checks))
+result = dict(executor='A/review independent rerun',date='2026-10-19',head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),python=sys.version,scope='B/C/E materials only; D excluded; reference cases are not production feature acceptance',checks=checks,rerun_cases=summaries,runtime_before=before,passed=sum(c['passed'] for c in checks),failed=sum(not c['passed'] for c in checks))
 OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str)+'\n',encoding='utf-8')
 print(json.dumps({k:result[k] for k in ('head','passed','failed')},ensure_ascii=False))
 for c in checks:

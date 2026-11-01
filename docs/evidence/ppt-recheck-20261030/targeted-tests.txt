@@ -1,0 +1,65 @@
+test_alias_and_exact_money (tests.test_contracts.ContractTests.test_alias_and_exact_money) ... ok
+test_all_actions_have_a_working_contract (tests.test_contracts.ContractTests.test_all_actions_have_a_working_contract) ... ok
+test_ambiguous_or_conflicting_fields_fail (tests.test_contracts.ContractTests.test_ambiguous_or_conflicting_fields_fail) ... ok
+test_dates_and_unknown_actions (tests.test_contracts.ContractTests.test_dates_and_unknown_actions) ... ok
+test_money_and_write_key_validation (tests.test_contracts.ContractTests.test_money_and_write_key_validation) ... ok
+test_operation_binding (tests.test_contracts.ContractTests.test_operation_binding) ... ok
+test_pending_cannot_carry_success_data (tests.test_contracts.ContractTests.test_pending_cannot_carry_success_data) ... ok
+test_plan_dependencies (tests.test_contracts.ContractTests.test_plan_dependencies) ... ok
+test_schedule_never_means_transfer_completed (tests.test_contracts.ContractTests.test_schedule_never_means_transfer_completed) ... ok
+test_success_needs_matching_receipt (tests.test_contracts.ContractTests.test_success_needs_matching_receipt) ... ok
+test_threshold_includes_current_transfer (tests.test_contracts.ContractTests.test_threshold_includes_current_transfer) ... ok
+test_timeout_is_unknown_not_failed (tests.test_contracts.ContractTests.test_timeout_is_unknown_not_failed) ... ok
+test_changed_parameters_and_foreign_identity_are_rejected (tests.test_authorization_display.AuthorizationEvidenceTests.test_changed_parameters_and_foreign_identity_are_rejected) ... ok
+test_completed_demo_red_stays_red_on_another_day (tests.test_authorization_display.AuthorizationEvidenceTests.test_completed_demo_red_stays_red_on_another_day) ... ok
+test_concurrent_confirmation_upgrade_uses_new_original_challenge (tests.test_authorization_display.AuthorizationEvidenceTests.test_concurrent_confirmation_upgrade_uses_new_original_challenge) ... ok
+test_cross_account_total_retains_original_red_requirement (tests.test_authorization_display.AuthorizationEvidenceTests.test_cross_account_total_retains_original_red_requirement) ... ok
+test_exact_threshold_and_completed_transfer_do_not_count_self_twice (tests.test_authorization_display.AuthorizationEvidenceTests.test_exact_threshold_and_completed_transfer_do_not_count_self_twice) ... ok
+test_green_query_metadata_has_no_business_side_effect (tests.test_authorization_display.AuthorizationEvidenceTests.test_green_query_metadata_has_no_business_side_effect) ... ok
+test_old_demo_receipt_is_not_relabeled_as_real_phone_verification (tests.test_authorization_display.AuthorizationEvidenceTests.test_old_demo_receipt_is_not_relabeled_as_real_phone_verification) ... ok
+test_phone_mode_pending_and_history_survive_logout_without_secret_metadata (tests.test_authorization_display.AuthorizationEvidenceTests.test_phone_mode_pending_and_history_survive_logout_without_secret_metadata) ... ok
+test_red_read_does_not_expire_approve_or_downgrade_original (tests.test_authorization_display.AuthorizationEvidenceTests.test_red_read_does_not_expire_approve_or_downgrade_original) ... ok
+test_small_transfer_over_daily_total_is_red (tests.test_authorization_display.AuthorizationEvidenceTests.test_small_transfer_over_daily_total_is_red) ... ok
+test_unprepared_or_missing_challenge_is_not_guessed (tests.test_authorization_display.AuthorizationEvidenceTests.test_unprepared_or_missing_challenge_is_not_guessed) ... ok
+test_pure_green_query_uses_same_separate_labels (tests.test_authorization_display.AuthorizationPageTests.test_pure_green_query_uses_same_separate_labels) ... 2026-10-30 12:27:40.381 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_red_demo_success_keeps_red_permission_beside_green_success (tests.test_authorization_display.AuthorizationPageTests.test_red_demo_success_keeps_red_permission_beside_green_success) ... 2026-10-30 12:27:42.568 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_yellow_completed_transfer_shows_separate_original_level (tests.test_authorization_display.AuthorizationPageTests.test_yellow_completed_transfer_shows_separate_original_level) ... 2026-10-30 12:27:43.209 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_concurrent_totp_is_consumed_once (tests.test_real_auth.AuthTests.test_concurrent_totp_is_consumed_once) ... ok
+test_expired_totp_challenge_is_terminal_without_payment (tests.test_real_auth.AuthTests.test_expired_totp_challenge_is_terminal_without_payment) ... ok
+test_password_and_bound_session_and_logout (tests.test_real_auth.AuthTests.test_password_and_bound_session_and_logout) ... ok
+test_proof_is_bound_to_issuing_login_session (tests.test_real_auth.AuthTests.test_proof_is_bound_to_issuing_login_session) ... ok
+test_recovery_revokes_sessions_and_is_single_use (tests.test_real_auth.AuthTests.test_recovery_revokes_sessions_and_is_single_use) ... ok
+test_rfc_6238_vector (tests.test_real_auth.AuthTests.test_rfc_6238_vector) ... ok
+test_totp_lock_cannot_be_reset_by_password_login (tests.test_real_auth.AuthTests.test_totp_lock_cannot_be_reset_by_password_login) ... ok
+test_true_red_gate_and_single_use_code (tests.test_real_auth.AuthTests.test_true_red_gate_and_single_use_code) ... ok
+test_unbound_or_foreign_session_cannot_use_gateway (tests.test_real_auth.AuthTests.test_unbound_or_foreign_session_cannot_use_gateway) ... ok
+test_windows_dpapi_round_trip (tests.test_real_auth.AuthTests.test_windows_dpapi_round_trip) ... ok
+test_wrong_expired_unicode_and_replay_codes (tests.test_real_auth.AuthTests.test_wrong_expired_unicode_and_replay_codes) ... ok
+test_confirmation_reject_leaves_no_side_effect (tests.test_wealth_purchase.WealthPurchaseTests.test_confirmation_reject_leaves_no_side_effect) ... ok
+test_d_case_one_purchase (tests.test_wealth_purchase.WealthPurchaseTests.test_d_case_one_purchase) ... ok
+test_fee_rounds_half_up_to_cent (tests.test_wealth_purchase.WealthPurchaseTests.test_fee_rounds_half_up_to_cent) ... ok
+test_risk_minimum_and_balance_block_before_confirmation (tests.test_wealth_purchase.WealthPurchaseTests.test_risk_minimum_and_balance_block_before_confirmation) ... ok
+test_same_key_replays_and_content_conflict (tests.test_wealth_purchase.WealthPurchaseTests.test_same_key_replays_and_content_conflict) ... ok
+test_wrong_proof_keeps_money (tests.test_wealth_purchase.WealthPurchaseTests.test_wrong_proof_keeps_money) ... ok
+test_lock_boundary_and_partial_redeem (tests.test_wealth_redeem.WealthRedeemTests.test_lock_boundary_and_partial_redeem) ... ok
+test_redeem_fee_and_clear_position (tests.test_wealth_redeem.WealthRedeemTests.test_redeem_fee_and_clear_position) ... ok
+test_same_key_replays (tests.test_wealth_redeem.WealthRedeemTests.test_same_key_replays) ... ok
+test_units_above_holding_rejected_before_confirmation (tests.test_wealth_redeem.WealthRedeemTests.test_units_above_holding_rejected_before_confirmation) ... ok
+test_charge_requires_verification_and_advances (tests.test_subscription_charge.SubscriptionChargeTests.test_charge_requires_verification_and_advances) ... ok
+test_not_due_and_unknown_subscription (tests.test_subscription_charge.SubscriptionChargeTests.test_not_due_and_unknown_subscription) ... ok
+test_concurrent_pages_cannot_spawn_two_workers (tests.test_u3_background.BackgroundTests.test_concurrent_pages_cannot_spawn_two_workers) ... ok
+test_restart_after_lease_expiry_restores_preference (tests.test_u3_background.BackgroundTests.test_restart_after_lease_expiry_restores_preference) ... ok
+test_spawn_failure_is_reported_and_retryable (tests.test_u3_background.BackgroundTests.test_spawn_failure_is_reported_and_retryable) ... ok
+test_start_is_idempotent_and_preference_persists (tests.test_u3_background.BackgroundTests.test_start_is_idempotent_and_preference_persists) ... ok
+test_stop_prevents_new_work_but_keeps_started_operations_for_checking (tests.test_u3_background.BackgroundTests.test_stop_prevents_new_work_but_keeps_started_operations_for_checking) ... ok
+test_stop_when_never_enabled_writes_no_state (tests.test_u3_background.BackgroundTests.test_stop_when_never_enabled_writes_no_state) ... ok
+test_worker_heartbeat_and_other_live_owner_is_not_displaced (tests.test_u3_background.BackgroundTests.test_worker_heartbeat_and_other_live_owner_is_not_displaced) ... ok
+test_six_scenarios (tests.test_six_scenarios.SixScenarioTests.test_six_scenarios) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 25.860s
+
+OK

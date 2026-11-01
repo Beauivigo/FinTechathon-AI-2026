@@ -1,5 +1,5 @@
 {
-  "executor": "Codex独立真实模型与页面验收",
+  "executor": "独立真实模型与页面验收",
   "cases": [
     {
       "name": "resolve-pending-and-real-model-freeze",

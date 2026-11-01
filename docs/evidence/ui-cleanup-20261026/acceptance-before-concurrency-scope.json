@@ -1,5 +1,5 @@
 {
-  "executor": "Codex independent acceptance",
+  "executor": "独立复核 independent acceptance",
   "run_id": "44a2833c-2e69-482c-9633-c7deab4c1512",
   "base": "285c90c6014158b85d8323788945b085d1991192",
   "full_tests": {

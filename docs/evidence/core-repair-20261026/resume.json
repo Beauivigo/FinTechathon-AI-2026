@@ -4,6 +4,6 @@
   "session_id": "session-374eae3a-cc40-4d05-8a2d-4d336fa3db42",
   "base_commit": "285c90c6014158b85d8323788945b085d1991192",
   "reason": "Verified external integration repair and Host restart; continue original authorized goal with unchanged exact Session, source and scope",
-  "integration_acceptance": "C:/Users/huang/.codex/delegates/deepseek/backup-request-recovery-2026-10-26T05-27-43-144Z/acceptance.json",
+  "integration_acceptance": "C:/Users/huang/.review/delegates/deepseek/backup-request-recovery-2026-10-26T05-27-43-144Z/acceptance.json",
   "status": "queued"
 }

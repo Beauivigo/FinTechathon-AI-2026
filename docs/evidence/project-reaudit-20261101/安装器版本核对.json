@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "sha256": "5764a9d56c958280966d8d90b9c16f4c6ea89ac03d1a27f95eaeaf7b0b7e7b46",
+  "bytes": 62408254,
+  "common_runtime_source_files_identical": 87,
+  "new_build_or_install": false,
+  "historical_date": "2026-10-28",
+  "optional_desktop_bridge_in_historical_installer": false,
+  "source_package_includes_bridge": true,
+  "model_keys_must_be_configured_independently_in_installer": true
+}

@@ -73,11 +73,11 @@ ok
 test_product_selection_survives_navigation (tests.test_bank_conventions.BankConventionPages.test_product_selection_survives_navigation) ... 2026-10-28 16:54:04.754 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-28 16:54:05.192 The widget with key "wealth_product" was created with a default value but also had its value set via the Session State API.
 Stack (most recent call last):
-  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\threading.py", line 1032, in _bootstrap
+  File "C:\Users\huang\.cache\review-runtimes\review-primary-runtime\dependencies\python\Lib\threading.py", line 1032, in _bootstrap
     self._bootstrap_inner()
-  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\threading.py", line 1075, in _bootstrap_inner
+  File "C:\Users\huang\.cache\review-runtimes\review-primary-runtime\dependencies\python\Lib\threading.py", line 1075, in _bootstrap_inner
     self.run()
-  File "C:\Users\huang\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\threading.py", line 1012, in run
+  File "C:\Users\huang\.cache\review-runtimes\review-primary-runtime\dependencies\python\Lib\threading.py", line 1012, in run
     self._target(*self._args, **self._kwargs)
   File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.venv\Lib\site-packages\streamlit\testing\v1\local_script_runner.py", line 144, in _run_script_thread
     super()._run_script_thread()

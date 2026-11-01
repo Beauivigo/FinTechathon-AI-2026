@@ -803,7 +803,7 @@ test_background_time_gates_and_end_to_end_budget_orders_release (test_worker_bir
 test_pause_survives_worker_restart (test_worker_birthday.WorkerBirthdayTests.test_pause_survives_worker_restart) ... ok
 test_two_workers_and_restart_keep_unique_pending_operation (test_worker_birthday.WorkerBirthdayTests.test_two_workers_and_restart_keep_unique_pending_operation) ... ok
 test_worker_cannot_mint_proof_or_approve_even_in_demo_mode (test_worker_birthday.WorkerBirthdayTests.test_worker_cannot_mint_proof_or_approve_even_in_demo_mode) ... ok
-test_all_navigation_instances_and_examples_are_real_clicks (codex_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks) ... 2026-10-26 19:30:51.123 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_all_navigation_instances_and_examples_are_real_clicks (review_button_acceptance.ButtonCases.test_all_navigation_instances_and_examples_are_real_clicks) ... 2026-10-26 19:30:51.123 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:30:51.356 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:30:51.587 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:30:51.834 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
@@ -830,37 +830,37 @@ test_all_navigation_instances_and_examples_are_real_clicks (codex_button_accepta
 2026-10-26 19:30:57.664 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:30:57.903 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_authenticated_background_notifications_and_exit_controls (codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls) ... 2026-10-26 19:30:58.672 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_authenticated_background_notifications_and_exit_controls (review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls) ... 2026-10-26 19:30:58.672 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:30:58.672 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 FAIL
-test_cross_page_unknown_stays_locked_until_explicit_query (codex_button_acceptance.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query) ... 2026-10-26 19:31:11.443 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_cross_page_unknown_stays_locked_until_explicit_query (review_button_acceptance.ButtonCases.test_cross_page_unknown_stays_locked_until_explicit_query) ... 2026-10-26 19:31:11.443 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:31:11.602 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_empty_state_component_action_contract (codex_button_acceptance.ButtonCases.test_empty_state_component_action_contract) ... 2026-10-26 19:31:12.037 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_empty_state_component_action_contract (review_button_acceptance.ButtonCases.test_empty_state_component_action_contract) ... 2026-10-26 19:31:12.037 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_expired_read_ends_without_reading_subscription_or_moving_money (codex_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money) ... 2026-10-26 19:31:12.192 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_expired_read_ends_without_reading_subscription_or_moving_money (review_button_acceptance.ButtonCases.test_expired_read_ends_without_reading_subscription_or_moving_money) ... 2026-10-26 19:31:12.192 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_first_setup_ack_binding_and_recovery_buttons (codex_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons) ... 2026-10-26 19:31:12.450 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_first_setup_ack_binding_and_recovery_buttons (review_button_acceptance.ButtonCases.test_first_setup_ack_binding_and_recovery_buttons) ... 2026-10-26 19:31:12.450 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_guide_choose_buttons_in_active_and_completed_states (codex_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states) ... 2026-10-26 19:31:13.873 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_guide_choose_buttons_in_active_and_completed_states (review_button_acceptance.ButtonCases.test_guide_choose_buttons_in_active_and_completed_states) ... 2026-10-26 19:31:13.873 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_home_confirm_clears_real_pending_count_and_card_can_freeze (codex_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze) ... 2026-10-26 19:31:14.893 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_home_confirm_clears_real_pending_count_and_card_can_freeze (review_button_acceptance.ButtonCases.test_home_confirm_clears_real_pending_count_and_card_can_freeze) ... 2026-10-26 19:31:14.893 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:31:15.237 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_model_recipient_choice_automation_and_unavailable_preview (codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview) ... 2026-10-26 19:31:15.471 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_model_recipient_choice_automation_and_unavailable_preview (review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview) ... 2026-10-26 19:31:15.471 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ERROR
-test_pending_ai_query_reject_then_input_and_model_are_usable (codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable) ... 2026-10-26 19:31:15.649 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_pending_ai_query_reject_then_input_and_model_are_usable (review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable) ... 2026-10-26 19:31:15.649 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 FAIL
-test_schedule_cancellation_and_birthday_save_clear_buttons (codex_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons) ... 2026-10-26 19:31:15.944 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_schedule_cancellation_and_birthday_save_clear_buttons (review_button_acceptance.ButtonCases.test_schedule_cancellation_and_birthday_save_clear_buttons) ... 2026-10-26 19:31:15.944 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 2026-10-26 19:31:16.277 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_subscription_scan_and_due_charge_buttons (codex_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons) ... 2026-10-26 19:31:16.531 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_subscription_scan_and_due_charge_buttons (review_button_acceptance.ButtonCases.test_subscription_scan_and_due_charge_buttons) ... 2026-10-26 19:31:16.531 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
-test_wealth_redeem_button_uses_original_red_verification (codex_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification) ... 2026-10-26 19:31:17.105 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+test_wealth_redeem_button_uses_original_red_verification (review_button_acceptance.ButtonCases.test_wealth_redeem_button_uses_original_red_verification) ... 2026-10-26 19:31:17.105 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
 ok
 
 ======================================================================
-ERROR: test_model_recipient_choice_automation_and_unavailable_preview (codex_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview)
+ERROR: test_model_recipient_choice_automation_and_unavailable_preview (review_button_acceptance.ButtonCases.test_model_recipient_choice_automation_and_unavailable_preview)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\extra_buttons.py", line 97, in test_model_recipient_choice_automation_and_unavailable_preview
@@ -874,7 +874,7 @@ Traceback (most recent call last):
 KeyError: 'model_pick_payee'
 
 ======================================================================
-FAIL: test_authenticated_background_notifications_and_exit_controls (codex_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls)
+FAIL: test_authenticated_background_notifications_and_exit_controls (review_button_acceptance.ButtonCases.test_authenticated_background_notifications_and_exit_controls)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\extra_buttons.py", line 177, in test_authenticated_background_notifications_and_exit_controls
@@ -883,7 +883,7 @@ Traceback (most recent call last):
 AssertionError: False is not true
 
 ======================================================================
-FAIL: test_pending_ai_query_reject_then_input_and_model_are_usable (codex_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable)
+FAIL: test_pending_ai_query_reject_then_input_and_model_are_usable (review_button_acceptance.ButtonCases.test_pending_ai_query_reject_then_input_and_model_are_usable)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "D:\FinTechathon-AI-2026\FinTechathon-AI-2026\.cache\installer-20261026\extra_buttons.py", line 62, in test_pending_ai_query_reject_then_input_and_model_are_usable
